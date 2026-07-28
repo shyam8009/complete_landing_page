@@ -1,5 +1,39 @@
+import React from 'react';
+import heroImg from "@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg";
+import sensorDomeImg from "@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png";
+import motorImg from "@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png";
+import fieldImg from "@/imports/magnific_professional-outdoor-prod_brmNd7p5Y2.png";
+import sensorAngle2Img from "@/imports/magnific_extreme-closeup-macro-pro_LUQGHhOswO.png";
+import flightImg from "@/imports/sahana_fpv_interceptor.jpg";
+import jungleImg from "@/imports/magnific_professional-outdoor-prod_SObWxSiUb8.png";
+import infinitySpearImg from "@/imports/infinity_spear.jpg";
+import rfDetectorImg from "@/imports/rf_detector_d360.jpg";
+import infinityRhinoImg from "@/imports/infinity_rhino.jpg";
+import infinityRadarImg from "@/imports/infinity_radar.jpg";
+import arsenalFacilityImg from "@/imports/arsenal_facility.jpg";
+import haleDroneImg from "@/imports/hale_drone.jpg";
+import digitalTwinImg from "@/imports/digital_twin.jpg";
+import newsCelImg from "@/imports/news_cel_agreement.png";
+import corporateHouse1 from "@/imports/corporate_house_1.jpg";
+import corporateHouse2 from "@/imports/corporate_house_2.jpg";
+import corporateHouse3 from "@/imports/corporate_house_3.jpg";
+import innovation1 from "@/imports/innovation_1.jpg";
+import innovation2 from "@/imports/innovation_2.jpg";
+import innovation3 from "@/imports/innovation_3.png";
+import innovation4 from "@/imports/innovation_4.jpg";
+import innovation5 from "@/imports/innovation_5.jpg";
+import drone3d1 from "@/imports/drone_3d_1.gif";
+import drone3d2 from "@/imports/drone_3d_2.gif";
+import rfRadarGeneratedImg from "@/imports/rf_radar_generated.png";
+import rfRadarHudImg from "@/imports/rf_radar_hud.png";
+import droneRadarHeroImg from "@/imports/drone_radar_hero.png";
+import c2DashboardUiImg from "@/imports/c2_dashboard_ui.png";
+import surveillanceRadarHeroImg from "@/imports/surveillance_radar_hero.png";
+import surveillanceBlueprintImg from "@/imports/surveillance_blueprint.png";
+import spearCadBlueprintImg from "@/imports/spear_cad_blueprint.png";
 
-const CAPABILITIES_DATA = [
+
+export const CAPABILITIES_DATA = [
   {
     id: "electronic-warfare",
     title: "Electronic Warfare",
@@ -89,7 +123,7 @@ const CAPABILITIES_DATA = [
         stats: ["Passive RF Sensing", "Acoustic Detection", "Optical Recognition", "Early Warning Alarms"],
         applications: ["Forward Operating Bases", "Border Outposts", "Critical Infrastructure", "Urban Warfare"],
         products: [
-          { id: "guardian", title: "The Guardian Smart Soldier Band", image: fieldImg, slug: "home" },
+          { id: "guardian", title: "The Guardian Smart Soldier Band", image: fieldImg, slug: "guardian" },
           { id: "rf-detector", title: "RF Detector", image: rfDetectorImg, slug: "rfDetector" },
           { id: "vsr", title: "VSR to MRR", image: rfRadarGeneratedImg, slug: "home" },
           { id: "3d-detector", title: "3D Drone Detector", image: droneRadarHeroImg, slug: "home" },
