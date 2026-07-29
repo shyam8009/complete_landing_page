@@ -944,21 +944,9 @@ const PRODUCTS_DATA = [
 
 function VisionSection() {
   return (
-    <section className="sticky top-0 z-0 h-screen w-full bg-black flex flex-col items-center justify-center pt-16 md:pt-24 pb-0 overflow-hidden">
-      <div className="text-center text-white mb-6 px-4">
-        <p className="text-sm md:text-base font-semibold tracking-wide" style={{ fontFamily: INTER }}>
-          Pushing the Boundaries of what is possible in the skies
-        </p>
-        <p className="text-xs md:text-sm text-white/60 tracking-wide mt-1" style={{ fontFamily: INTER }}>
-          through relentless pursuit of Cutting-Edge Research
-        </p>
-      </div>
-      <button className="mb-12 md:mb-16 px-6 py-[6px] border border-white/30 hover:border-white text-white/90 hover:text-white text-[10px] md:text-xs tracking-[0.15em] rounded-full uppercase transition-all bg-transparent relative z-10" style={{ fontFamily: INTER }}>
-        Our Vision
-      </button>
-
+    <section className="sticky top-0 z-0 h-screen w-full bg-black flex overflow-hidden">
       {/* The animation video */}
-      <div className="w-full flex-1 mx-auto flex justify-center relative overflow-hidden">
+      <div className="w-full h-full relative">
         <video 
           src={visionRobotVideo} 
           autoPlay 
