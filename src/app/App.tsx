@@ -6,6 +6,7 @@ import { SahanaFpvProductPage } from '../pages/SahanaFpv/SahanaFpvProductPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
 import infinitySpearVideo from '@/imports/Infinity_Spear.mp4';
+import visionRobotVideo from '@/imports/Vision_Drone.mp4';
 gsap.registerPlugin(ScrollTrigger);
 
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
@@ -351,7 +352,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
               >
                 {link}
                 {(link === 'Capabilities' || link === 'About Us' || link === 'Investors' || link === 'Newsroom') && (
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-300 ${hoveredNav === link ? "rotate-180 text-[#2c411f]" : ""}`}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-300 ${hoveredNav === link ? "rotate-180 text-[#3C5929]" : ""}`}>
                     <path d="M6 9l6 6 6-6" />
                   </svg>
                 )}
@@ -365,7 +366,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); setHoveredNav(null); }}
-            className="text-[14px] font-bold tracking-[1px] uppercase border border-white/20 hover:border-[#2c411f] hover:text-[#2c411f] transition-colors px-6 py-2.5 rounded-sm text-white"
+            className="text-[14px] font-bold tracking-[1px] uppercase border border-white/20 hover:border-[#3C5929] hover:text-[#3C5929] transition-colors px-6 py-2.5 rounded-sm text-white"
           >
             Contact Us
           </a>
@@ -404,18 +405,18 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                 <div 
                   key={domain.id}
                   onMouseEnter={() => setActiveDomain(domain)}
-                  className={`group relative flex flex-col gap-1 py-4 px-5 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent border-l-2 border-[#2c411f]" : "border-l-2 border-transparent hover:bg-white/5"}`}
+                  className={`group relative flex flex-col gap-1 py-4 px-5 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent border-l-2 border-[#3C5929]" : "border-l-2 border-transparent hover:bg-white/5"}`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`transition-colors ${isActive ? "text-[#2c411f]" : "text-white/50 group-hover:text-white/80"}`}>
+                    <div className={`transition-colors ${isActive ? "text-[#3C5929]" : "text-white/50 group-hover:text-white/80"}`}>
                       {domain.icon}
                     </div>
                     <h3 className={`font-bold text-[15px] tracking-wide transition-colors ${isActive ? "text-white" : "text-white/70 group-hover:text-white"}`}>
                       {domain.title}
                     </h3>
                     {isActive && (
-                      <div className="ml-auto text-[#2c411f] opacity-80">
-                        <MiniArrow color="#2c411f" />
+                      <div className="ml-auto text-[#3C5929] opacity-80">
+                        <MiniArrow color="#3C5929" />
                       </div>
                     )}
                   </div>
@@ -426,7 +427,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
 
           {/* COLUMN 2: SYSTEMS */}
           <div className="w-[340px] border-r border-white/5 p-6 bg-black/20 flex flex-col relative">
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#2c411f] mb-4">SYSTEMS</h4>
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-4">SYSTEMS</h4>
             <div className="flex flex-col gap-1 flex-1">
               {activeDomain.systems.map((system: any) => {
                 const isActive = activeSystem.id === system.id;
@@ -437,10 +438,10 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                     className={`flex items-start gap-4 p-4 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
                   >
                     <div className="flex-1">
-                      <h3 className={`font-bold text-[14px] mb-1 ${isActive ? "text-[#2c411f]" : "text-white/80"}`}>{system.title}</h3>
+                      <h3 className={`font-bold text-[14px] mb-1 ${isActive ? "text-[#3C5929]" : "text-white/80"}`}>{system.title}</h3>
                       <p className="text-[12px] text-white/40 leading-snug line-clamp-1">{system.description}</p>
                     </div>
-                    {isActive && <div className="text-[#2c411f] mt-1"><MiniArrow color="#2c411f" /></div>}
+                    {isActive && <div className="text-[#3C5929] mt-1"><MiniArrow color="#3C5929" /></div>}
                   </div>
                 );
               })}
@@ -449,7 +450,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
             <a 
               href="#"
               onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate(activeDomain.systems[0].products[0]?.slug || 'home'); }}
-              className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-[#2c411f] hover:text-white transition-colors"
+              className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-[#3C5929] hover:text-white transition-colors"
             >
               View {activeDomain.title} <MiniArrow color="currentColor" />
             </a>
@@ -458,7 +459,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           {/* COLUMN 3: PRODUCTS */}
           <div className="flex-1 border-r border-white/5 p-6 bg-black/40 flex flex-col relative">
             <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white/50 mb-4 flex items-center gap-2">
-              <span className="text-[#2c411f]">{activeSystem.title}</span> Products
+              <span className="text-[#3C5929]">{activeSystem.title}</span> Products
             </h4>
             
             <div className="flex flex-col gap-1 flex-1">
@@ -473,7 +474,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                   </div>
                   <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{product.title}</span>
                   <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
-                    <MiniArrow color="#2c411f" />
+                    <MiniArrow color="#3C5929" />
                   </div>
                 </div>
               ))}
@@ -505,9 +506,9 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           
           {/* COLUMN 1: THE HUB INFO CARD */}
           <div className="w-[340px] border-r border-white/5 flex flex-col p-6 gap-2">
-            <div className="flex flex-col gap-1 py-6 px-6 rounded-md border-l-2 border-[#2c411f] bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent">
+            <div className="flex flex-col gap-1 py-6 px-6 rounded-md border-l-2 border-[#3C5929] bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent">
               <div className="flex items-center gap-4 mb-4">
-                <div className="text-[#2c411f]">
+                <div className="text-[#3C5929]">
                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                      <circle cx="9" cy="7" r="4"></circle>
@@ -516,19 +517,19 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                    </svg>
                 </div>
               </div>
-              <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#2c411f] mb-1">THE HUB</h4>
+              <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-1">THE HUB</h4>
               <h3 className="font-bold text-[18px] text-white mb-3">Investor Relations Center</h3>
               <p className="text-[13px] text-white/60 mb-6 leading-relaxed">All corporate governance, shareholder information, financial reports and disclosures.</p>
               
               <div className="flex items-center gap-3 text-[11px] font-bold tracking-wider uppercase mt-2">
-                <span className="text-[#2c411f]">10 SECTIONS</span>
+                <span className="text-[#3C5929]">10 SECTIONS</span>
               </div>
             </div>
           </div>
 
           {/* COLUMN 2: THE HUB LINKS */}
           <div className="lg:w-[40%] xl:w-[500px] border-r border-white/5 p-6 bg-black/20 flex flex-col relative">
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#2c411f] mb-4">THE HUB</h4>
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-4">THE HUB</h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 flex-1 pr-2">
               {INVESTORS_DATA.map((section: any) => {
                 const isActive = activeInvestorSection.id === section.id;
@@ -539,9 +540,9 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                     className={`flex items-start gap-2 p-3 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
                   >
                     <div className="flex-1">
-                      <h3 className={`font-bold text-[12px] ${isActive ? "text-[#2c411f]" : "text-white/80"}`}>{section.title}</h3>
+                      <h3 className={`font-bold text-[12px] ${isActive ? "text-[#3C5929]" : "text-white/80"}`}>{section.title}</h3>
                     </div>
-                    {isActive && <div className="text-[#2c411f] mt-0.5"><MiniArrow color="#2c411f" /></div>}
+                    {isActive && <div className="text-[#3C5929] mt-0.5"><MiniArrow color="#3C5929" /></div>}
                   </div>
                 );
               })}
@@ -551,7 +552,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           {/* COLUMN 3: DYNAMIC DETAILS */}
           <div className="flex-1 border-r border-white/5 p-6 bg-black/40 flex flex-col relative">
             <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white/50 mb-4 flex items-center gap-2">
-              <span className="text-[#2c411f]">{activeInvestorSection.title.toUpperCase()}</span>
+              <span className="text-[#3C5929]">{activeInvestorSection.title.toUpperCase()}</span>
             </h4>
             
             <p className="text-[14px] text-white/70 leading-relaxed mb-8 max-w-[400px]">
@@ -567,7 +568,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                   className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
                   onClick={() => { setHoveredNav(null); if (onNavigate) onNavigate(link.url); }}
                 >
-                  <div className="w-[24px] h-[24px] shrink-0 text-white/20 group-hover:text-[#2c411f] transition-colors flex items-center justify-center">
+                  <div className="w-[24px] h-[24px] shrink-0 text-white/20 group-hover:text-[#3C5929] transition-colors flex items-center justify-center">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                       <polyline points="14 2 14 8 20 8"></polyline>
@@ -578,7 +579,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                   </div>
                   <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{link.text}</span>
                   <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
-                    <MiniArrow color="#2c411f" />
+                    <MiniArrow color="#3C5929" />
                   </div>
                 </div>
               ))}
@@ -606,12 +607,12 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
         }`}
       >
         <div className="flex flex-col p-4 max-h-[500px] overflow-y-auto custom-scrollbar">
-          <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#2c411f] mb-3 px-2">Newsroom</h4>
+          <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-3 px-2">Newsroom</h4>
           <div className="flex flex-col gap-1">
             {['Press Release', 'Events', 'Awards'].map(item => (
               <a key={item} href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate('home'); }} className="group flex items-center justify-between px-2 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-all" style={{ fontFamily: 'Inter, sans-serif' }}>
                 <span>{item}</span>
-                <span className="text-[#2c411f] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">→</span>
+                <span className="text-[#3C5929] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">→</span>
               </a>
             ))}
           </div>
@@ -643,7 +644,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           
           {/* Capabilities Accordion */}
           <div className="py-4 border-b border-white/10">
-            <h3 className="text-[18px] font-bold text-[#2c411f] uppercase tracking-wider mb-4">Capabilities</h3>
+            <h3 className="text-[18px] font-bold text-[#3C5929] uppercase tracking-wider mb-4">Capabilities</h3>
             <div className="flex flex-col gap-2 pl-4 border-l border-white/10">
               {CAPABILITIES_DATA.map((domain: any) => (
                 <div key={domain.id} className="flex flex-col">
@@ -652,7 +653,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                     onClick={() => setMobileDomainOpen(mobileDomainOpen === domain.id ? null : domain.id)}
                   >
                     <span className="font-bold text-[15px]">{domain.title}</span>
-                    <span className="text-[#2c411f]">{mobileDomainOpen === domain.id ? "-" : "+"}</span>
+                    <span className="text-[#3C5929]">{mobileDomainOpen === domain.id ? "-" : "+"}</span>
                   </div>
                   {mobileDomainOpen === domain.id && (
                     <div className="flex flex-col gap-2 pl-4 py-2 border-l border-white/10">
@@ -671,7 +672,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                                 <a 
                                   key={prod.id} 
                                   href="#" 
-                                  className="text-[13px] text-[#2c411f] py-1"
+                                  className="text-[13px] text-[#3C5929] py-1"
                                   onClick={(e) => { e.preventDefault(); onNavigate(prod.slug); setMobileOpen(false); }}
                                 >
                                   {prod.title}
@@ -691,7 +692,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Investors</a>
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Newsroom</a>
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">About Us</a>
-          <a href="#" className="py-4 text-[18px] font-bold text-[#2c411f] uppercase tracking-wider mt-4 border border-[#2c411f]/30 text-center rounded-sm bg-[#2c411f]/5">Contact Us</a>
+          <a href="#" className="py-4 text-[18px] font-bold text-[#3C5929] uppercase tracking-wider mt-4 border border-[#3C5929]/30 text-center rounded-sm bg-[#3C5929]/5">Contact Us</a>
 
         </div>
       </div>
@@ -940,10 +941,43 @@ const PRODUCTS_DATA = [
   },
 ];
 
+
+function VisionSection() {
+  return (
+    <section className="sticky top-0 z-0 h-screen w-full bg-black flex flex-col items-center justify-center pt-16 md:pt-24 pb-0 overflow-hidden">
+      <div className="text-center text-white mb-6 px-4">
+        <p className="text-sm md:text-base font-semibold tracking-wide" style={{ fontFamily: INTER }}>
+          Pushing the Boundaries of what is possible in the skies
+        </p>
+        <p className="text-xs md:text-sm text-white/60 tracking-wide mt-1" style={{ fontFamily: INTER }}>
+          through relentless pursuit of Cutting-Edge Research
+        </p>
+      </div>
+      <button className="mb-12 md:mb-16 px-6 py-[6px] border border-white/30 hover:border-white text-white/90 hover:text-white text-[10px] md:text-xs tracking-[0.15em] rounded-full uppercase transition-all bg-transparent relative z-10" style={{ fontFamily: INTER }}>
+        Our Vision
+      </button>
+
+      {/* The animation video */}
+      <div className="w-full flex-1 mx-auto flex justify-center relative overflow-hidden">
+        <video 
+          src={visionRobotVideo} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="w-full h-full object-cover pointer-events-none"
+        />
+        {/* Soft bottom fade to blend with next section if needed */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+      </div>
+    </section>
+  );
+}
+
 function ProductsSection({ onNavigate }: { onNavigate?: (page: 'home' | 'fpv' | 'ew' | 'rfDetector' | 'droneRadar' | 'surveillanceRadar' | 'handheldJammer' | 'infinityRhino' | 'home2') => void }) {
   const [viewer360, setViewer360] = useState<string | null>(null);
   return (
-    <section className="relative z-10 w-full px-9 pt-12 pb-16 bg-black/45 backdrop-blur-[2px]">
+    <section className="relative z-10 w-full px-9 pt-12 pb-16 bg-black/60 backdrop-blur-md">
       {/* Section header */}
       <div className="flex items-end justify-between mb-5 w-full">
         <h2
@@ -3620,14 +3654,17 @@ export default function App() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-black overflow-x-hidden" style={{ fontFamily: INTER }}>
+    <div className="w-full min-h-screen bg-black overflow-x-clip" style={{ fontFamily: INTER }}>
       <Nav onNavigate={handleNavigate} />
       {/* Push content below fixed nav */}
       <div className="pt-[86px]">
         {currentPage === 'home' ? (
           <>
             <Hero />
-            <ProductsSection onNavigate={handleNavigate} />
+            <div className="relative w-full z-0">
+              <VisionSection />
+              <ProductsSection onNavigate={handleNavigate} />
+            </div>
             <Arsenal1Section />
             <NewsSection />
             <EditorialSection />

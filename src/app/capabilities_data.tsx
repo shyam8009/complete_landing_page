@@ -380,19 +380,19 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
                 onMouseEnter={() => setActiveDomain(domain)}
                 className={`flex items-start gap-4 p-4 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/5 border border-[rgba(0,229,255,0.3)] shadow-[0_0_15px_rgba(0,229,255,0.1)]" : "border border-transparent hover:bg-white/5"}`}
               >
-                <div className={`mt-1 ${isActive ? "text-[#2c411f]" : "text-white/60"}`}>
+                <div className={`mt-1 ${isActive ? "text-[#3C5929]" : "text-white/60"}`}>
                   {domain.icon}
                 </div>
                 <div>
                   <h3 className={`font-bold text-[15px] mb-1 ${isActive ? "text-white" : "text-white/80"}`}>{domain.title}</h3>
                   <p className="text-[12px] text-white/50 leading-snug mb-3">{domain.description}</p>
                   <div className="flex items-center gap-3 text-[10px] font-bold tracking-wider uppercase">
-                    <span className="text-[#2c411f]">{domain.systems.length} SYSTEMS</span>
+                    <span className="text-[#3C5929]">{domain.systems.length} SYSTEMS</span>
                     <span className="text-white/40">•</span>
                     <span className="text-white/40">{domain.systems.reduce((acc, sys) => acc + sys.products.length, 0)} PRODUCTS</span>
                   </div>
                 </div>
-                {isActive && <div className="absolute right-6 mt-1 text-[#2c411f] opacity-50"><MiniArrow color="#2c411f" /></div>}
+                {isActive && <div className="absolute right-6 mt-1 text-[#3C5929] opacity-50"><MiniArrow color="#3C5929" /></div>}
               </div>
             );
           })}
@@ -400,7 +400,7 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
 
         {/* COLUMN 2: SYSTEMS */}
         <div className="w-[320px] border-r border-white/5 p-6 bg-black/20 flex flex-col overflow-y-auto">
-          <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#2c411f] mb-6">SYSTEMS</h4>
+          <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-6">SYSTEMS</h4>
           <div className="flex flex-col gap-2">
             {activeDomain.systems.map((system) => {
               const isActive = activeSystem.id === system.id;
@@ -410,14 +410,14 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
                   onMouseEnter={() => setActiveSystem(system)}
                   className={`flex items-center gap-4 p-4 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
                 >
-                  <div className={`${isActive ? "text-[#2c411f]" : "text-white/40"}`}>
+                  <div className={`${isActive ? "text-[#3C5929]" : "text-white/40"}`}>
                     {system.icon}
                   </div>
                   <div className="flex-1">
                     <h3 className={`font-bold text-[14px] mb-1 ${isActive ? "text-white" : "text-white/80"}`}>{system.title}</h3>
                     <p className="text-[12px] text-white/50 leading-snug">{system.description}</p>
                   </div>
-                  {isActive && <div className="text-[#2c411f]"><MiniArrow color="#2c411f" /></div>}
+                  {isActive && <div className="text-[#3C5929]"><MiniArrow color="#3C5929" /></div>}
                 </div>
               );
             })}
@@ -447,11 +447,11 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
           <div className="grid grid-cols-2 gap-8">
             {/* Applications */}
             <div>
-              <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#2c411f] mb-4">APPLICATIONS</h4>
+              <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-4">APPLICATIONS</h4>
               <div className="flex flex-col gap-2">
                 {activeSystem.applications.map((app, idx) => (
                   <div key={idx} className="text-[13px] text-white/70 flex items-center gap-2">
-                    <div className="w-1 h-1 bg-[#2c411f]/50 rounded-full" />
+                    <div className="w-1 h-1 bg-[#3C5929]/50 rounded-full" />
                     {app}
                   </div>
                 ))}
@@ -460,7 +460,7 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
 
             {/* Products */}
             <div>
-              <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#2c411f] mb-4">PRODUCTS</h4>
+              <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-4">PRODUCTS</h4>
               <div className="flex flex-col gap-3">
                 {activeSystem.products.map((product) => (
                   <div 
@@ -475,7 +475,7 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
                     </div>
                     <span className="text-[13px] text-white/80 group-hover:text-white transition-colors">{product.title}</span>
                     <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
-                      <MiniArrow color="#2c411f" />
+                      <MiniArrow color="#3C5929" />
                     </div>
                   </div>
                 ))}
@@ -487,11 +487,11 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
         {/* COLUMN 4: KEY CAPABILITIES */}
         <div className="w-[300px] p-6 bg-[#030508] flex flex-col justify-between overflow-y-auto">
           <div>
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#2c411f] mb-6">KEY CAPABILITIES</h4>
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-6">KEY CAPABILITIES</h4>
             <div className="flex flex-col gap-6">
               {activeDomain.highlights.map((highlight, idx) => (
                 <div key={idx} className="flex items-start gap-4">
-                  <div className="mt-0.5 text-[#2c411f]/70">
+                  <div className="mt-0.5 text-[#3C5929]/70">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <circle cx="12" cy="12" r="10" />
                       <circle cx="12" cy="12" r="4" />
@@ -514,13 +514,13 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
             }}
           >
             <div className="flex items-center justify-between mb-2">
-              <div className="text-[#2c411f]">
+              <div className="text-[#3C5929]">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
                 </svg>
               </div>
               <div className="transform group-hover:translate-x-1 transition-transform">
-                <MiniArrow color="#2c411f" />
+                <MiniArrow color="#3C5929" />
               </div>
             </div>
             <h5 className="text-[14px] font-bold text-white mb-1">Explore {activeSystem.title}</h5>
@@ -533,7 +533,7 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
       <div className="h-[80px] border-t border-white/5 bg-[#030406] flex items-center justify-between px-8">
         {TRUST_BAR_DATA.map((item, idx) => (
           <div key={idx} className="flex items-center gap-3">
-            <div className="text-[#2c411f]/80">
+            <div className="text-[#3C5929]/80">
               {item.icon}
             </div>
             <div>
