@@ -96,7 +96,7 @@ export function SahanaFpvProductPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#05080D] via-transparent to-transparent opacity-80" />
         
         <div className="relative z-10 w-full max-w-[1400px] mx-auto gsap-fade-up">
-          <span className="text-[#00e5ff] text-sm md:text-base font-bold uppercase tracking-[3px] mb-4 block">
+          <span className="text-[#2c411f] text-sm md:text-base font-bold uppercase tracking-[3px] mb-4 block">
             Drone Systems / Electronic Warfare
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight mb-4 leading-[0.9]">
@@ -108,7 +108,7 @@ export function SahanaFpvProductPage() {
           </p>
           
           <div className="flex flex-wrap items-center gap-4 mb-16">
-            <button className="bg-[#00e5ff] text-black px-8 py-4 font-bold text-sm tracking-wider uppercase hover:bg-white transition-colors flex items-center gap-2">
+            <button className="bg-[#2c411f] text-black px-8 py-4 font-bold text-sm tracking-wider uppercase hover:bg-white transition-colors flex items-center gap-2">
               Request Technical Specs <ChevronRight className="w-4 h-4" />
             </button>
             <button className="border border-white/20 hover:border-white hover:bg-white hover:text-black text-white px-8 py-4 font-bold text-sm tracking-wider uppercase transition-all flex items-center gap-2">
@@ -154,8 +154,8 @@ export function SahanaFpvProductPage() {
             {/* Glassmorphism decorative overlay */}
             <div className="absolute bottom-8 left-8 backdrop-blur-md bg-black/40 border border-white/10 p-6 rounded-lg hidden md:block">
                <div className="flex items-center gap-3 mb-2">
-                 <div className="w-2 h-2 rounded-full bg-[#00e5ff] animate-pulse" />
-                 <span className="text-[#00e5ff] font-mono text-sm tracking-wider uppercase">Active Telemetry</span>
+                 <div className="w-2 h-2 rounded-full bg-[#2c411f] animate-pulse" />
+                 <span className="text-[#2c411f] font-mono text-sm tracking-wider uppercase">Active Telemetry</span>
                </div>
                <p className="text-white/80 font-mono text-xs">360-DEGREE ROTATION HIGHLIGHTING<br/>CARBON FIBER CHASSIS & MOTOR MOUNTS.</p>
             </div>
@@ -173,8 +173,8 @@ export function SahanaFpvProductPage() {
             <p className="text-xl text-white/70 font-light mb-8 leading-relaxed">
               The Drone Buddy features a lightweight, durable frame that ensures resilience in challenging environments, positioned as an essential tool for reconnaissance, training, and field operations.
             </p>
-            <div className="bg-[#00e5ff]/5 border border-[#00e5ff]/20 p-6 rounded-lg flex items-start gap-4">
-              <Shield className="w-8 h-8 text-[#00e5ff] shrink-0 mt-1" />
+            <div className="bg-[#2c411f]/5 border border-[#2c411f]/20 p-6 rounded-lg flex items-start gap-4">
+              <Shield className="w-8 h-8 text-[#2c411f] shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold text-lg mb-2">Interference-Resistant "Proxy" Channel</h4>
                 <p className="text-white/60 text-sm leading-relaxed">
@@ -184,7 +184,7 @@ export function SahanaFpvProductPage() {
             </div>
           </div>
           <div className="order-1 lg:order-2 relative gsap-fade-up">
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#00e5ff]/20 to-transparent blur-3xl opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#2c411f]/20 to-transparent blur-3xl opacity-30" />
             <img 
               src={post01Img} 
               alt="Drone GPS and Antenna macro shot" 
@@ -198,7 +198,7 @@ export function SahanaFpvProductPage() {
       <section className="w-full py-32 px-6 bg-[#05080D]">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-16 gsap-fade-up">
-            <span className="text-[#00e5ff] text-sm font-bold uppercase tracking-[3px] mb-2 block">System Architecture</span>
+            <span className="text-[#2c411f] text-sm font-bold uppercase tracking-[3px] mb-2 block">System Architecture</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Core Capabilities</h2>
           </div>
           
@@ -208,7 +208,7 @@ export function SahanaFpvProductPage() {
               <img src={post02Img} alt="Flight Stack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
               <div className="absolute bottom-0 left-0 p-8 w-full">
-                <Target className="w-8 h-8 text-[#00e5ff] mb-4" />
+                <Target className="w-8 h-8 text-[#2c411f] mb-4" />
                 <h3 className="text-2xl font-bold mb-2">The Flight Stack</h3>
                 <p className="text-white/70 max-w-lg">High-definition FPV system for real-time video, with optional thermal imaging integration available for nighttime reconnaissance.</p>
               </div>
@@ -219,7 +219,7 @@ export function SahanaFpvProductPage() {
               <img src={post03Img} alt="Carbon Fiber Frame" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70" />
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
               <div className="absolute bottom-0 left-0 p-8 w-full">
-                <Layers className="w-8 h-8 text-[#00e5ff] mb-4" />
+                <Layers className="w-8 h-8 text-[#2c411f] mb-4" />
                 <h3 className="text-xl font-bold mb-2">Frame & Engineering</h3>
                 <p className="text-white/70 text-sm">Scalable platform built across three distinct frame sizes (10", 13", 15") to accommodate variable payload and speed requirements.</p>
               </div>
@@ -231,7 +231,7 @@ export function SahanaFpvProductPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
               <div className="absolute bottom-0 left-0 p-8 w-full flex flex-col md:flex-row items-end justify-between gap-6">
                 <div className="max-w-2xl">
-                  <Battery className="w-8 h-8 text-[#00e5ff] mb-4" />
+                  <Battery className="w-8 h-8 text-[#2c411f] mb-4" />
                   <h3 className="text-2xl font-bold mb-2">Power & Connectivity</h3>
                   <p className="text-white/70">Equipped with high-capacity LiPo 6s/8s battery configurations and available with Fiber Optics Pool integration for tethered continuous operations.</p>
                 </div>
@@ -253,7 +253,7 @@ export function SahanaFpvProductPage() {
             {/* BUDDY-10 */}
             <div className="bg-[#05080D] border border-white/10 rounded-xl p-8 hover:border-white/30 transition-all duration-300 relative gsap-fade-up">
                <h3 className="text-3xl font-bold mb-2 text-white">BUDDY-10</h3>
-               <p className="text-[#00e5ff] font-medium mb-8">High-Endurance Scout</p>
+               <p className="text-[#2c411f] font-medium mb-8">High-Endurance Scout</p>
                
                <ul className="space-y-6">
                  <li>
@@ -276,10 +276,10 @@ export function SahanaFpvProductPage() {
             </div>
 
             {/* BUDDY-13 */}
-            <div className="bg-[#00e5ff]/5 border border-[#00e5ff]/30 rounded-xl p-8 hover:border-[#00e5ff] transition-all duration-300 relative transform md:-translate-y-4 shadow-[0_0_40px_rgba(0,229,255,0.1)] gsap-fade-up" style={{ transitionDelay: '100ms' }}>
-               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#00e5ff] text-black text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Most Deployed</div>
+            <div className="bg-[#2c411f]/5 border border-[#2c411f]/30 rounded-xl p-8 hover:border-[#2c411f] transition-all duration-300 relative transform md:-translate-y-4 shadow-[0_0_40px_rgba(0,229,255,0.1)] gsap-fade-up" style={{ transitionDelay: '100ms' }}>
+               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#2c411f] text-black text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Most Deployed</div>
                <h3 className="text-3xl font-bold mb-2 text-white">BUDDY-13</h3>
-               <p className="text-[#00e5ff] font-medium mb-8">Tactical Medium-Lift</p>
+               <p className="text-[#2c411f] font-medium mb-8">Tactical Medium-Lift</p>
                
                <ul className="space-y-6">
                  <li>
@@ -304,7 +304,7 @@ export function SahanaFpvProductPage() {
             {/* BUDDY-15 */}
             <div className="bg-[#05080D] border border-white/10 rounded-xl p-8 hover:border-white/30 transition-all duration-300 relative gsap-fade-up" style={{ transitionDelay: '200ms' }}>
                <h3 className="text-3xl font-bold mb-2 text-white">BUDDY-15</h3>
-               <p className="text-[#00e5ff] font-medium mb-8">Heavy-Lift / High-Speed</p>
+               <p className="text-[#2c411f] font-medium mb-8">Heavy-Lift / High-Speed</p>
                
                <ul className="space-y-6">
                  <li>
@@ -340,13 +340,13 @@ export function SahanaFpvProductPage() {
              <div className="flex gap-2 bg-white/5 p-1 rounded-lg border border-white/10 self-start">
                 <button 
                   onClick={() => setActiveSpecTab(0)}
-                  className={`px-6 py-2 text-sm font-medium rounded-md transition-colors ${activeSpecTab === 0 ? 'bg-[#00e5ff] text-black' : 'text-white/60 hover:text-white'}`}
+                  className={`px-6 py-2 text-sm font-medium rounded-md transition-colors ${activeSpecTab === 0 ? 'bg-[#2c411f] text-black' : 'text-white/60 hover:text-white'}`}
                 >
                   Aerospace
                 </button>
                 <button 
                   onClick={() => setActiveSpecTab(1)}
-                  className={`px-6 py-2 text-sm font-medium rounded-md transition-colors ${activeSpecTab === 1 ? 'bg-[#00e5ff] text-black' : 'text-white/60 hover:text-white'}`}
+                  className={`px-6 py-2 text-sm font-medium rounded-md transition-colors ${activeSpecTab === 1 ? 'bg-[#2c411f] text-black' : 'text-white/60 hover:text-white'}`}
                 >
                   Electrical
                 </button>
@@ -394,7 +394,7 @@ export function SahanaFpvProductPage() {
       </section>
 
       {/* 7. FINAL CTA */}
-      <section className="w-full py-32 px-6 bg-[#00e5ff] text-black">
+      <section className="w-full py-32 px-6 bg-[#2c411f] text-black">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-16 items-center gsap-fade-up">
            <div>
              <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight mb-6">Deploy the <br/>FPV Drone Buddy</h2>
@@ -414,22 +414,22 @@ export function SahanaFpvProductPage() {
                <div className="grid grid-cols-2 gap-4">
                  <div>
                    <label className="block text-xs uppercase tracking-wider text-white/40 mb-2">First Name</label>
-                   <input type="text" className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#00e5ff] transition-colors" />
+                   <input type="text" className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#2c411f] transition-colors" />
                  </div>
                  <div>
                    <label className="block text-xs uppercase tracking-wider text-white/40 mb-2">Last Name</label>
-                   <input type="text" className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#00e5ff] transition-colors" />
+                   <input type="text" className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#2c411f] transition-colors" />
                  </div>
                </div>
                <div>
                  <label className="block text-xs uppercase tracking-wider text-white/40 mb-2">Organization / Department</label>
-                 <input type="text" className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#00e5ff] transition-colors" />
+                 <input type="text" className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#2c411f] transition-colors" />
                </div>
                <div>
                  <label className="block text-xs uppercase tracking-wider text-white/40 mb-2">Official Email Address</label>
-                 <input type="email" className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#00e5ff] transition-colors" />
+                 <input type="email" className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-[#2c411f] transition-colors" />
                </div>
-               <button className="w-full bg-[#00e5ff] text-black font-bold uppercase tracking-wider py-4 rounded hover:bg-white transition-colors mt-4">
+               <button className="w-full bg-[#2c411f] text-black font-bold uppercase tracking-wider py-4 rounded hover:bg-white transition-colors mt-4">
                  Request Procurement Details
                </button>
              </form>
