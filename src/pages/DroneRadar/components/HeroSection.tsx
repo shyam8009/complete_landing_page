@@ -13,7 +13,7 @@ export function HeroSection() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen"
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
         src={droneRadarHeroBg}
       />
       
@@ -50,9 +50,9 @@ export function HeroSection() {
             </div>
 
             {/* Quick Stats Grid */}
-            <div className="grid grid-cols-2 gap-8 mt-16 pt-8 border-t border-white/10 w-full">
+            <div className="grid grid-cols-2 gap-8 mt-16 p-6 border border-white/10 rounded-xl backdrop-blur-md bg-black/40 w-full sm:w-fit shadow-2xl">
               <div>
-                <div className="text-3xl font-bold text-white mb-1">360Â°</div>
+                <div className="text-3xl font-bold text-white mb-1">360&deg;</div>
                 <div className="text-sm text-white/50 font-mono uppercase">Volumetric Coverage</div>
               </div>
               <div>

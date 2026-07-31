@@ -11,6 +11,7 @@ import visionRobotVideo from '@/imports/Vision_Drone.mp4';
 gsap.registerPlugin(ScrollTrigger);
 
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { Routes, Route, Link, useNavigate } from "react-router";
 import svgPaths from "@/imports/1920WLight/svg-bymm5omek1";
 import sahanaLogo from "@/imports/logo-sahana.png";
 import makeInIndiaLogo from "@/imports/logo-make-in-india.png";
@@ -297,8 +298,8 @@ const TRUST_BAR_DATA = [
   }
 ];
 
-// CapabilitiesMegaMenu Component
-function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
+function Nav() {
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
 
@@ -331,7 +332,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
       <div className="absolute inset-0 backdrop-blur-xl bg-[#05080D]/90" />
 
       <div className="relative flex items-center justify-between px-6 lg:px-9 h-[86px] z-50">
-        <a href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate('home'); }} className="shrink-0">
+        <a href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} className="shrink-0">
           <AndurilLogo width={210} />
         </a>
 
@@ -450,7 +451,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
             
             <a 
               href="#"
-              onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate(activeDomain.systems[0].products[0]?.slug || 'home'); }}
+              onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate(activeDomain.systems[0].products[0]?.slug || 'home'); }}
               className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-[#84CC16] hover:text-white transition-colors"
             >
               View {activeDomain.title} <MiniArrow color="currentColor" />
@@ -468,7 +469,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                 <div 
                   key={product.id} 
                   className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
-                  onClick={() => { setHoveredNav(null); if (onNavigate) onNavigate(product.slug); }}
+                  onClick={() => { setHoveredNav(null); if (navigate) navigate(product.slug); }}
                 >
                   <div className="w-[32px] h-[32px] rounded overflow-hidden border border-white/10 shrink-0 bg-[#05080d]">
                     <img src={product.image} alt={product.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
@@ -483,7 +484,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
 
             <a 
               href="#"
-              onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate(activeSystem.products[0]?.slug || 'home'); }}
+              onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate(activeSystem.products[0]?.slug || 'home'); }}
               className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
             >
               View All Products <MiniArrow color="currentColor" />
@@ -567,7 +568,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                 <div 
                   key={idx} 
                   className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
-                  onClick={() => { setHoveredNav(null); if (onNavigate) onNavigate(link.url); }}
+                  onClick={() => { setHoveredNav(null); if (navigate) navigate(link.url); }}
                 >
                   <div className="w-[24px] h-[24px] shrink-0 text-white/20 group-hover:text-[#84CC16] transition-colors flex items-center justify-center">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -588,7 +589,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
 
             <a 
               href="#"
-              onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate('home'); }}
+              onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }}
               className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
             >
               View All â†’
@@ -611,7 +612,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-3 px-2">Newsroom</h4>
           <div className="flex flex-col gap-1">
             {['Press Release', 'Events', 'Awards'].map(item => (
-              <a key={item} href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate('home'); }} className="group flex items-center justify-between px-2 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-all" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <a key={item} href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} className="group flex items-center justify-between px-2 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-all" style={{ fontFamily: 'Inter, sans-serif' }}>
                 <span>{item}</span>
                 <span className="text-[#84CC16] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">â†’</span>
               </a>
@@ -630,7 +631,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
       >
         <div className="flex flex-col p-2">
           {['Company', 'Leadership', 'Careers', 'Certifications', 'Contact'].map(item => (
-            <a key={item} href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate('home'); }} className="px-4 py-2 text-[14px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-colors" style={{ fontFamily: INTER }}>
+            <a key={item} href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} className="px-4 py-2 text-[14px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-colors" style={{ fontFamily: INTER }}>
               {item}
             </a>
           ))}
@@ -641,7 +642,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
       <div className={`lg:hidden fixed inset-0 top-[86px] bg-[#05080D] z-40 overflow-y-auto transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col p-6 gap-2">
           
-          <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { onNavigate('home'); setMobileOpen(false); }}>Home</a>
+          <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { navigate('/'); setMobileOpen(false); }}>Home</a>
           
           {/* Capabilities Accordion */}
           <div className="py-4 border-b border-white/10">
@@ -674,7 +675,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                                   key={prod.id} 
                                   href="#" 
                                   className="text-[13px] text-[#84CC16] py-1"
-                                  onClick={(e) => { e.preventDefault(); onNavigate(prod.slug); setMobileOpen(false); }}
+                                  onClick={(e) => { e.preventDefault(); navigate(prod.slug); setMobileOpen(false); }}
                                 >
                                   {prod.title}
                                 </a>
@@ -878,7 +879,7 @@ function ProductCard({
   );
 }
 
-// â”€â”€â”€ PRODUCTS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â”€â”€â”€ PRODUCTS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const PRODUCTS_DATA = [
   {
@@ -888,14 +889,16 @@ const PRODUCTS_DATA = [
     description: "A precision sensing payload designed to deliver real-time visual intelligence in dynamic operational environments. Engineered for reconnaissance, target observation, and mission awareness, Infinity Optics enhances decision-making with reliable surveillance and persistent situational visibility.",
     desktopGridClass: "[grid-column:1/span_4] [grid-row:1]",
     showArrow: true,
+    target: '/',
   },
   {
     image: flightImg,
-    name: "Sahana FPV Bullseye & Interceptor",
+    name: "FPV Bullseye & Interceptor",
     subtitle: "Tactical FPV Strike Platform",
-    description: "Built for high-speed reconnaissance and precision engagement, the Sahana FPV Bullseye & Interceptor combines agile maneuverability, real-time situational awareness, and mission-ready reliability. Engineered for rapid deployment, it enables forces to operate effectively across dynamic and contested environments.",
+    description: "Built for high-speed reconnaissance and precision engagement, the FPV Bullseye & Interceptor combines agile maneuverability, real-time situational awareness, and mission-ready reliability. Engineered for rapid deployment, it enables forces to operate effectively across dynamic and contested environments.",
     desktopGridClass: "[grid-column:5/span_4] [grid-row:1]",
     showArrow: true,
+    target: '/fpv-drone',
   },
   {
     image: infinitySpearImg,
@@ -906,6 +909,7 @@ const PRODUCTS_DATA = [
     description: "Neutralize hostile drones with high-power multi-band jamming technology. Designed for rapid deployment, Infinity Spear delivers effective drone disruption at ranges up to 2.5 km while maintaining lightweight, one-person operation.",
     desktopGridClass: "[grid-column:9/span_4] [grid-row:1]",
     showArrow: true,
+    target: '/handheld-jammer',
   },
   {
     image: rfDetectorImg,
@@ -914,7 +918,7 @@ const PRODUCTS_DATA = [
     description: "Engineered to uncover signal activity across a broad frequency spectrum, RF Detector D360 provides operators with reliable electronic awareness for defense, intelligence, and security operations.",
     desktopGridClass: "[grid-column:1/span_4] [grid-row:2/span_2]",
     showArrow: true,
-    target: 'rfDetector',
+    target: '/rf-detector',
   },
   {
     image: haleDroneImg,
@@ -923,6 +927,7 @@ const PRODUCTS_DATA = [
     description: "They are unique assets providing long-term observation and strike capabilities.",
     desktopGridClass: "[grid-column:5/span_8] [grid-row:2]",
     showArrow: false,
+    target: '/',
   },
   {
     image: infinityRhinoImg,
@@ -931,6 +936,7 @@ const PRODUCTS_DATA = [
     description: "A mission-ready anti-drone platform built to disrupt unauthorized UAV activity with precision and reliability. Combining portability, endurance, and operational flexibility, Infinity Rhino empowers teams to maintain control in contested environments.",
     desktopGridClass: "[grid-column:5/span_4] [grid-row:3]",
     showArrow: false,
+    target: '/infinity-rhino',
   },
   {
     image: digitalTwinImg,
@@ -939,6 +945,7 @@ const PRODUCTS_DATA = [
     description: "Protecting Borders, Assets and Strategic Infrastructure",
     desktopGridClass: "[grid-column:9/span_4] [grid-row:3]",
     showArrow: false,
+    target: '/',
   },
 ];
 
@@ -947,15 +954,33 @@ function VisionSection() {
   return (
     <section className="sticky top-0 z-0 h-screen w-full bg-black flex overflow-hidden">
       {/* The animation video */}
-      <div className="w-full h-full relative">
-        <video 
-          src={visionRobotVideo} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="w-full h-full object-cover pointer-events-none"
-        />
+      <video
+        src={visionRobotVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-screen"
+      />
+      {/* Dark fade on top */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
+
+      {/* Content wrapper for the vision text */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-center px-9 max-w-[1400px] mx-auto">
+        <h2 className="text-white text-5xl md:text-6xl tracking-tight leading-[1.1] max-w-[800px]" style={{ fontFamily: INTER, fontWeight: 400 }}>
+          Securing the Future<br />Through Uncompromised<br />Defence Innovation.
+        </h2>
+        <div className="mt-8 flex gap-8">
+          <div className="flex flex-col gap-1">
+            <span className="text-[#84CC16] text-[10px] font-bold tracking-[2px] uppercase">DEPLOYMENT</span>
+            <span className="text-white font-medium text-lg">Multi-Domain Integration</span>
+          </div>
+          <div className="w-px h-12 bg-white/20" />
+          <div className="flex flex-col gap-1">
+            <span className="text-[#84CC16] text-[10px] font-bold tracking-[2px] uppercase">ARCHITECTURE</span>
+            <span className="text-white font-medium text-lg">AI-First Infrastructure</span>
+          </div>
+        </div>
         {/* Soft bottom fade to blend with next section if needed */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
       </div>
@@ -963,7 +988,8 @@ function VisionSection() {
   );
 }
 
-function ProductsSection({ onNavigate }: { onNavigate?: (page: 'home' | 'fpv' | 'ew' | 'rfDetector' | 'droneRadar' | 'surveillanceRadar' | 'handheldJammer' | 'infinityRhino' | 'home2') => void }) {
+function ProductsSection() {
+  const navigate = useNavigate();
   const [viewer360, setViewer360] = useState<string | null>(null);
   return (
     <section className="relative z-10 w-full px-9 pt-12 pb-16 bg-black/60 backdrop-blur-md">
@@ -1001,8 +1027,8 @@ function ProductsSection({ onNavigate }: { onNavigate?: (page: 'home' | 'fpv' | 
               }
             }}
             onClick={() => {
-              if (product.target && onNavigate) {
-                onNavigate(product.target as any);
+              if (product.target) {
+                navigate(product.target);
               }
             }}
           />
@@ -1021,8 +1047,8 @@ function ProductsSection({ onNavigate }: { onNavigate?: (page: 'home' | 'fpv' | 
             className="aspect-square"
             showArrow={product.showArrow}
             onClick={() => {
-              if (product.target && onNavigate) {
-                onNavigate(product.target as any);
+              if (product.target) {
+                navigate(product.target);
               }
             }}
           />
@@ -2679,46 +2705,33 @@ function InfinityRhinoPage() {
 // â”€â”€â”€ APP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'fpv' | 'ew' | 'rfDetector' | 'droneRadar' | 'surveillanceRadar' | 'handheldJammer' | 'infinityRhino' | 'home2' | 'guardian'>('home');
-
-  const handleNavigate = (page: string) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  };
-
   return (
     <div className="w-full min-h-screen bg-black overflow-x-clip" style={{ fontFamily: INTER }}>
-      <Nav onNavigate={handleNavigate} />
+      <Nav />
       {/* Push content below fixed nav */}
       <div className="pt-[86px]">
-        {currentPage === 'home' ? (
-          <>
-            <Hero />
-            <div className="relative w-full z-0">
-              <VisionSection />
-              <ProductsSection onNavigate={handleNavigate} />
-            </div>
-            <Arsenal1Section />
-            <NewsSection />
-            <EditorialSection />
-          </>
-        ) : currentPage === 'guardian' ? (
-          <GuardianExperiencePage />
-        ) : currentPage === 'fpv' ? (
-          <SahanaFpvProductPage />
-        ) : currentPage === 'ew' ? (
-          <ElectronicWarfarePage />
-        ) : currentPage === 'rfDetector' ? (
-          <RFDetectorPage />
-        ) : currentPage === 'droneRadar' ? (
-          <DroneRadarPage />
-        ) : currentPage === 'surveillanceRadar' ? (
-          <SurveillanceRadarPage />
-        ) : currentPage === 'handheldJammer' ? (
-          <HandheldJammerPage />
-        ) : currentPage === 'infinityRhino' ? (
-          <InfinityRhinoPage />
-        ) : null}
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <div className="relative w-full z-0">
+                <VisionSection />
+                <ProductsSection />
+              </div>
+              <Arsenal1Section />
+              <NewsSection />
+              <EditorialSection />
+            </>
+          } />
+          <Route path="/guardian-experience" element={<GuardianExperiencePage />} />
+          <Route path="/fpv-drone" element={<SahanaFpvProductPage />} />
+          <Route path="/electronic-warfare" element={<ElectronicWarfarePage />} />
+          <Route path="/rf-detector" element={<RFDetectorPage />} />
+          <Route path="/drone-radar" element={<DroneRadarPage />} />
+          <Route path="/surveillance-radar" element={<SurveillanceRadarPage />} />
+          <Route path="/handheld-jammer" element={<HandheldJammerPage />} />
+          <Route path="/infinity-rhino" element={<InfinityRhinoPage />} />
+        </Routes>
         <Footer />
       </div>
     </div>

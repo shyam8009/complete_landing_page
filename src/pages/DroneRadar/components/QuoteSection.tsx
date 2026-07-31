@@ -17,14 +17,14 @@ export function QuoteSection() {
           className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight leading-[1.2]"
           style={{ fontFamily: INTER }}
         >
-          "IN THIS BUSINESS, TRUST IS THE PRODUCT. WARFIGHTERS DON'T NEED ANOTHER DEMO â€” THEY NEED <span className="relative inline-block">
-            <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-[#84CC16]">RADAR THEY CAN STAKE A DECISION ON</span>
+          &ldquo;IN THIS BUSINESS, TRUST IS THE PRODUCT. WARFIGHTERS DON'T NEED ANOTHER DEMO &mdash; THEY NEED <span className="relative inline-block">
+            <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-[#84CC16]">RADAR THEY CAN STAKE A DECISION ON,</span>
             <span className="absolute bottom-1 left-0 w-full h-[2px] bg-[#84CC16]/50" />
-          </span>, DELIVERED WHEN THE MISSION DEMANDS IT."
+          </span> DELIVERED WHEN THE MISSION DEMANDS IT.&rdquo;
         </h2>
         
         <div className="mt-12 text-white/50 font-mono text-sm tracking-widest uppercase">
-          â€” Director of Radar Systems, Sahana
+          &mdash; Director of Radar Systems, Sahana
         </div>
       </div>
     </section>

@@ -62,11 +62,11 @@ export const CAPABILITIES_DATA = [
         stats: ["Real-time Detection", "Tracking & Classification", "Interception", "Counter Swarm"],
         applications: ["Border Security", "Military Bases", "Critical Infrastructure", "VIP Protection", "Counter-UAS Operations"],
         products: [
-          { id: "fpv-buddy", title: "Sahana FPV Drone Buddy", image: flightImg, slug: "fpv" },
-          { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "fpv" },
-          { id: "varuna", title: "Sahana Varuna â€” Underwater Drone", image: fieldImg, slug: "home" },
-          { id: "proxy", title: "Sahana PROXY â€” Control Channel", image: sensorDomeImg, slug: "home" },
-          { id: "heaven-sdr", title: "Heaven SDR â€” Surveillance Drone", image: haleDroneImg, slug: "home" },
+          { id: "fpv-buddy", title: "Sahana FPV Drone Buddy", image: flightImg, slug: "/fpv-drone" },
+          { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "/fpv-drone" },
+          { id: "varuna", title: "Sahana Varuna â€” Underwater Drone", image: fieldImg, slug: "/" },
+          { id: "proxy", title: "Sahana PROXY â€” Control Channel", image: sensorDomeImg, slug: "/" },
+          { id: "heaven-sdr", title: "Heaven SDR â€” Surveillance Drone", image: haleDroneImg, slug: "/" },
         ]
       },
       {
@@ -82,8 +82,8 @@ export const CAPABILITIES_DATA = [
         stats: ["360Â° Coverage", "AI Threat Analysis", "Multi-Target Tracking", "All-Weather Operability"],
         applications: ["Airspace Monitoring", "Border Surveillance", "Naval Defence", "Asset Protection"],
         products: [
-          { id: "3d-drone-radar", title: "3D Drone Radar", image: droneRadarHeroImg, slug: "droneRadar" },
-          { id: "surveillance-radar", title: "Surveillance Radar", image: surveillanceRadarHeroImg, slug: "surveillanceRadar" },
+          { id: "3d-drone-radar", title: "3D Drone Radar", image: droneRadarHeroImg, slug: "/drone-radar" },
+          { id: "surveillance-radar", title: "Surveillance Radar", image: surveillanceRadarHeroImg, slug: "/surveillance-radar" },
         ]
       },
       {
@@ -101,11 +101,11 @@ export const CAPABILITIES_DATA = [
         stats: ["Multi-Band Jamming", "Directional Disruption", "Man-Portable", "Vehicle Integrated"],
         applications: ["Convoy Protection", "Tactical Infantry Support", "Event Security", "Airspace Denial"],
         products: [
-          { id: "spear", title: "Handheld Jammer (Infinity Spear)", image: infinitySpearImg, slug: "handheldJammer" },
-          { id: "rhino", title: "Manpack Jammer (Infinity Rhino)", image: infinityRhinoImg, slug: "infinityRhino" },
-          { id: "butterfly", title: "Butterfly ADG L70", image: heroImg, slug: "home" },
-          { id: "z23", title: "Rhino Gen Z23", image: heroImg, slug: "home" },
-          { id: "rhino-black", title: "Infinity Rhino Black", image: infinityRhinoImg, slug: "home" },
+          { id: "spear", title: "Handheld Jammer (Infinity Spear)", image: infinitySpearImg, slug: "/handheld-jammer" },
+          { id: "rhino", title: "Manpack Jammer (Infinity Rhino)", image: infinityRhinoImg, slug: "/infinity-rhino" },
+          { id: "butterfly", title: "Butterfly ADG L70", image: heroImg, slug: "/" },
+          { id: "z23", title: "Rhino Gen Z23", image: heroImg, slug: "/" },
+          { id: "rhino-black", title: "Infinity Rhino Black", image: infinityRhinoImg, slug: "/" },
         ]
       },
       {
@@ -123,10 +123,10 @@ export const CAPABILITIES_DATA = [
         stats: ["Passive RF Sensing", "Acoustic Detection", "Optical Recognition", "Early Warning Alarms"],
         applications: ["Forward Operating Bases", "Border Outposts", "Critical Infrastructure", "Urban Warfare"],
         products: [
-          { id: "guardian", title: "The Guardian Smart Soldier Band", image: fieldImg, slug: "guardian" },
-          { id: "rf-detector", title: "RF Detector", image: rfDetectorImg, slug: "rfDetector" },
-          { id: "vsr", title: "VSR to MRR", image: rfRadarGeneratedImg, slug: "home" },
-          { id: "3d-detector", title: "3D Drone Detector", image: droneRadarHeroImg, slug: "home" },
+          { id: "guardian", title: "The Guardian Smart Soldier Band", image: fieldImg, slug: "/guardian-experience" },
+          { id: "rf-detector", title: "RF Detector", image: rfDetectorImg, slug: "/rf-detector" },
+          { id: "vsr", title: "VSR to MRR", image: rfRadarGeneratedImg, slug: "/" },
+          { id: "3d-detector", title: "3D Drone Detector", image: droneRadarHeroImg, slug: "/" },
         ]
       }
     ]

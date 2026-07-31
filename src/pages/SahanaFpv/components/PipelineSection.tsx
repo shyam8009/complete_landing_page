@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Radar, Cpu, Crosshair, ShieldAlert } from 'lucide-react';
+import { Video, ShieldAlert, Crosshair, Zap } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -8,27 +8,27 @@ gsap.registerPlugin(ScrollTrigger);
 const PIPELINE_STEPS = [
   {
     id: '01',
-    title: 'DETECT',
-    description: 'Continuous 360-degree volumetric scanning identifies potential threats at extreme ranges.',
-    icon: Radar,
+    title: 'OVERSIGHT',
+    description: 'High-speed aerial surveillance providing real-time tactical intelligence.',
+    icon: Video,
   },
   {
     id: '02',
-    title: 'TRACK',
-    description: 'AI-driven algorithms lock onto multiple targets simultaneously, predicting flight paths.',
-    icon: Crosshair,
+    title: 'RESILIENCE',
+    description: 'Interference-resistant proxy channel bypasses active electronic jamming.',
+    icon: ShieldAlert,
   },
   {
     id: '03',
-    title: 'IDENTIFY',
-    description: 'Deep learning classification distinguishes between birds, friendly aircraft, and hostile drones.',
-    icon: Cpu,
+    title: 'RECON',
+    description: 'Optional thermal imaging integration for nighttime and low-visibility operations.',
+    icon: Crosshair,
   },
   {
     id: '04',
-    title: 'DEFEAT',
-    description: 'Seamless integration with kinetic and non-kinetic effectors for immediate threat neutralization.',
-    icon: ShieldAlert,
+    title: 'DEPLOY',
+    description: 'Scalable heavy-lift payload delivery for specialized mission requirements.',
+    icon: Zap,
   }
 ];
 
@@ -97,7 +97,7 @@ export function PipelineSection() {
           {/* Glowing Progress Line */}
           <div 
             ref={progressLineRef}
-            className="hidden lg:block absolute top-[3rem] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#84CC16] to-[#84CC16] shadow-[0_0_15px_#84CC16]"
+            className="hidden lg:block absolute top-[3rem] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#3C5929] to-[#3C5929] shadow-[0_0_15px_#3C5929]"
             style={{ transformOrigin: 'left center' }}
           />
 
@@ -110,11 +110,11 @@ export function PipelineSection() {
                 className="relative flex flex-col group items-center text-center"
               >
                 {/* Unified Circular Step Node */}
-                <div className="mb-8 flex flex-col items-center justify-center w-24 h-24 rounded-full bg-[#0a0a0a] border border-white/10 group-hover:border-[#84CC16]/50 group-hover:bg-[#84CC16]/10 transition-all duration-300 relative z-10 group-hover:shadow-[0_0_30px_rgba(132,204,22,0.15)] shadow-xl">
-                  <span className="text-xs font-bold text-white/40 font-mono tracking-widest group-hover:text-[#84CC16] transition-colors mb-1">
+                <div className="mb-8 flex flex-col items-center justify-center w-24 h-24 rounded-full bg-[#0a0a0a] border border-white/10 group-hover:border-[#3C5929]/50 group-hover:bg-[#3C5929]/10 transition-all duration-300 relative z-10 group-hover:shadow-[0_0_30px_rgba(60,89,41,0.15)] shadow-xl">
+                  <span className="text-xs font-bold text-white/40 font-mono tracking-widest group-hover:text-[#3C5929] transition-colors mb-1">
                     {step.id}
                   </span>
-                  <Icon className="w-7 h-7 text-white/70 group-hover:text-[#84CC16] transition-colors" />
+                  <Icon className="w-7 h-7 text-white/70 group-hover:text-[#3C5929] transition-colors" />
                 </div>
 
                 {/* Content */}

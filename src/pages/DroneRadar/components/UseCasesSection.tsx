@@ -44,8 +44,14 @@ export function UseCasesSection() {
                 key={idx} 
                 className="flex flex-col p-8 rounded-xl bg-[#050505] border border-white/10 hover:border-[#84CC16]/30 hover:bg-[#84CC16]/5 transition-all duration-300 group"
               >
-                <div className="w-12 h-12 rounded-lg bg-black border border-white/10 flex items-center justify-center mb-8 group-hover:border-[#84CC16]/50 transition-colors">
-                  <Icon className="w-6 h-6 text-white/60 group-hover:text-[#84CC16] transition-colors" />
+                <div className="relative w-16 h-16 mb-8 group flex items-center justify-center">
+                  {/* Interactive Range Rings */}
+                  <div className="absolute inset-0 rounded-full border border-[#84CC16]/0 group-hover:border-[#84CC16]/40 group-hover:animate-[ping_2s_ease-out_infinite]" />
+                  <div className="absolute inset-0 rounded-full border border-[#84CC16]/0 group-hover:border-[#84CC16]/20 group-hover:animate-[ping_2.5s_ease-out_infinite_0.5s]" />
+                  
+                  <div className="relative z-10 w-12 h-12 rounded-lg bg-black border border-white/10 flex items-center justify-center group-hover:border-[#84CC16]/50 group-hover:bg-[#84CC16]/10 transition-colors">
+                    <Icon className="w-6 h-6 text-white/60 group-hover:text-[#84CC16] transition-colors" />
+                  </div>
                 </div>
                 
                 <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">
@@ -57,9 +63,9 @@ export function UseCasesSection() {
                 </p>
 
                 <div className="mt-auto">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded border border-white/10">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#84CC16]" />
-                    <span className="text-xs font-mono text-white/60 uppercase tracking-widest">STATUS: {useCase.status}</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded border border-white/10 group-hover:border-[#84CC16]/30 group-hover:bg-[#84CC16]/5 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(132,204,22,0.15)]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#84CC16] group-hover:animate-pulse group-hover:shadow-[0_0_8px_#84CC16]" />
+                    <span className="text-xs font-mono text-white/60 uppercase tracking-widest group-hover:text-white transition-colors">STATUS: {useCase.status}</span>
                   </div>
                 </div>
               </div>
