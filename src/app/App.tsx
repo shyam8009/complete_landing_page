@@ -1,8 +1,9 @@
-
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GuardianExperiencePage } from '../pages/GuardianExperience/GuardianExperiencePage';
 import { SahanaFpvProductPage } from '../pages/SahanaFpv/SahanaFpvProductPage';
+import { DroneRadarPage } from '../pages/DroneRadar/DroneRadarPage';
+import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
 import infinitySpearVideo from '@/imports/Infinity_Spear.mp4';
@@ -15,7 +16,7 @@ import sahanaLogo from "@/imports/logo-sahana.png";
 import makeInIndiaLogo from "@/imports/logo-make-in-india.png";
 import heroVideo from "@/imports/Hero banner Video.mp4";
 
-// New product images — all of the same tactical drone, different shots & environments
+// New product images â€” all of the same tactical drone, different shots & environments
 import heroImg from "@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg";
 import sensorDomeImg from "@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png";
 import motorImg from "@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png";
@@ -58,7 +59,7 @@ const INTER = "'Inter', sans-serif";
 const CARD_GRADIENT =
   "linear-gradient(rgba(1,1,1,0) 0%,rgba(1,1,1,0.004) 1.8%,rgba(1,1,1,0.008) 4.8%,rgba(1,1,1,0.02) 9%,rgba(1,1,1,0.043) 13.9%,rgba(1,1,1,0.075) 19.8%,rgba(1,1,1,0.125) 27%,rgba(1,1,1,0.192) 35%,rgba(1,1,1,0.28) 43.5%,rgba(1,1,1,0.38) 53%,rgba(1,1,1,0.54) 66%,rgba(1,1,1,0.737) 81%,rgb(1,1,1) 100%)";
 
-// ─── SVG helpers ────────────────────────────────────────────────────────────
+// â”€â”€â”€ SVG helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function AndurilLogo({ width = 210 }: { width?: number }) {
   return (
@@ -88,7 +89,7 @@ function MiniArrow({ color = "#010101" }: { color?: string }) {
   );
 }
 
-// ─── Reusable "text + underline + arrow" link ────────────────────────────────
+// â”€â”€â”€ Reusable "text + underline + arrow" link â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function UnderlineLink({
   children,
@@ -129,7 +130,7 @@ const INVESTORS_DATA = [
       { text: 'FY 2024-25', url: '#' },
       { text: 'FY 2023-24', url: '#' },
     ],
-    cta: 'View All →'
+    cta: 'View All â†’'
   },
   {
     id: 'general-meeting-notice',
@@ -140,7 +141,7 @@ const INVESTORS_DATA = [
       { text: 'EGM Minutes 2024', url: '#' },
       { text: 'Proxy Forms', url: '#' },
     ],
-    cta: 'View All Notices →'
+    cta: 'View All Notices â†’'
   },
   {
     id: 'code-of-conduct',
@@ -151,7 +152,7 @@ const INVESTORS_DATA = [
       { text: 'Whistleblower Policy', url: '#' },
       { text: 'Anti-Bribery Guidelines', url: '#' },
     ],
-    cta: 'View Policies →'
+    cta: 'View Policies â†’'
   },
   {
     id: 'annual-return',
@@ -162,7 +163,7 @@ const INVESTORS_DATA = [
       { text: 'Form MGT-7 (2024)', url: '#' },
       { text: 'Archives', url: '#' },
     ],
-    cta: 'View Returns →'
+    cta: 'View Returns â†’'
   },
   {
     id: 'policies',
@@ -173,7 +174,7 @@ const INVESTORS_DATA = [
       { text: 'CSR Policy', url: '#' },
       { text: 'Risk Management', url: '#' },
     ],
-    cta: 'View All Policies →'
+    cta: 'View All Policies â†’'
   },
   {
     id: 'shareholder-info',
@@ -184,7 +185,7 @@ const INVESTORS_DATA = [
       { text: 'Registrar Details', url: '#' },
       { text: 'Unpaid Dividend', url: '#' },
     ],
-    cta: 'Investor Desk →'
+    cta: 'Investor Desk â†’'
   },
   {
     id: 'kmp',
@@ -195,7 +196,7 @@ const INVESTORS_DATA = [
       { text: 'Chief Financial Officer', url: '#' },
       { text: 'Company Secretary', url: '#' },
     ],
-    cta: 'View Leadership →'
+    cta: 'View Leadership â†’'
   },
   {
     id: 'board-of-directors',
@@ -206,7 +207,7 @@ const INVESTORS_DATA = [
       { text: 'Managing Director', url: '#' },
       { text: 'Independent Directors', url: '#' },
     ],
-    cta: 'View Details →'
+    cta: 'View Details â†’'
   },
   {
     id: 'committees',
@@ -217,7 +218,7 @@ const INVESTORS_DATA = [
       { text: 'Nomination & Remuneration', url: '#' },
       { text: 'CSR Committee', url: '#' },
     ],
-    cta: 'View Committees →'
+    cta: 'View Committees â†’'
   },
   {
     id: 'key-contact',
@@ -228,7 +229,7 @@ const INVESTORS_DATA = [
       { text: 'Compliance Officer', url: '#' },
       { text: 'Investor Grievances', url: '#' },
     ],
-    cta: 'Contact IR →'
+    cta: 'Contact IR â†’'
   }
 ];
 
@@ -352,7 +353,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
               >
                 {link}
                 {(link === 'Capabilities' || link === 'About Us' || link === 'Investors' || link === 'Newsroom') && (
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-300 ${hoveredNav === link ? "rotate-180 text-[#3C5929]" : ""}`}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-300 ${hoveredNav === link ? "rotate-180 text-[#84CC16]" : ""}`}>
                     <path d="M6 9l6 6 6-6" />
                   </svg>
                 )}
@@ -366,7 +367,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); setHoveredNav(null); }}
-            className="text-[14px] font-bold tracking-[1px] uppercase border border-white/20 hover:border-[#3C5929] hover:text-[#3C5929] transition-colors px-6 py-2.5 rounded-sm text-white"
+            className="text-[14px] font-bold tracking-[1px] uppercase border border-white/20 hover:border-[#84CC16] hover:text-[#84CC16] transition-colors px-6 py-2.5 rounded-sm text-white"
           >
             Contact Us
           </a>
@@ -405,18 +406,18 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                 <div 
                   key={domain.id}
                   onMouseEnter={() => setActiveDomain(domain)}
-                  className={`group relative flex flex-col gap-1 py-4 px-5 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent border-l-2 border-[#3C5929]" : "border-l-2 border-transparent hover:bg-white/5"}`}
+                  className={`group relative flex flex-col gap-1 py-4 px-5 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent border-l-2 border-[#84CC16]" : "border-l-2 border-transparent hover:bg-white/5"}`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`transition-colors ${isActive ? "text-[#3C5929]" : "text-white/50 group-hover:text-white/80"}`}>
+                    <div className={`transition-colors ${isActive ? "text-[#84CC16]" : "text-white/50 group-hover:text-white/80"}`}>
                       {domain.icon}
                     </div>
                     <h3 className={`font-bold text-[15px] tracking-wide transition-colors ${isActive ? "text-white" : "text-white/70 group-hover:text-white"}`}>
                       {domain.title}
                     </h3>
                     {isActive && (
-                      <div className="ml-auto text-[#3C5929] opacity-80">
-                        <MiniArrow color="#3C5929" />
+                      <div className="ml-auto text-[#84CC16] opacity-80">
+                        <MiniArrow color="#84CC16" />
                       </div>
                     )}
                   </div>
@@ -427,7 +428,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
 
           {/* COLUMN 2: SYSTEMS */}
           <div className="w-[340px] border-r border-white/5 p-6 bg-black/20 flex flex-col relative">
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-4">SYSTEMS</h4>
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-4">SYSTEMS</h4>
             <div className="flex flex-col gap-1 flex-1">
               {activeDomain.systems.map((system: any) => {
                 const isActive = activeSystem.id === system.id;
@@ -438,10 +439,10 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                     className={`flex items-start gap-4 p-4 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
                   >
                     <div className="flex-1">
-                      <h3 className={`font-bold text-[14px] mb-1 ${isActive ? "text-[#3C5929]" : "text-white/80"}`}>{system.title}</h3>
+                      <h3 className={`font-bold text-[14px] mb-1 ${isActive ? "text-[#84CC16]" : "text-white/80"}`}>{system.title}</h3>
                       <p className="text-[12px] text-white/40 leading-snug line-clamp-1">{system.description}</p>
                     </div>
-                    {isActive && <div className="text-[#3C5929] mt-1"><MiniArrow color="#3C5929" /></div>}
+                    {isActive && <div className="text-[#84CC16] mt-1"><MiniArrow color="#84CC16" /></div>}
                   </div>
                 );
               })}
@@ -450,7 +451,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
             <a 
               href="#"
               onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate(activeDomain.systems[0].products[0]?.slug || 'home'); }}
-              className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-[#3C5929] hover:text-white transition-colors"
+              className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-[#84CC16] hover:text-white transition-colors"
             >
               View {activeDomain.title} <MiniArrow color="currentColor" />
             </a>
@@ -459,7 +460,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           {/* COLUMN 3: PRODUCTS */}
           <div className="flex-1 border-r border-white/5 p-6 bg-black/40 flex flex-col relative">
             <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white/50 mb-4 flex items-center gap-2">
-              <span className="text-[#3C5929]">{activeSystem.title}</span> Products
+              <span className="text-[#84CC16]">{activeSystem.title}</span> Products
             </h4>
             
             <div className="flex flex-col gap-1 flex-1">
@@ -474,7 +475,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                   </div>
                   <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{product.title}</span>
                   <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
-                    <MiniArrow color="#3C5929" />
+                    <MiniArrow color="#84CC16" />
                   </div>
                 </div>
               ))}
@@ -506,9 +507,9 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           
           {/* COLUMN 1: THE HUB INFO CARD */}
           <div className="w-[340px] border-r border-white/5 flex flex-col p-6 gap-2">
-            <div className="flex flex-col gap-1 py-6 px-6 rounded-md border-l-2 border-[#3C5929] bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent">
+            <div className="flex flex-col gap-1 py-6 px-6 rounded-md border-l-2 border-[#84CC16] bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent">
               <div className="flex items-center gap-4 mb-4">
-                <div className="text-[#3C5929]">
+                <div className="text-[#84CC16]">
                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                      <circle cx="9" cy="7" r="4"></circle>
@@ -517,19 +518,19 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                    </svg>
                 </div>
               </div>
-              <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-1">THE HUB</h4>
+              <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-1">THE HUB</h4>
               <h3 className="font-bold text-[18px] text-white mb-3">Investor Relations Center</h3>
               <p className="text-[13px] text-white/60 mb-6 leading-relaxed">All corporate governance, shareholder information, financial reports and disclosures.</p>
               
               <div className="flex items-center gap-3 text-[11px] font-bold tracking-wider uppercase mt-2">
-                <span className="text-[#3C5929]">10 SECTIONS</span>
+                <span className="text-[#84CC16]">10 SECTIONS</span>
               </div>
             </div>
           </div>
 
           {/* COLUMN 2: THE HUB LINKS */}
           <div className="lg:w-[40%] xl:w-[500px] border-r border-white/5 p-6 bg-black/20 flex flex-col relative">
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-4">THE HUB</h4>
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-4">THE HUB</h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 flex-1 pr-2">
               {INVESTORS_DATA.map((section: any) => {
                 const isActive = activeInvestorSection.id === section.id;
@@ -540,9 +541,9 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                     className={`flex items-start gap-2 p-3 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
                   >
                     <div className="flex-1">
-                      <h3 className={`font-bold text-[12px] ${isActive ? "text-[#3C5929]" : "text-white/80"}`}>{section.title}</h3>
+                      <h3 className={`font-bold text-[12px] ${isActive ? "text-[#84CC16]" : "text-white/80"}`}>{section.title}</h3>
                     </div>
-                    {isActive && <div className="text-[#3C5929] mt-0.5"><MiniArrow color="#3C5929" /></div>}
+                    {isActive && <div className="text-[#84CC16] mt-0.5"><MiniArrow color="#84CC16" /></div>}
                   </div>
                 );
               })}
@@ -552,7 +553,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           {/* COLUMN 3: DYNAMIC DETAILS */}
           <div className="flex-1 border-r border-white/5 p-6 bg-black/40 flex flex-col relative">
             <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white/50 mb-4 flex items-center gap-2">
-              <span className="text-[#3C5929]">{activeInvestorSection.title.toUpperCase()}</span>
+              <span className="text-[#84CC16]">{activeInvestorSection.title.toUpperCase()}</span>
             </h4>
             
             <p className="text-[14px] text-white/70 leading-relaxed mb-8 max-w-[400px]">
@@ -568,7 +569,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                   className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
                   onClick={() => { setHoveredNav(null); if (onNavigate) onNavigate(link.url); }}
                 >
-                  <div className="w-[24px] h-[24px] shrink-0 text-white/20 group-hover:text-[#3C5929] transition-colors flex items-center justify-center">
+                  <div className="w-[24px] h-[24px] shrink-0 text-white/20 group-hover:text-[#84CC16] transition-colors flex items-center justify-center">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                       <polyline points="14 2 14 8 20 8"></polyline>
@@ -579,7 +580,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                   </div>
                   <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{link.text}</span>
                   <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
-                    <MiniArrow color="#3C5929" />
+                    <MiniArrow color="#84CC16" />
                   </div>
                 </div>
               ))}
@@ -590,7 +591,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
               onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate('home'); }}
               className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
             >
-              View All →
+              View All â†’
             </a>
           </div>
 
@@ -607,12 +608,12 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
         }`}
       >
         <div className="flex flex-col p-4 max-h-[500px] overflow-y-auto custom-scrollbar">
-          <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#3C5929] mb-3 px-2">Newsroom</h4>
+          <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-3 px-2">Newsroom</h4>
           <div className="flex flex-col gap-1">
             {['Press Release', 'Events', 'Awards'].map(item => (
               <a key={item} href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); onNavigate('home'); }} className="group flex items-center justify-between px-2 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-all" style={{ fontFamily: 'Inter, sans-serif' }}>
                 <span>{item}</span>
-                <span className="text-[#3C5929] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">→</span>
+                <span className="text-[#84CC16] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">â†’</span>
               </a>
             ))}
           </div>
@@ -644,7 +645,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           
           {/* Capabilities Accordion */}
           <div className="py-4 border-b border-white/10">
-            <h3 className="text-[18px] font-bold text-[#3C5929] uppercase tracking-wider mb-4">Capabilities</h3>
+            <h3 className="text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mb-4">Capabilities</h3>
             <div className="flex flex-col gap-2 pl-4 border-l border-white/10">
               {CAPABILITIES_DATA.map((domain: any) => (
                 <div key={domain.id} className="flex flex-col">
@@ -653,7 +654,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                     onClick={() => setMobileDomainOpen(mobileDomainOpen === domain.id ? null : domain.id)}
                   >
                     <span className="font-bold text-[15px]">{domain.title}</span>
-                    <span className="text-[#3C5929]">{mobileDomainOpen === domain.id ? "-" : "+"}</span>
+                    <span className="text-[#84CC16]">{mobileDomainOpen === domain.id ? "-" : "+"}</span>
                   </div>
                   {mobileDomainOpen === domain.id && (
                     <div className="flex flex-col gap-2 pl-4 py-2 border-l border-white/10">
@@ -664,7 +665,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                             onClick={() => setMobileSystemOpen(mobileSystemOpen === sys.id ? null : sys.id)}
                           >
                             <span>{sys.title}</span>
-                            <span className="text-white/50 text-xs">{mobileSystemOpen === sys.id ? "▼" : "▶"}</span>
+                            <span className="text-white/50 text-xs">{mobileSystemOpen === sys.id ? "â–¼" : "â–¶"}</span>
                           </div>
                           {mobileSystemOpen === sys.id && (
                             <div className="flex flex-col gap-2 pl-4 py-2">
@@ -672,7 +673,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
                                 <a 
                                   key={prod.id} 
                                   href="#" 
-                                  className="text-[13px] text-[#3C5929] py-1"
+                                  className="text-[13px] text-[#84CC16] py-1"
                                   onClick={(e) => { e.preventDefault(); onNavigate(prod.slug); setMobileOpen(false); }}
                                 >
                                   {prod.title}
@@ -692,7 +693,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Investors</a>
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Newsroom</a>
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">About Us</a>
-          <a href="#" className="py-4 text-[18px] font-bold text-[#3C5929] uppercase tracking-wider mt-4 border border-[#3C5929]/30 text-center rounded-sm bg-[#3C5929]/5">Contact Us</a>
+          <a href="#" className="py-4 text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mt-4 border border-[#84CC16]/30 text-center rounded-sm bg-[#84CC16]/5">Contact Us</a>
 
         </div>
       </div>
@@ -700,7 +701,7 @@ function Nav({ onNavigate }: { onNavigate: (page: string) => void }) {
     </header>
   );
 }
-// ─── HERO ───────────────────────────────────────────────────────────────────
+// â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function Hero() {
   const [playVideo, setPlayVideo] = useState(false);
@@ -877,7 +878,7 @@ function ProductCard({
   );
 }
 
-// ─── PRODUCTS SECTION ───────────────────────────────────────────────────────
+// â”€â”€â”€ PRODUCTS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const PRODUCTS_DATA = [
   {
@@ -979,7 +980,7 @@ function ProductsSection({ onNavigate }: { onNavigate?: (page: 'home' | 'fpv' | 
         </UnderlineLink>
       </div>
 
-      {/* ── Desktop 12-col grid ── */}
+      {/* â”€â”€ Desktop 12-col grid â”€â”€ */}
       <div
         className="hidden lg:grid grid-cols-12 gap-5 w-full"
         style={{ gridTemplateRows: "repeat(3, clamp(220px, 31vw, 598px))" }}
@@ -1008,7 +1009,7 @@ function ProductsSection({ onNavigate }: { onNavigate?: (page: 'home' | 'fpv' | 
         ))}
       </div>
 
-      {/* ── Mobile / tablet stacked grid ── */}
+      {/* â”€â”€ Mobile / tablet stacked grid â”€â”€ */}
       <div className="grid lg:hidden grid-cols-1 sm:grid-cols-2 gap-5 w-full">
         {PRODUCTS_DATA.map((product) => (
           <ProductCard
@@ -1032,7 +1033,7 @@ function ProductsSection({ onNavigate }: { onNavigate?: (page: 'home' | 'fpv' | 
   );
 }
 
-// ─── ARSENAL-1 FEATURE SECTION ──────────────────────────────────────────────
+// â”€â”€â”€ ARSENAL-1 FEATURE SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function Arsenal1Section() {
   return (
@@ -1076,7 +1077,7 @@ function Arsenal1Section() {
   );
 }
 
-// ─── NEWS & INSIGHTS ────────────────────────────────────────────────────────
+// â”€â”€â”€ NEWS & INSIGHTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function NewsSection() {
   return (
@@ -1136,7 +1137,7 @@ function NewsSection() {
   );
 }
 
-// ─── EDITORIAL PANEL ────────────────────────────────────────────────────────
+// â”€â”€â”€ EDITORIAL PANEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function EditorialPanel({
   title,
@@ -1231,7 +1232,7 @@ function EditorialSection() {
         bg="#505544"
         textColor="white"
         dividerColor="white"
-        counter="PT — 01 / 02"
+        counter="PT â€” 01 / 02"
       />
       <EditorialPanel
         title="Innovation"
@@ -1240,13 +1241,13 @@ function EditorialSection() {
         bg="#8e9291"
         textColor="#010101"
         dividerColor="#010101"
-        counter="PT — 02 / 02"
+        counter="PT â€” 02 / 02"
       />
     </section>
   );
 }
 
-// ─── FOOTER ─────────────────────────────────────────────────────────────────
+// â”€â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const FOOTER_COMPANY = ["Mission", "Newsroom", "Leadership", "Gear Store"];
 const FOOTER_WORK = ["Careers", "Early Career", "Veteran Careers", "Open Roles"];
@@ -1328,7 +1329,7 @@ function Footer() {
           className="text-white text-xs uppercase tracking-[0.54px]"
           style={{ fontFamily: INTER, fontWeight: 500 }}
         >
-          Copyright © 2026 Sahana Defence
+          Copyright Â© 2026 Sahana Defence
         </p>
         <div className="flex flex-row flex-wrap gap-x-6 gap-y-2">
           {["Privacy Policy", "Terms of Use", "Modern Anti-Slavery Policy", "Investor Relations"].map(
@@ -1349,7 +1350,7 @@ function Footer() {
   );
 }
 
-// ─── ELECTRONIC WARFARE PAGE ────────────────────────────────────────────────
+// â”€â”€â”€ ELECTRONIC WARFARE PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function ElectronicWarfarePage() {
   const [activePillar, setActivePillar] = useState(0);
 
@@ -1358,7 +1359,7 @@ function ElectronicWarfarePage() {
       title: "Electronic Support (ES)",
       subtitle: "Passive Signal Intelligence & Emitter Tracking",
       desc: "Our electronic support systems continuously monitor the electromagnetic environment to search, intercept, identify, and locate sources of intentional and unintentional radiated electromagnetic energy. By auditing the spectrum in real-time, our passive sensors establish threat profiles, identify radar signatures, and map hostile air defense positions without emitting detectable signals of their own.",
-      metrics: ["360° Passive Emitter Auditing", "Real-Time Signature Deconfliction", "High-Accuracy TDOA Geolocation"]
+      metrics: ["360Â° Passive Emitter Auditing", "Real-Time Signature Deconfliction", "High-Accuracy TDOA Geolocation"]
     },
     {
       title: "Electronic Attack (EA)",
@@ -1562,7 +1563,7 @@ function ElectronicWarfarePage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-mono text-white/80">
                   {pillars[activePillar].metrics.map((metric, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <span className="text-[#2e4321] font-bold">›</span>
+                      <span className="text-[#2e4321] font-bold">â€º</span>
                       <span>{metric}</span>
                     </div>
                   ))}
@@ -1595,7 +1596,7 @@ function ElectronicWarfarePage() {
             <tbody>
               <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                 <td className="p-4 md:p-6 text-white font-medium">Frequency Range</td>
-                <td className="p-4 md:p-6 text-white/80">100 MHz – 40 GHz (HF to Ka-band)</td>
+                <td className="p-4 md:p-6 text-white/80">100 MHz â€“ 40 GHz (HF to Ka-band)</td>
                 <td className="p-4 md:p-6 text-white/60">Full-spectrum coverage, enabling tracking and jamming across all modern tactical threats.</td>
               </tr>
               <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
@@ -1646,7 +1647,7 @@ function ElectronicWarfarePage() {
   );
 }
 
-// ─── RF DETECTOR D360 PAGE ────────────────────────────────────────────────
+// â”€â”€â”€ RF DETECTOR D360 PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function RFDetectorPage() {
   return (
@@ -1783,963 +1784,7 @@ function RFDetectorPage() {
 
 
 
-// ─── 3D DRONE RADAR PAGE ──────────────────────────────────────────────────
-
-function DroneRadarPage() {
-  const [activeTab, setActiveTab] = useState<'hardware' | 'environmental' | 'performance'>('hardware');
-  
-  const containerRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const capabilitiesContainerRef = useRef<HTMLDivElement>(null);
-  const capabilitiesCardsRef = useRef<HTMLDivElement>(null);
-  const appsContainerRef = useRef<HTMLDivElement>(null);
-  const appsScrollRef = useRef<HTMLDivElement>(null);
-
-  // Counter refs
-  const rangeRef = useRef<HTMLSpanElement>(null);
-  const azimuthRef = useRef<HTMLSpanElement>(null);
-  const targetsRef = useRef<HTMLSpanElement>(null);
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      // 1. Hero Section Timeline
-      const tl = gsap.timeline();
-      tl.fromTo(heroRef.current?.querySelectorAll('.hero-anim'), 
-        { y: 50, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: 'power3.out' }
-      );
-      tl.fromTo(statsRef.current?.querySelectorAll('.stat-item'),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power2.out' },
-        "-=0.5"
-      );
-
-      // 2. Parallax Video
-      if (videoRef.current) {
-        gsap.to(videoRef.current, {
-          yPercent: 30,
-          ease: "none",
-          scrollTrigger: {
-            trigger: videoRef.current.parentElement,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-          }
-        });
-      }
-
-      // 3. System Capabilities Pinned Scroll
-      if (capabilitiesContainerRef.current) {
-        ScrollTrigger.create({
-          trigger: capabilitiesContainerRef.current,
-          start: "top top",
-          end: "+=1500",
-          pin: true,
-          anticipatePin: 1
-        });
-
-        const cards = capabilitiesCardsRef.current?.querySelectorAll('.cap-card');
-        if (cards && cards.length > 0) {
-          gsap.fromTo(cards, 
-            { opacity: 0.1, x: 50 },
-            {
-              opacity: 1,
-              x: 0,
-              stagger: 1,
-              scrollTrigger: {
-                trigger: capabilitiesContainerRef.current,
-                start: "top top",
-                end: "+=1500",
-                scrub: 1
-              }
-            }
-          );
-        }
-      }
-
-      // 4. Horizontal Scroll Operational Applications
-      const apps = appsScrollRef.current;
-      if (apps && appsContainerRef.current) {
-        // Calculate total scroll distance
-        const scrollWidth = apps.scrollWidth - window.innerWidth;
-        gsap.to(apps, {
-          x: -scrollWidth,
-          ease: "none",
-          scrollTrigger: {
-            trigger: appsContainerRef.current,
-            start: "top top",
-            end: () => "+=" + scrollWidth,
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1
-          }
-        });
-      }
-    }); // end context
-
-    return () => ctx.revert();
-  }, []);
-
-  // Separate effect for counters since they depend on activeTab
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      const animateCounter = (ref: React.RefObject<HTMLElement | null>, target: number) => {
-        if (!ref.current) return;
-        gsap.fromTo(ref.current, 
-          { innerHTML: 0 }, 
-          { 
-            innerHTML: target, 
-            duration: 2, 
-            snap: { innerHTML: 1 },
-            scrollTrigger: {
-              trigger: ref.current,
-              start: "top 90%",
-              once: true
-            }
-          }
-        );
-      };
-      
-      if (activeTab === 'performance') {
-        animateCounter(rangeRef, 15);
-        animateCounter(azimuthRef, 360);
-        animateCounter(targetsRef, 700);
-      }
-    });
-    return () => ctx.revert();
-  }, [activeTab]);
-
-  return (
-    <div ref={containerRef} className="w-full min-h-screen bg-black text-white selection:bg-[#2e4321] selection:text-white" style={{ fontFamily: INTER }}>
-      {/* 1. HERO SECTION */}
-      <section className="relative w-full h-[90vh] md:h-screen min-h-[700px] flex items-end pb-24 px-9 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img src={droneRadarHeroImg} alt="3D Drone Radar" className="w-full h-full object-cover opacity-80 scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80" />
-        </div>
-        
-        <div ref={heroRef} className="relative z-10 max-w-[1200px] w-full mx-auto flex flex-col gap-6">
-          <span className="hero-anim text-white/70 uppercase tracking-[3px] text-xs font-semibold">Anti-Drone & Ground Detection FMCW RADAR</span>
-          <h1 className="hero-anim text-5xl md:text-7xl font-bold tracking-tight text-white max-w-[800px] leading-[1.1]">
-            3D Drone Detection RADAR.
-          </h1>
-          <p className="hero-anim text-white/70 text-lg md:text-xl max-w-[600px] leading-relaxed">
-            Engineered for multi-drone classification and tracking under extreme environment operations.
-          </p>
-          <div className="hero-anim flex flex-wrap gap-4 mt-4">
-            <button className="bg-white text-black font-semibold uppercase tracking-wider text-xs px-8 py-4 hover:bg-[#2e4321] hover:text-white transition-colors">
-              Request Technical Radar Demo
-            </button>
-            <button className="bg-transparent border border-white/20 text-white font-semibold uppercase tracking-wider text-xs px-8 py-4 hover:bg-white/10 transition-colors">
-              Contact Defense Electronics Division
-            </button>
-          </div>
-        </div>
-
-        {/* Bottom Anchor Stat Bar */}
-        <div ref={statsRef} className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/60 backdrop-blur-md z-10 hidden md:block">
-          <div className="max-w-[1400px] mx-auto px-9 flex items-center justify-between py-5">
-            <div className="stat-item flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">15 km</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Detection Range</span>
-            </div>
-            <div className="stat-item w-px h-8 bg-white/10" />
-            <div className="stat-item flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">360°</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Azimuth Sweep</span>
-            </div>
-            <div className="stat-item w-px h-8 bg-white/10" />
-            <div className="stat-item flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">IP67</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Protection Standard</span>
-            </div>
-            <div className="stat-item w-px h-8 bg-white/10" />
-            <div className="stat-item flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">X-Band</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">FMCW Transceiver</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. CINEMATIC VIDEO SHOWCASE */}
-      <section className="relative w-full py-24 px-9 border-t border-white/10 overflow-hidden bg-[#050505]">
-        <div className="absolute inset-0 bg-radial-[circle_at_center,rgba(46,67,33,0.08)_0%,transparent_70%]" />
-        <div className="max-w-[1400px] mx-auto relative z-10 flex flex-col items-center">
-          <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-12 text-center max-w-[600px]">
-            Continuous 24/7 Airspace Perimeter Surveillance.
-          </h2>
-          <div className="w-full max-w-[1000px] aspect-video relative rounded-sm overflow-hidden p-[1px] bg-gradient-to-b from-white/20 to-transparent">
-            <div className="w-full h-full bg-black relative overflow-hidden flex items-center justify-center">
-              <video 
-                ref={videoRef}
-                src={heroVideo} 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="absolute inset-0 w-full h-[140%] object-cover opacity-60 top-[-20%]"
-              />
-              <div className="absolute inset-0 bg-black/40" />
-              <div className="w-16 h-16 rounded-full border border-white/30 flex items-center justify-center backdrop-blur-md cursor-pointer hover:bg-white hover:text-black transition-all">
-                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                   <path d="M8 5V19L19 12L8 5Z" />
-                 </svg>
-              </div>
-            </div>
-          </div>
-          <p className="mt-8 text-white/50 text-sm max-w-[700px] text-center leading-relaxed font-light">
-            The system delivers consistent, cost-effective surveillance with micro-Doppler target intelligence, tracking swarms and low-RCS threats in severe conditions.
-          </p>
-        </div>
-      </section>
-
-      {/* 3. MISSION OVERVIEW & VALUE PROPOSITION */}
-      <section className="relative w-full py-24 px-9 bg-black border-t border-white/10">
-        <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div className="flex flex-col gap-6">
-            <h2 className="text-3xl md:text-5xl font-medium tracking-tight leading-[1.1]">
-              High Precision Against<br/>Multi-Drone Attacks.
-            </h2>
-            <div className="w-12 h-[2px] bg-[#2e4321] my-2" />
-            <p className="text-white/70 text-lg leading-relaxed font-light">
-              This high-resolution system detects small UAVs by analyzing unique radar signatures created by radio frequency pulses. Advanced algorithms and high-resolution signature sorting logic effectively differentiate structural drone patterns from avian signatures to prevent false alarms.
-            </p>
-            <div className="mt-4 p-5 border-l border-[#2e4321] bg-[#2e4321]/10">
-              <p className="text-white/90 text-sm font-medium">
-                Affordable operational architecture with a low-maintenance requirement for economical strategic implementation.
-              </p>
-            </div>
-          </div>
-          <div className="relative aspect-square w-full max-w-[500px] mx-auto flex items-center justify-center border border-white/10 bg-black">
-             <div className="absolute w-[80%] h-[80%] border border-[#2e4321]/40 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
-             <div className="absolute w-[60%] h-[60%] border border-[#2e4321]/60 rounded-full animate-ping" style={{ animationDuration: '3s', animationDelay: '1s' }} />
-             <div className="absolute w-[40%] h-[40%] border border-[#2e4321]/80 rounded-full" />
-             <div className="absolute w-[2px] h-[50%] bg-[#2e4321] origin-bottom animate-spin" style={{ animationDuration: '4s', animationTimingFunction: 'linear', bottom: '50%' }} />
-             <div className="absolute bottom-4 left-4 text-[#2e4321] text-[10px] uppercase font-mono tracking-widest">
-               [TACTICAL_FOOTPRINT_RADAR_0x1]
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. CORE CAPABILITIES (Pinned Layout) */}
-      <section ref={capabilitiesContainerRef} className="w-full h-screen border-t border-white/10 bg-[#050505] flex items-center overflow-hidden relative">
-        <div className="w-full max-w-[1400px] mx-auto px-9 flex h-[80vh] items-center">
-          {/* Left: Pinned Image */}
-          <div className="flex-1 h-full relative rounded-sm overflow-hidden border border-white/10 hidden md:block">
-            <img src={sensorDomeImg} alt="Radar Sensor" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
-            <div className="absolute bottom-10 left-10">
-              <h2 className="text-4xl font-medium tracking-tight mb-2">System Capabilities</h2>
-              <p className="text-white/60 font-light max-w-[300px]">Advanced FMCW tracking architecture detailed.</p>
-            </div>
-          </div>
-          {/* Right: Scrolling Features */}
-          <div className="flex-1 h-full flex flex-col justify-center px-4 md:px-12 relative" ref={capabilitiesCardsRef}>
-            <div className="absolute top-0 bottom-0 left-6 w-px bg-white/10 hidden md:block" />
-            
-            <div className="cap-card relative md:pl-12 py-8 group">
-              <div className="absolute left-[-5px] top-[40px] w-3 h-3 rounded-full bg-white/20 group-hover:bg-[#2e4321] transition-colors hidden md:block" />
-              <h3 className="text-white text-2xl font-medium mb-3">Sensor Array</h3>
-              <p className="text-white/60 text-base leading-relaxed">Advanced day-and-night X-band FMCW tracking sensor arrays optimized for minimal radar cross-section tracking.</p>
-            </div>
-            
-            <div className="cap-card relative md:pl-12 py-8 group">
-              <div className="absolute left-[-5px] top-[40px] w-3 h-3 rounded-full bg-white/20 group-hover:bg-[#2e4321] transition-colors hidden md:block" />
-              <h3 className="text-white text-2xl font-medium mb-3">AI & Software</h3>
-              <p className="text-white/60 text-base leading-relaxed">Embedded micro-Doppler categorization logic and high-resolution signal filtration algorithms.</p>
-            </div>
-
-            <div className="cap-card relative md:pl-12 py-8 group">
-              <div className="absolute left-[-5px] top-[40px] w-3 h-3 rounded-full bg-white/20 group-hover:bg-[#2e4321] transition-colors hidden md:block" />
-              <h3 className="text-white text-2xl font-medium mb-3">Diagnostics</h3>
-              <p className="text-white/60 text-base leading-relaxed">Automatic targets tracking, classification, and built-in test diagnostic systems (BIT).</p>
-            </div>
-
-            <div className="cap-card relative md:pl-12 py-8 group">
-              <div className="absolute left-[-5px] top-[40px] w-3 h-3 rounded-full bg-white/20 group-hover:bg-[#2e4321] transition-colors hidden md:block" />
-              <h3 className="text-white text-2xl font-medium mb-3">Hardware Footprint</h3>
-              <p className="text-white/60 text-base leading-relaxed">Space-saving cylindrical construction footprint (500mm x 600mm) using specialized low-power operational hardware modules.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. TECHNICAL SPECIFICATIONS (Tabbed Interface with GSAP Counters) */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-black">
-        <div className="max-w-[1000px] mx-auto">
-          <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-8">
-            Technical Specifications
-          </h2>
-          
-          {/* Tabs */}
-          <div className="flex border-b border-white/10 mb-8 overflow-x-auto no-scrollbar">
-            {['hardware', 'environmental', 'performance'].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab as any)}
-                className={`px-6 py-4 text-xs font-semibold uppercase tracking-widest whitespace-nowrap transition-colors border-b-2 ${
-                  activeTab === tab ? 'border-white text-white' : 'border-transparent text-white/40 hover:text-white/80'
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-
-          {/* Tab Content */}
-          <div className="border border-white/10 min-h-[300px]">
-            {activeTab === 'hardware' && (
-              <div className="flex flex-col animate-in fade-in duration-500">
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Technology</div>
-                  <div className="text-white text-right">FMCW (Frequency-Modulated Continuous-Wave)</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm bg-white/5">
-                  <div className="text-white/50 font-medium">Frequency Band</div>
-                  <div className="text-white text-right">X band</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Dimensions</div>
-                  <div className="text-white text-right">500 mm (Diameter) x 600 mm (Height)</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm bg-white/5">
-                  <div className="text-white/50 font-medium">Weight</div>
-                  <div className="text-white text-right">[TBD] kg</div>
-                </div>
-              </div>
-            )}
-            {activeTab === 'performance' && (
-              <div className="flex flex-col animate-in fade-in duration-500">
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Detection Range</div>
-                  <div className="text-white text-right">Up to <span ref={rangeRef} className="text-[#2e4321] font-bold text-lg">0</span> km</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm bg-white/5">
-                  <div className="text-white/50 font-medium">Coverage</div>
-                  <div className="text-white text-right"><span ref={azimuthRef} className="text-[#2e4321] font-bold text-lg">0</span>-degree Azimuth / 60-degree Elevation</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Max Tracked Threats</div>
-                  <div className="text-white text-right"><span ref={targetsRef} className="text-[#2e4321] font-bold text-lg">0</span> simultaneous tracks</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm bg-white/5">
-                  <div className="text-white/50 font-medium">Target Speed Limits</div>
-                  <div className="text-white text-right">[TBD] m/s</div>
-                </div>
-              </div>
-            )}
-            {activeTab === 'environmental' && (
-              <div className="flex flex-col animate-in fade-in duration-500">
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Environmental Rating</div>
-                  <div className="text-white text-right">IP67-rated Enclosure</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm bg-white/5">
-                  <div className="text-white/50 font-medium">Operational Temp</div>
-                  <div className="text-white text-right">[TBD] °C to [TBD] °C</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Voltage/Wattage</div>
-                  <div className="text-white text-right">[TBD] V DC / [TBD] W peak</div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. OPERATIONAL APPLICATIONS (Horizontal Scroll) */}
-      <section ref={appsContainerRef} className="w-full h-screen border-t border-white/10 bg-black overflow-hidden relative">
-        <div className="absolute top-12 left-9 z-20">
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white mb-2 shadow-black drop-shadow-md">
-            Operational Applications
-          </h2>
-          <p className="text-white/60 font-light max-w-[400px]">Swipe to explore deployment frameworks.</p>
-        </div>
-
-        <div ref={appsScrollRef} className="flex h-full w-[300vw]">
-          {/* Panel 1 */}
-          <div className="w-[100vw] h-full relative flex items-center justify-center p-9">
-             <img src={corporateHouse3} alt="Homeland" className="absolute inset-0 w-full h-full object-cover opacity-40" />
-             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80" />
-             <div className="relative z-10 max-w-[600px] text-center">
-               <h3 className="text-4xl font-bold mb-4">Homeland Security</h3>
-               <p className="text-xl text-white/80 font-light">Safe & Smart cities, critical physical infrastructure protection frameworks.</p>
-             </div>
-          </div>
-          {/* Panel 2 */}
-          <div className="w-[100vw] h-full relative flex items-center justify-center p-9">
-             <img src={fieldImg} alt="Military" className="absolute inset-0 w-full h-full object-cover opacity-40" />
-             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80" />
-             <div className="relative z-10 max-w-[600px] text-center">
-               <h3 className="text-4xl font-bold mb-4">Military & Defense</h3>
-               <p className="text-xl text-white/80 font-light">Unregulated military border surveillance operations, forward operating base protection.</p>
-             </div>
-          </div>
-          {/* Panel 3 */}
-          <div className="w-[100vw] h-full relative flex items-center justify-center p-9">
-             <img src={digitalTwinImg} alt="Naval" className="absolute inset-0 w-full h-full object-cover opacity-40" />
-             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80" />
-             <div className="relative z-10 max-w-[600px] text-center">
-               <h3 className="text-4xl font-bold mb-4">Naval & Airborne</h3>
-               <p className="text-xl text-white/80 font-light">Integration into coastal guard stations, ports, and airborne platforms.</p>
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. SYSTEM INTEGRATION (Cross-Sell) */}
-      <section className="relative w-full py-24 px-9 bg-[#030303] border-t border-white/5 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-          <div className="flex-1 max-w-[500px]">
-             <h3 className="text-3xl font-medium tracking-tight mb-4">Seamless C2 Integration.</h3>
-             <p className="text-white/60 leading-relaxed font-light mb-8">
-               Integrates directly into broader counter-UAS platforms and AI-powered OSINT Command & Control (C2) frameworks.
-             </p>
-             <button className="text-xs font-semibold uppercase tracking-wider text-white border-b border-white pb-1 hover:text-[#2e4321] hover:border-[#2e4321] transition-colors">
-               Explore Command & Control
-             </button>
-          </div>
-          <div className="flex-1 w-full max-w-[700px]">
-             <div className="w-full aspect-video rounded-sm overflow-hidden border border-white/10 relative">
-               <img src={c2DashboardUiImg} alt="C2 Dashboard" className="w-full h-full object-cover opacity-80" />
-               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. RESOURCES & SECURE DOWNLOADS */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-black">
-        <div className="max-w-[1400px] mx-auto">
-          <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-12 text-center">
-            Resources & Downloads
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
-            <div className="p-6 border border-white/10 hover:border-white/30 transition-colors flex items-center justify-between group cursor-pointer bg-white/5">
-              <div className="flex flex-col gap-1">
-                <span className="text-white text-sm font-medium">Technical Architecture</span>
-                <span className="text-white/40 text-[11px] uppercase tracking-wider">Whitepaper</span>
-              </div>
-              <div className="text-white/50 group-hover:text-white transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                </svg>
-              </div>
-            </div>
-            
-            <div className="p-6 border border-white/10 hover:border-white/30 transition-colors flex items-center justify-between group cursor-pointer">
-              <div className="flex flex-col gap-1">
-                <span className="text-white text-sm font-medium">Product Brochure</span>
-                <span className="text-white/40 text-[11px] uppercase tracking-wider">PDF Document</span>
-              </div>
-              <div className="text-white/50 group-hover:text-white transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </div>
-            </div>
-
-            <div className="p-6 border border-white/10 hover:border-white/30 transition-colors flex items-center justify-between group cursor-pointer">
-              <div className="flex flex-col gap-1">
-                <span className="text-white text-sm font-medium">Datasheet (TBD)</span>
-                <span className="text-white/40 text-[11px] uppercase tracking-wider">Spec Sheet</span>
-              </div>
-              <div className="text-white/50 group-hover:text-white transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. FINAL CTA & CERTIFICATIONS */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-radial-[circle_at_center,rgba(46,67,33,0.1)_0%,transparent_75%] relative text-center">
-        <div className="max-w-[700px] mx-auto flex flex-col gap-6 items-center">
-          <h2 className="text-3xl md:text-5xl tracking-tight text-center text-white font-medium">
-            Secure Your Airspace Perimeter.
-          </h2>
-          <p className="text-white/60 text-sm md:text-base leading-relaxed text-center font-light mb-4">
-            Connect directly with the Defense Electronics Division to discuss procurement and integration of the 3D Drone Detection Radar.
-          </p>
-          <a
-            href="#"
-            className="inline-flex items-center gap-3 bg-white text-black text-xs font-semibold uppercase tracking-wider py-4 px-8 rounded-sm hover:bg-[#2e4321] hover:text-white transition-all duration-300"
-          >
-            Contact Division
-          </a>
-          
-          <div className="mt-12 flex items-center justify-center gap-8 border-t border-white/10 pt-12 w-full">
-            <div className="flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition-opacity">
-               <div className="w-12 h-12 rounded-full border border-white flex items-center justify-center font-bold text-xs tracking-widest">
-                 IP67
-               </div>
-               <span className="text-[10px] uppercase tracking-widest text-white/70">Certified Enclosure</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 opacity-30">
-               <div className="w-12 h-12 rounded-full border border-white flex items-center justify-center font-bold text-xs tracking-widest text-center leading-[1]">
-                 MIL<br/>STD
-               </div>
-               <span className="text-[10px] uppercase tracking-widest text-white/70">810G (Pending)</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 opacity-30">
-               <div className="w-12 h-12 rounded-full border border-white flex items-center justify-center font-bold text-xs tracking-widest">
-                 ISO
-               </div>
-               <span className="text-[10px] uppercase tracking-widest text-white/70">Quality Framework</span>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-// ─── SURVEILLANCE RADAR PAGE ──────────────────────────────────────────────
-
-function SurveillanceRadarPage() {
-  const [activeTab, setActiveTab] = useState<'hardware' | 'environmental' | 'performance'>('hardware');
-  const [activeApp, setActiveApp] = useState<'system' | 'deployment' | 'mission'>('system');
-  
-  return (
-    <div className="w-full min-h-screen bg-black text-white selection:bg-[#2e4321] selection:text-white" style={{ fontFamily: INTER }}>
-      {/* 1. HERO SECTION */}
-      <section className="relative w-full h-[90vh] md:h-screen min-h-[700px] flex items-end pb-24 px-9">
-        <div className="absolute inset-0 z-0">
-          <img src={surveillanceRadarHeroImg} alt="Surveillance Radar" className="w-full h-full object-cover opacity-80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80" />
-        </div>
-        
-        <div className="relative z-10 max-w-[1200px] w-full mx-auto flex flex-col gap-6">
-          <span className="text-white/70 uppercase tracking-[3px] text-xs font-semibold">Ground Surveillance RADAR (GSR) / Ku-Band FMCW</span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white max-w-[800px] leading-[1.1]">
-            Infinity Ground Surveillance Radar.
-          </h1>
-          <p className="text-white/70 text-lg md:text-xl max-w-[600px] leading-relaxed">
-            Dynamic 360° Predictive Threat Tracking. Dominating Adverse Visibility Up to 30 Kilometers.
-          </p>
-          <div className="flex flex-wrap gap-4 mt-4">
-            <button className="bg-white text-black font-semibold uppercase tracking-wider text-xs px-8 py-4 hover:bg-[#2e4321] hover:text-white transition-colors">
-              Request Technical Engineering Briefing
-            </button>
-            <button className="bg-transparent border border-white/20 text-white font-semibold uppercase tracking-wider text-xs px-8 py-4 hover:bg-white/10 transition-colors">
-              Contact Radar Sales
-            </button>
-          </div>
-        </div>
-
-        {/* Bottom Anchor Stat Bar */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/60 backdrop-blur-md z-10 hidden md:block">
-          <div className="max-w-[1400px] mx-auto px-9 flex items-center justify-between py-5">
-            <div className="flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">30 km</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Max Tracking Envelope</span>
-            </div>
-            <div className="w-px h-8 bg-white/10" />
-            <div className="flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">700</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Concurrent Target Capacity</span>
-            </div>
-            <div className="w-px h-8 bg-white/10" />
-            <div className="flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">IP67</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Protection Grade</span>
-            </div>
-            <div className="w-px h-8 bg-white/10" />
-            <div className="flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">-35°C to +65°C</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Operation Span</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. CINEMATIC VIDEO SHOWCASE */}
-      <section className="relative w-full py-24 border-t border-white/10 overflow-hidden bg-black">
-        <div className="max-w-[1400px] mx-auto px-9 flex flex-col mb-12">
-          <h2 className="text-2xl md:text-3xl font-medium tracking-tight">
-            Unmatched Situational Awareness in Zero-Visibility.
-          </h2>
-        </div>
-        <div className="w-full aspect-video md:aspect-[21/9] relative overflow-hidden bg-black">
-           <video 
-              src={heroVideo} 
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover opacity-70"
-           />
-           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-           
-           <div className="absolute bottom-12 left-9 right-9 max-w-[1400px] mx-auto">
-             <div className="p-6 border-l-2 border-white bg-black/40 backdrop-blur-md max-w-[600px]">
-               <p className="text-white/90 text-sm md:text-base leading-relaxed font-light">
-                 Maintains complete tracking capabilities through extreme fog, dust storms, downpours, or pitch-black operational conditions.
-               </p>
-             </div>
-           </div>
-        </div>
-      </section>
-
-      {/* 3. MISSION OVERVIEW & VALUE PROPOSITION */}
-      <section className="relative w-full py-24 px-9 bg-[#050505] border-t border-white/10">
-        <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div className="flex flex-col gap-6">
-            <h2 className="text-3xl md:text-5xl font-medium tracking-tight leading-[1.1]">
-              Predictive Intelligence for Perimeter Intrusion.
-            </h2>
-            <div className="w-12 h-[2px] bg-white/20 my-2" />
-            <p className="text-white/70 text-lg leading-relaxed font-light">
-              The integration of Ground Surveillance Radar (GSR) into perimeter intrusion systems provides unmatched performance enhancements. GSRs excel in adverse visibility conditions, offering precise target detection and tracking over several kilometers with a 360° field-of-view (FOV).
-            </p>
-            <div className="mt-4 p-5 border-l border-[#2e4321] bg-[#2e4321]/10">
-              <p className="text-white/90 text-sm font-medium">
-                Using adaptive thresholds, GSRs identify, track, and predict object paths, raising alarms for breaches into designated areas.
-              </p>
-            </div>
-          </div>
-          <div className="relative w-full aspect-square md:aspect-[4/3] rounded-sm overflow-hidden border border-white/10 bg-black/50 p-2">
-             <div className="w-full h-full rounded-sm overflow-hidden relative">
-               <img src={surveillanceBlueprintImg} alt="Scanning Geometry" className="w-full h-full object-cover opacity-90 mix-blend-screen" />
-               <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. CORE CAPABILITIES (3-Column Grid) */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-black">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Card 1 */}
-            <div className="p-8 border border-white/10 bg-[#030303] hover:border-white/30 transition-colors group">
-              <div className="w-12 h-12 rounded-full border border-white/20 mb-6 flex items-center justify-center group-hover:border-white/50 transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-              </div>
-              <h3 className="text-white text-xl font-medium mb-4 group-hover:text-white/90 transition-colors">Predictive Target Vectoring</h3>
-              <p className="text-white/60 text-sm leading-relaxed font-light">
-                Rather than basic line-crossing triggers, the integrated logic identifies, tracks, and actively predicts target vectors across the grid.
-              </p>
-            </div>
-            {/* Card 2 */}
-            <div className="p-8 border border-white/10 bg-[#030303] hover:border-white/30 transition-colors group">
-              <div className="w-12 h-12 rounded-full border border-white/20 mb-6 flex items-center justify-center group-hover:border-white/50 transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <h3 className="text-white text-xl font-medium mb-4 group-hover:text-white/90 transition-colors">Robust Core Enclosure</h3>
-              <p className="text-white/60 text-sm leading-relaxed font-light">
-                Combines a massive -35°C to +65°C thermal tolerance with an IP67 rating to survive severe tactical environments.
-              </p>
-            </div>
-            {/* Card 3 */}
-            <div className="p-8 border border-white/10 bg-[#030303] hover:border-white/30 transition-colors group">
-              <div className="w-12 h-12 rounded-full border border-white/20 mb-6 flex items-center justify-center group-hover:border-white/50 transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-              </div>
-              <h3 className="text-white text-xl font-medium mb-4 group-hover:text-white/90 transition-colors">Simultaneous Tracking</h3>
-              <p className="text-white/60 text-sm leading-relaxed font-light">
-                Scales effectively across threat environments, managing up to 700 concurrent targets depending on the module selection.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. CONFIGURABLE SYSTEM RANGE TIERS */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-[#050505] overflow-hidden relative">
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] aspect-square bg-[#2e4321]/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="max-w-[1400px] mx-auto relative z-10">
-          <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-4 text-center">
-            Configurable System Range Tiers
-          </h2>
-          <p className="text-white/50 text-center max-w-[600px] mx-auto mb-16 font-light">
-            Modular variants designed to align precisely with your tactical layout and procurement budget.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Tier 1 */}
-            <div className="p-10 border border-white/10 bg-black hover:border-white/20 transition-all flex flex-col gap-6 relative group overflow-hidden">
-               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:via-white/60 transition-all" />
-               <div className="flex flex-col gap-1">
-                 <span className="text-white text-2xl font-medium tracking-tight">VSR Tier</span>
-                 <span className="text-white/50 text-xs uppercase tracking-widest font-semibold">Very Short Range Radar</span>
-               </div>
-               <p className="text-white/70 text-sm font-light">Optimized for localized perimeter loops and close-quarters security networks.</p>
-               <div className="flex flex-col gap-3 mt-4 pt-6 border-t border-white/10">
-                 <div className="flex items-center justify-between">
-                   <span className="text-white/50 text-xs">Range Envelope</span>
-                   <span className="text-white font-medium text-sm">1.5 km</span>
-                 </div>
-                 <div className="flex items-center justify-between">
-                   <span className="text-white/50 text-xs">Tracking Capacity</span>
-                   <span className="text-white font-medium text-sm">100 Targets</span>
-                 </div>
-               </div>
-            </div>
-
-            {/* Tier 2 */}
-            <div className="p-10 border border-[#2e4321]/40 bg-[#2e4321]/5 hover:bg-[#2e4321]/10 transition-all flex flex-col gap-6 relative group overflow-hidden">
-               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#2e4321] to-transparent group-hover:via-[#2e4321]/80 transition-all" />
-               <div className="flex flex-col gap-1">
-                 <span className="text-white text-2xl font-medium tracking-tight">SR Tier</span>
-                 <span className="text-[#2e4321] text-xs uppercase tracking-widest font-semibold">Short Range Radar</span>
-               </div>
-               <p className="text-white/70 text-sm font-light">Mid-tier baseline security setup for expansive commercial or military footprints.</p>
-               <div className="flex flex-col gap-3 mt-4 pt-6 border-t border-white/10">
-                 <div className="flex items-center justify-between">
-                   <span className="text-white/50 text-xs">Range Envelope</span>
-                   <span className="text-white font-medium text-sm">11 km</span>
-                 </div>
-                 <div className="flex items-center justify-between">
-                   <span className="text-white/50 text-xs">Tracking Capacity</span>
-                   <span className="text-white font-medium text-sm">300 Targets</span>
-                 </div>
-               </div>
-            </div>
-
-            {/* Tier 3 */}
-            <div className="p-10 border border-white/10 bg-black hover:border-white/20 transition-all flex flex-col gap-6 relative group overflow-hidden">
-               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:via-white/60 transition-all" />
-               <div className="flex flex-col gap-1">
-                 <span className="text-white text-2xl font-medium tracking-tight">MR Tier</span>
-                 <span className="text-white/50 text-xs uppercase tracking-widest font-semibold">Medium Range Radar</span>
-               </div>
-               <p className="text-white/70 text-sm font-light">Advanced deep-field early warning grid for critical national infrastructure.</p>
-               <div className="flex flex-col gap-3 mt-4 pt-6 border-t border-white/10">
-                 <div className="flex items-center justify-between">
-                   <span className="text-white/50 text-xs">Range Envelope</span>
-                   <span className="text-white font-medium text-sm">30 km</span>
-                 </div>
-                 <div className="flex items-center justify-between">
-                   <span className="text-white/50 text-xs">Tracking Capacity</span>
-                   <span className="text-white font-medium text-sm">700 Targets</span>
-                 </div>
-               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. TECHNICAL SPECIFICATIONS (Tabbed Interface) */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-black">
-        <div className="max-w-[1000px] mx-auto">
-          <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-8">
-            Hardware Parameters
-          </h2>
-          
-          <div className="flex border-b border-white/10 mb-8 overflow-x-auto no-scrollbar">
-            {['hardware', 'environmental', 'performance'].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab as any)}
-                className={`px-6 py-4 text-xs font-semibold uppercase tracking-widest whitespace-nowrap transition-colors border-b-2 ${
-                  activeTab === tab ? 'border-white text-white' : 'border-transparent text-white/40 hover:text-white/80'
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-
-          <div className="border border-white/10">
-            {activeTab === 'hardware' && (
-              <div className="flex flex-col">
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Radar System Technology</div>
-                  <div className="text-white text-right">FMCW (Frequency-Modulated Continuous-Wave)</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm bg-white/5">
-                  <div className="text-white/50 font-medium">Radar Frequency Spectrum Band</div>
-                  <div className="text-white text-right">Ku-band</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Structural Dimensions</div>
-                  <div className="text-white text-right">[TBD] mm x [TBD] mm x [TBD] mm</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm bg-white/5">
-                  <div className="text-white/50 font-medium">Operational System Weight</div>
-                  <div className="text-white text-right">[TBD] kg</div>
-                </div>
-              </div>
-            )}
-            {activeTab === 'performance' && (
-              <div className="flex flex-col">
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Azimuth Scanning Coverage</div>
-                  <div className="text-white text-right">360° Field-of-View (FOV) sweep</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm bg-white/5">
-                  <div className="text-white/50 font-medium">Elevation Coverage Angles</div>
-                  <div className="text-white text-right">[TBD] degrees</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Max Tracked Targets</div>
-                  <div className="text-white text-right">Up to 700 (MR Tier)</div>
-                </div>
-              </div>
-            )}
-            {activeTab === 'environmental' && (
-              <div className="flex flex-col">
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Operating Temperature Window</div>
-                  <div className="text-white text-right">-35°C to +65°C</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm bg-white/5">
-                  <div className="text-white/50 font-medium">Environmental Protection Rating</div>
-                  <div className="text-white text-right">IP67-rated protection standard</div>
-                </div>
-                <div className="grid grid-cols-2 p-5 border-b border-white/10 text-sm">
-                  <div className="text-white/50 font-medium">Power Requirements</div>
-                  <div className="text-white text-right">[TBD] V DC / [TBD] W peak</div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. INTEGRATION & OPERATIONAL APPLICATIONS */}
-      <section className="relative w-full py-24 px-9 border-t border-white/10 bg-[#050505]">
-        <div className="max-w-[1400px] mx-auto flex flex-col">
-          <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-12 text-center">
-            Integration & Operational Profiles
-          </h2>
-          
-          <div className="flex flex-col md:flex-row gap-12">
-            <div className="flex flex-col gap-2 min-w-[300px]">
-              <button 
-                onClick={() => setActiveApp('system')}
-                className={`text-left p-6 border-l-2 transition-all duration-300 ${activeApp === 'system' ? 'border-white bg-white/10' : 'border-transparent hover:bg-white/5'}`}
-              >
-                <h3 className={`text-lg font-semibold ${activeApp === 'system' ? 'text-white' : 'text-white/50'}`}>System Integration</h3>
-              </button>
-              <button 
-                onClick={() => setActiveApp('deployment')}
-                className={`text-left p-6 border-l-2 transition-all duration-300 ${activeApp === 'deployment' ? 'border-white bg-white/10' : 'border-transparent hover:bg-white/5'}`}
-              >
-                <h3 className={`text-lg font-semibold ${activeApp === 'deployment' ? 'text-white' : 'text-white/50'}`}>Deployment Platforms</h3>
-              </button>
-              <button 
-                onClick={() => setActiveApp('mission')}
-                className={`text-left p-6 border-l-2 transition-all duration-300 ${activeApp === 'mission' ? 'border-white bg-white/10' : 'border-transparent hover:bg-white/5'}`}
-              >
-                <h3 className={`text-lg font-semibold ${activeApp === 'mission' ? 'text-white' : 'text-white/50'}`}>Mission Profiles</h3>
-              </button>
-            </div>
-            
-            <div className="flex-1 p-8 md:p-12 border border-white/10 bg-black min-h-[300px] flex items-center">
-               {activeApp === 'system' && (
-                 <p className="text-white/80 text-lg leading-relaxed font-light animate-in fade-in slide-in-from-right-4 duration-500">
-                   Designed for seamless pairing with electro-optical video systems to facilitate visual identification and real-time assessments. Integrates flawlessly into existing C2 infrastructures.
-                 </p>
-               )}
-               {activeApp === 'deployment' && (
-                 <p className="text-white/80 text-lg leading-relaxed font-light animate-in fade-in slide-in-from-right-4 duration-500">
-                   Fully compatible with stationary security masts, permanent tower arrays, and mobile surveillance vehicle configurations for rapid deployment in tactical environments.
-                 </p>
-               )}
-               {activeApp === 'mission' && (
-                 <p className="text-white/80 text-lg leading-relaxed font-light animate-in fade-in slide-in-from-right-4 duration-500">
-                   Optimized for national border security enhancement, critical infrastructure facility protection, maritime coastal line defense monitoring, and wildlife conservation tracking.
-                 </p>
-               )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. RESOURCES & SECURE DOWNLOADS */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-black">
-        <div className="max-w-[1400px] mx-auto">
-          <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-12 text-center">
-            Resources & Downloads
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-[800px] mx-auto">
-            <div className="p-6 border border-white/10 hover:border-[#2e4321]/50 transition-colors flex items-center justify-between group cursor-pointer bg-white/5">
-              <div className="flex flex-col gap-1">
-                <span className="text-white text-sm font-medium">Case Study Logs</span>
-                <span className="text-white/40 text-[11px] uppercase tracking-wider">Locked Asset (Requires Name/Email)</span>
-              </div>
-              <div className="text-white/50 group-hover:text-white transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                </svg>
-              </div>
-            </div>
-            
-            <div className="p-6 border border-white/10 hover:border-white/30 transition-colors flex items-center justify-between group cursor-pointer">
-              <div className="flex flex-col gap-1">
-                <span className="text-white text-sm font-medium">Brochures / Datasheets</span>
-                <span className="text-white/40 text-[11px] uppercase tracking-wider">Unlocked PDF Document</span>
-              </div>
-              <div className="text-white/50 group-hover:text-white transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. FINAL CTA & CERTIFICATIONS */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-black relative text-center overflow-hidden">
-        <div className="absolute inset-0 bg-radial-[circle_at_bottom,rgba(46,67,33,0.15)_0%,transparent_60%]" />
-        <div className="max-w-[700px] mx-auto flex flex-col gap-6 items-center relative z-10">
-          <h2 className="text-3xl md:text-5xl tracking-tight text-center text-white font-medium">
-            Secure Your Perimeter Against Covert Infiltrations.
-          </h2>
-          <a
-            href="#"
-            className="mt-6 inline-flex items-center gap-3 bg-white text-black text-xs font-semibold uppercase tracking-wider py-4 px-12 rounded-sm hover:bg-[#2e4321] hover:text-white transition-all duration-300"
-          >
-            Secure Contact Form
-          </a>
-          
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-10 border-t border-white/10 pt-12 w-full">
-            <div className="flex flex-col items-center gap-3">
-               <div className="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm tracking-widest text-white shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-                 IP67
-               </div>
-               <span className="text-[10px] uppercase tracking-widest text-white/80 font-medium">Waterproof & Dustproof</span>
-            </div>
-            <div className="flex flex-col items-center gap-3 opacity-30">
-               <div className="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm tracking-widest text-center leading-[1]">
-                 MIL<br/>STD
-               </div>
-               <span className="text-[10px] uppercase tracking-widest text-white/80 font-medium">810G (Pending)</span>
-            </div>
-            <div className="flex flex-col items-center gap-3 opacity-30">
-               <div className="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm tracking-widest">
-                 ISO
-               </div>
-               <span className="text-[10px] uppercase tracking-widest text-white/80 font-medium">Quality Frameworks</span>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-
-
-// ─── HANDHELD JAMMER PAGE ──────────────────────────────────────────────
+// â”€â”€â”€ HANDHELD JAMMER PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function HandheldJammerPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -2872,7 +1917,7 @@ function HandheldJammerPage() {
         <div ref={statsRef} className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/60 backdrop-blur-md z-10 hidden md:block">
           <div className="max-w-[1400px] mx-auto px-9 flex items-center justify-between py-5">
             <div className="stat-item flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">1,500 – 2,000 m</span>
+              <span className="text-white text-lg font-bold">1,500 â€“ 2,000 m</span>
               <span className="text-white/50 text-[11px] uppercase tracking-wider">Tactical Radius</span>
             </div>
             <div className="stat-item w-px h-8 bg-white/10" />
@@ -3160,7 +2205,7 @@ function HandheldJammerPage() {
 
 
 
-// ─── INFINITY RHINO PAGE ──────────────────────────────────────────────────
+// â”€â”€â”€ INFINITY RHINO PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function InfinityRhinoPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -3502,7 +2547,7 @@ function InfinityRhinoPage() {
             Built for Harsh Environments.
           </h2>
           <p className="mt-8 text-white/80 text-xl max-w-[700px] font-light leading-relaxed drop-shadow-md">
-            Compact, rugged, and lightweight. The Infinity Rhino ensures reliable performance across diverse tactical biomes—from suffocating jungles to arid deserts.
+            Compact, rugged, and lightweight. The Infinity Rhino ensures reliable performance across diverse tactical biomesâ€”from suffocating jungles to arid deserts.
           </p>
         </div>
       </section>
@@ -3629,9 +2674,9 @@ function InfinityRhinoPage() {
 
 
 
-// ─── HOME 2 PAGE (LUXURY CORPORATE AESTHETIC) ──────────────────────────────
+// â”€â”€â”€ HOME 2 PAGE (LUXURY CORPORATE AESTHETIC) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-// ─── APP ─────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ APP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'fpv' | 'ew' | 'rfDetector' | 'droneRadar' | 'surveillanceRadar' | 'handheldJammer' | 'infinityRhino' | 'home2' | 'guardian'>('home');

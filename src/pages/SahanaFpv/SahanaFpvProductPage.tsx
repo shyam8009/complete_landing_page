@@ -178,7 +178,7 @@ export function SahanaFpvProductPage() {
               <div>
                 <h4 className="font-bold text-lg mb-2">Interference-Resistant "Proxy" Channel</h4>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Employs a proprietary secure communications architecture for secure operations, alongside on-demand video across multiple GHz bands (1.2–3.5 GHz) to bypass active electronic jamming.
+                  Employs a proprietary secure communications architecture for secure operations, alongside on-demand video across multiple GHz bands (1.2â€“3.5 GHz) to bypass active electronic jamming.
                 </p>
               </div>
             </div>
@@ -360,7 +360,7 @@ export function SahanaFpvProductPage() {
                     <>
                       <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                         <td className="py-6 px-6 md:px-8 text-white/60 font-medium w-1/3">Cruising Speed</td>
-                        <td className="py-6 px-6 md:px-8 text-white font-mono">60–80 kmph (BUDDY-10, 13) / 140–160 kmph (BUDDY-15)</td>
+                        <td className="py-6 px-6 md:px-8 text-white font-mono">60â€“80 kmph (BUDDY-10, 13) / 140â€“160 kmph (BUDDY-15)</td>
                       </tr>
                       <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                         <td className="py-6 px-6 md:px-8 text-white/60 font-medium">Communication Channel</td>
@@ -368,7 +368,7 @@ export function SahanaFpvProductPage() {
                       </tr>
                       <tr className="hover:bg-white/5 transition-colors">
                         <td className="py-6 px-6 md:px-8 text-white/60 font-medium">Video Transmission</td>
-                        <td className="py-6 px-6 md:px-8 text-white font-mono">1.2, 1.5, 1.8, 2, 3–3.5 GHz</td>
+                        <td className="py-6 px-6 md:px-8 text-white font-mono">1.2, 1.5, 1.8, 2, 3â€“3.5 GHz</td>
                       </tr>
                     </>
                   )}

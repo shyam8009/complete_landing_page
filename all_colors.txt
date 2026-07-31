@@ -1,0 +1,103 @@
+# Complete Project Color Codes
+
+Below is the exhaustive list of all unique color codes extracted from the source code (CSS and TSX files) in the Complete Landing Page Design project:
+
+## Hex Colors
+#010101
+#05080d
+#2c411f
+#2e4321
+#3c562b
+#f1f0ea
+#505544
+#8e9291
+#0b0c0d
+#111213
+#fff
+#050505
+#030303
+#0a0a0a
+#030508
+#030406
+#ccc
+#6c6e6b
+#dff140
+#ffffff
+#030213
+#ececf0
+#717182
+#e9ebef
+#d4183d
+#f3f3f5
+#cbced4
+
+## RGBA Colors
+rgba(1,1,1,0)
+rgba(1,1,1,0.004)
+rgba(1,1,1,0.008)
+rgba(1,1,1,0.02)
+rgba(1,1,1,0.043)
+rgba(1,1,1,0.075)
+rgba(1,1,1,0.125)
+rgba(1,1,1,0.192)
+rgba(1,1,1,0.28)
+rgba(1,1,1,0.38)
+rgba(1,1,1,0.54)
+rgba(1,1,1,0.737)
+rgba(1, 1, 1, 0.984)
+rgba(1, 1, 1, 0.945)
+rgba(1, 1, 1, 0.886)
+rgba(1, 1, 1, 0.816)
+rgba(1, 1, 1, 0.733)
+rgba(1, 1, 1, 0.64)
+rgba(1, 1, 1, 0.443)
+rgba(1, 1, 1, 0.345)
+rgba(1, 1, 1, 0.255)
+rgba(1, 1, 1, 0.173)
+rgba(1, 1, 1, 0.1)
+rgba(1, 1, 1, 0.047)
+rgba(1, 1, 1, 0.01)
+rgba(0,229,255,0.15)
+rgba(0,229,255,0.1)
+rgba(0,229,255,0.3)
+rgba(0,229,255,0.2)
+rgba(0,229,255,0.03)
+rgba(0,229,255,0.06)
+rgba(255,255,255,0.05)
+rgba(255,255,255,0.02)
+rgba(255,255,255,0.2)
+rgba(255,255,255,0.1)
+rgba(255,255,255,0)
+rgba(46,67,33,0.4)
+rgba(46,67,33,0.6)
+rgba(46,67,33,0.15)
+rgba(46,67,33,0.1)
+rgba(46,67,33,0.08)
+rgba(5,5,5,1)
+rgba(0,0,0,0.8)
+rgba(0,0,0,0.5)
+rgba(0, 0, 0, 0.1)
+rgb(1,1,1)
+
+## OKLCH (Theme Colors)
+oklch(0.145 0 0)
+oklch(1 0 0)
+oklch(0.95 0.0058 264.53)
+oklch(0.708 0 0)
+oklch(0.646 0.222 41.116)
+oklch(0.6 0.118 184.704)
+oklch(0.398 0.07 227.392)
+oklch(0.828 0.189 84.429)
+oklch(0.769 0.188 70.08)
+oklch(0.985 0 0)
+oklch(0.97 0 0)
+oklch(0.205 0 0)
+oklch(0.922 0 0)
+oklch(0.269 0 0)
+oklch(0.396 0.141 25.723)
+oklch(0.637 0.237 25.331)
+oklch(0.439 0 0)
+oklch(0.488 0.243 264.376)
+oklch(0.696 0.17 162.48)
+oklch(0.627 0.265 303.9)
+oklch(0.645 0.246 16.439)

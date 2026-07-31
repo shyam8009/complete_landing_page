@@ -50,7 +50,7 @@ function Container3() {
 
 function FigureEf05Ea9Db7468F4Bee528C991157537E8B8Df57E872X878Png() {
   return (
-    <div className="aspect-[597.5/597.5] relative rounded-[2px] shrink-0 w-full" data-name="Figure → ef05ea9db7468f4bee528c991157537e8b8df57e-872x878.png">
+    <div className="aspect-[597.5/597.5] relative rounded-[2px] shrink-0 w-full" data-name="Figure â†’ ef05ea9db7468f4bee528c991157537e8b8df57e-872x878.png">
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[2px]">
         <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgFigureEf05Ea9Db7468F4Bee528C991157537E8B8Df57E872X878Png} />
       </div>
@@ -138,7 +138,7 @@ function LinkGhost() {
 
 function FigureTest() {
   return (
-    <div className="aspect-[597.5/597.5] relative rounded-[2px] shrink-0 w-full" data-name="Figure → test">
+    <div className="aspect-[597.5/597.5] relative rounded-[2px] shrink-0 w-full" data-name="Figure â†’ test">
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[2px]">
         <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgFigureTest} />
       </div>
@@ -226,7 +226,7 @@ function LinkBarracuda() {
 
 function FigureC79Ccecf787D455420Edb440Cbc7Bf6A114Cc680882X878Png() {
   return (
-    <div className="aspect-[597.5/597.5] relative rounded-[2px] shrink-0 w-full" data-name="Figure → c79ccecf787d455420edb440cbc7bf6a114cc680-882x878.png">
+    <div className="aspect-[597.5/597.5] relative rounded-[2px] shrink-0 w-full" data-name="Figure â†’ c79ccecf787d455420edb440cbc7bf6a114cc680-882x878.png">
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[2px]">
         <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgFigureC79Ccecf787D455420Edb440Cbc7Bf6A114Cc680882X878Png} />
       </div>
@@ -314,7 +314,7 @@ function LinkLattice() {
 
 function Figure955E14Dfee80E6022B1744580B6996Cd435C6153976X1952Jpg() {
   return (
-    <div className="aspect-[597.5/1227.6300048828125] relative rounded-[2px] shrink-0 w-full" data-name="Figure → 955e14dfee80e6022b1744580b6996cd435c6153-976x1952.jpg">
+    <div className="aspect-[597.5/1227.6300048828125] relative rounded-[2px] shrink-0 w-full" data-name="Figure â†’ 955e14dfee80e6022b1744580b6996cd435c6153-976x1952.jpg">
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[2px]">
         <img alt="" className="absolute h-full left-[-1.37%] max-w-none top-0 w-[102.73%]" src={imgFigure955E14Dfee80E6022B1744580B6996Cd435C6153976X1952Jpg} />
       </div>
@@ -372,7 +372,7 @@ function LinkRoadrunner() {
 
 function Figure35C91Ba3A0603C99720933D52Bad4C73F9Fdca5F3000X1500Jpg() {
   return (
-    <div className="aspect-[1215.25/607.6300048828125] relative rounded-[2px] shrink-0 w-full" data-name="Figure → 35c91ba3a0603c99720933d52bad4c73f9fdca5f-3000x1500.jpg">
+    <div className="aspect-[1215.25/607.6300048828125] relative rounded-[2px] shrink-0 w-full" data-name="Figure â†’ 35c91ba3a0603c99720933d52bad4c73f9fdca5f-3000x1500.jpg">
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[2px]">
         <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgFigure35C91Ba3A0603C99720933D52Bad4C73F9Fdca5F3000X1500Jpg} />
       </div>
@@ -430,7 +430,7 @@ function LinkFury() {
 
 function Figure16113E3A588Bd30E5C67Bf2Ee6D7A0847845Fb283000X3000Jpg() {
   return (
-    <div className="aspect-[597.5/597.5] relative rounded-[2px] shrink-0 w-full" data-name="Figure → 16113e3a588bd30e5c67bf2ee6d7a0847845fb28-3000x3000.jpg">
+    <div className="aspect-[597.5/597.5] relative rounded-[2px] shrink-0 w-full" data-name="Figure â†’ 16113e3a588bd30e5c67bf2ee6d7a0847845fb28-3000x3000.jpg">
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[2px]">
         <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgFigure16113E3A588Bd30E5C67Bf2Ee6D7A0847845Fb283000X3000Jpg} />
       </div>
@@ -488,7 +488,7 @@ function LinkMenace() {
 
 function FigureA005Eecc853D709De52769704C0A6Cc1083Ac7C41131X630Png() {
   return (
-    <div className="aspect-[597.5/597.5] relative rounded-[2px] shrink-0 w-full" data-name="Figure → a005eecc853d709de52769704c0a6cc1083ac7c4-1131x630.png">
+    <div className="aspect-[597.5/597.5] relative rounded-[2px] shrink-0 w-full" data-name="Figure â†’ a005eecc853d709de52769704c0a6cc1083ac7c4-1131x630.png">
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[2px]">
         <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgFigureA005Eecc853D709De52769704C0A6Cc1083Ac7C41131X630Png} />
       </div>
@@ -1058,7 +1058,7 @@ function Heading17() {
   return (
     <div className="absolute bottom-[-35.99px] h-[75.59px] right-[36px] w-[368.42px]" data-name="Heading 5">
       <div className="-translate-y-1/2 [word-break:break-word] absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] left-0 not-italic text-[65px] text-white top-[37px] tracking-[-1.44px] whitespace-nowrap">
-        <p className="leading-[75.6px]">PT — 01 / 02</p>
+        <p className="leading-[75.6px]">PT â€” 01 / 02</p>
       </div>
     </div>
   );
@@ -1179,7 +1179,7 @@ function Heading19() {
   return (
     <div className="absolute bottom-[-35.99px] h-[75.59px] right-[36px] w-[382.53px]" data-name="Heading 5">
       <div className="-translate-y-1/2 [word-break:break-word] absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] left-0 not-italic text-[#010101] text-[65.8px] top-[37px] tracking-[-1.44px] whitespace-nowrap">
-        <p className="leading-[75.6px]">PT — 02 / 02</p>
+        <p className="leading-[75.6px]">PT â€” 02 / 02</p>
       </div>
     </div>
   );
@@ -1673,7 +1673,7 @@ function Margin12() {
   return (
     <div className="content-stretch flex flex-col items-start pb-[13.5px] relative shrink-0" data-name="Margin">
       <div className="[word-break:break-word] flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[12.7px] text-white tracking-[0.54px] uppercase whitespace-nowrap">
-        <p className="leading-[14.18px]">Copyright © 2026 Anduril Industries</p>
+        <p className="leading-[14.18px]">Copyright Â© 2026 Anduril Industries</p>
       </div>
     </div>
   );

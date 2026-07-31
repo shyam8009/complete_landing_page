@@ -68,7 +68,7 @@ export function GuardianExperiencePage() {
         {/* Bottom Anchor Stat Bar */}
         <div className="absolute bottom-0 left-0 w-full bg-black/50 backdrop-blur-lg border-t border-white/10 p-4 md:p-6 z-10">
           <div className="max-w-[1400px] mx-auto flex flex-wrap justify-between items-center gap-6 text-sm md:text-base">
-            <div className="flex items-center gap-3"><Radio className="w-5 h-5 text-[#3C5929]"/> <span className="font-semibold tracking-wide">2–3 km</span> <span className="text-white/50">Drone Detection</span></div>
+            <div className="flex items-center gap-3"><Radio className="w-5 h-5 text-[#3C5929]"/> <span className="font-semibold tracking-wide">2â€“3 km</span> <span className="text-white/50">Drone Detection</span></div>
             <div className="flex items-center gap-3"><Activity className="w-5 h-5 text-[#3C5929]"/> <span className="font-semibold tracking-wide">35m</span> <span className="text-white/50">Live Human Tracking</span></div>
             <div className="flex items-center gap-3"><Zap className="w-5 h-5 text-[#3C5929]"/> <span className="font-semibold tracking-wide">100m</span> <span className="text-white/50">Vehicle Sweep</span></div>
             <div className="flex items-center gap-3"><Wind className="w-5 h-5 text-[#3C5929]"/> <span className="font-semibold tracking-wide">70km</span> <span className="text-white/50">Storm ID</span></div>
@@ -149,7 +149,7 @@ export function GuardianExperiencePage() {
               <div>
                 <h3 className="text-3xl font-bold mb-4">Precision Gunfire & Drones</h3>
                 <p className="text-white/60 text-lg leading-relaxed max-w-xl">
-                  Intercepts incoming gunfire and tracks tactical drones within a 2 to 3 kilometers (2–3 km) operational envelope, displaying exact threat orientation via arrow indicators and calculated distance metrics.
+                  Intercepts incoming gunfire and tracks tactical drones within a 2 to 3 kilometers (2â€“3 km) operational envelope, displaying exact threat orientation via arrow indicators and calculated distance metrics.
                 </p>
               </div>
             </div>
@@ -258,7 +258,7 @@ export function GuardianExperiencePage() {
              {activeSpecTab === 1 && (
                <table className="w-full text-left border-collapse">
                  <tbody>
-                   <tr className="border-b border-white/5 hover:bg-white/5"><td className="py-4 px-6 font-medium text-white/70 w-1/3">Drone Tracking</td><td className="py-4 px-6 text-white/90">2 to 3 kilometers (2–3 km) operational envelope</td></tr>
+                   <tr className="border-b border-white/5 hover:bg-white/5"><td className="py-4 px-6 font-medium text-white/70 w-1/3">Drone Tracking</td><td className="py-4 px-6 text-white/90">2 to 3 kilometers (2â€“3 km) operational envelope</td></tr>
                    <tr className="border-b border-white/5 hover:bg-white/5"><td className="py-4 px-6 font-medium text-white/70">Live Human Tracking</td><td className="py-4 px-6 text-white/90">Up to 35 meters</td></tr>
                    <tr className="border-b border-white/5 hover:bg-white/5"><td className="py-4 px-6 font-medium text-white/70">General Motion Sweep</td><td className="py-4 px-6 text-white/90">Up to 15 meters</td></tr>
                    <tr className="border-b border-white/5 hover:bg-white/5"><td className="py-4 px-6 font-medium text-white/70">Weather Tracking</td><td className="py-4 px-6 text-white/90">Storm identification up to 70 kilometers (70 km)</td></tr>

@@ -64,9 +64,9 @@ export const CAPABILITIES_DATA = [
         products: [
           { id: "fpv-buddy", title: "Sahana FPV Drone Buddy", image: flightImg, slug: "fpv" },
           { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "fpv" },
-          { id: "varuna", title: "Sahana Varuna — Underwater Drone", image: fieldImg, slug: "home" },
-          { id: "proxy", title: "Sahana PROXY — Control Channel", image: sensorDomeImg, slug: "home" },
-          { id: "heaven-sdr", title: "Heaven SDR — Surveillance Drone", image: haleDroneImg, slug: "home" },
+          { id: "varuna", title: "Sahana Varuna â€” Underwater Drone", image: fieldImg, slug: "home" },
+          { id: "proxy", title: "Sahana PROXY â€” Control Channel", image: sensorDomeImg, slug: "home" },
+          { id: "heaven-sdr", title: "Heaven SDR â€” Surveillance Drone", image: haleDroneImg, slug: "home" },
         ]
       },
       {
@@ -79,7 +79,7 @@ export const CAPABILITIES_DATA = [
           </svg>
         ),
         spotlightImage: droneRadarHeroImg,
-        stats: ["360° Coverage", "AI Threat Analysis", "Multi-Target Tracking", "All-Weather Operability"],
+        stats: ["360Â° Coverage", "AI Threat Analysis", "Multi-Target Tracking", "All-Weather Operability"],
         applications: ["Airspace Monitoring", "Border Surveillance", "Naval Defence", "Asset Protection"],
         products: [
           { id: "3d-drone-radar", title: "3D Drone Radar", image: droneRadarHeroImg, slug: "droneRadar" },
@@ -388,7 +388,7 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
                   <p className="text-[12px] text-white/50 leading-snug mb-3">{domain.description}</p>
                   <div className="flex items-center gap-3 text-[10px] font-bold tracking-wider uppercase">
                     <span className="text-[#3C5929]">{domain.systems.length} SYSTEMS</span>
-                    <span className="text-white/40">•</span>
+                    <span className="text-white/40">â€¢</span>
                     <span className="text-white/40">{domain.systems.reduce((acc, sys) => acc + sys.products.length, 0)} PRODUCTS</span>
                   </div>
                 </div>
