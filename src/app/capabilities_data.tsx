@@ -62,11 +62,10 @@ export const CAPABILITIES_DATA = [
         stats: ["Real-time Detection", "Tracking & Classification", "Interception", "Counter Swarm"],
         applications: ["Border Security", "Military Bases", "Critical Infrastructure", "VIP Protection", "Counter-UAS Operations"],
         products: [
-          { id: "fpv-buddy", title: "Sahana FPV Drone Buddy", image: flightImg, slug: "/sahana-fpv" },
+          { id: "fpv-buddy", title: "FPV Drone Buddy", image: flightImg, slug: "/sahana-fpv" },
           { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "/sahana-fpv" },
-          { id: "varuna", title: "Sahana Varuna â€” Underwater Drone", image: fieldImg, slug: "/" },
-          { id: "proxy", title: "Sahana PROXY â€” Control Channel", image: sensorDomeImg, slug: "/" },
-          { id: "heaven-sdr", title: "Heaven SDR â€” Surveillance Drone", image: haleDroneImg, slug: "/" },
+          { id: "varuna", title: "Varuna — Underwater Drone", image: fieldImg, slug: "/" },
+          { id: "proxy", title: "PROXY — Control Channel", image: sensorDomeImg, slug: "/" }
         ]
       },
       {
