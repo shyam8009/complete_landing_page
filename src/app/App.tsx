@@ -33,6 +33,7 @@ import infinityRhinoImg from "@/imports/infinity_rhino.jpg";
 import infinityRadarImg from "@/imports/infinity_radar.jpg";
 import arsenalFacilityImg from "@/imports/arsenal_facility.jpg";
 import haleDroneImg from "@/imports/hale_drone.jpg";
+import varunaHullImg from "@/imports/varuna/magnific_a-photorealistic-underwat_3G7XWY1REY.png";
 import digitalTwinImg from "@/imports/digital_twin.jpg";
 import newsCelImg from "@/imports/news_cel_agreement.png";
 import corporateHouse1 from "@/imports/corporate_house_1.jpg";
@@ -923,13 +924,13 @@ const PRODUCTS_DATA = [
     target: '/rf-detector',
   },
   {
-    image: haleDroneImg,
-    name: "HALE Drones",
-    subtitle: "High-Altitude Long-Endurance.",
-    description: "They are unique assets providing long-term observation and strike capabilities.",
+    image: varunaHullImg,
+    name: "Varuna — Underwater Drone",
+    subtitle: "Sub-Surface Agility & Clarity.",
+    description: "A state-of-the-art underwater drone designed for professionals and enthusiasts requiring robust endurance beneath the surface.",
     desktopGridClass: "[grid-column:5/span_8] [grid-row:2]",
-    showArrow: false,
-    target: '/',
+    showArrow: true,
+    target: '/varuna',
   },
   {
     image: infinityRhinoImg,
