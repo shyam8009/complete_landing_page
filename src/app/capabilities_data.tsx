@@ -65,7 +65,7 @@ export const CAPABILITIES_DATA = [
           { id: "fpv-buddy", title: "FPV Drone Buddy", image: flightImg, slug: "/fpv-buddy" },
           { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "/sahana-fpv" },
           { id: "varuna", title: "Varuna — Underwater Drone", image: fieldImg, slug: "/varuna" },
-          { id: "proxy", title: "PROXY — Control Channel", image: sensorDomeImg, slug: "/" }
+          { id: "proxy", title: "PROXY — Control Channel", image: sensorDomeImg, slug: "/proxy" }
         ]
       },
       {
