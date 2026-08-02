@@ -102,7 +102,7 @@ export const CAPABILITIES_DATA = [
         products: [
           { id: "spear", title: "Handheld Jammer (Infinity Spear)", image: infinitySpearImg, slug: "/infinity-spear" },
           { id: "rhino", title: "Anti Drone System (Infinity Rhino)", image: infinityRhinoImg, slug: "/infinity-rhino" },
-          { id: "butterfly", title: "Butterfly ADG L70", image: heroImg, slug: "/" },
+          { id: "butterfly", title: "Butterfly ADG L70", image: heroImg, slug: "/butterfly-adg" },
           { id: "z23", title: "Rhino Gen Z23", image: heroImg, slug: "/" },
           { id: "rhino-black", title: "Infinity Rhino Black", image: infinityRhinoImg, slug: "/" },
         ]
