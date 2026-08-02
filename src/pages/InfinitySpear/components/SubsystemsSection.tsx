@@ -57,11 +57,11 @@ export function SubsystemsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-black relative">
+    <section ref={sectionRef} className="py-24 bg-white relative">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-black uppercase tracking-tight">
             HARDWARE SPECIFICATIONS
           </h2>
         </div>
