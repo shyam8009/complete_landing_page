@@ -2724,7 +2724,7 @@ export default function App() {
             </>
           } />
           <Route path="/guardian-experience" element={<GuardianExperiencePage />} />
-          <Route path="/fpv-drone" element={<SahanaFpvProductPage />} />
+          <Route path="/sahana-fpv" element={<SahanaFpvProductPage />} />
           <Route path="/electronic-warfare" element={<ElectronicWarfarePage />} />
           <Route path="/rf-detector" element={<RFDetectorPage />} />
           <Route path="/drone-radar" element={<DroneRadarPage />} />

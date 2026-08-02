@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import cinematicVideo from '../../../assets/Drone 2.mp4';
+import fpvHeroBg from '../../../imports/Hero banner Video.mp4';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
@@ -14,7 +14,7 @@ export function HeroSection() {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-80"
-        src={cinematicVideo}
+        src={fpvHeroBg}
       />
       
       {/* Background Graphic Elements overlaying the video */}
@@ -25,47 +25,39 @@ export function HeroSection() {
           
           {/* Left Text Content */}
           <div className="flex flex-col items-start fade-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3C5929]/20 border border-[#3C5929]/40 mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#3C5929] animate-pulse" />
-              <span className="text-[#3C5929] text-xs font-bold uppercase tracking-wider font-mono">Drone Systems</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#84CC16]/10 border border-[#84CC16]/20 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
+              <span className="text-[#84CC16] text-xs font-bold uppercase tracking-wider font-mono">DRONE SYSTEMS</span>
             </div>
             
             <h1 
               className="text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
               style={{ fontFamily: INTER }}
             >
-              SAHANA FPV <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">DRONE BUDDY</span>
+              SAHANA FPV BULLSEYE & <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">INTERCEPTOR</span>
             </h1>
             
             <p className="text-xl text-white/60 mb-10 max-w-lg leading-relaxed">
-              Tactical precision and real-time aerial surveillance. Engineered for high-speed oversight in challenging, interference-heavy environments.
+              High-speed tactical precision and rapid aerial threat neutralization.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <button className="group relative flex items-center justify-center gap-2 bg-[#3C5929] text-black px-8 py-4 rounded font-bold uppercase tracking-wide hover:bg-white transition-colors">
-                Request Specs
+              <button className="group relative flex items-center justify-center gap-2 bg-[#84CC16] text-black px-8 py-4 rounded font-bold uppercase tracking-wide hover:bg-[#a3e635] transition-colors">
+                Request Consultation
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
             {/* Quick Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-16 p-6 border border-white/10 rounded-xl backdrop-blur-md bg-black/40 w-full sm:w-fit shadow-2xl">
+            <div className="grid grid-cols-2 gap-8 mt-16 p-6 border border-white/10 rounded-xl backdrop-blur-md bg-black/40 w-full sm:w-fit shadow-2xl">
               <div>
-                <div className="text-2xl font-bold text-white mb-1">12 kg</div>
-                <div className="text-xs text-white/50 font-mono uppercase">Max Payload</div>
+                <div className="text-3xl font-bold text-white mb-1">400 kmph</div>
+                <div className="text-sm text-white/50 font-mono uppercase">Max Interception Speed</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white mb-1">180 km/h</div>
-                <div className="text-xs text-white/50 font-mono uppercase">Max Speed</div>
-              </div>
-              <div className="hidden md:block">
-                <div className="text-2xl font-bold text-white mb-1">40 km</div>
-                <div className="text-xs text-white/50 font-mono uppercase">Flight Range</div>
-              </div>
-              <div className="hidden md:block">
-                <div className="text-2xl font-bold text-white mb-1">Proxy</div>
-                <div className="text-xs text-white/50 font-mono uppercase">Comm Channel</div>
+                <div className="text-3xl font-bold text-white mb-1">10 km</div>
+                <div className="text-sm text-white/50 font-mono uppercase">Tactical Flight Range</div>
               </div>
             </div>
           </div>

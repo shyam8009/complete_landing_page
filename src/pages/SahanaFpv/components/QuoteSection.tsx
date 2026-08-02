@@ -1,40 +1,30 @@
 import React from 'react';
+import { ChevronRight } from 'lucide-react';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 export function QuoteSection() {
   return (
-    <section className="py-32 bg-[#020202] relative overflow-hidden border-t border-white/5">
-      {/* Background radial gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(60,89,41,0.1),transparent_50%)]" />
-
-      <div className="max-w-5xl mx-auto px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
-        <div className="text-[#3C5929] font-mono text-sm uppercase tracking-widest mb-10">
-          // PROCUREMENT & DEPLOYMENT
-        </div>
-        
+    <section className="py-32 bg-black border-t border-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(132,204,22,0.05),transparent_50%)]" />
+      
+      <div className="max-w-4xl mx-auto px-4 lg:px-6 relative z-10 text-center">
         <h2 
-          className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight leading-[1.2]"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 uppercase leading-tight tracking-tight"
           style={{ fontFamily: INTER }}
         >
-          &ldquo;EQUIP YOUR TACTICAL UNITS WITH AGILE, HIGH-SPEED AERIAL SURVEILLANCE. <span className="relative inline-block">
-            <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-[#3C5929]">DEPLOY THE FPV DRONE BUDDY</span>
-            <span className="absolute bottom-1 left-0 w-full h-[2px] bg-[#3C5929]/50" />
-          </span> WHEN THE MISSION DEMANDS IT.&rdquo;
+          "Absolute airspace dominance requires unmatched speed."
         </h2>
         
-        <div className="mt-12 flex flex-col sm:flex-row items-center gap-6">
-          <button className="bg-[#3C5929] text-black px-8 py-4 font-bold text-sm tracking-wider uppercase hover:bg-white transition-colors">
-            Contact Defense Sales
+        <div className="flex flex-col items-center gap-6">
+          <button className="group relative flex items-center justify-center gap-2 bg-[#84CC16] text-black px-10 py-5 rounded font-bold uppercase tracking-wide hover:bg-[#a3e635] transition-all duration-300 hover:shadow-[0_0_30px_rgba(132,204,22,0.3)]">
+            CONTACT INTERCEPTION SALES
+            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="border border-white/20 hover:border-white hover:bg-white hover:text-black text-white px-8 py-4 font-bold text-sm tracking-wider uppercase transition-all">
-            Technical Specs
+          
+          <button className="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-widest font-mono hover:underline underline-offset-4">
+            Request a Technical Briefing
           </button>
-        </div>
-
-        <div className="mt-12 inline-flex items-center gap-2 px-4 py-2 border border-[#3C5929]/30 bg-[#3C5929]/10 rounded-full">
-          <span className="w-2 h-2 rounded-full bg-[#3C5929] animate-pulse" />
-          <span className="text-white/70 font-mono text-xs tracking-widest uppercase">MIL-STD Compliant Architecture</span>
         </div>
       </div>
     </section>
