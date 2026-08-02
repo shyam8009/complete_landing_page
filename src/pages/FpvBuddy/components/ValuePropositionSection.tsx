@@ -1,24 +1,23 @@
 import React, { useEffect, useRef } from 'react';
-import { Target, Activity, Zap } from 'lucide-react';
+import { Target, Zap, Shield } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import fpvRenderImg from '../../../imports/FPV.png';
+import fpvModelImg from '../../../imports/fpv-buddy/magnific_a-photorealistic-highend-_LUF5SN9swO.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function ValuePropositionSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const leftContentRef = useRef<HTMLDivElement>(null);
-  const rightContentRef = useRef<HTMLDivElement>(null);
-
+  
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(leftContentRef.current,
-        { x: -50, opacity: 0 },
+      gsap.fromTo('.fade-in-right',
+        { x: 50, opacity: 0 },
         {
           x: 0,
           opacity: 1,
           duration: 1,
+          stagger: 0.2,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -26,17 +25,18 @@ export function ValuePropositionSection() {
           }
         }
       );
-
-      gsap.fromTo(rightContentRef.current,
-        { x: 50, opacity: 0 },
+      
+      gsap.fromTo('.hud-element',
+        { scale: 0.8, opacity: 0 },
         {
-          x: 0,
+          scale: 1,
           opacity: 1,
-          duration: 1,
-          ease: 'power3.out',
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'back.out(1.2)',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 60%',
+            start: 'top 50%',
           }
         }
       );
@@ -46,75 +46,70 @@ export function ValuePropositionSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-black relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-[#020202] relative overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
-          {/* Left Content */}
-          <div ref={leftContentRef} className="flex flex-col">
-            <div className="inline-flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#84CC16]" />
-              <span className="text-[#84CC16] font-mono text-sm tracking-widest uppercase font-bold">
+          {/* Left Text Content */}
+          <div className="flex flex-col">
+            <div className="fade-in-right inline-flex items-center gap-2 mb-6">
+              <span className="text-[#84CC16] text-sm font-bold tracking-[3px] uppercase">
                 CORE CAPABILITIES
               </span>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8 leading-[1.1] uppercase">
-              Kinetic Neutralization & <br />
-              <span className="text-white/50">Electronic Resilience</span>
+            <h2 className="fade-in-right text-4xl lg:text-5xl font-bold text-white mb-8 uppercase tracking-tight">
+              Tactical Precision & Resilience
             </h2>
             
-            <div className="space-y-6 text-white/60 text-lg leading-relaxed max-w-xl">
+            <div className="fade-in-right space-y-6 text-white/60 text-lg leading-relaxed max-w-xl">
               <p>
-                The FPV Drone Buddy is an advanced tactical companion engineered for rapid reconnaissance, situational awareness, and precision support.
-              </p>
-              <p>
-                Designed to operate reliably in contested electronic warfare environments, it provides real-time situational awareness while resisting active anti-drone jamming through its hardened communication architecture.
+                Built across three frame sizes, the Drone Buddy features a lightweight, durable frame that ensures resilience in challenging environments. It is positioned as an essential tool for reconnaissance, training, and field operations, delivering high-speed aerial oversight in interference-heavy environments.
               </p>
             </div>
           </div>
 
-          {/* Right Content */}
-          <div ref={rightContentRef} className="relative">
-            {/* Glowing backdrop */}
-            <div className="absolute inset-0 bg-[#84CC16]/5 blur-[100px] rounded-full pointer-events-none" />
+          {/* Right Image Content */}
+          <div className="relative h-[600px] flex items-center justify-center">
+            {/* Ambient Glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(132,204,22,0.15)_0%,transparent_70%)] pointer-events-none" />
             
-            <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 bg-[#050505] group">
-              <img 
-                src={fpvRenderImg} 
-                alt="FPV Interceptor Chassis" 
-                className="w-full h-full object-contain p-8 mix-blend-lighten opacity-90 transition-transform duration-700 group-hover:scale-105"
-              />
-
-              {/* HUD Stat 1 */}
-              <div className="absolute top-10 right-10 flex items-center gap-3 px-4 py-2 bg-black/60 backdrop-blur-md rounded border border-white/10 shadow-2xl">
-                <Target className="w-5 h-5 text-[#84CC16]" />
-                <div className="flex flex-col">
-                  <span className="text-white font-bold text-sm">Proxy</span>
-                  <span className="text-white/50 text-[10px] font-mono uppercase">Anti-Jamming Link</span>
-                </div>
-              </div>
-
-              {/* HUD Stat 2 */}
-              <div className="absolute bottom-20 left-10 flex items-center gap-3 px-4 py-2 bg-black/60 backdrop-blur-md rounded border border-white/10 shadow-2xl">
-                <Activity className="w-5 h-5 text-[#84CC16]" />
-                <div className="flex flex-col">
-                  <span className="text-white font-bold text-sm">3 kg</span>
-                  <span className="text-white/50 text-[10px] font-mono uppercase">Payload Capacity</span>
-                </div>
-              </div>
-
-              {/* HUD Stat 3 */}
-              <div className="absolute bottom-10 right-10 flex items-center gap-3 px-4 py-2 bg-black/60 backdrop-blur-md rounded border border-white/10 shadow-2xl">
-                <Zap className="w-5 h-5 text-[#84CC16]" />
-                <div className="flex flex-col">
-                  <span className="text-white font-bold text-sm">Thermal</span>
-                  <span className="text-white/50 text-[10px] font-mono uppercase">Optional Optics</span>
+            {/* Central Render */}
+            <img 
+              src={fpvModelImg} 
+              alt="FPV Drone Buddy" 
+              className="relative z-10 w-full max-w-[600px] object-contain drop-shadow-[0_0_50px_rgba(132,204,22,0.1)] hover:scale-105 transition-transform duration-700"
+            />
+            
+            {/* HUD Callouts */}
+            <div className="hud-element absolute top-[15%] left-[5%] bg-black/40 backdrop-blur-md border border-white/10 p-4 rounded-md z-20 shadow-2xl">
+              <div className="flex items-center gap-3">
+                <Target className="text-[#84CC16] w-5 h-5" />
+                <div>
+                  <div className="text-white font-bold text-sm">Up to 12 kg Payload Capacity</div>
                 </div>
               </div>
             </div>
-          </div>
 
+            <div className="hud-element absolute bottom-[25%] left-0 bg-black/40 backdrop-blur-md border border-white/10 p-4 rounded-md z-20 shadow-2xl">
+              <div className="flex items-center gap-3">
+                <Zap className="text-[#84CC16] w-5 h-5" />
+                <div>
+                  <div className="text-white font-bold text-sm">Interference-Resistant 'Proxy' Channel</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="hud-element absolute top-[40%] right-[5%] bg-black/40 backdrop-blur-md border border-white/10 p-4 rounded-md z-20 shadow-2xl">
+              <div className="flex items-center gap-3">
+                <Shield className="text-[#84CC16] w-5 h-5" />
+                <div>
+                  <div className="text-white font-bold text-sm">Fiber Optics Pool Integration</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>

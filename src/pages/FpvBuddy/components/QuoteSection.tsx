@@ -9,20 +9,16 @@ export function QuoteSection() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(132,204,22,0.05),transparent_50%)]" />
       
       <div className="max-w-4xl mx-auto px-4 lg:px-6 relative z-10 text-center">
-        <h2 
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 uppercase leading-tight tracking-tight"
-          style={{ fontFamily: INTER }}
-        >
-          "Absolute airspace dominance requires unmatched speed."
+        <h2 className="quote-text text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 leading-tight tracking-tight uppercase" style={{ fontFamily: INTER }}>
+          "Absolute airspace dominance demands uncompromising precision and speed."
         </h2>
         
-        <div className="flex flex-col items-center gap-6">
-          <button className="group relative flex items-center justify-center gap-2 bg-[#84CC16] text-black px-10 py-5 rounded font-bold uppercase tracking-wide hover:bg-[#a3e635] transition-all duration-300 hover:shadow-[0_0_30px_rgba(132,204,22,0.3)]">
-            CONTACT INTERCEPTION SALES
-            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        <div className="quote-text flex flex-col items-center gap-6">
+          <button className="px-8 py-4 bg-[#84CC16] hover:bg-[#95e01a] text-black font-bold uppercase tracking-wider text-sm transition-all duration-300 rounded-sm">
+            CONTACT DRONE SYSTEMS SALES
           </button>
           
-          <button className="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-widest font-mono hover:underline underline-offset-4">
+          <button className="text-white/40 hover:text-white transition-colors text-sm underline underline-offset-4 decoration-white/20 hover:decoration-white uppercase tracking-wider font-bold">
             Request a Technical Briefing
           </button>
         </div>

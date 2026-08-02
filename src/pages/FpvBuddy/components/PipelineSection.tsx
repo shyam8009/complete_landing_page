@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Target, Rocket, Crosshair, Shield } from 'lucide-react';
+import { Target, Eye, Wind, Shield } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -7,28 +7,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PIPELINE_STEPS = [
   {
-    id: '01',
-    title: 'DETECT',
-    description: 'Identify hostile unmanned aerial systems (UAS) via ground radar integration or manual recon.',
+    id: "01",
+    title: "DEPLOY",
     icon: Target,
+    description: "Highly scalable platform available across three distinct frame sizes (10\", 13\", and 15\")."
   },
   {
-    id: '02',
-    title: 'DEPLOY',
-    description: 'Rapid launch sequence, instantly reaching 200–250 kmph cruising speeds for immediate response.',
-    icon: Rocket,
+    id: "02",
+    title: "RECON",
+    icon: Eye,
+    description: "Enables real-time aerial surveillance via a high-definition FPV system with optional thermal imaging."
   },
   {
-    id: '03',
-    title: 'INTERCEPT',
-    description: 'Kinetic aerial neutralization utilizing an outstanding 400 kmph maximum velocity envelope.',
-    icon: Crosshair,
+    id: "03",
+    title: "MANEUVER",
+    icon: Wind,
+    description: "Achieve high-speed tactical maneuvering with the BUDDY-15 variant reaching a cruising speed of 140–160 kmph."
   },
   {
-    id: '04',
-    title: 'SECURE',
-    description: 'Maintain absolute electronic dominance in contested airspace with anti-jamming communication.',
+    id: "04",
+    title: "SECURE",
     icon: Shield,
+    description: "Employs an interference-resistant 'Proxy' communication channel for secure operations."
   }
 ];
 

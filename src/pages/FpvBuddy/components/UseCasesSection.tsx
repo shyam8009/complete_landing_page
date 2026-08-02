@@ -1,24 +1,27 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import counterUasImg from '../../../imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg';
-import reconImg from '../../../imports/magnific_professional-outdoor-prod_brmNd7p5Y2.png';
-import perimeterImg from '../../../imports/magnific_professional-outdoor-prod_SObWxSiUb8.png';
+import reconImg from '../../../imports/fpv-buddy/magnific_a-photorealistic-outdoor-_9RlwAebNYZ.png';
+import fieldImg from '../../../imports/fpv-buddy/magnific_a-photorealistic-outdoor-_9RlwYyWNYZ.png';
+import aerialImg from '../../../imports/fpv-buddy/magnific_a-photorealistic-outdoor-_VdZzrJ4MMU.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const USE_CASES = [
   {
-    title: 'Counter-UAS Interception.',
-    image: counterUasImg,
-  },
-  {
-    title: 'Tactical Reconnaissance.',
+    id: "01",
+    title: "Tactical Reconnaissance",
     image: reconImg,
   },
   {
-    title: 'Perimeter Threat Neutralization.',
-    image: perimeterImg,
+    id: "02",
+    title: "Field Operations & Training",
+    image: fieldImg,
+  },
+  {
+    id: "03",
+    title: "Real-Time Aerial Surveillance",
+    image: aerialImg,
   }
 ];
 
@@ -34,7 +37,7 @@ export function UseCasesSection() {
           y: 0,
           opacity: 1,
           duration: 0.8,
-          stagger: 0.2,
+          stagger: 0.15,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -60,22 +63,33 @@ export function UseCasesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {USE_CASES.map((useCase, index) => (
             <div 
-              key={index} 
+              key={useCase.id} 
               ref={el => cardsRef.current[index] = el}
-              className="relative aspect-[3/4] md:aspect-auto md:h-[600px] overflow-hidden group cursor-pointer"
+              className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10"
             >
+              {/* Background Image */}
               <img 
                 src={useCase.image} 
                 alt={useCase.title} 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
-              <div className="absolute inset-0 bg-[#84CC16]/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="absolute bottom-0 left-0 p-8 w-full">
-                <h3 className="text-2xl font-bold text-white uppercase leading-tight group-hover:text-[#84CC16] transition-colors">
-                  {useCase.title}
-                </h3>
+              {/* Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
+              
+              {/* Neon Green Tint Hover Overlay */}
+              <div className="absolute inset-0 bg-[#84CC16]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
+              
+              {/* Content */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="transform group-hover:-translate-y-2 transition-transform duration-500">
+                  <span className="text-[#84CC16] font-mono text-sm tracking-widest font-bold mb-2 block">
+                    {useCase.id}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white uppercase leading-tight">
+                    {useCase.title}
+                  </h3>
+                </div>
               </div>
             </div>
           ))}
