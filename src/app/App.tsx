@@ -5,6 +5,7 @@ import { SahanaFpvProductPage } from '../pages/SahanaFpv/SahanaFpvProductPage';
 import { FpvBuddyPage } from '../pages/FpvBuddy/FpvBuddyPage';
 import { VarunaPage } from '../pages/Varuna/VarunaPage';
 import { ProxyPage } from '../pages/Proxy/ProxyPage';
+import { InfinitySpearPage } from '../pages/InfinitySpear/InfinitySpearPage';
 import { DroneRadarPage } from '../pages/DroneRadar/DroneRadarPage';
 import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
@@ -2732,6 +2733,7 @@ export default function App() {
           <Route path="/fpv-buddy" element={<FpvBuddyPage />} />
           <Route path="/varuna" element={<VarunaPage />} />
           <Route path="/proxy" element={<ProxyPage />} />
+          <Route path="/infinity-spear" element={<InfinitySpearPage />} />
           <Route path="/electronic-warfare" element={<ElectronicWarfarePage />} />
           <Route path="/rf-detector" element={<RFDetectorPage />} />
           <Route path="/drone-radar" element={<DroneRadarPage />} />
