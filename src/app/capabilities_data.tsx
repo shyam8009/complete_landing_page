@@ -108,7 +108,7 @@ export const CAPABILITIES_DATA = [
           { id: "rhino", title: "Anti Drone System (Infinity Rhino)", image: rhinoSpecificImg, slug: "/infinity-rhino" },
           { id: "butterfly", title: "Butterfly ADG L70", image: butterflySpecificImg, slug: "/butterfly-adg" },
           { id: "z23", title: "Rhino Gen Z23", image: rhinoZ23SpecificImg, slug: "/rhino-gen-z23" },
-          { id: "rhino-black", title: "Infinity Rhino Black", image: rhinoSpecificImg, slug: "/" },
+          { id: "rhino-black", title: "Infinity Rhino Black", image: rhinoSpecificImg, slug: "/infinity-rhino-black" },
         ]
       },
       {
