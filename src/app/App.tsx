@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GuardianExperiencePage } from '../pages/GuardianExperience/GuardianExperiencePage';
 import { SahanaFpvProductPage } from '../pages/SahanaFpv/SahanaFpvProductPage';
+import { FpvBuddyPage } from '../pages/FpvBuddy/FpvBuddyPage';
 import { DroneRadarPage } from '../pages/DroneRadar/DroneRadarPage';
 import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
@@ -2725,6 +2726,7 @@ export default function App() {
           } />
           <Route path="/guardian-experience" element={<GuardianExperiencePage />} />
           <Route path="/sahana-fpv" element={<SahanaFpvProductPage />} />
+          <Route path="/fpv-buddy" element={<FpvBuddyPage />} />
           <Route path="/electronic-warfare" element={<ElectronicWarfarePage />} />
           <Route path="/rf-detector" element={<RFDetectorPage />} />
           <Route path="/drone-radar" element={<DroneRadarPage />} />
