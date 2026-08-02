@@ -8,6 +8,7 @@ import { ProxyPage } from '../pages/Proxy/ProxyPage';
 import { InfinitySpearPage } from '../pages/InfinitySpear/InfinitySpearPage';
 import { InfinityRhinoPage } from '../pages/InfinityRhino/InfinityRhinoPage';
 import { ButterflyADGPage } from '../pages/ButterflyADG/ButterflyADGPage';
+import { RhinoZ23Page } from '../pages/RhinoZ23/RhinoZ23Page';
 import { DroneRadarPage } from '../pages/DroneRadar/DroneRadarPage';
 import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
@@ -2273,6 +2274,7 @@ export default function App() {
           <Route path="/infinity-spear" element={<InfinitySpearPage />} />
           <Route path="/infinity-rhino" element={<InfinityRhinoPage />} />
           <Route path="/butterfly-adg" element={<ButterflyADGPage />} />
+          <Route path="/rhino-gen-z23" element={<RhinoZ23Page />} />
           <Route path="/electronic-warfare" element={<ElectronicWarfarePage />} />
           <Route path="/rf-detector" element={<RFDetectorPage />} />
           <Route path="/drone-radar" element={<DroneRadarPage />} />

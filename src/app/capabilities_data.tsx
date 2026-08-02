@@ -23,6 +23,10 @@ import innovation3 from "@/imports/innovation_3.png";
 import innovation4 from "@/imports/innovation_4.jpg";
 import innovation5 from "@/imports/innovation_5.jpg";
 import drone3d1 from "@/imports/drone_3d_1.gif";
+import spearSpecificImg from "@/imports/infinity-spear/magnific_professional-outdoor-prod_ohWj6xH829.png";
+import rhinoSpecificImg from "@/imports/infinity-rhino/magnific_professional-outdoor-prod_iAS5beF3uK.png";
+import butterflySpecificImg from "@/imports/butterfly-adg/magnific_professional-studio-produ_xgQveAGjfW.png";
+import rhinoZ23SpecificImg from "@/imports/rhino-z23/magnific_img1-this-is-my-product-r_ONKji9qynm.png";
 import drone3d2 from "@/imports/drone_3d_2.gif";
 import rfRadarGeneratedImg from "@/imports/rf_radar_generated.png";
 import rfRadarHudImg from "@/imports/rf_radar_hud.png";
@@ -100,11 +104,11 @@ export const CAPABILITIES_DATA = [
         stats: ["Multi-Band Jamming", "Directional Disruption", "Man-Portable", "Vehicle Integrated"],
         applications: ["Convoy Protection", "Tactical Infantry Support", "Event Security", "Airspace Denial"],
         products: [
-          { id: "spear", title: "Handheld Jammer (Infinity Spear)", image: infinitySpearImg, slug: "/infinity-spear" },
-          { id: "rhino", title: "Anti Drone System (Infinity Rhino)", image: infinityRhinoImg, slug: "/infinity-rhino" },
-          { id: "butterfly", title: "Butterfly ADG L70", image: heroImg, slug: "/butterfly-adg" },
-          { id: "z23", title: "Rhino Gen Z23", image: heroImg, slug: "/" },
-          { id: "rhino-black", title: "Infinity Rhino Black", image: infinityRhinoImg, slug: "/" },
+          { id: "spear", title: "Handheld Jammer (Infinity Spear)", image: spearSpecificImg, slug: "/infinity-spear" },
+          { id: "rhino", title: "Anti Drone System (Infinity Rhino)", image: rhinoSpecificImg, slug: "/infinity-rhino" },
+          { id: "butterfly", title: "Butterfly ADG L70", image: butterflySpecificImg, slug: "/butterfly-adg" },
+          { id: "z23", title: "Rhino Gen Z23", image: rhinoZ23SpecificImg, slug: "/rhino-gen-z23" },
+          { id: "rhino-black", title: "Infinity Rhino Black", image: rhinoSpecificImg, slug: "/" },
         ]
       },
       {
