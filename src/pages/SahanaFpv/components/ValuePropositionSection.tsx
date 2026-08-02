@@ -66,7 +66,7 @@ export function ValuePropositionSection() {
             
             <div className="space-y-6 text-white/60 text-lg leading-relaxed max-w-xl">
               <p>
-                The Sahana FPV Bullseye & Interceptor is engineered for rapid deployment, stable flight, and kinetic interception against incoming airborne threats.
+                The FPV Bullseye & Interceptor is engineered for rapid deployment, stable flight, and kinetic interception against incoming airborne threats.
               </p>
               <p>
                 Designed to operate reliably in contested electronic warfare environments, it provides real-time situational awareness while resisting active anti-drone jamming through its hardened communication architecture.

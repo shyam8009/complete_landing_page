@@ -34,7 +34,7 @@ export function HeroSection() {
               className="text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
               style={{ fontFamily: INTER }}
             >
-              SAHANA FPV BULLSEYE & <br />
+              FPV BULLSEYE & <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">INTERCEPTOR</span>
             </h1>
             
