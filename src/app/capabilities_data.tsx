@@ -99,7 +99,7 @@ export const CAPABILITIES_DATA = [
         spotlightImage: infinityRhinoImg,
         stats: ["Multi-Band Jamming", "Directional Disruption", "Man-Portable", "Vehicle Integrated"],
         applications: ["Convoy Protection", "Tactical Infantry Support", "Event Security", "Airspace Denial"],
-        items: [
+        products: [
           { id: "spear", title: "Handheld Jammer (Infinity Spear)", image: infinitySpearImg, slug: "/infinity-spear" },
           { id: "rhino", title: "Anti Drone System (Infinity Rhino)", image: infinityRhinoImg, slug: "/infinity-rhino" },
           { id: "butterfly", title: "Butterfly ADG L70", image: heroImg, slug: "/" },
