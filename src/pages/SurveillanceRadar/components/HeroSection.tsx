@@ -1,21 +1,27 @@
 import React from 'react';
-import { ChevronRight, Target } from 'lucide-react';
-import surveillanceRadarHeroImg from '../../../imports/surveillance_radar_hero.png';
+import { ChevronRight } from 'lucide-react';
+import surveillanceRadarHeroBg from '../../../imports/surveillance_radar_hero_bg.mp4';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0a0a0a] pt-24 pb-16">
-      {/* Background Graphic Elements */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,rgba(132,204,22,0.15),transparent_50%)]" />
-        <div className="absolute left-10 top-20 w-px h-full bg-gradient-to-b from-[#84CC16]/50 to-transparent" />
-        <div className="absolute left-10 top-40 w-8 h-px bg-[#84CC16]/50" />
-      </div>
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black pt-24 pb-16">
+      {/* Full-width Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
+        src={surveillanceRadarHeroBg}
+      />
+      
+      {/* Background Graphic Elements overlaying the video */}
+      <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-3xl">
           
           {/* Left Text Content */}
           <div className="flex flex-col items-start fade-up">
@@ -44,7 +50,7 @@ export function HeroSection() {
             </div>
 
             {/* Quick Stats Grid */}
-            <div className="grid grid-cols-2 gap-8 mt-16 pt-8 border-t border-white/10 w-full">
+            <div className="grid grid-cols-2 gap-8 mt-16 p-6 border border-white/10 rounded-xl backdrop-blur-md bg-black/40 w-full sm:w-fit shadow-2xl">
               <div>
                 <div className="text-3xl font-bold text-white mb-1">30 km</div>
                 <div className="text-sm text-white/50 font-mono uppercase">Max Tracking Envelope</div>
@@ -55,26 +61,6 @@ export function HeroSection() {
               </div>
             </div>
           </div>
-
-          {/* Right Image Content */}
-          <div className="relative fade-up" style={{ transitionDelay: '0.2s' }}>
-            <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 bg-black/50 backdrop-blur-sm group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#84CC16]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-              <img 
-                src={surveillanceRadarHeroImg} 
-                alt="Surveillance Radar System" 
-                className="w-full h-full object-cover opacity-80 mix-blend-lighten"
-              />
-              {/* Overlay HUD elements */}
-              <div className="absolute top-6 right-6 flex flex-col gap-2 z-20">
-                <div className="flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-md rounded border border-white/10">
-                  <Target className="w-4 h-4 text-[#84CC16]" />
-                  <span className="text-xs font-mono text-white/80">360Â° PREDICTIVE: ACTIVE</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
