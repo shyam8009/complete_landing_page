@@ -1,9 +1,9 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import img1 from '../../../imports/3d-drone-detector/magnific_professional-highend-prod_DB2qjCTpcl.png';
-import img2 from '../../../imports/3d-drone-detector/Directional finding capability for accurate localization of drone signal sources.png';
-import img3 from '../../../imports/3d-drone-detector/Reliable performance in extreme environments, operating from -20°C to +50°C and up to 95% humidity.png';
+import img1 from '../../../imports/3d-drone-detector/transceiver_array.png';
+import img2 from '../../../imports/3d-drone-detector/directional_finding.png';
+import img3 from '../../../imports/3d-drone-detector/reliable_performance.png';
 
 gsap.registerPlugin(ScrollTrigger);
 

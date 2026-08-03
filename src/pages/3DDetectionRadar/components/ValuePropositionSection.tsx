@@ -1,7 +1,7 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import productRender from '../../../imports/3d-drone-detector/3D Drone Detector - Product.png';
+import productRender from '../../../imports/3d-drone-detector/3d_drone_detector_product.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
