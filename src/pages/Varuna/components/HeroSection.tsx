@@ -26,14 +26,13 @@ export function HeroSection() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-100"
       >
         <source src={heroBgVideo} type="video/mp4" />
       </video>
       
       {/* Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
-      <div className="absolute inset-0 bg-black/20 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent z-10" />
       
       {/* Content Container */}
       <div className="relative z-20 h-full flex flex-col justify-center px-6 lg:px-12 max-w-[1600px] mx-auto">
