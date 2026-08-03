@@ -37,7 +37,7 @@ import c2DashboardUiImg from "@/imports/c2_dashboard_ui.png";
 import surveillanceRadarHeroImg from "@/imports/surveillance_radar_hero.png";
 import surveillanceBlueprintImg from "@/imports/surveillance_blueprint.png";
 import spearCadBlueprintImg from "@/imports/spear_cad_blueprint.png";
-
+import osintDashboardImg from "@/imports/osint/dashboard_ui.jpg";
 
 export const CAPABILITIES_DATA = [
   {
@@ -162,7 +162,7 @@ export const CAPABILITIES_DATA = [
         stats: ["Real-time Analysis", "Deep Web Monitoring", "Predictive Alerts", "Secure Data Pipelines"],
         applications: ["Strategic Intelligence", "Threat Forecasting", "National Security", "Cyber Defense"],
         products: [
-          { id: "osint", title: "Open-Source Intelligence (OSINT)", image: digitalTwinImg, slug: "home" },
+          { id: "osint", title: "Open-Source Intelligence (OSINT)", image: osintDashboardImg, slug: "/osint" },
           { id: "sigint", title: "Signal Intelligence", image: rfRadarHudImg, slug: "home" },
           { id: "security-assessment", title: "Comprehensive Security Assessment", image: innovation1, slug: "home" },
         ]

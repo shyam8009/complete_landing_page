@@ -14,6 +14,7 @@ import { DroneRadarPage } from '../pages/DroneRadar/DroneRadarPage';
 import { RFDetectorPage } from '../pages/RFDetector/RFDetectorPage';
 import { ThreeDDetectionRadarPage } from '../pages/3DDetectionRadar/ThreeDDetectionRadarPage';
 import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
+import { OSINTPage } from '../pages/OSINT/OSINTPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
 import infinitySpearVideo from '@/imports/Infinity_Spear.mp4';
@@ -2150,6 +2151,7 @@ export default function App() {
           <Route path="/surveillance-radar" element={<SurveillanceRadarPage />} />
           <Route path="/handheld-jammer" element={<HandheldJammerPage />} />
           <Route path="/3d-detector" element={<ThreeDDetectionRadarPage />} />
+          <Route path="/osint" element={<OSINTPage />} />
         </Routes>
         <Footer />
       </div>
