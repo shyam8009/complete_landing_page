@@ -12,6 +12,7 @@ import { ButterflyADGPage } from '../pages/ButterflyADG/ButterflyADGPage';
 import { RhinoZ23Page } from '../pages/RhinoZ23/RhinoZ23Page';
 import { DroneRadarPage } from '../pages/DroneRadar/DroneRadarPage';
 import { RFDetectorPage } from '../pages/RFDetector/RFDetectorPage';
+import { ThreeDDetectionRadarPage } from '../pages/3DDetectionRadar/ThreeDDetectionRadarPage';
 import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
@@ -26,7 +27,7 @@ import sahanaLogo from "@/imports/logo-sahana.png";
 import makeInIndiaLogo from "@/imports/logo-make-in-india.png";
 import heroVideo from "@/imports/Hero banner Video.mp4";
 
-// New product images â€” all of the same tactical drone, different shots & environments
+// New product images — all of the same tactical drone, different shots & environments
 import heroImg from "@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg";
 import sensorDomeImg from "@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png";
 import motorImg from "@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png";
@@ -70,7 +71,7 @@ const INTER = "'Inter', sans-serif";
 const CARD_GRADIENT =
   "linear-gradient(rgba(1,1,1,0) 0%,rgba(1,1,1,0.004) 1.8%,rgba(1,1,1,0.008) 4.8%,rgba(1,1,1,0.02) 9%,rgba(1,1,1,0.043) 13.9%,rgba(1,1,1,0.075) 19.8%,rgba(1,1,1,0.125) 27%,rgba(1,1,1,0.192) 35%,rgba(1,1,1,0.28) 43.5%,rgba(1,1,1,0.38) 53%,rgba(1,1,1,0.54) 66%,rgba(1,1,1,0.737) 81%,rgb(1,1,1) 100%)";
 
-// â”€â”€â”€ SVG helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— SVG helpers ————————————————————————————————————————————————————————————————————————————
 
 function AndurilLogo({ width = 210 }: { width?: number }) {
   return (
@@ -100,7 +101,7 @@ function MiniArrow({ color = "#010101" }: { color?: string }) {
   );
 }
 
-// â”€â”€â”€ Reusable "text + underline + arrow" link â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— Reusable "text + underline + arrow" link ————————————————————————————————————————————————
 
 function UnderlineLink({
   children,
@@ -141,7 +142,7 @@ const INVESTORS_DATA = [
       { text: 'FY 2024-25', url: '#' },
       { text: 'FY 2023-24', url: '#' },
     ],
-    cta: 'View All â†’'
+    cta: 'View All →'
   },
   {
     id: 'general-meeting-notice',
@@ -152,7 +153,7 @@ const INVESTORS_DATA = [
       { text: 'EGM Minutes 2024', url: '#' },
       { text: 'Proxy Forms', url: '#' },
     ],
-    cta: 'View All Notices â†’'
+    cta: 'View All Notices →'
   },
   {
     id: 'code-of-conduct',
@@ -163,7 +164,7 @@ const INVESTORS_DATA = [
       { text: 'Whistleblower Policy', url: '#' },
       { text: 'Anti-Bribery Guidelines', url: '#' },
     ],
-    cta: 'View Policies â†’'
+    cta: 'View Policies →'
   },
   {
     id: 'annual-return',
@@ -174,7 +175,7 @@ const INVESTORS_DATA = [
       { text: 'Form MGT-7 (2024)', url: '#' },
       { text: 'Archives', url: '#' },
     ],
-    cta: 'View Returns â†’'
+    cta: 'View Returns →'
   },
   {
     id: 'policies',
@@ -185,7 +186,7 @@ const INVESTORS_DATA = [
       { text: 'CSR Policy', url: '#' },
       { text: 'Risk Management', url: '#' },
     ],
-    cta: 'View All Policies â†’'
+    cta: 'View All Policies →'
   },
   {
     id: 'shareholder-info',
@@ -196,7 +197,7 @@ const INVESTORS_DATA = [
       { text: 'Registrar Details', url: '#' },
       { text: 'Unpaid Dividend', url: '#' },
     ],
-    cta: 'Investor Desk â†’'
+    cta: 'Investor Desk →'
   },
   {
     id: 'kmp',
@@ -207,7 +208,7 @@ const INVESTORS_DATA = [
       { text: 'Chief Financial Officer', url: '#' },
       { text: 'Company Secretary', url: '#' },
     ],
-    cta: 'View Leadership â†’'
+    cta: 'View Leadership →'
   },
   {
     id: 'board-of-directors',
@@ -218,7 +219,7 @@ const INVESTORS_DATA = [
       { text: 'Managing Director', url: '#' },
       { text: 'Independent Directors', url: '#' },
     ],
-    cta: 'View Details â†’'
+    cta: 'View Details →'
   },
   {
     id: 'committees',
@@ -229,7 +230,7 @@ const INVESTORS_DATA = [
       { text: 'Nomination & Remuneration', url: '#' },
       { text: 'CSR Committee', url: '#' },
     ],
-    cta: 'View Committees â†’'
+    cta: 'View Committees →'
   },
   {
     id: 'key-contact',
@@ -240,7 +241,7 @@ const INVESTORS_DATA = [
       { text: 'Compliance Officer', url: '#' },
       { text: 'Investor Grievances', url: '#' },
     ],
-    cta: 'Contact IR â†’'
+    cta: 'Contact IR →'
   }
 ];
 
@@ -602,7 +603,7 @@ function Nav() {
               onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }}
               className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
             >
-              View All â†’
+              View All →
             </a>
           </div>
 
@@ -624,7 +625,7 @@ function Nav() {
             {['Press Release', 'Events', 'Awards'].map(item => (
               <a key={item} href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} className="group flex items-center justify-between px-2 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-all" style={{ fontFamily: 'Inter, sans-serif' }}>
                 <span>{item}</span>
-                <span className="text-[#84CC16] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">â†’</span>
+                <span className="text-[#84CC16] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">→</span>
               </a>
             ))}
           </div>
@@ -676,7 +677,7 @@ function Nav() {
                             onClick={() => setMobileSystemOpen(mobileSystemOpen === sys.id ? null : sys.id)}
                           >
                             <span>{sys.title}</span>
-                            <span className="text-white/50 text-xs">{mobileSystemOpen === sys.id ? "â–¼" : "â–¶"}</span>
+                            <span className="text-white/50 text-xs">{mobileSystemOpen === sys.id ? "▼" : "▶"}</span>
                           </div>
                           {mobileSystemOpen === sys.id && (
                             <div className="flex flex-col gap-2 pl-4 py-2">
@@ -712,7 +713,7 @@ function Nav() {
     </header>
   );
 }
-// â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— HERO ————————————————————————————————————————————————————————————————————————————————————
 
 function Hero() {
   const [playVideo, setPlayVideo] = useState(false);
@@ -889,7 +890,7 @@ function ProductCard({
   );
 }
 
-// â”€â”€â”€ PRODUCTS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— PRODUCTS SECTION ————————————————————————————————————————————————————————————————————————
 
 const PRODUCTS_DATA = [
   {
@@ -1016,7 +1017,7 @@ function ProductsSection() {
         </UnderlineLink>
       </div>
 
-      {/* â”€â”€ Desktop 12-col grid â”€â”€ */}
+      {/* ——— Desktop 12-col grid ——— */}
       <div
         className="hidden lg:grid grid-cols-12 gap-5 w-full"
         style={{ gridTemplateRows: "repeat(3, clamp(220px, 31vw, 598px))" }}
@@ -1045,7 +1046,7 @@ function ProductsSection() {
         ))}
       </div>
 
-      {/* â”€â”€ Mobile / tablet stacked grid â”€â”€ */}
+      {/* ——— Mobile / tablet stacked grid ——— */}
       <div className="grid lg:hidden grid-cols-1 sm:grid-cols-2 gap-5 w-full">
         {PRODUCTS_DATA.map((product) => (
           <ProductCard
@@ -1069,7 +1070,7 @@ function ProductsSection() {
   );
 }
 
-// â”€â”€â”€ ARSENAL-1 FEATURE SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— ARSENAL-1 FEATURE SECTION ———————————————————————————————————————————————————————————————
 
 function Arsenal1Section() {
   return (
@@ -1113,7 +1114,7 @@ function Arsenal1Section() {
   );
 }
 
-// â”€â”€â”€ NEWS & INSIGHTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— NEWS & INSIGHTS —————————————————————————————————————————————————————————————————————————
 
 function NewsSection() {
   return (
@@ -1173,7 +1174,7 @@ function NewsSection() {
   );
 }
 
-// â”€â”€â”€ EDITORIAL PANEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— EDITORIAL PANEL —————————————————————————————————————————————————————————————————————————
 
 function EditorialPanel({
   title,
@@ -1268,7 +1269,7 @@ function EditorialSection() {
         bg="#505544"
         textColor="white"
         dividerColor="white"
-        counter="PT â€” 01 / 02"
+        counter="PT — 01 / 02"
       />
       <EditorialPanel
         title="Innovation"
@@ -1277,13 +1278,13 @@ function EditorialSection() {
         bg="#8e9291"
         textColor="#010101"
         dividerColor="#010101"
-        counter="PT â€” 02 / 02"
+        counter="PT — 02 / 02"
       />
     </section>
   );
 }
 
-// â”€â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— FOOTER ——————————————————————————————————————————————————————————————————————————————————
 
 const FOOTER_COMPANY = ["Mission", "Newsroom", "Leadership", "Gear Store"];
 const FOOTER_WORK = ["Careers", "Early Career", "Veteran Careers", "Open Roles"];
@@ -1365,7 +1366,7 @@ function Footer() {
           className="text-white text-xs uppercase tracking-[0.54px]"
           style={{ fontFamily: INTER, fontWeight: 500 }}
         >
-          Copyright Â© 2026 Sahana Defence
+          Copyright © 2026 Sahana Defence
         </p>
         <div className="flex flex-row flex-wrap gap-x-6 gap-y-2">
           {["Privacy Policy", "Terms of Use", "Modern Anti-Slavery Policy", "Investor Relations"].map(
@@ -1386,7 +1387,7 @@ function Footer() {
   );
 }
 
-// â”€â”€â”€ ELECTRONIC WARFARE PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— ELECTRONIC WARFARE PAGE —————————————————————————————————————————————————————————————————
 function ElectronicWarfarePage() {
   const [activePillar, setActivePillar] = useState(0);
 
@@ -1395,7 +1396,7 @@ function ElectronicWarfarePage() {
       title: "Electronic Support (ES)",
       subtitle: "Passive Signal Intelligence & Emitter Tracking",
       desc: "Our electronic support systems continuously monitor the electromagnetic environment to search, intercept, identify, and locate sources of intentional and unintentional radiated electromagnetic energy. By auditing the spectrum in real-time, our passive sensors establish threat profiles, identify radar signatures, and map hostile air defense positions without emitting detectable signals of their own.",
-      metrics: ["360Â° Passive Emitter Auditing", "Real-Time Signature Deconfliction", "High-Accuracy TDOA Geolocation"]
+      metrics: ["360° Passive Emitter Auditing", "Real-Time Signature Deconfliction", "High-Accuracy TDOA Geolocation"]
     },
     {
       title: "Electronic Attack (EA)",
@@ -1599,7 +1600,7 @@ function ElectronicWarfarePage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-mono text-white/80">
                   {pillars[activePillar].metrics.map((metric, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <span className="text-[#2e4321] font-bold">â€º</span>
+                      <span className="text-[#2e4321] font-bold">›</span>
                       <span>{metric}</span>
                     </div>
                   ))}
@@ -1632,7 +1633,7 @@ function ElectronicWarfarePage() {
             <tbody>
               <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                 <td className="p-4 md:p-6 text-white font-medium">Frequency Range</td>
-                <td className="p-4 md:p-6 text-white/80">100 MHz â€“ 40 GHz (HF to Ka-band)</td>
+                <td className="p-4 md:p-6 text-white/80">100 MHz – 40 GHz (HF to Ka-band)</td>
                 <td className="p-4 md:p-6 text-white/60">Full-spectrum coverage, enabling tracking and jamming across all modern tactical threats.</td>
               </tr>
               <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
@@ -1685,7 +1686,7 @@ function ElectronicWarfarePage() {
 
 
 
-// â”€â”€â”€ HANDHELD JAMMER PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— HANDHELD JAMMER PAGE ————————————————————————————————————————————————————————————————————
 
 function HandheldJammerPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -1818,7 +1819,7 @@ function HandheldJammerPage() {
         <div ref={statsRef} className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/60 backdrop-blur-md z-10 hidden md:block">
           <div className="max-w-[1400px] mx-auto px-9 flex items-center justify-between py-5">
             <div className="stat-item flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">1,500 â€“ 2,000 m</span>
+              <span className="text-white text-lg font-bold">1,500 – 2,000 m</span>
               <span className="text-white/50 text-[11px] uppercase tracking-wider">Tactical Radius</span>
             </div>
             <div className="stat-item w-px h-8 bg-white/10" />

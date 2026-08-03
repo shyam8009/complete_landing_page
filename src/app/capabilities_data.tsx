@@ -130,7 +130,7 @@ export const CAPABILITIES_DATA = [
         products: [
           { id: "guardian", title: "The Guardian Smart Soldier Band", image: guardianImg, slug: "/guardian-experience" },
           { id: "rf-detector", title: "RF Detector D360", image: rfDetectorD360Img, slug: "/rf-detector" },
-          { id: "3d-detector", title: "3D Drone Detector", image: droneRadarHeroImg, slug: "/" },
+          { id: "3d-detector", title: "3D Drone Detector", image: droneRadarHeroImg, slug: "/3d-detector" },
         ]
       }
     ]
