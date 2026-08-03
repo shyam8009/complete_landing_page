@@ -103,9 +103,18 @@ export function PipelineSection() {
   return (
     <section 
       ref={containerRef}
-      className="w-full bg-[#050505] py-32 px-8 md:px-16 border-b border-white/10 relative overflow-hidden"
+      className="py-20 bg-[#050505] border-t border-white/5 relative overflow-hidden"
     >
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-24 relative">
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]" 
+        style={{ 
+          backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)',
+          backgroundSize: '40px 40px' 
+        }} 
+      />
+
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10 flex flex-col gap-16">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl text-white font-bold tracking-tight uppercase" style={{ fontFamily: INTER }}>
             Operational Pipeline
@@ -113,7 +122,7 @@ export function PipelineSection() {
         </div>
 
         {/* Pipeline Grid */}
-        <div className="relative w-full grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-6 mt-8">
+        <div className="relative w-full grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-6">
           
           {/* Horizontal Connecting Line (Desktop) */}
           <div className="hidden md:block absolute top-[48px] left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-white/10 -z-10" />

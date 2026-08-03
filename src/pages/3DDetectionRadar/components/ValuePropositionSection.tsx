@@ -48,16 +48,16 @@ export function ValuePropositionSection() {
   return (
     <section 
       ref={containerRef}
-      className="w-full bg-[#030303] py-24 md:py-32 px-8 md:px-16 border-b border-white/10 overflow-hidden"
+      className="py-24 bg-[#020202] relative overflow-hidden"
     >
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
         {/* Left Content */}
         <div className="flex flex-col gap-6">
-          <span className="text-[#84CC16] text-xs font-semibold tracking-widest uppercase font-mono">
+          <span className="text-[#84CC16] text-sm font-bold tracking-[3px] uppercase font-mono">
             CORE CAPABILITIES
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-white tracking-tighter uppercase" style={{ fontFamily: INTER, fontWeight: 700 }}>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8 uppercase tracking-tight" style={{ fontFamily: INTER }}>
             Micro-Doppler Target Intelligence
           </h2>
           <p className="text-white/60 text-lg leading-relaxed mt-2" style={{ fontFamily: INTER }}>

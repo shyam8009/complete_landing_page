@@ -28,28 +28,24 @@ const CARDS = [
 ];
 
 export function SubsystemsSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      cardRefs.current.forEach((card, i) => {
-        if (card) {
-          gsap.fromTo(card,
-            { y: 60, opacity: 0 },
-            {
-              y: 0, opacity: 1,
-              duration: 0.8,
-              delay: i * 0.15,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top 70%"
-              }
-            }
-          );
+      gsap.fromTo(cardRefs.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 70%"
+          }
         }
-      });
+      );
     }, containerRef);
     return () => ctx.revert();
   }, []);
@@ -57,40 +53,43 @@ export function SubsystemsSection() {
   return (
     <section 
       ref={containerRef}
-      className="w-full bg-[#050505] py-24 md:py-32 px-8 md:px-16 border-b border-white/10"
+      className="py-24 bg-white relative"
     >
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-16">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         
-        <div className="text-center flex flex-col gap-4">
-          <h2 className="text-3xl md:text-5xl text-white uppercase tracking-tight font-bold" style={{ fontFamily: INTER }}>
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-black uppercase tracking-tight">
             Hardware Architecture
           </h2>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto" style={{ fontFamily: INTER }}>
-            Advanced engineering delivering robust surveillance capabilities in a compact form factor.
-          </p>
         </div>
 
-        {/* 3-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {CARDS.map((card, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {CARDS.map((card, index) => (
             <div 
-              key={idx}
-              ref={el => cardRefs.current[idx] = el}
-              className="flex flex-col bg-[#0a0a0a] border border-white/10 overflow-hidden group hover:border-white/20 transition-colors duration-300 rounded-sm"
+              key={index} 
+              ref={el => cardRefs.current[index] = el}
+              className="group bg-[#0a0a0a] border border-white/10 rounded-xl overflow-hidden hover:border-[#84CC16]/50 transition-colors duration-500"
             >
-              <div className="relative w-full h-64 overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden bg-black">
                 <img 
                   src={card.image} 
                   alt={card.title} 
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out opacity-80 group-hover:opacity-100"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-90" />
               </div>
-              <div className="p-8 flex flex-col gap-4 flex-grow">
-                <h3 className="text-xl text-white font-bold tracking-wide uppercase" style={{ fontFamily: INTER }}>
+              
+              <div className="p-8 relative -mt-12">
+                <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded bg-black/50 backdrop-blur-md border border-white/10">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#84CC16]" />
+                  <span className="text-[#84CC16] text-[10px] font-bold tracking-widest uppercase">
+                    Specification
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4 uppercase">
                   {card.title}
                 </h3>
-                <p className="text-white/60 text-sm leading-relaxed" style={{ fontFamily: INTER }}>
+                <p className="text-white/60 text-sm leading-relaxed">
                   {card.desc}
                 </p>
               </div>
