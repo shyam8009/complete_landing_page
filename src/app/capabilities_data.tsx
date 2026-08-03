@@ -28,6 +28,7 @@ import rhinoSpecificImg from "@/imports/infinity-rhino/magnific_professional-out
 import butterflySpecificImg from "@/imports/butterfly-adg/magnific_professional-studio-produ_xgQveAGjfW.png";
 import rhinoZ23SpecificImg from "@/imports/rhino-z23/magnific_img1-this-is-my-product-r_ONKji9qynm.png";
 import guardianImg from "@/imports/guardian/magnific_professional-studio-produ_brfvUMF5Y2.png";
+import rfDetectorD360Img from "@/imports/rf-detector-d360/magnific_professional-outdoor-prod_62g8z7SiJO.png";
 import drone3d2 from "@/imports/drone_3d_2.gif";
 import rfRadarGeneratedImg from "@/imports/rf_radar_generated.png";
 import rfRadarHudImg from "@/imports/rf_radar_hud.png";
@@ -128,7 +129,7 @@ export const CAPABILITIES_DATA = [
         applications: ["Forward Operating Bases", "Border Outposts", "Critical Infrastructure", "Urban Warfare"],
         products: [
           { id: "guardian", title: "The Guardian Smart Soldier Band", image: guardianImg, slug: "/guardian-experience" },
-          { id: "rf-detector", title: "RF Detector", image: rfDetectorImg, slug: "/rf-detector" },
+          { id: "rf-detector", title: "RF Detector D360", image: rfDetectorD360Img, slug: "/rf-detector" },
           { id: "vsr", title: "VSR to MRR", image: rfRadarGeneratedImg, slug: "/" },
           { id: "3d-detector", title: "3D Drone Detector", image: droneRadarHeroImg, slug: "/" },
         ]

@@ -11,6 +11,7 @@ import { InfinityRhinoBlackPage } from '../pages/InfinityRhinoBlack/InfinityRhin
 import { ButterflyADGPage } from '../pages/ButterflyADG/ButterflyADGPage';
 import { RhinoZ23Page } from '../pages/RhinoZ23/RhinoZ23Page';
 import { DroneRadarPage } from '../pages/DroneRadar/DroneRadarPage';
+import { RFDetectorPage } from '../pages/RFDetector/RFDetectorPage';
 import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
@@ -2275,7 +2276,6 @@ export default function App() {
           <Route path="/infinity-spear" element={<InfinitySpearPage />} />
           <Route path="/infinity-rhino" element={<InfinityRhinoPage />} />
           <Route path="/infinity-rhino-black" element={<InfinityRhinoBlackPage />} />
-          <Route path="/guardian-experience" element={<GuardianExperiencePage />} />
           <Route path="/butterfly-adg" element={<ButterflyADGPage />} />
           <Route path="/rhino-gen-z23" element={<RhinoZ23Page />} />
           <Route path="/electronic-warfare" element={<ElectronicWarfarePage />} />
@@ -2283,7 +2283,6 @@ export default function App() {
           <Route path="/drone-radar" element={<DroneRadarPage />} />
           <Route path="/surveillance-radar" element={<SurveillanceRadarPage />} />
           <Route path="/handheld-jammer" element={<HandheldJammerPage />} />
-          <Route path="/infinity-rhino" element={<InfinityRhinoPage />} />
         </Routes>
         <Footer />
       </div>
