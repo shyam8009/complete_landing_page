@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroBg from '../../../imports/varuna/magnific_a-photorealistic-dramatic_WMiaDa0cXe.png';
+import heroBgVideo from '../../../imports/varuna/varuna_hero.mp4';
 
 const INTER = "'Inter', sans-serif";
 
@@ -20,12 +20,16 @@ export function HeroSection() {
 
   return (
     <section ref={containerRef} className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Background Image */}
-      <img
-        src={heroBg}
-        alt="Varuna Underwater Drone"
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
-      />
+      >
+        <source src={heroBgVideo} type="video/mp4" />
+      </video>
       
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
