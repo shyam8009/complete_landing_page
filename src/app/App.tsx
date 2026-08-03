@@ -8,7 +8,6 @@ import { ProxyPage } from '../pages/Proxy/ProxyPage';
 import { InfinitySpearPage } from '../pages/InfinitySpear/InfinitySpearPage';
 import { InfinityRhinoPage } from '../pages/InfinityRhino/InfinityRhinoPage';
 import { InfinityRhinoBlackPage } from '../pages/InfinityRhinoBlack/InfinityRhinoBlackPage';
-import { GuardianExperiencePage } from '../pages/GuardianExperience/GuardianExperiencePage';
 import { ButterflyADGPage } from '../pages/ButterflyADG/ButterflyADGPage';
 import { RhinoZ23Page } from '../pages/RhinoZ23/RhinoZ23Page';
 import { DroneRadarPage } from '../pages/DroneRadar/DroneRadarPage';
