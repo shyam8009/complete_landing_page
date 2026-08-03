@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
+import gsap from 'gsap';
 import bgImage from '../../../imports/3d-drone-detector/magnific_professional-outdoor-prod_Ia0jOAPtvE.png';
 
 const INTER = '"Inter", sans-serif';
