@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import bgPattern from '../../../imports/light_blueprint_bg.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,7 +57,15 @@ export function SubsystemsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white border-t border-black/5 min-h-screen flex items-center">
+    <section ref={sectionRef} className="overflow-hidden relative py-24 bg-white border-t border-black/5 min-h-screen flex items-center">
+      {/* Schematic Vector Background Overlay */}
+      <img 
+        src={bgPattern} 
+        alt="Technical Blueprint Overlay" 
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+      />
+      <div className="absolute inset-0 bg-white/20 z-0" />
+
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         
         <div className="mb-16">

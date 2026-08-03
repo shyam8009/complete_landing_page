@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ergonomicImg from '../../../imports/infinity-spear/magnific_professional-editorialtac_J91MEkuOq4.png';
 import antennaImg from '../../../imports/infinity-spear/magnific_professional-editorialtac_fFe7WWaCDY.png';
 import batteryImg from '../../../imports/rf_detector_d360.jpg';
+import bgPattern from '../../../imports/light_blueprint_bg.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,7 +58,15 @@ export function SubsystemsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white relative">
+    <section ref={sectionRef} className="overflow-hidden py-24 bg-white relative">
+      {/* Schematic Vector Background Overlay */}
+      <img 
+        src={bgPattern} 
+        alt="Technical Blueprint Overlay" 
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+      />
+      <div className="absolute inset-0 bg-white/20 z-0" />
+
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         
         <div className="mb-16">

@@ -54,6 +54,7 @@ import innovation3 from "@/imports/innovation_3.png";
 import innovation4 from "@/imports/innovation_4.jpg";
 import innovation5 from "@/imports/innovation_5.jpg";
 
+import capsuleIcon from '../imports/capsule-icon.png';
 import drone3d1 from "@/imports/drone_3d_1.gif";
 import drone3d2 from "@/imports/drone_3d_2.gif";
 import rfRadarGeneratedImg from "@/imports/rf_radar_generated.png";
@@ -314,6 +315,21 @@ function Nav() {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredNav(null);
+    }, 250);
+  };
+
+  const handleMouseEnter = (link: string) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    setHoveredNav(link);
+  };
 
   // For Capabilities Mega Menu specifically
   const [activeDomain, setActiveDomain] = useState(CAPABILITIES_DATA[0]);
@@ -329,6 +345,14 @@ function Nav() {
   }, [activeDomain]);
 
   useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setHoveredNav(null);
     };
@@ -338,23 +362,38 @@ function Nav() {
 
   return (
     <header 
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/10"
-      onMouseLeave={() => setHoveredNav(null)}
+      className={`fixed left-1/2 -translate-x-1/2 z-50 flex flex-col justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        scrolled 
+          ? "top-4 w-[95%] lg:w-[90%] max-w-[1200px] h-[64px] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.5)] border border-white/20" 
+          : "top-0 w-full max-w-none h-[86px] rounded-none border-b border-white/10"
+      }`}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className="absolute inset-0 backdrop-blur-xl bg-[#05080D]/90" />
+      <div className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "bg-[#05080D]/40 backdrop-blur-[16px] rounded-full" : "bg-[#05080D]/90 backdrop-blur-xl rounded-none"}`} />
 
-      <div className="relative flex items-center justify-between px-6 lg:px-9 h-[86px] z-50">
-        <a href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} className="shrink-0">
-          <AndurilLogo width={210} />
+      <div className={`relative flex items-center justify-between z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "px-6 lg:px-8 h-[64px]" : "px-6 lg:px-9 h-[86px]"}`}>
+        <a href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} 
+           className="relative shrink-0 flex items-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" 
+           style={{ width: scrolled ? '40px' : '210px', height: '40px' }}>
+          
+          {/* Full Logo */}
+          <div className={`absolute left-0 top-1/2 -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? 'opacity-0 scale-90 pointer-events-none' : 'opacity-100 scale-100'}`}>
+            <AndurilLogo width={210} />
+          </div>
+          
+          {/* Capsule Icon */}
+          <div className={`absolute left-0 top-1/2 -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none'}`}>
+            <img src={capsuleIcon} alt="Icon Logo" className="w-[40px] h-auto object-contain" />
+          </div>
         </a>
 
         {/* Desktop Links */}
-        <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 h-full">
+        <nav className={`hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "gap-6 scale-[0.85]" : "gap-8 scale-100"}`}>
           {['Capabilities', 'Investors', 'Newsroom', 'About Us'].map((link) => (
             <div 
               key={link}
               className="h-full flex items-center"
-              onMouseEnter={() => setHoveredNav(link)}
+              onMouseEnter={() => handleMouseEnter(link)}
             >
               <a
                 href="#"
@@ -380,34 +419,40 @@ function Nav() {
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); setHoveredNav(null); }}
-            className="text-[14px] font-bold tracking-[1px] uppercase border border-white/20 hover:border-[#84CC16] hover:text-[#84CC16] transition-colors px-6 py-2.5 rounded-sm text-white"
+            className={`font-bold tracking-[1px] uppercase border border-white/20 hover:border-[#84CC16] hover:text-[#84CC16] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-sm text-white ${scrolled ? "px-4 py-1.5 text-[12px]" : "px-6 py-2.5 text-[14px]"}`}
           >
             Contact Us
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="lg:hidden text-white p-2"
-          onClick={() => setMobileOpen((o) => !o)}
-          aria-label="Toggle menu"
-        >
-          <div className="space-y-1.5">
-            <span className="block w-6 h-px bg-white" />
-            <span className="block w-6 h-px bg-white" />
-            <span className="block w-4 h-px bg-white" />
-          </div>
-        </button>
+        {/* Mobile Hamburger (Only visible on mobile screens) */}
+        <div className="flex lg:hidden items-center gap-4">
+          <button
+            className="text-white p-2 cursor-pointer"
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label="Toggle menu"
+          >
+            <div className="space-y-1.5">
+              <span className="block w-6 h-px bg-white transition-transform" />
+              <span className="block w-6 h-px bg-white transition-transform" />
+              <span className="block w-4 h-px bg-white transition-transform" />
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Capabilities Mega Menu Dropdown */}
       <div
-        className={`hidden lg:block absolute top-[86px] left-0 right-0 w-full bg-[#05080D] transition-all duration-300 origin-top z-40 ${
+        className={`hidden lg:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top z-40 ${
+          scrolled ? "top-[80px]" : "top-[86px]"
+        } ${
           hoveredNav === 'Capabilities'
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
         style={{ borderTop: "1px solid rgba(0,229,255,0.15)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}
+        onMouseEnter={() => handleMouseEnter('Capabilities')}
+        onMouseLeave={handleMouseLeave}
       >
         <div className="max-w-[1400px] w-full mx-auto flex h-auto">
           
@@ -509,12 +554,16 @@ function Nav() {
 
       {/* Investors Mega Menu Dropdown */}
       <div
-        className={`hidden lg:block absolute top-[86px] left-0 right-0 w-full bg-[#05080D] transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden lg:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top overflow-hidden z-40 ${
+          scrolled ? "top-[80px]" : "top-[86px]"
+        } ${
           hoveredNav === 'Investors'
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
         style={{ borderTop: "1px solid rgba(0,229,255,0.15)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}
+        onMouseEnter={() => handleMouseEnter('Investors')}
+        onMouseLeave={handleMouseLeave}
       >
         <div className="max-w-[1400px] w-full mx-auto flex h-auto max-h-[600px]">
           
@@ -614,11 +663,15 @@ function Nav() {
 
       {/* Newsroom Small Dropdown */}
       <div
-        className={`hidden lg:block absolute top-[86px] left-[50%] ml-[40px] w-[220px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden lg:block fixed left-[50%] ml-[40px] w-[220px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
+          scrolled ? "top-[80px]" : "top-[86px]"
+        } ${
           hoveredNav === 'Newsroom'
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
+        onMouseEnter={() => handleMouseEnter('Newsroom')}
+        onMouseLeave={handleMouseLeave}
       >
         <div className="flex flex-col p-4 max-h-[500px] overflow-y-auto custom-scrollbar">
           <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-3 px-2">Newsroom</h4>
@@ -635,11 +688,15 @@ function Nav() {
 
       {/* About Us Small Dropdown */}
       <div
-        className={`hidden lg:block absolute top-[86px] left-[50%] ml-[160px] w-[200px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden lg:block fixed left-[50%] ml-[160px] w-[200px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
+          scrolled ? "top-[80px]" : "top-[86px]"
+        } ${
           hoveredNav === 'About Us'
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
+        onMouseEnter={() => handleMouseEnter('About Us')}
+        onMouseLeave={handleMouseLeave}
       >
         <div className="flex flex-col p-2">
           {['Company', 'Leadership', 'Careers', 'Certifications', 'Contact'].map(item => (

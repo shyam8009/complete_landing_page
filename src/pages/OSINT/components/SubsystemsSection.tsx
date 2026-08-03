@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import img1 from '../../../imports/osint/search_config.jpg';
 import img2 from '../../../imports/osint/facial_rec.jpg';
 import img3 from '../../../imports/osint/c2_integration.jpg';
+import bgPattern from '../../../imports/info_warfare_bg.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,7 +51,14 @@ export function SubsystemsSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-24 bg-white relative overflow-hidden">
+    <section ref={containerRef} className="py-24 bg-[#ffffff] relative overflow-hidden">
+      {/* Information Warfare Technical Blueprint Overlay */}
+      <img 
+        src={bgPattern} 
+        alt="Information Warfare Schematic Overlay" 
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.15] pointer-events-none mix-blend-multiply"
+      />
+
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         
         {/* Header */}
