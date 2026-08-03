@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import antennasImg from '../../../imports/rf-detector-d360/magnific_professional-outdoor-prod_cD6FVO40eP.png';
 import processingImg from '../../../imports/rf-detector-d360/magnific_professional-highend-prod_KjvR16Ckqp.png';
-import mastImg from '../../../imports/infinity-rhino/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg';
+import mastImg from '../../../imports/infinity-rhino/magnific_professional-highspeed-ac_1sfdHynr4r.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
