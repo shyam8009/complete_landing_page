@@ -2149,6 +2149,7 @@ export default function App() {
           <Route path="/drone-radar" element={<DroneRadarPage />} />
           <Route path="/surveillance-radar" element={<SurveillanceRadarPage />} />
           <Route path="/handheld-jammer" element={<HandheldJammerPage />} />
+          <Route path="/3d-detector" element={<ThreeDDetectionRadarPage />} />
         </Routes>
         <Footer />
       </div>
