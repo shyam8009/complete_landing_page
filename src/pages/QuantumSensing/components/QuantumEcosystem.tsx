@@ -157,10 +157,10 @@ export function QuantumEcosystem() {
             loop 
             muted 
             playsInline
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover"
           />
-          {/* Gradient overlay to ensure text is legible on the left */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
+          {/* Gradient overlay to ensure text is legible on the left, but kept light to show video */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
           
           {/* Bottom fade to blend seamlessly into the next section */}
           <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
