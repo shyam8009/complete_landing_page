@@ -15,6 +15,8 @@ import { RFDetectorPage } from '../pages/RFDetector/RFDetectorPage';
 import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
 import { OSINTPage } from '../pages/OSINT/OSINTPage';
 import { QuantumSensingPage } from '../pages/QuantumSensing/QuantumSensingPage';
+import QuantumCommunicationPage from '../pages/QuantumCommunication/QuantumCommunicationPage';
+import IntelligenceSurveillancePage from '../pages/IntelligenceSurveillance/IntelligenceSurveillancePage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
 import infinitySpearVideo from '@/imports/Infinity_Spear.mp4';
@@ -2216,6 +2218,8 @@ export default function App() {
           {/* <Route path="/handheld-jammer" element={<HandheldJammerPage />} /> */}
           <Route path="/osint" element={<OSINTPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing" element={<QuantumSensingPage />} />
+          <Route path="/quantum-technology-solutions/quantum-communication" element={<QuantumCommunicationPage />} />
+          <Route path="/information-warfare/intelligence-surveillance" element={<IntelligenceSurveillancePage />} />
         </Routes>
         <Footer />
       </div>

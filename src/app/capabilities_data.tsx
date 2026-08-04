@@ -70,8 +70,8 @@ export const CAPABILITIES_DATA = [
         products: [
           { id: "fpv-buddy", title: "FPV Drone Buddy", image: flightImg, slug: "/fpv-buddy" },
           { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "/sahana-fpv" },
-          { id: "varuna", title: "Varuna — Underwater Drone", image: fieldImg, slug: "/varuna" },
-          { id: "proxy", title: "PROXY — Control Channel", image: sensorDomeImg, slug: "/proxy" }
+          { id: "varuna", title: "Varuna - Underwater Drone", image: fieldImg, slug: "/varuna" },
+          { id: "proxy", title: "PROXY - Control Channel", image: sensorDomeImg, slug: "/proxy" }
         ]
       },
       {
@@ -150,6 +150,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "intel-surv",
         title: "Intelligence & Surveillance",
+        slug: "/information-warfare/intelligence-surveillance",
         description: "Advanced intelligence gathering and open-source data analytics.",
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -207,6 +208,97 @@ export const CAPABILITIES_DATA = [
     ]
   },
   {
+    id: "quantum-technology-solutions",
+    title: "Quantum Technology Solutions",
+    description: "Next-generation quantum sensing, communication, and cryptography architectures.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M12 2v20M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+    ),
+    highlights: ["Quantum Sensing", "Quantum Communication", "Post-Quantum Cryptography"],
+    systems: [
+      {
+        id: "quantum-sensing",
+        title: "Quantum Sensing",
+        slug: "/quantum-technology-solutions/quantum-sensing",
+        description: "Next-generation sensing hardware exploiting quantum principles.",
+        icon: (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2v20M2 12h20"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        ),
+        spotlightImage: rfRadarGeneratedImg,
+        stats: ["High Precision", "RF Detection", "Quantum Drones", "Atomic Clocks"],
+        applications: ["Navigation", "Radar Systems", "Secure Timing", "Targeting"],
+        products: [
+          { id: "wideband-rf", title: "Wideband RF Detectors", image: rfRadarGeneratedImg, slug: "home" },
+          { id: "quantum-microwave", title: "Quantum Microwave Devices", image: rfRadarHudImg, slug: "home" },
+          { id: "rydberg-atom", title: "Rydberg Atom Quantum Sensors", image: innovation1, slug: "home" },
+          { id: "quantum-drone", title: "Quantum Drone", image: drone3d1, slug: "home" },
+          { id: "quantum-clock", title: "Quantum Clock Source", image: innovation3, slug: "home" },
+        ]
+      },
+      {
+        id: "quantum-communication",
+        title: "Quantum Communication",
+        slug: "/quantum-technology-solutions/quantum-communication",
+        description: "Unhackable quantum internet and post-quantum cryptographic systems.",
+        icon: (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        ),
+        spotlightImage: c2DashboardUiImg,
+        stats: ["Unhackable Links", "QKD", "Post-Quantum Security", "Global Reach"],
+        applications: ["Secure Comms", "Financial Data", "Military Networks", "Command & Control"],
+        products: [
+          { id: "quantum-secured-comms", title: "Quantum Secured Communication", image: c2DashboardUiImg, slug: "home" },
+          { id: "quantum-internet", title: "Quantum Internet", image: innovation4, slug: "home" },
+          { id: "hardware-pqc", title: "Hardware based Post Quantum Cryptography", image: innovation5, slug: "home" },
+          { id: "quantum-control", title: "Quantum Control Systems", image: osintDashboardImg, slug: "home" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "aerospace",
+    title: "Aerospace & Defence",
+    description: "High-performance systems and components for aerospace and defence.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M12 2l3 3h-6z"/>
+        <path d="M9 5v8L4 18v2h16v-2l-5-5V5"/>
+        <path d="M12 22v-4"/>
+      </svg>
+    ),
+    highlights: ["Aerospace Engineering", "Defence Manufacturing", "SATCOM Systems", "Precision Components"],
+    systems: [
+      {
+        id: "aero-components",
+        title: "Manufacturing & Fabrication",
+        description: "Precision-engineered aerospace and defence manufacturing.",
+        icon: (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        ),
+        spotlightImage: arsenalFacilityImg,
+        stats: ["Mil-Spec Grade", "Advanced Materials", "Rapid Prototyping", "Scalable Production"],
+        applications: ["Aircraft Assembly", "Munitions Casings", "Satellite Integration", "Naval Upgrades"],
+        products: [
+          { id: "aerospace-comp", title: "Aerospace Components", image: arsenalFacilityImg, slug: "home" },
+          { id: "defence-comp", title: "Defence Components", image: corporateHouse1, slug: "home" },
+          { id: "satcom", title: "SATCOM Components", image: haleDroneImg, slug: "home" }
+        ]
+      }
+    ]
+  },
+  {
     id: "defence-deeptech",
     title: "Defence Deeptech",
     description: "Advanced technologies driving the future of defence.",
@@ -253,97 +345,6 @@ export const CAPABILITIES_DATA = [
           { id: "iot", title: "Internet of Things", image: corporateHouse3, slug: "home" },
           { id: "cloud", title: "Cloud Services", image: corporateHouse1, slug: "home" },
           { id: "video", title: "Video Streaming Services", image: corporateHouse2, slug: "home" },
-        ]
-      }
-    ]
-  },
-  {
-    id: "quantum-technology-solutions",
-    title: "Quantum Technology Solutions",
-    description: "Next-generation quantum sensing, communication, and cryptography architectures.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2v20M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-      </svg>
-    ),
-    highlights: ["Quantum Sensing", "Quantum Communication", "Post-Quantum Cryptography"],
-    systems: [
-      {
-        id: "quantum-sensing",
-        title: "Quantum Sensing",
-        slug: "/quantum-technology-solutions/quantum-sensing",
-        description: "Next-generation sensing hardware exploiting quantum principles.",
-        icon: (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 2v20M2 12h20"/>
-            <circle cx="12" cy="12" r="4"/>
-          </svg>
-        ),
-        spotlightImage: rfRadarGeneratedImg,
-        stats: ["High Precision", "RF Detection", "Quantum Drones", "Atomic Clocks"],
-        applications: ["Navigation", "Radar Systems", "Secure Timing", "Targeting"],
-        products: [
-          { id: "wideband-rf", title: "Wideband RF Detectors", image: rfRadarGeneratedImg, slug: "home" },
-          { id: "quantum-microwave", title: "Quantum Microwave Devices", image: rfRadarHudImg, slug: "home" },
-          { id: "rydberg-atom", title: "Rydberg Atom Quantum Sensors", image: innovation1, slug: "home" },
-          { id: "quantum-drone", title: "Quantum Drone", image: drone3d1, slug: "home" },
-          { id: "quantum-clock", title: "Quantum Clock Source", image: innovation3, slug: "home" },
-        ]
-      },
-      {
-        id: "quantum-communication",
-        title: "Quantum Communication",
-        description: "Unhackable quantum internet and post-quantum cryptographic systems.",
-        icon: (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <ellipse cx="12" cy="5" rx="9" ry="3"/>
-            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-          </svg>
-        ),
-        spotlightImage: c2DashboardUiImg,
-        stats: ["Unhackable Links", "QKD", "Post-Quantum Security", "Global Reach"],
-        applications: ["Secure Comms", "Financial Data", "Military Networks", "Command & Control"],
-        products: [
-          { id: "quantum-secured-comms", title: "Quantum Secured Communication", image: c2DashboardUiImg, slug: "home" },
-          { id: "quantum-internet", title: "Quantum Internet", image: innovation4, slug: "home" },
-          { id: "hardware-pqc", title: "Hardware based Post Quantum Cryptography", image: innovation5, slug: "home" },
-          { id: "quantum-control", title: "Quantum Control Systems", image: osintDashboardImg, slug: "home" },
-        ]
-      }
-    ]
-  },
-  {
-    id: "aerospace",
-    title: "Aerospace & Defence",
-    description: "High-performance systems and components for aerospace and defence.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2l3 3h-6z"/>
-        <path d="M9 5v8L4 18v2h16v-2l-5-5V5"/>
-        <path d="M12 22v-4"/>
-      </svg>
-    ),
-    highlights: ["Aerospace Engineering", "Defence Manufacturing", "SATCOM Systems", "Precision Components"],
-    systems: [
-      {
-        id: "aero-components",
-        title: "Manufacturing & Components",
-        description: "Precision-engineered aerospace and defence manufacturing.",
-        icon: (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-          </svg>
-        ),
-        spotlightImage: arsenalFacilityImg,
-        stats: ["Mil-Spec Grade", "Advanced Materials", "Rapid Prototyping", "Scalable Production"],
-        applications: ["Aircraft Assembly", "Munitions Casings", "Satellite Integration", "Naval Upgrades"],
-        products: [
-          { id: "aerospace-comp", title: "Aerospace Components", image: arsenalFacilityImg, slug: "home" },
-          { id: "defence-comp", title: "Defence Components", image: corporateHouse1, slug: "home" },
-          { id: "satcom", title: "SATCOM Components", image: haleDroneImg, slug: "home" },
-          { id: "manufacturing", title: "Manufacturing", image: arsenalFacilityImg, slug: "home" },
         ]
       }
     ]
