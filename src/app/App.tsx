@@ -12,9 +12,9 @@ import { ButterflyADGPage } from '../pages/ButterflyADG/ButterflyADGPage';
 import { RhinoZ23Page } from '../pages/RhinoZ23/RhinoZ23Page';
 import { DroneRadarPage } from '../pages/DroneRadar/DroneRadarPage';
 import { RFDetectorPage } from '../pages/RFDetector/RFDetectorPage';
-import { ThreeDDetectionRadarPage } from '../pages/3DDetectionRadar/ThreeDDetectionRadarPage';
 import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
 import { OSINTPage } from '../pages/OSINT/OSINTPage';
+import { QuantumSensingPage } from '../pages/QuantumSensing/QuantumSensingPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
 import infinitySpearVideo from '@/imports/Infinity_Spear.mp4';
@@ -494,6 +494,13 @@ function Nav() {
                   <div 
                     key={system.id}
                     onMouseEnter={() => setActiveSystem(system)}
+                    onClick={(e) => {
+                      if (system.slug && system.slug !== 'home') {
+                        e.preventDefault();
+                        setHoveredNav(null);
+                        navigate(system.slug);
+                      }
+                    }}
                     className={`flex items-start gap-4 p-4 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
                   >
                     <div className="flex-1">
@@ -2202,13 +2209,13 @@ export default function App() {
           <Route path="/infinity-rhino-black" element={<InfinityRhinoBlackPage />} />
           <Route path="/butterfly-adg" element={<ButterflyADGPage />} />
           <Route path="/rhino-gen-z23" element={<RhinoZ23Page />} />
-          <Route path="/electronic-warfare" element={<ElectronicWarfarePage />} />
+          {/* <Route path="/electronic-warfare" element={<ElectronicWarfarePage />} /> */}
           <Route path="/rf-detector" element={<RFDetectorPage />} />
           <Route path="/drone-radar" element={<DroneRadarPage />} />
           <Route path="/surveillance-radar" element={<SurveillanceRadarPage />} />
-          <Route path="/handheld-jammer" element={<HandheldJammerPage />} />
-          <Route path="/3d-detector" element={<ThreeDDetectionRadarPage />} />
+          {/* <Route path="/handheld-jammer" element={<HandheldJammerPage />} /> */}
           <Route path="/osint" element={<OSINTPage />} />
+          <Route path="/quantum-technology-solutions/quantum-sensing" element={<QuantumSensingPage />} />
         </Routes>
         <Footer />
       </div>

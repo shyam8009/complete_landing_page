@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import heroImg from "@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg";
 import sensorDomeImg from "@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png";
 import motorImg from "@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png";
@@ -130,7 +130,6 @@ export const CAPABILITIES_DATA = [
         products: [
           { id: "guardian", title: "The Guardian Smart Soldier Band", image: guardianImg, slug: "/guardian-experience" },
           { id: "rf-detector", title: "RF Detector D360", image: rfDetectorD360Img, slug: "/rf-detector" },
-          { id: "3d-detector", title: "3D Drone Detector", image: droneRadarHeroImg, slug: "/3d-detector" },
         ]
       }
     ]
@@ -254,6 +253,63 @@ export const CAPABILITIES_DATA = [
           { id: "iot", title: "Internet of Things", image: corporateHouse3, slug: "home" },
           { id: "cloud", title: "Cloud Services", image: corporateHouse1, slug: "home" },
           { id: "video", title: "Video Streaming Services", image: corporateHouse2, slug: "home" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "quantum-technology-solutions",
+    title: "Quantum Technology Solutions",
+    description: "Next-generation quantum sensing, communication, and cryptography architectures.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M12 2v20M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+    ),
+    highlights: ["Quantum Sensing", "Quantum Communication", "Post-Quantum Cryptography"],
+    systems: [
+      {
+        id: "quantum-sensing",
+        title: "Quantum Sensing",
+        slug: "/quantum-technology-solutions/quantum-sensing",
+        description: "Next-generation sensing hardware exploiting quantum principles.",
+        icon: (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2v20M2 12h20"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        ),
+        spotlightImage: rfRadarGeneratedImg,
+        stats: ["High Precision", "RF Detection", "Quantum Drones", "Atomic Clocks"],
+        applications: ["Navigation", "Radar Systems", "Secure Timing", "Targeting"],
+        products: [
+          { id: "wideband-rf", title: "Wideband RF Detectors", image: rfRadarGeneratedImg, slug: "home" },
+          { id: "quantum-microwave", title: "Quantum Microwave Devices", image: rfRadarHudImg, slug: "home" },
+          { id: "rydberg-atom", title: "Rydberg Atom Quantum Sensors", image: innovation1, slug: "home" },
+          { id: "quantum-drone", title: "Quantum Drone", image: drone3d1, slug: "home" },
+          { id: "quantum-clock", title: "Quantum Clock Source", image: innovation3, slug: "home" },
+        ]
+      },
+      {
+        id: "quantum-communication",
+        title: "Quantum Communication",
+        description: "Unhackable quantum internet and post-quantum cryptographic systems.",
+        icon: (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        ),
+        spotlightImage: c2DashboardUiImg,
+        stats: ["Unhackable Links", "QKD", "Post-Quantum Security", "Global Reach"],
+        applications: ["Secure Comms", "Financial Data", "Military Networks", "Command & Control"],
+        products: [
+          { id: "quantum-secured-comms", title: "Quantum Secured Communication", image: c2DashboardUiImg, slug: "home" },
+          { id: "quantum-internet", title: "Quantum Internet", image: innovation4, slug: "home" },
+          { id: "hardware-pqc", title: "Hardware based Post Quantum Cryptography", image: innovation5, slug: "home" },
+          { id: "quantum-control", title: "Quantum Control Systems", image: osintDashboardImg, slug: "home" },
         ]
       }
     ]
@@ -412,6 +468,11 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
                 <div 
                   key={system.id}
                   onMouseEnter={() => setActiveSystem(system)}
+                  onClick={() => {
+                    // Navigate if the system has a dedicated slug
+                    // @ts-ignore
+                    if (onNavigate && system.slug) onNavigate(system.slug);
+                  }}
                   className={`flex items-center gap-4 p-4 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
                 >
                   <div className={`${isActive ? "text-[#3C5929]" : "text-white/40"}`}>
@@ -431,7 +492,15 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
         {/* COLUMN 3: SPOTLIGHT + PRODUCTS */}
         <div className="flex-1 border-r border-white/5 p-8 flex flex-col overflow-y-auto custom-scrollbar">
           <span className="text-[11px] font-bold tracking-[2px] uppercase text-white/40 mb-2">{activeDomain.title}</span>
-          <h2 className="text-[28px] font-bold text-white mb-2">{activeSystem.title}</h2>
+          <h2 
+            className="text-[28px] font-bold text-white mb-2 cursor-pointer hover:text-[#3C5929] transition-colors inline-block w-fit"
+            onClick={() => {
+              // @ts-ignore
+              if (onNavigate && activeSystem.slug) onNavigate(activeSystem.slug);
+            }}
+          >
+            {activeSystem.title}
+          </h2>
           <p className="text-[14px] text-white/60 mb-6 max-w-[90%] leading-relaxed">{activeSystem.description}</p>
           
           <div className="relative w-full h-[220px] rounded-md overflow-hidden mb-8 border border-white/10">
@@ -514,7 +583,8 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
           <div 
             className="mt-8 border border-[rgba(0,229,255,0.2)] bg-[rgba(0,229,255,0.03)] p-5 rounded-md cursor-pointer hover:bg-[rgba(0,229,255,0.06)] transition-colors group"
             onClick={() => {
-               if (onNavigate) onNavigate(activeSystem.products[0]?.slug || 'home');
+               // @ts-ignore
+               if (onNavigate) onNavigate(activeSystem.slug || activeSystem.products[0]?.slug || 'home');
             }}
           >
             <div className="flex items-center justify-between mb-2">
