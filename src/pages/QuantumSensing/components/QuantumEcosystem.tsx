@@ -9,6 +9,7 @@ import imgMicrowave from '@/imports/innovation_2.jpg';
 import imgRydberg from '@/imports/rydberg_sensor_macro.jpg';
 import imgDrone from '@/imports/quantum_stealth_drone.jpg';
 import imgClock from '@/imports/quantum_atomic_clock.jpg';
+import bgVideo from '@/imports/gwr_video_mvp.mp4';
 import bgSchematic from '@/imports/unified_quantum_schematic.jpg';
 
 // Register GSAP plugins
@@ -147,15 +148,32 @@ export function QuantumEcosystem() {
   return (
     <div className="font-['Inter',sans-serif]">
       {/* Intro Section - Standard Flow */}
-      <section className="relative w-full py-24 md:py-32 flex flex-col items-center justify-center border-b border-white/10" style={{ backgroundColor: '#050505' }}>
-        <div className="text-center px-6 max-w-3xl mx-auto">
+      <section className="relative w-full py-32 md:py-48 flex flex-col items-start justify-center overflow-hidden" style={{ backgroundColor: '#050505' }}>
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <video 
+            src={bgVideo} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-60"
+          />
+          {/* Gradient overlay to ensure text is legible on the left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
+          
+          {/* Bottom fade to blend seamlessly into the next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
+        </div>
+
+        <div className="relative z-10 px-6 md:px-12 max-w-3xl text-left">
           <span className="inline-block px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase mb-6" style={{ color: '#84CC16', backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
             Sovereign Technology
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight text-white">
-            The Quantum Ecosystem
+          <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white leading-tight">
+            The Quantum <br className="hidden md:block" /> Ecosystem
           </h2>
-          <p className="mt-6 text-sm md:text-base leading-relaxed text-neutral-400">
+          <p className="mt-6 text-sm md:text-base leading-relaxed text-neutral-300 max-w-xl">
             Sensing built on quantum principles, engineered for a sensitivity classical hardware can't reach. 
             From RF detection to atomic clocks, this is the measurement layer for modern aerospace and defence programmes.
           </p>
@@ -169,7 +187,7 @@ export function QuantumEcosystem() {
         style={{ backgroundColor: '#050505' }} // Dark background base
       >
         {/* Background Schematic Image (Fixed Z-0) */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img 
             src={bgSchematic} 
             alt="Quantum Schematic Background" 
@@ -180,12 +198,7 @@ export function QuantumEcosystem() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(132,204,22,0.06)_0%,rgba(5,5,5,0.85)_80%)]" />
         </div>
 
-        {/* Static Header (Z-20) */}
-        <div className="absolute top-8 left-0 right-0 z-20 text-center pointer-events-none">
-          <h2 className="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase text-white/50">
-            The Quantum Ecosystem
-          </h2>
-        </div>
+
 
         {/* Track Container (Z-10) */}
         <div className="h-full w-full flex items-center overflow-visible z-10 relative">
