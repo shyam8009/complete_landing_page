@@ -530,23 +530,62 @@ function Nav() {
               <span className="text-[#84CC16]">{activeSystem.title}</span> Products
             </h4>
             
-            <div className="flex flex-col gap-1 flex-1">
-              {activeSystem.products.map((product: any) => (
-                <div 
-                  key={product.id} 
-                  className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
-                  onClick={() => { setHoveredNav(null); if (navigate) navigate(product.slug); }}
-                >
-                  <div className="w-[32px] h-[32px] rounded overflow-hidden border border-white/10 shrink-0 bg-[#05080d]">
-                    <img src={product.image} alt={product.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{product.title}</span>
-                  <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
-                    <MiniArrow color="#84CC16" />
-                  </div>
+            {activeSystem.products.length > 5 ? (
+              <div className="grid grid-cols-2 gap-x-6 gap-y-1 flex-1">
+                <div className="flex flex-col gap-1">
+                  {activeSystem.products.slice(0, Math.ceil(activeSystem.products.length / 2)).map((product: any) => (
+                    <div 
+                      key={product.id} 
+                      className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
+                      onClick={() => { setHoveredNav(null); if (navigate) navigate(product.slug); }}
+                    >
+                      <div className="w-[32px] h-[32px] rounded overflow-hidden border border-white/10 shrink-0 bg-[#05080d]">
+                        <img src={product.image} alt={product.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      </div>
+                      <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{product.title}</span>
+                      <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
+                        <MiniArrow color="#84CC16" />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+                <div className="flex flex-col gap-1">
+                  {activeSystem.products.slice(Math.ceil(activeSystem.products.length / 2)).map((product: any) => (
+                    <div 
+                      key={product.id} 
+                      className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
+                      onClick={() => { setHoveredNav(null); if (navigate) navigate(product.slug); }}
+                    >
+                      <div className="w-[32px] h-[32px] rounded overflow-hidden border border-white/10 shrink-0 bg-[#05080d]">
+                        <img src={product.image} alt={product.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      </div>
+                      <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{product.title}</span>
+                      <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
+                        <MiniArrow color="#84CC16" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-1 flex-1">
+                {activeSystem.products.map((product: any) => (
+                  <div 
+                    key={product.id} 
+                    className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
+                    onClick={() => { setHoveredNav(null); if (navigate) navigate(product.slug); }}
+                  >
+                    <div className="w-[32px] h-[32px] rounded overflow-hidden border border-white/10 shrink-0 bg-[#05080d]">
+                      <img src={product.image} alt={product.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    </div>
+                    <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{product.title}</span>
+                    <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
+                      <MiniArrow color="#84CC16" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <a 
               href="#"
