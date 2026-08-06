@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroVideo from '../../../imports/fpv-buddy/Drone 2.mp4';
+import heroVideo from '../../../imports/fpv-buddy/FPV_Drone_Hero_Banner_1.mp4';
 
 const INTER = "'Inter', sans-serif";
 
