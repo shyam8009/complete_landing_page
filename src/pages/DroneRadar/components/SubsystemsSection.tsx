@@ -7,7 +7,7 @@ import { useGSAP } from '@gsap/react';
 import imgAmp from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_1sfdbBur4r.png';
 import imgThermal from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_CHdnhd8EEy.png';
 import imgMounts from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_wPKasSb7EI.png';
-import bgSchematic from '../../../imports/unified_quantum_schematic.jpg';
+import bgPattern from '../../../imports/light_blueprint_bg.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,18 +99,16 @@ export function SubsystemsSection() {
       {/* GSAP Horizontal Scroll Section */}
       <section 
         ref={containerRef} 
-        className="relative h-screen overflow-hidden"
-        style={{ backgroundColor: '#050505' }} // Dark background base
+        className="relative h-screen overflow-hidden bg-white"
       >
-        {/* Background Schematic Image (Fixed Z-0) */}
+        {/* Schematic Vector Background Overlay */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img 
-            src={bgSchematic} 
-            alt="Technical Schematic Background" 
-            className="w-full h-full object-cover opacity-[0.15] mix-blend-screen invert"
+            src={bgPattern} 
+            alt="Technical Blueprint Overlay" 
+            className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
           />
-          {/* Faint green glow overlaid on schematic */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(132,204,22,0.06)_0%,rgba(5,5,5,0.85)_80%)]" />
+          <div className="absolute inset-0 bg-white/20 z-0" />
         </div>
 
         {/* Section Intro text floating over the track */}
@@ -118,7 +116,7 @@ export function SubsystemsSection() {
            <span className="inline-block px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase mb-6" style={{ color: '#84CC16', backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
             // TECHNICAL ARCHITECTURE
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-black uppercase tracking-tight leading-tight">
             ENGINEERED FOR THE <br /> MODERN BATTLESPACE.
           </h2>
         </div>
