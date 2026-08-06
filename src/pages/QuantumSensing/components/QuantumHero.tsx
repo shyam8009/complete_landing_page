@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import bgImage from '@/imports/quantum_hero_bg.jpg';
+import bgVideo from '@/imports/gwr_video_mvp.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,19 +37,27 @@ export function QuantumHero() {
 
   return (
     <section ref={containerRef} className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-[#000000] text-white">
-      {/* Background Image */}
+      {/* Background Video */}
       <div 
         ref={bgRef}
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-60"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      />
+        className="absolute inset-0 w-full h-full opacity-90"
+      >
+        <video 
+          src={bgVideo} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </div>
       
-      {/* Overlay Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#000000]" />
-      <div className="absolute inset-0 bg-radial-[circle_at_center,transparent_0%,#000000_100%] opacity-80" />
+      {/* Overlay Gradients for left-aligned text and bottom blend */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#000000] to-transparent pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-[1200px] w-full mx-auto px-6 flex flex-col items-start text-left">
         {/* Eyebrow */}
         <div 
           className="flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md px-4 py-1.5 rounded-full mb-8"
@@ -72,7 +80,7 @@ export function QuantumHero() {
           </span>
         </h1>
 
-        <div ref={contentRef} className="flex flex-col items-center max-w-[700px]">
+        <div ref={contentRef} className="flex flex-col items-start max-w-[700px]">
           {/* Subheadline */}
           <p className="text-xl md:text-2xl font-medium text-white/90 mb-6 leading-tight">
             Sensing built on quantum principles, engineered for a sensitivity classical hardware can't reach.

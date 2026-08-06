@@ -1,7 +1,6 @@
 import React from 'react';
-import bgHero from '@/imports/intel_hero_bg.jpg';
-
-export default function IntelligenceSurveillanceHero() {
+import bgImage from '@/imports/c2_hero_bg.jpg';
+export default function CommandControlHero() {
   const scrollToNextSection = () => {
     window.scrollTo({
       top: window.innerHeight,
@@ -11,19 +10,16 @@ export default function IntelligenceSurveillanceHero() {
 
   return (
     <section className="relative w-full h-screen bg-[#050505] flex items-center justify-start overflow-hidden border-b border-white/10">
-      
-      {/* Background Layer: Global Threat Map */}
+      {/* Background Layer: High-Fidelity Static Asset */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img 
-          src={bgHero} 
-          alt="Global Threat Map"
-          className="w-full h-full object-cover opacity-60"
+          src={bgImage} 
+          alt="Tactical C2 Background"
+          className="w-full h-full object-cover opacity-90"
         />
-        {/* Subtle CSS animation to simulate video radar sweep over the image */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(5,5,5,0.85)_100%)]" />
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-l from-[#84CC16]/5 to-transparent animate-pulse" style={{ animationDuration: '4s' }} />
-        {/* Dark gradient mask on the left to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/70 to-transparent w-[60%]" />
+        {/* Lighter gradient overlay to ensure text is legible on the left while keeping right details bright */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/95 via-[#050505]/60 to-transparent w-[70%]" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
       </div>
 
       {/* Content - LEFT ALIGNED based on right-heavy background */}
@@ -39,12 +35,12 @@ export default function IntelligenceSurveillanceHero() {
 
         {/* Headline */}
         <h1 className="text-5xl lg:text-7xl font-bold uppercase tracking-tight text-white mb-6 leading-tight">
-          Intelligence & <br /> Surveillance
+          Command & <br /> Control
         </h1>
 
         {/* Subheadline */}
         <p className="text-base md:text-xl text-neutral-300 leading-relaxed max-w-2xl mb-12">
-          Absolute informational dominance. From deep-web data extraction to invisible spectrum monitoring, this is the architecture required to map complex threats and secure multi-domain operations before a kinetic strike.
+          Unified multi-sensor surveillance, automated threat engagement, and spectrum dominance. Unifying real-time intelligence into a single, actionable command picture for total operational control.
         </p>
 
         {/* Primary CTA */}
@@ -52,15 +48,12 @@ export default function IntelligenceSurveillanceHero() {
           onClick={scrollToNextSection}
           className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
         >
-          Deploy Surveillance Assets
+          Deploy Command Systems
           <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </button>
       </div>
-
-      {/* Bottom fade to blend seamlessly into the next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none" />
     </section>
   );
 }

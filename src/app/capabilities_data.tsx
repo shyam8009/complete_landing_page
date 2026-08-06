@@ -53,7 +53,7 @@ export const CAPABILITIES_DATA = [
     systems: [
       {
         id: "anti-drone",
-        title: "Anti Drone Systems",
+        title: "Drone Systems",
         description: "Detect, track, and neutralize drone threats.",
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -71,7 +71,8 @@ export const CAPABILITIES_DATA = [
           { id: "fpv-buddy", title: "FPV Drone Buddy", image: flightImg, slug: "/fpv-buddy" },
           { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "/sahana-fpv" },
           { id: "varuna", title: "Varuna - Underwater Drone", image: fieldImg, slug: "/varuna" },
-          { id: "proxy", title: "PROXY - Control Channel", image: sensorDomeImg, slug: "/proxy" }
+          { id: "proxy", title: "PROXY - Control Channel", image: sensorDomeImg, slug: "/proxy" },
+          { id: "heaven-sdr", title: "Heaven SDR - Surveillance Drone", image: fieldImg, slug: "/heaven-sdr-surveillance-drone" }
         ]
       },
       {
@@ -84,7 +85,7 @@ export const CAPABILITIES_DATA = [
           </svg>
         ),
         spotlightImage: droneRadarHeroImg,
-        stats: ["360Â° Coverage", "AI Threat Analysis", "Multi-Target Tracking", "All-Weather Operability"],
+        stats: ["360° Coverage", "AI Threat Analysis", "Multi-Target Tracking", "All-Weather Operability"],
         applications: ["Airspace Monitoring", "Border Surveillance", "Naval Defence", "Asset Protection"],
         products: [
           { id: "3d-drone-radar", title: "3D Drone Radar", image: droneRadarHeroImg, slug: "/drone-radar" },
@@ -107,7 +108,7 @@ export const CAPABILITIES_DATA = [
         applications: ["Convoy Protection", "Tactical Infantry Support", "Event Security", "Airspace Denial"],
         products: [
           { id: "spear", title: "Handheld Jammer (Infinity Spear)", image: spearSpecificImg, slug: "/infinity-spear" },
-          { id: "rhino", title: "Anti Drone System (Infinity Rhino)", image: rhinoSpecificImg, slug: "/infinity-rhino" },
+          { id: "rhino", title: "Manpack Jammer (Infinity Rhino)", image: rhinoSpecificImg, slug: "/infinity-rhino" },
           { id: "butterfly", title: "Butterfly ADG L70", image: butterflySpecificImg, slug: "/butterfly-adg" },
           { id: "z23", title: "Rhino Gen Z23", image: rhinoZ23SpecificImg, slug: "/rhino-gen-z23" },
           { id: "rhino-black", title: "Infinity Rhino Black", image: rhinoSpecificImg, slug: "/infinity-rhino-black" },
@@ -129,7 +130,51 @@ export const CAPABILITIES_DATA = [
         applications: ["Forward Operating Bases", "Border Outposts", "Critical Infrastructure", "Urban Warfare"],
         products: [
           { id: "guardian", title: "The Guardian Smart Soldier Band", image: guardianImg, slug: "/guardian-experience" },
-          { id: "rf-detector", title: "RF Detector D360", image: rfDetectorD360Img, slug: "/rf-detector" },
+          { id: "rf-detector", title: "RF Detector", image: rfDetectorD360Img, slug: "/rf-detector" },
+          { id: "ground-surveillance-radar", title: "ground survaillance radar", image: surveillanceRadarHeroImg, slug: "/vsr-to-mrr" },
+          { id: "3d-drone-rf-detector", title: "3D Drone RF Detector", image: rfDetectorD360Img, slug: "/3d-drone-detector" },
+        ]
+      },
+      {
+        id: "communication",
+        title: "Communication System",
+        description: "Secure and resilient tactical communication networks.",
+        icon: (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M4 11a9 9 0 0 1 9 9" />
+            <path d="M4 4a16 16 0 0 1 16 16" />
+            <circle cx="5" cy="19" r="1" />
+          </svg>
+        ),
+        spotlightImage: c2DashboardUiImg,
+        stats: ["Encrypted Links", "High Bandwidth", "Low Latency", "Anti-Jamming"],
+        applications: ["Tactical Operations", "Command Centers", "Field Deployments", "Mobile Units"],
+        products: [
+          { id: "lorros", title: "lorros communication", image: c2DashboardUiImg, slug: "/lorros-communication" },
+          { id: "guardian-comms", title: "The Guardian: Smart Soldier Band", image: guardianImg, slug: "/guardian-experience" },
+        ]
+      },
+      {
+        id: "electro-optics",
+        title: "Electro Optics",
+        description: "Precision optical systems for targeting and surveillance.",
+        icon: (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M21 12c-2.4 4 -5.4 6 -9 6s-6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6s6.6 2 9 6" />
+          </svg>
+        ),
+        spotlightImage: sensorDomeImg,
+        stats: ["Thermal Imaging", "Laser Rangefinding", "Day/Night Vision", "Target Tracking"],
+        applications: ["Reconnaissance", "Target Acquisition", "Border Patrol", "Maritime Surveillance"],
+        products: [
+          { id: "hugo", title: "Hugo", image: sensorDomeImg, slug: "/hugo" },
+          { id: "nubra", title: "Nubra", image: sensorDomeImg, slug: "/nubra" },
+          { id: "salte", title: "Salte", image: sensorDomeImg, slug: "/salte" },
+          { id: "oslo", title: "Oslo", image: sensorDomeImg, slug: "/oslo" },
+          { id: "incas", title: "Incas", image: sensorDomeImg, slug: "/incas" },
+          { id: "yoto", title: "Yoto", image: sensorDomeImg, slug: "/yoto" },
+          { id: "troy", title: "Troy", image: sensorDomeImg, slug: "/troy" },
         ]
       }
     ]

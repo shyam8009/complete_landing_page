@@ -2,12 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import heroBg from '../../../imports/guardian/magnific_photorealistic-outdoor-fi_YV36av5WeC.png';
+import { useSectionMedia } from '../../DynamicProduct/ProductLoader';
 
 const INTER = "'Inter', sans-serif";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   
+  // Phase 2B: Dynamic Media Override
+  const { resolvedUrl, isVideo } = useSectionMedia("HeroSection", heroBg);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(".hero-element",
@@ -20,12 +24,20 @@ export function HeroSection() {
 
   return (
     <section ref={containerRef} className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Background Image */}
-      <img
-        src={heroBg}
-        alt="The Guardian Smart Soldier Band"
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
-      />
+      {/* Background Media */}
+      {isVideo ? (
+        <video 
+          src={resolvedUrl || ''} 
+          autoPlay loop muted playsInline 
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-80" 
+        />
+      ) : (
+        <img
+          src={resolvedUrl || ''}
+          alt="The Guardian Smart Soldier Band"
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+        />
+      )}
       
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />

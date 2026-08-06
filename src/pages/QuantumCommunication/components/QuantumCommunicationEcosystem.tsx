@@ -8,7 +8,6 @@ import imgNetwork from '@/imports/quantum_network_nodes.jpg';
 import imgCrypto from '@/imports/quantum_crypto_chip.jpg';
 import imgSoftware from '@/imports/quantum_control_software.jpg';
 import bgSchematic from '@/imports/unified_quantum_schematic.jpg';
-import introVideo from '@/imports/quantum_communication_intro_video.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,23 +98,12 @@ export default function QuantumCommunicationEcosystem() {
   return (
     <div className="font-['Inter',sans-serif]">
       {/* Intro Section - Standard Flow */}
-      <section className="relative w-full py-32 md:py-48 flex flex-col items-start justify-center overflow-hidden" style={{ backgroundColor: '#050505' }}>
+      <section className="relative w-full pt-16 pb-8 md:pt-24 md:pb-12 flex flex-col items-start justify-center overflow-hidden" style={{ backgroundColor: '#050505' }}>
         
-        {/* Background Video */}
+        {/* Simple gradient background instead of video */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <video 
-            src={introVideo} 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="w-full h-full object-cover"
-          />
-          {/* Gradient overlay to ensure text is legible on the left */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
-          
-          {/* Bottom fade to blend seamlessly into the next section */}
-          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#050505] to-[#020202]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(14,165,233,0.05)_0%,transparent_50%)]" />
         </div>
 
         <div className="relative z-10 px-6 md:px-12 max-w-3xl text-left">
@@ -164,9 +152,9 @@ export default function QuantumCommunicationEcosystem() {
               style={{ width: '100vw' }}
             >
               
-              {/* THE GLASSMORPHISM CARD (Max height ensures it clears header/footer) */}
+              {/* THE GLASSMORPHISM CARD (Fixed Height Constraint) */}
               <div 
-                className="w-[90vw] max-w-[1100px] h-auto max-h-[75vh] flex flex-col md:flex-row rounded-2xl overflow-hidden mx-auto"
+                className="w-[90vw] max-w-[1100px] rounded-2xl overflow-hidden mx-auto h-[min(540px,75vh)] flex flex-col md:flex-row"
                 style={{ 
                   backgroundColor: 'rgba(8, 8, 8, 0.75)', 
                   border: '1px solid rgba(255,255,255,0.08)',
@@ -191,31 +179,44 @@ export default function QuantumCommunicationEcosystem() {
                 </div>
 
                 {/* Right Split (Content) */}
-                <div className="w-full md:w-7/12 p-6 lg:p-10 flex flex-col justify-center overflow-y-auto">
+                <div className="w-full md:w-7/12 p-6 lg:p-10 flex flex-col justify-between h-full overflow-hidden bg-neutral-100">
                   <div>
                     <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
-                      style={{ color: '#84CC16', backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
+                      style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
                       {item.tag}
                     </span>
                     
-                    <h2 className="text-white text-xl lg:text-3xl font-bold uppercase mb-4 leading-tight">
+                    <h2 className="text-slate-900 text-xl lg:text-3xl font-bold uppercase mb-4 leading-tight line-clamp-1">
                       {item.title}
                     </h2>
                     
-                    <p className="text-xs lg:text-sm text-neutral-300 mb-6 leading-relaxed">
+                    <p className="text-xs lg:text-sm text-slate-600 mb-6 leading-relaxed line-clamp-2">
                       {item.desc}
                     </p>
                     
-                    <div className="my-5" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }} />
+                    <div className="my-5 border-t border-slate-200" />
                     
-                    <ul className="space-y-3">
-                      {item.features.map((feature, fIndex) => (
-                        <li key={fIndex} className="flex items-start gap-3 text-xs lg:text-[13px] text-white/80">
-                          <span className="mt-[2px] font-bold" style={{ color: '#84CC16' }}>›</span>
-                          <span className="leading-normal">{feature}</span>
-                        </li>
+                    <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
+                      Key Technical Features
+                    </h4>
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                      {item.features.slice(0, 4).map((feature, fIndex) => (
+                        <div key={fIndex} className="flex items-start gap-2 text-[11px] lg:text-[13px] text-slate-700 leading-tight">
+                          <span className="mt-[2px] font-bold text-amber-600">›</span>
+                          <span className="line-clamp-2">{feature}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="pt-6 mt-auto border-t border-slate-200">
+                    <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-slate-900 text-white">
+                      <span>Know More</span>
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
 

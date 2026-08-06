@@ -223,14 +223,13 @@ export function QuantumEcosystem() {
 function TacticalConsoleCard({ data }: { data: CardData }) {
   return (
     <div
-      className="relative w-[90vw] max-w-[1100px] rounded-2xl overflow-hidden mx-auto"
+      className="relative w-[90vw] max-w-[1100px] rounded-2xl overflow-hidden mx-auto h-[min(540px,75vh)]"
       style={{ 
         backgroundColor: 'rgba(8, 8, 8, 0.75)', 
         border: '1px solid rgba(255,255,255,0.08)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)',
-        maxHeight: '75vh', // Protects the top/bottom headers
         display: 'flex',
         flexDirection: 'column'
       }}
@@ -241,8 +240,8 @@ function TacticalConsoleCard({ data }: { data: CardData }) {
       <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
       <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
 
-      {/* Grid Layout */}
-      <div className="flex flex-col md:grid md:grid-cols-12 h-full overflow-y-auto overflow-x-hidden md:overflow-hidden">
+      {/* Grid Layout - Forced to 100% height without internal scrolling */}
+      <div className="flex flex-col md:grid md:grid-cols-12 h-full w-full overflow-hidden">
         
         {/* LEFT: Hardware Visual (5 cols / ~42%) */}
         <div className="md:col-span-5 p-5 lg:p-6 border-b md:border-b-0 md:border-r" 
@@ -268,45 +267,41 @@ function TacticalConsoleCard({ data }: { data: CardData }) {
         </div>
 
         {/* RIGHT: Specifications & CTAs (7 cols / ~58%) */}
-        <div className="md:col-span-7 p-6 lg:p-8 flex flex-col justify-between" style={{ backgroundColor: 'transparent' }}>
+        <div className="md:col-span-7 p-6 lg:p-8 flex flex-col justify-between h-full bg-neutral-100">
           <div>
             {/* Tag */}
             <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
-              style={{ color: '#84CC16', backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
+              style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
               {data.tag}
             </span>
 
             {/* Title */}
-            <h3 className="text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight text-white">
+            <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-1">
               {data.title}
             </h3>
-            <p className="text-xs lg:text-sm mt-3 leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <p className="text-xs lg:text-sm mt-3 leading-relaxed text-slate-600 line-clamp-2">
               {data.description}
             </p>
 
-            <div className="my-5" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }} />
+            <div className="my-5 border-t border-slate-200" />
 
-            {/* Specs */}
-            <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-white/40">
+            {/* Specs Grid */}
+            <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
               Key Technical Features
             </h4>
-            <ul className="space-y-3">
-              {data.specs.map((spec, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-xs lg:text-[13px] text-white/80">
-                  <span className="mt-[2px] font-bold" style={{ color: '#84CC16' }}>›</span>
-                  <span className="leading-normal">{spec}</span>
-                </li>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+              {data.specs.slice(0, 4).map((spec, idx) => (
+                <div key={idx} className="flex items-start gap-2 text-[11px] lg:text-[13px] text-slate-700 leading-tight">
+                  <span className="mt-[2px] font-bold text-amber-600">›</span>
+                  <span className="line-clamp-2">{spec}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
-          {/* CTA */}
-          <div className="pt-6 mt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-            <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
-              style={{ backgroundColor: '#84CC16', color: '#050505', boxShadow: '0 0 20px rgba(132,204,22,0.15)' }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#9AE529')}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#84CC16')}
-            >
+          {/* Bottom CTA Block locked to bottom via mt-auto */}
+          <div className="pt-6 mt-auto border-t border-slate-200">
+            <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-slate-900 text-white group">
               <span>Know More</span>
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
