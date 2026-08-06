@@ -4,6 +4,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Activity, Cpu, Network, Radio, Target, Zap } from 'lucide-react';
 import bgPattern from '../../../imports/light_blueprint_bg.jpg';
+import imgAmp from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_1sfdbBur4r.png';
+import imgThermal from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_CHdnhd8EEy.png';
+import imgMounts from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_wPKasSb7EI.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
