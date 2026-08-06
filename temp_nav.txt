@@ -1,0 +1,324 @@
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { GuardianExperiencePage } from '../pages/GuardianExperience/GuardianExperiencePage';
+import { SahanaFpvProductPage } from '../pages/SahanaFpv/SahanaFpvProductPage';
+import { FpvBuddyPage } from '../pages/FpvBuddy/FpvBuddyPage';
+import { VarunaPage } from '../pages/Varuna/VarunaPage';
+import { ProxyPage } from '../pages/Proxy/ProxyPage';
+import { InfinitySpearPage } from '../pages/InfinitySpear/InfinitySpearPage';
+import { InfinityRhinoPage } from '../pages/InfinityRhino/InfinityRhinoPage';
+import { InfinityRhinoBlackPage } from '../pages/InfinityRhinoBlack/InfinityRhinoBlackPage';
+import { ButterflyADGPage } from '../pages/ButterflyADG/ButterflyADGPage';
+import { RhinoZ23Page } from '../pages/RhinoZ23/RhinoZ23Page';
+import { DroneRadarPage } from '../pages/DroneRadar/DroneRadarPage';
+import { RFDetectorPage } from '../pages/RFDetector/RFDetectorPage';
+import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
+import { ProductLayout } from '../pages/DynamicProduct/ProductLoader';
+import DynamicPageLoader from '../pages/DynamicEcosystem/DynamicPageLoader';
+import { OSINTPage } from '../pages/OSINT/OSINTPage';
+import { QuantumSensingPage } from '../pages/QuantumSensing/QuantumSensingPage';
+import QuantumCommunicationPage from '../pages/QuantumCommunication/QuantumCommunicationPage';
+import IntelligenceSurveillancePage from '../pages/IntelligenceSurveillance/IntelligenceSurveillancePage';
+import CommandControlPage from '../pages/CommandControl/CommandControlPage';
+import CommunicationMonitoringPage from '../pages/CommunicationMonitoring/CommunicationMonitoringPage';
+import { CAPABILITIES_DATA } from './capabilities_data';
+import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
+import { RichText } from '../components/RichText';
+import infinitySpearVideo from '@/imports/Infinity_Spear.mp4';
+import visionRobotVideo from '@/imports/Vision_Drone.mp4';
+import { ChevronRight } from 'lucide-react';
+import useEmblaCarousel from 'embla-carousel-react';
+gsap.registerPlugin(ScrollTrigger);
+
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { Routes, Route, Link, useNavigate } from "react-router";
+import svgPaths from "@/imports/1920WLight/svg-bymm5omek1";
+import sahanaLogo from "@/imports/logo-sahana.png";
+import makeInIndiaLogo from "@/imports/logo-make-in-india.png";
+import heroVideo from "@/imports/Hero banner Video.mp4";
+import { homeDb } from "../cms/db";
+import { sanityClient, urlFor } from "../cms/sanity";
+
+// New product images — all of the same tactical drone, different shots & environments
+import heroImg from "@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg";
+import sensorDomeImg from "@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png";
+import motorImg from "@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png";
+import fieldImg from "@/imports/magnific_professional-outdoor-prod_brmNd7p5Y2.png";
+import sensorAngle2Img from "@/imports/magnific_extreme-closeup-macro-pro_LUQGHhOswO.png";
+import flightImg from "@/imports/sahana_fpv_interceptor.jpg";
+import jungleImg from "@/imports/magnific_professional-outdoor-prod_SObWxSiUb8.png";
+import infinitySpearImg from "@/imports/infinity_spear.jpg";
+import rfDetectorImg from "@/imports/rf_detector_d360.jpg";
+import infinityRhinoImg from "@/imports/infinity_rhino.jpg";
+import infinityRadarImg from "@/imports/infinity_radar.jpg";
+import arsenalFacilityImg from "@/imports/arsenal_facility.jpg";
+import haleDroneImg from "@/imports/hale_drone.jpg";
+import varunaHullImg from "@/imports/varuna/magnific_a-photorealistic-underwat_3G7XWY1REY.png";
+import digitalTwinImg from "@/imports/digital_twin.jpg";
+import newsCelImg from "@/imports/news_cel_agreement.png";
+import corporateHouse1 from "@/imports/corporate_house_1.jpg";
+import corporateHouse2 from "@/imports/corporate_house_2.jpg";
+import corporateHouse3 from "@/imports/corporate_house_3.jpg";
+import innovation1 from "@/imports/innovation_1.jpg";
+import innovation2 from "@/imports/innovation_2.jpg";
+import innovation3 from "@/imports/innovation_3.png";
+import innovation4 from "@/imports/innovation_4.jpg";
+import innovation5 from "@/imports/innovation_5.jpg";
+
+import capsuleIcon from '../imports/capsule-icon.png';
+import drone3d1 from "@/imports/drone_3d_1.gif";
+import drone3d2 from "@/imports/drone_3d_2.gif";
+import rfRadarGeneratedImg from "@/imports/rf_radar_generated.png";
+import rfRadarHudImg from "@/imports/rf_radar_hud.png";
+import droneRadarHeroImg from "@/imports/drone_radar_hero.png";
+import c2DashboardUiImg from "@/imports/c2_dashboard_ui.png";
+import surveillanceRadarHeroImg from "@/imports/surveillance_radar_hero.png";
+import surveillanceBlueprintImg from "@/imports/surveillance_blueprint.png";
+import spearCadBlueprintImg from "@/imports/spear_cad_blueprint.png";
+
+
+
+
+const INTER = "'Inter', sans-serif";
+
+const CARD_GRADIENT =
+  "linear-gradient(rgba(1,1,1,0) 0%,rgba(1,1,1,0.004) 1.8%,rgba(1,1,1,0.008) 4.8%,rgba(1,1,1,0.02) 9%,rgba(1,1,1,0.043) 13.9%,rgba(1,1,1,0.075) 19.8%,rgba(1,1,1,0.125) 27%,rgba(1,1,1,0.192) 35%,rgba(1,1,1,0.28) 43.5%,rgba(1,1,1,0.38) 53%,rgba(1,1,1,0.54) 66%,rgba(1,1,1,0.737) 81%,rgb(1,1,1) 100%)";
+
+// ——— SVG helpers ————————————————————————————————————————————————————————————————————————————
+
+function AndurilLogo({ width = 210 }: { width?: number }) {
+  return (
+    <img src={sahanaLogo} alt="Sahana Defence" style={{ width: `${width}px`, height: 'auto' }} className="h-10 object-contain pointer-events-auto" />
+  );
+}
+
+function SmallLogo({ width = 150 }: { width?: number }) {
+  return (
+    <img src={sahanaLogo} alt="Sahana Defence" style={{ width: `${width}px`, height: 'auto' }} className="h-9 object-contain" />
+  );
+}
+
+function CardArrow() {
+  return (
+    <svg width="14.39" height="14.39" viewBox="0 0 14.3906 14.3906" fill="none">
+      <path d={svgPaths.p1941c480} fill="white" />
+    </svg>
+  );
+}
+
+function MiniArrow({ color = "#010101" }: { color?: string }) {
+  return (
+    <svg width="9.89" height="9.89" viewBox="0 0 9.89062 9.89062" fill="none">
+      <path d={svgPaths.pd0ac800} fill={color} />
+    </svg>
+  );
+}
+
+// ——— Reusable "text + underline + arrow" link ————————————————————————————————————————————————
+
+function UnderlineLink({
+  children,
+  color = "#010101",
+  opacity = 1,
+}: {
+  children: React.ReactNode;
+  color?: string;
+  opacity?: number;
+}) {
+  return (
+    <div className="flex items-center gap-2 cursor-pointer" style={{ opacity }}>
+      <div className="relative">
+        <span
+          className="text-sm capitalize whitespace-nowrap"
+          style={{ color, fontFamily: INTER, fontWeight: 400 }}
+        >
+          {children}
+        </span>
+        <div className="absolute -bottom-1.5 left-0 right-0 h-px" style={{ background: color }} />
+      </div>
+      <MiniArrow color={color} />
+    </div>
+  );
+}
+
+
+
+
+
+const INVESTORS_DATA = [
+  {
+    id: 'annual-reports',
+    title: 'Annual Reports',
+    description: 'Access annual reports, financial disclosures and company performance documents.',
+    links: [
+      { text: 'FY 2025-26', url: '#' },
+      { text: 'FY 2024-25', url: '#' },
+      { text: 'FY 2023-24', url: '#' },
+    ],
+    cta: 'View All →'
+  },
+  {
+    id: 'general-meeting-notice',
+    title: 'General Meeting Notice',
+    description: 'Notices, agendas, and minutes for upcoming and past general meetings.',
+    links: [
+      { text: 'Upcoming AGM Notice', url: '#' },
+      { text: 'EGM Minutes 2024', url: '#' },
+      { text: 'Proxy Forms', url: '#' },
+    ],
+    cta: 'View All Notices →'
+  },
+  {
+    id: 'code-of-conduct',
+    title: 'Code of Conduct & Policies',
+    description: 'Our commitment to ethical business practices and corporate integrity.',
+    links: [
+      { text: 'Code of Business Conduct', url: '#' },
+      { text: 'Whistleblower Policy', url: '#' },
+      { text: 'Anti-Bribery Guidelines', url: '#' },
+    ],
+    cta: 'View Policies →'
+  },
+  {
+    id: 'annual-return',
+    title: 'Annual Return',
+    description: 'Statutory annual returns filed with regulatory authorities.',
+    links: [
+      { text: 'Form MGT-7 (2025)', url: '#' },
+      { text: 'Form MGT-7 (2024)', url: '#' },
+      { text: 'Archives', url: '#' },
+    ],
+    cta: 'View Returns →'
+  },
+  {
+    id: 'policies',
+    title: 'Policies of the Company',
+    description: 'Operational and strategic policies governing our organization.',
+    links: [
+      { text: 'Dividend Distribution', url: '#' },
+      { text: 'CSR Policy', url: '#' },
+      { text: 'Risk Management', url: '#' },
+    ],
+    cta: 'View All Policies →'
+  },
+  {
+    id: 'shareholder-info',
+    title: 'Shareholder Information',
+    description: 'Resources and updates for our valued shareholders and investors.',
+    links: [
+      { text: 'Shareholding Pattern', url: '#' },
+      { text: 'Registrar Details', url: '#' },
+      { text: 'Unpaid Dividend', url: '#' },
+    ],
+    cta: 'Investor Desk →'
+  },
+  {
+    id: 'kmp',
+    title: 'Key Managerial Personnel',
+    description: "Executive leadership driving Sahana Defence's strategic vision.",
+    links: [
+      { text: 'CEO & Managing Director', url: '#' },
+      { text: 'Chief Financial Officer', url: '#' },
+      { text: 'Company Secretary', url: '#' },
+    ],
+    cta: 'View Leadership →'
+  },
+  {
+    id: 'board-of-directors',
+    title: 'Board of Directors',
+    description: 'Company leadership and corporate governance framework.',
+    links: [
+      { text: 'Chairman', url: '#' },
+      { text: 'Managing Director', url: '#' },
+      { text: 'Independent Directors', url: '#' },
+    ],
+    cta: 'View Details →'
+  },
+  {
+    id: 'committees',
+    title: 'Composition of Committees',
+    description: 'Details of various board committees and their current members.',
+    links: [
+      { text: 'Audit Committee', url: '#' },
+      { text: 'Nomination & Remuneration', url: '#' },
+      { text: 'CSR Committee', url: '#' },
+    ],
+    cta: 'View Committees →'
+  },
+  {
+    id: 'key-contact',
+    title: 'Key Contact',
+    description: 'Direct contact points for investor relations and grievance redressal.',
+    links: [
+      { text: 'Nodal Officer', url: '#' },
+      { text: 'Compliance Officer', url: '#' },
+      { text: 'Investor Grievances', url: '#' },
+    ],
+    cta: 'Contact IR →'
+  }
+];
+
+const TRUST_BAR_DATA = [
+  {
+    title: "Mission Ready",
+    desc: "Built for the most demanding environments",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+    )
+  },
+  {
+    title: "Proven Technology",
+    desc: "Field tested. Battle proven. Trusted globally.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    )
+  },
+  {
+    title: "Indigenous Innovation",
+    desc: "Designed and developed in India",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+        <rect x="9" y="9" width="6" height="6"/>
+        <line x1="9" y1="1" x2="9" y2="4"/>
+        <line x1="15" y1="1" x2="15" y2="4"/>
+        <line x1="9" y1="20" x2="9" y2="23"/>
+        <line x1="15" y1="20" x2="15" y2="23"/>
+        <line x1="20" y1="9" x2="23" y2="9"/>
+        <line x1="20" y1="14" x2="23" y2="14"/>
+        <line x1="1" y1="9" x2="4" y2="9"/>
+        <line x1="1" y1="14" x2="4" y2="14"/>
+      </svg>
+    )
+  },
+  {
+    title: "End-to-End Solutions",
+    desc: "From concept to deployment and beyond",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <circle cx="18" cy="5" r="3"/>
+        <circle cx="6" cy="12" r="3"/>
+        <circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+    )
+  },
+  {
+    title: "Global Support",
+    desc: "24/7 support and lifecycle services",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+        <path d="M21 19a2 2 0 0 1-2 2h-1v-6h3v4z"/>
+        <path d="M3 19a2 2 0 0 0 2 2h1v-6H3v4z"/>
+      </svg>
+    )
+  }
+];
+
