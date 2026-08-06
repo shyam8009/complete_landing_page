@@ -1,236 +1,312 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-
-// Use same generic images from drone-detector or infinity-rhino
-import imgAmp from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_1sfdbBur4r.png';
-import imgThermal from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_CHdnhd8EEy.png';
-import imgMounts from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_wPKasSb7EI.png';
+import { Activity, Cpu, Network, Radio, Target, Zap } from 'lucide-react';
 import bgPattern from '../../../imports/light_blueprint_bg.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── Card Data ────────────────────────────────────────────────
-interface CardData {
-  id: string;
-  tag: string;
-  title: string;
-  description: string;
-  image: string;
-  statusBadge: string;
-  specs: string[];
-}
-
-const PILLARS: CardData[] = [
+const TIERS = [
   {
-    id: '01',
-    tag: 'Hardware · Sensor',
+    id: 'tier1',
     title: 'AESA ANTENNA ARRAY',
-    description: 'Active Electronically Scanned Array (AESA) technology allows for instantaneous beam steering, eliminating the mechanical latency of traditional rotating radars. Provides unblinking coverage of the entire hemisphere.',
-    statusBadge: 'ACTIVE SENSOR',
-    specs: [
-      'Solid-state transmitter architecture', 
-      'Simultaneous multi-beam generation', 
-      'Graceful degradation support',
-      'Hemispherical 3D coverage'
-    ],
-    image: imgAmp
+    type: 'HARDWARE NODE',
   },
   {
-    id: '02',
-    tag: 'Software · Edge Computing',
+    id: 'tier2',
     title: 'AI THREAT CLASSIFIER',
-    description: 'Embedded edge-computing modules process radar returns in real-time, using deep neural networks to distinguish between biological targets (birds), fixed-wing aircraft, and rotary-wing drones.',
-    statusBadge: 'EDGE AI ENGINE',
-    specs: [
-      'Micro-Doppler signature analysis', 
-      'False alarm reduction < 0.1%', 
-      'Continuous model updates via secure OTA',
-      'Instantaneous threat categorization'
-    ],
-    image: imgThermal
+    type: 'PROCESSING NODE',
   },
   {
-    id: '03',
-    tag: 'Network · Integration',
+    id: 'tier3',
     title: 'C2 INTEGRATION',
-    description: 'Natively outputs standardized tracks (e.g., ASTERIX) for seamless ingestion into existing C2 nodes. Engineered to act as the primary sensor in a multi-layered defense architecture.',
-    statusBadge: 'NETWORKED NODE',
-    specs: [
-      'Zero-latency network distribution', 
-      'Interoperable with legacy C2 systems', 
-      'API-first architecture',
-      'Multi-layered defense capability'
-    ],
-    image: imgMounts
+    type: 'OUTPUT NODE',
   }
 ];
 
 export function SubsystemsSection() {
   const containerRef = useRef<HTMLElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const leftColRef = useRef<HTMLDivElement>(null);
+  const rightPanelsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const svgLineRef = useRef<SVGPathElement>(null);
+  const nodeDotsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeTier, setActiveTier] = useState(0);
 
   useGSAP(() => {
-    const cards = gsap.utils.toArray('.qs-card');
-    if (!trackRef.current || cards.length === 0) return;
+    if (!containerRef.current || !svgLineRef.current) return;
 
-    const track = trackRef.current;
-    
-    // Total distance the track needs to slide to show the last card
-    const getScrollDist = () => track.scrollWidth - window.innerWidth;
+    // Calculate total path length for drawing animation
+    const pathLength = svgLineRef.current.getTotalLength();
+    gsap.set(svgLineRef.current, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
 
-    gsap.to(track, {
-      x: () => -getScrollDist(),
-      ease: "none",
+    // Hide all right panels except the first one initially
+    gsap.set(rightPanelsRef.current.slice(1), { autoAlpha: 0, rotationX: 10, y: 30, transformPerspective: 1000 });
+    gsap.set(rightPanelsRef.current[0], { autoAlpha: 1, rotationX: 0, y: 0, transformPerspective: 1000 });
+
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
+        start: 'top top',
+        end: '+=2000', // Scroll duration for the entire section
         pin: true,
-        scrub: 1, // Smooth scrubbing
-        start: "top top",
-        end: () => `+=${getScrollDist()}`,
-        invalidateOnRefresh: true, // Recalculate distances on window resize
+        scrub: 0.5,
+        onUpdate: (self) => {
+          // Update active tier based on scroll progress (3 sections = 33% each roughly)
+          let current = 0;
+          if (self.progress > 0.66) current = 2;
+          else if (self.progress > 0.33) current = 1;
+          
+          if (current !== activeTier) {
+            setActiveTier(current);
+          }
+        }
       }
     });
+
+    // Animate the line drawing down across the whole scroll duration
+    tl.to(svgLineRef.current, { strokeDashoffset: 0, ease: 'none', duration: 3 }, 0);
+
+    // Cross-fade animations for panels tied to scroll progress
+    // Transition 1 to 2
+    tl.to(rightPanelsRef.current[0], { autoAlpha: 0, rotationX: -10, y: -30, duration: 0.5, ease: 'power2.inOut' }, 0.8);
+    tl.to(rightPanelsRef.current[1], { autoAlpha: 1, rotationX: 0, y: 0, duration: 0.5, ease: 'power2.out' }, 1.0);
+
+    // Transition 2 to 3
+    tl.to(rightPanelsRef.current[1], { autoAlpha: 0, rotationX: -10, y: -30, duration: 0.5, ease: 'power2.inOut' }, 1.8);
+    tl.to(rightPanelsRef.current[2], { autoAlpha: 1, rotationX: 0, y: 0, duration: 0.5, ease: 'power2.out' }, 2.0);
+
   }, { scope: containerRef });
 
   return (
-    <div className="font-['Inter',sans-serif]">
-      {/* GSAP Horizontal Scroll Section */}
-      <section 
-        ref={containerRef} 
-        className="relative h-screen overflow-hidden bg-white"
-      >
-        {/* Schematic Vector Background Overlay */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <img 
-            src={bgPattern} 
-            alt="Technical Blueprint Overlay" 
-            className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
-          />
-          <div className="absolute inset-0 bg-white/20 z-0" />
-        </div>
-
-        {/* Section Intro text floating over the track */}
-        <div className="absolute top-[10vh] left-[5vw] md:left-[10vw] z-20 pointer-events-none w-full max-w-xl">
-           <span className="inline-block px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase mb-6" style={{ color: '#84CC16', backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
-            // TECHNICAL ARCHITECTURE
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-black uppercase tracking-tight leading-tight">
-            ENGINEERED FOR THE <br /> MODERN BATTLESPACE.
-          </h2>
-        </div>
-
-        {/* Track Container (Z-10) */}
-        <div className="h-full w-full flex items-center overflow-visible z-10 relative mt-20">
-          <div ref={trackRef} className="flex flex-nowrap h-full items-center pl-[5vw] md:pl-[10vw]">
-            {PILLARS.map((pillar, idx) => (
-              <div 
-                key={idx} 
-                className="qs-card shrink-0 flex items-center justify-center pr-[10vw]"
-                style={{ width: '100vw' }} // Force each card container to take up one viewport width
-              >
-                <TacticalConsoleCard data={pillar} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-// ─── Tactical Console Card ────────────────────────────────────
-function TacticalConsoleCard({ data }: { data: CardData }) {
-  return (
-    <div
-      className="relative w-[90vw] max-w-[1100px] rounded-2xl overflow-hidden mx-auto h-[min(540px,75vh)]"
-      style={{ 
-        backgroundColor: 'rgba(8, 8, 8, 0.75)', 
-        border: '1px solid rgba(255,255,255,0.08)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)',
-        display: 'flex',
-        flexDirection: 'column'
-      }}
+    <section 
+      ref={containerRef} 
+      className="relative min-h-screen bg-[#F8F9FA] overflow-hidden flex items-center font-['Inter',sans-serif]"
     >
-      {/* HUD Corner Accents */}
-      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
-      <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
-      <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
-      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
+      {/* Background Blueprint Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.15]">
+        <img 
+          src={bgPattern} 
+          alt="System Blueprint" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F8F9FA] via-transparent to-[#F8F9FA]" />
+      </div>
 
-      {/* Grid Layout - Forced to 100% height without internal scrolling */}
-      <div className="flex flex-col md:grid md:grid-cols-12 h-full w-full overflow-hidden">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-8 w-full relative z-10 flex flex-col md:flex-row gap-12 lg:gap-24 items-center">
         
-        {/* LEFT: Hardware Visual (5 cols / ~42%) */}
-        <div className="md:col-span-5 p-5 lg:p-6 border-b md:border-b-0 md:border-r" 
-          style={{ backgroundColor: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}>
-          {/* Image */}
-          <div className="relative w-full h-48 md:h-full rounded-xl overflow-hidden group" 
-            style={{ border: '1px solid rgba(255,255,255,0.08)', backgroundColor: '#000', minHeight: '300px' }}>
-            <img
-              src={data.image}
-              alt={data.title}
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-            />
-            <div style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%)' }} className="absolute inset-0" />
-            
-            {/* Status indicator */}
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-              <span className="flex items-center gap-1.5 text-[10px] font-mono text-white/90">
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: '#84CC16' }} />
-                {data.statusBadge}
-              </span>
-            </div>
+        {/* LEFT COLUMN: Architecture Nav Tree */}
+        <div ref={leftColRef} className="w-full md:w-1/3 relative flex flex-col justify-between py-12" style={{ height: '70vh' }}>
+          
+          {/* Section Header */}
+          <div className="mb-8">
+            <span className="text-[#0052FF] font-mono text-xs font-bold uppercase tracking-[0.2em] mb-2 block">
+              // Technical Architecture
+            </span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 uppercase tracking-tight leading-tight">
+              System<br/>Blueprint
+            </h2>
+          </div>
+
+          {/* SVG Trace Line */}
+          <div className="absolute left-6 top-48 bottom-12 w-0.5 bg-slate-200">
+            <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 2 1000">
+              <path 
+                ref={svgLineRef}
+                d="M 1 0 L 1 1000" 
+                fill="none" 
+                stroke="#0052FF" 
+                strokeWidth="2" 
+                className="drop-shadow-[0_0_8px_rgba(0,82,255,0.8)]"
+              />
+            </svg>
+          </div>
+
+          {/* Nodes */}
+          <div className="flex flex-col justify-between flex-grow pl-14 relative z-10">
+            {TIERS.map((tier, idx) => {
+              const isActive = activeTier === idx;
+              const isPast = activeTier > idx;
+              return (
+                <div key={tier.id} className="relative group cursor-pointer transition-all duration-500">
+                  {/* Node Dot */}
+                  <div 
+                    className={`absolute -left-10 top-2 w-4 h-4 rounded-full border-2 transition-all duration-500 flex items-center justify-center
+                      ${isActive ? 'border-[#0052FF] bg-white scale-125 shadow-[0_0_15px_rgba(0,82,255,0.4)]' : 
+                        isPast ? 'border-[#0052FF] bg-[#0052FF]' : 'border-slate-300 bg-white'}`}
+                  >
+                    {isActive && <div className="w-1.5 h-1.5 bg-[#0052FF] rounded-full animate-ping" />}
+                  </div>
+
+                  <span className={`text-[10px] font-mono tracking-widest uppercase transition-colors duration-300 block mb-1
+                    ${isActive ? 'text-[#0052FF] font-bold' : 'text-slate-400'}`}>
+                    Tier 0{idx + 1} // {tier.type}
+                  </span>
+                  <h3 className={`text-xl lg:text-2xl font-bold uppercase tracking-wide transition-colors duration-300
+                    ${isActive ? 'text-slate-900' : 'text-slate-400 group-hover:text-slate-600'}`}>
+                    {tier.title}
+                  </h3>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* RIGHT: Specifications & CTAs (7 cols / ~58%) */}
-        <div className="md:col-span-7 p-6 lg:p-8 flex flex-col justify-between h-full bg-neutral-100">
-          <div>
-            {/* Tag */}
-            <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
-              style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
-              {data.tag}
-            </span>
-
-            {/* Title */}
-            <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-1">
-              {data.title}
-            </h3>
-            <p className="text-xs lg:text-sm mt-3 leading-relaxed text-slate-600 line-clamp-3">
-              {data.description}
-            </p>
-
-            <div className="my-5 border-t border-slate-200" />
-
-            {/* Specs Grid */}
-            <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
-              Key Technical Features
-            </h4>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-              {data.specs.slice(0, 4).map((spec, idx) => (
-                <div key={idx} className="flex items-start gap-2 text-[11px] lg:text-[13px] text-slate-700 leading-tight">
-                  <span className="mt-[2px] font-bold text-amber-600">›</span>
-                  <span className="line-clamp-2">{spec}</span>
+        {/* RIGHT COLUMN: Dynamic Spec Inspector */}
+        <div className="w-full md:w-2/3 relative" style={{ height: '70vh' }}>
+          
+          {/* TIER 1: AESA Antenna Array (Hardware Node - Circular/Pill shape) */}
+          <div ref={el => rightPanelsRef.current[0] = el} className="absolute inset-0 flex items-center justify-center invisible">
+            <div className="w-full max-w-2xl bg-white border border-slate-200 rounded-[3rem] p-10 lg:p-14 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] relative overflow-hidden group">
+              {/* Decorative Background rings */}
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 w-[30rem] h-[30rem] rounded-full border border-slate-100 flex items-center justify-center opacity-50">
+                <div className="w-[20rem] h-[20rem] rounded-full border border-slate-100 flex items-center justify-center">
+                  <div className="w-[10rem] h-[10rem] rounded-full border border-slate-100/50" />
                 </div>
-              ))}
+              </div>
+
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-[#0052FF] rounded-full text-xs font-mono font-bold tracking-widest mb-8 border border-blue-100">
+                  <Radio className="w-4 h-4 animate-pulse" />
+                  TRANSMITTER ACTIVE
+                </div>
+
+                <h4 className="text-4xl font-bold text-slate-900 mb-6 uppercase tracking-tight">
+                  Solid-State <br/> Multi-Beam Array
+                </h4>
+
+                <p className="text-slate-600 leading-relaxed max-w-md mb-8">
+                  Instantaneous beam steering eliminates mechanical latency. Configured for unblinking hemispherical 3D coverage and graceful degradation.
+                </p>
+
+                <div className="flex gap-6 items-end">
+                  <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex-1">
+                    <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-1">Frequency Band</span>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-3xl font-bold text-slate-900">X-Band</span>
+                      <span className="text-xs text-[#0052FF] font-mono animate-pulse">LIVE</span>
+                    </div>
+                  </div>
+                  <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex-1">
+                    <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-1">Coverage</span>
+                    <span className="text-3xl font-bold text-slate-900">360° / 90°</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Bottom CTA Block locked to bottom via mt-auto */}
-          <div className="pt-6 mt-auto border-t border-slate-200">
-            <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-[#84CC16] hover:text-slate-900 text-white group">
-              <span>Know More</span>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+          {/* TIER 2: AI Threat Classifier (Processing Node - Hexagonal layout styling) */}
+          <div ref={el => rightPanelsRef.current[1] = el} className="absolute inset-0 flex items-center justify-center invisible">
+             <div className="w-full max-w-2xl bg-white border border-slate-200 p-1 lg:p-1 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] relative overflow-hidden" 
+                  style={{ clipPath: 'polygon(5% 0, 100% 0, 100% 95%, 95% 100%, 0 100%, 0 5%)' }}>
+               <div className="bg-slate-50 h-full w-full p-10 lg:p-14" style={{ clipPath: 'polygon(5% 0, 100% 0, 100% 95%, 95% 100%, 0 100%, 0 5%)' }}>
+                  
+                  {/* Hexagon Grid Background pattern */}
+                  <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+
+                  <div className="relative z-10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-600 rounded-sm text-xs font-mono font-bold tracking-widest mb-8 border border-amber-100">
+                      <Cpu className="w-4 h-4 animate-spin-slow" />
+                      NEURAL NET ONLINE
+                    </div>
+
+                    <h4 className="text-4xl font-bold text-slate-900 mb-6 uppercase tracking-tight">
+                      Micro-Doppler <br/> Analysis Engine
+                    </h4>
+
+                    <p className="text-slate-600 leading-relaxed max-w-md mb-8">
+                      Embedded edge-computing modules process radar returns in real-time, distinguishing between biological targets, fixed-wing, and rotary drones.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-white p-4 border border-slate-200 border-l-4 border-l-amber-500 shadow-sm relative overflow-hidden group">
+                        <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-1 relative z-10">False Alarm Rate</span>
+                        <div className="flex items-baseline gap-1 relative z-10">
+                          <span className="text-3xl font-bold text-slate-900">&lt; 0.1%</span>
+                        </div>
+                        {/* Fake telemetry bar */}
+                        <div className="absolute bottom-0 left-0 h-1 bg-amber-500 w-full transform origin-left scale-x-100 group-hover:scale-x-90 transition-transform duration-1000" />
+                      </div>
+                      
+                      <div className="bg-white p-4 border border-slate-200 border-l-4 border-l-amber-500 shadow-sm relative overflow-hidden group">
+                        <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-1 relative z-10">Model Updates</span>
+                        <div className="flex items-baseline gap-1 relative z-10">
+                          <span className="text-xl font-bold text-slate-900 mt-2">SECURE OTA</span>
+                        </div>
+                         {/* Fake telemetry bar */}
+                         <div className="absolute bottom-0 left-0 h-1 bg-amber-500 w-full transform origin-left scale-x-100 group-hover:scale-x-[0.95] transition-transform duration-1000" />
+                      </div>
+                    </div>
+
+                  </div>
+               </div>
+             </div>
           </div>
+
+          {/* TIER 3: C2 Integration (Output Node - Wide network link banner) */}
+          <div ref={el => rightPanelsRef.current[2] = el} className="absolute inset-0 flex items-center justify-center invisible">
+            <div className="w-full max-w-3xl bg-slate-900 text-white border border-slate-800 rounded-sm p-10 lg:p-14 shadow-[0_30px_60px_-12px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+              
+              {/* Network Node Background */}
+              <div className="absolute inset-0 opacity-10">
+                <svg width="100%" height="100%">
+                  <pattern id="network" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 40" fill="none" stroke="white" strokeWidth="1"/>
+                  </pattern>
+                  <rect x="0" y="0" width="100%" height="100%" fill="url(#network)"/>
+                </svg>
+              </div>
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-950/50 text-emerald-400 rounded-sm text-xs font-mono font-bold tracking-widest border border-emerald-900">
+                    <Network className="w-4 h-4" />
+                    ASTERIX LINK ESTABLISHED
+                  </div>
+                  <div className="flex gap-2">
+                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                     <span className="w-2 h-2 rounded-full bg-emerald-500 opacity-50" />
+                     <span className="w-2 h-2 rounded-full bg-emerald-500 opacity-50" />
+                  </div>
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-12 items-center">
+                  <div className="flex-1">
+                    <h4 className="text-3xl font-bold text-white mb-4 uppercase tracking-tight">
+                      Zero-Latency <br/> Distribution
+                    </h4>
+                    <p className="text-slate-400 leading-relaxed text-sm">
+                      Natively outputs standardized tracks for seamless ingestion into existing C2 nodes. Engineered as the primary sensor in multi-layered defense architectures.
+                    </p>
+                  </div>
+
+                  <div className="w-px h-32 bg-white/10 hidden md:block" />
+
+                  <div className="flex-1 space-y-6 w-full">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Protocol</span>
+                      <span className="text-sm font-bold text-emerald-400">ASTERIX / API-FIRST</span>
+                    </div>
+                    <div className="h-px w-full bg-white/10" />
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Latency</span>
+                      <span className="text-sm font-bold text-white">NEAR-ZERO MS</span>
+                    </div>
+                    <div className="h-px w-full bg-white/10" />
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Architecture</span>
+                      <span className="text-sm font-bold text-white">MULTI-LAYER DEFENSE</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
+    </section>
   );
 }
