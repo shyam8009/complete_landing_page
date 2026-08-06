@@ -506,8 +506,8 @@ function Nav() {
                     className={`flex items-start gap-4 p-4 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
                   >
                     <div className="flex-1">
-                      <h3 className={`font-bold text-[14px] mb-1 ${isActive ? "text-[#84CC16]" : "text-white/80"}`}>{system.title}</h3>
-                      <p className="text-[12px] text-white/40 leading-snug line-clamp-1">{system.description}</p>
+                      <h3 className={`font-bold text-[14px] ${!system.description ? 'mb-0' : 'mb-1'} ${isActive ? "text-[#84CC16]" : "text-white/80"}`}>{system.title}</h3>
+                      {system.description && <p className="text-[12px] text-white/40 leading-snug line-clamp-1">{system.description}</p>}
                     </div>
                     {isActive && <div className="text-[#84CC16] mt-1"><MiniArrow color="#84CC16" /></div>}
                   </div>

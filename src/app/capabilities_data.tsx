@@ -54,7 +54,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "anti-drone",
         title: "Drone Systems",
-        description: "Detect, track, and neutralize drone threats.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
@@ -78,7 +78,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "radar",
         title: "Radar Systems",
-        description: "Advanced radar solutions for surveillance and tracking.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -95,7 +95,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "jamming",
         title: "Jamming Systems",
-        description: "Electronic jamming solutions for spectrum dominance.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M18 8c0 4.5-6 6-6 12"/>
@@ -117,7 +117,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "detection",
         title: "Detection Systems",
-        description: "Multi-sensor detection for complete threat awareness.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <circle cx="12" cy="12" r="10"/>
@@ -138,7 +138,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "communication",
         title: "Communication System",
-        description: "Secure and resilient tactical communication networks.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M4 11a9 9 0 0 1 9 9" />
@@ -157,7 +157,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "electro-optics",
         title: "Electro Optics",
-        description: "Precision optical systems for targeting and surveillance.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <circle cx="12" cy="12" r="3" />
@@ -196,7 +196,7 @@ export const CAPABILITIES_DATA = [
         id: "intel-surv",
         title: "Intelligence & Surveillance",
         slug: "/information-warfare/intelligence-surveillance",
-        description: "Advanced intelligence gathering and open-source data analytics.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
@@ -215,7 +215,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "command-control",
         title: "Command & Control",
-        description: "Centralized AI command hubs for autonomous asset coordination.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
@@ -234,7 +234,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "comms",
         title: "Communication & Monitoring",
-        description: "Secure, unjammable communication networks and signal interception.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M4 11a9 9 0 0 1 9 9"/>
@@ -267,7 +267,7 @@ export const CAPABILITIES_DATA = [
         id: "quantum-sensing",
         title: "Quantum Sensing",
         slug: "/quantum-technology-solutions/quantum-sensing",
-        description: "Next-generation sensing hardware exploiting quantum principles.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <circle cx="12" cy="12" r="10"/>
@@ -290,7 +290,7 @@ export const CAPABILITIES_DATA = [
         id: "quantum-communication",
         title: "Quantum Communication",
         slug: "/quantum-technology-solutions/quantum-communication",
-        description: "Unhackable quantum internet and post-quantum cryptographic systems.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <ellipse cx="12" cy="5" rx="9" ry="3"/>
@@ -326,7 +326,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "aero-components",
         title: "Manufacturing & Fabrication",
-        description: "Precision-engineered aerospace and defence manufacturing.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
@@ -357,7 +357,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "ai-data",
         title: "AI & Data",
-        description: "Machine learning algorithms and big data processing pipelines.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
@@ -375,7 +375,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "connectivity",
         title: "Connectivity & Infrastructure",
-        description: "Resilient cloud services and IoT frameworks for military bases.",
+
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <ellipse cx="12" cy="5" rx="9" ry="3"/>
