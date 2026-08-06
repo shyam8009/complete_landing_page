@@ -175,6 +175,7 @@ export const CAPABILITIES_DATA = [
           { id: "incas", title: "Incas", image: sensorDomeImg, slug: "/incas" },
           { id: "yoto", title: "Yoto", image: sensorDomeImg, slug: "/yoto" },
           { id: "troy", title: "Troy", image: sensorDomeImg, slug: "/troy" },
+          { id: "alta", title: "Alta", image: sensorDomeImg, slug: "/alta" },
         ]
       }
     ]
