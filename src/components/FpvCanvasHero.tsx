@@ -279,35 +279,37 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       </div>
 
       {/* RELEASE beat — 400 KMPH odometer */}
-      <div style={{ ...OL_BASE, justifyContent: 'center', paddingBottom: '8vh', flexDirection: 'row', alignItems: 'center', gap: '1.5rem' }}>
-        <div
-          ref={textSpeedRef}
-          style={{
-            fontFamily: "Inter, sans-serif",
-            fontSize: 'clamp(12vh, 22vw, 38vh)',
-            fontWeight: 400, lineHeight: 1, color: '#fff',
-            opacity: 0, fontVariantNumeric: 'tabular-nums',
-            transform: 'scale(0.88)',
-            letterSpacing: '-0.02em',
-          }}
-        >
-          0
-        </div>
-        <div
-          ref={textSpeedLabelRef}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            opacity: 0,
-            transform: 'scale(0.88)',
-            fontFamily: "Inter, sans-serif",
-            color: '#fff',
-            marginTop: '2vh'
-          }}
-        >
-          <span style={{ fontSize: 'clamp(2rem, 4.5vw, 5rem)', lineHeight: 1, fontWeight: 400 }}>kmph</span>
-          <span style={{ fontSize: 'clamp(1rem, 2vw, 2rem)', lineHeight: 1.2, fontWeight: 700 }}> (Max Speed)</span>
+      <div style={{ ...OL_BASE, justifyContent: 'flex-end', alignItems: 'flex-end', paddingBottom: '12vh', paddingRight: '5vw' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '1.5rem' }}>
+          <div
+            ref={textSpeedRef}
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 'clamp(12vh, 22vw, 38vh)',
+              fontWeight: 400, lineHeight: 1, color: '#fff',
+              opacity: 0, fontVariantNumeric: 'tabular-nums',
+              transform: 'scale(0.88)',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            0
+          </div>
+          <div
+            ref={textSpeedLabelRef}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              opacity: 0,
+              transform: 'scale(0.88)',
+              fontFamily: "Inter, sans-serif",
+              color: '#fff',
+              marginTop: '2vh'
+            }}
+          >
+            <span style={{ fontSize: 'clamp(2rem, 4.5vw, 5rem)', lineHeight: 1, fontWeight: 400 }}>kmph</span>
+            <span style={{ fontSize: 'clamp(1rem, 2vw, 2rem)', lineHeight: 1.2, fontWeight: 700 }}> (Max Speed)</span>
+          </div>
         </div>
       </div>
 
