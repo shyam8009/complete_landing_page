@@ -169,6 +169,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       }
 
       // 3. Attach ScrollTrigger
+      ScrollTrigger.create({
         trigger: section,
         start: 'top top',
         end: `+=${SCROLL_LENGTH}`,
