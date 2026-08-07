@@ -5,8 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 // ─── CONFIG — repoint here, nowhere else ───────────────────────────────────────
-const FRAME_COUNT   = 150;
-const SCROLL_LENGTH = '300%';
+const FRAME_COUNT   = 300;
+const SCROLL_LENGTH = '600%';
 const FRAME_PATH    = (i: number) =>
   `/frames/fpv-frame-${String(i).padStart(3, '0')}.jpg`;
 
