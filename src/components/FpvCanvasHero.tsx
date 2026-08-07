@@ -163,12 +163,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
         return; // degrade gracefully to static frame
       }
 
-      // 2. Rest of the sequence
-      for (let i = 2; i < FRAME_COUNT; i++) {
-        try { images[i] = await loadFrame(i); } catch { /* skip */ }
-      }
-
-      // 3. Attach ScrollTrigger
+      // 2. Attach ScrollTrigger IMMEDIATELY so pinning works
       ScrollTrigger.create({
         trigger: section,
         start: 'top top',
@@ -180,6 +175,18 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
 
       setupOverlays();
       tick();
+
+      // 3. Load the rest of the sequence in the background (non-blocking)
+      const promises = [];
+      for (let i = 2; i < FRAME_COUNT; i++) {
+        promises.push(
+          loadFrame(i)
+            .then(img => { images[i] = img; })
+            .catch(() => { /* skip missing frames */ })
+        );
+      }
+      // We don't await this here, let them load asynchronously
+      Promise.all(promises);
     }
 
     init();
