@@ -273,7 +273,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
             clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)',
           }}
         >
-          Sahana FPV Bullseye<br />&amp; Interceptor
+          FPV Bullseye<br />&amp; Interceptor
         </h1>
       </div>
 
