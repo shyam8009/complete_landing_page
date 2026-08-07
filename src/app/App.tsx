@@ -43,7 +43,7 @@ import infinitySpearImg from "@/imports/infinity_spear.jpg";
 import rfDetectorImg from "@/imports/rf_detector_d360.jpg";
 import infinityRhinoImg from "@/imports/infinity_rhino.jpg";
 import infinityRadarImg from "@/imports/infinity_radar.jpg";
-import arsenalFacilityImg from "@/imports/arsenal_facility.jpg";
+import arsenalFacilityImg from "@/imports/magnific_aerial-drone-photography-_O69QUmlynm.jpg";
 import haleDroneImg from "@/imports/hale_drone.jpg";
 import varunaHullImg from "@/imports/varuna/magnific_a-photorealistic-underwat_3G7XWY1REY.png";
 import digitalTwinImg from "@/imports/digital_twin.jpg";
