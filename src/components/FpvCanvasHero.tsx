@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 // ─── CONFIG — repoint here, nowhere else ───────────────────────────────────────
-const FRAME_COUNT   = 300;
+const FRAME_COUNT   = 299;
 const SCROLL_LENGTH = '600%';
 const FRAME_PATH    = (i: number) =>
   `/frames/fpv-frame-${String(i).padStart(3, '0')}.jpg`;
@@ -157,7 +157,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       // 1. Critical frames first so hero is never blank
       try {
         images[1]   = await loadFrame(1);
-        images[150] = await loadFrame(150);
+        images[FRAME_COUNT] = await loadFrame(FRAME_COUNT);
         draw(1);
       } catch {
         return; // degrade gracefully to static frame
