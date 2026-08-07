@@ -322,14 +322,13 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
         </div>
       </div>
 
-      {/* RESOLVE beat — CTAs */}
+      {/* RESOLVE beat — CTAs (Removed per request) */}
       <div style={{ ...OL_BASE, justifyContent: 'flex-end', paddingBottom: '12vh', pointerEvents: 'auto' }}>
         <div ref={ctaRef} style={{
           display: 'flex', flexWrap: 'wrap', gap: '1.25rem',
           justifyContent: 'center', opacity: 0, transform: 'translateY(56px)',
         }}>
-          <button style={CTA_SECONDARY}>DOWNLOAD DATASHEET</button>
-          <button style={CTA_PRIMARY}>REQUEST BRIEFING</button>
+          {/* CTAs removed */}
         </div>
       </div>
 
