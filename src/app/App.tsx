@@ -18,6 +18,7 @@ import { QuantumSensingPage } from '../pages/QuantumSensing/QuantumSensingPage';
 import QuantumCommunicationPage from '../pages/QuantumCommunication/QuantumCommunicationPage';
 import IntelligenceSurveillancePage from '../pages/IntelligenceSurveillance/IntelligenceSurveillancePage';
 import { CAPABILITIES_DATA } from './capabilities_data';
+import { FpvCanvasHero } from '../components/FpvCanvasHero';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
 import infinitySpearVideo from '@/imports/Infinity_Spear.mp4';
 import visionRobotVideo from '@/imports/Vision_Drone.mp4';
@@ -822,89 +823,9 @@ function Nav() {
 // ——— HERO ————————————————————————————————————————————————————————————————————————————————————
 
 function Hero() {
-  const [playVideo, setPlayVideo] = useState(false);
-  const [showText, setShowText] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    // Start video background after 2 seconds
-    const videoTimer = setTimeout(() => {
-      setPlayVideo(true);
-      if (videoRef.current) {
-        videoRef.current.play().catch((err) => {
-          console.log("Auto-playing video failed or was interrupted:", err);
-        });
-      }
-    }, 2000);
-
-    // Hide text overlay after 4 seconds (2s image + 2s video)
-    const textTimer = setTimeout(() => {
-      setShowText(false);
-    }, 4000);
-
-    return () => {
-      clearTimeout(videoTimer);
-      clearTimeout(textTimer);
-    };
-  }, []);
-
-  const headingText = "Protect. Detect. Dominate";
-  const overheadText = "AI-led Deep Tech Company";
-
-  return (
-    <section 
-      className="relative w-full overflow-hidden flex flex-col justify-end pb-24 px-9" 
-      style={{ height: "calc(100vh - 86px)" }}
-    >
-      {/* Background image */}
-      <img 
-        src={heroImg} 
-        alt="Ghost drone" 
-        className="absolute inset-0 w-full h-full object-cover z-0" 
-      />
-
-      {/* Video Background (fades in after 2 seconds) */}
-      <video
-        ref={videoRef}
-        src={heroVideo}
-        loop
-        muted
-        playsInline
-        className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ease-in-out ${
-          playVideo ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-      />
-      
-      {/* dark overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/40 pointer-events-none z-10" />
-      
-      {/* Hero content */}
-      <div 
-        className={`relative z-20 max-w-4xl flex flex-col gap-4 select-none transition-all duration-1000 ease-in-out ${
-          showText ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
-        }`}
-      >
-        <p className="text-[#2e4321] text-sm tracking-[4px] uppercase font-bold" style={{ fontFamily: INTER }}>
-          {overheadText}
-        </p>
-        <h1 className="text-white text-5xl md:text-7xl tracking-tighter uppercase leading-none font-light" style={{ fontFamily: INTER }}>
-          {headingText}
-        </h1>
-        <p className="text-white/80 text-lg md:text-2xl font-light max-w-2xl leading-relaxed" style={{ fontFamily: INTER }}>
-          Real-time edge compute, vertical takeoff and landing, and modular payload configuration for persistent military autonomy.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-4 pointer-events-auto">
-          <button className="px-6 py-3 bg-[#2e4321] hover:bg-[#3c562b] text-white font-semibold text-sm rounded-sm transition-all duration-300 shadow-[0_0_15px_rgba(46,67,33,0.4)] hover:shadow-[0_0_20px_rgba(46,67,33,0.6)] cursor-pointer">
-            Explore Specifications
-          </button>
-          <button className="px-6 py-3 border border-white/20 hover:border-white/60 text-white font-semibold text-sm rounded-sm transition-all duration-300 backdrop-blur-sm cursor-pointer">
-            Watch Operations
-          </button>
-        </div>
-      </div>
-    </section>
-  );
+  return <FpvCanvasHero />;
 }
+
 
 function ProductCard({
   image,
@@ -1896,56 +1817,8 @@ function HandheldJammerPage() {
 
   return (
     <div ref={containerRef} className="w-full min-h-screen bg-black text-white selection:bg-[#2e4321] selection:text-white" style={{ fontFamily: INTER }}>
-      {/* 1. HERO SECTION */}
-      <section className="relative w-full h-[90vh] md:h-screen min-h-[700px] flex items-end pb-24 px-9 overflow-hidden bg-black">
-        <div className="absolute inset-0 z-0 flex items-center justify-center p-9 lg:p-24">
-          <img src={infinitySpearImg} alt="Infinity Spear Jammer" className="w-full h-full object-contain opacity-70 scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80" />
-        </div>
-        
-        <div ref={heroRef} className="relative z-10 max-w-[1200px] w-full mx-auto flex flex-col gap-6">
-          <span className="hero-anim text-white/70 uppercase tracking-[3px] text-xs font-semibold">Handheld Counter-Unmanned Aerial System (C-UAS) Anti-Drone Gun</span>
-          <h1 className="hero-anim text-5xl md:text-7xl font-bold tracking-tight text-white max-w-[800px] leading-[1.1]">
-            INFINITY SPEAR <span className="font-light text-white/70">(Spear 60)</span>.
-          </h1>
-          <p className="hero-anim text-white/70 text-lg md:text-xl max-w-[600px] leading-relaxed">
-            Squeeze the Trigger. Neutralize the Threat. 60W Handheld C-UAS Power.
-          </p>
-          <div className="hero-anim flex flex-wrap gap-4 mt-4">
-            <button className="bg-white text-black font-semibold uppercase tracking-wider text-xs px-8 py-4 hover:bg-[#2e4321] hover:text-white transition-colors">
-              Schedule Live Range Demo
-            </button>
-            <button className="bg-transparent border border-white/20 text-white font-semibold uppercase tracking-wider text-xs px-8 py-4 hover:bg-white/10 transition-colors">
-              Request Technical Defense Briefing
-            </button>
-          </div>
-        </div>
-
-        {/* Bottom Anchor Stat Bar */}
-        <div ref={statsRef} className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/60 backdrop-blur-md z-10 hidden md:block">
-          <div className="max-w-[1400px] mx-auto px-9 flex items-center justify-between py-5">
-            <div className="stat-item flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">1,500 – 2,000 m</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Tactical Radius</span>
-            </div>
-            <div className="stat-item w-px h-8 bg-white/10" />
-            <div className="stat-item flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">60W</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Total Output Power Density</span>
-            </div>
-            <div className="stat-item w-px h-8 bg-white/10" />
-            <div className="stat-item flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">585 mm</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Compact Form Factor</span>
-            </div>
-            <div className="stat-item w-px h-8 bg-white/10" />
-            <div className="stat-item flex flex-col gap-1">
-              <span className="text-white text-lg font-bold">Selective</span>
-              <span className="text-white/50 text-[11px] uppercase tracking-wider">Multi-Band Suppression</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. HERO SECTION — FPV scroll-linked canvas sequence */}
+      <FpvCanvasHero heroRef={heroRef} statsRef={statsRef} />
 
       {/* 2. CINEMATIC VIDEO SHOWCASE */}
       <section className="relative w-full py-24 px-9 border-t border-white/10 overflow-hidden bg-[#050505]">

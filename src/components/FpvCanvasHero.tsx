@@ -1,0 +1,381 @@
+import React, { useEffect, useRef, forwardRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// ─── CONFIG — repoint here, nowhere else ───────────────────────────────────────
+const FRAME_COUNT   = 150;
+const SCROLL_LENGTH = '300%';
+const FRAME_PATH    = (i: number) =>
+  `/frames/fpv-frame-${String(i).padStart(3, '0')}.jpg`;
+
+// ─── Beat breakpoints (0–1 scroll progress) ────────────────────────────────────
+// DORMANT  0–13%  | WAKE 13–27%  | RELEASE 27–46%
+// LOCK    46–73%  | RESOLVE 73–100%
+
+interface FpvCanvasHeroProps {
+  /** Attach your existing heroRef here so GSAP entry animations still work */
+  heroRef?: React.RefObject<HTMLDivElement | null>;
+  /** Attach your existing statsRef here so stat-item animations still work */
+  statsRef?: React.RefObject<HTMLDivElement | null>;
+}
+
+export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
+  const sectionRef   = useRef<HTMLElement>(null);
+  const canvasRef    = useRef<HTMLCanvasElement>(null);
+  const preloaderRef = useRef<HTMLDivElement>(null);
+  const barRef       = useRef<HTMLDivElement>(null);
+
+  // overlay copy refs
+  const textEWRef    = useRef<HTMLParagraphElement>(null);
+  const textTitleRef = useRef<HTMLHeadingElement>(null);
+  const textSpeedRef = useRef<HTMLDivElement>(null);
+  const spec1Ref     = useRef<HTMLDivElement>(null);
+  const spec2Ref     = useRef<HTMLDivElement>(null);
+  const spec3Ref     = useRef<HTMLDivElement>(null);
+  const ctaRef       = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isReducedMotion) return;
+
+    const canvas  = canvasRef.current!;
+    const section = sectionRef.current!;
+    const ctx     = canvas.getContext('2d', { alpha: false })!;
+
+    const images: HTMLImageElement[] = [];
+    let target  = 1;
+    let current = 1;
+    let lastDrawn = -1;
+    let rafId: number;
+
+    // ── Canvas resize ──────────────────────────────────────────────────────────
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width  = section.clientWidth  * dpr;
+      canvas.height = section.clientHeight * dpr;
+      canvas.style.width  = `${section.clientWidth}px`;
+      canvas.style.height = `${section.clientHeight}px`;
+      ctx.resetTransform();
+      ctx.scale(dpr, dpr);
+      lastDrawn = -1;
+      draw(Math.max(1, Math.min(FRAME_COUNT, Math.round(current))));
+    }
+
+    // ── Cover-fit draw ─────────────────────────────────────────────────────────
+    function draw(index: number) {
+      const img = images[index] || images[1];
+      if (!img) return;
+      const cw = section.clientWidth;
+      const ch = section.clientHeight;
+      const iw = img.naturalWidth  || img.width;
+      const ih = img.naturalHeight || img.height;
+      const scale = Math.max(cw / iw, ch / ih);
+      const dw = iw * scale;
+      const dh = ih * scale;
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, cw, ch);
+      ctx.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+    }
+
+    // ── rAF loop — NEVER draw directly from scroll event ──────────────────────
+    function tick() {
+      current += (target - current) * 0.1;
+      const i = Math.max(1, Math.min(FRAME_COUNT, Math.round(current)));
+      if (i !== lastDrawn) { draw(i); lastDrawn = i; }
+      rafId = requestAnimationFrame(tick);
+    }
+
+    // ── Load single frame ──────────────────────────────────────────────────────
+    function loadFrame(index: number): Promise<HTMLImageElement> {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = FRAME_PATH(index);
+        img.onload = async () => {
+          if ((img as any).decode) await (img as any).decode().catch(() => {});
+          resolve(img);
+        };
+        img.onerror = reject;
+      });
+    }
+
+    // ── GSAP overlay timeline (same progress as frame scrub) ──────────────────
+    function setupOverlays() {
+      const stConfig = {
+        trigger: section,
+        start: 'top top',
+        end: `+=${SCROLL_LENGTH}`,
+        scrub: 1,
+      };
+
+      const tl = gsap.timeline({ scrollTrigger: stConfig });
+
+      // DORMANT 0–13%
+      tl.fromTo(textEWRef.current,
+        { opacity: 0, y: 20, letterSpacing: '0.05em' },
+        { opacity: 1, y: 0,  letterSpacing: '0.35em', duration: 0.10 }, 0)
+        .to(textEWRef.current, { opacity: 0, duration: 0.03 }, 0.10);
+
+      // WAKE 13–27%
+      tl.fromTo(textTitleRef.current,
+        { opacity: 0, clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)' },
+        { opacity: 1, clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0 100%)', duration: 0.10 }, 0.13)
+        .to(textTitleRef.current, { opacity: 0, duration: 0.04 }, 0.23);
+
+      // RELEASE 27–46%  — odometer strictly bound to scroll progress, never a timer
+      const speedObj = { val: 0 };
+      tl.fromTo(textSpeedRef.current,
+        { opacity: 0, scale: 0.88 },
+        { opacity: 1, scale: 1, duration: 0.05 }, 0.27)
+        .to(speedObj, {
+          val: 400, duration: 0.14, ease: 'none',
+          onUpdate: () => {
+            if (textSpeedRef.current)
+              textSpeedRef.current.textContent = String(Math.round(speedObj.val));
+          },
+        }, 0.27)
+        .to(textSpeedRef.current, { opacity: 0, duration: 0.05 }, 0.41);
+
+      // LOCK 46–73%
+      tl.fromTo([spec1Ref.current, spec2Ref.current, spec3Ref.current],
+        { opacity: 0, x: 60 },
+        { opacity: 1, x: 0, stagger: 0.04, duration: 0.14 }, 0.46)
+        .to([spec1Ref.current, spec2Ref.current, spec3Ref.current],
+          { opacity: 0, duration: 0.05 }, 0.68);
+
+      // RESOLVE 73–100%
+      tl.fromTo(ctaRef.current,
+        { opacity: 0, y: 56 },
+        { opacity: 1, y: 0, duration: 0.15 }, 0.73);
+    }
+
+    // ── Main init ──────────────────────────────────────────────────────────────
+    async function init() {
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      // 1. Critical frames first so hero is never blank
+      try {
+        images[1]   = await loadFrame(1);
+        images[150] = await loadFrame(150);
+        draw(1);
+      } catch {
+        if (preloaderRef.current) preloaderRef.current.style.display = 'none';
+        return; // degrade gracefully to static frame
+      }
+
+      // 2. Rest of the sequence
+      let loaded = 2;
+      for (let i = 2; i < FRAME_COUNT; i++) {
+        try { images[i] = await loadFrame(i); } catch { /* skip */ }
+        loaded++;
+        if (barRef.current)
+          barRef.current.style.width = `${(loaded / FRAME_COUNT) * 100}%`;
+      }
+
+      // 3. Only attach ScrollTrigger after all frames ready
+      if (preloaderRef.current) {
+        preloaderRef.current.style.opacity = '0';
+        setTimeout(() => { if (preloaderRef.current) preloaderRef.current.remove(); }, 500);
+      }
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: `+=${SCROLL_LENGTH}`,
+        pin: true,
+        scrub: 1,
+        onUpdate: self => { target = 1 + self.progress * (FRAME_COUNT - 1); },
+      });
+
+      setupOverlays();
+      tick();
+    }
+
+    init();
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      ScrollTrigger.getAll().forEach(t => t.kill());
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative w-full bg-black overflow-hidden"
+      style={{ height: '100vh' }}
+    >
+      {/* ── Preloader — thin hairline bar, no spinner ── */}
+      <div
+        ref={preloaderRef}
+        style={{
+          position: 'absolute', inset: 0, zIndex: 50, background: '#000',
+          display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center', gap: '1.5rem',
+          transition: 'opacity 0.5s',
+        }}
+      >
+        <span style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: '0.65rem', letterSpacing: '0.25em',
+          color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase',
+        }}>
+          LOADING SEQUENCE
+        </span>
+        <div style={{ width: 200, height: 1, background: 'rgba(255,255,255,0.08)' }}>
+          <div ref={barRef} style={{
+            height: '100%', background: '#FF4D1C', width: '0%',
+            transition: 'width 0.1s linear',
+          }} />
+        </div>
+      </div>
+
+      {/* ── Canvas — decorative, aria-hidden ── */}
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }}
+      />
+
+      {/* ── Bottom-weighted scrim so copy stays legible across all beats ── */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none',
+        background: 'linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.10) 45%, transparent 100%)',
+      }} />
+
+      {/* ═══════════════════════ OVERLAY COPY — real HTML, selectable ════════════════════════ */}
+
+      {/* DORMANT beat — EW label */}
+      <div style={OL_BASE}>
+        <p ref={textEWRef} style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 'clamp(0.6rem, 1.1vw, 0.85rem)',
+          letterSpacing: '0.05em', color: '#fff',
+          opacity: 0, textTransform: 'uppercase', textAlign: 'center',
+        }}>
+          Electronic Warfare / Drone Systems
+        </p>
+      </div>
+
+      {/* WAKE beat — product title */}
+      <div style={OL_BASE}>
+        <h1
+          ref={textTitleRef}
+          style={{
+            fontFamily: "'Chakra Petch', 'Archivo', sans-serif",
+            fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+            fontWeight: 700, textTransform: 'uppercase',
+            letterSpacing: '0.04em', color: '#fff',
+            opacity: 0, lineHeight: 1.1, textAlign: 'center',
+            clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)',
+          }}
+        >
+          Sahana FPV Bullseye<br />&amp; Interceptor
+        </h1>
+      </div>
+
+      {/* RELEASE beat — 400 KMPH odometer */}
+      <div style={{ ...OL_BASE, justifyContent: 'flex-end', paddingBottom: '8vh', flexDirection: 'column', alignItems: 'center', gap: '0.25rem' }}>
+        <div
+          ref={textSpeedRef}
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 'clamp(12vh, 22vw, 38vh)',
+            fontWeight: 700, lineHeight: 1, color: '#fff',
+            opacity: 0, fontVariantNumeric: 'tabular-nums',
+            transform: 'scale(0.88)',
+          }}
+        >
+          0
+        </div>
+        <div style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 'clamp(0.6rem, 1.4vw, 1rem)',
+          letterSpacing: '0.3em', color: 'rgba(255,255,255,0.45)',
+          textTransform: 'uppercase',
+        }}>
+          KM / H
+        </div>
+      </div>
+
+      {/* LOCK beat — specs stagger from right */}
+      <div style={{ ...OL_BASE, alignItems: 'flex-end', justifyContent: 'flex-end', paddingBottom: '10vh', paddingRight: '5vw' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1.25rem' }}>
+          {[
+            { ref: spec1Ref, label: '10 KM RANGE',   accent: false },
+            { ref: spec2Ref, label: '3 KG PAYLOAD',  accent: false },
+            { ref: spec3Ref, label: '22,000 mAh',    accent: true  },
+          ].map(({ ref, label, accent }) => (
+            <div key={label} ref={ref} style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 'clamp(0.85rem, 1.8vw, 1.35rem)',
+              color: '#fff', opacity: 0, transform: 'translateX(60px)',
+              paddingBottom: '0.5rem', minWidth: 200, textAlign: 'right',
+              borderBottom: `1px solid ${accent ? '#FF4D1C' : 'rgba(255,255,255,0.18)'}`,
+            }}>
+              {label}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* RESOLVE beat — CTAs */}
+      <div style={{ ...OL_BASE, justifyContent: 'flex-end', paddingBottom: '12vh', pointerEvents: 'auto' }}>
+        <div ref={ctaRef} style={{
+          display: 'flex', flexWrap: 'wrap', gap: '1.25rem',
+          justifyContent: 'center', opacity: 0, transform: 'translateY(56px)',
+        }}>
+          <button style={CTA_SECONDARY}>DOWNLOAD DATASHEET</button>
+          <button style={CTA_PRIMARY}>REQUEST BRIEFING</button>
+        </div>
+      </div>
+
+      {/* ── The heroRef / statsRef content sits here so existing GSAP entry
+           animations in HandheldJammerPage still work unchanged ── */}
+      {heroRef && (
+        <div
+          ref={heroRef as React.RefObject<HTMLDivElement>}
+          style={{ position: 'absolute', bottom: 96, left: 0, right: 0, zIndex: 30,
+                   maxWidth: 1200, margin: '0 auto', padding: '0 2.25rem',
+                   pointerEvents: 'none', opacity: 0 /* hidden: canvas overlays own copy */ }}
+        />
+      )}
+      {statsRef && (
+        <div
+          ref={statsRef as React.RefObject<HTMLDivElement>}
+          style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 30,
+                   pointerEvents: 'none', opacity: 0 /* hidden: canvas overlays own copy */ }}
+        />
+      )}
+    </section>
+  );
+}
+
+// ── Shared style objects ────────────────────────────────────────────────────────
+const OL_BASE: React.CSSProperties = {
+  position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+  zIndex: 20, pointerEvents: 'none',
+  display: 'flex', flexDirection: 'column',
+  alignItems: 'center', justifyContent: 'center', padding: '2rem',
+};
+
+const CTA_BASE: React.CSSProperties = {
+  fontFamily: "'Chakra Petch', 'Archivo', sans-serif",
+  fontSize: '0.85rem', textTransform: 'uppercase',
+  letterSpacing: '0.12em', padding: '0.875rem 2rem',
+  cursor: 'pointer', borderRadius: 0,
+  transition: 'all 0.25s ease',
+};
+
+const CTA_SECONDARY: React.CSSProperties = {
+  ...CTA_BASE, background: 'transparent',
+  color: '#fff', border: '1px solid rgba(255,255,255,0.3)',
+};
+
+const CTA_PRIMARY: React.CSSProperties = {
+  ...CTA_BASE, background: '#FF4D1C',
+  color: '#000', border: '1px solid #FF4D1C', fontWeight: 700,
+};
