@@ -248,7 +248,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
 
       {/* ═══════════════════════ OVERLAY COPY — real HTML, selectable ════════════════════════ */}
 
-      {/* DORMANT beat — EW label */}
+      {/* DORMANT beat — EW label (Removed per request) */}
       <div style={OL_BASE}>
         <p ref={textEWRef} style={{
           fontFamily: "'JetBrains Mono', monospace",
@@ -256,7 +256,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
           letterSpacing: '0.05em', color: '#fff',
           opacity: 0, textTransform: 'uppercase', textAlign: 'center',
         }}>
-          Electronic Warfare / Drone Systems
+          
         </p>
       </div>
 
