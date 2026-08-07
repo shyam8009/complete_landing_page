@@ -279,15 +279,16 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       </div>
 
       {/* RELEASE beat — 400 KMPH odometer */}
-      <div style={{ ...OL_BASE, justifyContent: 'flex-end', paddingBottom: '8vh', flexDirection: 'column', alignItems: 'center', gap: '0.25rem' }}>
+      <div style={{ ...OL_BASE, justifyContent: 'center', paddingBottom: '8vh', flexDirection: 'row', alignItems: 'center', gap: '1.5rem' }}>
         <div
           ref={textSpeedRef}
           style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: "Inter, sans-serif",
             fontSize: 'clamp(12vh, 22vw, 38vh)',
-            fontWeight: 700, lineHeight: 1, color: '#fff',
+            fontWeight: 400, lineHeight: 1, color: '#fff',
             opacity: 0, fontVariantNumeric: 'tabular-nums',
             transform: 'scale(0.88)',
+            letterSpacing: '-0.02em',
           }}
         >
           0
@@ -295,14 +296,18 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
         <div
           ref={textSpeedLabelRef}
           style={{
-          fontFamily: "'JetBrains Mono', monospace",
-          fontSize: 'clamp(0.6rem, 1.4vw, 1rem)',
-          letterSpacing: '0.3em', color: 'rgba(255,255,255,0.45)',
-          textTransform: 'uppercase',
-          opacity: 0,
-          transform: 'scale(0.88)',
-        }}>
-          KM / H
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            opacity: 0,
+            transform: 'scale(0.88)',
+            fontFamily: "Inter, sans-serif",
+            color: '#fff',
+            marginTop: '2vh'
+          }}
+        >
+          <span style={{ fontSize: 'clamp(2rem, 4.5vw, 5rem)', lineHeight: 1, fontWeight: 400 }}>kmph</span>
+          <span style={{ fontSize: 'clamp(1rem, 2vw, 2rem)', lineHeight: 1.2, fontWeight: 700 }}> (Max Speed)</span>
         </div>
       </div>
 
