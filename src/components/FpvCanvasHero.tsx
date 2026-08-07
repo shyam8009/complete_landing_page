@@ -31,6 +31,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
   const textEWRef    = useRef<HTMLParagraphElement>(null);
   const textTitleRef = useRef<HTMLHeadingElement>(null);
   const textSpeedRef = useRef<HTMLDivElement>(null);
+  const textSpeedLabelRef = useRef<HTMLDivElement>(null);
   const spec1Ref     = useRef<HTMLDivElement>(null);
   const spec2Ref     = useRef<HTMLDivElement>(null);
   const spec3Ref     = useRef<HTMLDivElement>(null);
@@ -125,7 +126,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
 
       // RELEASE 27–46%  — odometer strictly bound to scroll progress, never a timer
       const speedObj = { val: 0 };
-      tl.fromTo(textSpeedRef.current,
+      tl.fromTo([textSpeedRef.current, textSpeedLabelRef.current],
         { opacity: 0, scale: 0.88 },
         { opacity: 1, scale: 1, duration: 0.05 }, 0.27)
         .to(speedObj, {
@@ -135,7 +136,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
               textSpeedRef.current.textContent = String(Math.round(speedObj.val));
           },
         }, 0.27)
-        .to(textSpeedRef.current, { opacity: 0, duration: 0.05 }, 0.41);
+        .to([textSpeedRef.current, textSpeedLabelRef.current], { opacity: 0, duration: 0.05 }, 0.41);
 
       // LOCK 46–73%
       tl.fromTo([spec1Ref.current, spec2Ref.current, spec3Ref.current],
@@ -291,11 +292,15 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
         >
           0
         </div>
-        <div style={{
+        <div
+          ref={textSpeedLabelRef}
+          style={{
           fontFamily: "'JetBrains Mono', monospace",
           fontSize: 'clamp(0.6rem, 1.4vw, 1rem)',
           letterSpacing: '0.3em', color: 'rgba(255,255,255,0.45)',
           textTransform: 'uppercase',
+          opacity: 0,
+          transform: 'scale(0.88)',
         }}>
           KM / H
         </div>
