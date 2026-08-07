@@ -24,8 +24,6 @@ interface FpvCanvasHeroProps {
 export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
   const sectionRef   = useRef<HTMLElement>(null);
   const canvasRef    = useRef<HTMLCanvasElement>(null);
-  const preloaderRef = useRef<HTMLDivElement>(null);
-  const barRef       = useRef<HTMLDivElement>(null);
 
   // overlay copy refs
   const textEWRef    = useRef<HTMLParagraphElement>(null);
@@ -162,26 +160,15 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
         images[150] = await loadFrame(150);
         draw(1);
       } catch {
-        if (preloaderRef.current) preloaderRef.current.style.display = 'none';
         return; // degrade gracefully to static frame
       }
 
       // 2. Rest of the sequence
-      let loaded = 2;
       for (let i = 2; i < FRAME_COUNT; i++) {
         try { images[i] = await loadFrame(i); } catch { /* skip */ }
-        loaded++;
-        if (barRef.current)
-          barRef.current.style.width = `${(loaded / FRAME_COUNT) * 100}%`;
       }
 
-      // 3. Only attach ScrollTrigger after all frames ready
-      if (preloaderRef.current) {
-        preloaderRef.current.style.opacity = '0';
-        setTimeout(() => { if (preloaderRef.current) preloaderRef.current.remove(); }, 500);
-      }
-
-      ScrollTrigger.create({
+      // 3. Attach ScrollTrigger
         trigger: section,
         start: 'top top',
         end: `+=${SCROLL_LENGTH}`,
@@ -209,31 +196,6 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       className="relative w-full bg-black overflow-hidden"
       style={{ height: '100vh' }}
     >
-      {/* ── Preloader — thin hairline bar, no spinner ── */}
-      <div
-        ref={preloaderRef}
-        style={{
-          position: 'absolute', inset: 0, zIndex: 50, background: '#000',
-          display: 'flex', flexDirection: 'column',
-          alignItems: 'center', justifyContent: 'center', gap: '1.5rem',
-          transition: 'opacity 0.5s',
-        }}
-      >
-        <span style={{
-          fontFamily: "'JetBrains Mono', monospace",
-          fontSize: '0.65rem', letterSpacing: '0.25em',
-          color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase',
-        }}>
-          LOADING SEQUENCE
-        </span>
-        <div style={{ width: 200, height: 1, background: 'rgba(255,255,255,0.08)' }}>
-          <div ref={barRef} style={{
-            height: '100%', background: '#FF4D1C', width: '0%',
-            transition: 'width 0.1s linear',
-          }} />
-        </div>
-      </div>
-
       {/* ── Canvas — decorative, aria-hidden ── */}
       <canvas
         ref={canvasRef}
