@@ -164,6 +164,8 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       }
 
       // Add to GSAP context so it gets cleaned up properly
+      let autoScrollTween: gsap.core.Tween | null = null;
+      
       gsapCtx.add(() => {
         // 2. Attach ScrollTrigger IMMEDIATELY so pinning works
         ScrollTrigger.create({
@@ -174,6 +176,20 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
           scrub: 1,
           onUpdate: self => { 
             const p = self.progress;
+            
+            // Auto-scroll the 5s-8s segment (frames 150-240)
+            if (p >= 0.50 && p < 0.65 && self.direction === 1 && !autoScrollTween) {
+              const targetY = self.start + (self.end - self.start) * 0.65;
+              const scrollObj = { y: window.scrollY };
+              autoScrollTween = gsap.to(scrollObj, {
+                y: targetY,
+                duration: 1.5,
+                ease: 'power2.inOut',
+                onUpdate: () => window.scrollTo(0, scrollObj.y),
+                onComplete: () => { autoScrollTween = null; }
+              });
+            }
+
             // Custom non-linear mapping:
             // 0 - 0.5: Frames 1 - 150 (Normal speed)
             // 0.5 - 0.65: Frames 150 - 240 (Fast speed for 5-8s mark)
