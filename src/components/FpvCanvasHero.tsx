@@ -172,7 +172,20 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
           end: `+=${SCROLL_LENGTH}`,
           pin: true,
           scrub: 1,
-          onUpdate: self => { target = 1 + self.progress * (FRAME_COUNT - 1); },
+          onUpdate: self => { 
+            const p = self.progress;
+            // Custom non-linear mapping:
+            // 0 - 0.5: Frames 1 - 150 (Normal speed)
+            // 0.5 - 0.65: Frames 150 - 240 (Fast speed for 5-8s mark)
+            // 0.65 - 1.0: Frames 240 - 299 (Slightly slower finish)
+            if (p <= 0.5) {
+              target = 1 + (p / 0.5) * 149;
+            } else if (p <= 0.65) {
+              target = 150 + ((p - 0.5) / 0.15) * 90;
+            } else {
+              target = 240 + ((p - 0.65) / 0.35) * 59;
+            }
+          },
         });
 
         setupOverlays();
