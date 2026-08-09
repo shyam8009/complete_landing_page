@@ -827,11 +827,10 @@ function Nav() {
 }
 // ——— HERO ————————————————————————————————————————————————————————————————————————————————————
 
-import { VideoScrollHero } from '../components/VideoScrollHero';
-import heroVideoBullseye from '@/imports/fpv_bullseye_hero_banner_1.mp4';
+import { CanvasScrollHero } from '../components/CanvasScrollHero';
 
 function Hero() {
-  return <VideoScrollHero videoSrc={heroVideoBullseye} />;
+  return <CanvasScrollHero />;
 }
 
 
