@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, forwardRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, forwardRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -35,7 +35,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
   const spec3Ref     = useRef<HTMLDivElement>(null);
   const ctaRef       = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (isReducedMotion) return;
 
@@ -150,6 +150,9 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
     }
 
     // ── Main init ──────────────────────────────────────────────────────────────
+    let isCancelled = false;
+    const gsapCtx = gsap.context(() => {}, section);
+
     async function init() {
       resizeCanvas();
       window.addEventListener('resize', resizeCanvas);
@@ -158,10 +161,13 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       try {
         images[1]   = await loadFrame(1);
         images[FRAME_COUNT] = await loadFrame(FRAME_COUNT);
+        if (isCancelled) return;
         draw(1);
       } catch {
         return; // degrade gracefully to static frame
       }
+
+      if (isCancelled) return;
 
       // Add to GSAP context so it gets cleaned up properly
       let autoScrollTween: gsap.core.Tween | null = null;
@@ -214,7 +220,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       for (let i = 2; i < FRAME_COUNT; i++) {
         promises.push(
           loadFrame(i)
-            .then(img => { images[i] = img; })
+            .then(img => { if (!isCancelled) images[i] = img; })
             .catch(() => { /* skip missing frames */ })
         );
       }
@@ -222,10 +228,10 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       Promise.all(promises);
     }
 
-    const gsapCtx = gsap.context(() => {}, section);
     init();
 
     return () => {
+      isCancelled = true;
       cancelAnimationFrame(rafId);
       gsapCtx.revert();
       window.removeEventListener('resize', resizeCanvas);

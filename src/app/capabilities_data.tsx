@@ -70,7 +70,6 @@ export const CAPABILITIES_DATA = [
         products: [
           { id: "fpv-buddy", title: "FPV Drone Buddy", image: flightImg, slug: "/fpv-buddy" },
           { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "/sahana-fpv" },
-          { id: "varuna", title: "Varuna - Underwater Drone", image: fieldImg, slug: "/varuna" },
           { id: "proxy", title: "PROXY - Control Channel", image: sensorDomeImg, slug: "/proxy" },
           { id: "heaven-sdr", title: "Heaven SDR - Surveillance Drone", image: fieldImg, slug: "/heaven-sdr-surveillance-drone" }
         ]

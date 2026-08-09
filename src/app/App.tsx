@@ -23,9 +23,10 @@ import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
 import infinitySpearVideo from '@/imports/Infinity_Spear.mp4';
 import visionRobotVideo from '@/imports/Vision_Drone.mp4';
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.clearScrollMemory("manual");
 
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
-import { Routes, Route, Link, useNavigate } from "react-router";
+import { Routes, Route, Link, useNavigate, useLocation } from "react-router";
 import svgPaths from "@/imports/1920WLight/svg-bymm5omek1";
 import sahanaLogo from "@/imports/logo-sahana.png";
 import makeInIndiaLogo from "@/imports/logo-make-in-india.png";
@@ -43,8 +44,10 @@ import infinitySpearImg from "@/imports/infinity_spear.jpg";
 import rfDetectorImg from "@/imports/rf_detector_d360.jpg";
 import infinityRhinoImg from "@/imports/infinity_rhino.jpg";
 import infinityRadarImg from "@/imports/infinity_radar.jpg";
-import arsenalFacilityImg from "@/imports/magnific_aerial-drone-photography-_O69QUmlynm.jpg";
+import arsenalFacilityImg from "@/imports/sahana_facility.png";
 import haleDroneImg from "@/imports/hale_drone.jpg";
+import commandControlImg1 from "@/imports/command_control_1.jpeg";
+import commandControlImg2 from "@/imports/command_control_2.jpeg";
 import varunaHullImg from "@/imports/varuna/magnific_a-photorealistic-underwat_3G7XWY1REY.png";
 import digitalTwinImg from "@/imports/digital_twin.jpg";
 import newsCelImg from "@/imports/news_cel_agreement.png";
@@ -112,13 +115,15 @@ function UnderlineLink({
   children,
   color = "#010101",
   opacity = 1,
+  onClick,
 }: {
   children: React.ReactNode;
   color?: string;
   opacity?: number;
+  onClick?: () => void;
 }) {
   return (
-    <div className="flex items-center gap-2 cursor-pointer" style={{ opacity }}>
+    <div className="flex items-center gap-2 cursor-pointer" style={{ opacity }} onClick={onClick}>
       <div className="relative">
         <span
           className="text-sm capitalize whitespace-nowrap"
@@ -822,8 +827,11 @@ function Nav() {
 }
 // ——— HERO ————————————————————————————————————————————————————————————————————————————————————
 
+import { VideoScrollHero } from '../components/VideoScrollHero';
+import heroVideoNew from '@/imports/hero_banner_video_new.mp4';
+
 function Hero() {
-  return <FpvCanvasHero />;
+  return <VideoScrollHero videoSrc={heroVideoNew} />;
 }
 
 
@@ -838,7 +846,7 @@ function ProductCard({
   has360 = false,
   on360Click,
 }: {
-  image: string;
+  image: string | string[];
   name: string;
   subtitle?: string;
   description?: string;
@@ -848,16 +856,43 @@ function ProductCard({
   has360?: boolean;
   on360Click?: (e: React.MouseEvent) => void;
 }) {
+  const isArray = Array.isArray(image);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (!isArray || isHovered) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % image.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [isArray, image, isHovered]);
+
   return (
     <div 
       className={`relative overflow-hidden rounded-sm cursor-pointer group ${className}`}
       onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <img
-        src={image}
-        alt={name}
-        className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:blur-[3px]"
-      />
+      {isArray ? (
+        image.map((img, idx) => (
+          <img
+            key={idx}
+            src={img}
+            alt={`${name} slide ${idx + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:blur-[3px] ${
+              idx === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))
+      ) : (
+        <img
+          src={image as string}
+          alt={name}
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:blur-[3px]"
+        />
+      )}
       {/* gradient overlay */}
       <div
         className="absolute inset-0 mix-blend-multiply opacity-50"
@@ -959,13 +994,13 @@ const PRODUCTS_DATA = [
     target: '/rf-detector',
   },
   {
-    image: varunaHullImg,
-    name: "Varuna — Underwater Drone",
-    subtitle: "Sub-Surface Agility & Clarity.",
-    description: "A state-of-the-art underwater drone designed for professionals and enthusiasts requiring robust endurance beneath the surface.",
+    image: [commandControlImg1, commandControlImg2],
+    name: "Command & Control",
+    subtitle: "Tactical Operations Hub.",
+    description: "A centralized, multi-operator platform designed to streamline military and defense operations with real-time situational awareness and secure communications.",
     desktopGridClass: "[grid-column:5/span_8] [grid-row:2]",
     showArrow: true,
-    target: '/varuna',
+    target: '/proxy',
   },
   {
     image: infinityRhinoImg,
@@ -1108,7 +1143,7 @@ function Arsenal1Section() {
           className="text-white text-3xl md:text-4xl tracking-tight"
           style={{ fontFamily: INTER, fontWeight: 400 }}
         >
-          Electronic Warfare
+          Our Facility
         </h2>
         <UnderlineLink color="white" opacity={0.6}>
           Mission Critical Facility
@@ -1126,17 +1161,7 @@ function Arsenal1Section() {
         </div>
       </div>
 
-      {/* caption row */}
-      <div className="px-9 grid grid-cols-1 md:grid-cols-12 gap-5">
-        <div className="md:col-span-2 flex flex-col gap-0.5">
-          <p
-            className="text-white text-xs uppercase tracking-[0.54px]"
-            style={{ fontFamily: INTER, fontWeight: 400 }}
-          >
-            Designed by Sahana Defence
-          </p>
-        </div>
-      </div>
+      {/* removed caption row */}
     </section>
   );
 }
@@ -1203,6 +1228,9 @@ function NewsSection() {
 
 // ——— EDITORIAL PANEL —————————————————————————————————————————————————————————————————————————
 
+type SlideData = { src: string; label?: string; target?: string };
+type EditorialImage = string | (string | SlideData)[];
+
 function EditorialPanel({
   title,
   image,
@@ -1213,7 +1241,7 @@ function EditorialPanel({
   counter,
 }: {
   title: string;
-  image: string | string[];
+  image: EditorialImage;
   label: string;
   bg: string;
   textColor?: string;
@@ -1222,19 +1250,27 @@ function EditorialPanel({
 }) {
   const isArray = Array.isArray(image);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isArray) return;
+    if (!isArray || isHovered) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % image.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, [isArray, image]);
+  }, [isArray, image, isHovered]);
+
+  const currentItem = isArray ? image[currentIndex] : image;
+  const currentLabel = typeof currentItem === 'object' && currentItem.label ? currentItem.label : label;
+  const currentTarget = typeof currentItem === 'object' && currentItem.target ? currentItem.target : undefined;
 
   return (
     <div
       className="flex-1 flex flex-col gap-9 py-16 px-9 min-h-[640px] relative"
       style={{ background: bg }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* header */}
       <div className="flex items-end justify-between">
@@ -1244,8 +1280,8 @@ function EditorialPanel({
         >
           {title}
         </h3>
-        <UnderlineLink color={textColor}>
-          {label}
+        <UnderlineLink color={textColor} onClick={() => currentTarget ? navigate(currentTarget) : undefined}>
+          {currentLabel}
         </UnderlineLink>
       </div>
 
@@ -1253,26 +1289,52 @@ function EditorialPanel({
       <div className="h-px opacity-60" style={{ background: dividerColor }} />
 
       {/* image */}
-      <div className="relative w-full flex-1 overflow-hidden rounded-sm min-h-[320px]">
+      <div className="relative w-full flex-1 overflow-hidden rounded-sm min-h-[320px] group">
         {isArray ? (
-          image.map((img, idx) => (
-            <img
-              key={idx}
-              src={img}
-              alt={`${title} slide ${idx + 1}`}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-                idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-              }`}
-            />
-          ))
+          <>
+            {image.map((img, idx) => {
+              const imgSrc = typeof img === 'object' ? img.src : img;
+              return (
+                <img
+                  key={idx}
+                  src={imgSrc}
+                  alt={`${title} slide ${idx + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                    idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                  }`}
+                />
+              );
+            })}
+            
+            {/* Slider controls */}
+            <div className="absolute inset-y-0 left-0 flex items-center px-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+              <button 
+                onClick={() => setCurrentIndex((prev) => (prev - 1 + image.length) % image.length)}
+                className="w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/80 transition-colors backdrop-blur-sm"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+            </div>
+            <div className="absolute inset-y-0 right-0 flex items-center px-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+              <button 
+                onClick={() => setCurrentIndex((prev) => (prev + 1) % image.length)}
+                className="w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/80 transition-colors backdrop-blur-sm"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </>
         ) : (
           <img
-            src={image}
+            src={typeof image === 'object' ? (image as SlideData).src : image as string}
             alt={title}
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
-
       </div>
     </div>
   );
@@ -1282,10 +1344,9 @@ function EditorialSection() {
   const corporateHouseImages = [corporateHouse1, corporateHouse2, corporateHouse3];
   const innovationImages = [
     innovation1,
-    innovation2,
-    innovation3,
     innovation4,
-    innovation5
+    innovation5,
+    { src: varunaHullImg, label: "Know more", target: "/varuna" }
   ];
   return (
     <section className="w-full flex flex-col lg:flex-row">
@@ -2094,9 +2155,25 @@ function HandheldJammerPage() {
 
 // â”€â”€â”€ APP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // Allow the new page's DOM to settle and GSAP to initialize, then refresh
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <div className="w-full min-h-screen bg-black overflow-x-clip" style={{ fontFamily: INTER }}>
+      <ScrollToTop />
       <Nav />
       {/* Push content below fixed nav */}
       <div className="pt-[86px]">
