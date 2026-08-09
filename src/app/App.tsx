@@ -828,10 +828,10 @@ function Nav() {
 // ——— HERO ————————————————————————————————————————————————————————————————————————————————————
 
 import { VideoScrollHero } from '../components/VideoScrollHero';
-import heroVideoNew from '@/imports/hero_banner_video_new.mp4';
+import heroVideo1 from '@/imports/hero_banner_video1.mp4';
 
 function Hero() {
-  return <VideoScrollHero videoSrc={heroVideoNew} />;
+  return <VideoScrollHero videoSrc={heroVideo1} />;
 }
 
 
