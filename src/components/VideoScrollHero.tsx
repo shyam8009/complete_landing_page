@@ -28,6 +28,20 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
     const video = videoRef.current;
     if (!section || !video) return;
 
+    let autoScrollTween: gsap.core.Tween | null = null;
+    let userInterrupted = false;
+
+    const onUserInteraction = () => {
+      userInterrupted = true;
+      if (autoScrollTween) {
+        autoScrollTween.kill();
+        autoScrollTween = null;
+      }
+    };
+
+    window.addEventListener('wheel', onUserInteraction, { passive: true });
+    window.addEventListener('touchstart', onUserInteraction, { passive: true });
+
     const gsapCtx = gsap.context(() => {
 
       // ── GSAP overlay timeline (synced to scroll progress) ────────────
@@ -79,20 +93,6 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
           { opacity: 0, y: 56 },
           { opacity: 1, y: 0, duration: 0.15 }, 0.73);
       }
-
-      let autoScrollTween: gsap.core.Tween | null = null;
-      let userInterrupted = false;
-
-      const onUserInteraction = () => {
-        userInterrupted = true;
-        if (autoScrollTween) {
-          autoScrollTween.kill();
-          autoScrollTween = null;
-        }
-      };
-
-      window.addEventListener('wheel', onUserInteraction, { passive: true });
-      window.addEventListener('touchstart', onUserInteraction, { passive: true });
 
       const initScrollTrigger = () => {
         const duration = video.duration || 30; // fallback if NaN
