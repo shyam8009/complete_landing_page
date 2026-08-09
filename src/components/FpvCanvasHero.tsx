@@ -164,7 +164,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       }
 
       // Add to GSAP context so it gets cleaned up properly
-      ctx.add(() => {
+      gsapCtx.add(() => {
         // 2. Attach ScrollTrigger IMMEDIATELY so pinning works
         ScrollTrigger.create({
           trigger: section,
@@ -193,12 +193,12 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       Promise.all(promises);
     }
 
-    const ctx = gsap.context(() => {}, section);
+    const gsapCtx = gsap.context(() => {}, section);
     init();
 
     return () => {
       cancelAnimationFrame(rafId);
-      ctx.revert();
+      gsapCtx.revert();
       window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
