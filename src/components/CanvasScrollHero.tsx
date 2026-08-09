@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const SCROLL_LENGTH = '600%'; // Ample scroll space
-const TOTAL_FRAMES = 265; // Exact frame count extracted
+const TOTAL_FRAMES = 322; // Exact frame count extracted
 
 export function CanvasScrollHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -182,14 +182,14 @@ export function CanvasScrollHero() {
         const actualFrames = TOTAL_FRAMES;
         if (framesLoaded < actualFrames * 0.5) return; // Wait until at least 50% loaded
 
-        // We want the total duration of the original video (22s)
-        const durationSec = 22;
+        // We want the total duration of the original video (~26.8s)
+        const durationSec = 26.8;
         let totalTimelineDuration = durationSec;
         
-        // Emulate the slow-motion by stretching the timeline logic (19s to 22s segment)
+        // Emulate the slow-motion by stretching the timeline logic (19s to 26s segment)
         if (durationSec > 19) {
-          const seg2End = Math.min(26, durationSec); // Max out at durationSec (22)
-          const seg2Time = seg2End - 19; // 3 seconds
+          const seg2End = Math.min(26, durationSec);
+          const seg2Time = seg2End - 19; // 7 seconds
           totalTimelineDuration += (seg2Time * 2.5) - seg2Time; // Stretched time
         }
 
