@@ -20,7 +20,6 @@ export function CanvasScrollHero() {
   const spec1Ref     = useRef<HTMLDivElement>(null);
   const spec2Ref     = useRef<HTMLDivElement>(null);
   const spec3Ref     = useRef<HTMLDivElement>(null);
-  const ctaRef       = useRef<HTMLDivElement>(null);
 
   // Store preloaded images
   const imagesRef = useRef<HTMLImageElement[]>([]);
@@ -169,11 +168,6 @@ export function CanvasScrollHero() {
           { opacity: 1, x: 0, stagger: 0.04, duration: 0.14 }, 0.46)
           .to([spec1Ref.current, spec2Ref.current, spec3Ref.current],
             { opacity: 0, duration: 0.05 }, 0.68);
-
-        // RESOLVE 73–100%
-        tl.fromTo(ctaRef.current,
-          { opacity: 0, y: 56 },
-          { opacity: 1, y: 0, duration: 0.15 }, 0.73);
       }
 
       // Initialize the main ScrollTrigger for the canvas frames
@@ -385,23 +379,6 @@ export function CanvasScrollHero() {
                 {label}
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* RESOLVE beat */}
-        <div style={{ ...OL_BASE, justifyContent: 'flex-end', paddingBottom: '12vh', pointerEvents: 'auto' }}>
-          <div ref={ctaRef} style={{
-            display: 'flex', flexWrap: 'wrap', gap: '1.25rem',
-            justifyContent: 'center', opacity: 0, transform: 'translateY(56px)',
-          }}>
-            <button className="bg-[#FF4D1C] text-white px-8 py-4 font-bold tracking-wider hover:bg-white hover:text-black transition-colors duration-300">
-              DISCOVER FPV SYSTEM
-            </button>
-            <button className="border border-white/30 text-white px-8 py-4 font-bold tracking-wider hover:bg-white/10 transition-colors duration-300 backdrop-blur-sm">
-              VIEW TECHNICAL SPECS
-            </button>
-          </div>
-        </div>
       </section>
     </div>
   );
