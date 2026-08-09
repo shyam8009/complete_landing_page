@@ -98,6 +98,13 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
         const duration = video.duration || 30; // fallback if NaN
         const videoProxy = { currentTime: 0 };
         
+        let totalTimelineDuration = duration;
+        if (duration > 19) {
+          const seg2End = Math.min(26, duration);
+          const seg2Time = seg2End - 19;
+          totalTimelineDuration += (seg2Time * 2.5) - seg2Time;
+        }
+
         const stConfig = {
           trigger: section,
           start: 'top top',
@@ -114,9 +121,6 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
 
             // Auto-scroll logic: 8s to 14s
             if (currentT >= 8 && currentT < 14 && self.direction === 1 && !autoScrollTween && !userInterrupted) {
-              // Timeline total duration: 19 (seg1) + 17.5 (seg2, stretched) + (duration - 26) (seg3)
-              // Since 14s is in seg1, it maps exactly to 14s in timeline time.
-              const totalTimelineDuration = duration + (17.5 - 7); 
               const targetProgress = 14 / totalTimelineDuration;
               
               const targetY = self.start + (self.end - self.start) * targetProgress;
