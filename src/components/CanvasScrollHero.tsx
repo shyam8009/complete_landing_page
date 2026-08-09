@@ -178,10 +178,6 @@ export function CanvasScrollHero() {
 
       // Initialize the main ScrollTrigger for the canvas frames
       const initScrollTrigger = () => {
-        // Count actual loaded frames
-        const actualFrames = TOTAL_FRAMES;
-        if (framesLoaded < actualFrames * 0.5) return; // Wait until at least 50% loaded
-
         // We want the total duration of the original video (~26.8s)
         const durationSec = 26.8;
         let totalTimelineDuration = durationSec;
@@ -255,7 +251,7 @@ export function CanvasScrollHero() {
         }
 
         // Segment 3: 26s to end (Normal speed)
-        const finalFrame = Math.min(actualFrames, durationSec * fps);
+        const finalFrame = TOTAL_FRAMES;
         if (durationSec > 26) {
           masterTl.to(frameProxy, {
             frame: finalFrame,
@@ -267,8 +263,7 @@ export function CanvasScrollHero() {
         setupOverlays();
       };
 
-      // Slight delay to allow some images to load before binding GSAP
-      setTimeout(initScrollTrigger, 500);
+      initScrollTrigger();
 
     }, section);
 
@@ -278,7 +273,7 @@ export function CanvasScrollHero() {
       window.removeEventListener('resize', onResize);
       gsapCtx.revert();
     };
-  }, [framesLoaded]); // Re-run effect when frames load to bind scroll trigger
+  }, []); // Run ONCE on mount
 
   return (
     <div className="hero-scroll-container">
