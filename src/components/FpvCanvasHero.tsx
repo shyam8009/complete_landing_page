@@ -163,17 +163,21 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
         return; // degrade gracefully to static frame
       }
 
-      // 2. Attach ScrollTrigger IMMEDIATELY so pinning works
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top top',
-        end: `+=${SCROLL_LENGTH}`,
-        pin: true,
-        scrub: 1,
-        onUpdate: self => { target = 1 + self.progress * (FRAME_COUNT - 1); },
+      // Add to GSAP context so it gets cleaned up properly
+      ctx.add(() => {
+        // 2. Attach ScrollTrigger IMMEDIATELY so pinning works
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top top',
+          end: `+=${SCROLL_LENGTH}`,
+          pin: true,
+          scrub: 1,
+          onUpdate: self => { target = 1 + self.progress * (FRAME_COUNT - 1); },
+        });
+
+        setupOverlays();
       });
 
-      setupOverlays();
       tick();
 
       // 3. Load the rest of the sequence in the background (non-blocking)
@@ -189,11 +193,12 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
       Promise.all(promises);
     }
 
+    const ctx = gsap.context(() => {}, section);
     init();
 
     return () => {
       cancelAnimationFrame(rafId);
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      ctx.revert();
       window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
