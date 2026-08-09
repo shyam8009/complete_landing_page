@@ -187,121 +187,128 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
   }, [videoSrc]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full h-screen bg-black overflow-hidden"
-    >
-      <video
-        ref={videoRef}
-        src={videoSrc}
-        className="absolute inset-0 w-full h-full object-cover"
-        muted
-        playsInline
-        preload="auto"
-      />
-      {/* ── Bottom-weighted scrim so copy stays legible across all beats ── */}
-      <div aria-hidden="true" style={{
-        position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none',
-        background: 'linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.10) 45%, transparent 100%)',
-      }} />
+    <div className="hero-scroll-container">
+      <section
+        ref={sectionRef}
+        className="relative w-full h-screen bg-black overflow-hidden"
+      >
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          className="absolute inset-0 w-full h-full object-cover"
+          muted
+          playsInline
+          preload="auto"
+        />
+        {/* ── Bottom-weighted scrim so copy stays legible across all beats ── */}
+        <div aria-hidden="true" style={{
+          position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none',
+          background: 'linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.10) 45%, transparent 100%)',
+        }} />
 
-      {/* ═══════════════════════ OVERLAY COPY ════════════════════════ */}
+        {/* ═══════════════════════ OVERLAY COPY ════════════════════════ */}
 
-      {/* DORMANT beat */}
-      <div style={OL_BASE}>
-        <p ref={textEWRef} style={{
-          fontFamily: "'JetBrains Mono', monospace",
-          fontSize: 'clamp(0.6rem, 1.1vw, 0.85rem)',
-          letterSpacing: '0.05em', color: '#fff',
-          opacity: 0, textTransform: 'uppercase', textAlign: 'center',
-        }}>
-          
-        </p>
-      </div>
-
-      {/* WAKE beat */}
-      <div style={OL_BASE}>
-        <h1
-          ref={textTitleRef}
-          style={{
-            fontFamily: "'Chakra Petch', 'Archivo', sans-serif",
-            fontSize: 'clamp(2rem, 5vw, 4.5rem)',
-            fontWeight: 700, textTransform: 'uppercase',
-            letterSpacing: '0.04em', color: '#fff',
-            opacity: 0, lineHeight: 1.1, textAlign: 'center',
-            clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)',
-          }}
-        >
-          FPV Bullseye<br />&amp; Interceptor
-        </h1>
-      </div>
-
-      {/* RELEASE beat */}
-      <div style={{ ...OL_BASE, justifyContent: 'flex-end', alignItems: 'flex-end', paddingBottom: '12vh', paddingRight: '5vw' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.75rem' }}>
-          <div
-            ref={textSpeedRef}
-            style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: 'clamp(6vh, 11vw, 19vh)',
-              fontWeight: 400, lineHeight: 1, color: '#fff',
-              opacity: 0, fontVariantNumeric: 'tabular-nums',
-              transform: 'scale(0.88)',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            0
-          </div>
-          <div
-            ref={textSpeedLabelRef}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              opacity: 0,
-              transform: 'scale(0.88)',
-              fontFamily: "Inter, sans-serif",
-              color: '#fff',
-              marginTop: '1vh'
-            }}
-          >
-            <span style={{ fontSize: 'clamp(1rem, 2.25vw, 2.5rem)', lineHeight: 1, fontWeight: 400 }}>kmph</span>
-            <span style={{ fontSize: 'clamp(0.5rem, 1vw, 1rem)', lineHeight: 1.2, fontWeight: 700 }}> (Max Speed)</span>
-          </div>
+        {/* DORMANT beat */}
+        <div style={OL_BASE}>
+          <p ref={textEWRef} style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 'clamp(0.6rem, 1.1vw, 0.85rem)',
+            letterSpacing: '0.05em', color: '#fff',
+            opacity: 0, textTransform: 'uppercase', textAlign: 'center',
+          }}>
+            EARLY WARNING & INTERCEPTION
+          </p>
         </div>
-      </div>
 
-      {/* LOCK beat */}
-      <div style={{ ...OL_BASE, alignItems: 'flex-end', justifyContent: 'flex-end', paddingBottom: '10vh', paddingRight: '5vw' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1.25rem' }}>
-          {[
-            { ref: spec1Ref, label: '10 KM RANGE',   accent: false },
-            { ref: spec2Ref, label: '3 KG PAYLOAD',  accent: false },
-            { ref: spec3Ref, label: '22,000 mAh',    accent: true  },
-          ].map(({ ref, label, accent }) => (
-            <div key={label} ref={ref} style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 'clamp(0.85rem, 1.8vw, 1.35rem)',
-              color: '#fff', opacity: 0, transform: 'translateX(60px)',
-              paddingBottom: '0.5rem', minWidth: 200, textAlign: 'right',
-              borderBottom: `1px solid ${accent ? '#FF4D1C' : 'rgba(255,255,255,0.18)'}`,
-            }}>
-              {label}
+        {/* WAKE beat */}
+        <div style={OL_BASE}>
+          <h1
+            ref={textTitleRef}
+            style={{
+              fontFamily: "'Chakra Petch', 'Archivo', sans-serif",
+              fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+              fontWeight: 700, textTransform: 'uppercase',
+              letterSpacing: '0.04em', color: '#fff',
+              opacity: 0, lineHeight: 1.1, textAlign: 'center',
+              clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)',
+            }}
+          >
+            FPV Bullseye<br />&amp; Interceptor
+          </h1>
+        </div>
+
+        {/* RELEASE beat */}
+        <div style={{ ...OL_BASE, justifyContent: 'flex-end', alignItems: 'flex-end', paddingBottom: '12vh', paddingRight: '5vw' }}>
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.75rem' }}>
+            <div
+              ref={textSpeedRef}
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: 'clamp(6vh, 11vw, 19vh)',
+                fontWeight: 400, lineHeight: 1, color: '#fff',
+                opacity: 0, fontVariantNumeric: 'tabular-nums',
+                transform: 'scale(0.88)',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              0
             </div>
-          ))}
+            <div
+              ref={textSpeedLabelRef}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                opacity: 0,
+                transform: 'scale(0.88)',
+                fontFamily: "Inter, sans-serif",
+                color: '#fff',
+                marginTop: '1vh'
+              }}
+            >
+              <span style={{ fontSize: 'clamp(1rem, 2.25vw, 2.5rem)', lineHeight: 1, fontWeight: 400 }}>kmph</span>
+              <span style={{ fontSize: 'clamp(0.5rem, 1vw, 1rem)', lineHeight: 1.2, fontWeight: 700 }}> (Max Speed)</span>
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* RESOLVE beat */}
-      <div style={{ ...OL_BASE, justifyContent: 'flex-end', paddingBottom: '12vh', pointerEvents: 'auto' }}>
-        <div ref={ctaRef} style={{
-          display: 'flex', flexWrap: 'wrap', gap: '1.25rem',
-          justifyContent: 'center', opacity: 0, transform: 'translateY(56px)',
-        }}>
-          {/* CTAs removed */}
+        {/* LOCK beat */}
+        <div style={{ ...OL_BASE, alignItems: 'flex-end', justifyContent: 'flex-end', paddingBottom: '10vh', paddingRight: '5vw' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1.25rem' }}>
+            {[
+              { ref: spec1Ref, label: '10 KM RANGE',   accent: false },
+              { ref: spec2Ref, label: '3 KG PAYLOAD',  accent: false },
+              { ref: spec3Ref, label: '22,000 mAh',    accent: true  },
+            ].map(({ ref, label, accent }) => (
+              <div key={label} ref={ref} style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 'clamp(0.85rem, 1.8vw, 1.35rem)',
+                color: '#fff', opacity: 0, transform: 'translateX(60px)',
+                paddingBottom: '0.5rem', minWidth: 200, textAlign: 'right',
+                borderBottom: `1px solid ${accent ? '#FF4D1C' : 'rgba(255,255,255,0.18)'}`,
+              }}>
+                {label}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+
+        {/* RESOLVE beat */}
+        <div style={{ ...OL_BASE, justifyContent: 'flex-end', paddingBottom: '12vh', pointerEvents: 'auto' }}>
+          <div ref={ctaRef} style={{
+            display: 'flex', flexWrap: 'wrap', gap: '1.25rem',
+            justifyContent: 'center', opacity: 0, transform: 'translateY(56px)',
+          }}>
+            <button className="bg-[#FF4D1C] text-white px-8 py-4 font-bold tracking-wider hover:bg-white hover:text-black transition-colors duration-300">
+              DISCOVER FPV SYSTEM
+            </button>
+            <button className="border border-white/30 text-white px-8 py-4 font-bold tracking-wider hover:bg-white/10 transition-colors duration-300 backdrop-blur-sm">
+              VIEW TECHNICAL SPECS
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
 
