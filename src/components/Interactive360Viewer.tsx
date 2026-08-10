@@ -222,7 +222,7 @@ export function Interactive360Viewer() {
 
       {/* ── RIGHT COLUMN: 360 Viewer ── */}
       <div 
-        className={`w-full lg:w-[55%] h-[500px] lg:h-full relative cursor-grab ${isDragging ? 'cursor-grabbing' : ''} bg-[#070908]`}
+        className={`w-full lg:w-[55%] h-[500px] lg:min-h-[600px] relative cursor-grab flex items-center justify-center ${isDragging ? 'cursor-grabbing' : ''} bg-[#070908]`}
         onPointerDown={handlePointerDown}
         style={{ touchAction: 'none' }}
       >
