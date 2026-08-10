@@ -205,83 +205,91 @@ export function Interactive360Viewer() {
   }, [isDragging, handlePointerMove, handlePointerUp]);
 
   return (
-    <section className="relative w-full min-h-[500px] lg:min-h-[600px] lg:h-auto py-12 lg:py-16 bg-[#070908] flex flex-col lg:flex-row overflow-hidden border-t border-white/10">
+    <section className="w-full bg-[#070908] flex flex-col overflow-hidden border-t border-white/10">
       
-      {/* ── LEFT COLUMN: Text Content ── */}
-      <div className="w-full lg:w-[45%] flex flex-col justify-center p-8 lg:p-12 lg:pl-16 z-10">
-        <h3 className="text-[#88FF00] tracking-widest text-sm lg:text-base font-bold mb-4 uppercase">
-          Core Capabilities
-        </h3>
-        <h2 className="text-white text-4xl lg:text-5xl font-black uppercase leading-tight mb-8" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>
-          Tactical Precision<br/><span className="text-[#88FF00]">&</span> Resilience
-        </h2>
-        <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
+      {/* ── TOP ROW: Headline (30%) + 3D Viewer (70%) ── */}
+      <div className="flex flex-col lg:flex-row w-full min-h-[500px] lg:min-h-[600px] lg:h-auto pt-12 lg:pt-16">
+        
+        {/* ── LEFT COLUMN: Headline ── */}
+        <div className="w-full lg:w-[30%] flex flex-col justify-center p-8 lg:p-12 lg:pl-16 z-10">
+          <h3 className="text-[#88FF00] tracking-widest text-sm lg:text-base font-bold mb-4 uppercase">
+            Core Capabilities
+          </h3>
+          <h2 className="text-white text-4xl lg:text-5xl font-black uppercase leading-tight" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>
+            Tactical Precision<br/><span className="text-[#88FF00]">&</span> Resilience
+          </h2>
+        </div>
+
+        {/* ── RIGHT COLUMN: 360 Viewer ── */}
+        <div 
+          className={`w-full lg:w-[70%] h-[500px] lg:min-h-[600px] relative cursor-grab flex items-center justify-center ${isDragging ? 'cursor-grabbing' : ''} bg-[#070908]`}
+          onPointerDown={handlePointerDown}
+          style={{ touchAction: 'none' }}
+        >
+          {/* Loading Overlay */}
+          {framesLoaded < Math.floor(TOTAL_FRAMES * 0.8) && (
+            <div className="absolute inset-0 flex items-center justify-center z-20 bg-[#070908]/90 backdrop-blur-sm">
+              <div className="text-[#88FF00] font-mono tracking-widest text-sm animate-pulse">
+                LOADING 3D VIEW ({Math.round((framesLoaded / TOTAL_FRAMES) * 100)}%)
+              </div>
+            </div>
+          )}
+
+          {/* The 360 Canvas — bg matches container so no seam */}
+          <canvas 
+            ref={canvasRef} 
+            className="w-full h-full"
+            style={{ background: '#070908' }}
+          />
+
+          {/* Drag to Rotate cue — lives inside the 360 viewer column */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 text-xs font-mono tracking-widest text-gray-400 z-10 select-none pointer-events-none">
+            <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+            DRAG TO ROTATE
+          </div>
+
+          {/* ── HOTSPOTS ── */}
+          {hotspots.map((hotspot) => {
+            const currentPos = hotspot.path[currentFrame];
+            return (
+              <AnimatePresence key={hotspot.id}>
+                {currentPos.visible && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute z-10 flex items-center gap-3 bg-[#0a0a0a]/90 backdrop-blur-md border border-[#88FF00]/40 p-3 lg:p-4 rounded-xl pointer-events-none"
+                    style={{
+                      left: `${currentPos.x}%`,
+                      top: `${currentPos.y}%`,
+                      transform: 'translate(-50%, -50%)',
+                      boxShadow: '0 0 18px rgba(136,255,0,0.12), 0 4px 24px rgba(0,0,0,0.7)',
+                    }}
+                  >
+                    <div className="flex-shrink-0">
+                      {hotspot.icon}
+                    </div>
+                    <span className="text-white text-xs lg:text-sm font-semibold whitespace-nowrap">
+                      {hotspot.label}
+                    </span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ── BOTTOM ROW: Details ── */}
+      <div className="w-full pb-12 lg:pb-16 px-8 lg:px-16 z-10">
+        <p className="text-gray-400 text-lg leading-relaxed max-w-5xl">
           Built across three frame sizes, the Drone Buddy features a lightweight, durable frame that ensures resilience in challenging environments. It is positioned as an essential tool for reconnaissance, training, and field operations, delivering high-speed aerial oversight in interference-heavy environments.
         </p>
       </div>
 
-      {/* ── RIGHT COLUMN: 360 Viewer ── */}
-      <div 
-        className={`w-full lg:w-[55%] h-[500px] lg:min-h-[600px] relative cursor-grab flex items-center justify-center ${isDragging ? 'cursor-grabbing' : ''} bg-[#070908]`}
-        onPointerDown={handlePointerDown}
-        style={{ touchAction: 'none' }}
-      >
-        {/* Loading Overlay */}
-        {framesLoaded < Math.floor(TOTAL_FRAMES * 0.8) && (
-          <div className="absolute inset-0 flex items-center justify-center z-20 bg-[#070908]/90 backdrop-blur-sm">
-            <div className="text-[#88FF00] font-mono tracking-widest text-sm animate-pulse">
-              LOADING 3D VIEW ({Math.round((framesLoaded / TOTAL_FRAMES) * 100)}%)
-            </div>
-          </div>
-        )}
-
-        {/* The 360 Canvas — bg matches container so no seam */}
-        <canvas 
-          ref={canvasRef} 
-          className="w-full h-full"
-          style={{ background: '#070908' }}
-        />
-
-        {/* Drag to Rotate cue — lives inside the 360 viewer column */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 text-xs font-mono tracking-widest text-gray-400 z-10 select-none pointer-events-none">
-          <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-          </svg>
-          DRAG TO ROTATE
-        </div>
-
-        {/* ── HOTSPOTS ── */}
-        {hotspots.map((hotspot) => {
-          const currentPos = hotspot.path[currentFrame];
-          return (
-            <AnimatePresence key={hotspot.id}>
-              {currentPos.visible && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute z-10 flex items-center gap-3 bg-[#0a0a0a]/90 backdrop-blur-md border border-[#88FF00]/40 p-3 lg:p-4 rounded-xl pointer-events-none"
-                  style={{
-                    left: `${currentPos.x}%`,
-                    top: `${currentPos.y}%`,
-                    transform: 'translate(-50%, -50%)',
-                    boxShadow: '0 0 18px rgba(136,255,0,0.12), 0 4px 24px rgba(0,0,0,0.7)',
-                  }}
-                >
-                  <div className="flex-shrink-0">
-                    {hotspot.icon}
-                  </div>
-                  <span className="text-white text-xs lg:text-sm font-semibold whitespace-nowrap">
-                    {hotspot.label}
-                  </span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          );
-        })}
-      </div>
-      
     </section>
   );
 }
