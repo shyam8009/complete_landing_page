@@ -200,21 +200,21 @@ export function Interactive360Viewer() {
     <section className="relative w-full min-h-[800px] lg:h-[800px] bg-[#070908] flex flex-col lg:flex-row overflow-hidden border-t border-white/10">
       
       {/* ── LEFT COLUMN: Text Content ── */}
-      <div className="w-full lg:w-[40%] flex flex-col justify-center p-8 lg:p-16 lg:pl-24 z-10">
+      <div className="w-full lg:w-[45%] flex flex-col justify-center p-8 lg:p-16 lg:pl-24 z-10">
         <h3 className="text-[#88FF00] tracking-widest text-sm lg:text-base font-bold mb-4 uppercase">
           Core Capabilities
         </h3>
         <h2 className="text-white text-4xl lg:text-5xl font-black uppercase leading-tight mb-8" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>
           Tactical Precision<br/><span className="text-[#88FF00]">&</span> Resilience
         </h2>
-        <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
+        <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
           Built across three frame sizes, the Drone Buddy features a lightweight, durable frame that ensures resilience in challenging environments. It is positioned as an essential tool for reconnaissance, training, and field operations, delivering high-speed aerial oversight in interference-heavy environments.
         </p>
       </div>
 
       {/* ── RIGHT COLUMN: 360 Viewer ── */}
       <div 
-        className={`w-full lg:w-[60%] h-[500px] lg:h-full relative cursor-grab ${isDragging ? 'cursor-grabbing' : ''} bg-[#070908]`}
+        className={`w-full lg:w-[55%] h-[500px] lg:h-full relative cursor-grab ${isDragging ? 'cursor-grabbing' : ''} bg-[#070908]`}
         onPointerDown={handlePointerDown}
         style={{ touchAction: 'none' }}
       >
