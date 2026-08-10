@@ -13,7 +13,6 @@ export function CanvasScrollHero() {
   const [framesLoaded, setFramesLoaded] = useState(0);
   
   // Overlay copy refs
-  const textEWRef    = useRef<HTMLParagraphElement>(null);
   const textTitleRef = useRef<HTMLHeadingElement>(null);
   const textSpeedRef = useRef<HTMLDivElement>(null);
   const textSpeedLabelRef = useRef<HTMLDivElement>(null);
@@ -135,12 +134,6 @@ export function CanvasScrollHero() {
         };
 
         const tl = gsap.timeline({ scrollTrigger: stConfig });
-
-        // DORMANT 0–13%
-        tl.fromTo(textEWRef.current,
-          { opacity: 0, y: 20, letterSpacing: '0.05em' },
-          { opacity: 1, y: 0,  letterSpacing: '0.35em', duration: 0.10 }, 0)
-          .to(textEWRef.current, { opacity: 0, duration: 0.03 }, 0.10);
 
         // WAKE 13–27%
         tl.fromTo(textTitleRef.current,
@@ -297,18 +290,7 @@ export function CanvasScrollHero() {
         }} />
 
         {/* ═══════════════════════ OVERLAY COPY ════════════════════════ */}
-        {/* DORMANT beat */}
-        <div style={OL_BASE}>
-          <p ref={textEWRef} style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 'clamp(0.6rem, 1.1vw, 0.85rem)',
-            letterSpacing: '0.05em', color: '#fff',
-            opacity: 0, textTransform: 'uppercase', textAlign: 'center',
-          }}>
-            EARLY WARNING & INTERCEPTION
-          </p>
-        </div>
-
+        
         {/* WAKE beat */}
         <div style={OL_BASE}>
           <h1
