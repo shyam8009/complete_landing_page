@@ -32,6 +32,18 @@ export function Interactive360Viewer() {
   const [framesLoaded, setFramesLoaded] = useState(0);
   const dragStartX = useRef(0);
   const dragStartFrame = useRef(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const customCursorRef = useRef<HTMLDivElement>(null);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const updateCursorPosition = useCallback((e: MouseEvent | PointerEvent | React.PointerEvent) => {
+    if (customCursorRef.current && containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      customCursorRef.current.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+    }
+  }, []);
 
   // Define Hotspots
   const hotspots = useMemo(() => [
