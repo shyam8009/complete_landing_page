@@ -379,6 +379,8 @@ export function CanvasScrollHero() {
                 {label}
               </div>
             ))}
+          </div>
+        </div>
       </section>
     </div>
   );
