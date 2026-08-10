@@ -164,8 +164,9 @@ export function Interactive360Viewer() {
     if (!isDragging) return;
     const deltaX = e.clientX - dragStartX.current;
     
-    // Sensitivity: 10 pixels of drag = 1 frame
-    const frameOffset = Math.floor(deltaX / 10); 
+    // Sensitivity: 10 pixels of drag = 1 frame on desktop, 5 pixels on mobile
+    const sensitivity = window.innerWidth < 1024 ? 5 : 10;
+    const frameOffset = Math.floor(deltaX / sensitivity); 
     
     // Modulo math to wrap seamlessly between 0 and 65
     let newFrame = (dragStartFrame.current - frameOffset) % TOTAL_FRAMES;
