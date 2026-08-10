@@ -169,6 +169,7 @@ export function Interactive360Viewer() {
   };
 
   const handlePointerMove = useCallback((e: PointerEvent) => {
+    updateCursorPosition(e);
     if (!isDragging) return;
     const deltaX = e.clientX - dragStartX.current;
     
@@ -181,10 +182,19 @@ export function Interactive360Viewer() {
     if (newFrame < 0) newFrame += TOTAL_FRAMES;
     
     setCurrentFrame(newFrame);
-  }, [isDragging]);
+  }, [isDragging, updateCursorPosition]);
 
-  const handlePointerUp = useCallback(() => {
+  const handlePointerUp = useCallback((e: PointerEvent) => {
     setIsDragging(false);
+    
+    // Check if we released the mouse outside the container.
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const isOutside = e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom;
+      if (isOutside) {
+        setIsHovering(false);
+      }
+    }
   }, []);
 
   useEffect(() => {
@@ -222,10 +232,31 @@ export function Interactive360Viewer() {
 
         {/* ── RIGHT COLUMN: 360 Viewer ── */}
         <div 
-          className={`w-full lg:w-[70%] h-[500px] lg:min-h-[600px] relative cursor-grab flex items-center justify-center ${isDragging ? 'cursor-grabbing' : ''} bg-[#070908]`}
+          ref={containerRef}
+          className="w-full lg:w-[70%] h-[500px] lg:min-h-[600px] relative cursor-none flex items-center justify-center bg-[#070908]"
           onPointerDown={handlePointerDown}
+          onPointerMove={updateCursorPosition}
+          onPointerEnter={(e) => {
+            setIsHovering(true);
+            updateCursorPosition(e);
+          }}
+          onPointerLeave={() => {
+            if (!isDragging) setIsHovering(false);
+          }}
           style={{ touchAction: 'none' }}
         >
+          {/* Custom Cursor */}
+          <div 
+            ref={customCursorRef}
+            className={`absolute top-0 left-0 w-20 h-20 rounded-full bg-white/5 backdrop-blur-md border border-[#88FF00]/30 flex flex-col items-center justify-center text-white text-[10px] font-mono tracking-widest pointer-events-none z-50 transition-opacity duration-300 ${isHovering || isDragging ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+            style={{ transform: 'translate(-50%, -50%)', willChange: 'transform' }}
+          >
+            <svg className={`w-5 h-5 mb-1 text-[#88FF00] transition-transform duration-200 ${isDragging ? 'scale-75' : 'scale-100 animate-pulse'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+            <span className={isDragging ? 'text-[#88FF00]' : ''}>DRAG</span>
+          </div>
+
           {/* Loading Overlay */}
           {framesLoaded < Math.floor(TOTAL_FRAMES * 0.8) && (
             <div className="absolute inset-0 flex items-center justify-center z-20 bg-[#070908]/90 backdrop-blur-sm">
@@ -241,14 +272,6 @@ export function Interactive360Viewer() {
             className="w-full h-full"
             style={{ background: '#070908' }}
           />
-
-          {/* Drag to Rotate cue — lives inside the 360 viewer column */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 text-xs font-mono tracking-widest text-gray-400 z-10 select-none pointer-events-none">
-            <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-            </svg>
-            DRAG TO ROTATE
-          </div>
 
           {/* ── HOTSPOTS ── */}
           {hotspots.map((hotspot) => {
