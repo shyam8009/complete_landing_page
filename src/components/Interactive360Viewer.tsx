@@ -204,41 +204,43 @@ export function Interactive360Viewer() {
         <h3 className="text-[#88FF00] tracking-widest text-sm lg:text-base font-bold mb-4 uppercase">
           Core Capabilities
         </h3>
-        <h2 className="text-white text-4xl lg:text-6xl font-black uppercase leading-tight mb-8" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>
-          Tactical Precision &<br/>Resilience
+        <h2 className="text-white text-4xl lg:text-5xl font-black uppercase leading-tight mb-8" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>
+          Tactical Precision<br/><span className="text-[#88FF00]">&</span> Resilience
         </h2>
         <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
           Built across three frame sizes, the Drone Buddy features a lightweight, durable frame that ensures resilience in challenging environments. It is positioned as an essential tool for reconnaissance, training, and field operations, delivering high-speed aerial oversight in interference-heavy environments.
         </p>
-        
-        <div className="mt-12 hidden lg:flex items-center gap-4 text-sm text-gray-500">
-          <svg className="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-          </svg>
-          DRAG TO ROTATE
-        </div>
       </div>
 
       {/* ── RIGHT COLUMN: 360 Viewer ── */}
       <div 
-        className={`w-full lg:w-[60%] h-[500px] lg:h-full relative cursor-grab ${isDragging ? 'cursor-grabbing' : ''}`}
+        className={`w-full lg:w-[60%] h-[500px] lg:h-full relative cursor-grab ${isDragging ? 'cursor-grabbing' : ''} bg-[#070908]`}
         onPointerDown={handlePointerDown}
-        style={{ touchAction: 'none' }} // Crucial for preventing scrolling while dragging on mobile
+        style={{ touchAction: 'none' }}
       >
         {/* Loading Overlay */}
         {framesLoaded < Math.floor(TOTAL_FRAMES * 0.8) && (
-          <div className="absolute inset-0 flex items-center justify-center z-20 bg-[#070908]/80 backdrop-blur-sm">
+          <div className="absolute inset-0 flex items-center justify-center z-20 bg-[#070908]/90 backdrop-blur-sm">
             <div className="text-[#88FF00] font-mono tracking-widest text-sm animate-pulse">
               LOADING 3D VIEW ({Math.round((framesLoaded / TOTAL_FRAMES) * 100)}%)
             </div>
           </div>
         )}
 
-        {/* The 360 Canvas */}
+        {/* The 360 Canvas — bg matches container so no seam */}
         <canvas 
           ref={canvasRef} 
-          className="w-full h-full object-cover"
+          className="w-full h-full"
+          style={{ background: '#070908' }}
         />
+
+        {/* Drag to Rotate cue — lives inside the 360 viewer column */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 text-xs font-mono tracking-widest text-gray-400 z-10 select-none pointer-events-none">
+          <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+          DRAG TO ROTATE
+        </div>
 
         {/* ── HOTSPOTS ── */}
         {hotspots.map((hotspot) => {
@@ -251,11 +253,12 @@ export function Interactive360Viewer() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute z-10 flex items-center gap-3 bg-[#0a0a0a]/80 backdrop-blur-md border border-white/10 p-3 lg:p-4 rounded-xl shadow-2xl pointer-events-none"
+                  className="absolute z-10 flex items-center gap-3 bg-[#0a0a0a]/90 backdrop-blur-md border border-[#88FF00]/40 p-3 lg:p-4 rounded-xl pointer-events-none"
                   style={{
                     left: `${currentPos.x}%`,
                     top: `${currentPos.y}%`,
-                    transform: 'translate(-50%, -50%)', // Center the hotspot on the coordinate
+                    transform: 'translate(-50%, -50%)',
+                    boxShadow: '0 0 18px rgba(136,255,0,0.12), 0 4px 24px rgba(0,0,0,0.7)',
                   }}
                 >
                   <div className="flex-shrink-0">
