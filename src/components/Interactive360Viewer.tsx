@@ -284,12 +284,9 @@ export function Interactive360Viewer() {
       </div>
 
       {/* ── BOTTOM ROW: Details ── */}
-      <div className="w-full pb-12 lg:pb-16 px-8 lg:px-16 z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-        <p className="text-gray-400 text-lg lg:text-xl leading-relaxed">
-          Built across three frame sizes, the Drone Buddy features a lightweight, durable frame that ensures resilience in challenging environments.
-        </p>
-        <p className="text-gray-400 text-lg lg:text-xl leading-relaxed lg:border-l lg:border-white/10 lg:pl-16">
-          It is positioned as an essential tool for reconnaissance, training, and field operations, delivering high-speed aerial oversight in interference-heavy environments.
+      <div className="w-full pb-12 lg:pb-16 px-8 lg:px-16 z-10">
+        <p className="text-gray-400 text-lg lg:text-xl leading-relaxed w-full">
+          Built across three frame sizes, the Drone Buddy features a lightweight, durable frame that ensures resilience in challenging environments. It is positioned as an essential tool for reconnaissance, training, and field operations, delivering high-speed aerial oversight in interference-heavy environments.
         </p>
       </div>
 
