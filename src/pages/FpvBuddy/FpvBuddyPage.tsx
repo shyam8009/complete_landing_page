@@ -11,8 +11,8 @@ export function FpvBuddyPage() {
   return (
     <div className="w-full bg-[#05080D] text-white overflow-hidden">
       <HeroSection />
-      <Interactive360Viewer />
       <PipelineSection />
+      <Interactive360Viewer />
       <ValuePropositionSection />
       <SubsystemsSection />
       <UseCasesSection />
