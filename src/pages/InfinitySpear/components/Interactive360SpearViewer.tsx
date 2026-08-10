@@ -308,7 +308,7 @@ export function Interactive360SpearViewer() {
 
       {/* ── BOTTOM ROW: Details ── */}
       <div className="w-full pb-12 lg:pb-16 px-8 lg:px-16 z-10">
-        <p className="text-gray-400 text-lg lg:text-xl leading-relaxed max-w-4xl">
+        <p className="text-gray-400 text-lg lg:text-xl leading-relaxed w-full">
           The Infinity Spear is a highly portable, mission-ready anti-drone platform designed to disrupt unauthorized UAV activity with pinpoint precision. Combining ruggedized endurance and multi-spectrum frequency denial, it empowers operators to maintain control in heavily contested environments.
         </p>
       </div>
