@@ -215,8 +215,8 @@ export function Interactive360Viewer() {
           <h3 className="text-[#88FF00] tracking-widest text-sm lg:text-base font-bold mb-4 uppercase">
             Core Capabilities
           </h3>
-          <h2 className="text-white text-4xl lg:text-5xl font-black uppercase leading-tight" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>
-            Tactical Precision<br/><span className="text-[#88FF00]">&</span> Resilience
+          <h2 className="text-white text-4xl lg:text-4xl xl:text-5xl font-black uppercase leading-tight" style={{ fontFamily: "'Chakra Petch', sans-serif" }}>
+            Tactical Precision <span className="text-[#88FF00]">&amp;</span> Resilience
           </h2>
         </div>
 
