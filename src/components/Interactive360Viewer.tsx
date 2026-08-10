@@ -205,7 +205,7 @@ export function Interactive360Viewer() {
   }, [isDragging, handlePointerMove, handlePointerUp]);
 
   return (
-    <section className="relative w-full min-h-[800px] lg:h-[800px] bg-[#070908] flex flex-col lg:flex-row overflow-hidden border-t border-white/10">
+    <section className="relative w-full min-h-[800px] lg:h-[800px] bg-black flex flex-col lg:flex-row overflow-hidden border-t border-white/10">
       
       {/* ── LEFT COLUMN: Text Content ── */}
       <div className="w-full lg:w-[45%] flex flex-col justify-center p-8 lg:p-16 lg:pl-24 z-10">
@@ -222,13 +222,13 @@ export function Interactive360Viewer() {
 
       {/* ── RIGHT COLUMN: 360 Viewer ── */}
       <div 
-        className={`w-full lg:w-[55%] h-[500px] lg:h-full relative cursor-grab ${isDragging ? 'cursor-grabbing' : ''} bg-[#070908]`}
+        className={`w-full lg:w-[55%] h-[500px] lg:h-[800px] relative cursor-grab ${isDragging ? 'cursor-grabbing' : ''} bg-black`}
         onPointerDown={handlePointerDown}
         style={{ touchAction: 'none' }}
       >
         {/* Loading Overlay */}
         {framesLoaded < Math.floor(TOTAL_FRAMES * 0.8) && (
-          <div className="absolute inset-0 flex items-center justify-center z-20 bg-[#070908]/90 backdrop-blur-sm">
+          <div className="absolute inset-0 flex items-center justify-center z-20 bg-black/90 backdrop-blur-sm">
             <div className="text-[#88FF00] font-mono tracking-widest text-sm animate-pulse">
               LOADING 3D VIEW ({Math.round((framesLoaded / TOTAL_FRAMES) * 100)}%)
             </div>
@@ -239,7 +239,7 @@ export function Interactive360Viewer() {
         <canvas 
           ref={canvasRef} 
           className="w-full h-full"
-          style={{ background: '#070908' }}
+          style={{ background: '#000000' }}
         />
 
         {/* Drag to Rotate cue — lives inside the 360 viewer column */}
