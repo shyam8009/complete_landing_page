@@ -120,15 +120,23 @@ export function Interactive360Viewer() {
     ctx.drawImage(img, drawX, drawY, drawW, drawH);
   };
 
-  // Draw frame when currentFrame changes
+  // Draw frame when currentFrame or framesLoaded changes
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
     const img = imagesRef.current[currentFrame];
     if (canvas && ctx && img && img.complete) {
+      // Ensure canvas has a valid width before drawing
+      if (canvas.width === 0 || canvas.width === 300) {
+        const parent = canvas.parentElement;
+        if (parent) {
+          canvas.width = parent.clientWidth;
+          canvas.height = parent.clientHeight;
+        }
+      }
       drawFrame(img, ctx, canvas);
     }
-  }, [currentFrame]);
+  }, [currentFrame, framesLoaded]);
 
   // Handle Resize
   useEffect(() => {
