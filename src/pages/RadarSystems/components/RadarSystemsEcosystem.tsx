@@ -62,13 +62,12 @@ export default function RadarSystemsEcosystem() {
         className="relative h-screen overflow-hidden bg-[#050505]"
       >
         <div className="h-full w-full flex items-center overflow-visible z-10 relative">
-          <div ref={trackRef} className="flex flex-nowrap h-full items-center pl-[5vw] md:pl-[10vw]">
+          <div ref={trackRef} className="flex flex-nowrap h-full items-center px-[5vw] md:px-[10vw] gap-12 md:gap-24">
             
-            {radarSystemsData.map((item, idx) => (
+            {radarSystemsData.map((item, index) => (
               <div 
-                key={idx} 
-                className="radar-card shrink-0 flex items-center justify-center pr-[10vw]"
-                style={{ width: '100vw' }}
+                key={index} 
+                className="radar-card flex-shrink-0 flex items-center justify-center"
               >
                 
                 {/* THE GLASSMORPHISM CARD */}

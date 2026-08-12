@@ -102,13 +102,12 @@ export default function DroneSystemsEcosystem() {
 
         {/* THE SLIDING TRACK (z-10) */}
         <div className="relative z-10 flex h-full items-center overflow-visible">
-          <div ref={trackRef} className="flex flex-nowrap h-full items-center pl-[5vw] md:pl-[10vw]">
+          <div ref={trackRef} className="flex flex-nowrap h-full items-center px-[5vw] md:px-[10vw] gap-12 md:gap-24">
             
             {droneSystemsData.map((item, index) => (
               <div 
                 key={index} 
-                className="w-screen flex-shrink-0 flex items-center justify-center pr-[10vw]"
-                style={{ width: '100vw' }}
+                className="flex-shrink-0 flex items-center justify-center"
               >
                 
                 {/* THE GLASSMORPHISM CARD */}
