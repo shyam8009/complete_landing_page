@@ -111,7 +111,7 @@ export default function DynamicEcosystem({ data }: { data: any }) {
                   <div className="flex flex-col md:grid md:grid-cols-12 h-full w-full overflow-hidden">
                     
                     {/* LEFT */}
-                    <div className="md:col-span-5 p-5 lg:p-6 border-b md:border-b-0 md:border-r relative" 
+                    <div className="md:col-span-6 p-5 lg:p-6 border-b md:border-b-0 md:border-r relative" 
                       style={{ backgroundColor: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}>
                       <div className="relative w-full h-48 md:h-full rounded-xl overflow-hidden group" 
                         style={{ border: '1px solid rgba(255,255,255,0.08)', backgroundColor: '#000', minHeight: '300px' }}>
@@ -145,7 +145,7 @@ export default function DynamicEcosystem({ data }: { data: any }) {
                     </div>
 
                     {/* RIGHT */}
-                    <div className="md:col-span-7 p-6 lg:p-8 flex flex-col justify-between h-full bg-neutral-100">
+                    <div className="md:col-span-6 p-6 lg:p-8 flex flex-col justify-between h-full bg-neutral-100">
                       <div>
                         {card.tag && (
                           <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
@@ -159,19 +159,7 @@ export default function DynamicEcosystem({ data }: { data: any }) {
                         </h3>
                         <RichText content={card.description} className="text-sm lg:text-base mt-3 mb-3 leading-relaxed text-slate-600" />
 
-                        <div className="my-3 border-t border-slate-200" />
-
-                        <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
-                          Key Technical Features
-                        </h4>
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-                          {card.specs?.slice(0, 4).map((spec: string, i: number) => (
-                            <div key={i} className="flex items-start text-[11px] lg:text-[13px] text-slate-700 leading-tight">
-                              <span className="mt-[2px] font-bold text-amber-600">›</span>
-                              <span className="line-clamp-2">{spec}</span>
-                            </div>
-                          ))}
-                        </div>
+                        
                       </div>
 
                       <div className="pt-5 mt-auto border-t border-slate-200">
