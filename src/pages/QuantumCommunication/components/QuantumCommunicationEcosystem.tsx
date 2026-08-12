@@ -165,7 +165,7 @@ export default function QuantumCommunicationEcosystem() {
                       {item.tag}
                     </span>
                     
-                    <h2 className="text-slate-900 text-xl lg:text-3xl font-bold uppercase mb-4 leading-tight line-clamp-1">
+                    <h2 className="text-slate-900 text-xl lg:text-3xl font-bold uppercase mb-4 leading-tight line-clamp-2">
                       {item.title}
                     </h2>
                     
