@@ -2180,12 +2180,15 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const location = useLocation();
+  const isInternalPage = location.pathname !== '/';
+
   return (
     <div className="w-full min-h-screen bg-black overflow-x-clip" style={{ fontFamily: INTER }}>
       <ScrollToTop />
       <Nav />
-      {/* Push content below fixed nav */}
-      <div className="pt-[86px]">
+      {/* Push content below fixed nav only on homepage */}
+      <div className={isInternalPage ? "" : "pt-[86px]"}>
         <Routes>
           <Route path="/" element={
             <>
