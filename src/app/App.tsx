@@ -383,7 +383,11 @@ function Nav() {
       }`}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "bg-[#05080D]/40 backdrop-blur-[16px] rounded-full" : "bg-[#05080D]/90 backdrop-blur-xl rounded-none"}`} />
+      <div className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        scrolled 
+          ? (isInternalPage ? "bg-white/5 backdrop-blur-[16px] rounded-full" : "bg-[#05080D]/40 backdrop-blur-[16px] rounded-full")
+          : "bg-[#05080D]/90 backdrop-blur-xl rounded-none"
+      }`} />
 
       <div className={`relative flex items-center justify-between z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "px-6 lg:px-8 h-[64px]" : "px-6 lg:px-9 h-[86px]"}`}>
         <a href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} 
