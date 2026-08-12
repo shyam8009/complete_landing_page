@@ -1,53 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import bgVideo from '@/imports/gwr_video_mvp.mp4'; // Placeholder since we don't have a 3D abstract RF field video
+
+// Import videos/images directly via Vite
+import bgVideo from '@/imports/gwr_video_mvp.mp4';
+import spearHero from '@/imports/infinity_spear.jpg';
+import rhinoHero from '@/imports/infinity_rhino.jpg';
 
 const heroSlides = [
   {
-    id: 'jamming-hero',
+    id: 'jamming-systems-main',
     title: 'JAMMING SYSTEMS',
-    subtitle: 'Neutralize hostile communications and counter autonomous UAS threats instantly. Multi-frequency, high-power electronic countermeasure architectures built for tactical field superiority.',
+    subtitle: 'Neutralize hostile communications and counter autonomous UAS threats instantly. Multi-frequency, high-power electronic countermeasure architectures.',
     mediaUrl: bgVideo,
     ctaText: 'DEPLOY JAMMING ASSETS',
     ctaLink: '#',
     isVideo: true
-  }
+  },
+  {
+    id: 'jamming-spear',
+    title: 'INFINITY SPEAR',
+    subtitle: '60W Continuous Output . 1.5–2.0 km Range.',
+    mediaUrl: spearHero,
+    ctaText: 'SEE CAPABILITIES',
+    ctaLink: '#',
+    isVideo: false
+  },
+  {
+    id: 'jamming-rhino',
+    title: 'INFINITY RHINO',
+    subtitle: '7 km Directional Anti-RTH Interdiction.',
+    mediaUrl: rhinoHero,
+    ctaText: 'DISCOVER RHINO',
+    ctaLink: '#',
+    isVideo: false
+  },
 ];
 
 export default function JammingSystemsHero() {
-  const slide = heroSlides[0];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const slide = heroSlides[currentSlide];
 
   return (
     <section className="relative w-full h-screen overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* 1. Background Video / Image Layer with Crossfade */}
       <AnimatePresence mode="popLayout">
         <motion.div
           key={slide.id}
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
           className="absolute inset-0 w-full h-full"
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover opacity-80 object-right"
-          >
-            <source src={slide.mediaUrl} type="video/mp4" />
-          </video>
+          {slide.isVideo ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover opacity-80"
+            >
+              <source src={slide.mediaUrl} type="video/mp4" />
+            </video>
+          ) : (
+            <img 
+              src={slide.mediaUrl} 
+              alt={slide.title}
+              className="w-full h-full object-cover opacity-80"
+            />
+          )}
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-transparent pointer-events-none" />
+      {/* 2. Gradient Overlay Layer */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
 
-      <div className="relative z-20 flex flex-col justify-center h-full px-6 md:px-12 lg:px-24 mt-12 max-w-[1400px] mx-auto text-left">
+      {/* 3. Staggered Content Animation */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 mt-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.id}
             initial="hidden"
             animate="visible"
+            exit="exit"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: {
@@ -59,58 +104,100 @@ export default function JammingSystemsHero() {
                   ease: 'easeOut',
                 },
               },
+              exit: {
+                opacity: 0,
+                y: -15,
+                transition: { duration: 0.4, ease: 'easeIn' },
+              },
             }}
-            className="flex flex-col items-start max-w-3xl"
+            className="flex flex-col items-center max-w-4xl"
           >
-            <motion.div
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-              className="flex items-center gap-3 mb-6"
-            >
-              <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse"></span>
-              <span className="text-[#84CC16] font-mono text-xs tracking-[0.2em] uppercase">
-                ELECTRONIC WARFARE / JAMMING SYSTEMS
-              </span>
-            </motion.div>
-
+            {/* Title */}
             <motion.h1
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight uppercase mb-6 leading-[1.1]"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              className="text-5xl md:text-7xl font-extralight tracking-wider uppercase mb-6"
             >
               {slide.title}
             </motion.h1>
 
+            {/* Subtitle */}
             <motion.p
-              variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}
-              className="text-lg md:text-xl font-light text-white/70 mb-10 max-w-2xl leading-relaxed"
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              className="text-lg md:text-2xl font-light text-gray-300 mb-10 max-w-2xl"
             >
               {slide.subtitle}
             </motion.p>
 
+            {/* Tactical CTA Button - Bottom Center Position */}
             <motion.div
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              className="absolute bottom-16 left-1/2 -translate-x-1/2"
             >
               <a
                 href={slide.ctaLink}
                 onClick={(e) => {
                   e.preventDefault();
-                  window.scrollTo({ top: window.innerHeight * 1.5, behavior: 'smooth' });
+                  window.scrollTo({
+                    top: window.innerHeight * 1.5,
+                    behavior: 'smooth'
+                  });
                 }}
-                className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-black hover:bg-[#84CC16] inline-flex"
+                className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
               >
-                <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-transparent" />
-                <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-transparent" />
-                <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-transparent" />
-                <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-transparent" />
+                {/* Tactical Corner Accents */}
+                <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+
                 {slide.ctaText}
               </a>
             </motion.div>
           </motion.div>
         </AnimatePresence>
       </div>
-      
-      <div className="absolute bottom-10 left-12 z-30 flex flex-col items-start pointer-events-none opacity-50">
-        <span className="text-white text-[10px] uppercase tracking-widest mb-4 font-mono">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent ml-[20px]" />
+
+      {/* 4. Large Next Arrow (Right Side) */}
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-30">
+        <button
+          onClick={nextSlide}
+          aria-label="Next slide"
+          className="relative group p-4 flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
+        >
+          {/* Arrow Icon */}
+          <svg className="w-12 h-12 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* 5. Large Prev Arrow (Left Side) */}
+      <div className="absolute left-8 top-1/2 -translate-y-1/2 z-30">
+        <button
+          onClick={prevSlide}
+          aria-label="Previous slide"
+          className="relative group p-4 flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
+        >
+          {/* Arrow Icon (Left facing) */}
+          <svg className="w-12 h-12 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* 6. Scroll Indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none">
+        <span className="text-white/40 text-[10px] uppercase tracking-widest mb-4 animate-pulse">Scroll to Explore</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
     </section>
   );
