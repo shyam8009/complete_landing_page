@@ -385,7 +385,7 @@ function Nav() {
     >
       <div className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         scrolled 
-          ? (isInternalPage ? "bg-white/5 backdrop-blur-[16px] rounded-full" : "bg-[#05080D]/40 backdrop-blur-[16px] rounded-full")
+          ? "bg-[#05080D]/40 backdrop-blur-[16px] rounded-full border border-white/10"
           : "bg-[#05080D]/90 backdrop-blur-xl rounded-none"
       }`} />
 
