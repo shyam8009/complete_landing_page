@@ -19,6 +19,7 @@ import QuantumCommunicationPage from '../pages/QuantumCommunication/QuantumCommu
 import IntelligenceSurveillancePage from '../pages/IntelligenceSurveillance/IntelligenceSurveillancePage';
 import { DroneSystemsPage } from '../pages/DroneSystems/DroneSystemsPage';
 import { RadarSystemsPage } from '../pages/RadarSystems/RadarSystemsPage';
+import { JammingSystemsPage } from '../pages/JammingSystems/JammingSystemsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
@@ -2201,6 +2202,8 @@ export default function App() {
           <Route path="/infinity-rhino-black" element={<InfinityRhinoBlackPage />} />
           <Route path="/electronic-warfare/drone-systems" element={<DroneSystemsPage />} />
           <Route path="/electronic-warfare/radar-systems" element={<RadarSystemsPage />} />
+          <Route path="/electronic-warfare/jamming-systems" element={<JammingSystemsPage />} />
+          <Route path="/electronic-warfare/jamming-systems" element={<JammingSystemsPage />} />
           <Route path="/butterfly-adg" element={<ButterflyADGPage />} />
           <Route path="/rhino-gen-z23" element={<RhinoZ23Page />} />
           {/* <Route path="/electronic-warfare" element={<ElectronicWarfarePage />} /> */}
