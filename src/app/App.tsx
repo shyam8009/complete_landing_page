@@ -326,7 +326,10 @@ function Nav() {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isInternalPage = location.pathname !== '/';
+  const [scrolledState, setScrolled] = useState(false);
+  const scrolled = isInternalPage || scrolledState;
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseLeave = () => {
