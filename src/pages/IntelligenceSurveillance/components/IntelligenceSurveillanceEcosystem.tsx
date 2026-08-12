@@ -136,18 +136,18 @@ export default function IntelligenceSurveillanceEcosystem() {
                         {item.title}
                       </h2>
                       
-                      <p className="text-xs lg:text-sm text-slate-600 mb-6 leading-relaxed line-clamp-2">
+                      <p className="text-xs lg:text-sm text-slate-600 mb-3 leading-relaxed">
                         {item.desc}
                       </p>
                       
-                      <div className="my-5 border-t border-slate-200" />
+                      <div className="my-3 border-t border-slate-200" />
                       
                       <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
                         Key Technical Features
                       </h4>
                       <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                         {item.features.slice(0, 4).map((feature, fIndex) => (
-                          <div key={fIndex} className="flex items-start gap-2 text-[11px] lg:text-[13px] text-slate-700 leading-tight">
+                          <div key={fIndex} className="flex items-start text-[11px] lg:text-[13px] text-slate-700 leading-tight">
                             <span className="mt-[2px] font-bold text-amber-600">›</span>
                             <span className="line-clamp-2">{feature}</span>
                           </div>

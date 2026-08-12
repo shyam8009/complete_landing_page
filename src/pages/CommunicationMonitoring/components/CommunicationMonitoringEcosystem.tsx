@@ -180,11 +180,11 @@ export default function CommunicationMonitoringEcosystem() {
                         <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-2">
                           {data.title}
                         </h3>
-                        <p className="text-xs lg:text-sm mt-3 leading-relaxed text-slate-600 line-clamp-2">
+                        <p className="text-xs lg:text-sm mt-3 mb-3 leading-relaxed text-slate-600">
                           {data.description}
                         </p>
 
-                        <div className="my-5 border-t border-slate-200" />
+                        <div className="my-3 border-t border-slate-200" />
 
                         {/* Specs Grid */}
                         <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
@@ -192,7 +192,7 @@ export default function CommunicationMonitoringEcosystem() {
                         </h4>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                           {data.specs.slice(0, 4).map((spec, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-[11px] lg:text-[13px] text-slate-700 leading-tight">
+                            <div key={idx} className="flex items-start text-[11px] lg:text-[13px] text-slate-700 leading-tight">
                               <span className="mt-[2px] font-bold text-amber-600">›</span>
                               <span className="line-clamp-2">{spec}</span>
                             </div>
