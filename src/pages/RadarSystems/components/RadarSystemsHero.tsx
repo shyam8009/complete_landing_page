@@ -1,76 +1,203 @@
-import React from 'react';
-import bgVideo from '@/imports/gwr_video_mvp.mp4';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const INTER = "'Inter', sans-serif";
+// Import videos/images directly via Vite
+import bgVideo from '@/imports/gwr_video_mvp.mp4';
+import radarHero1 from '@/imports/drone_radar_hero.png';
+import radarHero2 from '@/imports/surveillance_radar_hero.png';
+
+const heroSlides = [
+  {
+    id: 'radar-systems-main',
+    title: 'RADAR SYSTEMS',
+    subtitle: 'Continuous, all-weather airspace and perimeter dominance.',
+    mediaUrl: bgVideo, // Using the video for the first slide
+    ctaText: 'EXPLORE RADAR',
+    ctaLink: '#',
+    isVideo: true
+  },
+  {
+    id: 'radar-3d-drone',
+    title: '3D Drone Detection',
+    subtitle: 'High-resolution FMCW architectures engineered for early detection.',
+    mediaUrl: radarHero1, // Using image for second slide
+    ctaText: 'SEE CAPABILITIES',
+    ctaLink: '#',
+    isVideo: false
+  },
+  {
+    id: 'radar-surveillance',
+    title: 'Surveillance Radar',
+    subtitle: 'Micro-Doppler target classification and counter-UAS integration.',
+    mediaUrl: radarHero2, // Using image for third slide
+    ctaText: 'DISCOVER SURVEILLANCE',
+    ctaLink: '#',
+    isVideo: false
+  },
+];
 
 export default function RadarSystemsHero() {
-  const scrollToEcosystem = () => {
-    window.scrollTo({
-      top: window.innerHeight * 1.5,
-      behavior: 'smooth'
-    });
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   };
 
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const slide = heroSlides[currentSlide];
+
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-[#050505] flex items-center">
-      {/* Background Video/Image (Right-weighted tactical radar sweep visual) */}
-      <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="w-full h-full object-cover opacity-30 md:opacity-50 object-right"
+    <section className="relative w-full h-screen overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* 1. Background Video / Image Layer with Crossfade */}
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={slide.id}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
+          className="absolute inset-0 w-full h-full"
         >
-          <source src={bgVideo} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent" />
+          {slide.isVideo ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover opacity-80"
+            >
+              <source src={slide.mediaUrl} type="video/mp4" />
+            </video>
+          ) : (
+            <img 
+              src={slide.mediaUrl} 
+              alt={slide.title}
+              className="w-full h-full object-cover opacity-80"
+            />
+          )}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* 2. Gradient Overlay Layer */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
+
+      {/* 3. Staggered Content Animation */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 mt-12">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slide.id}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  staggerChildren: 0.15,
+                  duration: 0.6,
+                  ease: 'easeOut',
+                },
+              },
+              exit: {
+                opacity: 0,
+                y: -15,
+                transition: { duration: 0.4, ease: 'easeIn' },
+              },
+            }}
+            className="flex flex-col items-center max-w-4xl"
+          >
+            {/* Title */}
+            <motion.h1
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              className="text-5xl md:text-7xl font-extralight tracking-wider uppercase mb-6"
+            >
+              {slide.title}
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              className="text-lg md:text-2xl font-light text-gray-300 mb-10 max-w-2xl"
+            >
+              {slide.subtitle}
+            </motion.p>
+
+            {/* Tactical CTA Button - Bottom Center Position */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              className="absolute bottom-16 left-1/2 -translate-x-1/2"
+            >
+              <a
+                href={slide.ctaLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({
+                    top: window.innerHeight * 1.5,
+                    behavior: 'smooth'
+                  });
+                }}
+                className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
+              >
+                {/* Tactical Corner Accents */}
+                <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+
+                {slide.ctaText}
+              </a>
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col justify-center h-full">
-        <div className="max-w-3xl">
-          {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse"></span>
-            <span className="text-[#84CC16] font-mono text-xs md:text-sm tracking-[0.2em] uppercase">
-              Electronic Warfare / Radar Systems
-            </span>
-          </div>
-
-          {/* Headline */}
-          <h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-[1.1] uppercase tracking-tight"
-            style={{ fontFamily: INTER }}
-          >
-            RADAR SYSTEMS
-          </h1>
-
-          {/* Subheadline */}
-          <p 
-            className="text-white/70 text-base md:text-lg lg:text-xl leading-relaxed mb-10 max-w-2xl"
-            style={{ fontFamily: INTER }}
-          >
-            Continuous, all-weather airspace and perimeter dominance. High-resolution 3D FMCW radar architectures engineered for early detection, micro-Doppler target classification, and seamless counter-UAS integration.
-          </p>
-
-          {/* CTA */}
-          <button 
-            onClick={scrollToEcosystem}
-            className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#84CC16] text-[#050505] font-bold text-sm tracking-widest uppercase overflow-hidden hover:bg-white transition-colors duration-300"
-            style={{ fontFamily: INTER }}
-          >
-            <span>EXPLORE RADAR ECOSYSTEM</span>
-            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </button>
-        </div>
+      {/* 4. Large Next Arrow (Right Side) */}
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-30">
+        <button
+          onClick={nextSlide}
+          aria-label="Next slide"
+          className="relative group p-4 flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
+        >
+          {/* Arrow Icon */}
+          <svg className="w-12 h-12 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
-      
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-        <span className="text-[10px] font-mono tracking-widest uppercase text-white">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" />
+
+      {/* 5. Large Prev Arrow (Left Side) */}
+      <div className="absolute left-8 top-1/2 -translate-y-1/2 z-30">
+        <button
+          onClick={prevSlide}
+          aria-label="Previous slide"
+          className="relative group p-4 flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
+        >
+          {/* Arrow Icon (Left facing) */}
+          <svg className="w-12 h-12 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* 6. Scroll Indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none">
+        <span className="text-white/40 text-[10px] uppercase tracking-widest mb-4 animate-pulse">Scroll to Explore</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
     </section>
   );
