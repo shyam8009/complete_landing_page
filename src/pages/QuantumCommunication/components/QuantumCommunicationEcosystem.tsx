@@ -83,12 +83,12 @@ export default function QuantumCommunicationEcosystem() {
 
     ScrollTrigger.create({
       trigger: scrollContainer.current,
-      start:"top top",
+      start: "top top",
       end: () => `+=${getScrollDist()}`,
       pin: true,
       animation: gsap.to(trackRef.current, {
         x: () => -getScrollDist(),
-        ease:"none"
+        ease: "none"
       }),
       scrub: 1, // Smooth scrubbing
       invalidateOnRefresh: true, // Recalculates on resize
@@ -158,34 +158,39 @@ export default function QuantumCommunicationEcosystem() {
                 </div>
 
                 {/* Right Split (Content) */}
-                <div className="w-full md:w-7/12 p-6 lg:p-10 flex flex-col justify-between h-full overflow-hidden bg-[#0a0a0a]">
+                <div className="w-full md:w-7/12 p-6 lg:p-10 flex flex-col justify-between h-full overflow-hidden bg-neutral-100">
                   <div>
                     <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
                       style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
                       {item.tag}
                     </span>
                     
-                    <h2 className="">
+                    <h2 className="text-slate-900 text-xl lg:text-3xl font-bold uppercase mb-4 leading-tight line-clamp-2">
                       {item.title}
                     </h2>
                     
-                    <p className="">
+                    <p className="text-xs lg:text-sm text-slate-600 mb-6 leading-relaxed line-clamp-2">
                       {item.desc}
                     </p>
                     
+                    <div className="my-5 border-t border-slate-200" />
+                    
+                    <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
+                      Key Technical Features
+                    </h4>
                     <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                       {item.features.slice(0, 4).map((feature, fIndex) => (
-                        <div key={fIndex} className="">
+                        <div key={fIndex} className="flex items-start gap-2 text-[11px] lg:text-[13px] text-slate-700 leading-tight">
                           <span className="mt-[2px] font-bold text-amber-600">›</span>
-                          <span className="">{feature}</span>
+                          <span className="line-clamp-2">{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* CTA */}
-                  <div className="pt-6 mt-auto border-t border-white/10">
-                    <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-white text-white">
+                  <div className="pt-6 mt-auto border-t border-slate-200">
+                    <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-slate-900 text-white">
                       <span>Know More</span>
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

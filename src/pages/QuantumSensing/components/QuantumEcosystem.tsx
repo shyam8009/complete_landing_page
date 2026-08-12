@@ -32,10 +32,16 @@ const PILLARS: CardData[] = [
     id: 'rfd',
     tag: 'RFD1 · RG-QD · RF-Model / HVN S4',
     title: 'Wideband RF Detectors',
-    description:"Detection hardware built for the full RF spectrum, from room temperature to cryogenic conditions. The RFD1, RG-QD, and RF-Model give platforms the sensitivity to detect what conventional receivers miss.",
+    description: "Detection hardware built for the full RF spectrum, from room temperature to cryogenic conditions. The RFD1, RG-QD, and RF-Model give platforms the sensitivity to detect what conventional receivers miss.",
     statusBadge: 'DEFENCE GRADE · ACTIVE',
     freqRange: '100 MHz – 40 GHz',
-    specs: ["Broadband detection across RF/MW frequencies","Configurable for thru-wall RADAR and SIGINT","Zero foreign dependency in the critical path","Noise figure: < 2 dB across full band","MIL-STD-810H environmental qualification","Indigenous signal processing architecture"
+    specs: [
+      "Broadband detection across RF/MW frequencies",
+      "Configurable for thru-wall RADAR and SIGINT",
+      "Zero foreign dependency in the critical path",
+      "Noise figure: < 2 dB across full band",
+      "MIL-STD-810H environmental qualification",
+      "Indigenous signal processing architecture"
     ],
     image: imgRfd
   },
@@ -43,10 +49,16 @@ const PILLARS: CardData[] = [
     id: 'microwave',
     tag: 'TWPAs · HEMT Amps · IQ Mixers',
     title: 'Quantum Microwave Devices',
-    description:"The amplification and signal-conditioning layer quantum systems run on. Travelling Wave Parametric Amplifiers, HEMT amplifiers, IQ mixers, and precision filters.",
+    description: "The amplification and signal-conditioning layer quantum systems run on. Travelling Wave Parametric Amplifiers, HEMT amplifiers, IQ mixers, and precision filters.",
     statusBadge: 'CRYOGENIC CAPABLE',
     freqRange: '4K – 300K Operating',
-    specs: ["TWPAs for near-quantum-limited amplification","HEMT amplifiers for low-noise RF/MW gain","IQ mixer spurious rejection: > 25 dBc","Operating temperature: 4K – 300K","Custom filter design & fabrication","Cryogenic RF/MW design expertise"
+    specs: [
+      "TWPAs for near-quantum-limited amplification",
+      "HEMT amplifiers for low-noise RF/MW gain",
+      "IQ mixer spurious rejection: > 25 dBc",
+      "Operating temperature: 4K – 300K",
+      "Custom filter design & fabrication",
+      "Cryogenic RF/MW design expertise"
     ],
     image: imgMicrowave
   },
@@ -54,10 +66,16 @@ const PILLARS: CardData[] = [
     id: 'rydberg',
     tag: 'Atomic-Precision Sensing',
     title: 'Rydberg Atom Sensors',
-    description:"Atomic-precision sensing for environments where classical RF sensors fall short. Detect electromagnetic fields with a sensitivity that redefines what's measurable.",
+    description: "Atomic-precision sensing for environments where classical RF sensors fall short. Detect electromagnetic fields with a sensitivity that redefines what's measurable.",
     statusBadge: 'QUANTUM ACTIVE',
     freqRange: 'DC – 100+ GHz',
-    specs: ["Ultra-high sensitivity EM field detection","Self-calibrating atomic reference standard","No antenna required — atom-based reception","Frequency agile: DC to 100+ GHz","Applications in SIGINT and secure sensing","Bridges quantum theory & defence deployment"
+    specs: [
+      "Ultra-high sensitivity EM field detection",
+      "Self-calibrating atomic reference standard",
+      "No antenna required — atom-based reception",
+      "Frequency agile: DC to 100+ GHz",
+      "Applications in SIGINT and secure sensing",
+      "Bridges quantum theory & defence deployment"
     ],
     image: imgRydberg
   },
@@ -65,10 +83,16 @@ const PILLARS: CardData[] = [
     id: 'drone',
     tag: 'DaaS / Mission Scale',
     title: 'Quantum Drone',
-    description:"Quantum-enabled drone systems built for contested and GPS-denied environments. Engineered around indigenous quantum sensing and navigation hardware.",
+    description: "Quantum-enabled drone systems built for contested and GPS-denied environments. Engineered around indigenous quantum sensing and navigation hardware.",
     statusBadge: 'MISSION READY',
     freqRange: 'GPS-Denied Nav',
-    specs: ["Drone-as-a-Service (DaaS) flexible deployment","Onboard quantum sensing for GPS-denied nav","Quantum-enhanced INS for autonomous flight","Encrypted quantum key distribution payload","Multi-spectral sensing integration","Engineered for aerospace operational realities"
+    specs: [
+      "Drone-as-a-Service (DaaS) flexible deployment",
+      "Onboard quantum sensing for GPS-denied nav",
+      "Quantum-enhanced INS for autonomous flight",
+      "Encrypted quantum key distribution payload",
+      "Multi-spectral sensing integration",
+      "Engineered for aerospace operational realities"
     ],
     image: imgDrone
   },
@@ -76,10 +100,16 @@ const PILLARS: CardData[] = [
     id: 'clock',
     tag: 'Quantum Limit Precision',
     title: 'Quantum Clock Source',
-    description:"Precision timing at the quantum limit. A Quantum Clock Source gives navigation, communication, and RADAR systems a timing reference stable enough to operate independently.",
+    description: "Precision timing at the quantum limit. A Quantum Clock Source gives navigation, communication, and RADAR systems a timing reference stable enough to operate independently.",
     statusBadge: 'SOVEREIGN TIMING',
     freqRange: 'Allan Dev < 1×10⁻¹²',
-    specs: ["Quantum-grade frequency stability","Enables sovereign, GPS-independent timing","Allan deviation: < 1×10⁻¹² @ 1s","Holdover: < 1 μs over 24 hours","Supports distributed network synchronisation","Ruggedised for field deployment"
+    specs: [
+      "Quantum-grade frequency stability",
+      "Enables sovereign, GPS-independent timing",
+      "Allan deviation: < 1×10⁻¹² @ 1s",
+      "Holdover: < 1 μs over 24 hours",
+      "Supports distributed network synchronisation",
+      "Ruggedised for field deployment"
     ],
     image: imgClock
   }
@@ -103,12 +133,12 @@ export function QuantumEcosystem() {
 
     gsap.to(track, {
       x: () => -getScrollDist(),
-      ease:"none",
+      ease: "none",
       scrollTrigger: {
         trigger: containerRef.current,
         pin: true,
         scrub: 1, // Smooth scrubbing
-        start:"top top",
+        start: "top top",
         end: () => `+=${getScrollDist()}`,
         invalidateOnRefresh: true, // Recalculate distances on window resize
       }
@@ -205,7 +235,7 @@ function TacticalConsoleCard({ data }: { data: CardData }) {
         </div>
 
         {/* RIGHT: Specifications & CTAs (7 cols / ~58%) */}
-        <div className="md:col-span-7 p-6 lg:p-8 flex flex-col justify-between h-full bg-[#0a0a0a]">
+        <div className="md:col-span-7 p-6 lg:p-8 flex flex-col justify-between h-full bg-neutral-100">
           <div>
             {/* Tag */}
             <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
@@ -214,26 +244,32 @@ function TacticalConsoleCard({ data }: { data: CardData }) {
             </span>
 
             {/* Title */}
-            <h3 className="">
+            <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-2">
               {data.title}
             </h3>
-            <p className="">
+            <p className="text-xs lg:text-sm mt-3 leading-relaxed text-slate-600 line-clamp-2">
               {data.description}
             </p>
 
+            <div className="my-5 border-t border-slate-200" />
+
+            {/* Specs Grid */}
+            <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
+              Key Technical Features
+            </h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-3">
               {data.specs.slice(0, 4).map((spec, idx) => (
-                <div key={idx} className="">
+                <div key={idx} className="flex items-start gap-2 text-[11px] lg:text-[13px] text-slate-700 leading-tight">
                   <span className="mt-[2px] font-bold text-amber-600">›</span>
-                  <span className="">{spec}</span>
+                  <span className="line-clamp-2">{spec}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Bottom CTA Block locked to bottom via mt-auto */}
-          <div className="pt-6 mt-auto border-t border-white/10">
-            <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-white text-white group">
+          <div className="pt-6 mt-auto border-t border-slate-200">
+            <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-slate-900 text-white group">
               <span>Know More</span>
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

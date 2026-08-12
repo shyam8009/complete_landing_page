@@ -12,26 +12,38 @@ gsap.registerPlugin(ScrollTrigger);
 
 const droneSystemsData = [
   {
-    tag:"Scalable Frame Architectures . Heavy Lift",
-    title:"Sahana FPV Drone Buddy",
-    desc:"A tactical FPV drone family engineered for real-time aerial surveillance, reconnaissance, and field operations across contested electronic warfare environments. Built across three distinct frame sizes (10\", 13\", and 15\"), it provides resilient oversight in heavily jammed theaters.",
-    features: ["Scalable platform options supporting payloads up to 12 kg (Buddy-15) and operational flight ranges up to 40 km (Buddy-10).","High-speed maneuvering capability with the Buddy-15 variant reaching maximum speeds of 180 kmph.","Hardened electronic warfare protection utilizing an interference-resistant 'Proxy' channel across 1.2–3.5 GHz bands.","Optional thermal imaging integration and fiber-optic spool configurations."
+    tag: "Scalable Frame Architectures . Heavy Lift",
+    title: "Sahana FPV Drone Buddy",
+    desc: "A tactical FPV drone family engineered for real-time aerial surveillance, reconnaissance, and field operations across contested electronic warfare environments. Built across three distinct frame sizes (10\", 13\", and 15\"), it provides resilient oversight in heavily jammed theaters.",
+    features: [
+      "Scalable platform options supporting payloads up to 12 kg (Buddy-15) and operational flight ranges up to 40 km (Buddy-10).",
+      "High-speed maneuvering capability with the Buddy-15 variant reaching maximum speeds of 180 kmph.",
+      "Hardened electronic warfare protection utilizing an interference-resistant 'Proxy' channel across 1.2–3.5 GHz bands.",
+      "Optional thermal imaging integration and fiber-optic spool configurations."
     ],
     img: imgBuddy
   },
   {
-    tag:"400 kmph Kinetic Interceptor . Counter-UAS",
-    title:"Sahana FPV Bullseye & Interceptor",
-    desc:"A high-speed FPV drone and kinetic interceptor engineered for rapid-response counter-UAS operations and tactical aerial neutralization. Built with an aerodynamic tubular carbon-fiber chassis, it neutralizes incoming airborne threats while providing real-time situational awareness.",
-    features: ["Outstanding 400 kmph maximum speed and 200–250 kmph cruising speed for rapid threat interception.","10 km operational flight range powered by an 8s 22,000 mAh LiPo battery architecture.","3 kg payload capacity supporting high-definition FPV video, optional thermal imaging, and fiber-optic spool options.","Hardened with the interference-resistant 'Proxy' communication link to counter active jamming."
+    tag: "400 kmph Kinetic Interceptor . Counter-UAS",
+    title: "Sahana FPV Bullseye & Interceptor",
+    desc: "A high-speed FPV drone and kinetic interceptor engineered for rapid-response counter-UAS operations and tactical aerial neutralization. Built with an aerodynamic tubular carbon-fiber chassis, it neutralizes incoming airborne threats while providing real-time situational awareness.",
+    features: [
+      "Outstanding 400 kmph maximum speed and 200–250 kmph cruising speed for rapid threat interception.",
+      "10 km operational flight range powered by an 8s 22,000 mAh LiPo battery architecture.",
+      "3 kg payload capacity supporting high-definition FPV video, optional thermal imaging, and fiber-optic spool options.",
+      "Hardened with the interference-resistant 'Proxy' communication link to counter active jamming."
     ],
     img: imgBullseye
   },
   {
-    tag:"Anti-Jamming . ISM-to-non-ISM Conversion",
-    title:"Sahana PROXY — Control Channel",
-    desc:"A long-range, interference-resistant control channel and band conversion kit designed to maintain telemetry and video links in heavily jammed or contested electronic warfare environments.",
-    features: ["Bypasses standard electronic jamming by converting standard ISM-band frequencies to secure non-ISM bands (1.2–3.5 GHz).","Ground-control station with a 4–6 m mast and dual directional antenna arrays delivering up to 10 W output power.","Ultra-lightweight 300 g aerial video signal repeater minimizing payload drag on deployed FPVs.","Flexible operational deployment supporting both wireless and wired line operation up to 120 meters."
+    tag: "Anti-Jamming . ISM-to-non-ISM Conversion",
+    title: "Sahana PROXY — Control Channel",
+    desc: "A long-range, interference-resistant control channel and band conversion kit designed to maintain telemetry and video links in heavily jammed or contested electronic warfare environments.",
+    features: [
+      "Bypasses standard electronic jamming by converting standard ISM-band frequencies to secure non-ISM bands (1.2–3.5 GHz).",
+      "Ground-control station with a 4–6 m mast and dual directional antenna arrays delivering up to 10 W output power.",
+      "Ultra-lightweight 300 g aerial video signal repeater minimizing payload drag on deployed FPVs.",
+      "Flexible operational deployment supporting both wireless and wired line operation up to 120 meters."
     ],
     img: imgProxy
   }
@@ -47,12 +59,12 @@ export default function DroneSystemsEcosystem() {
 
     ScrollTrigger.create({
       trigger: scrollContainer.current,
-      start:"top top",
+      start: "top top",
       end: () => `+=${getScrollDist()}`,
       pin: true,
       animation: gsap.to(trackRef.current, {
         x: () => -getScrollDist(),
-        ease:"none"
+        ease: "none"
       }),
       scrub: 1,
       invalidateOnRefresh: true,
@@ -126,34 +138,36 @@ export default function DroneSystemsEcosystem() {
                   </div>
 
                   {/* Right Split (Content) */}
-                  <div className="w-full md:w-7/12 p-6 lg:p-10 flex flex-col justify-between h-full overflow-hidden bg-[#0a0a0a]">
+                  <div className="w-full md:w-7/12 p-6 lg:p-10 flex flex-col justify-between h-full overflow-hidden bg-neutral-100">
                     <div>
                       <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
                         style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
                         {item.tag}
                       </span>
                       
-                      <h2 className="">
+                      <h2 className="text-slate-900 text-xl lg:text-3xl font-bold uppercase mb-4 leading-tight line-clamp-2">
                         {item.title}
                       </h2>
                       
-                      <p className="text-xs lg:text-sm text-white/70 mb-6 leading-relaxed  lg:">
+                      <p className="text-xs lg:text-sm text-slate-600 mb-6 leading-relaxed line-clamp-2 lg:line-clamp-3">
                         {item.desc}
                       </p>
                       
+                      <div className="my-5 border-t border-slate-200" />
+                      
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
                         {item.features.slice(0, 4).map((feature, fIndex) => (
-                          <div key={fIndex} className="">
+                          <div key={fIndex} className="flex items-start gap-2 text-[11px] lg:text-[12px] text-slate-700 leading-tight">
                             <span className="mt-[2px] font-bold text-[#84CC16]">›</span>
-                            <span className="">{feature}</span>
+                            <span className="line-clamp-3">{feature}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* CTA */}
-                    <div className="pt-5 mt-auto border-t border-white/10 hidden md:block">
-                      <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-[#84CC16] hover:text-white text-white">
+                    <div className="pt-5 mt-auto border-t border-slate-200 hidden md:block">
+                      <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-[#84CC16] hover:text-slate-900 text-white">
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

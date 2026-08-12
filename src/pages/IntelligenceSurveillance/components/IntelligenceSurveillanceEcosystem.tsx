@@ -12,26 +12,38 @@ gsap.registerPlugin(ScrollTrigger);
 
 const surveillanceData = [
   {
-    tag:"AI Analytics . Darknet Extraction",
-    title:"Open-Source Intelligence (OSINT)",
-    desc:"An advanced, AI-powered intelligence platform that automates multi-source data extraction across 500+ channels. It empowers commanders with a zero-footprint digital intelligence collector that filters out internet noise to extract, analyze, and map complex threats in absolute operational secrecy.",
-    features: ["Simultaneously draws live data feeds from standard web channels, public blockchains, and deep Dark Web marketplaces.","Powered by a rich backend combining over 1000 advanced algorithmic search methods.","Integrates machine-learning-driven facial recognition to match individuals within visual contents effortlessly.","Built on secure anonymity architecture that completely shields the user's IP and digital signatures."
+    tag: "AI Analytics . Darknet Extraction",
+    title: "Open-Source Intelligence (OSINT)",
+    desc: "An advanced, AI-powered intelligence platform that automates multi-source data extraction across 500+ channels. It empowers commanders with a zero-footprint digital intelligence collector that filters out internet noise to extract, analyze, and map complex threats in absolute operational secrecy.",
+    features: [
+      "Simultaneously draws live data feeds from standard web channels, public blockchains, and deep Dark Web marketplaces.",
+      "Powered by a rich backend combining over 1000 advanced algorithmic search methods.",
+      "Integrates machine-learning-driven facial recognition to match individuals within visual contents effortlessly.",
+      "Built on secure anonymity architecture that completely shields the user's IP and digital signatures."
     ],
     img: imgOsint
   },
   {
-    tag:"Electronic Intercept . Spectrum Dominance",
-    title:"Signal Intelligence (SIGINT)",
-    desc:"Invisible exploitation of the electromagnetic spectrum. Our Signal Intelligence architecture provides the capability to intercept, analyze, and decrypt hostile electronic communications and radar emissions in real-time, delivering actionable tactical foresight.",
-    features: ["Continuous monitoring and interception across wideband communication networks and encrypted channels.","Precision direction-finding (DF) to geolocate hostile emitters and command nodes.","Advanced modulation recognition and signal classification powered by machine learning algorithms.","Rapid deployment form factors ranging from fixed infrastructure to mobile tactical units."
+    tag: "Electronic Intercept . Spectrum Dominance",
+    title: "Signal Intelligence (SIGINT)",
+    desc: "Invisible exploitation of the electromagnetic spectrum. Our Signal Intelligence architecture provides the capability to intercept, analyze, and decrypt hostile electronic communications and radar emissions in real-time, delivering actionable tactical foresight.",
+    features: [
+      "Continuous monitoring and interception across wideband communication networks and encrypted channels.",
+      "Precision direction-finding (DF) to geolocate hostile emitters and command nodes.",
+      "Advanced modulation recognition and signal classification powered by machine learning algorithms.",
+      "Rapid deployment form factors ranging from fixed infrastructure to mobile tactical units."
     ],
     img: imgSigint
   },
   {
-    tag:"Threat Mapping . Vulnerability Audits",
-    title:"Comprehensive Security Assessment",
-    desc:"A holistic, multi-vector evaluation of physical and digital security postures. We simulate advanced persistent threats (APTs) and kinetic breaches to identify critical vulnerabilities within infrastructure, networks, and operational protocols before adversaries can exploit them.",
-    features: ["Full-spectrum red-teaming encompassing physical perimeter breaches and cyber intrusion testing.","Detailed risk matrix generation mapping internal and external threat vectors.","Compliance and resilience benchmarking against global defense and intelligence standards.","Actionable mitigation roadmaps to harden infrastructure and eliminate blind spots."
+    tag: "Threat Mapping . Vulnerability Audits",
+    title: "Comprehensive Security Assessment",
+    desc: "A holistic, multi-vector evaluation of physical and digital security postures. We simulate advanced persistent threats (APTs) and kinetic breaches to identify critical vulnerabilities within infrastructure, networks, and operational protocols before adversaries can exploit them.",
+    features: [
+      "Full-spectrum red-teaming encompassing physical perimeter breaches and cyber intrusion testing.",
+      "Detailed risk matrix generation mapping internal and external threat vectors.",
+      "Compliance and resilience benchmarking against global defense and intelligence standards.",
+      "Actionable mitigation roadmaps to harden infrastructure and eliminate blind spots."
     ],
     img: imgSecurity
   }
@@ -47,12 +59,12 @@ export default function IntelligenceSurveillanceEcosystem() {
 
     ScrollTrigger.create({
       trigger: scrollContainer.current,
-      start:"top top",
+      start: "top top",
       end: () => `+=${getScrollDist()}`,
       pin: true,
       animation: gsap.to(trackRef.current, {
         x: () => -getScrollDist(),
-        ease:"none"
+        ease: "none"
       }),
       scrub: 1,
       invalidateOnRefresh: true,
@@ -113,34 +125,39 @@ export default function IntelligenceSurveillanceEcosystem() {
                   </div>
 
                   {/* Right Split (Content) */}
-                  <div className="w-full md:w-7/12 p-6 lg:p-10 flex flex-col justify-between h-full overflow-hidden bg-[#0a0a0a]">
+                  <div className="w-full md:w-7/12 p-6 lg:p-10 flex flex-col justify-between h-full overflow-hidden bg-neutral-100">
                     <div>
                       <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
                         style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
                         {item.tag}
                       </span>
                       
-                      <h2 className="">
+                      <h2 className="text-slate-900 text-xl lg:text-3xl font-bold uppercase mb-4 leading-tight line-clamp-2">
                         {item.title}
                       </h2>
                       
-                      <p className="">
+                      <p className="text-xs lg:text-sm text-slate-600 mb-6 leading-relaxed line-clamp-2">
                         {item.desc}
                       </p>
                       
+                      <div className="my-5 border-t border-slate-200" />
+                      
+                      <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
+                        Key Technical Features
+                      </h4>
                       <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                         {item.features.slice(0, 4).map((feature, fIndex) => (
-                          <div key={fIndex} className="">
+                          <div key={fIndex} className="flex items-start gap-2 text-[11px] lg:text-[13px] text-slate-700 leading-tight">
                             <span className="mt-[2px] font-bold text-amber-600">›</span>
-                            <span className="">{feature}</span>
+                            <span className="line-clamp-2">{feature}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* CTA */}
-                    <div className="pt-5 mt-auto border-t border-white/10">
-                      <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-white text-white">
+                    <div className="pt-5 mt-auto border-t border-slate-200">
+                      <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-slate-900 text-white">
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
