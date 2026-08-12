@@ -105,7 +105,7 @@ export default function DynamicPageLoader() {
     async function fetchPage() {
       if (!slug) return;
       try {
-        const data = await sanityClient.fetch(`*[_type == "ecosystemPage" && slug.current == $slug][0]`, { slug });
+        const data = await sanityClient.fetch(`*[_type =="ecosystemPage" && slug.current == $slug][0]`, { slug });
         if (data) {
           setPageData(normalizePage(data, true));
         } else {
@@ -125,7 +125,7 @@ export default function DynamicPageLoader() {
     fetchPage();
 
     subscription = sanityClient
-      .listen(`*[_type == "ecosystemPage" && slug.current == $slug]`, { slug }, { includeResult: false })
+      .listen(`*[_type =="ecosystemPage" && slug.current == $slug]`, { slug }, { includeResult: false })
       .subscribe(() => {
         console.log(`[Sanity] Ecosystem Page ${slug} updated — refreshing...`);
         fetchPage();

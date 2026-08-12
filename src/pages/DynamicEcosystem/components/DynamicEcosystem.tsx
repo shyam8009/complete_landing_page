@@ -19,12 +19,12 @@ export default function DynamicEcosystem({ data }: { data: any }) {
 
     ScrollTrigger.create({
       trigger: scrollContainer.current,
-      start: "top top",
+      start:"top top",
       end: () => `+=${getScrollDist()}`,
       pin: true,
       animation: gsap.to(trackRef.current, {
         x: () => -getScrollDist(),
-        ease: "none"
+        ease:"none"
       }),
       scrub: 1,
       invalidateOnRefresh: true,
@@ -145,7 +145,7 @@ export default function DynamicEcosystem({ data }: { data: any }) {
                     </div>
 
                     {/* RIGHT */}
-                    <div className="md:col-span-7 p-6 lg:p-8 flex flex-col justify-between h-full bg-neutral-100">
+                    <div className="md:col-span-7 p-6 lg:p-8 flex flex-col justify-between h-full bg-[#0a0a0a]">
                       <div>
                         {card.tag && (
                           <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
@@ -154,28 +154,23 @@ export default function DynamicEcosystem({ data }: { data: any }) {
                           </span>
                         )}
 
-                        <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-2">
+                        <h3 className="">
                           {card.title}
                         </h3>
-                        <RichText content={card.description} className="text-xs lg:text-sm mt-3 leading-relaxed text-slate-600 line-clamp-2" />
+                        <RichText content={card.description} className="" />
 
-                        <div className="my-5 border-t border-slate-200" />
-
-                        <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
-                          Key Technical Features
-                        </h4>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                           {card.specs?.slice(0, 4).map((spec: string, i: number) => (
-                            <div key={i} className="flex items-start gap-2 text-[11px] lg:text-[13px] text-slate-700 leading-tight">
+                            <div key={i} className="">
                               <span className="mt-[2px] font-bold text-amber-600">›</span>
-                              <span className="line-clamp-2">{spec}</span>
+                              <span className="">{spec}</span>
                             </div>
                           ))}
                         </div>
                       </div>
 
-                      <div className="pt-5 mt-auto border-t border-slate-200">
-                        <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-slate-900 text-white group">
+                      <div className="pt-5 mt-auto border-t border-white/10">
+                        <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-white text-white group">
                           <span>Know More</span>
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
