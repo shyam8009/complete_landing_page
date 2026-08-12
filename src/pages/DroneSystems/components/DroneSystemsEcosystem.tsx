@@ -113,7 +113,7 @@ export default function DroneSystemsEcosystem() {
                 
                 {/* THE GLASSMORPHISM CARD */}
                 <div 
-                  className="w-[90vw] max-w-[1100px] rounded-2xl overflow-hidden mx-auto h-[min(540px,75vh)] flex flex-col md:flex-row"
+                  className="w-[90vw] max-w-[1100px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch"
                   style={{ 
                     backgroundColor: 'rgba(8, 8, 8, 0.75)', 
                     border: '1px solid rgba(255,255,255,0.08)',
@@ -130,16 +130,16 @@ export default function DroneSystemsEcosystem() {
                   <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
 
                   {/* Left Split (Image) */}
-                  <div className="w-full md:w-1/2 h-48 md:h-auto border-b md:border-b-0 md:border-r" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
-                    <div className="relative w-full h-full bg-[#000]">
-                      <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
+                  <div className="w-full md:w-1/2 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+                    <div className="relative w-full h-full flex-1 bg-[#000]">
+                      <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
                       <div style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%)' }} className="absolute inset-0" />
                     </div>
                   </div>
 
                   {/* Right Split (Content) */}
-                  <div className="w-full md:w-1/2 p-6 lg:p-10 flex flex-col justify-between h-full overflow-hidden bg-neutral-100">
-                    <div>
+                  <div className="w-full md:w-1/2 p-6 lg:p-10 flex flex-col justify-between bg-neutral-100">
+                    <div className="mb-6">
                       <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
                         style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
                         {item.tag}
@@ -149,7 +149,7 @@ export default function DroneSystemsEcosystem() {
                         {item.title}
                       </h2>
                       
-                      <p className="text-sm lg:text-base text-slate-600 mb-3 leading-relaxed">
+                      <p className="text-sm lg:text-base text-slate-600 mb-3 ">
                         {item.desc}
                       </p>
                       
@@ -157,7 +157,7 @@ export default function DroneSystemsEcosystem() {
                     </div>
 
                     {/* CTA */}
-                    <div className="pt-5 mt-auto border-t border-slate-200 hidden md:block">
+                    <div className="pt-5 mt-auto border-t border-slate-200">
                       <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-[#84CC16] hover:text-slate-900 text-white">
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

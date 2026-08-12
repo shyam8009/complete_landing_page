@@ -62,7 +62,7 @@ export default function DynamicEcosystem({ data }: { data: any }) {
             </span>
           )}
           <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white leading-tight" dangerouslySetInnerHTML={{ __html: data.introH2.replace(' ', '<br className="hidden md:block" /> ') }} />
-          <RichText content={data.introDesc} className="mt-6 text-sm md:text-base leading-relaxed text-neutral-300 max-w-xl" />
+          <RichText content={data.introDesc} className="mt-6 text-sm md:text-base  text-neutral-300 max-w-xl" />
         </div>
       </section>
 
@@ -146,7 +146,7 @@ export default function DynamicEcosystem({ data }: { data: any }) {
 
                     {/* RIGHT */}
                     <div className="md:col-span-6 p-6 lg:p-8 flex flex-col justify-between h-full bg-neutral-100">
-                      <div>
+                      <div className="mb-6">
                         {card.tag && (
                           <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
                             style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
@@ -157,7 +157,7 @@ export default function DynamicEcosystem({ data }: { data: any }) {
                         <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-2">
                           {card.title}
                         </h3>
-                        <RichText content={card.description} className="text-sm lg:text-base mt-3 mb-3 leading-relaxed text-slate-600" />
+                        <RichText content={card.description} className="text-sm lg:text-base mt-3 mb-3  text-slate-600" />
 
                         
                       </div>

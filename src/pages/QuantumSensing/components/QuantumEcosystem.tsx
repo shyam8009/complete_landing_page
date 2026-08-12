@@ -191,7 +191,7 @@ export function QuantumEcosystem() {
 function TacticalConsoleCard({ data }: { data: CardData }) {
   return (
     <div
-      className="relative w-[90vw] max-w-[1100px] rounded-2xl overflow-hidden mx-auto h-[min(540px,75vh)]"
+      className="relative w-[90vw] max-w-[1100px] rounded-2xl mx-auto flex flex-col items-stretch"
       style={{ 
         backgroundColor: 'rgba(8, 8, 8, 0.75)', 
         border: '1px solid rgba(255,255,255,0.08)',
@@ -220,7 +220,7 @@ function TacticalConsoleCard({ data }: { data: CardData }) {
             <img
               src={data.image}
               alt={data.title}
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
             />
             <div style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%)' }} className="absolute inset-0" />
             
@@ -235,8 +235,8 @@ function TacticalConsoleCard({ data }: { data: CardData }) {
         </div>
 
         {/* RIGHT: Specifications & CTAs (7 cols / ~58%) */}
-        <div className="md:col-span-6 p-6 lg:p-8 flex flex-col justify-between h-full bg-neutral-100">
-          <div>
+        <div className="md:col-span-6 p-6 lg:p-8 flex flex-col justify-between bg-neutral-100">
+          <div className="mb-6">
             {/* Tag */}
             <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
               style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
@@ -247,7 +247,7 @@ function TacticalConsoleCard({ data }: { data: CardData }) {
             <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-2">
               {data.title}
             </h3>
-            <p className="text-sm lg:text-base mt-3 mb-3 leading-relaxed text-slate-600">
+            <p className="text-sm lg:text-base mt-3 mb-3  text-slate-600">
               {data.description}
             </p>
 
