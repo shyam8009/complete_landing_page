@@ -153,16 +153,7 @@ export default function DroneSystemsEcosystem() {
                         {item.desc}
                       </p>
                       
-                      <div className="my-3 border-t border-slate-200" />
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
-                        {item.features.slice(0, 4).map((feature, fIndex) => (
-                          <div key={fIndex} className="flex items-start text-[11px] lg:text-[12px] text-slate-700 leading-tight">
-                            <span className="mt-[2px] font-bold text-[#84CC16]">›</span>
-                            <span className="line-clamp-3">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
                     </div>
 
                     {/* CTA */}
