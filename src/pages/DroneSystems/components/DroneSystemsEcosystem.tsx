@@ -130,7 +130,7 @@ export default function DroneSystemsEcosystem() {
                   <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
 
                   {/* Left Split (Image) */}
-                  <div className="w-full md:w-5/12 h-48 md:h-auto border-b md:border-b-0 md:border-r" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+                  <div className="w-full md:w-1/2 h-48 md:h-auto border-b md:border-b-0 md:border-r" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
                     <div className="relative w-full h-full bg-[#000]">
                       <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
                       <div style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%)' }} className="absolute inset-0" />
@@ -138,7 +138,7 @@ export default function DroneSystemsEcosystem() {
                   </div>
 
                   {/* Right Split (Content) */}
-                  <div className="w-full md:w-7/12 p-6 lg:p-10 flex flex-col justify-between h-full overflow-hidden bg-neutral-100">
+                  <div className="w-full md:w-1/2 p-6 lg:p-10 flex flex-col justify-between h-full overflow-hidden bg-neutral-100">
                     <div>
                       <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
                         style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
@@ -149,7 +149,7 @@ export default function DroneSystemsEcosystem() {
                         {item.title}
                       </h2>
                       
-                      <p className="text-xs lg:text-sm text-slate-600 mb-3 leading-relaxed">
+                      <p className="text-sm lg:text-base text-slate-600 mb-3 leading-relaxed">
                         {item.desc}
                       </p>
                       

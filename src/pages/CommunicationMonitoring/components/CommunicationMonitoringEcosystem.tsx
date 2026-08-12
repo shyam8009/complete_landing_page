@@ -180,7 +180,7 @@ export default function CommunicationMonitoringEcosystem() {
                         <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-2">
                           {data.title}
                         </h3>
-                        <p className="text-xs lg:text-sm mt-3 mb-3 leading-relaxed text-slate-600">
+                        <p className="text-sm lg:text-base mt-3 mb-3 leading-relaxed text-slate-600">
                           {data.description}
                         </p>
 

@@ -157,7 +157,7 @@ export default function DynamicEcosystem({ data }: { data: any }) {
                         <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-2">
                           {card.title}
                         </h3>
-                        <RichText content={card.description} className="text-xs lg:text-sm mt-3 mb-3 leading-relaxed text-slate-600" />
+                        <RichText content={card.description} className="text-sm lg:text-base mt-3 mb-3 leading-relaxed text-slate-600" />
 
                         <div className="my-3 border-t border-slate-200" />
 
