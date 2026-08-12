@@ -3,58 +3,58 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
-import bgGrid from '@/imports/digital_node_map.jpg';
-import imgOsint from '@/imports/osint_dashboard.jpg';
-import imgSigint from '@/imports/sigint_arrays.jpg';
-import imgSecurity from '@/imports/security_assessment_twin.jpg';
+import bgGrid from '@/imports/spear_cad_blueprint.png';
+import imgBuddy from '@/imports/fpv-buddy/magnific_prompt-a-photorealistic-e_TeRGqk0VNR.png';
+import imgBullseye from '@/imports/sahana_fpv_interceptor.jpg';
+import imgProxy from '@/imports/command_control_1.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const surveillanceData = [
+const droneSystemsData = [
   {
-    tag: "AI Analytics . Darknet Extraction",
-    title: "Open-Source Intelligence (OSINT)",
-    desc: "An advanced, AI-powered intelligence platform that automates multi-source data extraction across 500+ channels. It empowers commanders with a zero-footprint digital intelligence collector that filters out internet noise to extract, analyze, and map complex threats in absolute operational secrecy.",
+    tag: "Scalable Frame Architectures . Heavy Lift",
+    title: "Sahana FPV Drone Buddy",
+    desc: "A tactical FPV drone family engineered for real-time aerial surveillance, reconnaissance, and field operations across contested electronic warfare environments. Built across three distinct frame sizes (10\", 13\", and 15\"), it provides resilient oversight in heavily jammed theaters.",
     features: [
-      "Simultaneously draws live data feeds from standard web channels, public blockchains, and deep Dark Web marketplaces.",
-      "Powered by a rich backend combining over 1000 advanced algorithmic search methods.",
-      "Integrates machine-learning-driven facial recognition to match individuals within visual contents effortlessly.",
-      "Built on secure anonymity architecture that completely shields the user's IP and digital signatures."
+      "Scalable platform options supporting payloads up to 12 kg (Buddy-15) and operational flight ranges up to 40 km (Buddy-10).",
+      "High-speed maneuvering capability with the Buddy-15 variant reaching maximum speeds of 180 kmph.",
+      "Hardened electronic warfare protection utilizing an interference-resistant 'Proxy' channel across 1.2–3.5 GHz bands.",
+      "Optional thermal imaging integration and fiber-optic spool configurations."
     ],
-    img: imgOsint
+    img: imgBuddy
   },
   {
-    tag: "Electronic Intercept . Spectrum Dominance",
-    title: "Signal Intelligence (SIGINT)",
-    desc: "Invisible exploitation of the electromagnetic spectrum. Our Signal Intelligence architecture provides the capability to intercept, analyze, and decrypt hostile electronic communications and radar emissions in real-time, delivering actionable tactical foresight.",
+    tag: "400 kmph Kinetic Interceptor . Counter-UAS",
+    title: "Sahana FPV Bullseye & Interceptor",
+    desc: "A high-speed FPV drone and kinetic interceptor engineered for rapid-response counter-UAS operations and tactical aerial neutralization. Built with an aerodynamic tubular carbon-fiber chassis, it neutralizes incoming airborne threats while providing real-time situational awareness.",
     features: [
-      "Continuous monitoring and interception across wideband communication networks and encrypted channels.",
-      "Precision direction-finding (DF) to geolocate hostile emitters and command nodes.",
-      "Advanced modulation recognition and signal classification powered by machine learning algorithms.",
-      "Rapid deployment form factors ranging from fixed infrastructure to mobile tactical units."
+      "Outstanding 400 kmph maximum speed and 200–250 kmph cruising speed for rapid threat interception.",
+      "10 km operational flight range powered by an 8s 22,000 mAh LiPo battery architecture.",
+      "3 kg payload capacity supporting high-definition FPV video, optional thermal imaging, and fiber-optic spool options.",
+      "Hardened with the interference-resistant 'Proxy' communication link to counter active jamming."
     ],
-    img: imgSigint
+    img: imgBullseye
   },
   {
-    tag: "Threat Mapping . Vulnerability Audits",
-    title: "Comprehensive Security Assessment",
-    desc: "A holistic, multi-vector evaluation of physical and digital security postures. We simulate advanced persistent threats (APTs) and kinetic breaches to identify critical vulnerabilities within infrastructure, networks, and operational protocols before adversaries can exploit them.",
+    tag: "Anti-Jamming . ISM-to-non-ISM Conversion",
+    title: "Sahana PROXY — Control Channel",
+    desc: "A long-range, interference-resistant control channel and band conversion kit designed to maintain telemetry and video links in heavily jammed or contested electronic warfare environments.",
     features: [
-      "Full-spectrum red-teaming encompassing physical perimeter breaches and cyber intrusion testing.",
-      "Detailed risk matrix generation mapping internal and external threat vectors.",
-      "Compliance and resilience benchmarking against global defense and intelligence standards.",
-      "Actionable mitigation roadmaps to harden infrastructure and eliminate blind spots."
+      "Bypasses standard electronic jamming by converting standard ISM-band frequencies to secure non-ISM bands (1.2–3.5 GHz).",
+      "Ground-control station with a 4–6 m mast and dual directional antenna arrays delivering up to 10 W output power.",
+      "Ultra-lightweight 300 g aerial video signal repeater minimizing payload drag on deployed FPVs.",
+      "Flexible operational deployment supporting both wireless and wired line operation up to 120 meters."
     ],
-    img: imgSecurity
+    img: imgProxy
   }
 ];
 
-export default function IntelligenceSurveillanceEcosystem() {
+export default function DroneSystemsEcosystem() {
   const scrollContainer = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    if (!trackRef.current || surveillanceData.length === 0) return;
+    if (!trackRef.current || droneSystemsData.length === 0) return;
     const getScrollDist = () => trackRef.current ? trackRef.current.scrollWidth - window.innerWidth : 0;
 
     ScrollTrigger.create({
@@ -73,7 +73,6 @@ export default function IntelligenceSurveillanceEcosystem() {
 
   return (
     <div className="font-['Inter',sans-serif]">
-
       {/* HORIZONTAL ECOSYSTEM TRACK */}
       <section ref={scrollContainer} className="relative w-full h-screen overflow-hidden bg-[#050505]">
         
@@ -87,11 +86,25 @@ export default function IntelligenceSurveillanceEcosystem() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(5,5,5,0.2)_0%,rgba(5,5,5,0.95)_100%)]" />
         </div>
 
+        {/* TOP HEADER (Fixed, z-20) */}
+        <div className="absolute top-8 left-0 right-0 z-20 flex justify-center pointer-events-none">
+          <span className="text-[#84CC16] font-mono font-bold tracking-[0.2em] text-sm md:text-base uppercase">
+            TACTICAL DRONE & EW ECOSYSTEM
+          </span>
+        </div>
+
+        {/* BOTTOM FOOTER (Fixed, z-20) */}
+        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center pointer-events-none">
+          <span className="text-white/40 font-mono tracking-widest text-xs uppercase animate-pulse">
+            SCROLL TO EXPLORE
+          </span>
+        </div>
+
         {/* THE SLIDING TRACK (z-10) */}
         <div className="relative z-10 flex h-full items-center overflow-visible">
           <div ref={trackRef} className="flex flex-nowrap h-full items-center pl-[5vw] md:pl-[10vw]">
             
-            {surveillanceData.map((item, index) => (
+            {droneSystemsData.map((item, index) => (
               <div 
                 key={index} 
                 className="w-screen flex-shrink-0 flex items-center justify-center pr-[10vw]"
@@ -136,28 +149,25 @@ export default function IntelligenceSurveillanceEcosystem() {
                         {item.title}
                       </h2>
                       
-                      <p className="text-xs lg:text-sm text-slate-600 mb-6 leading-relaxed line-clamp-2">
+                      <p className="text-xs lg:text-sm text-slate-600 mb-6 leading-relaxed line-clamp-2 lg:line-clamp-3">
                         {item.desc}
                       </p>
                       
                       <div className="my-5 border-t border-slate-200" />
                       
-                      <h4 className="text-[10px] font-mono uppercase tracking-[0.15em] mb-4 text-slate-500">
-                        Key Technical Features
-                      </h4>
-                      <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
                         {item.features.slice(0, 4).map((feature, fIndex) => (
-                          <div key={fIndex} className="flex items-start gap-2 text-[11px] lg:text-[13px] text-slate-700 leading-tight">
-                            <span className="mt-[2px] font-bold text-amber-600">›</span>
-                            <span className="line-clamp-2">{feature}</span>
+                          <div key={fIndex} className="flex items-start gap-2 text-[11px] lg:text-[12px] text-slate-700 leading-tight">
+                            <span className="mt-[2px] font-bold text-[#84CC16]">›</span>
+                            <span className="line-clamp-3">{feature}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* CTA */}
-                    <div className="pt-5 mt-auto border-t border-slate-200">
-                      <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-slate-900 text-white">
+                    <div className="pt-5 mt-auto border-t border-slate-200 hidden md:block">
+                      <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-[#84CC16] hover:text-slate-900 text-white">
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

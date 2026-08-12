@@ -147,38 +147,6 @@ export function QuantumEcosystem() {
 
   return (
     <div className="font-['Inter',sans-serif]">
-      {/* Intro Section - Standard Flow */}
-      <section className="relative w-full py-32 md:py-48 flex flex-col items-start justify-center overflow-hidden" style={{ backgroundColor: '#050505' }}>
-        {/* Background Video */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <video 
-            src={bgVideo} 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="w-full h-full object-cover"
-          />
-          {/* Gradient overlay to ensure text is legible on the left, but kept light to show video */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
-          
-          {/* Bottom fade to blend seamlessly into the next section */}
-          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
-        </div>
-
-        <div className="relative z-10 px-6 md:px-12 max-w-3xl text-left">
-          <span className="inline-block px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase mb-6" style={{ color: '#84CC16', backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
-            Sovereign Technology
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white leading-tight">
-            The Quantum <br className="hidden md:block" /> Ecosystem
-          </h2>
-          <p className="mt-6 text-sm md:text-base leading-relaxed text-neutral-300 max-w-xl">
-            Sensing built on quantum principles, engineered for a sensitivity classical hardware can't reach. 
-            From RF detection to atomic clocks, this is the measurement layer for modern aerospace and defence programmes.
-          </p>
-        </div>
-      </section>
 
       {/* GSAP Horizontal Scroll Section */}
       <section 

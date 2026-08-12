@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { QuantumHero } from './components/QuantumHero';
+import QuantumSensingPitch from './components/QuantumSensingPitch';
 import { QuantumEcosystem } from './components/QuantumEcosystem';
 import { SovereignStrip } from './components/SovereignStrip';
 import { QuantumCTA } from './components/QuantumCTA';
@@ -25,6 +26,7 @@ export function QuantumSensingPage() {
   return (
     <main className="w-full bg-[#000000] min-h-screen text-white font-sans selection:bg-[#84CC16]/30">
       <QuantumHero />
+      <QuantumSensingPitch />
       <QuantumEcosystem />
       <SovereignStrip />
       <QuantumCTA />

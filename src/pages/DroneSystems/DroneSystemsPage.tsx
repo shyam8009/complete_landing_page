@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import IntelligenceSurveillanceHero from './components/IntelligenceSurveillanceHero';
-import IntelligenceSurveillancePitch from './components/IntelligenceSurveillancePitch';
-import IntelligenceSurveillanceEcosystem from './components/IntelligenceSurveillanceEcosystem';
+import DroneSystemsHero from './components/DroneSystemsHero';
+import DroneSystemsPitch from './components/DroneSystemsPitch';
+import DroneSystemsEcosystem from './components/DroneSystemsEcosystem';
 import { SovereignStrip } from '../QuantumSensing/components/SovereignStrip';
 import { QuantumCTA } from '../QuantumSensing/components/QuantumCTA';
 
-export default function IntelligenceSurveillancePage() {
+export function DroneSystemsPage() {
   // Set SEO metadata on mount
   useEffect(() => {
-    document.title = "Intelligence & Surveillance Systems | Sovereign Dynamics";
+    document.title = "Intelligence & Surveillance: Tactical Drone & EW Systems";
     
     // Update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -17,7 +17,7 @@ export default function IntelligenceSurveillancePage() {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', "Next-generation Intelligence and Surveillance systems. Featuring AI-powered OSINT platforms, tactical Signal Intelligence (SIGINT), and Comprehensive Security Assessments for multi-domain dominance.");
+    metaDescription.setAttribute('content', "Hardened FPV drone architectures, high-speed kinetic interceptors, and non-ISM anti-jamming communication channels engineered for electronic warfare environments.");
     
     // Scroll to top on load
     window.scrollTo(0, 0);
@@ -25,9 +25,9 @@ export default function IntelligenceSurveillancePage() {
 
   return (
     <main className="w-full bg-[#000000] min-h-screen text-white font-sans selection:bg-[#84CC16]/30">
-      <IntelligenceSurveillanceHero />
-      <IntelligenceSurveillancePitch />
-      <IntelligenceSurveillanceEcosystem />
+      <DroneSystemsHero />
+      <DroneSystemsPitch />
+      <DroneSystemsEcosystem />
       <SovereignStrip />
       <QuantumCTA />
     </main>

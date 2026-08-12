@@ -97,27 +97,6 @@ export default function QuantumCommunicationEcosystem() {
 
   return (
     <div className="font-['Inter',sans-serif]">
-      {/* Intro Section - Standard Flow */}
-      <section className="relative w-full pt-16 pb-8 md:pt-24 md:pb-12 flex flex-col items-start justify-center overflow-hidden" style={{ backgroundColor: '#050505' }}>
-        
-        {/* Simple gradient background instead of video */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#050505] to-[#020202]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(14,165,233,0.05)_0%,transparent_50%)]" />
-        </div>
-
-        <div className="relative z-10 px-6 md:px-12 max-w-3xl text-left">
-          <span className="inline-block px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase mb-6" style={{ color: '#84CC16', backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
-            Sovereign Technology
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white leading-tight">
-            Quantum Communication <br className="hidden md:block" /> Ecosystem
-          </h2>
-          <p className="mt-6 text-sm md:text-base leading-relaxed text-neutral-300 max-w-xl">
-            A comprehensive, unhackable communication architecture spanning hardware, software, and distributed networking. Built to secure India's most critical data against classical and quantum threats.
-          </p>
-        </div>
-      </section>
 
       {/* Outer Container for GSAP Track */}
       <section ref={scrollContainer} className="relative w-full h-screen overflow-hidden bg-[#050505]">
