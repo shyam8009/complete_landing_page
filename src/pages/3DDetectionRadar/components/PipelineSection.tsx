@@ -138,7 +138,7 @@ export function PipelineSection() {
               {/* Node Badge */}
               <div 
                 ref={el => nodesRef.current[idx] = el}
-                className="w-24 h-24 rounded-full bg-[#0a0a0a] border border-white/10 flex flex-col items-center justify-center gap-1 z-10 transition-colors duration-300 group-hover:border-[#84CC16]/50 group-hover:bg-[#84CC16]/10"
+                className="w-24 h-24 rounded-full bg-[#0a0a0a] border border-white/10 flex flex-col items-center justify-center gap-1 z-10 transition-colors duration-300 "
               >
                 <span className="text-white/50 text-xs font-mono font-bold">{step.num}</span>
                 <div className="text-[#84CC16]">
@@ -163,3 +163,11 @@ export function PipelineSection() {
     </section>
   );
 }
+
+
+
+
+
+
+
+

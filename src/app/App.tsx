@@ -22,6 +22,7 @@ import { RadarSystemsPage } from '../pages/RadarSystems/RadarSystemsPage';
 import { JammingSystemsPage } from '../pages/JammingSystems/JammingSystemsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
+import ClienteleSection from '../components/ClienteleSection';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
 import infinitySpearVideo from '@/imports/Infinity_Spear.mp4';
 import visionRobotVideo from '@/imports/Vision_Drone.mp4';
@@ -437,7 +438,7 @@ function Nav() {
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); setHoveredNav(null); }}
-            className={`font-bold tracking-[1px] uppercase border border-white/20 hover:border-[#84CC16] hover:text-[#84CC16] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-sm text-white ${scrolled ? "px-4 py-1.5 text-[12px]" : "px-6 py-2.5 text-[14px]"}`}
+            className={`font-bold tracking-[1px] uppercase border border-white/20 hover:border-white/40 hover:text-[#84CC16] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-sm text-white ${scrolled ? "px-4 py-1.5 text-[12px]" : "px-6 py-2.5 text-[14px]"}`}
           >
             Contact Us
           </a>
@@ -482,7 +483,7 @@ function Nav() {
                 <div 
                   key={domain.id}
                   onMouseEnter={() => setActiveDomain(domain)}
-                  className={`group relative flex flex-col gap-1 py-4 px-5 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent border-l-2 border-[#84CC16]" : "border-l-2 border-transparent hover:bg-white/5"}`}
+                  className={`group relative flex flex-col gap-1 py-4 px-5 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent" : "hover:bg-white/5"}`}
                 >
                   <div className="flex items-center gap-4">
                     <div className={`transition-colors ${isActive ? "text-[#84CC16]" : "text-white/50 group-hover:text-white/80"}`}>
@@ -2200,6 +2201,7 @@ export default function App() {
               <Arsenal1Section />
               <NewsSection />
               <EditorialSection />
+              <ClienteleSection />
             </>
           } />
           <Route path="/guardian-experience" element={<GuardianExperiencePage />} />
@@ -2211,7 +2213,7 @@ export default function App() {
           <Route path="/infinity-rhino" element={<InfinityRhinoPage />} />
           <Route path="/infinity-rhino-black" element={<InfinityRhinoBlackPage />} />
           <Route path="/electronic-warfare/drone-systems" element={<DroneSystemsPage />} />
-          <Route path="/electronic-warfare/radar-systems" element={<RadarSystemsPage />} />
+          <Route path="/electronic-warfare/radar-and-detection-systems" element={<RadarSystemsPage />} />
           <Route path="/electronic-warfare/jamming-systems" element={<JammingSystemsPage />} />
           <Route path="/electronic-warfare/jamming-systems" element={<JammingSystemsPage />} />
           <Route path="/butterfly-adg" element={<ButterflyADGPage />} />

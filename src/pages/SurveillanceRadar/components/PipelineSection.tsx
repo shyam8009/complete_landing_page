@@ -87,7 +87,7 @@ export function PipelineSection() {
                   <span className="text-4xl font-black text-white/10 font-mono tracking-tighter group-hover:text-[#84CC16]/20 transition-colors">
                     {step.id}.
                   </span>
-                  <div className="w-16 h-16 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-[#84CC16]/50 group-hover:bg-[#84CC16]/5 transition-all duration-300 relative z-10">
+                  <div className="w-16 h-16 rounded-full bg-black border border-white/10 flex items-center justify-center transition-all duration-300 relative z-10">
                     <Icon className="w-6 h-6 text-white/50 group-hover:text-[#84CC16] transition-colors" />
                   </div>
                 </div>
@@ -107,3 +107,10 @@ export function PipelineSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

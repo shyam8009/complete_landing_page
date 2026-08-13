@@ -169,7 +169,6 @@ export function Interactive360RhinoBlackViewer() {
   };
 
   const handlePointerMove = useCallback((e: PointerEvent) => {
-    updateCursorPosition(e);
     if (!isDragging) return;
     const deltaX = e.clientX - dragStartX.current;
     
@@ -186,15 +185,6 @@ export function Interactive360RhinoBlackViewer() {
 
   const handlePointerUp = useCallback((e: PointerEvent) => {
     setIsDragging(false);
-    
-    // Check if we released the mouse outside the container.
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      const isOutside = e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom;
-      if (isOutside) {
-        setIsHovering(false);
-      }
-    }
   }, []);
 
   useEffect(() => {
@@ -233,28 +223,16 @@ export function Interactive360RhinoBlackViewer() {
         {/* ── RIGHT COLUMN: 360 Viewer ── */}
         <div 
           ref={containerRef}
-          className="w-full lg:w-[70%] h-[500px] lg:min-h-[600px] relative cursor-none flex items-center justify-center bg-[#05080D]"
+          className={`w-full lg:w-[70%] h-[500px] lg:min-h-[600px] relative ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} flex items-center justify-center bg-[#05080D]`}
           onPointerDown={handlePointerDown}
-          onPointerMove={updateCursorPosition}
-          onPointerEnter={(e) => {
-            setIsHovering(true);
-            updateCursorPosition(e);
-          }}
-          onPointerLeave={() => {
-            if (!isDragging) setIsHovering(false);
-          }}
           style={{ touchAction: 'none' }}
         >
-          {/* Custom Cursor */}
-          <div 
-            ref={customCursorRef}
-            className={`absolute top-0 left-0 w-20 h-20 rounded-full bg-white/5 backdrop-blur-md border border-[#84CC16]/30 flex flex-col items-center justify-center text-white text-[10px] font-mono tracking-widest pointer-events-none z-50 transition-opacity duration-300 ${isHovering || isDragging ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
-            style={{ transform: 'translate(-50%, -50%)', willChange: 'transform' }}
-          >
-            <svg className={`w-5 h-5 mb-1 text-[#84CC16] transition-transform duration-200 ${isDragging ? 'scale-75' : 'scale-100 animate-pulse'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          {/* Minimal 360 Watermark */}
+          <div className="absolute bottom-8 right-8 flex items-center gap-2 opacity-20 pointer-events-none select-none">
+            <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            <span className={isDragging ? 'text-[#84CC16]' : ''}>DRAG</span>
+            <span className="text-white font-mono text-[10px] tracking-widest font-bold">360° VIEW</span>
           </div>
 
           {/* Loading Overlay */}

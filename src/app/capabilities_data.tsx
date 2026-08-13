@@ -76,9 +76,9 @@ export const CAPABILITIES_DATA = [
         ]
       },
       {
-        id: "radar",
-        title: "Radar Systems",
-        slug: "/electronic-warfare/radar-systems",
+        id: "radar-and-detection",
+        title: "Radar & Detection Systems",
+        slug: "/electronic-warfare/radar-and-detection-systems",
 
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -86,11 +86,13 @@ export const CAPABILITIES_DATA = [
           </svg>
         ),
         spotlightImage: droneRadarHeroImg,
-        stats: ["360° Coverage", "AI Threat Analysis", "Multi-Target Tracking", "All-Weather Operability"],
-        applications: ["Airspace Monitoring", "Border Surveillance", "Naval Defence", "Asset Protection"],
+        stats: ["360° Coverage", "AI Threat Analysis", "Passive RF Sensing", "Multi-Target Tracking"],
+        applications: ["Airspace Monitoring", "Border Surveillance", "Naval Defence", "Forward Operating Bases"],
         products: [
           { id: "3d-drone-radar", title: "3D Drone Radar", image: droneRadarHeroImg, slug: "/drone-radar" },
-          { id: "surveillance-radar", title: "Surveillance Radar", image: surveillanceRadarHeroImg, slug: "/surveillance-radar" },
+          { id: "rf-detector", title: "RF Detector", image: rfDetectorD360Img, slug: "/rf-detector" },
+          { id: "ground-surveillance-radar", title: "Ground Surveillance Radar", image: surveillanceRadarHeroImg, slug: "/surveillance-radar" },
+          { id: "3d-drone-rf-detector", title: "3D Drone RF Detector", image: rfDetectorD360Img, slug: "/3d-drone-detector" }
         ]
       },
       {
@@ -116,27 +118,7 @@ export const CAPABILITIES_DATA = [
           { id: "rhino-black", title: "Infinity Rhino Black", image: rhinoSpecificImg, slug: "/infinity-rhino-black" },
         ]
       },
-      {
-        id: "detection",
-        title: "Detection Systems",
 
-        icon: (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <circle cx="12" cy="12" r="10"/>
-            <circle cx="12" cy="12" r="6"/>
-            <circle cx="12" cy="12" r="2"/>
-          </svg>
-        ),
-        spotlightImage: rfDetectorImg,
-        stats: ["Passive RF Sensing", "Acoustic Detection", "Optical Recognition", "Early Warning Alarms"],
-        applications: ["Forward Operating Bases", "Border Outposts", "Critical Infrastructure", "Urban Warfare"],
-        products: [
-          { id: "guardian", title: "The Guardian Smart Soldier Band", image: guardianImg, slug: "/guardian-experience" },
-          { id: "rf-detector", title: "RF Detector", image: rfDetectorD360Img, slug: "/rf-detector" },
-          { id: "ground-surveillance-radar", title: "ground survaillance radar", image: surveillanceRadarHeroImg, slug: "/vsr-to-mrr" },
-          { id: "3d-drone-rf-detector", title: "3D Drone RF Detector", image: rfDetectorD360Img, slug: "/3d-drone-detector" },
-        ]
-      },
       {
         id: "communication",
         title: "Communication System",

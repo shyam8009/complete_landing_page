@@ -92,14 +92,10 @@ export function PipelineSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 relative">
           
           {/* Connecting Line Base (Desktop) */}
-          <div className="hidden lg:block absolute top-[3rem] left-0 right-0 h-[1px] bg-white/5" />
+          <div className="hidden lg:block absolute top-[2.5rem] h-[1px] bg-white/5" style={{ left: "calc((100% - 6rem) / 8)", right: "calc((100% - 6rem) / 8)" }} />
           
           {/* Glowing Progress Line */}
-          <div 
-            ref={progressLineRef}
-            className="hidden lg:block absolute top-[3rem] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#84CC16] to-[#84CC16] shadow-[0_0_15px_#84CC16]"
-            style={{ transformOrigin: 'left center' }}
-          />
+          <div ref={progressLineRef} className="hidden lg:block absolute top-[2.5rem] h-[2px] bg-gradient-to-r from-[#84CC16] to-[#84CC16] shadow-[0_0_15px_#84CC16]" style={{ left: "calc((100% - 6rem) / 8)", right: "calc((100% - 6rem) / 8)", transformOrigin: "left center" }} />
 
           {PIPELINE_STEPS.map((step, index) => {
             const Icon = step.icon;
@@ -110,11 +106,9 @@ export function PipelineSection() {
                 className="relative flex flex-col group items-center text-center"
               >
                 {/* Unified Circular Step Node */}
-                <div className="mb-8 flex flex-col items-center justify-center w-24 h-24 rounded-full bg-[#0a0a0a] border border-white/10 group-hover:border-[#84CC16]/50 group-hover:bg-[#84CC16]/10 transition-all duration-300 relative z-10 group-hover:shadow-[0_0_30px_rgba(132,204,22,0.15)] shadow-xl">
-                  <span className="text-xs font-bold text-white/40 font-mono tracking-widest group-hover:text-[#84CC16] transition-colors mb-1">
-                    {step.id}
-                  </span>
-                  <Icon className="w-7 h-7 text-white/70 group-hover:text-[#84CC16] transition-colors" />
+                <div className="mb-8 flex flex-col items-center justify-center w-20 h-20 rounded-full bg-[#0a0a0a] border border-white/10 group-hover:bg-[#111111] transition-all duration-500 relative z-10 shadow-xl">
+                  
+                  <Icon className="w-8 h-8 text-white/60 group-hover:text-[#84CC16] group-hover:scale-110 transition-all duration-500" />
                 </div>
 
                 {/* Content */}
@@ -132,3 +126,10 @@ export function PipelineSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

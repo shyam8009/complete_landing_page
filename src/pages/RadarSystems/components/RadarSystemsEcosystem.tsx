@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -6,23 +7,42 @@ import { useGSAP } from '@gsap/react';
 // Using placeholders for Radar systems
 import imgDroneDetection from '@/imports/command_control_1.jpeg';
 import imgSurveillance from '@/imports/command_control_2.jpeg';
+import rfDetectorImg from '@/imports/rf-detector-d360/magnific_professional-outdoor-prod_62g8z7SiJO.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const radarSystemsData = [
   {
-    tag: '15 km Tracking Envelope · 360° Azimuth · X-Band FMCW',
+    tag: '15 km Tracking Envelope • 360° Azimuth • X-Band FMCW',
     title: '3D Drone Detection RADAR',
     desc: 'An all-weather, day-and-night 3D FMCW radar system optimized for low power consumption to continuously detect, track, and classify low-altitude UAVs and ground threats.',
     img: imgDroneDetection,
-    statusBadge: 'ACTIVE DEPLOYMENT'
+    statusBadge: 'ACTIVE DEPLOYMENT',
+    slug: '/drone-radar'
   },
   {
-    tag: 'Perimeter Defense · Ground & Low-Altitude Tracking',
-    title: 'Surveillance Radar',
-    desc: 'High-resolution ground and perimeter surveillance radar designed for tactical border security, critical infrastructure protection, and real-time intruder tracking across complex terrain.',
+    tag: 'Passive RF Scanning • 10km Range • Multi-Band',
+    title: 'RF Detector',
+    desc: 'Advanced passive RF sensing module designed for silent detection and localization of enemy communications and autonomous drone signals without emitting traceable signatures.',
+    img: rfDetectorImg,
+    statusBadge: 'ACTIVE DEPLOYMENT',
+    slug: '/rf-detector'
+  },
+  {
+    tag: 'Micro-Doppler • High Resolution • Ground Tracking',
+    title: 'Ground Surveillance Radar',
+    desc: 'High-resolution ground and perimeter surveillance radar designed for tactical border security, critical infrastructure protection, and real-time intruder tracking.',
     img: imgSurveillance,
-    statusBadge: 'TACTICAL READY'
+    statusBadge: 'TACTICAL READY',
+    slug: '/surveillance-radar'
+  },
+  {
+    tag: '3D Positioning • Multi-Frequency • Autonomous Targeting',
+    title: '3D Drone RF Detector',
+    desc: 'A hybrid 3D sensing platform combining passive RF telemetry with spatial processing to precisely locate and identify swarming UAVs and hostile controllers.',
+    img: rfDetectorImg,
+    statusBadge: 'PROTOTYPE',
+    slug: '/3d-drone-detector'
   }
 ];
 
@@ -122,12 +142,12 @@ export default function RadarSystemsEcosystem() {
 
                     {/* CTA */}
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-[#84CC16] hover:text-slate-900 text-white group">
+                      <Link to={item.slug} className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-[#84CC16] hover:text-slate-900 text-white group">
                         <span>Know More</span>
                         <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
-                      </button>
+                      </Link>
                     </div>
                   </div>
 

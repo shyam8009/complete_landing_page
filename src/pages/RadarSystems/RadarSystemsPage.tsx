@@ -8,7 +8,7 @@ import { QuantumCTA } from '../QuantumSensing/components/QuantumCTA';
 export function RadarSystemsPage() {
   // Set SEO metadata on mount
   useEffect(() => {
-    document.title = "Radar Systems | Defense & Electronic Warfare";
+    document.title = "Radar & Detection Systems | Defense & Electronic Warfare";
     
     // Update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -17,7 +17,7 @@ export function RadarSystemsPage() {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', "Indigenous 3D Drone Detection RADAR and high-resolution Surveillance Radar systems engineered for 24/7 perimeter protection, border defense, and low-RCS threat detection.");
+    metaDescription.setAttribute('content', "Indigenous 3D Drone Detection RADAR and passive RF Detection systems engineered for 24/7 perimeter protection, border defense, and low-RCS threat detection.");
     
     // Scroll to top on load
     window.scrollTo(0, 0);

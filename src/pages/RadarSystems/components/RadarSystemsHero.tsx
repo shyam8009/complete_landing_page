@@ -6,13 +6,15 @@ import bgVideo from '@/imports/gwr_video_mvp.mp4';
 import radarHero1 from '@/imports/drone_radar_hero.png';
 import radarHero2 from '@/imports/surveillance_radar_hero.png';
 
+import rfDetectorImg from '@/imports/rf-detector-d360/magnific_professional-outdoor-prod_62g8z7SiJO.png';
+
 const heroSlides = [
   {
     id: 'radar-systems-main',
-    title: 'RADAR SYSTEMS',
-    subtitle: 'Continuous, all-weather airspace and perimeter dominance.',
+    title: 'RADAR & DETECTION SYSTEMS',
+    subtitle: 'Continuous, all-weather airspace, passive RF sensing, and perimeter dominance.',
     mediaUrl: bgVideo, // Using the video for the first slide
-    ctaText: 'EXPLORE RADAR',
+    ctaText: 'EXPLORE SYSTEMS',
     ctaLink: '#',
     isVideo: true
   },
@@ -26,14 +28,14 @@ const heroSlides = [
     isVideo: false
   },
   {
-    id: 'radar-surveillance',
-    title: 'Surveillance Radar',
-    subtitle: 'Micro-Doppler target classification and counter-UAS integration.',
-    mediaUrl: radarHero2, // Using image for third slide
-    ctaText: 'DISCOVER SURVEILLANCE',
+    id: 'detection-rf',
+    title: 'RF Detection',
+    subtitle: 'Passive multi-frequency scanning for autonomous threat localization.',
+    mediaUrl: rfDetectorImg,
+    ctaText: 'DISCOVER SENSORS',
     ctaLink: '#',
     isVideo: false
-  },
+  }
 ];
 
 export default function RadarSystemsHero() {
