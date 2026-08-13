@@ -323,14 +323,15 @@ const TRUST_BAR_DATA = [
   }
 ];
 
-function Nav() {
+function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHeroFinished: (val: boolean) => void }) {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const location = useLocation();
   const isInternalPage = location.pathname !== '/';
   const [scrolledState, setScrolled] = useState(false);
-  const scrolled = isInternalPage || scrolledState;
+  const scrolled = isInternalPage || heroFinished || scrolledState;
+  const isHiddenOnHome = !isInternalPage && !heroFinished && !scrolledState;
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseLeave = () => {
@@ -361,11 +362,30 @@ function Nav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (location.pathname === '/') {
+        // If we scrolled completely past the hero (7.5x viewport height),
+        // we lock it as finished so it disappears when scrolling back up.
+        if (!heroFinished && window.scrollY > window.innerHeight * 7.5) {
+          setHeroFinished(true);
+        }
+
+        if (heroFinished) {
+          // If hero is gone, VisionSection is at the top, so just use standard 50px trigger
+          setScrolled(window.scrollY > 50);
+        } else {
+          // CanvasScrollHero is pinned for 600% of the viewport height.
+          // We show the capsule navbar only after scrolling past the hero.
+          setScrolled(window.scrollY > window.innerHeight * 6.2);
+        }
+      } else {
+        setScrolled(window.scrollY > 50);
+      }
     };
     window.addEventListener("scroll", handleScroll);
+    // Call once to set initial state correctly on load
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [location.pathname, heroFinished]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -378,9 +398,11 @@ function Nav() {
   return (
     <header 
       className={`fixed left-1/2 -translate-x-1/2 z-50 flex flex-col justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        scrolled 
-          ? "top-4 w-[95%] lg:w-[90%] max-w-[1200px] h-[64px] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.5)] border border-white/20" 
-          : "top-0 w-full max-w-none h-[86px] rounded-none border-b border-white/10"
+        isHiddenOnHome 
+          ? "top-0 w-full h-[86px] opacity-0 -translate-y-full pointer-events-none" 
+          : scrolled 
+            ? "top-4 w-[95%] lg:w-[90%] max-w-[1200px] h-[64px] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.5)] border border-white/20 opacity-100 translate-y-0" 
+            : "top-0 w-full max-w-none h-[86px] rounded-none border-b border-white/10 opacity-100 translate-y-0"
       }`}
       onMouseLeave={handleMouseLeave}
     >
@@ -2181,19 +2203,18 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  const location = useLocation();
-  const isInternalPage = location.pathname !== '/';
+  const [heroFinished, setHeroFinished] = useState(false);
 
   return (
     <div className="w-full min-h-screen bg-black overflow-x-clip" style={{ fontFamily: INTER }}>
       <ScrollToTop />
-      <Nav />
-      {/* Push content below fixed nav only on homepage */}
-      <div className={isInternalPage ? "" : "pt-[86px]"}>
+      <Nav heroFinished={heroFinished} setHeroFinished={setHeroFinished} />
+      {/* Content wrapper without artificial padding, so the Hero starts exactly at top-0 */}
+      <div className="w-full">
         <Routes>
           <Route path="/" element={
             <>
-              <Hero />
+              {!heroFinished && <Hero />}
               <div className="relative w-full z-0">
                 <VisionSection />
                 <ProductsSection />
