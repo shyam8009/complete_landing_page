@@ -9,12 +9,12 @@ export function QuoteSection() {
       
       <div className="max-w-4xl mx-auto px-4 lg:px-6 relative z-10 text-center">
         <h2 className="quote-text text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 leading-tight tracking-tight" style={{ fontFamily: INTER }}>
-          "Absolute perimeter dominance through precision observation."
+          "Absolute spectrum awareness through advanced wideband monitoring architecture."
         </h2>
         
         <div className="quote-text flex flex-col items-center gap-6">
           <button className="px-8 py-4 bg-[#84CC16] hover:bg-[#95e01a] text-black font-bold uppercase tracking-wider text-sm transition-all duration-300 rounded-sm">
-            CONTACT DETECTION SYSTEMS DIVISION
+            CONTACT COMMUNICATION MONITORING DIVISION
           </button>
         </div>
       </div>

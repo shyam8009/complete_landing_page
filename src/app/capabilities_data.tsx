@@ -185,13 +185,14 @@ export const CAPABILITIES_DATA = [
         applications: ["Strategic Intelligence", "Threat Forecasting", "National Security", "Cyber Defense"],
         products: [
           { id: "osint", title: "Open-Source Intelligence (OSINT)", image: osintDashboardImg, slug: "/osint" },
-          { id: "sigint", title: "Signal Intelligence", image: rfRadarHudImg, slug: "home" },
-          { id: "security-assessment", title: "Comprehensive Security Assessment", image: innovation1, slug: "home" },
+          { id: "sigint", title: "Signal Intelligence", image: rfRadarHudImg, slug: "/sigint" },
+          { id: "security-assessment", title: "Comprehensive Security Assessment", image: innovation1, slug: "/security-assessment" },
         ]
       },
       {
         id: "command-control",
         title: "Command & Control",
+        slug: "/information-warfare/command-control",
 
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -211,6 +212,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "comms",
         title: "Communication & Monitoring",
+        slug: "/information-warfare/communication-monitoring",
 
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -223,8 +225,8 @@ export const CAPABILITIES_DATA = [
         stats: ["High Bandwidth", "Low Latency", "Anti-Jamming", "Spectrum Hopping"],
         applications: ["Battlefield Comms", "Covert Operations", "Signal Triangulation", "Radio Interception"],
         products: [
-          { id: "radio-portfolio", title: "Radio Monitoring and Location Portfolio", image: rfRadarHudImg, slug: "home" },
-          { id: "direction-finders", title: "Direction Finders", image: spearCadBlueprintImg, slug: "home" },
+          { id: "radio-portfolio", title: "Radio Monitoring and Location Portfolio", image: rfRadarHudImg, slug: "/radio-monitoring" },
+          { id: "direction-finders", title: "Direction Finders", image: spearCadBlueprintImg, slug: "/direction-finders" },
         ]
       }
     ]
@@ -303,6 +305,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "aero-components",
         title: "Manufacturing & Fabrication",
+        slug: "/aerospace-and-defence",
 
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

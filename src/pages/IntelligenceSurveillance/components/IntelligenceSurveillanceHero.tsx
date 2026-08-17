@@ -1,66 +1,147 @@
-import React from 'react';
-import bgHero from '@/imports/intel_hero_bg.jpg';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+import osintVid from '@/imports/intelligence_video.mp4';
+import sigintVid from '@/imports/surveillance_radar_hero_bg.mp4';
+import secVid from '@/imports/hero_banner_video1.mp4';
+
+const heroSlides = [
+  {
+    id: 'osint',
+    title: 'OSINT Platform',
+    subtitle: 'Deep-Web Data Extraction & Threat Forecasting',
+    mediaUrl: osintVid,
+    ctaText: 'EXPLORE OSINT',
+    ctaLink: '/osint',
+  },
+  {
+    id: 'sigint',
+    title: 'SIGINT Operations',
+    subtitle: 'Invisible Spectrum Monitoring & Triangulation',
+    mediaUrl: sigintVid,
+    ctaText: 'SEE SIGINT',
+    ctaLink: '/sigint',
+  },
+  {
+    id: 'security-assessment',
+    title: 'Security Assessment',
+    subtitle: 'Multi-Domain Vulnerability Identification',
+    mediaUrl: secVid,
+    ctaText: 'DISCOVER SECURITY',
+    ctaLink: '/security-assessment',
+  },
+];
 
 export default function IntelligenceSurveillanceHero() {
-  const scrollToNextSection = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   };
 
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const slide = heroSlides[currentSlide];
+
   return (
-    <section className="relative w-full h-screen bg-[#050505] flex items-center justify-start overflow-hidden border-b border-white/10">
-      
-      {/* Background Layer: Global Threat Map */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <img 
-          src={bgHero} 
-          alt="Global Threat Map"
-          className="w-full h-full object-cover opacity-60"
-        />
-        {/* Subtle CSS animation to simulate video radar sweep over the image */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(5,5,5,0.85)_100%)]" />
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-l from-[#84CC16]/5 to-transparent animate-pulse" style={{ animationDuration: '4s' }} />
-        {/* Dark gradient mask on the left to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/70 to-transparent w-[60%]" />
+    <section className="relative w-full h-screen overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* 1. Background Video Layer with Crossfade */}
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={slide.id}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover opacity-80"
+          >
+            <source src={slide.mediaUrl} type="video/mp4" />
+          </video>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* 2. Gradient Overlay Layer */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
+
+      {/* 3. Content Animation */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 mt-12">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slide.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col items-center"
+          >
+            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full mb-6" 
+              style={{ backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
+              <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse shadow-[0_0_10px_#84CC16]" />
+              <span className="text-[11px] font-mono tracking-widest uppercase text-[#84CC16] font-bold">
+                Intelligence & Surveillance
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight text-white mb-4 leading-none" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
+              {slide.title}
+            </h1>
+            
+            <p className="text-lg md:text-xl text-neutral-300 font-light max-w-2xl mb-8 tracking-wide drop-shadow-md">
+              {slide.subtitle}
+            </p>
+
+            <button 
+              onClick={() => { window.location.href = slide.ctaLink; }}
+              className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
+            >
+              {slide.ctaText}
+              <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </button>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* Content - LEFT ALIGNED based on right-heavy background */}
-      <div className="relative z-10 w-full max-w-3xl text-left px-6 lg:px-24">
-        {/* Eyebrow Tag */}
-        <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full mb-8" 
-          style={{ backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
-          <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse shadow-[0_0_10px_#84CC16]" />
-          <span className="text-[11px] font-mono tracking-widest uppercase text-[#84CC16] font-bold">
-            Information Warfare
-          </span>
+      {/* 4. Controls */}
+      <div className="absolute z-30 bottom-12 left-0 right-0 flex justify-center items-center gap-8 pointer-events-none">
+        <button 
+          onClick={prevSlide}
+          className="pointer-events-auto w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors backdrop-blur-sm group"
+        >
+          <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        
+        <div className="flex gap-3 pointer-events-auto">
+          {heroSlides.map((_, i) => (
+            <button 
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-8 bg-[#84CC16]' : 'w-2 bg-white/20 hover:bg-white/40'}`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
         </div>
 
-        {/* Headline */}
-        <h1 className="text-5xl lg:text-7xl font-bold uppercase tracking-tight text-white mb-6 leading-tight">
-          Intelligence & <br /> Surveillance
-        </h1>
-
-        {/* Subheadline */}
-        <p className="text-base md:text-xl text-neutral-300 leading-relaxed max-w-2xl mb-12">
-          Absolute informational dominance. From deep-web data extraction to invisible spectrum monitoring, this is the architecture required to map complex threats and secure multi-domain operations before a kinetic strike.
-        </p>
-
-        {/* Primary CTA */}
         <button 
-          onClick={scrollToNextSection}
-          className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
+          onClick={nextSlide}
+          className="pointer-events-auto w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors backdrop-blur-sm group"
         >
-          Deploy Surveillance Assets
-          <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+          <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5l7 7-7 7" /></svg>
         </button>
       </div>
 
-      {/* Bottom fade to blend seamlessly into the next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#000000] to-transparent z-10 pointer-events-none" />
     </section>
   );
 }

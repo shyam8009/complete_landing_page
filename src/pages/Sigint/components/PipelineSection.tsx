@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Crosshair, Eye, Command, ShieldCheck } from 'lucide-react';
+import { Activity, Cpu, MapPin, Network } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -8,27 +8,27 @@ gsap.registerPlugin(ScrollTrigger);
 const PIPELINE_STEPS = [
   {
     id: "01",
-    title: "DEPLOY",
-    icon: Crosshair,
-    description: "Flexible architecture supports stationary, mobile, and portable configurations, enabling deployment across a variety of operational environments."
+    title: "INTERCEPT",
+    icon: Activity,
+    description: "Continuous wideband monitoring of the RF spectrum to capture complex communications and radar emissions in highly congested environments."
   },
   {
     id: "02",
-    title: "OBSERVE",
-    icon: Eye,
-    description: "Delivers real-time surveillance and long-range target observation through advanced electro-optical capabilities and day/thermal imaging."
+    title: "ANALYZE",
+    icon: Cpu,
+    description: "Automated modulation classification, signal demodulation, and decoding to extract actionable intelligence from encrypted channels."
   },
   {
     id: "03",
-    title: "MANAGE",
-    icon: Command,
-    description: "Enables efficient resource management; a single control unit can operate multiple sensor suites simultaneously."
+    title: "GEOLOCATE",
+    icon: MapPin,
+    description: "High-precision target triangulation using advanced Time Difference of Arrival (TDOA) and Angle of Arrival (AOA) techniques."
   },
   {
     id: "04",
-    title: "INTEGRATE",
-    icon: ShieldCheck,
-    description: "Seamlessly networks with broader Intelligence, Surveillance, and Reconnaissance (ISR) frameworks and command-and-control systems."
+    title: "EXPLOIT",
+    icon: Network,
+    description: "Integration of processed intelligence into the Electronic Order of Battle (EOB), providing commanders with immediate tactical foresight."
   }
 ];
 

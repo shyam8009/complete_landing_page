@@ -2,30 +2,30 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import imgEob from '@/imports/surveillance_blueprint.png';
 import imgBorder from '@/imports/fpv-buddy/tactical_2.webp';
-import imgCoastal from '@/imports/varuna/magnific_a-photorealistic-underwat_3G7XWY1REY.png';
-import imgSecurity from '@/imports/sahana_facility.png';
+import imgWarning from '@/imports/sahana_facility.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const USE_CASES = [
   {
     id: "01",
-    title: "Border Protection",
-    desc: "Continuous day and night observation across expansive and rugged national border fence lines.",
-    image: imgBorder
+    title: "Electronic Order of Battle (EOB)",
+    desc: "Mapping hostile radar arrays, air defense networks, and command nodes to establish absolute electronic dominance.",
+    image: imgEob
   },
   {
     id: "02",
-    title: "Coastal Defense",
-    desc: "Long-range maritime surveillance to detect and track approaching vessels from coastal watchtowers.",
-    image: imgCoastal
+    title: "Border & Coastal Security",
+    desc: "Covert monitoring of illicit communication networks, tracking maritime smuggling operations, and intercepting cross-border insurgent coordination.",
+    image: imgBorder
   },
   {
     id: "03",
-    title: "Critical Site Security",
-    desc: "Stand-alone and networked perimeter monitoring for strategic power plants and military installations.",
-    image: imgSecurity
+    title: "Tactical Early Warning",
+    desc: "Providing forward operating bases (FOBs) with immediate alerts regarding incoming hostile forces by detecting their operational emissions.",
+    image: imgWarning
   }
 ];
 
@@ -60,7 +60,7 @@ export function UseCasesSection() {
         
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">
-            TACTICAL APPLICATIONS
+            OPERATIONAL APPLICATIONS
           </h2>
         </div>
 

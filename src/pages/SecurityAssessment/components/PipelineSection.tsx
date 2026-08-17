@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Crosshair, Eye, Command, ShieldCheck } from 'lucide-react';
+import { Scan, Target, ShieldCheck, Network } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -8,27 +8,27 @@ gsap.registerPlugin(ScrollTrigger);
 const PIPELINE_STEPS = [
   {
     id: "01",
-    title: "DEPLOY",
-    icon: Crosshair,
-    description: "Flexible architecture supports stationary, mobile, and portable configurations, enabling deployment across a variety of operational environments."
+    title: "AUDIT",
+    icon: Scan,
+    description: "Mapping internal and external threat vectors across physical perimeters, communication networks, and operational protocols."
   },
   {
     id: "02",
-    title: "OBSERVE",
-    icon: Eye,
-    description: "Delivers real-time surveillance and long-range target observation through advanced electro-optical capabilities and day/thermal imaging."
+    title: "SIMULATE",
+    icon: Target,
+    description: "Executing advanced persistent threat (APT) simulations, penetration testing, and kinetic breach scenarios."
   },
   {
     id: "03",
-    title: "MANAGE",
-    icon: Command,
-    description: "Enables efficient resource management; a single control unit can operate multiple sensor suites simultaneously."
+    title: "BENCHMARK",
+    icon: ShieldCheck,
+    description: "Evaluating overall system resilience and compliance against global defense and intelligence security standards."
   },
   {
     id: "04",
-    title: "INTEGRATE",
-    icon: ShieldCheck,
-    description: "Seamlessly networks with broader Intelligence, Surveillance, and Reconnaissance (ISR) frameworks and command-and-control systems."
+    title: "HARDEN",
+    icon: Network,
+    description: "Delivering actionable mitigation roadmaps to eliminate blind spots and secure infrastructure against sophisticated adversaries."
   }
 ];
 

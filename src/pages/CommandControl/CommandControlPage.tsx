@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import CommandControlHero from './components/CommandControlHero';
+import CommandControlPitch from './components/CommandControlPitch';
 import CommandControlEcosystem from './components/CommandControlEcosystem';
 import { SovereignStrip } from '../QuantumSensing/components/SovereignStrip';
-import { IntelligenceSurveillanceCTA } from '../IntelligenceSurveillance/components/IntelligenceSurveillanceCTA';
+import { QuantumCTA } from '../QuantumSensing/components/QuantumCTA';
 
 export default function CommandControlPage() {
   // Set SEO metadata on mount
   useEffect(() => {
-    document.title = "Command & Control Systems | Sovereign Dynamics";
+    document.title = "Command & Control Systems | Information Warfare";
     
     // Update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -23,11 +24,16 @@ export default function CommandControlPage() {
   }, []);
 
   return (
-    <main className="w-full bg-[#050505] min-h-screen text-white font-sans selection:bg-[#84CC16]/30">
+    <main className="w-full bg-[#000000] min-h-screen text-white font-sans selection:bg-[#84CC16]/30">
       <CommandControlHero />
+      <CommandControlPitch />
       <CommandControlEcosystem />
       <SovereignStrip />
-      <IntelligenceSurveillanceCTA />
+      <QuantumCTA 
+        title="Unifying Your Multi-Domain Command Architecture."
+        primaryAction="CONTACT COMMAND SYSTEMS ENGINEERS"
+        secondaryAction="Request C2 Software Demo"
+      />
     </main>
   );
 }

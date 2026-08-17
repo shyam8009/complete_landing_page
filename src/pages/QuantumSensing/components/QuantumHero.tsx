@@ -1,108 +1,138 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import bgVideo from '@/imports/gwr_video_mvp.mp4';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-gsap.registerPlugin(ScrollTrigger);
+import qgVid from '@/imports/quantum_communication_intro_video.mp4';
+import qmVid from '@/imports/hero_banner_video1.mp4';
+
+const heroSlides = [
+  {
+    id: 'quantum-gravity',
+    title: 'Quantum Gravity Sensors',
+    subtitle: 'Ultra-Precise Subterranean Mapping',
+    mediaUrl: qgVid,
+    ctaText: 'EXPLORE GRAVITY SENSING',
+    ctaLink: '/quantum-technology-solutions/quantum-sensing',
+  },
+  {
+    id: 'quantum-magnetometers',
+    title: 'Quantum Magnetometers',
+    subtitle: 'Magnetic Anomaly Detection at the Quantum Limit',
+    mediaUrl: qmVid,
+    ctaText: 'SEE MAGNETOMETERS',
+    ctaLink: '/quantum-technology-solutions/quantum-sensing',
+  }
+];
 
 export function QuantumHero() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Background scale animation
-      gsap.fromTo(bgRef.current, 
-        { scale: 1.1 },
-        { scale: 1, duration: 2.5, ease: "power3.out" }
-      );
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
 
-      // Title animation (fade and slide up)
-      gsap.fromTo(titleRef.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, delay: 0.2, ease: "power3.out" }
-      );
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
 
-      // Content fade in
-      gsap.fromTo(contentRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, delay: 0.6, ease: "power3.out" }
-      );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+  const slide = heroSlides[currentSlide];
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-[#000000] text-white">
-      {/* Background Video */}
-      <div 
-        ref={bgRef}
-        className="absolute inset-0 w-full h-full opacity-90"
-      >
-        <video 
-          src={bgVideo} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="w-full h-full object-cover"
-        />
-      </div>
-      
-      {/* Overlay Gradients for left-aligned text and bottom blend */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#000000] to-transparent pointer-events-none" />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-[1200px] w-full mx-auto px-6 flex flex-col items-start text-left">
-        {/* Eyebrow */}
-        <div 
-          className="flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md px-4 py-1.5 rounded-full mb-8"
-          style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}
+    <section className="relative w-full h-screen overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* 1. Background Video Layer with Crossfade */}
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={slide.id}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
+          className="absolute inset-0 w-full h-full"
         >
-          <div className="w-2 h-2 rounded-full bg-[#84CC16] shadow-[0_0_8px_#84CC16]" />
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/90">
-            Quantum Technology Solutions
-          </span>
-        </div>
-
-        {/* Headline */}
-        <h1 
-          ref={titleRef}
-          className="text-6xl md:text-8xl lg:text-[100px] font-bold uppercase tracking-tighter leading-[0.9] mb-8 drop-shadow-2xl"
-        >
-          Quantum<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/40">
-            Sensing
-          </span>
-        </h1>
-
-        <div ref={contentRef} className="flex flex-col items-start max-w-[700px]">
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl font-medium text-white/90 mb-6 leading-tight">
-            Sensing built on quantum principles, engineered for a sensitivity classical hardware can't reach.
-          </p>
-
-          {/* Intro */}
-          <p className="text-sm md:text-base text-white/60 mb-10 leading-relaxed max-w-[600px]">
-            From RF detection to atomic clocks, this is the measurement layer for India's aerospace and defence programmes.
-          </p>
-
-          {/* CTA */}
-          <button 
-            onClick={() => {
-              document.getElementById('quantum-ecosystem')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="group relative flex items-center justify-center bg-[#84CC16] text-[#050505] px-8 py-4 rounded-sm font-bold text-sm tracking-wider uppercase hover:bg-white hover:text-black transition-colors duration-300 overflow-hidden"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover opacity-80"
           >
-            <span className="relative z-10">Explore The Ecosystem</span>
-            <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-          </button>
-        </div>
+            <source src={slide.mediaUrl} type="video/mp4" />
+          </video>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* 2. Gradient Overlay Layer */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
+
+      {/* 3. Content Animation */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 mt-12">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slide.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col items-center"
+          >
+            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full mb-6" 
+              style={{ backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
+              <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse shadow-[0_0_10px_#84CC16]" />
+              <span className="text-[11px] font-mono tracking-widest uppercase text-[#84CC16] font-bold">
+                Quantum Sensing
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight text-white mb-4 leading-none" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
+              {slide.title}
+            </h1>
+            
+            <p className="text-lg md:text-xl text-neutral-300 font-light max-w-2xl mb-8 tracking-wide drop-shadow-md">
+              {slide.subtitle}
+            </p>
+
+            <button 
+              onClick={() => { window.location.href = slide.ctaLink; }}
+              className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
+            >
+              {slide.ctaText}
+              <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </button>
+          </motion.div>
+        </AnimatePresence>
       </div>
+
+      {/* 4. Controls */}
+      <div className="absolute z-30 bottom-12 left-0 right-0 flex justify-center items-center gap-8 pointer-events-none">
+        <button 
+          onClick={prevSlide}
+          className="pointer-events-auto w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors backdrop-blur-sm group"
+        >
+          <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        
+        <div className="flex gap-3 pointer-events-auto">
+          {heroSlides.map((_, i) => (
+            <button 
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-8 bg-[#84CC16]' : 'w-2 bg-white/20 hover:bg-white/40'}`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <button 
+          onClick={nextSlide}
+          className="pointer-events-auto w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors backdrop-blur-sm group"
+        >
+          <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#000000] to-transparent z-10 pointer-events-none" />
     </section>
   );
 }

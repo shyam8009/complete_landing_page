@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Crosshair, Eye, Command, ShieldCheck } from 'lucide-react';
+import { Activity, Layers, Target, MapPin } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -8,27 +8,27 @@ gsap.registerPlugin(ScrollTrigger);
 const PIPELINE_STEPS = [
   {
     id: "01",
-    title: "DEPLOY",
-    icon: Crosshair,
-    description: "Flexible architecture supports stationary, mobile, and portable configurations, enabling deployment across a variety of operational environments."
+    title: "DETECT",
+    icon: Activity,
+    description: "Wideband spectrum scanning to isolate transient, frequency-hopping, and stationary RF emission sources."
   },
   {
     id: "02",
-    title: "OBSERVE",
-    icon: Eye,
-    description: "Delivers real-time surveillance and long-range target observation through advanced electro-optical capabilities and day/thermal imaging."
+    title: "INTERCEPT",
+    icon: Layers,
+    description: "Capturing multi-channel signals and analyzing phase differences across advanced antenna arrays."
   },
   {
     id: "03",
-    title: "MANAGE",
-    icon: Command,
-    description: "Enables efficient resource management; a single control unit can operate multiple sensor suites simultaneously."
+    title: "TRIANGULATE",
+    icon: Target,
+    description: "Applying correlative interferometry and TDOA/AOA algorithms for exact fix calculation and bearing estimation."
   },
   {
     id: "04",
-    title: "INTEGRATE",
-    icon: ShieldCheck,
-    description: "Seamlessly networks with broader Intelligence, Surveillance, and Reconnaissance (ISR) frameworks and command-and-control systems."
+    title: "MAPPING",
+    icon: MapPin,
+    description: "Instantly overlaying precise target coordinates onto real-time 3D tactical command maps for immediate action."
   }
 ];
 
@@ -78,7 +78,7 @@ export function PipelineSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-[#000000] border-t border-white/5 relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-[#05080D] border-t border-white/5 relative overflow-hidden">
       {/* Background Grid */}
       <div 
         className="absolute inset-0 opacity-[0.03]" 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroVideo from '@/imports/lorros_hero_video.mp4'; 
+import heroVideo from '@/imports/intelligence_video.mp4'; 
 
 const INTER = "'Inter', sans-serif";
 
@@ -26,7 +26,7 @@ export function HeroSection() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 object-right opacity-80 brightness-[1.5]"
+        className="absolute inset-0 w-full h-full object-cover z-0 object-right opacity-80"
         src={heroVideo}
       />
       
@@ -42,7 +42,7 @@ export function HeroSection() {
           <div className="hero-element inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6">
             <div className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse shadow-[0_0_8px_#84CC16]" />
             <span className="text-xs font-bold tracking-[2px] text-white uppercase" style={{ fontFamily: INTER }}>
-              ELECTRONIC WARFARE / DETECTION SYSTEMS
+              INTELLIGENCE & SURVEILLANCE
             </span>
           </div>
           
@@ -51,20 +51,20 @@ export function HeroSection() {
             className="hero-element text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
             style={{ fontFamily: INTER }}
           >
-            LORROS <br />
-            SURVEILLANCE <br />
-            SYSTEM
+            SIGNAL <br />
+            INTELLIGENCE <br />
+            (SIGINT)
           </h1>
           
           {/* Subheadline */}
           <p className="hero-element text-lg sm:text-xl text-white/60 mb-10 max-w-xl leading-relaxed">
-            A modular long-range reconnaissance and observation system engineered for real-time target observation and absolute perimeter dominance.
+            Absolute electromagnetic spectrum dominance. Seamlessly integrate Communications Intelligence (COMINT) and Electronic Intelligence (ELINT) to detect, intercept, and exploit hostile emissions in real-time.
           </p>
           
           {/* CTA */}
           <div className="hero-element flex flex-wrap gap-6 items-center mb-16">
             <button className="flex items-center gap-2 px-8 py-4 bg-[#84CC16] hover:bg-[#95e01a] text-black font-bold uppercase tracking-wider text-sm transition-all duration-300 rounded-sm">
-              REQUEST SYSTEM DEMO
+              DEPLOY SIGINT ASSETS
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
@@ -72,13 +72,13 @@ export function HeroSection() {
           {/* Quick Stats Block (Glassmorphic) */}
           <div className="hero-element flex flex-wrap gap-8 p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl max-w-fit">
             <div>
-              <div className="text-2xl font-bold text-white">Day & Thermal</div>
-              <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Electro-Optical</div>
+              <div className="text-2xl font-bold text-white">ELINT & COMINT</div>
+              <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Multi-Domain Fusion</div>
             </div>
             <div className="w-px bg-white/20" />
             <div>
-              <div className="text-2xl font-bold text-white">Multi-Platform</div>
-              <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Flexible Deployment</div>
+              <div className="text-2xl font-bold text-white">TDOA / AOA</div>
+              <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Precision Direction-Finding</div>
             </div>
           </div>
           

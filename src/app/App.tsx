@@ -17,12 +17,19 @@ import { OSINTPage } from '../pages/OSINT/OSINTPage';
 import { QuantumSensingPage } from '../pages/QuantumSensing/QuantumSensingPage';
 import QuantumCommunicationPage from '../pages/QuantumCommunication/QuantumCommunicationPage';
 import IntelligenceSurveillancePage from '../pages/IntelligenceSurveillance/IntelligenceSurveillancePage';
+import CommandControlPage from '../pages/CommandControl/CommandControlPage';
+import CommunicationMonitoringPage from '../pages/CommunicationMonitoring/CommunicationMonitoringPage';
+import AerospaceDefencePage from '../pages/AerospaceDefence/AerospaceDefencePage';
 import { DroneSystemsPage } from '../pages/DroneSystems/DroneSystemsPage';
 import { CommunicationDetectionPage } from '../pages/CommunicationDetection/CommunicationDetectionPage';
 import { ElectroOpticsPage } from '../pages/ElectroOptics/ElectroOpticsPage';
 import { LorrosPage } from '../pages/LorrosCommunication/LorrosPage';
 import { FusionC2Page } from '../pages/FusionC2/FusionC2Page';
 import { InterceptionPage } from '../pages/InterceptionSystem/InterceptionPage';
+import { SigintPage } from '../pages/Sigint/SigintPage';
+import { SecurityAssessmentPage } from '../pages/SecurityAssessment/SecurityAssessmentPage';
+import { RadioMonitoringPage } from '../pages/RadioMonitoring/RadioMonitoringPage';
+import { DirectionFindersPage } from '../pages/DirectionFinders/DirectionFindersPage';
 import { RadarSystemsPage } from '../pages/RadarSystems/RadarSystemsPage';
 import { JammingSystemsPage } from '../pages/JammingSystems/JammingSystemsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
@@ -2238,6 +2245,10 @@ export default function App() {
           <Route path="/lorros-communication" element={<LorrosPage />} />
           <Route path="/fusion-c2" element={<FusionC2Page />} />
           <Route path="/interception-system" element={<InterceptionPage />} />
+          <Route path="/sigint" element={<SigintPage />} />
+          <Route path="/security-assessment" element={<SecurityAssessmentPage />} />
+          <Route path="/radio-monitoring" element={<RadioMonitoringPage />} />
+          <Route path="/direction-finders" element={<DirectionFindersPage />} />
           <Route path="/infinity-spear" element={<InfinitySpearPage />} />
           <Route path="/infinity-rhino" element={<InfinityRhinoPage />} />
           <Route path="/infinity-rhino-black" element={<InfinityRhinoBlackPage />} />
@@ -2258,6 +2269,9 @@ export default function App() {
           <Route path="/quantum-technology-solutions/quantum-sensing" element={<QuantumSensingPage />} />
           <Route path="/quantum-technology-solutions/quantum-communication" element={<QuantumCommunicationPage />} />
           <Route path="/information-warfare/intelligence-surveillance" element={<IntelligenceSurveillancePage />} />
+          <Route path="/information-warfare/command-control" element={<CommandControlPage />} />
+          <Route path="/information-warfare/communication-monitoring" element={<CommunicationMonitoringPage />} />
+          <Route path="/aerospace-and-defence" element={<AerospaceDefencePage />} />
         </Routes>
         <Footer />
       </div>

@@ -1,78 +1,138 @@
-import React from 'react';
-import bgVideo from '@/imports/quantum_communication_intro_video.mp4';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+import qkdVid from '@/imports/quantum_communication_intro_video.mp4';
+import pqcVid from '@/imports/surveillance_radar_hero_bg.mp4';
+
+const heroSlides = [
+  {
+    id: 'qkd',
+    title: 'QKD Systems',
+    subtitle: 'Quantum Key Distribution Networks',
+    mediaUrl: qkdVid,
+    ctaText: 'EXPLORE QKD',
+    ctaLink: '/quantum-technology-solutions/quantum-communication',
+  },
+  {
+    id: 'pqc',
+    title: 'Post-Quantum Crypto',
+    subtitle: 'Future-Proof Encryption Standards',
+    mediaUrl: pqcVid,
+    ctaText: 'SEE PQC',
+    ctaLink: '/quantum-technology-solutions/quantum-communication',
+  }
+];
 
 export default function QuantumCommunicationHero() {
-  const scrollToNextSection = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   };
 
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const slide = heroSlides[currentSlide];
+
   return (
-    <section className="relative w-full h-screen bg-[#050505] flex flex-col items-center justify-center overflow-hidden border-b border-white/10">
-      
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0 opacity-90">
-        <video 
-          src={bgVideo} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="w-full h-full object-cover"
-        />
+    <section className="relative w-full h-screen overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* 1. Background Video Layer with Crossfade */}
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={slide.id}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover opacity-80"
+          >
+            <source src={slide.mediaUrl} type="video/mp4" />
+          </video>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* 2. Gradient Overlay Layer */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
+
+      {/* 3. Content Animation */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 mt-12">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slide.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col items-center"
+          >
+            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full mb-6" 
+              style={{ backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
+              <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse shadow-[0_0_10px_#84CC16]" />
+              <span className="text-[11px] font-mono tracking-widest uppercase text-[#84CC16] font-bold">
+                Quantum Communication
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight text-white mb-4 leading-none" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
+              {slide.title}
+            </h1>
+            
+            <p className="text-lg md:text-xl text-neutral-300 font-light max-w-2xl mb-8 tracking-wide drop-shadow-md">
+              {slide.subtitle}
+            </p>
+
+            <button 
+              onClick={() => { window.location.href = slide.ctaLink; }}
+              className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
+            >
+              {slide.ctaText}
+              <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </button>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* Gradient Overlay for Text Readability */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none z-0" />
-
-      {/* Background Particle Effects (CSS only for MVP) */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen">
-        <div className="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] bg-[#84CC16]/5 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute bottom-[10%] right-[10%] w-[30vw] h-[30vw] bg-[#0ea5e9]/5 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '10s' }} />
+      {/* 4. Controls */}
+      <div className="absolute z-30 bottom-12 left-0 right-0 flex justify-center items-center gap-8 pointer-events-none">
+        <button 
+          onClick={prevSlide}
+          className="pointer-events-auto w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors backdrop-blur-sm group"
+        >
+          <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 19l-7-7 7-7" /></svg>
+        </button>
         
-        {/* Simple simulated glowing nodes/particles */}
-        <div className="absolute top-[30%] left-[25%] w-1.5 h-1.5 bg-[#84CC16] rounded-full shadow-[0_0_15px_#84CC16]" />
-        <div className="absolute top-[60%] right-[30%] w-1 h-1 bg-white rounded-full shadow-[0_0_10px_white]" />
-        <div className="absolute bottom-[40%] left-[40%] w-2 h-2 bg-[#0ea5e9] rounded-full shadow-[0_0_20px_#0ea5e9]" />
-        
-        {/* faint grid overlay to make it tech-y */}
-        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 w-full px-6 max-w-[1200px] mx-auto flex flex-col items-start text-left">
-        {/* Eyebrow Tag */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-8" 
-          style={{ backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#84CC16] animate-pulse shadow-[0_0_8px_#84CC16]" />
-          <span className="text-[10px] font-mono tracking-wider uppercase text-[#84CC16] font-bold">
-            Quantum Technology Solutions
-          </span>
+        <div className="flex gap-3 pointer-events-auto">
+          {heroSlides.map((_, i) => (
+            <button 
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-8 bg-[#84CC16]' : 'w-2 bg-white/20 hover:bg-white/40'}`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
         </div>
 
-        {/* Headline */}
-        <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight text-white mb-6">
-          Quantum Communication
-        </h1>
-
-        {/* Subheadline */}
-        <p className="text-base md:text-xl text-neutral-400 leading-relaxed max-w-2xl mb-12">
-          Secure, sovereign communication built on quantum principles. From key distribution to post-quantum cryptography, this is the layer that keeps India's most sensitive channels unbreakable.
-        </p>
-
-        {/* Primary CTA */}
         <button 
-          onClick={scrollToNextSection}
-          className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-xl text-xs font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white hover:scale-105"
-          style={{ boxShadow: '0 0 30px rgba(132,204,22,0.2)' }}
+          onClick={nextSlide}
+          className="pointer-events-auto w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors backdrop-blur-sm group"
         >
-          Explore Secure Channels
+          <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5l7 7-7 7" /></svg>
         </button>
       </div>
 
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#000000] to-transparent z-10 pointer-events-none" />
     </section>
   );
 }

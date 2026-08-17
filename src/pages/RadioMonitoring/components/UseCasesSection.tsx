@@ -2,30 +2,30 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import imgRecon from '@/imports/surveillance_blueprint.png';
 import imgBorder from '@/imports/fpv-buddy/tactical_2.webp';
-import imgCoastal from '@/imports/varuna/magnific_a-photorealistic-underwat_3G7XWY1REY.png';
-import imgSecurity from '@/imports/sahana_facility.png';
+import imgCommand from '@/imports/sahana_facility.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const USE_CASES = [
   {
     id: "01",
-    title: "Border Protection",
-    desc: "Continuous day and night observation across expansive and rugged national border fence lines.",
-    image: imgBorder
+    title: "Strategic Reconnaissance",
+    desc: "Continuous monitoring of regional spectrum activity to build comprehensive electronic order of battle profiles.",
+    image: imgRecon
   },
   {
     id: "02",
-    title: "Coastal Defense",
-    desc: "Long-range maritime surveillance to detect and track approaching vessels from coastal watchtowers.",
-    image: imgCoastal
+    title: "Border & Territorial Defense",
+    desc: "Detecting unauthorized communication links, cross-border infiltration radio traffic, and clandestine transmitters.",
+    image: imgBorder
   },
   {
     id: "03",
-    title: "Critical Site Security",
-    desc: "Stand-alone and networked perimeter monitoring for strategic power plants and military installations.",
-    image: imgSecurity
+    title: "Tactical Command Support",
+    desc: "Supplying forward-deployed units with immediate spectral intelligence and emitter tracking data.",
+    image: imgCommand
   }
 ];
 
@@ -55,12 +55,12 @@ export function UseCasesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#000000] relative">
+    <section ref={sectionRef} className="py-24 bg-[#05080D] relative">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">
-            TACTICAL APPLICATIONS
+            OPERATIONAL APPLICATIONS
           </h2>
         </div>
 

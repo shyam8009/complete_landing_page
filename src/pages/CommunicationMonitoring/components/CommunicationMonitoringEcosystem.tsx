@@ -62,45 +62,7 @@ export default function CommunicationMonitoringEcosystem() {
   }, { scope: scrollContainer });
 
   return (
-    <main className="bg-[#050505]">
-      {/* Intro Section */}
-      <section className="relative w-full pt-16 pb-8 md:pt-24 md:pb-12 flex flex-col items-start justify-center overflow-hidden" style={{ backgroundColor: '#050505' }}>
-        
-        {/* Animated Pattern Background */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#050505] to-[#020202]" />
-          
-          {/* Animated Tech Grid */}
-          <div 
-            className="absolute inset-0 opacity-30" 
-            style={{ 
-              backgroundImage: 'linear-gradient(rgba(132, 204, 34, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(132, 204, 34, 0.15) 1px, transparent 1px)',
-              backgroundSize: '40px 40px',
-              backgroundPosition: 'center center'
-            }}
-          />
-          
-          {/* Radial gradient mask to fade out the grid at the edges */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#050505_80%)]" />
-          
-          {/* Pulsing Accent Glows for motion */}
-          <div className="absolute top-[20%] right-[20%] w-[30vw] h-[30vw] bg-[#84CC16]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '6s' }} />
-          <div className="absolute bottom-[10%] left-[10%] w-[40vw] h-[40vw] bg-[#84CC16]/5 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
-        </div>
-
-        <div className="relative z-10 px-6 md:px-12 max-w-3xl text-left">
-          <span className="inline-block px-3 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase mb-6" style={{ color: '#84CC16', backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
-            Spectrum Dominance
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white leading-tight">
-            Communication <br className="hidden md:block" /> Monitoring
-          </h2>
-          <p className="mt-6 text-sm md:text-base  text-neutral-300 max-w-xl">
-            A unified architecture encompassing wideband interception and high-precision tactical direction finding. Detect, intercept, and geolocate hostile communications across congested spectrums.
-          </p>
-        </div>
-      </section>
-
+    <div className="font-['Inter',sans-serif]">
       {/* HORIZONTAL ECOSYSTEM TRACK */}
       <section ref={scrollContainer} className="relative w-full h-screen overflow-hidden bg-[#050505]">
         
@@ -211,6 +173,6 @@ export default function CommunicationMonitoringEcosystem() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

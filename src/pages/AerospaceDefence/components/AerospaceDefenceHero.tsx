@@ -1,29 +1,38 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import c2Vid from '@/imports/hero_banner_video1.mp4';
-import interceptVid from '@/imports/drone_radar_hero_bg.mp4';
+import aeroVid from '@/imports/infinity_optics_gwr_video_mvp.mp4';
+import defVid from '@/imports/Hero banner Video.mp4';
+import satVid from '@/imports/Vision_Robot.mp4';
 
 const heroSlides = [
   {
-    id: 'fusion-c2',
-    title: 'FUSION Core C2',
-    subtitle: 'Unified AI Command & Multi-Domain Sensor Integration',
-    mediaUrl: c2Vid,
-    ctaText: 'EXPLORE FUSION',
-    ctaLink: '/fusion-c2',
+    id: 'aerospace-comp',
+    title: 'Aerospace Components',
+    subtitle: 'High-Strength Alloys & Structural Integrity',
+    mediaUrl: aeroVid,
+    ctaText: 'EXPLORE AEROSPACE',
+    ctaLink: '/aerospace-and-defence',
   },
   {
-    id: 'interception',
-    title: 'Interception System',
-    subtitle: 'Automated Threat Mitigation & Active Countermeasures',
-    mediaUrl: interceptVid,
-    ctaText: 'SEE INTERCEPTION',
-    ctaLink: '/interception-system',
+    id: 'defence-comp',
+    title: 'Defence Components',
+    subtitle: 'Ruggedized Hardware & Tactical Reliability',
+    mediaUrl: defVid,
+    ctaText: 'SEE DEFENCE',
+    ctaLink: '/aerospace-and-defence',
+  },
+  {
+    id: 'satcom',
+    title: 'SATCOM Components',
+    subtitle: 'High-Frequency RF & Low Loss Telemetry',
+    mediaUrl: satVid,
+    ctaText: 'DISCOVER SATCOM',
+    ctaLink: '/aerospace-and-defence',
   }
 ];
 
-export default function CommandControlHero() {
+export default function AerospaceDefenceHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -79,7 +88,7 @@ export default function CommandControlHero() {
               style={{ backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
               <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse shadow-[0_0_10px_#84CC16]" />
               <span className="text-[11px] font-mono tracking-widest uppercase text-[#84CC16] font-bold">
-                Command & Control
+                Aerospace & Defence
               </span>
             </div>
 
