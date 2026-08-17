@@ -18,6 +18,8 @@ import { QuantumSensingPage } from '../pages/QuantumSensing/QuantumSensingPage';
 import QuantumCommunicationPage from '../pages/QuantumCommunication/QuantumCommunicationPage';
 import IntelligenceSurveillancePage from '../pages/IntelligenceSurveillance/IntelligenceSurveillancePage';
 import { DroneSystemsPage } from '../pages/DroneSystems/DroneSystemsPage';
+import { CommunicationDetectionPage } from '../pages/CommunicationDetection/CommunicationDetectionPage';
+import { ElectroOpticsPage } from '../pages/ElectroOptics/ElectroOpticsPage';
 import { RadarSystemsPage } from '../pages/RadarSystems/RadarSystemsPage';
 import { JammingSystemsPage } from '../pages/JammingSystems/JammingSystemsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
@@ -564,15 +566,16 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
           </div>
 
           {/* COLUMN 3: PRODUCTS */}
-          <div className="flex-1 border-r border-white/5 p-6 bg-black/40 flex flex-col relative">
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white/50 mb-4 flex items-center gap-2">
-              <span className="text-[#84CC16]">{activeSystem.title}</span> Products
-            </h4>
-            
-            {activeSystem.products.length > 5 ? (
-              <div className="grid grid-cols-2 gap-x-6 gap-y-1 flex-1">
-                <div className="flex flex-col gap-1">
-                  {activeSystem.products.slice(0, Math.ceil(activeSystem.products.length / 2)).map((product: any) => (
+          {activeSystem.products && activeSystem.products.length > 0 && (
+            <div className="flex-1 border-r border-white/5 p-6 bg-black/40 flex flex-col relative">
+              <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white/50 mb-4 flex items-center gap-2">
+                <span className="text-[#84CC16]">{activeSystem.title}</span> Products
+              </h4>
+              
+              {activeSystem.products.length > 5 ? (
+                <div className="grid grid-cols-2 gap-x-6 gap-y-1 flex-1">
+                  <div className="flex flex-col gap-1">
+                    {activeSystem.products.slice(0, Math.ceil(activeSystem.products.length / 2)).map((product: any) => (
                     <div 
                       key={product.id} 
                       className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
@@ -626,15 +629,15 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
               </div>
             )}
 
-            <a 
-              href="#"
-              onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate(activeSystem.products[0]?.slug || 'home'); }}
-              className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
-            >
-              View All Products <MiniArrow color="currentColor" />
-            </a>
-          </div>
-
+              <a 
+                href="#"
+                onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate(activeSystem.products[0]?.slug || 'home'); }}
+                className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
+              >
+                View All Products <MiniArrow color="currentColor" />
+              </a>
+            </div>
+          )}
 
         </div>
       </div>
@@ -1003,7 +1006,7 @@ const PRODUCTS_DATA = [
     description: "Built for high-speed reconnaissance and precision engagement, the FPV Bullseye & Interceptor combines agile maneuverability, real-time situational awareness, and mission-ready reliability. Engineered for rapid deployment, it enables forces to operate effectively across dynamic and contested environments.",
     desktopGridClass: "[grid-column:5/span_4] [grid-row:1]",
     showArrow: true,
-    target: '/fpv-drone',
+    target: '/fpv-buddy',
   },
   {
     image: infinitySpearImg,
@@ -1014,7 +1017,7 @@ const PRODUCTS_DATA = [
     description: "Neutralize hostile drones with high-power multi-band jamming technology. Designed for rapid deployment, Infinity Spear delivers effective drone disruption at ranges up to 2.5 km while maintaining lightweight, one-person operation.",
     desktopGridClass: "[grid-column:9/span_4] [grid-row:1]",
     showArrow: true,
-    target: '/handheld-jammer',
+    target: '/infinity-spear',
   },
   {
     image: rfDetectorImg,
@@ -1377,8 +1380,7 @@ function EditorialSection() {
   const innovationImages = [
     innovation1,
     innovation4,
-    innovation5,
-    { src: varunaHullImg, label: "Know more", target: "/varuna" }
+    innovation5
   ];
   return (
     <section className="w-full flex flex-col lg:flex-row">
@@ -2221,8 +2223,8 @@ export default function App() {
               </div>
               <Arsenal1Section />
               <NewsSection />
-              <EditorialSection />
               <ClienteleSection />
+              <EditorialSection />
             </>
           } />
           <Route path="/guardian-experience" element={<GuardianExperiencePage />} />
@@ -2234,6 +2236,8 @@ export default function App() {
           <Route path="/infinity-rhino" element={<InfinityRhinoPage />} />
           <Route path="/infinity-rhino-black" element={<InfinityRhinoBlackPage />} />
           <Route path="/electronic-warfare/drone-systems" element={<DroneSystemsPage />} />
+          <Route path="/electronic-warfare/communication-detection" element={<CommunicationDetectionPage />} />
+          <Route path="/electronic-warfare/electro-optics" element={<ElectroOpticsPage />} />
           <Route path="/electronic-warfare/radar-and-detection-systems" element={<RadarSystemsPage />} />
           <Route path="/electronic-warfare/jamming-systems" element={<JammingSystemsPage />} />
           <Route path="/electronic-warfare/jamming-systems" element={<JammingSystemsPage />} />

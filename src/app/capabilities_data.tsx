@@ -122,6 +122,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "communication",
         title: "Communication System",
+        slug: "/electronic-warfare/communication-detection",
 
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -134,13 +135,14 @@ export const CAPABILITIES_DATA = [
         stats: ["Encrypted Links", "High Bandwidth", "Low Latency", "Anti-Jamming"],
         applications: ["Tactical Operations", "Command Centers", "Field Deployments", "Mobile Units"],
         products: [
-          { id: "lorros", title: "lorros communication", image: c2DashboardUiImg, slug: "/lorros-communication" },
+          { id: "lorros", title: "Long Range Surveillance System (LORROS)", image: c2DashboardUiImg, slug: "/lorros-communication" },
           { id: "guardian-comms", title: "The Guardian: Smart Soldier Band", image: guardianImg, slug: "/guardian-experience" },
         ]
       },
       {
         id: "electro-optics",
         title: "Electro Optics",
+        slug: "/electronic-warfare/electro-optics",
 
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -151,16 +153,7 @@ export const CAPABILITIES_DATA = [
         spotlightImage: sensorDomeImg,
         stats: ["Thermal Imaging", "Laser Rangefinding", "Day/Night Vision", "Target Tracking"],
         applications: ["Reconnaissance", "Target Acquisition", "Border Patrol", "Maritime Surveillance"],
-        products: [
-          { id: "hugo", title: "Hugo", image: sensorDomeImg, slug: "/hugo" },
-          { id: "nubra", title: "Nubra", image: sensorDomeImg, slug: "/nubra" },
-          { id: "salte", title: "Salte", image: sensorDomeImg, slug: "/salte" },
-          { id: "oslo", title: "Oslo", image: sensorDomeImg, slug: "/oslo" },
-          { id: "incas", title: "Incas", image: sensorDomeImg, slug: "/incas" },
-          { id: "yoto", title: "Yoto", image: sensorDomeImg, slug: "/yoto" },
-          { id: "troy", title: "Troy", image: sensorDomeImg, slug: "/troy" },
-          { id: "alta", title: "Alta", image: sensorDomeImg, slug: "/alta" },
-        ]
+        products: []
       }
     ]
   },

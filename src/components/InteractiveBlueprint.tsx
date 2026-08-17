@@ -248,25 +248,25 @@ export function InteractiveBlueprint({
 
               <div className="w-full md:w-5/12 relative z-10 border-r border-white/10 overflow-hidden bg-black flex-shrink-0">
                 {finalTiers[1].image && <img src={finalTiers[1].image} alt={finalTiers[1].title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700 min-h-[250px]" />}
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-900/40 to-transparent mix-blend-color" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-transparent mix-blend-color" />
                 <div className="absolute left-0 bottom-0 p-4 w-full bg-gradient-to-t from-black/80 to-transparent">
                   <div className="h-1 w-full bg-white/20 overflow-hidden rounded-full">
-                    <div className="h-full bg-amber-500 w-1/3 group-hover:w-full transition-all duration-3000 ease-in-out" />
+                    <div className="h-full bg-blue-500 w-1/3 group-hover:w-full transition-all duration-3000 ease-in-out" />
                   </div>
-                  <span className="text-[8px] font-mono text-amber-400 mt-1 block tracking-widest opacity-80">PROCESSING UNIT [ACTIVE]</span>
+                  <span className="text-[8px] font-mono text-blue-400 mt-1 block tracking-widest opacity-80">PROCESSING UNIT [ACTIVE]</span>
                 </div>
               </div>
 
               <div className="relative z-10 w-full md:w-7/12 p-10 lg:p-12 flex flex-col justify-center">
                 <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
-                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-950/50 text-amber-400 rounded-sm text-[10px] font-mono font-bold tracking-widest border border-amber-900">
+                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-950/50 text-blue-400 rounded-sm text-[10px] font-mono font-bold tracking-widest border border-blue-900">
                     <Cpu className="w-3 h-3" />
                     {finalTiers[1].statusBadge}
                   </div>
                   <div className="flex gap-2">
-                     <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
-                     <span className="w-2 h-2 rounded-full bg-amber-500 opacity-50" />
-                     <span className="w-2 h-2 rounded-full bg-amber-500 opacity-50" />
+                     <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping" />
+                     <span className="w-2 h-2 rounded-full bg-blue-500 opacity-50" />
+                     <span className="w-2 h-2 rounded-full bg-blue-500 opacity-50" />
                   </div>
                 </div>
 
@@ -282,7 +282,7 @@ export function InteractiveBlueprint({
                     <React.Fragment key={idx}>
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">{spec.label}</span>
-                        <span className={`text-xs font-bold ${spec.highlight ? 'text-amber-400' : 'text-white'}`}>{spec.value}</span>
+                        <span className={`text-xs font-bold ${spec.highlight ? 'text-blue-400' : 'text-white'}`}>{spec.value}</span>
                       </div>
                       {idx < finalTiers[1].specs.length - 1 && <div className="h-px w-full bg-white/10" />}
                     </React.Fragment>
@@ -308,25 +308,25 @@ export function InteractiveBlueprint({
 
               <div className="w-full md:w-5/12 relative z-10 border-r border-white/10 overflow-hidden bg-black flex-shrink-0">
                 {finalTiers[2].image && <img src={finalTiers[2].image} alt={finalTiers[2].title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700 min-h-[250px]" />}
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/40 to-transparent mix-blend-color" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-transparent mix-blend-color" />
                 <div className="absolute left-0 bottom-0 p-4 w-full bg-gradient-to-t from-black/80 to-transparent">
                   <div className="h-1 w-full bg-white/20 overflow-hidden rounded-full">
-                    <div className="h-full bg-emerald-500 w-1/3 group-hover:w-full transition-all duration-3000 ease-in-out" />
+                    <div className="h-full bg-blue-500 w-1/3 group-hover:w-full transition-all duration-3000 ease-in-out" />
                   </div>
-                  <span className="text-[8px] font-mono text-emerald-400 mt-1 block tracking-widest opacity-80">MULTI-DOMAIN DATA STREAM [ACTIVE]</span>
+                  <span className="text-[8px] font-mono text-blue-400 mt-1 block tracking-widest opacity-80">MULTI-DOMAIN DATA STREAM [ACTIVE]</span>
                 </div>
               </div>
 
               <div className="relative z-10 w-full md:w-7/12 p-10 lg:p-12 flex flex-col justify-center">
                 <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
-                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-950/50 text-emerald-400 rounded-sm text-[10px] font-mono font-bold tracking-widest border border-emerald-900">
+                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-950/50 text-blue-400 rounded-sm text-[10px] font-mono font-bold tracking-widest border border-blue-900">
                     <Network className="w-3 h-3" />
                     {finalTiers[2].statusBadge}
                   </div>
                   <div className="flex gap-2">
-                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                     <span className="w-2 h-2 rounded-full bg-emerald-500 opacity-50" />
-                     <span className="w-2 h-2 rounded-full bg-emerald-500 opacity-50" />
+                     <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping" />
+                     <span className="w-2 h-2 rounded-full bg-blue-500 opacity-50" />
+                     <span className="w-2 h-2 rounded-full bg-blue-500 opacity-50" />
                   </div>
                 </div>
 
@@ -342,7 +342,7 @@ export function InteractiveBlueprint({
                     <React.Fragment key={idx}>
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">{spec.label}</span>
-                        <span className={`text-xs font-bold ${spec.highlight ? 'text-emerald-400' : 'text-white'}`}>{spec.value}</span>
+                        <span className={`text-xs font-bold ${spec.highlight ? 'text-blue-400' : 'text-white'}`}>{spec.value}</span>
                       </div>
                       {idx < finalTiers[2].specs.length - 1 && <div className="h-px w-full bg-white/10" />}
                     </React.Fragment>

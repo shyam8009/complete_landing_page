@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos/images directly via Vite
 import bgVideo from '@/imports/gwr_video_mvp.mp4';
-import spearHero from '@/imports/infinity_spear.jpg';
-import rhinoHero from '@/imports/infinity_rhino.jpg';
+import spearVid from '@/imports/Infinity_Spear.mp4';
+import rhinoVid from '@/imports/Hero banner Video.mp4';
 
 const heroSlides = [
   {
@@ -20,19 +20,19 @@ const heroSlides = [
     id: 'jamming-spear',
     title: 'INFINITY SPEAR',
     subtitle: '60W Continuous Output . 1.5–2.0 km Range.',
-    mediaUrl: spearHero,
+    mediaUrl: spearVid,
     ctaText: 'SEE CAPABILITIES',
     ctaLink: '#',
-    isVideo: false
+    isVideo: true
   },
   {
     id: 'jamming-rhino',
     title: 'INFINITY RHINO',
     subtitle: '7 km Directional Anti-RTH Interdiction.',
-    mediaUrl: rhinoHero,
+    mediaUrl: rhinoVid,
     ctaText: 'DISCOVER RHINO',
     ctaLink: '#',
-    isVideo: false
+    isVideo: true
   },
 ];
 

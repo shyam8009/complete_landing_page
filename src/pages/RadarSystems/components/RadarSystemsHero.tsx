@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos/images directly via Vite
 import bgVideo from '@/imports/gwr_video_mvp.mp4';
-import radarHero1 from '@/imports/drone_radar_hero.png';
-import radarHero2 from '@/imports/surveillance_radar_hero.png';
+import radarHero1Vid from '@/imports/drone_radar_hero_bg.mp4';
+import radarHero2Vid from '@/imports/surveillance_radar_hero_bg.mp4';
 
 import rfDetectorImg from '@/imports/rf-detector-d360/magnific_professional-outdoor-prod_62g8z7SiJO.png';
 
@@ -22,10 +22,19 @@ const heroSlides = [
     id: 'radar-3d-drone',
     title: '3D Drone Detection',
     subtitle: 'High-resolution FMCW architectures engineered for early detection.',
-    mediaUrl: radarHero1, // Using image for second slide
+    mediaUrl: radarHero1Vid, // Using video for second slide
     ctaText: 'SEE CAPABILITIES',
     ctaLink: '#',
-    isVideo: false
+    isVideo: true
+  },
+  {
+    id: 'radar-surveillance',
+    title: 'Surveillance Radar',
+    subtitle: '360° perimeter dominance & long-range tracking.',
+    mediaUrl: radarHero2Vid, // Using video for third slide
+    ctaText: 'SEE CAPABILITIES',
+    ctaLink: '#',
+    isVideo: true
   },
   {
     id: 'detection-rf',

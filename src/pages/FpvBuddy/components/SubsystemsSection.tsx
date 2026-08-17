@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import buddy10Img from '../../../imports/fpv-buddy/magnific_a-photorealistic-extreme-_aQeoP75fSh.png';
-import buddy13Img from '../../../imports/fpv-buddy/magnific_a-photorealistic-extreme-_brhCZs95Y2.png';
-import buddy15Img from '../../../imports/fpv-buddy/magnific_prompt-a-photorealistic-e_TeRGqk0VNR.png';
+import buddy10Img from '../../../imports/fpv-buddy/buddy10.webp';
+import buddy13Img from '../../../imports/fpv-buddy/buddy13.webp';
+import buddy15Img from '../../../imports/fpv-buddy/buddy15.webp';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [
