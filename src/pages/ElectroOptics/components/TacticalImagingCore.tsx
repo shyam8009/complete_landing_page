@@ -68,7 +68,7 @@ export function TacticalImagingCore() {
             <div className="flex items-center gap-3 mb-8">
               <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
               <span className="text-[#84CC16] font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase font-bold">
-                TACTICAL IMAGING CORE
+                TECHNOLOGIES
               </span>
             </div>
             

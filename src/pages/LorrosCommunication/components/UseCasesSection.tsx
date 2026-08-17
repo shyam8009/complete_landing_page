@@ -1,27 +1,28 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import reconImg from '../../../imports/fpv-buddy/tactical_1.webp';
-import fieldImg from '../../../imports/fpv-buddy/tactical_2.webp';
-import aerialImg from '../../../imports/fpv-buddy/tactical_3.webp';
+
+import imgBorder from '@/imports/surveillance_radar_hero.png';
+import imgCoast from '@/imports/c2_dashboard_ui.png';
+import imgFacility from '@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const USE_CASES = [
   {
     id: "01",
-    title: "Tactical Reconnaissance",
-    image: reconImg,
+    title: "Border Protection Operations",
+    image: imgBorder
   },
   {
     id: "02",
-    title: "Field Operations & Training",
-    image: fieldImg,
+    title: "Coastal Defense & Maritime",
+    image: imgCoast
   },
   {
     id: "03",
-    title: "Real-Time Aerial Surveillance",
-    image: aerialImg,
+    title: "Critical Site Security",
+    image: imgFacility
   }
 ];
 
@@ -67,20 +68,14 @@ export function UseCasesSection() {
               ref={el => cardsRef.current[index] = el}
               className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10"
             >
-              {/* Background Image */}
               <img 
                 src={useCase.image} 
                 alt={useCase.title} 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              
-              {/* Dark Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
-              
-              {/* Neon Green Tint Hover Overlay */}
               <div className="absolute inset-0 bg-[#84CC16]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
               
-              {/* Content */}
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
                 <div className="transform group-hover:-translate-y-2 transition-transform duration-500">
                   <span className="text-[#84CC16] font-mono text-sm tracking-widest font-bold mb-2 block">

@@ -20,6 +20,9 @@ import IntelligenceSurveillancePage from '../pages/IntelligenceSurveillance/Inte
 import { DroneSystemsPage } from '../pages/DroneSystems/DroneSystemsPage';
 import { CommunicationDetectionPage } from '../pages/CommunicationDetection/CommunicationDetectionPage';
 import { ElectroOpticsPage } from '../pages/ElectroOptics/ElectroOpticsPage';
+import { LorrosPage } from '../pages/LorrosCommunication/LorrosPage';
+import { FusionC2Page } from '../pages/FusionC2/FusionC2Page';
+import { InterceptionPage } from '../pages/InterceptionSystem/InterceptionPage';
 import { RadarSystemsPage } from '../pages/RadarSystems/RadarSystemsPage';
 import { JammingSystemsPage } from '../pages/JammingSystems/JammingSystemsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
@@ -2232,6 +2235,9 @@ export default function App() {
           <Route path="/fpv-buddy" element={<FpvBuddyPage />} />
           <Route path="/varuna" element={<VarunaPage />} />
           <Route path="/proxy" element={<ProxyPage />} />
+          <Route path="/lorros-communication" element={<LorrosPage />} />
+          <Route path="/fusion-c2" element={<FusionC2Page />} />
+          <Route path="/interception-system" element={<InterceptionPage />} />
           <Route path="/infinity-spear" element={<InfinitySpearPage />} />
           <Route path="/infinity-rhino" element={<InfinityRhinoPage />} />
           <Route path="/infinity-rhino-black" element={<InfinityRhinoBlackPage />} />

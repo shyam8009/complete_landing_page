@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { Hero } from './components/Hero';
+import { ElectroOpticsPipeline } from './components/ElectroOpticsPipeline';
+import { ElectroOpticsPitch } from './components/ElectroOpticsPitch';
 import { TacticalImagingCore } from './components/TacticalImagingCore';
 import { EcosystemTrack } from './components/EcosystemTrack';
+import { ElectroOpticsUseCases } from './components/ElectroOpticsUseCases';
 import { SovereignStrip } from '../QuantumSensing/components/SovereignStrip';
 import { QuantumCTA } from '../QuantumSensing/components/QuantumCTA';
 
@@ -26,8 +29,11 @@ export function ElectroOpticsPage() {
   return (
     <main className="w-full bg-[#050505] min-h-screen text-white font-sans selection:bg-[#84CC16]/30">
       <Hero />
-      <TacticalImagingCore />
+      <ElectroOpticsPipeline />
+      <ElectroOpticsPitch />
       <EcosystemTrack />
+      <TacticalImagingCore />
+      <ElectroOpticsUseCases />
       <SovereignStrip />
       <QuantumCTA />
     </main>

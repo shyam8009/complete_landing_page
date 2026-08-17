@@ -71,8 +71,7 @@ export const CAPABILITIES_DATA = [
         products: [
           { id: "fpv-buddy", title: "FPV Drone Buddy", image: flightImg, slug: "/fpv-buddy" },
           { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "/sahana-fpv" },
-          { id: "proxy", title: "PROXY - Control Channel", image: sensorDomeImg, slug: "/proxy" },
-          { id: "heaven-sdr", title: "Heaven SDR - Surveillance Drone", image: fieldImg, slug: "/heaven-sdr-surveillance-drone" }
+          { id: "proxy", title: "PROXY - Control Channel", image: sensorDomeImg, slug: "/proxy" }
         ]
       },
       {
@@ -205,8 +204,8 @@ export const CAPABILITIES_DATA = [
         stats: ["Multi-Domain Fusion", "Automated Tasking", "Encrypted Comms", "Scalable Architecture"],
         applications: ["Joint Operations Centers", "Tactical Headquarters", "Disaster Response", "Fleet Management"],
         products: [
-          { id: "fusion-core", title: "FUSION Core AI Command and Control (C2)", image: c2DashboardUiImg, slug: "home" },
-          { id: "interception", title: "Interception System", image: rfRadarGeneratedImg, slug: "home" },
+          { id: "fusion-core", title: "FUSION Core AI Command and Control (C2)", image: c2DashboardUiImg, slug: "/fusion-c2" },
+          { id: "interception", title: "Interception System", image: rfRadarGeneratedImg, slug: "/interception-system" },
         ]
       },
       {
