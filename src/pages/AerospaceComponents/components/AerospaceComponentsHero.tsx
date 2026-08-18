@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
-import bgHero from '@/imports/arsenal_facility.jpg';
+import bgHero from '@/imports/arsenal_facility.png'; // Or arsenal_facility.jpg
 
 export function AerospaceComponentsHero() {
   const scrollToPipeline = () => {
@@ -59,9 +59,9 @@ export function AerospaceComponentsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-lg md:text-xl text-white/70 max-w-2xl mb-10 font-light leading-relaxed"
+            className="text-lg md:text-xl text-white/70 max-w-3xl mb-10 font-light leading-relaxed"
           >
-            Zero-defect precision machining for extreme environments. Engineered from high-strength titanium and aluminum-lithium alloys to withstand supersonic stress and thermal extremes.
+            Zero-defect precision machining for extreme aviation environments. Delivering mission-critical engine hardware and structural components with uncompromising quality, backed by over two decades of aerospace-grade manufacturing discipline.
           </motion.p>
 
           {/* CTA & Stats Row */}
@@ -83,13 +83,13 @@ export function AerospaceComponentsHero() {
             {/* Quick Stats Block */}
             <div className="flex items-center gap-6 bg-white/5 backdrop-blur-md border border-white/10 px-6 py-4 rounded-sm">
               <div className="flex flex-col">
-                <span className="text-white font-bold text-lg">AS9100 Rev D</span>
-                <span className="text-white/40 text-[10px] uppercase tracking-wider font-mono">Quality Standard</span>
+                <span className="text-white font-bold text-lg">AS9100D</span>
+                <span className="text-white/40 text-[10px] uppercase tracking-wider font-mono">Aerospace Quality Management</span>
               </div>
               <div className="w-[1px] h-10 bg-white/10" />
               <div className="flex flex-col">
-                <span className="text-white font-bold text-lg">± 0.001 mm</span>
-                <span className="text-white/40 text-[10px] uppercase tracking-wider font-mono">Machining Tolerance</span>
+                <span className="text-white font-bold text-lg">20+ Years</span>
+                <span className="text-white/40 text-[10px] uppercase tracking-wider font-mono">Precision Operations</span>
               </div>
             </div>
           </motion.div>

@@ -1,25 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Zap, Anchor } from 'lucide-react';
+import { Layers, Zap, Anchor, Settings, Disc, Frame } from 'lucide-react';
 
 const specCards = [
   {
-    id: "structural-spars",
-    icon: <Layers className="w-8 h-8 text-[#84CC16]" />,
-    title: "Structural Airframe Spars",
-    specs: "High-strength aluminum and titanium rib structures engineered to handle wing load distributions and fuselage stress points without micro-fracturing."
+    id: "engine-turbomachinery",
+    icon: <Settings className="w-8 h-8 text-[#84CC16]" />,
+    title: "Engine & Turbomachinery Hardware",
+    specs: [
+      "Manufactured to severe defense-grade tolerances using titanium, high-alloy steel, and nickel alloys.",
+      "Proven track record delivering over 40,000 critical engine components for Hindustan Aeronautics Limited (HAL).",
+      "Directly supporting high-performance aviation platforms, including the Sukhoi (Su-30MKI) aircraft programme."
+    ]
   },
   {
-    id: "turbine-engine",
-    icon: <Zap className="w-8 h-8 text-[#84CC16]" />,
-    title: "Turbine & Engine Subassemblies",
-    specs: "Heat-resistant superalloy components built to operate reliably inside high-bypass turbofan engines under extreme combustion temperatures."
+    id: "structural-airframe",
+    icon: <Frame className="w-8 h-8 text-[#84CC16]" />,
+    title: "Structural Airframe Components",
+    specs: [
+      "Precision-machined structural parts engineered to serve as load-bearing components for airframes and fuselages.",
+      "Fabricated to meet the most stringent weight-to-strength requirements for modern aerospace flight dynamics."
+    ]
   },
   {
-    id: "landing-gear",
-    icon: <Anchor className="w-8 h-8 text-[#84CC16]" />,
-    title: "Actuation & Landing Gear Hardware",
-    specs: "Precision hydraulic and mechanical housings designed for high-impact landing compression and rapid deployment cycles."
+    id: "mounting-connection",
+    icon: <Disc className="w-8 h-8 text-[#84CC16]" />,
+    title: "Mounting & Connection Hardware",
+    specs: [
+      "High-accuracy brackets and shackles designed for load-bearing defense and aerospace systems.",
+      "Exacting tolerances on flanges and clamps to ensure secure sealing and connection in critical high-stress assemblies."
+    ]
   }
 ];
 
@@ -55,9 +65,14 @@ export function AerospaceComponentsSpecs() {
                 {card.title}
               </h3>
               
-              <p className="text-white/60 text-sm leading-relaxed font-light mt-auto">
-                {card.specs}
-              </p>
+              <ul className="text-white/60 text-sm leading-relaxed font-light mt-auto space-y-3">
+                {card.specs.map((spec, i) => (
+                  <li key={i} className="flex items-start">
+                    <span className="text-[#84CC16] mr-2 block mt-1">•</span>
+                    <span>{spec}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>

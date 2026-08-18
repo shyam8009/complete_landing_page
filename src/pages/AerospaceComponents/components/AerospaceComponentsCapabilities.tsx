@@ -19,20 +19,20 @@ export function AerospaceComponentsCapabilities() {
             <div className="flex items-center gap-3 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
               <span className="text-[#84CC16] font-mono text-[10px] md:text-[12px] font-bold tracking-widest uppercase">
-                ADVANCED METALLURGY
+                ADVANCED METALLURGY & PRECISION
               </span>
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 uppercase tracking-tight leading-tight">
-              Uncompromising <br/> Precision for <br/> Airborne Missions
+              Powering India's Air Superiority Through Precision Manufacturing
             </h2>
             
             <p className="text-lg text-white/70 leading-relaxed font-light mb-8">
-              Aerospace component manufacturing permits zero margin for error. Every structural spar, turbine housing, and actuation bracket must endure punishing gravitational g-forces, thermal expansion cycles, and vibrational fatigue.
+              Aerospace component manufacturing permits zero margin for error. Siddhanta Machining—the integrated precision engineering arm of Sahana Defence—brings over 20 years of space-grade quality culture to the aerospace sector.
             </p>
             
             <p className="text-lg text-white/70 leading-relaxed font-light">
-              Our state-of-the-art facility integrates automated CNC systems with proprietary heat-treatment protocols, delivering components that exceed global aviation standards.
+              Operating as a complete hub from prototype to qualified production, our advanced CNC infrastructure handles the most demanding exotic materials. Our uncompromising precision is trusted by leading strategic organizations, reflecting our capability to support urgent builds, complex aerodynamic geometries, and high-volume mission-critical production.
             </p>
           </motion.div>
         </div>
@@ -57,15 +57,15 @@ export function AerospaceComponentsCapabilities() {
 
             {/* Floating HUD Metrics */}
             <div className="absolute top-8 right-8 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded text-xs font-mono text-white/90">
-              <span className="text-[#84CC16] mr-2">▶</span> High Strength-to-Weight Ratio
+              <span className="text-[#84CC16] mr-2">▶</span> Exotic Material Expertise
             </div>
             
             <div className="absolute bottom-1/2 left-8 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded text-xs font-mono text-white/90">
-              <span className="text-[#84CC16] mr-2">▶</span> Extreme Thermal Resistance
+              <span className="text-[#84CC16] mr-2">▶</span> Prototype-to-Production Capability
             </div>
             
             <div className="absolute bottom-8 right-12 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded text-xs font-mono text-white/90">
-              <span className="text-[#84CC16] mr-2">▶</span> Vibration Fatigue Dampening
+              <span className="text-[#84CC16] mr-2">▶</span> Space-Grade Quality Culture
             </div>
 
           </motion.div>

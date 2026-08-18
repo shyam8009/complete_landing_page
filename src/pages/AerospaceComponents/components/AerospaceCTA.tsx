@@ -8,17 +8,21 @@ export function AerospaceCTA() {
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       
       <div className="max-w-[800px] mx-auto z-10 flex flex-col items-center">
-        <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight text-white mb-10 leading-tight">
+        <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight text-white mb-6 leading-tight">
           Secure Your Flight-Critical Component Supply Chain
         </h2>
         
+        <p className="text-lg text-white/60 mb-10 font-light max-w-2xl">
+          Partner with Siddhanta Machining to leverage our fully integrated design, multi-axis CNC machinery, and CMM inspection capabilities for your next aerospace platform.
+        </p>
+        
         <button className="group relative bg-[#84CC16] text-[#050505] px-10 py-5 rounded-sm font-bold text-sm tracking-[0.15em] uppercase hover:bg-white transition-colors duration-300 overflow-hidden mb-6">
-          <span className="relative z-10">CONTACT AEROSPACE DIVISION</span>
+          <span className="relative z-10">CONTACT MANUFACTURING DIVISION</span>
           <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
         </button>
         
         <a href="#" className="text-white/40 hover:text-white/80 text-xs tracking-wide transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/50">
-          Submit Blueprints for Review
+          Submit Technical Drawings
         </a>
       </div>
     </section>

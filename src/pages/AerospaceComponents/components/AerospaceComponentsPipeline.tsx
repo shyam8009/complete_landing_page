@@ -1,26 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { PencilRuler, Cogs, Cuboid, Scan } from 'lucide-react';
 
 const pipelineSteps = [
   {
     step: "01",
-    title: "ALLOY SELECTION",
-    description: "Sourcing certified aerospace-grade titanium, Inconel, and aluminum-lithium billets with complete mill test traceability."
+    title: "DESIGN & ENGINEERING",
+    description: "Comprehensive in-house design utilizing the latest CAD/CAM software to generate manufacturing drawings directly from customer specifications, ensuring full stage-wise traceability.",
+    icon: <PencilRuler className="w-8 h-8 text-[#84CC16]" />
   },
   {
     step: "02",
-    title: "MULTI-AXIS CNC",
-    description: "Advanced 5-axis simultaneous milling and turning to achieve complex aerodynamic geometries and tight tolerances."
+    title: "ADVANCED MACHINING",
+    description: "Full spectrum fabrication utilizing 3, 4, and 5-axis CNC milling and turning for high-precision, complex geometries in a single setup.",
+    icon: <Cogs className="w-8 h-8 text-[#84CC16]" />
   },
   {
     step: "03",
-    title: "NDT VALIDATION",
-    description: "Rigorous non-destructive testing (NDT), including ultrasonic and X-ray inspection to guarantee structural flawlessness."
+    title: "EXOTIC METALLURGY",
+    description: "Proven expertise in machining high-strength materials, including Titanium, Invar, Super Invar, AZ31B, nickel alloys, and high-alloy steel.",
+    icon: <Cuboid className="w-8 h-8 text-[#84CC16]" />
   },
   {
     step: "04",
-    title: "CERTIFICATION",
-    description: "Final dimensional laser scanning, surface treatment passivation, and AS9100 quality release documentation."
+    title: "CMM INSPECTION",
+    description: "100% inspection for critical components using advanced Coordinate Measuring Machines (CMM), vision systems, and surface roughness validation to guarantee zero defects.",
+    icon: <Scan className="w-8 h-8 text-[#84CC16]" />
   }
 ];
 
@@ -60,10 +65,13 @@ export function AerospaceComponentsPipeline() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="relative flex flex-col items-center lg:items-start text-center lg:text-left"
               >
-                {/* Node Dot */}
-                <div className="w-20 h-20 rounded-full bg-black border border-white/20 flex items-center justify-center mb-8 relative z-10 shadow-[0_0_20px_rgba(0,0,0,0.5)] lg:mx-0 mx-auto group">
+                {/* Node Dot / Icon */}
+                <div className="w-20 h-20 rounded-full bg-black border border-white/20 flex flex-col items-center justify-center mb-8 relative z-10 shadow-[0_0_20px_rgba(0,0,0,0.5)] lg:mx-0 mx-auto group">
                   <div className="absolute inset-0 rounded-full border border-[#84CC16]/50 scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <span className="text-[#84CC16] font-mono text-xl font-bold">{item.step}</span>
+                  <span className="text-white/40 font-mono text-[10px] font-bold absolute top-2">{item.step}</span>
+                  <div className="mt-3">
+                    {item.icon}
+                  </div>
                 </div>
 
                 {/* Content */}
