@@ -118,22 +118,25 @@ export function InteractiveBlueprint({
         <div className="absolute inset-0 bg-gradient-to-b from-[#F8F9FA] via-transparent to-[#F8F9FA]" />
       </div>
 
-      <div className="hidden md:flex max-w-[1600px] mx-auto px-4 lg:px-8 w-full relative z-10 flex-row gap-12 lg:gap-24 items-center">
+      {/* DESKTOP LAYOUT */}
+      <div className="hidden md:flex flex-col max-w-[1600px] mx-auto px-4 lg:px-8 w-full relative z-10 pt-24 pb-24">
         
-        {/* LEFT COLUMN: Architecture Nav Tree */}
-        <div ref={leftColRef} className="w-full md:w-1/3 relative flex flex-col justify-between pt-12 md:py-12 h-auto md:h-[70vh]">
-          
-          {/* Section Header */}
-          <div className="mb-8">
-            <span className="text-[#0052FF] font-mono text-xs font-bold uppercase tracking-[0.2em] mb-2 block">
-              {subtitle}
-            </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 uppercase tracking-tight leading-tight" dangerouslySetInnerHTML={{__html: title.replace(' ', '<br/>')}}>
-            </h2>
-          </div>
+        {/* Section Header (Now above the columns for perfect alignment) */}
+        <div className="mb-12 w-full md:w-1/3">
+          <span className="text-[#0052FF] font-mono text-xs font-bold uppercase tracking-[0.2em] mb-2 block">
+            {subtitle}
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 uppercase tracking-tight leading-tight" dangerouslySetInnerHTML={{__html: title.replace(' ', '<br/>')}}>
+          </h2>
+        </div>
 
-          {/* Nodes */}
-          <div className="flex flex-row md:flex-col justify-start md:justify-between flex-grow md:pl-14 relative z-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-8 md:gap-0 pb-4 md:pb-0 border-b border-slate-200 md:border-none scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        {/* Two-Column Grid for Timeline & Media */}
+        <div className="flex flex-row gap-12 lg:gap-24 items-start w-full">
+          
+          {/* LEFT COLUMN: Architecture Nav Tree */}
+          <div ref={leftColRef} className="w-full md:w-1/3 relative flex flex-col h-auto">
+            {/* Nodes */}
+          <div className="flex flex-row md:flex-col justify-start flex-grow md:pl-14 relative z-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-8 md:gap-10 pb-4 md:pb-0 border-b border-slate-200 md:border-none scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {/* SVG Trace Line */}
             <div className="hidden md:block absolute left-6 top-4 bottom-8 w-0.5 bg-slate-200 -translate-x-1/2 -z-10">
               <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 2 1000">
@@ -179,7 +182,7 @@ export function InteractiveBlueprint({
         </div>
 
         {/* RIGHT COLUMN: Dynamic Spec Inspector */}
-        <div className="w-full md:w-2/3 relative h-[600px] md:h-[70vh] mt-8 md:mt-0">
+        <div className="w-full md:w-2/3 relative h-[600px]">
           
           {/* TIER 1: Blue Dark Banner */}
           <div ref={el => rightPanelsRef.current[0] = el} className="absolute inset-0 flex items-center justify-center invisible">
@@ -361,6 +364,7 @@ export function InteractiveBlueprint({
             </div>
           </div>
 
+          </div>
         </div>
       </div>
 
