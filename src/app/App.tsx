@@ -20,6 +20,7 @@ import IntelligenceSurveillancePage from '../pages/IntelligenceSurveillance/Inte
 import CommandControlPage from '../pages/CommandControl/CommandControlPage';
 import CommunicationMonitoringPage from '../pages/CommunicationMonitoring/CommunicationMonitoringPage';
 import AerospaceDefencePage from '../pages/AerospaceDefence/AerospaceDefencePage';
+import { AerospaceComponentsPage } from '../pages/AerospaceComponents/AerospaceComponentsPage';
 import { DroneSystemsPage } from '../pages/DroneSystems/DroneSystemsPage';
 import { CommunicationDetectionPage } from '../pages/CommunicationDetection/CommunicationDetectionPage';
 import { ElectroOpticsPage } from '../pages/ElectroOptics/ElectroOpticsPage';
@@ -2195,9 +2196,9 @@ function HandheldJammerPage() {
 
 
 
-// â”€â”€â”€ HOME 2 PAGE (LUXURY CORPORATE AESTHETIC) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— HOME 2 PAGE (LUXURY CORPORATE AESTHETIC) ————————————————————————————————
 
-// â”€â”€â”€ APP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— APP ——————————————————————————————————————————————————————————————————————
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -2272,6 +2273,7 @@ export default function App() {
           <Route path="/information-warfare/command-control" element={<CommandControlPage />} />
           <Route path="/information-warfare/communication-monitoring" element={<CommunicationMonitoringPage />} />
           <Route path="/aerospace-and-defence" element={<AerospaceDefencePage />} />
+          <Route path="/aerospace-components" element={<AerospaceComponentsPage />} />
         </Routes>
         <Footer />
       </div>

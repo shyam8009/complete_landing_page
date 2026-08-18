@@ -316,7 +316,7 @@ export const CAPABILITIES_DATA = [
         stats: ["Mil-Spec Grade", "Advanced Materials", "Rapid Prototyping", "Scalable Production"],
         applications: ["Aircraft Assembly", "Munitions Casings", "Satellite Integration", "Naval Upgrades"],
         products: [
-          { id: "aerospace-comp", title: "Aerospace Components", image: arsenalFacilityImg, slug: "home" },
+          { id: "aerospace-comp", title: "Aerospace Components", image: arsenalFacilityImg, slug: "/aerospace-components" },
           { id: "defence-comp", title: "Defence Components", image: corporateHouse1, slug: "home" },
           { id: "satcom", title: "SATCOM Components", image: haleDroneImg, slug: "home" }
         ]
