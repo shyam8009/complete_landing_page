@@ -1,82 +1,49 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Layers, Zap, Anchor, Settings, Disc, Frame } from 'lucide-react';
-
-const specCards = [
-  {
-    id: "engine-turbomachinery",
-    icon: <Settings className="w-8 h-8 text-[#84CC16]" />,
-    title: "Engine & Turbomachinery Hardware",
-    specs: [
-      "Manufactured to severe defense-grade tolerances using titanium, high-alloy steel, and nickel alloys.",
-      "Proven track record delivering over 40,000 critical engine components for Hindustan Aeronautics Limited (HAL).",
-      "Directly supporting high-performance aviation platforms, including the Sukhoi (Su-30MKI) aircraft programme."
-    ]
-  },
-  {
-    id: "structural-airframe",
-    icon: <Frame className="w-8 h-8 text-[#84CC16]" />,
-    title: "Structural Airframe Components",
-    specs: [
-      "Precision-machined structural parts engineered to serve as load-bearing components for airframes and fuselages.",
-      "Fabricated to meet the most stringent weight-to-strength requirements for modern aerospace flight dynamics."
-    ]
-  },
-  {
-    id: "mounting-connection",
-    icon: <Disc className="w-8 h-8 text-[#84CC16]" />,
-    title: "Mounting & Connection Hardware",
-    specs: [
-      "High-accuracy brackets and shackles designed for load-bearing defense and aerospace systems.",
-      "Exacting tolerances on flanges and clamps to ensure secure sealing and connection in critical high-stress assemblies."
-    ]
-  }
-];
+import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
+import img1 from '@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png';
+import img2 from '@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png';
+import img3 from '@/imports/magnific_extreme-closeup-macro-pro_LUQGHhOswO.png';
 
 export function AerospaceComponentsSpecs() {
-  return (
-    <section className="w-full bg-[#050505] py-32 px-6 md:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight">
-            System Architecture
-          </h2>
-          <div className="w-24 h-1 bg-[#84CC16] mx-auto opacity-80" />
-        </div>
+  const tiers: TierData[] = [
+    {
+      id: 'sub-engine',
+      type: 'DEFENSE-GRADE',
+      title: 'Engine & Turbomachinery Hardware',
+      description: 'Manufactured to severe defense-grade tolerances using titanium, high-alloy steel, and nickel alloys.',
+      image: img1,
+      statusBadge: 'CRITICAL PROPULSION',
+      specs: [
+        { label: 'Production', value: '40,000+ Units' },
+        { label: 'Client', value: 'HAL' },
+        { label: 'Platform', value: 'Su-30MKI', highlight: 'LIVE' }
+      ]
+    },
+    {
+      id: 'sub-airframe',
+      type: 'STRUCTURAL',
+      title: 'Structural Airframe Components',
+      description: 'Precision-machined structural parts engineered to serve as load-bearing components for airframes and fuselages.',
+      image: img2,
+      statusBadge: 'FLIGHT DYNAMICS',
+      specs: [
+        { label: 'Load-Bearing', value: 'Optimized' },
+        { label: 'Weight-to-Strength', value: 'Stringent' }
+      ]
+    },
+    {
+      id: 'sub-mounting',
+      type: 'HARDWARE',
+      title: 'Mounting & Connection Hardware',
+      description: 'High-accuracy brackets and shackles designed for load-bearing defense and aerospace systems.',
+      image: img3,
+      statusBadge: 'CRITICAL ASSEMBLIES',
+      specs: [
+        { label: 'Tolerances', value: 'Exacting' },
+        { label: 'Connections', value: 'Secure Sealing', highlight: 'ACTIVE' }
+      ]
+    }
+  ];
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {specCards.map((card, index) => (
-            <motion.div
-              key={card.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-[#0a0a0a] border border-white/10 rounded-lg p-8 flex flex-col hover:border-[#84CC16]/50 transition-colors duration-300 relative group overflow-hidden"
-            >
-              {/* Hover effect gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#84CC16]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              
-              <div className="mb-6 p-4 bg-white/5 rounded-md inline-block w-fit border border-white/5">
-                {card.icon}
-              </div>
-              
-              <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-wide leading-snug">
-                {card.title}
-              </h3>
-              
-              <ul className="text-white/60 text-sm leading-relaxed font-light mt-auto space-y-3">
-                {card.specs.map((spec, i) => (
-                  <li key={i} className="flex items-start">
-                    <span className="text-[#84CC16] mr-2 block mt-1">•</span>
-                    <span>{spec}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <InteractiveBlueprint title="Technical Specifications<br/>& Applications" subtitle="// PRECISION AEROSPACE PORTFOLIO" tiers={tiers} />;
 }

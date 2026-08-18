@@ -1,40 +1,94 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useLayoutEffect } from 'react';
 import { PencilRuler, Cog, Cuboid, Scan } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const pipelineSteps = [
+gsap.registerPlugin(ScrollTrigger);
+
+const PIPELINE_STEPS = [
   {
-    step: "01",
+    id: "01",
     title: "DESIGN & ENGINEERING",
-    description: "Comprehensive in-house design utilizing the latest CAD/CAM software to generate manufacturing drawings directly from customer specifications, ensuring full stage-wise traceability.",
-    icon: <PencilRuler className="w-8 h-8 text-[#84CC16]" />
+    icon: PencilRuler,
+    description: "Comprehensive in-house design utilizing the latest CAD/CAM software to generate manufacturing drawings directly from customer specifications, ensuring full stage-wise traceability."
   },
   {
-    step: "02",
+    id: "02",
     title: "ADVANCED MACHINING",
-    description: "Full spectrum fabrication utilizing 3, 4, and 5-axis CNC milling and turning for high-precision, complex geometries in a single setup.",
-    icon: <Cog className="w-8 h-8 text-[#84CC16]" />
+    icon: Cog,
+    description: "Full spectrum fabrication utilizing 3, 4, and 5-axis CNC milling and turning for high-precision, complex geometries in a single setup."
   },
   {
-    step: "03",
+    id: "03",
     title: "EXOTIC METALLURGY",
-    description: "Proven expertise in machining high-strength materials, including Titanium, Invar, Super Invar, AZ31B, nickel alloys, and high-alloy steel.",
-    icon: <Cuboid className="w-8 h-8 text-[#84CC16]" />
+    icon: Cuboid,
+    description: "Proven expertise in machining high-strength materials, including Titanium, Invar, Super Invar, AZ31B, nickel alloys, and high-alloy steel."
   },
   {
-    step: "04",
+    id: "04",
     title: "CMM INSPECTION",
-    description: "100% inspection for critical components using advanced Coordinate Measuring Machines (CMM), vision systems, and surface roughness validation to guarantee zero defects.",
-    icon: <Scan className="w-8 h-8 text-[#84CC16]" />
+    icon: Scan,
+    description: "100% inspection for critical components using advanced Coordinate Measuring Machines (CMM), vision systems, and surface roughness validation to guarantee zero defects."
   }
 ];
 
 export function AerospaceComponentsPipeline() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const progressLineRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      // Step appearances
+      gsap.fromTo(stepsRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 70%',
+          }
+        }
+      );
+
+      // Glowing progress line
+      if (progressLineRef.current) {
+        gsap.fromTo(progressLineRef.current,
+          { scaleX: 0 },
+          {
+            scaleX: 1,
+            ease: "none",
+            transformOrigin: "left center",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 50%',
+              end: 'bottom 80%',
+              scrub: true,
+            }
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="pipeline-section" className="w-full bg-[#050505] py-32 px-6 md:px-12 lg:px-24 border-t border-white/10 font-sans">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Section Header */}
+    <section id="pipeline-section" ref={sectionRef} className="py-20 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]" 
+        style={{ 
+          backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)',
+          backgroundSize: '40px 40px' 
+        }} 
+      />
+
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         <div className="mb-20 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight">
             Manufacturing Process Pipeline
@@ -42,50 +96,45 @@ export function AerospaceComponentsPipeline() {
           <div className="w-24 h-1 bg-[#84CC16] mx-auto opacity-80" />
         </div>
 
-        {/* Pipeline Grid */}
-        <div className="relative">
-          {/* Glowing Neon Progress Line */}
-          <div className="hidden lg:block absolute top-[40px] left-0 w-full h-[2px] bg-white/10">
-            <motion.div 
-              className="h-full bg-[#84CC16] shadow-[0_0_15px_rgba(132,204,22,0.8)]"
-              initial={{ width: "0%" }}
-              whileInView={{ width: "100%" }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-            />
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 relative pt-8">
+          
+          {/* Connecting Line Base (Desktop) */}
+          <div className="hidden lg:block absolute top-[5rem] left-[12%] right-[12%] h-[1px] bg-white/5" />
+          
+          {/* Glowing Progress Line */}
+          <div 
+            ref={progressLineRef}
+            className="hidden lg:block absolute top-[5rem] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-transparent via-[#84CC16] to-[#84CC16] shadow-[0_0_15px_#84CC16]"
+            style={{ transformOrigin: 'left center' }}
+          />
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8">
-            {pipelineSteps.map((item, index) => (
-              <motion.div 
-                key={item.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="relative flex flex-col items-center lg:items-start text-center lg:text-left"
+          {PIPELINE_STEPS.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <div 
+                key={step.id} 
+                ref={el => stepsRef.current[index] = el}
+                className="relative flex flex-col group items-center text-center z-10"
               >
-                {/* Node Dot / Icon */}
-                <div className="w-20 h-20 rounded-full bg-black border border-white/20 flex flex-col items-center justify-center mb-8 relative z-10 shadow-[0_0_20px_rgba(0,0,0,0.5)] lg:mx-0 mx-auto group">
-                  <div className="absolute inset-0 rounded-full border border-[#84CC16]/50 scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <span className="text-white/40 font-mono text-[10px] font-bold absolute top-2">{item.step}</span>
-                  <div className="mt-3">
-                    {item.icon}
-                  </div>
+                {/* Unified Circular Step Node */}
+                <div className="mb-8 flex flex-col items-center justify-center w-24 h-24 rounded-full bg-[#0a0a0a] border border-white/10 transition-all duration-300 shadow-xl relative">
+                  <Icon className="w-8 h-8 text-white/60 group-hover:text-[#84CC16] group-hover:scale-110 transition-all duration-500" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">
-                  {item.title}
-                </h3>
-                <p className="text-white/60 text-sm leading-relaxed font-light">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+                <div className="flex flex-col items-center">
+                  <span className="text-[#84CC16] font-mono text-sm font-bold mb-2">{step.id}</span>
+                  <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide">
+                    {step.title}
+                  </h3>
+                  <p className="text-white/60 leading-relaxed text-sm max-w-[280px]">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
-
       </div>
     </section>
   );

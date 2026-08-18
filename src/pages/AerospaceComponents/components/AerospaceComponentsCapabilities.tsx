@@ -1,76 +1,119 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-
+import React, { useRef, useLayoutEffect } from 'react';
+import { Layers, Workflow, ShieldCheck } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import cadImage from '@/imports/digital_twin.jpg'; // Using an available tech/schematic image
 
+gsap.registerPlugin(ScrollTrigger);
+
 export function AerospaceComponentsCapabilities() {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo('.fade-in-left',
+        { x: -50, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 60%',
+          }
+        }
+      );
+      
+      gsap.fromTo('.hud-element',
+        { scale: 0.8, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'back.out(1.2)',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 50%',
+          }
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="w-full bg-[#0a0a0a] py-32 px-6 md:px-12 lg:px-24 border-t border-white/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-        
-        {/* Left: Text Narrative */}
-        <div className="flex-1 w-full">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
-              <span className="text-[#84CC16] font-mono text-[10px] md:text-[12px] font-bold tracking-widest uppercase">
+    <section ref={sectionRef} className="py-24 bg-[#020202] relative overflow-hidden">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Text Content */}
+          <div className="flex flex-col">
+            <div className="fade-in-left inline-flex items-center gap-2 mb-6">
+              <span className="text-[#84CC16] text-sm font-bold tracking-[3px] uppercase">
                 ADVANCED METALLURGY & PRECISION
               </span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 uppercase tracking-tight leading-tight">
+            <h2 className="fade-in-left text-4xl lg:text-5xl font-bold text-white mb-8 uppercase tracking-tight leading-[1.1]">
               Powering India's Air Superiority Through Precision Manufacturing
             </h2>
             
-            <p className="text-lg text-white/70 leading-relaxed font-light mb-8">
-              Aerospace component manufacturing permits zero margin for error. Siddhanta Machining—the integrated precision engineering arm of Sahana Defence—brings over 20 years of space-grade quality culture to the aerospace sector.
-            </p>
-            
-            <p className="text-lg text-white/70 leading-relaxed font-light">
-              Operating as a complete hub from prototype to qualified production, our advanced CNC infrastructure handles the most demanding exotic materials. Our uncompromising precision is trusted by leading strategic organizations, reflecting our capability to support urgent builds, complex aerodynamic geometries, and high-volume mission-critical production.
-            </p>
-          </motion.div>
-        </div>
+            <div className="fade-in-left space-y-6 text-white/60 text-lg leading-relaxed max-w-xl">
+              <p>
+                Aerospace component manufacturing permits zero margin for error. Siddhanta Machining—the integrated precision engineering arm of Sahana Defence—brings over 20 years of space-grade quality culture to the aerospace sector.
+              </p>
+              <p>
+                Operating as a complete hub from prototype to qualified production, our advanced CNC infrastructure handles the most demanding exotic materials. Our uncompromising precision is trusted by leading strategic organizations, reflecting our capability to support urgent builds, complex aerodynamic geometries, and high-volume mission-critical production.
+              </p>
+            </div>
+          </div>
 
-        {/* Right: Interactive Technical Rendering */}
-        <div className="flex-1 w-full relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative rounded-lg overflow-hidden border border-white/10 aspect-square max-h-[600px] bg-black group"
-          >
+          {/* Right Image Content */}
+          <div className="relative h-[600px] flex items-center justify-center">
+            {/* Ambient Glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(132,204,22,0.15)_0%,transparent_70%)] pointer-events-none" />
+            
+            {/* Central Render */}
             <img 
               src={cadImage} 
               alt="High-fidelity 3D CAD schematic" 
-              className="w-full h-full object-cover opacity-60 mix-blend-screen group-hover:scale-105 transition-transform duration-700"
+              className="relative z-10 w-full object-contain rounded-xl border border-white/10 drop-shadow-[0_0_50px_rgba(132,204,22,0.1)] hover:scale-105 transition-transform duration-700"
             />
             
-            {/* Grid overlay for technical feel */}
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA0MCAwIEwgMCAwIDAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] pointer-events-none" />
-
-            {/* Floating HUD Metrics */}
-            <div className="absolute top-8 right-8 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded text-xs font-mono text-white/90">
-              <span className="text-[#84CC16] mr-2">▶</span> Exotic Material Expertise
-            </div>
-            
-            <div className="absolute bottom-1/2 left-8 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded text-xs font-mono text-white/90">
-              <span className="text-[#84CC16] mr-2">▶</span> Prototype-to-Production Capability
-            </div>
-            
-            <div className="absolute bottom-8 right-12 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded text-xs font-mono text-white/90">
-              <span className="text-[#84CC16] mr-2">▶</span> Space-Grade Quality Culture
+            {/* HUD Callouts */}
+            <div className="hud-element absolute top-[15%] -left-[10%] bg-black/60 backdrop-blur-md border border-white/10 p-4 rounded-md z-20 shadow-2xl hover:border-[#84CC16]/50 transition-colors cursor-default">
+              <div className="flex items-center gap-3">
+                <Layers className="text-[#84CC16] w-5 h-5" />
+                <div>
+                  <div className="text-white font-bold text-sm tracking-wide">Exotic Material Expertise</div>
+                </div>
+              </div>
             </div>
 
-          </motion.div>
+            <div className="hud-element absolute bottom-[25%] -left-[5%] bg-black/60 backdrop-blur-md border border-white/10 p-4 rounded-md z-20 shadow-2xl hover:border-[#84CC16]/50 transition-colors cursor-default">
+              <div className="flex items-center gap-3">
+                <Workflow className="text-[#84CC16] w-5 h-5" />
+                <div>
+                  <div className="text-white font-bold text-sm tracking-wide">Prototype-to-Production Capability</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="hud-element absolute top-[40%] -right-[5%] bg-black/60 backdrop-blur-md border border-white/10 p-4 rounded-md z-20 shadow-2xl hover:border-[#84CC16]/50 transition-colors cursor-default">
+              <div className="flex items-center gap-3">
+                <ShieldCheck className="text-[#84CC16] w-5 h-5" />
+                <div>
+                  <div className="text-white font-bold text-sm tracking-wide">Space-Grade Quality Culture</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-
       </div>
     </section>
   );

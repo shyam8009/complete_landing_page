@@ -1,5 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useLayoutEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const metrics = [
   {
@@ -17,26 +20,50 @@ const metrics = [
 ];
 
 export function AS9100QualityStrip() {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo('.metric-item',
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+          }
+        }
+      );
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="w-full bg-[#84CC16] py-12 px-6 md:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-4">
-        {metrics.map((metric, index) => (
-          <motion.div 
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex-1 text-center md:text-left flex flex-col items-center md:items-start"
-          >
-            <h4 className="text-[#050505] font-black uppercase tracking-widest text-lg mb-3">
-              {metric.title}
-            </h4>
-            <p className="text-[#050505]/80 text-sm font-medium max-w-sm text-center md:text-left">
-              {metric.description}
-            </p>
-          </motion.div>
-        ))}
+    <section ref={sectionRef} className="w-full bg-[#050505] py-16 border-t border-white/5 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-32 bg-[#84CC16]/5 blur-[100px] pointer-events-none" />
+      
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-12 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-8">
+          {metrics.map((metric, index) => (
+            <div 
+              key={index}
+              className="metric-item flex-1 flex flex-col items-center text-center p-6 bg-white/5 border border-white/10 rounded-lg backdrop-blur-md hover:border-[#84CC16]/30 transition-colors duration-500 w-full"
+            >
+              <div className="w-12 h-1 bg-[#84CC16] mb-6 opacity-80" />
+              <h4 className="text-white font-bold uppercase tracking-widest text-lg mb-4">
+                {metric.title}
+              </h4>
+              <p className="text-white/60 text-sm font-light leading-relaxed max-w-sm">
+                {metric.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
