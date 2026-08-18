@@ -1,26 +1,26 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import tacticalImg from '../../../imports/infinity-rhino/magnific_professional-editorialtac_wPKaCMd7EI.jpeg';
-import borderImg from '../../../imports/infinity-rhino/magnific_professional-editorialtac_brmMBWU5Y2.png';
-import infrastructureImg from '../../../imports/corporate_house_1.jpg';
+import tacticalImg from '../../../imports/infinity-rhino-black/Tactical_App_1.webp';
+import borderImg from '../../../imports/infinity-rhino-black/Tactical_App_2.webp';
+import infrastructureImg from '../../../imports/infinity-rhino-black/Tactical_App_3.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const USE_CASES = [
   {
     id: "01",
-    title: "Tactical Field Missions (Counter-UAS)",
+    title: "Convoy Protection",
     image: tacticalImg,
   },
   {
     id: "02",
-    title: "Border Security Operations",
+    title: "Fixed Base Security",
     image: borderImg,
   },
   {
     id: "03",
-    title: "Critical Infrastructure Protection",
+    title: "VIP Motorcade Defense",
     image: infrastructureImg,
   }
 ];
