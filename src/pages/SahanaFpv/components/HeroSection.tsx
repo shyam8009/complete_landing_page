@@ -7,7 +7,7 @@ const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, s
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-black pt-24 pb-16">
+    <section className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-black pt-28 pb-12">
       {/* Full-width Background Video */}
       <video
         autoPlay
@@ -21,7 +21,7 @@ export function HeroSection() {
       {/* Background Graphic Elements overlaying the video */}
       <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
-      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 w-full relative z-10">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 w-full relative z-10 flex-1 flex flex-col justify-center">
         <div className="max-w-3xl">
           
           {/* Left Text Content */}
@@ -32,7 +32,7 @@ export function HeroSection() {
             </div>
             
             <h1 
-              className="text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
               style={{ fontFamily: INTER }}
             >
               FPV BULLSEYE &amp; <br />
