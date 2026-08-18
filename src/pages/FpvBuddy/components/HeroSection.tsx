@@ -20,7 +20,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-[90vh] overflow-hidden bg-black">
+    <section ref={containerRef} className="relative w-full min-h-[100dvh] overflow-hidden bg-black flex flex-col">
       {/* Background Video */}
       <video
         autoPlay
@@ -36,7 +36,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black/20 z-10" />
       
       {/* Content Container */}
-      <div className="relative z-20 h-full flex flex-col justify-center px-4 sm:px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto">
+      <div className="relative z-20 flex-1 flex flex-col justify-center pt-28 pb-12 w-full pt-28 pb-12 px-4 sm:px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto">
         <div className="max-w-3xl">
           
           {/* Eyebrow */}
@@ -49,7 +49,7 @@ export function HeroSection() {
           
           {/* Headline */}
           <h1 
-            className="hero-element text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
+            className="hero-element text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
             style={{ fontFamily: INTER }}
           >
             FPV DRONE <br />
@@ -62,7 +62,7 @@ export function HeroSection() {
           </p>
           
           {/* CTA */}
-          <div className="hero-element flex flex-wrap gap-6 items-center mb-16">
+          <div className="hero-element flex flex-wrap gap-6 items-center mb-6 md:mb-16">
             <TechCTA>
               REQUEST CONSULTATION
               <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
@@ -70,7 +70,7 @@ export function HeroSection() {
           </div>
           
           {/* Quick Stats Block (Glassmorphic) */}
-          <div className="hero-element flex flex-col md:flex-row gap-4 md:gap-8 p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl max-w-fit">
+          <div className="hero-element flex flex-col md:flex-row gap-4 md:gap-8 p-6 mt-6 md:mt-auto rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl max-w-fit">
             <div>
               <div className="text-2xl font-bold text-white">Up to 180 kmph</div>
               <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Maximum Speed</div>
@@ -87,5 +87,6 @@ export function HeroSection() {
     </section>
   );
 }
+
 
 

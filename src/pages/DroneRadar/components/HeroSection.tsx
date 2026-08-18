@@ -7,7 +7,7 @@ const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, s
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black pt-24 pb-16">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-black pt-24 pb-16">
       {/* Full-width Background Video */}
       <video
         autoPlay
