@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PencilRuler, Cogs, Cuboid, Scan } from 'lucide-react';
+import { PencilRuler, Cog, Cuboid, Scan } from 'lucide-react';
 
 const pipelineSteps = [
   {
@@ -13,7 +13,7 @@ const pipelineSteps = [
     step: "02",
     title: "ADVANCED MACHINING",
     description: "Full spectrum fabrication utilizing 3, 4, and 5-axis CNC milling and turning for high-precision, complex geometries in a single setup.",
-    icon: <Cogs className="w-8 h-8 text-[#84CC16]" />
+    icon: <Cog className="w-8 h-8 text-[#84CC16]" />
   },
   {
     step: "03",

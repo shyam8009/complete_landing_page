@@ -39,7 +39,7 @@ export function AerospaceComponentsSpecs() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight">
-            Technical Specifications <br /> & Applications
+            System Architecture
           </h2>
           <div className="w-24 h-1 bg-[#84CC16] mx-auto opacity-80" />
         </div>

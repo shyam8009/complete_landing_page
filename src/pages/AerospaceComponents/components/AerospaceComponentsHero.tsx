@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
-import bgHero from '@/imports/arsenal_facility.png'; // Or arsenal_facility.jpg
+import bgHero from '@/imports/arsenal_facility.jpg';
 
 export function AerospaceComponentsHero() {
   const scrollToPipeline = () => {
