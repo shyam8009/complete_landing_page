@@ -19,10 +19,6 @@ export function AerospaceCTA() {
             CONTACT MANUFACTURING DIVISION
             <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
           </TechCTA>
-          
-          <a href="#" className="text-white/40 hover:text-white/80 text-sm transition-colors mt-2 underline underline-offset-4 decoration-white/20">
-            Submit Technical Drawings
-          </a>
         </div>
       </div>
     </section>
