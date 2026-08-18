@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import heroVideo from '@/imports/surveillance_radar_hero_bg.mp4'; 
+import { TechCTA } from '@/components/TechCTA';
 
 const INTER = "'Inter', sans-serif";
 
@@ -63,10 +64,10 @@ export function HeroSection() {
           
           {/* CTA */}
           <div className="hero-element flex flex-wrap gap-6 items-center mb-16">
-            <button className="flex items-center gap-2 px-8 py-4 bg-[#84CC16] hover:bg-[#95e01a] text-black font-bold uppercase tracking-wider text-sm transition-all duration-300 rounded-sm">
+            <TechCTA>
               SCHEDULE SECURITY AUDIT
-              <ChevronRight className="w-4 h-4" />
-            </button>
+              <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+            </TechCTA>
           </div>
           
           {/* Quick Stats Block (Glassmorphic) */}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", sans-serif';
 
@@ -18,12 +19,9 @@ export function ClosingSection() {
         </h2>
         
         <div className="flex flex-col items-center gap-6 mt-8">
-          <button 
-            className="bg-[#84CC16] text-black px-8 py-5 text-sm md:text-base font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300"
-            style={{ fontFamily: INTER }}
-          >
+          <TechCTA>
             CONTACT DEFENSE ELECTRONICS DIVISION
-          </button>
+          </TechCTA>
           
           <a 
             href="#" 

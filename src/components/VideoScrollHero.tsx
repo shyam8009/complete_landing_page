@@ -1,6 +1,8 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Play, Pause, Volume2, VolumeX, Loader2 } from 'lucide-react';
+import { TechCTA } from '@/components/TechCTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -299,12 +301,14 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
             display: 'flex', flexWrap: 'wrap', gap: '1.25rem',
             justifyContent: 'center', opacity: 0, transform: 'translateY(56px)',
           }}>
-            <button className="bg-[#FF4D1C] text-white px-8 py-4 font-bold tracking-wider hover:bg-white hover:text-black transition-colors duration-300">
-              DISCOVER FPV SYSTEM
-            </button>
-            <button className="border border-white/30 text-white px-8 py-4 font-bold tracking-wider hover:bg-white/10 transition-colors duration-300 backdrop-blur-sm">
-              VIEW TECHNICAL SPECS
-            </button>
+            <div className="flex flex-wrap gap-4 pt-4">
+              <TechCTA>
+                DISCOVER FPV SYSTEM
+              </TechCTA>
+              <TechCTA className="border border-white/30 hover:bg-white/10 hover:border-white/50">
+                VIEW TECHNICAL SPECS
+              </TechCTA>
+            </div>
           </div>
         </div>
       </section>

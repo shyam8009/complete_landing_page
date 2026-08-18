@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react';
 import imgAerospace from '@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png';
 import imgDefence from '@/imports/innovation_1.jpg';
 import imgSatcom from '@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png';
+import { TechCTA } from '@/components/TechCTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -147,12 +148,12 @@ export default function AerospaceDefenceEcosystem() {
                       </div>
 
                       <div className="pt-5 mt-auto border-t border-slate-200">
-                        <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-slate-900 text-white shadow-[0_0_20px_rgba(0,0,0,0.1)] hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] border border-transparent hover:border-slate-200">
+                        <TechCTA>
                           <span>Know More</span>
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                           </svg>
-                        </button>
+                        </TechCTA>
                       </div>
                     </div>
                   </div>

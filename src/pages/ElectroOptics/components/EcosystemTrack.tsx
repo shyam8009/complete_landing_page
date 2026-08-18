@@ -13,6 +13,7 @@ import imgIncas from '@/imports/electro-optics/Incas - Sentry.png';
 import imgYoto from '@/imports/electro-optics/Yoto - Sigma.png';
 import imgTroy from '@/imports/electro-optics/Troy - Vega.png';
 import imgAlta from '@/imports/electro-optics/Alta - Arc.png';
+import { TechCTA } from '@/components/TechCTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -221,9 +222,9 @@ export function EcosystemTrack() {
                     </div>
 
                     <div className="pt-5 mt-4 border-t border-slate-200">
-                      <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-[#84CC16] hover:text-slate-900 text-white">
+                      <TechCTA>
                         EXPLORE ASSET <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </TechCTA>
                     </div>
                   </div>
                 </div>

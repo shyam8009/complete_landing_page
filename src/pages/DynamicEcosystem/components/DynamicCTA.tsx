@@ -1,4 +1,5 @@
 import React from 'react';
+import { TechCTA } from '@/components/TechCTA';
 
 export default function DynamicCTA({ data }: { data: any }) {
   if (!data) return null;
@@ -25,10 +26,10 @@ export default function DynamicCTA({ data }: { data: any }) {
           {data.headline}
         </h2>
         
-        <button className="group relative bg-[#84CC16] text-[#050505] px-10 py-5 rounded-sm font-bold text-sm tracking-[0.15em] uppercase hover:bg-white transition-colors duration-300 overflow-hidden mb-6">
+        <TechCTA>
           <span className="relative z-10">{data.btnText}</span>
           <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-        </button>
+        </TechCTA>
         
         {data.linkText && (
           <a href="#" className="text-white/40 hover:text-white/80 text-xs tracking-wide transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/50">

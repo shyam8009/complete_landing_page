@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react';
 import bgSchematic from '@/imports/c2_network_schematic.jpg';
 import imgFusionC2 from '@/imports/c2_dashboard_ui.png';
 import imgInterception from '@/imports/interception_ui.jpg';
+import { TechCTA } from '@/components/TechCTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,12 +132,12 @@ export default function CommandControlEcosystem() {
 
                     {/* CTA */}
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-slate-900 text-white">
+                      <TechCTA>
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
-                      </button>
+                      </TechCTA>
                     </div>
                   </div>
                 </div>

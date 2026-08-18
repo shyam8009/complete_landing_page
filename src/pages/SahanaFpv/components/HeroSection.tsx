@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import fpvHeroBg from '../../../imports/Hero banner Video.mp4';
+import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
@@ -43,10 +44,10 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <button className="group relative flex items-center justify-center gap-2 bg-[#84CC16] text-black px-8 py-4 rounded font-bold uppercase tracking-wide hover:bg-[#a3e635] transition-colors">
+              <TechCTA>
                 Request Consultation
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+                <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+              </TechCTA>
             </div>
 
             {/* Quick Stats Grid */}

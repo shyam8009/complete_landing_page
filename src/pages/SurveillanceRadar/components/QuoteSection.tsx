@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { TechCTA } from '@/components/TechCTA';
 
 export function QuoteSection() {
   return (
@@ -24,10 +25,10 @@ export function QuoteSection() {
         
         <div className="w-16 h-1 bg-[#84CC16] mb-12 rounded-full" />
         
-        <button className="group flex items-center gap-3 bg-white text-black px-10 py-5 rounded font-bold uppercase tracking-widest hover:bg-[#84CC16] hover:text-black transition-all duration-300">
+        <TechCTA>
           Secure Contact Form
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </button>
+        </TechCTA>
 
         <div className="mt-16 flex flex-wrap items-center justify-center gap-10 border-t border-white/10 pt-12 w-full max-w-2xl">
           <div className="flex flex-col items-center gap-3">

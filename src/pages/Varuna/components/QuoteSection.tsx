@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
@@ -14,9 +15,9 @@ export function QuoteSection() {
         </h2>
         
         <div className="quote-text flex flex-col items-center gap-6">
-          <button className="px-8 py-4 bg-[#84CC16] hover:bg-[#95e01a] text-black font-bold uppercase tracking-wider text-sm transition-all duration-300 rounded-sm">
+          <TechCTA>
             CONTACT MARITIME SALES
-          </button>
+          </TechCTA>
           
           <button className="text-white/40 hover:text-white transition-colors text-sm underline underline-offset-4 decoration-white/20 hover:decoration-white uppercase tracking-wider font-bold">
             Request a Technical Briefing

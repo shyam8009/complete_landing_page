@@ -1,4 +1,5 @@
 import React from 'react';
+import { TechCTA } from '@/components/TechCTA';
 
 export function JammingCTA() {
   return (
@@ -32,12 +33,12 @@ export function JammingCTA() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
-          <button className="group relative w-full sm:w-auto px-8 py-4 bg-[#84CC16] text-[#050505] font-bold text-sm tracking-widest uppercase overflow-hidden hover:bg-white transition-colors duration-300 flex items-center justify-center gap-3">
+          <TechCTA>
             <span>CONTACT EW DIVISION</span>
             <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </button>
+          </TechCTA>
           
           {/* Secondary CTA */}
           <button className="group relative w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-bold text-sm tracking-widest uppercase hover:bg-white/5 hover:border-white/40 transition-all duration-300 flex items-center justify-center gap-3">

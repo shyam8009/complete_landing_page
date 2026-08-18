@@ -1,5 +1,6 @@
 import React from 'react';
 import { RichText } from '../../../components/RichText';
+import { TechCTA } from '@/components/TechCTA';
 
 export default function DynamicHero({ data }: { data: any }) {
   const scrollToNextSection = () => {
@@ -47,15 +48,12 @@ export default function DynamicHero({ data }: { data: any }) {
           <RichText content={data.intro} className="text-base md:text-xl text-neutral-300 leading-relaxed max-w-2xl mb-12" />
         )}
 
-        <button 
-          onClick={scrollToNextSection}
-          className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
-        >
+        <TechCTA>
           {data.ctaText || 'Know More'}
           <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
-        </button>
+        </TechCTA>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none" />

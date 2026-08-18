@@ -7,6 +7,7 @@ import { ArrowRight } from 'lucide-react';
 import bgGrid from '@/imports/spear_cad_blueprint.png'; 
 import guardianImg from '@/imports/guardian/magnific_professional-studio-produ_brfvUMF5Y2.png';
 import sensorDomeImg from "@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png";
+import { TechCTA } from '@/components/TechCTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -122,9 +123,9 @@ export function EcosystemTrack() {
                     </div>
 
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-[#84CC16] hover:text-slate-900 text-white">
+                      <TechCTA>
                         EXPLORE ASSET <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </TechCTA>
                     </div>
                   </div>
                 </div>

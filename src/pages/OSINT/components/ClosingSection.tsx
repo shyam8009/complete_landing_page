@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import { TechCTA } from '@/components/TechCTA';
 
 export function ClosingSection() {
   return (
@@ -10,10 +11,10 @@ export function ClosingSection() {
         </h2>
         
         <div className="flex flex-col items-center justify-center gap-4">
-          <button className="flex items-center gap-2 px-8 py-4 bg-[#84CC16] hover:bg-[#95e01a] text-black font-bold uppercase tracking-wider text-sm transition-all duration-300 rounded-sm">
+          <TechCTA>
             CONTACT DEFENSE AI ENGINEERS
-            <ChevronRight className="w-4 h-4" />
-          </button>
+            <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+          </TechCTA>
           
           <a href="#" className="text-white/40 hover:text-white/80 text-sm transition-colors mt-2">
             Schedule Strategic Intelligence Technical Review

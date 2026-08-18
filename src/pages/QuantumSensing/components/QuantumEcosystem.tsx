@@ -11,6 +11,7 @@ import imgDrone from '@/imports/quantum_stealth_drone.jpg';
 import imgClock from '@/imports/quantum_atomic_clock.jpg';
 import bgVideo from '@/imports/gwr_video_mvp.mp4';
 import bgSchematic from '@/imports/unified_quantum_schematic.jpg';
+import { TechCTA } from '@/components/TechCTA';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -256,12 +257,12 @@ function TacticalConsoleCard({ data }: { data: CardData }) {
 
           {/* Bottom CTA Block locked to bottom via mt-auto */}
           <div className="pt-6 mt-auto border-t border-slate-200">
-            <button className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-white hover:text-slate-900 text-white group">
+            <TechCTA>
               <span>Know More</span>
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
-            </button>
+            </TechCTA>
           </div>
         </div>
       </div>

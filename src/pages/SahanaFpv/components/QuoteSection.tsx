@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
@@ -17,10 +18,10 @@ export function QuoteSection() {
         </h2>
         
         <div className="flex flex-col items-center gap-6">
-          <button className="group relative flex items-center justify-center gap-2 bg-[#84CC16] text-black px-10 py-5 rounded font-bold uppercase tracking-wide hover:bg-[#a3e635] transition-all duration-300 hover:shadow-[0_0_30px_rgba(132,204,22,0.3)]">
+          <TechCTA>
             CONTACT INTERCEPTION SALES
-            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+            <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+          </TechCTA>
           
           <button className="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-widest font-mono hover:underline underline-offset-4">
             Request a Technical Briefing
