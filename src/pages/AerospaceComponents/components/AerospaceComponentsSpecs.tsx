@@ -73,10 +73,10 @@ export function AerospaceComponentsSpecs() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 bg-[#F8F9FA] border-y border-black/5 relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-[#050505] border-y border-white/5 relative overflow-hidden">
       
       {/* Dynamic Background Noise/Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(132,204,22,0.1)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(132,204,22,0.05)_0%,transparent_70%)] pointer-events-none" />
       
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         
@@ -87,7 +87,7 @@ export function AerospaceComponentsSpecs() {
               // PRECISION AEROSPACE PORTFOLIO
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#050505] uppercase tracking-tight max-w-3xl leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase tracking-tight max-w-3xl leading-[1.1]">
             Technical Specifications & Applications
           </h2>
         </div>
@@ -100,19 +100,19 @@ export function AerospaceComponentsSpecs() {
               <div 
                 key={spec.id}
                 ref={el => cardsRef.current[idx] = el}
-                className="group relative flex flex-col bg-white rounded-xl overflow-hidden border border-black/10 hover:border-[#84CC16]/50 shadow-sm hover:shadow-xl hover:shadow-[#84CC16]/10 transition-all duration-500 h-[600px]"
+                className="group relative flex flex-col bg-[#0a0a0a] rounded-xl overflow-hidden border border-white/10 hover:border-[#84CC16]/50 shadow-sm hover:shadow-xl hover:shadow-[#84CC16]/10 transition-all duration-500 h-[600px]"
               >
                 {/* Image Section (Top Half) */}
-                <div className="relative h-[45%] w-full overflow-hidden">
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                <div className="relative h-[45%] w-full overflow-hidden bg-[#050505]">
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 z-10" />
                   <img 
                     src={spec.image} 
                     alt={spec.title}
                     className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                   />
                   {/* Floating badge */}
-                  <div className="absolute top-4 right-4 z-20 bg-white/95 backdrop-blur-md border border-black/10 px-3 py-1 rounded-sm shadow-sm">
-                    <span className="text-[#050505] text-[10px] uppercase tracking-widest font-mono font-bold">
+                  <div className="absolute top-4 right-4 z-20 bg-black border border-white/10 px-3 py-1 rounded-sm shadow-sm">
+                    <span className="text-[#84CC16] text-[10px] uppercase tracking-widest font-mono font-bold">
                       {spec.subtitle}
                     </span>
                   </div>
@@ -120,31 +120,31 @@ export function AerospaceComponentsSpecs() {
 
                 {/* Content Section (Bottom Half) */}
                 <div className="relative p-8 flex flex-col flex-grow">
-                  <div className="absolute top-0 left-8 -translate-y-1/2 w-12 h-12 bg-white border border-black/10 rounded-full flex items-center justify-center z-20 group-hover:border-[#84CC16] shadow-md transition-colors duration-300">
-                    <Icon className="w-5 h-5 text-[#050505] group-hover:text-[#84CC16] transition-colors" />
+                  <div className="absolute top-0 left-8 -translate-y-1/2 w-12 h-12 bg-[#111] border border-[#84CC16]/30 rounded-full flex items-center justify-center z-20 group-hover:border-[#84CC16] shadow-md transition-colors duration-300">
+                    <Icon className="w-5 h-5 text-[#84CC16]" />
                   </div>
 
                   <div className="mt-4 mb-2 flex items-center gap-3">
-                    <span className="text-[#84CC16] font-mono text-sm font-bold">{spec.id}</span>
-                    <div className="h-px bg-black/10 flex-grow" />
+                    <span className="text-[#84CC16] font-mono text-xs font-black">{spec.id}</span>
+                    <div className="h-px bg-white/10 flex-grow" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-[#050505] uppercase tracking-tight mb-4 group-hover:text-[#84CC16] transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-white uppercase tracking-tight mb-4 group-hover:text-[#84CC16] transition-colors duration-300">
                     {spec.title}
                   </h3>
                   
-                  <p className="text-[#050505]/60 text-sm leading-relaxed mb-auto">
+                  <p className="text-gray-300 text-sm leading-relaxed mb-auto">
                     {spec.description}
                   </p>
 
                   {/* Data Metrics Footer */}
-                  <div className="mt-8 pt-6 border-t border-black/10 grid grid-cols-2 gap-4">
+                  <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-4">
                     {spec.metrics.map((metric, i) => (
                       <div key={i} className="flex flex-col">
-                        <span className="text-[#050505]/40 text-[10px] uppercase tracking-wider font-mono mb-1 font-bold">
+                        <span className="text-gray-500 text-[10px] uppercase tracking-wider font-mono mb-1 font-bold">
                           {metric.label}
                         </span>
-                        <span className="text-[#050505] font-bold text-sm">
+                        <span className="text-white font-bold text-sm">
                           {metric.value}
                         </span>
                       </div>
