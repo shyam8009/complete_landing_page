@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const SCROLL_LENGTH = '600%'; // Restored for ample scroll space with slow-mo
 
 export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -27,6 +28,8 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
     if (isReducedMotion) return;
 
     const section = sectionRef.current;
+    const container = containerRef.current;
+    if (!container) return;
     const video = videoRef.current;
     if (!section || !video) return;
 
@@ -49,7 +52,7 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
       // ── GSAP overlay timeline (synced to scroll progress) ────────────
       function setupOverlays() {
         const stConfig = {
-          trigger: section,
+          trigger: containerRef.current,
           start: 'top top',
           end: `+=${SCROLL_LENGTH}`,
           scrub: 1,
@@ -108,10 +111,10 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
         }
 
         const stConfig = {
-          trigger: section,
+          trigger: containerRef.current,
           start: 'top top',
           end: `+=${SCROLL_LENGTH}`,
-          pin: true,
+          // pin: true, // Replaced with native CSS sticky layout for better mobile performance
           scrub: 1, // 1 second smoothing
           onUpdate: (self) => {
             const currentT = videoProxy.currentTime;
@@ -189,10 +192,10 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
   }, [videoSrc]);
 
   return (
-    <div className="hero-scroll-container">
+    <div ref={containerRef} className="hero-scroll-container relative h-[600vh]">
       <section
         ref={sectionRef}
-        className="relative w-full h-screen bg-black overflow-hidden"
+        className="sticky top-0 w-full h-screen bg-black overflow-hidden"
       >
         <video
           ref={videoRef}
@@ -323,4 +326,6 @@ const OL_BASE: React.CSSProperties = {
   display: 'flex', flexDirection: 'column',
   alignItems: 'center', justifyContent: 'center', padding: 'clamp(1rem, 3vw, 2rem)',
 };
+
+
 
