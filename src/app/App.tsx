@@ -409,7 +409,8 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
   }, []);
 
   return (
-    <header 
+    <>
+      <header 
       className={`fixed left-1/2 -translate-x-1/2 z-50 flex flex-col justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isHiddenOnHome 
           ? "top-0 w-full h-[86px] opacity-0 -translate-y-full pointer-events-none" 
@@ -494,6 +495,8 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
           </button>
         </div>
       </div>
+
+        </header>
 
       {/* Capabilities Mega Menu Dropdown */}
       <div
@@ -869,7 +872,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         </div>
       </div>
 
-    </header>
+    </>
   );
 }
 // ——— HERO ————————————————————————————————————————————————————————————————————————————————————
