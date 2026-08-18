@@ -116,7 +116,7 @@ export function InteractiveBlueprint({
       <div className="max-w-[1600px] mx-auto px-4 lg:px-8 w-full relative z-10 flex flex-col md:flex-row gap-12 lg:gap-24 items-center">
         
         {/* LEFT COLUMN: Architecture Nav Tree */}
-        <div ref={leftColRef} className="w-full md:w-1/3 relative flex flex-col justify-between py-12" style={{ height: '70vh' }}>
+        <div ref={leftColRef} className="w-full md:w-1/3 relative flex flex-col justify-between pt-12 md:py-12 h-auto md:h-[70vh]">
           
           {/* Section Header */}
           <div className="mb-8">
@@ -128,9 +128,9 @@ export function InteractiveBlueprint({
           </div>
 
           {/* Nodes */}
-          <div className="flex flex-col justify-between flex-grow pl-14 relative z-10">
+          <div className="flex flex-row md:flex-col justify-start md:justify-between flex-grow md:pl-14 relative z-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-8 md:gap-0 pb-4 md:pb-0 border-b border-slate-200 md:border-none scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {/* SVG Trace Line */}
-            <div className="absolute left-6 top-4 bottom-8 w-0.5 bg-slate-200 -translate-x-1/2 -z-10">
+            <div className="hidden md:block absolute left-6 top-4 bottom-8 w-0.5 bg-slate-200 -translate-x-1/2 -z-10">
               <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 2 1000">
                 <path 
                   ref={svgLineRef}
@@ -147,9 +147,9 @@ export function InteractiveBlueprint({
               const isActive = activeTier === idx;
               const isPast = activeTier > idx;
               return (
-                <div key={tier.id} className="relative group cursor-pointer transition-all duration-500">
+                <div key={tier.id} className="relative group cursor-pointer transition-all duration-500 flex-shrink-0 snap-center pr-8 md:pr-0">
                   <div 
-                    className={`absolute -left-8 -translate-x-1/2 top-2 w-4 h-4 rounded-full border-2 transition-all duration-500 flex items-center justify-center
+                    className={`hidden md:flex absolute -left-8 -translate-x-1/2 top-2 w-4 h-4 rounded-full border-2 transition-all duration-500 items-center justify-center
                       ${isActive ? 'border-[#0052FF] bg-white scale-125 shadow-[0_0_15px_rgba(0,82,255,0.4)]' : 
                         isPast ? 'border-[#0052FF] bg-[#0052FF]' : 'border-slate-300 bg-white'}`}
                   >
@@ -164,6 +164,9 @@ export function InteractiveBlueprint({
                     ${isActive ? 'text-slate-900' : 'text-slate-400 group-hover:text-slate-600'}`}>
                     {tier.title}
                   </h3>
+                  
+                  {/* Mobile active indicator (bottom border) */}
+                  <div className={`absolute bottom-[-16px] left-0 w-full h-1 transition-all duration-500 md:hidden ${isActive ? 'bg-[#0052FF]' : 'bg-transparent'}`} />
                 </div>
               );
             })}
@@ -171,7 +174,7 @@ export function InteractiveBlueprint({
         </div>
 
         {/* RIGHT COLUMN: Dynamic Spec Inspector */}
-        <div className="w-full md:w-2/3 relative" style={{ height: '70vh' }}>
+        <div className="w-full md:w-2/3 relative h-[600px] md:h-[70vh] mt-8 md:mt-0">
           
           {/* TIER 1: Blue Dark Banner */}
           <div ref={el => rightPanelsRef.current[0] = el} className="absolute inset-0 flex items-center justify-center invisible">
