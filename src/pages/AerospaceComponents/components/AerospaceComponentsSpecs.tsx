@@ -1,7 +1,7 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Settings, Frame, Disc } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import img1 from '@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png';
 import img2 from '@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png';
 import img3 from '@/imports/magnific_extreme-closeup-macro-pro_LUQGHhOswO.png';
@@ -15,11 +15,6 @@ const SPECS = [
     subtitle: 'CRITICAL PROPULSION',
     description: 'Manufactured to severe defense-grade tolerances using titanium, high-alloy steel, and nickel alloys.',
     image: img1,
-    icon: Settings,
-    metrics: [
-      { label: 'Production', value: '40,000+ Units' },
-      { label: 'Platform', value: 'Su-30MKI' }
-    ]
   },
   {
     id: '02',
@@ -27,11 +22,6 @@ const SPECS = [
     subtitle: 'FLIGHT DYNAMICS',
     description: 'Precision-machined structural parts engineered to serve as load-bearing components for airframes and fuselages.',
     image: img2,
-    icon: Frame,
-    metrics: [
-      { label: 'Load-Bearing', value: 'Optimized' },
-      { label: 'Strength', value: 'Stringent' }
-    ]
   },
   {
     id: '03',
@@ -39,11 +29,6 @@ const SPECS = [
     subtitle: 'CRITICAL ASSEMBLIES',
     description: 'High-accuracy brackets and shackles designed for load-bearing defense and aerospace systems.',
     image: img3,
-    icon: Disc,
-    metrics: [
-      { label: 'Tolerances', value: 'Exacting' },
-      { label: 'Connections', value: 'Secure' }
-    ]
   }
 ];
 
@@ -73,12 +58,8 @@ export function AerospaceComponentsSpecs() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 bg-white border-y border-gray-200 relative overflow-hidden">
-      
-      {/* Dynamic Background Noise/Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(132,204,22,0.05)_0%,transparent_70%)] pointer-events-none" />
-      
-      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
+    <section ref={sectionRef} className="py-32 bg-white border-y border-gray-200 relative">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         
         {/* Header */}
         <div className="mb-20">
@@ -94,66 +75,69 @@ export function AerospaceComponentsSpecs() {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {SPECS.map((spec, idx) => {
-            const Icon = spec.icon;
-            return (
-              <div 
-                key={spec.id}
-                ref={el => cardsRef.current[idx] = el}
-                className="group relative flex flex-col bg-white rounded-xl overflow-hidden border border-gray-200 shadow-xl shadow-gray-200/50 hover:border-[#84CC16]/50 transition-all duration-500 h-[600px]"
-              >
-                {/* Image Section (Top Half) */}
-                <div className="relative h-[45%] w-full overflow-hidden bg-white">
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                  <img 
-                    src={spec.image} 
-                    alt={spec.title}
-                    className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
-                  />
-                  {/* Floating badge */}
-                  <div className="absolute top-4 right-4 z-20 bg-white border border-gray-200 px-3 py-1 rounded-sm shadow-sm">
-                    <span className="text-[#84CC16] text-[10px] uppercase tracking-widest font-mono font-bold">
-                      {spec.subtitle}
-                    </span>
+          {SPECS.map((spec, idx) => (
+            <div 
+              key={spec.id}
+              ref={el => cardsRef.current[idx] = el}
+              className="group relative flex flex-col bg-[#F5F5F5] rounded-xl overflow-hidden h-[500px]"
+            >
+              
+              {/* Initial Text Layer (Z-0) */}
+              <div className="relative z-0 flex flex-col justify-between h-full p-8 md:p-10">
+                
+                <div className="flex flex-col gap-6">
+                  {/* Top: Logo / ID */}
+                  <span className="text-[#84CC16] font-mono text-xl font-black">
+                    {spec.id}
+                  </span>
+                  
+                  {/* Title & Description */}
+                  <div>
+                    <h3 className="text-3xl font-bold text-black uppercase tracking-tight mb-4 leading-tight">
+                      {spec.title}
+                    </h3>
+                    <p className="text-gray-600 text-base leading-relaxed">
+                      {spec.description}
+                    </p>
                   </div>
                 </div>
 
-                {/* Content Section (Bottom Half) */}
-                <div className="relative p-8 flex flex-col flex-grow">
-                  <div className="absolute top-0 left-8 -translate-y-1/2 w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center z-20 group-hover:border-[#84CC16] shadow-sm transition-colors duration-300">
-                    <Icon className="w-5 h-5 text-[#84CC16]" />
+                {/* Bottom: CTA */}
+                <div className="mt-auto pt-8">
+                  <div className="inline-flex flex-col">
+                    <span className="text-black font-bold text-sm tracking-[2px] uppercase mb-2 flex items-center gap-2">
+                      READ MORE
+                      <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="w-full h-0.5 bg-[#84CC16]" />
                   </div>
+                </div>
 
-                  <div className="mt-4 mb-2 flex items-center gap-3">
-                    <span className="text-[#84CC16] font-mono text-xs font-black">{spec.id}</span>
-                    <div className="h-px bg-gray-200 flex-grow" />
-                  </div>
+              </div>
 
-                  <h3 className="text-2xl font-bold text-black uppercase tracking-tight mb-4 group-hover:text-[#84CC16] transition-colors duration-300">
+              {/* Hover Media Layer (Z-10) - Slides up to cover */}
+              <div className="absolute inset-0 w-full h-full z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
+                {/* Optional dark overlay so if we wanted to overlay text it would be readable. But prompt says "sliding up smoothly to cover the text". */}
+                <div className="absolute inset-0 bg-black/10 z-10 pointer-events-none" />
+                <img 
+                  src={spec.image} 
+                  alt={spec.title}
+                  className="w-full h-full object-cover grayscale-0"
+                />
+                
+                {/* To ensure the CTA is still clickable or the card still makes sense, we can overlay the title over the image on hover */}
+                <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 md:p-10 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] delay-100 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                  <h3 className="text-2xl font-bold text-white uppercase tracking-tight mb-2">
                     {spec.title}
                   </h3>
-                  
-                  <p className="text-gray-600 text-sm leading-relaxed mb-auto">
-                    {spec.description}
-                  </p>
-
-                  {/* Data Metrics Footer */}
-                  <div className="mt-8 pt-6 border-t border-gray-200 grid grid-cols-2 gap-4">
-                    {spec.metrics.map((metric, i) => (
-                      <div key={i} className="flex flex-col">
-                        <span className="text-gray-500 text-[10px] uppercase tracking-wider font-mono mb-1 font-bold">
-                          {metric.label}
-                        </span>
-                        <span className="text-black font-bold text-sm">
-                          {metric.value}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                  <span className="text-[#84CC16] text-xs font-bold tracking-[2px] uppercase">
+                    {spec.subtitle}
+                  </span>
                 </div>
               </div>
-            );
-          })}
+
+            </div>
+          ))}
         </div>
 
       </div>
