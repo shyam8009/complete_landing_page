@@ -414,7 +414,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         isHiddenOnHome 
           ? "top-0 w-full h-[86px] opacity-0 -translate-y-full pointer-events-none" 
           : scrolled 
-            ? "top-4 w-[95%] lg:w-[90%] max-w-[1200px] h-[64px] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.5)] border border-white/20 opacity-100 translate-y-0" 
+            ? "top-4 w-[95%] md:w-[90%] max-w-[1200px] h-[64px] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.5)] border border-white/20 opacity-100 translate-y-0" 
             : "top-0 w-full max-w-none h-[86px] rounded-none border-b border-white/10 opacity-100 translate-y-0"
       }`}
       onMouseLeave={handleMouseLeave}
@@ -425,7 +425,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
           : "bg-[#05080D]/90 backdrop-blur-xl rounded-none"
       }`} />
 
-      <div className={`relative flex items-center justify-between z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "px-6 lg:px-8 h-[64px]" : "px-6 lg:px-9 h-[86px]"}`}>
+      <div className={`relative flex items-center justify-between z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "px-6 md:px-8 h-[64px]" : "px-6 md:px-9 h-[86px]"}`}>
         <a href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} 
            className="relative shrink-0 flex items-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" 
            style={{ width: scrolled ? '40px' : '210px', height: '40px' }}>
@@ -442,7 +442,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         </a>
 
         {/* Desktop Links */}
-        <nav className={`hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "gap-6 scale-[0.85]" : "gap-8 scale-100"}`}>
+        <nav className={`hidden md:flex items-center absolute left-1/2 -translate-x-1/2 h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "gap-6 scale-[0.85]" : "gap-8 scale-100"}`}>
           {['Capabilities', 'Investors', 'Newsroom', 'About Us'].map((link) => (
             <div 
               key={link}
@@ -469,7 +469,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         </nav>
 
         {/* Right Desktop Links */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6">
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); setHoveredNav(null); }}
@@ -480,16 +480,16 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         </div>
 
         {/* Mobile Hamburger (Only visible on mobile screens) */}
-        <div className="flex lg:hidden items-center gap-4">
+        <div className="flex md:hidden items-center gap-4">
           <button
-            className="text-white p-2 cursor-pointer"
+            className="text-white w-12 h-12 flex items-center justify-center cursor-pointer -mr-2"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
           >
-            <div className="space-y-1.5">
-              <span className="block w-6 h-px bg-white transition-transform" />
-              <span className="block w-6 h-px bg-white transition-transform" />
-              <span className="block w-4 h-px bg-white transition-transform" />
+            <div className="space-y-1.5 flex flex-col items-end">
+              <span className="block w-6 h-[2px] bg-white transition-transform" />
+              <span className="block w-6 h-[2px] bg-white transition-transform" />
+              <span className="block w-4 h-[2px] bg-white transition-transform" />
             </div>
           </button>
         </div>
@@ -497,7 +497,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
 
       {/* Capabilities Mega Menu Dropdown */}
       <div
-        className={`hidden lg:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top z-40 ${
+        className={`hidden md:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'Capabilities'
@@ -655,7 +655,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
 
       {/* Investors Mega Menu Dropdown */}
       <div
-        className={`hidden lg:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden md:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top overflow-hidden z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'Investors'
@@ -764,7 +764,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
 
       {/* Newsroom Small Dropdown */}
       <div
-        className={`hidden lg:block fixed left-[50%] ml-[40px] w-[220px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden md:block fixed left-[50%] ml-[40px] w-[220px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'Newsroom'
@@ -789,7 +789,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
 
       {/* About Us Small Dropdown */}
       <div
-        className={`hidden lg:block fixed left-[50%] ml-[160px] w-[200px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden md:block fixed left-[50%] ml-[160px] w-[200px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'About Us'
@@ -809,7 +809,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
       </div>
 
       {/* Mobile Menu Drawer (Stacked Accordion) */}
-      <div className={`lg:hidden fixed inset-0 top-[86px] bg-[#05080D] z-40 overflow-y-auto transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`md:hidden fixed inset-0 top-[86px] bg-[#05080D] z-40 overflow-y-auto transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col p-6 gap-2">
           
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { navigate('/'); setMobileOpen(false); }}>Home</a>
@@ -1155,7 +1155,7 @@ function ProductsSection() {
       </div>
 
       {/* ——— Mobile / tablet stacked grid ——— */}
-      <div className="grid lg:hidden grid-cols-1 sm:grid-cols-2 gap-5 w-full">
+      <div className="grid md:hidden grid-cols-1 sm:grid-cols-2 gap-5 w-full">
         {PRODUCTS_DATA.map((product) => (
           <ProductCard
             key={product.name}

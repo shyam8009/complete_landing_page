@@ -27,7 +27,7 @@ export function AerospaceComponentsHero() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen overflow-hidden bg-black">
+    <section ref={containerRef} className="relative w-full min-h-screen overflow-hidden bg-black flex items-center">
       {/* Background Image */}
       <img
         src={heroBg}
@@ -36,38 +36,38 @@ export function AerospaceComponentsHero() {
       />
       
       {/* Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/90 md:from-black/80 via-black/50 md:via-black/40 to-transparent z-10" />
       <div className="absolute inset-0 bg-black/20 z-10" />
       
       {/* Content Container */}
-      <div className="relative z-20 h-full flex flex-col justify-center px-6 lg:px-12 max-w-[1600px] mx-auto">
-        <div className="max-w-3xl">
+      <div className="relative z-20 w-full px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto pt-20 md:pt-0">
+        <div className="max-w-3xl flex flex-col items-center text-center md:items-start md:text-left mx-auto md:mx-0">
           
           {/* Eyebrow */}
-          <div className="hero-element inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6">
+          <div className="hero-element inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6 md:mb-8">
             <div className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse shadow-[0_0_8px_#84CC16]" />
-            <span className="text-xs font-bold tracking-[2px] text-white uppercase" style={{ fontFamily: INTER }}>
+            <span className="text-[10px] md:text-xs font-bold tracking-[2px] text-white uppercase" style={{ fontFamily: INTER }}>
               STRATEGIC MANUFACTURING / AEROSPACE COMPONENTS
             </span>
           </div>
           
           {/* Headline */}
           <h1 
-            className="hero-element text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
+            className="hero-element text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
             style={{ fontFamily: INTER }}
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-neutral-500">
-              FLIGHT-CRITICAL<br />AEROSPACE COMPONENTS
+              FLIGHT-CRITICAL<br className="hidden sm:block" /> AEROSPACE COMPONENTS
             </span>
           </h1>
           
           {/* Subheadline */}
-          <p className="hero-element text-xl text-white/60 mb-10 max-w-lg leading-relaxed">
+          <p className="hero-element text-base sm:text-lg md:text-xl text-white/70 mb-10 max-w-lg leading-relaxed">
             Zero-defect precision machining for extreme aviation environments. Delivering mission-critical engine hardware and structural components with uncompromising quality.
           </p>
           
           {/* CTA */}
-          <div className="hero-element flex flex-wrap gap-6 items-center mb-16">
+          <div className="hero-element flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 items-center mb-16">
             <TechCTA onClick={scrollToPipeline}>
               REQUEST COMPONENT QUOTE
               <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
@@ -75,15 +75,18 @@ export function AerospaceComponentsHero() {
           </div>
           
           {/* Quick Stats Block (Glassmorphic) */}
-          <div className="hero-element flex flex-wrap gap-8 p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl max-w-fit">
-            <div>
-              <div className="text-3xl font-bold text-white">AS9100D</div>
-              <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Aerospace Quality Management</div>
+          <div className="hero-element flex flex-col md:flex-row gap-6 md:gap-8 p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl w-full md:max-w-fit">
+            <div className="text-center md:text-left">
+              <div className="text-3xl md:text-4xl font-bold text-white">AS9100D</div>
+              <div className="text-xs md:text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Aerospace Quality Management</div>
             </div>
-            <div className="w-px bg-white/20" />
-            <div>
-              <div className="text-3xl font-bold text-white">20+ Years</div>
-              <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Precision Operations</div>
+            
+            {/* Divider */}
+            <div className="h-px w-full md:w-px md:h-auto bg-white/20" />
+            
+            <div className="text-center md:text-left">
+              <div className="text-3xl md:text-4xl font-bold text-white">20+ Years</div>
+              <div className="text-xs md:text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Precision Operations</div>
             </div>
           </div>
           
