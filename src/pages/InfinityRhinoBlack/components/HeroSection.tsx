@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroBgVideo from '../../../imports/Hero banner Video.mp4';
+import heroBgVideo from '../../../imports/infinity-rhino-black/Infinity_Rhino_Black_Hero_Banner.mp4';
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = "'Inter', sans-serif";
