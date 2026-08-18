@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { Activity, Cpu, Network, Radio, Target, Zap } from 'lucide-react';
+import { Activity, Cpu, Network, Radio, Target, Zap, ChevronDown } from 'lucide-react';
 import bgPattern from '../imports/light_blueprint_bg.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -39,6 +39,7 @@ export function InteractiveBlueprint({
   const rightPanelsRef = useRef<(HTMLDivElement | null)[]>([]);
   const svgLineRef = useRef<SVGPathElement>(null);
   const [activeTier, setActiveTier] = useState(0);
+  const [openAccordion, setOpenAccordion] = useState(0);
 
   // Fallback if less than 3 tiers are provided
   const displayTiers = [...tiers];
@@ -59,42 +60,46 @@ export function InteractiveBlueprint({
   useGSAP(() => {
     if (!containerRef.current || !svgLineRef.current) return;
 
-    // Calculate total path length for drawing animation
-    const pathLength = svgLineRef.current.getTotalLength();
-    gsap.set(svgLineRef.current, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+    let mm = gsap.matchMedia();
 
-    // Hide all right panels except the first one initially
-    gsap.set(rightPanelsRef.current.slice(1), { autoAlpha: 0, rotationX: 10, y: 30, transformPerspective: 1000 });
-    gsap.set(rightPanelsRef.current[0], { autoAlpha: 1, rotationX: 0, y: 0, transformPerspective: 1000 });
+    mm.add('(min-width: 768px)', () => {
+      // Calculate total path length for drawing animation
+      const pathLength = svgLineRef.current.getTotalLength();
+      gsap.set(svgLineRef.current, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top top',
-        end: '+=2000', // Scroll duration for the entire section
-        pin: true,
-        scrub: 0.5,
-        onUpdate: (self) => {
-          let current = 0;
-          if (self.progress > 0.66) current = 2;
-          else if (self.progress > 0.33) current = 1;
-          
-          if (current !== activeTier) {
-            setActiveTier(current);
+      // Hide all right panels except the first one initially
+      gsap.set(rightPanelsRef.current.slice(1), { autoAlpha: 0, rotationX: 10, y: 30, transformPerspective: 1000 });
+      gsap.set(rightPanelsRef.current[0], { autoAlpha: 1, rotationX: 0, y: 0, transformPerspective: 1000 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: '+=2000', // Scroll duration for the entire section
+          pin: true,
+          scrub: 0.5,
+          onUpdate: (self) => {
+            let current = 0;
+            if (self.progress > 0.66) current = 2;
+            else if (self.progress > 0.33) current = 1;
+            
+            if (current !== activeTier) {
+              setActiveTier(current);
+            }
           }
         }
-      }
+      });
+
+      // Animate the line drawing down across the whole scroll duration
+      tl.to(svgLineRef.current, { strokeDashoffset: 0, ease: 'none', duration: 3 }, 0);
+
+      // Cross-fade animations for panels tied to scroll progress
+      tl.to(rightPanelsRef.current[0], { autoAlpha: 0, rotationX: -10, y: -30, duration: 0.5, ease: 'power2.inOut' }, 0.8);
+      tl.to(rightPanelsRef.current[1], { autoAlpha: 1, rotationX: 0, y: 0, duration: 0.5, ease: 'power2.out' }, 1.0);
+
+      tl.to(rightPanelsRef.current[1], { autoAlpha: 0, rotationX: -10, y: -30, duration: 0.5, ease: 'power2.inOut' }, 1.8);
+      tl.to(rightPanelsRef.current[2], { autoAlpha: 1, rotationX: 0, y: 0, duration: 0.5, ease: 'power2.out' }, 2.0);
     });
-
-    // Animate the line drawing down across the whole scroll duration
-    tl.to(svgLineRef.current, { strokeDashoffset: 0, ease: 'none', duration: 3 }, 0);
-
-    // Cross-fade animations for panels tied to scroll progress
-    tl.to(rightPanelsRef.current[0], { autoAlpha: 0, rotationX: -10, y: -30, duration: 0.5, ease: 'power2.inOut' }, 0.8);
-    tl.to(rightPanelsRef.current[1], { autoAlpha: 1, rotationX: 0, y: 0, duration: 0.5, ease: 'power2.out' }, 1.0);
-
-    tl.to(rightPanelsRef.current[1], { autoAlpha: 0, rotationX: -10, y: -30, duration: 0.5, ease: 'power2.inOut' }, 1.8);
-    tl.to(rightPanelsRef.current[2], { autoAlpha: 1, rotationX: 0, y: 0, duration: 0.5, ease: 'power2.out' }, 2.0);
 
   }, { scope: containerRef });
 
@@ -113,7 +118,7 @@ export function InteractiveBlueprint({
         <div className="absolute inset-0 bg-gradient-to-b from-[#F8F9FA] via-transparent to-[#F8F9FA]" />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-4 lg:px-8 w-full relative z-10 flex flex-col md:flex-row gap-12 lg:gap-24 items-center">
+      <div className="hidden md:flex max-w-[1600px] mx-auto px-4 lg:px-8 w-full relative z-10 flex-row gap-12 lg:gap-24 items-center">
         
         {/* LEFT COLUMN: Architecture Nav Tree */}
         <div ref={leftColRef} className="w-full md:w-1/3 relative flex flex-col justify-between pt-12 md:py-12 h-auto md:h-[70vh]">
@@ -358,6 +363,80 @@ export function InteractiveBlueprint({
 
         </div>
       </div>
+
+      {/* MOBILE ACCORDION (Visible only on < 768px) */}
+      <div className="md:hidden max-w-[1600px] mx-auto px-4 w-full relative z-10 flex flex-col gap-4 py-12">
+        {/* Mobile Section Header */}
+        <div className="mb-6">
+          <span className="text-[#0052FF] font-mono text-xs font-bold uppercase tracking-[0.2em] mb-2 block">
+            {subtitle}
+          </span>
+          <h2 className="text-3xl font-bold text-slate-900 uppercase tracking-tight leading-tight" dangerouslySetInnerHTML={{__html: title.replace(' ', '<br/>')}}>
+          </h2>
+        </div>
+
+        {finalTiers.map((tier, idx) => {
+          const isExpanded = openAccordion === idx;
+          return (
+            <div key={tier.id} className="w-full flex flex-col border border-slate-700/50 rounded-sm overflow-hidden bg-slate-900/50">
+              {/* Header */}
+              <div 
+                className="w-full p-4 flex items-center justify-between bg-slate-900 border-b border-slate-800 cursor-pointer"
+                onClick={() => setOpenAccordion(isExpanded ? -1 : idx)}
+              >
+                <div>
+                  <span className="text-[10px] font-mono text-[#0052FF] font-bold uppercase tracking-widest block mb-1">
+                    Tier 0{idx + 1} // {tier.type}
+                  </span>
+                  <h3 className="text-lg font-bold text-white uppercase tracking-wide">
+                    {tier.title}
+                  </h3>
+                </div>
+                <div>
+                  <ChevronDown className={`w-5 h-5 text-[#0052FF] transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[1000px]' : 'max-h-0'}`}>
+                <div className="w-full p-4 flex flex-col gap-6 bg-slate-950">
+                  
+                  {/* Media Container */}
+                  <div className="w-full aspect-video relative rounded-sm overflow-hidden bg-black border border-white/10">
+                    {tier.image && <img src={tier.image} alt={tier.title} className="w-full h-full object-cover opacity-80" />}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                    <div className="absolute bottom-3 left-3">
+                       <div className="inline-flex items-center gap-2 px-2 py-1 bg-blue-950/50 text-blue-400 rounded-sm text-[8px] font-mono font-bold tracking-widest border border-blue-900">
+                         <Radio className="w-3 h-3" />
+                         {tier.statusBadge}
+                       </div>
+                    </div>
+                  </div>
+
+                  {/* Specs / Description */}
+                  <div>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                      {tier.description}
+                    </p>
+                    <div className="space-y-3">
+                      {tier.specs.map((spec, sIdx) => (
+                        <React.Fragment key={sIdx}>
+                          <div className="flex items-center justify-between">
+                            <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">{spec.label}</span>
+                            <span className={`text-xs font-bold ${spec.highlight ? 'text-[#0052FF]' : 'text-white'}`}>{spec.value}</span>
+                          </div>
+                          {sIdx < tier.specs.length - 1 && <div className="h-px w-full bg-white/10" />}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
     </section>
   );
 }
