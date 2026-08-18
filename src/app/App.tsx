@@ -2219,7 +2219,22 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  const [heroFinished, setHeroFinished] = useState(false);
+  const [heroFinished, setHeroFinished] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 820;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 820 && !heroFinished) {
+        setHeroFinished(true);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [heroFinished]);
 
   return (
     <div className="w-full min-h-screen bg-black overflow-x-clip" style={{ fontFamily: INTER }}>
@@ -2283,5 +2298,6 @@ export default function App() {
     </div>
   );
 }
+
 
 
