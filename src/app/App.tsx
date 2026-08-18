@@ -442,7 +442,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         </a>
 
         {/* Desktop Links */}
-        <nav className={`hidden md:flex items-center absolute left-1/2 -translate-x-1/2 h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "gap-6 scale-[0.85]" : "gap-8 scale-100"}`}>
+        <nav className={`hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "gap-6 scale-[0.85]" : "gap-8 scale-100"}`}>
           {['Capabilities', 'Investors', 'Newsroom', 'About Us'].map((link) => (
             <div 
               key={link}
@@ -469,7 +469,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         </nav>
 
         {/* Right Desktop Links */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); setHoveredNav(null); }}
@@ -480,24 +480,24 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         </div>
 
         {/* Mobile Hamburger (Only visible on mobile screens) */}
-        <div className="flex md:hidden items-center gap-4">
+        <div className="flex lg:hidden items-center gap-4">
           <button
             className="text-white w-12 h-12 flex items-center justify-center cursor-pointer -mr-2"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
           >
-            <div className="space-y-1.5 flex flex-col items-end">
-              <span className="block w-6 h-[2px] bg-white transition-transform" />
-              <span className="block w-6 h-[2px] bg-white transition-transform" />
-              <span className="block w-4 h-[2px] bg-white transition-transform" />
-            </div>
+            <div className="relative w-6 h-5">
+                <span className={`absolute left-0 block h-[2px] w-full bg-white transition-all duration-300 ease-in-out ${mobileOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"}`} />
+                <span className={`absolute left-0 top-1/2 -translate-y-1/2 block h-[2px] bg-white transition-all duration-300 ease-in-out ${mobileOpen ? "w-0 opacity-0" : "w-full opacity-100"}`} />
+                <span className={`absolute right-0 block h-[2px] bg-white transition-all duration-300 ease-in-out ${mobileOpen ? "top-1/2 -translate-y-1/2 -rotate-45 w-full" : "bottom-0 w-4"}`} />
+              </div>
           </button>
         </div>
       </div>
 
       {/* Capabilities Mega Menu Dropdown */}
       <div
-        className={`hidden md:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top z-40 ${
+        className={`hidden lg:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'Capabilities'
@@ -655,7 +655,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
 
       {/* Investors Mega Menu Dropdown */}
       <div
-        className={`hidden md:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden lg:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top overflow-hidden z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'Investors'
@@ -809,7 +809,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
       </div>
 
       {/* Mobile Menu Drawer (Stacked Accordion) */}
-      <div className={`md:hidden fixed inset-0 top-[86px] bg-[#05080D] z-40 overflow-y-auto transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`lg:hidden fixed inset-0 top-[86px] bg-[#05080D] z-40 overflow-y-auto transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col p-6 gap-2">
           
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { navigate('/'); setMobileOpen(false); }}>Home</a>
@@ -2280,3 +2280,5 @@ export default function App() {
     </div>
   );
 }
+
+
