@@ -9,26 +9,22 @@ const PIPELINE_STEPS = [
   {
     id: "01",
     title: "DESIGN & ENGINEERING",
-    icon: PencilRuler,
-    description: "Comprehensive in-house design utilizing the latest CAD/CAM software to generate manufacturing drawings directly from customer specifications, ensuring full stage-wise traceability."
+    icon: PencilRuler
   },
   {
     id: "02",
     title: "ADVANCED MACHINING",
-    icon: Cog,
-    description: "Full spectrum fabrication utilizing 3, 4, and 5-axis CNC milling and turning for high-precision, complex geometries in a single setup."
+    icon: Cog
   },
   {
     id: "03",
     title: "EXOTIC METALLURGY",
-    icon: Cuboid,
-    description: "Proven expertise in machining high-strength materials, including Titanium, Invar, Super Invar, AZ31B, nickel alloys, and high-alloy steel."
+    icon: Cuboid
   },
   {
     id: "04",
     title: "CMM INSPECTION",
-    icon: Scan,
-    description: "100% inspection for critical components using advanced Coordinate Measuring Machines (CMM), vision systems, and surface roughness validation to guarantee zero defects."
+    icon: Scan
   }
 ];
 
@@ -127,9 +123,6 @@ export function AerospaceComponentsPipeline() {
                   <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide">
                     {step.title}
                   </h3>
-                  <p className="text-white/60 leading-relaxed text-sm max-w-[280px]">
-                    {step.description}
-                  </p>
                 </div>
               </div>
             );
