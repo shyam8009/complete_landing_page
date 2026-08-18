@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import arraysImg from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_1sfdbBur4r.png';
-import chassisImg from '../../../imports/infinity-spear/magnific_professional-highend-prod_WMNuxIscXe.jpeg';
-import powerImg from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_CHdnhd8EEy.png';
+import arraysImg from '../../../imports/infinity-rhino-black/Hardware_Spec_1.webp';
+import chassisImg from '../../../imports/infinity-rhino-black/Hardware_Spec_2.webp';
+import powerImg from '../../../imports/infinity-rhino-black/Hardware_Spec_3.webp';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [
