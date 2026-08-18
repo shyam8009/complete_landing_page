@@ -58,7 +58,7 @@ export function AerospaceComponentsSpecs() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 bg-white border-y border-gray-200 relative">
+    <section ref={sectionRef} className="py-16 bg-white border-y border-gray-200 relative">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         
         {/* Header */}
