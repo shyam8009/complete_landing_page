@@ -37,7 +37,7 @@ export default function CommunicationDetectionHero() {
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <section className="relative w-full min-h-[90vh] overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* 1. Background Video Layer with Crossfade */}
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -65,7 +65,7 @@ export default function CommunicationDetectionHero() {
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
 
       {/* 3. Content Animation */}
-      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 mt-12">
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6 mt-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.id}
@@ -83,7 +83,7 @@ export default function CommunicationDetectionHero() {
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight text-white mb-4 leading-none" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tight text-white mb-4 leading-none" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
               {slide.title}
             </h1>
             
@@ -136,3 +136,4 @@ export default function CommunicationDetectionHero() {
     </section>
   );
 }
+

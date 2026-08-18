@@ -46,7 +46,7 @@ export default function AerospaceDefenceHero() {
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <section className="relative w-full min-h-[90vh] overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* 1. Background Video / Image Layer with Crossfade */}
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -74,7 +74,7 @@ export default function AerospaceDefenceHero() {
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
 
       {/* 3. Staggered Content Animation */}
-      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 mt-12">
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6 mt-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.id}
@@ -106,7 +106,7 @@ export default function AerospaceDefenceHero() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="text-5xl md:text-7xl font-extralight tracking-wider uppercase mb-6"
+              className="text-3xl sm:text-5xl md:text-7xl font-extralight tracking-wider uppercase mb-6"
             >
               {slide.title}
             </motion.h1>
@@ -128,7 +128,7 @@ export default function AerospaceDefenceHero() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="absolute bottom-16 left-1/2 -translate-x-1/2"
+              className="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2"
             >
               <a
                 href={slide.ctaLink}
@@ -148,7 +148,7 @@ export default function AerospaceDefenceHero() {
       </div>
 
       {/* 4. Large Next Arrow (Right Side) */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-30">
+      <div className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 z-30">
         <button
           onClick={nextSlide}
           aria-label="Next slide"
@@ -162,7 +162,7 @@ export default function AerospaceDefenceHero() {
       </div>
 
       {/* 5. Large Prev Arrow (Left Side) */}
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 z-30">
+      <div className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 z-30">
         <button
           onClick={prevSlide}
           aria-label="Previous slide"
@@ -183,3 +183,4 @@ export default function AerospaceDefenceHero() {
     </section>
   );
 }
+

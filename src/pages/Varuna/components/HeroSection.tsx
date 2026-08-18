@@ -20,7 +20,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen overflow-hidden bg-black">
+    <section ref={containerRef} className="relative w-full min-h-[90vh] overflow-hidden bg-black">
       {/* Background Video */}
       <video
         autoPlay
@@ -36,7 +36,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent z-10" />
       
       {/* Content Container */}
-      <div className="relative z-20 h-full flex flex-col justify-center px-6 lg:px-12 max-w-[1600px] mx-auto">
+      <div className="relative z-20 h-full flex flex-col justify-center px-4 sm:px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto">
         <div className="max-w-3xl">
           
           {/* Eyebrow */}
@@ -49,7 +49,7 @@ export function HeroSection() {
           
           {/* Headline */}
           <h1 
-            className="hero-element text-5xl lg:text-8xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
+            className="hero-element text-3xl sm:text-5xl lg:text-8xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
             style={{ fontFamily: INTER }}
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e3a8a] to-[#9ca3af]">VARUNA</span>
@@ -69,12 +69,12 @@ export function HeroSection() {
           </div>
           
           {/* Quick Stats Block (Glassmorphic) */}
-          <div className="hero-element flex flex-wrap gap-8 p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl max-w-fit">
+          <div className="hero-element flex flex-col md:flex-row gap-4 md:gap-8 p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl max-w-fit">
             <div>
               <div className="text-2xl font-bold text-white">85 m</div>
               <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Max Operating Depth</div>
             </div>
-            <div className="w-px bg-white/20" />
+            <div className="hidden md:block w-px bg-white/20" /><div className="block md:hidden h-px w-full bg-white/20" />
             <div>
               <div className="text-2xl font-bold text-white">2.5 kg</div>
               <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Highly Portable Form Factor</div>
@@ -86,3 +86,5 @@ export function HeroSection() {
     </section>
   );
 }
+
+

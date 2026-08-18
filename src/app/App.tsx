@@ -425,7 +425,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
           : "bg-[#05080D]/90 backdrop-blur-xl rounded-none"
       }`} />
 
-      <div className={`relative flex items-center justify-between z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "px-6 md:px-8 h-[64px]" : "px-6 md:px-9 h-[86px]"}`}>
+      <div className={`relative flex items-center justify-between z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "px-6 md:px-8 h-[64px]" : "px-6 md:px-4 sm:px-6 md:px-9 h-[86px]"}`}>
         <a href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} 
            className="relative shrink-0 flex items-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" 
            style={{ width: scrolled ? '40px' : '210px', height: '40px' }}>
@@ -1085,8 +1085,8 @@ function VisionSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
 
       {/* Content wrapper for the vision text */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-center px-9 max-w-[1400px] mx-auto">
-        <h2 className="text-white text-5xl md:text-6xl tracking-tight leading-[1.1] max-w-[800px]" style={{ fontFamily: INTER, fontWeight: 400 }}>
+      <div className="relative z-10 w-full h-full flex flex-col justify-center px-4 sm:px-6 md:px-9 max-w-[1400px] mx-auto">
+        <h2 className="text-white text-3xl sm:text-5xl md:text-6xl tracking-tight leading-[1.1] max-w-[800px]" style={{ fontFamily: INTER, fontWeight: 400 }}>
           Securing the Future<br />Through Uncompromised<br />Defence Innovation.
         </h2>
         <div className="mt-8 flex gap-8">
@@ -1111,7 +1111,7 @@ function ProductsSection() {
   const navigate = useNavigate();
   const [viewer360, setViewer360] = useState<string | null>(null);
   return (
-    <section className="relative z-10 w-full px-9 pt-12 pb-16 bg-black/60 backdrop-blur-md">
+    <section className="relative z-10 w-full px-4 sm:px-6 md:px-9 pt-12 pb-16 bg-black/60 backdrop-blur-md">
       {/* Section header */}
       <div className="flex items-end justify-between mb-5 w-full">
         <h2
@@ -1127,7 +1127,7 @@ function ProductsSection() {
 
       {/* ——— Desktop 12-col grid ——— */}
       <div
-        className="hidden lg:grid grid-cols-12 gap-5 w-full"
+        className="hidden md:grid grid-cols-12 gap-5 w-full"
         style={{ gridTemplateRows: "repeat(3, clamp(220px, 31vw, 598px))" }}
       >
         {PRODUCTS_DATA.map((product) => (
@@ -1184,7 +1184,7 @@ function Arsenal1Section() {
   return (
     <section className="relative z-10 w-full py-20 flex flex-col gap-9 bg-neutral-900/60 backdrop-blur-md">
       {/* header */}
-      <div className="px-9 flex items-end justify-between">
+      <div className="px-4 sm:px-6 md:px-9 flex items-end justify-between">
         <h2
           className="text-white text-3xl md:text-4xl tracking-tight"
           style={{ fontFamily: INTER, fontWeight: 400 }}
@@ -1197,8 +1197,8 @@ function Arsenal1Section() {
       </div>
 
       {/* featured image */}
-      <div className="px-9">
-        <div className="relative w-full overflow-hidden rounded-sm" style={{ aspectRatio: "3 / 1" }}>
+      <div className="px-4 sm:px-6 md:px-9">
+        <div className="relative w-full overflow-hidden rounded-sm aspect-[16/9] md:aspect-[3/1]">
           <img
             src={arsenalFacilityImg}
             alt="Sahana Defence manufacturing facility"
@@ -1218,7 +1218,7 @@ function NewsSection() {
   return (
     <section className="w-full py-14 flex flex-col gap-9" style={{ background: "#f1f0ea" }}>
       {/* header */}
-      <div className="px-9">
+      <div className="px-4 sm:px-6 md:px-9">
         <div className="flex items-end justify-between pb-4 border-b border-black/60">
           <h2
             className="text-[#010101] text-4xl md:text-5xl tracking-[-0.9px] capitalize"
@@ -1231,7 +1231,7 @@ function NewsSection() {
       </div>
 
       {/* article layout */}
-      <div className="px-9 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div className="px-4 sm:px-6 md:px-9 grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* text */}
         <div className="lg:col-span-5 flex flex-col gap-9">
           <div className="flex flex-col gap-2">
@@ -1313,7 +1313,7 @@ function EditorialPanel({
 
   return (
     <div
-      className="flex-1 flex flex-col gap-9 py-16 px-9 min-h-[640px] relative"
+      className="flex-1 flex flex-col gap-9 py-16 px-4 sm:px-6 md:px-9 min-h-[400px] md:min-h-[640px] relative"
       style={{ background: bg }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -1437,7 +1437,7 @@ function FooterCol({ label, links }: { label: string; links: string[] }) {
           <li key={link}>
             <a
               href="#"
-              className="text-white text-lg hover:text-white/80 transition-colors"
+              className="text-white text-sm md:text-base hover:text-white/80 transition-colors"
               style={{ fontFamily: INTER, fontWeight: 400 }}
             >
               {link}
@@ -1453,9 +1453,9 @@ function Footer() {
   return (
     <footer className="w-full bg-black pt-16 pb-16 flex flex-col gap-20">
       {/* top nav columns */}
-      <div className="px-9 flex flex-col md:flex-row flex-wrap justify-between gap-10">
+      <div className="px-4 sm:px-6 md:px-9 grid grid-cols-2 gap-8 md:flex md:flex-row md:flex-wrap md:justify-between md:gap-10">
         {/* logo & contact */}
-        <div className="flex flex-col gap-6 items-start">
+        <div className="col-span-2 md:col-span-1 flex flex-col gap-6 items-start">
           <SmallLogo />
           <img 
             src={makeInIndiaLogo} 
@@ -1494,7 +1494,7 @@ function Footer() {
       </div>
 
             {/* bottom legal */}
-      <div className="px-9 flex flex-col gap-3 border-t border-white/10 pt-8">
+      <div className="px-4 sm:px-6 md:px-9 flex flex-col gap-3 border-t border-white/10 pt-8">
         <p
           className="text-white text-xs uppercase tracking-[0.54px]"
           style={{ fontFamily: INTER, fontWeight: 500 }}
@@ -1552,12 +1552,12 @@ function ElectronicWarfarePage() {
       <div className="absolute inset-y-0 right-12 w-[1px] bg-white/5 pointer-events-none hidden md:block" />
 
       {/* Hero Section */}
-      <section className="w-full min-h-[70vh] flex flex-col justify-center items-center relative py-32 px-9 border-b border-white/10 bg-radial-[circle_at_center,rgba(46,67,33,0.15)_0%,transparent_80%]">
+      <section className="w-full min-h-[70vh] flex flex-col justify-center items-center relative py-32 px-4 sm:px-6 md:px-9 border-b border-white/10 bg-radial-[circle_at_center,rgba(46,67,33,0.15)_0%,transparent_80%]">
         {/* Animated Radar Overlay in background */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
         
         {/* Scanning Sweep Circle */}
-        <div className="absolute w-[480px] h-[480px] border border-white/5 rounded-full pointer-events-none flex items-center justify-center">
+        <div className="absolute w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] md:w-[480px] md:h-[480px] border border-white/5 rounded-full pointer-events-none flex items-center justify-center">
           <div className="w-[300px] h-[300px] border border-white/5 rounded-full relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-[150px] bg-gradient-to-t from-[#2e4321] to-transparent origin-bottom animate-[spin_8s_linear_infinite]" />
           </div>
@@ -1575,7 +1575,7 @@ function ElectronicWarfarePage() {
       </section>
 
       {/* Strategic Vision Intro Section */}
-      <section className="w-full py-24 px-9 border-b border-white/10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
+      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-b border-white/10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
         <div className="lg:col-span-5 flex flex-col gap-4">
           <span className="text-[11px] tracking-[2px] text-white/40 uppercase font-semibold">Strategic Spectrum Position</span>
           <h2 className="text-3xl md:text-4xl tracking-tight leading-tight" style={{ fontFamily: INTER, fontWeight: 300 }}>
@@ -1593,7 +1593,7 @@ function ElectronicWarfarePage() {
       </section>
 
       {/* Core Domains Grid */}
-      <section className="w-full py-24 px-9 max-w-[1400px] mx-auto flex flex-col gap-16 relative z-10">
+      <section className="w-full py-24 px-4 sm:px-6 md:px-9 max-w-[1400px] mx-auto flex flex-col gap-16 relative z-10">
         <div className="flex flex-col gap-3">
           <span className="text-[11px] tracking-[2px] text-white/40 uppercase font-semibold">Operational Domains</span>
           <h2 className="text-3xl md:text-4xl tracking-tight" style={{ fontFamily: INTER, fontWeight: 300 }}>
@@ -1681,7 +1681,7 @@ function ElectronicWarfarePage() {
       </section>
 
       {/* Interactive Pillars Section */}
-      <section className="w-full py-24 px-9 bg-[#111213] border-t border-b border-white/10 relative z-10">
+      <section className="w-full py-24 px-4 sm:px-6 md:px-9 bg-[#111213] border-t border-b border-white/10 relative z-10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* Left: Tab Selectors */}
@@ -1746,7 +1746,7 @@ function ElectronicWarfarePage() {
       </section>
 
       {/* Technical Standards Table Section */}
-      <section className="w-full py-24 px-9 max-w-[1400px] mx-auto flex flex-col gap-12 relative z-10">
+      <section className="w-full py-24 px-4 sm:px-6 md:px-9 max-w-[1400px] mx-auto flex flex-col gap-12 relative z-10">
         <div className="text-center max-w-2xl mx-auto flex flex-col gap-3">
           <span className="text-[11px] tracking-[2px] text-white/40 uppercase font-semibold">Engineering Standards</span>
           <h2 className="text-3xl md:text-4xl tracking-tight" style={{ fontFamily: INTER, fontWeight: 300 }}>
@@ -1795,7 +1795,7 @@ function ElectronicWarfarePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-radial-[circle_at_center,rgba(46,67,33,0.1)_0%,transparent_75%] relative z-10 text-center">
+      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 bg-radial-[circle_at_center,rgba(46,67,33,0.1)_0%,transparent_75%] relative z-10 text-center">
         <div className="max-w-[700px] mx-auto flex flex-col gap-6 items-center">
           <h2 className="text-3xl md:text-4xl tracking-tight text-center" style={{ fontFamily: INTER, fontWeight: 300 }}>
             Engage Our EW Systems Engineering Team
@@ -1927,7 +1927,7 @@ function HandheldJammerPage() {
       <FpvCanvasHero heroRef={heroRef} statsRef={statsRef} />
 
       {/* 2. CINEMATIC VIDEO SHOWCASE */}
-      <section className="relative w-full py-24 px-9 border-t border-white/10 overflow-hidden bg-[#050505]">
+      <section className="relative w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 overflow-hidden bg-[#050505]">
         <div className="max-w-[1400px] mx-auto relative z-10 flex flex-col items-center">
           <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-12 text-center max-w-[600px]">
             Zero-Delay Engagement Loop.
@@ -1956,7 +1956,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 3. MISSION OVERVIEW & VALUE PROPOSITION */}
-      <section className="relative w-full py-24 px-9 bg-black border-t border-white/10">
+      <section className="relative w-full py-24 px-4 sm:px-6 md:px-9 bg-black border-t border-white/10">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div className="flex flex-col gap-6">
             <h2 className="text-3xl md:text-5xl font-medium tracking-tight leading-[1.1]">
@@ -1980,7 +1980,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 4. CORE CAPABILITIES (Bento-Box Grid) */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-[#030303] overflow-hidden relative">
+      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 bg-[#030303] overflow-hidden relative">
         <div className="max-w-[1400px] mx-auto">
           <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-12 text-center">
             System Capabilities
@@ -2035,7 +2035,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 5. TECHNICAL SPECIFICATIONS (Strict Tabular Interface) */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-black">
+      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 bg-black">
         <div className="max-w-[1000px] mx-auto">
           <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-8">
             Technical Specifications
@@ -2121,7 +2121,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 7. RESOURCES & SECURE DOWNLOADS */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-black">
+      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 bg-black">
         <div className="max-w-[1400px] mx-auto">
           <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-12 text-center">
             Resources & Downloads
@@ -2158,7 +2158,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 8. FINAL CTA & CERTIFICATIONS */}
-      <section className="w-full py-24 px-9 border-t border-white/10 bg-radial-[circle_at_bottom,rgba(46,67,33,0.15)_0%,transparent_60%] relative text-center overflow-hidden">
+      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 bg-radial-[circle_at_bottom,rgba(46,67,33,0.15)_0%,transparent_60%] relative text-center overflow-hidden">
         <div className="max-w-[700px] mx-auto flex flex-col gap-6 items-center relative z-10">
           <h2 className="text-3xl md:text-5xl tracking-tight text-center text-white font-medium">
             Equip Your Strike Teams with Instant Airspace Control.

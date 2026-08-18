@@ -85,7 +85,7 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
 
         // LOCK 46–73%
         tl.fromTo([spec1Ref.current, spec2Ref.current, spec3Ref.current],
-          { opacity: 0, x: 60 },
+          { opacity: 0, x: 30 },
           { opacity: 1, x: 0, stagger: 0.04, duration: 0.14 }, 0.46)
           .to([spec1Ref.current, spec2Ref.current, spec3Ref.current],
             { opacity: 0, duration: 0.05 }, 0.68);
@@ -214,7 +214,7 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
         <div style={OL_BASE}>
           <p ref={textEWRef} style={{
             fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 'clamp(0.6rem, 1.1vw, 0.85rem)',
+            fontSize: 'clamp(0.75rem, 1.1vw, 0.85rem)',
             letterSpacing: '0.05em', color: '#fff',
             opacity: 0, textTransform: 'uppercase', textAlign: 'center',
           }}>
@@ -228,7 +228,7 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
             ref={textTitleRef}
             style={{
               fontFamily: "'Chakra Petch', 'Archivo', sans-serif",
-              fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+              fontSize: 'clamp(1.5rem, 5vw, 4.5rem)',
               fontWeight: 700, textTransform: 'uppercase',
               letterSpacing: '0.04em', color: '#fff',
               opacity: 0, lineHeight: 1.1, textAlign: 'center',
@@ -286,7 +286,7 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: 'clamp(0.85rem, 1.8vw, 1.35rem)',
                 color: '#fff', opacity: 0, transform: 'translateX(60px)',
-                paddingBottom: '0.5rem', minWidth: 200, textAlign: 'right',
+                paddingBottom: '0.5rem', minWidth: 140, textAlign: 'right',
                 borderBottom: `1px solid ${accent ? '#FF4D1C' : 'rgba(255,255,255,0.18)'}`,
               }}>
                 {label}
@@ -321,5 +321,6 @@ const OL_BASE: React.CSSProperties = {
   position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
   zIndex: 20, pointerEvents: 'none',
   display: 'flex', flexDirection: 'column',
-  alignItems: 'center', justifyContent: 'center', padding: '2rem',
+  alignItems: 'center', justifyContent: 'center', padding: 'clamp(1rem, 3vw, 2rem)',
 };
+

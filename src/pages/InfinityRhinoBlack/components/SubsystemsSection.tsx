@@ -46,3 +46,4 @@ export function SubsystemsSection() {
 
   return <InteractiveBlueprint title="Hardware<br/>Specifications" subtitle="// Technical Architecture" tiers={tiers} />;
 }
+

@@ -69,7 +69,7 @@ export function PipelineSection() {
       />
 
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           
           {/* Connecting Line (Desktop) */}
           <div className="hidden lg:block absolute top-12 left-[12%] right-[12%] h-[1px] bg-gradient-to-r from-transparent via-[#84CC16]/30 to-transparent" />
@@ -107,6 +107,7 @@ export function PipelineSection() {
     </section>
   );
 }
+
 
 
 

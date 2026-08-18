@@ -122,7 +122,7 @@ export function PipelineSection() {
         </div>
 
         {/* Pipeline Grid */}
-        <div className="relative w-full grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-6">
+        <div className="relative w-full grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-6">
           
           {/* Horizontal Connecting Line (Desktop) */}
           <div className="hidden md:block absolute top-[48px] left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-white/10 -z-10" />
@@ -163,6 +163,7 @@ export function PipelineSection() {
     </section>
   );
 }
+
 
 
 

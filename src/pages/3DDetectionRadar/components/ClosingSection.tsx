@@ -5,7 +5,7 @@ const INTER = '"Inter", sans-serif';
 
 export function ClosingSection() {
   return (
-    <section className="w-full bg-[#000000] py-32 px-8 flex flex-col items-center justify-center text-center relative overflow-hidden border-t border-white/10">
+    <section className="w-full bg-[#000000] py-32 px-4 sm:px-8 flex flex-col items-center justify-center text-center relative overflow-hidden border-t border-white/10">
       
       {/* Subtle Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 aspect-square bg-[#84CC16]/5 blur-[150px] rounded-full pointer-events-none" />
@@ -35,3 +35,4 @@ export function ClosingSection() {
     </section>
   );
 }
+

@@ -76,7 +76,7 @@ export function ValuePropositionSection() {
 
   return (
     <section ref={sectionRef} className="relative w-full py-32 bg-[#05080D] overflow-hidden">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           
           {/* Left Text Content */}
@@ -87,7 +87,7 @@ export function ValuePropositionSection() {
               </span>
             </div>
             
-            <h2 className="vp-text text-4xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight" style={{ fontFamily: INTER }}>
+            <h2 className="vp-text text-2xl sm:text-4xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight" style={{ fontFamily: INTER }}>
               Unified Multi-Sensor Surveillance.
             </h2>
             
@@ -150,3 +150,4 @@ export function ValuePropositionSection() {
     </section>
   );
 }
+

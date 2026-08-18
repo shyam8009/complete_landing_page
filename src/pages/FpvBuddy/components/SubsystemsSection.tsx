@@ -49,3 +49,4 @@ export function SubsystemsSection() {
 
   return <InteractiveBlueprint title="Platform<br/>Variants" subtitle="// System Architecture" tiers={tiers} />;
 }
+

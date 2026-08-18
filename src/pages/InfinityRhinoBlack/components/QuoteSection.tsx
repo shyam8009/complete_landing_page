@@ -10,7 +10,7 @@ export function QuoteSection() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(132,204,22,0.05),transparent_50%)]" />
       
       <div className="max-w-4xl mx-auto px-4 lg:px-6 relative z-10 text-center">
-        <h2 className="quote-text text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 leading-tight tracking-tight uppercase" style={{ fontFamily: INTER }}>
+        <h2 className="quote-text text-3xl sm:text-4xl md:text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-12 leading-tight tracking-tight uppercase" style={{ fontFamily: INTER }}>
           "Uncompromising protection. Unmatched mobility."
         </h2>
         
@@ -27,3 +27,4 @@ export function QuoteSection() {
     </section>
   );
 }
+

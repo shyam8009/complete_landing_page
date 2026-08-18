@@ -11,7 +11,7 @@ export default function DynamicHero({ data }: { data: any }) {
   };
 
   return (
-    <section className="relative w-full h-screen bg-[#050505] flex items-center justify-start overflow-hidden border-b border-white/10">
+    <section className="relative w-full min-h-[90vh] bg-[#050505] flex items-center justify-start overflow-hidden border-b border-white/10">
       
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -27,7 +27,7 @@ export default function DynamicHero({ data }: { data: any }) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-3xl text-left px-6 lg:px-24">
+      <div className="relative z-10 w-full max-w-3xl text-left px-4 sm:px-6 lg:px-24">
         {data.eyebrow && (
           <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full mb-8" 
             style={{ backgroundColor: 'rgba(132,204,22,0.1)', border: '1px solid rgba(132,204,22,0.2)' }}>
@@ -38,7 +38,7 @@ export default function DynamicHero({ data }: { data: any }) {
           </div>
         )}
 
-        <h1 className="text-5xl lg:text-7xl font-bold uppercase tracking-tight text-white mb-6 leading-tight">
+        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold uppercase tracking-tight text-white mb-6 leading-tight">
           {data.h1}
         </h1>
 
@@ -60,3 +60,4 @@ export default function DynamicHero({ data }: { data: any }) {
     </section>
   );
 }
+

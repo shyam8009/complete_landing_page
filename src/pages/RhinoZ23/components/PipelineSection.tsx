@@ -89,7 +89,7 @@ export function PipelineSection() {
       />
 
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 relative">
           
           {/* Connecting Line Base (Desktop) */}
           <div className="hidden lg:block absolute top-[2.5rem] h-[1px] bg-white/5" style={{ left: "calc((100% - 6rem) / 8)", right: "calc((100% - 6rem) / 8)" }} />
@@ -126,6 +126,7 @@ export function PipelineSection() {
     </section>
   );
 }
+
 
 
 

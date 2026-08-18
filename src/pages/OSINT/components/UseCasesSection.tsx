@@ -50,11 +50,11 @@ export function UseCasesSection() {
     <section ref={sectionRef} className="py-24 bg-black relative">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         
-        <h2 className="text-4xl lg:text-6xl font-bold text-white mb-16 uppercase tracking-tight text-center">
+        <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-white mb-16 uppercase tracking-tight text-center">
           Tactical Applications
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {USE_CASES.map((useCase, idx) => (
             <div 
               key={idx}
@@ -86,3 +86,4 @@ export function UseCasesSection() {
     </section>
   );
 }
+

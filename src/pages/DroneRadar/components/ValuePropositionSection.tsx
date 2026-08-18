@@ -29,7 +29,7 @@ export function ValuePropositionSection() {
 
   return (
     <section className="bg-black w-full flex justify-center py-24">
-      <div className="max-w-[1920px] w-full px-4 lg:px-8">
+      <div className="max-w-[1920px] w-full px-4 lg:px-4 sm:px-8">
         <img 
           ref={imgRef}
           src={valuePropFullImg} 

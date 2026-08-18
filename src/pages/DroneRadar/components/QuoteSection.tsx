@@ -8,7 +8,7 @@ export function QuoteSection() {
       {/* Background radial gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(132,204,22,0.05),transparent_50%)]" />
 
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
+      <div className="max-w-4xl mx-auto px-6 lg:px-4 sm:px-8 relative z-10 text-center">
         <div className="text-[#84CC16] font-mono text-sm uppercase tracking-widest mb-10">
           // MISSION CLEARANCE
         </div>

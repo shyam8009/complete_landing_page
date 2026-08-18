@@ -120,3 +120,4 @@ export function ValuePropositionSection() {
     </section>
   );
 }
+
