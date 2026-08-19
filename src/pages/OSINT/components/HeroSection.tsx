@@ -20,7 +20,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-[100dvh] landscape:min-h-[60vh] overflow-hidden bg-black flex flex-col">
+    <section ref={containerRef} className="relative w-full min-h-[100dvh] max-md:landscape:min-h-[60vh] overflow-hidden bg-black flex flex-col">
       {/* Background Image */}
       <img
         src={heroBg}
@@ -85,6 +85,7 @@ export function HeroSection() {
     </section>
   );
 }
+
 
 
 
