@@ -1,5 +1,6 @@
 ﻿import React, { useRef } from 'react';
 import { Link } from 'react-router';
+import { TechCTA } from '@/components/TechCTA';
 import bgGrid from '@/imports/spear_cad_blueprint.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -114,7 +115,7 @@ export default function RadarSystemsEcosystem() {
                 
                 {/* THE GLASSMORPHISM CARD */}
                 <div 
-                  className="w-[90vw] max-w-[1100px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch"
+                  className="w-[90vw] max-w-[1100px] min-h-[500px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch"
                   style={{ 
                     backgroundColor: 'rgba(8, 8, 8, 0.75)', 
                     border: '1px solid rgba(255,255,255,0.08)',
@@ -164,12 +165,12 @@ export default function RadarSystemsEcosystem() {
 
                     {/* CTA */}
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <Link to={item.slug} className="w-full md:w-auto py-3 px-8 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 bg-slate-900 hover:bg-[#84CC16] hover:text-slate-900 text-white group">
-                        <span>Know More</span>
-                        <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </Link>
+                      <TechCTA>
+  <span>Know More</span>
+  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</TechCTA>
                     </div>
                   </div>
 
@@ -182,6 +183,10 @@ export default function RadarSystemsEcosystem() {
     </div>
   );
 }
+
+
+
+
 
 
 
