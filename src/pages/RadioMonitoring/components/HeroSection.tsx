@@ -20,7 +20,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-[100dvh] overflow-hidden bg-black flex flex-col">
+    <section ref={containerRef} className="relative w-full min-h-[100dvh] landscape:min-h-[60vh] overflow-hidden bg-black flex flex-col">
       {/* Background Video */}
       <video
         autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
@@ -88,6 +88,7 @@ export function HeroSection() {
     </section>
   );
 }
+
 
 
 

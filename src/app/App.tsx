@@ -767,7 +767,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
 
       {/* Newsroom Small Dropdown */}
       <div
-        className={`hidden md:block fixed left-[50%] ml-[40px] w-[220px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden md:block fixed right-4 lg:right-auto lg:left-[50%] lg:ml-[40px] w-[220px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'Newsroom'
@@ -792,7 +792,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
 
       {/* About Us Small Dropdown */}
       <div
-        className={`hidden md:block fixed left-[50%] ml-[160px] w-[200px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden md:block fixed right-4 lg:right-auto lg:left-[50%] lg:ml-[160px] w-[200px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'About Us'
@@ -812,7 +812,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
       </div>
 
       {/* Mobile Menu Drawer (Stacked Accordion) */}
-      <div className={`lg:hidden fixed inset-0 top-[86px] bg-[#05080D] z-40 overflow-y-auto transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`lg:hidden fixed inset-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col p-6 gap-2">
           
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { navigate('/'); setMobileOpen(false); }}>Home</a>
@@ -2298,6 +2298,7 @@ export default function App() {
     </div>
   );
 }
+
 
 
 
