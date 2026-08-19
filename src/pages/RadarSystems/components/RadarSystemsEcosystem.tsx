@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import { Link } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const radarSystemsData = [
   {
-    tag: '15 km Tracking Envelope • 360° Azimuth • X-Band FMCW',
+    tag: '15 km Tracking Envelope â€¢ 360Â° Azimuth â€¢ X-Band FMCW',
     title: '3D Drone Detection RADAR',
     desc: 'An all-weather, day-and-night 3D FMCW radar system optimized for low power consumption to continuously detect, track, and classify low-altitude UAVs and ground threats.',
     img: imgDroneDetection,
@@ -21,7 +21,7 @@ const radarSystemsData = [
     slug: '/drone-radar'
   },
   {
-    tag: 'Passive RF Scanning • 10km Range • Multi-Band',
+    tag: 'Passive RF Scanning â€¢ 10km Range â€¢ Multi-Band',
     title: 'RF Detector',
     desc: 'Advanced passive RF sensing module designed for silent detection and localization of enemy communications and autonomous drone signals without emitting traceable signatures.',
     img: rfDetectorImg,
@@ -29,7 +29,7 @@ const radarSystemsData = [
     slug: '/rf-detector'
   },
   {
-    tag: 'Micro-Doppler • High Resolution • Ground Tracking',
+    tag: 'Micro-Doppler â€¢ High Resolution â€¢ Ground Tracking',
     title: 'Ground Surveillance Radar',
     desc: 'High-resolution ground and perimeter surveillance radar designed for tactical border security, critical infrastructure protection, and real-time intruder tracking.',
     img: imgSurveillance,
@@ -37,7 +37,7 @@ const radarSystemsData = [
     slug: '/surveillance-radar'
   },
   {
-    tag: '3D Positioning • Multi-Frequency • Autonomous Targeting',
+    tag: '3D Positioning â€¢ Multi-Frequency â€¢ Autonomous Targeting',
     title: '3D Drone RF Detector',
     desc: 'A hybrid 3D sensing platform combining passive RF telemetry with spatial processing to precisely locate and identify swarming UAVs and hostile controllers.',
     img: rfDetectorImg,
@@ -163,3 +163,4 @@ export default function RadarSystemsEcosystem() {
     </div>
   );
 }
+

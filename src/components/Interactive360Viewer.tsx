@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+﻿import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const TOTAL_FRAMES = 66;
@@ -29,6 +29,7 @@ export function Interactive360Viewer() {
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const [framesLoaded, setFramesLoaded] = useState(0);
   const dragStartX = useRef(0);
   const dragStartFrame = useRef(0);
@@ -174,6 +175,7 @@ export function Interactive360Viewer() {
   // Drag interaction logic
   const handlePointerDown = (e: React.PointerEvent) => {
     setIsDragging(true);
+    setHasInteracted(true);
     dragStartX.current = e.clientX;
     dragStartFrame.current = currentFrame;
     // Prevent default to avoid selecting text while dragging
@@ -229,10 +231,10 @@ export function Interactive360Viewer() {
   return (
     <section className="w-full bg-[#070908] flex flex-col overflow-hidden border-t border-white/10">
       
-      {/* ── TOP ROW: Headline (30%) + 3D Viewer (70%) ── */}
+      {/* â”€â”€ TOP ROW: Headline (30%) + 3D Viewer (70%) â”€â”€ */}
       <div className="flex flex-col lg:flex-row w-full min-h-[500px] lg:min-h-[600px] lg:h-auto pt-12 lg:pt-16">
         
-        {/* ── LEFT COLUMN: Headline ── */}
+        {/* â”€â”€ LEFT COLUMN: Headline â”€â”€ */}
         <div className="w-full lg:w-[30%] flex flex-col justify-center p-8 lg:p-12 lg:pl-16 z-10">
           <h3 className="text-[#88FF00] tracking-widest text-sm lg:text-base font-bold mb-4 uppercase">
             Core Capabilities
@@ -242,7 +244,7 @@ export function Interactive360Viewer() {
           </h2>
         </div>
 
-        {/* ── RIGHT COLUMN: 360 Viewer ── */}
+        {/* â”€â”€ RIGHT COLUMN: 360 Viewer â”€â”€ */}
         <div 
           ref={containerRef}
           className="w-full lg:w-[70%] h-[500px] lg:min-h-[600px] relative cursor-none flex items-center justify-center bg-[#070908]"
@@ -278,14 +280,15 @@ export function Interactive360Viewer() {
             </div>
           )}
 
-          {/* The 360 Canvas — bg matches container so no seam */}
+          {/* The 360 Canvas â€” bg matches container so no seam */}
+          <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-2 bg-black/60 backdrop-blur-md rounded-full border border-white/20 text-white text-xs font-bold tracking-[2px] uppercase pointer-events-none transition-opacity duration-1000 z-50 flex items-center gap-2 ${hasInteracted ? "opacity-0" : "opacity-100 animate-pulse"}`}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Drag to Rotate <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
           <canvas 
             ref={canvasRef} 
             className="w-full h-full"
             style={{ background: '#070908' }}
           />
 
-          {/* ── HOTSPOTS ── */}
+          {/* â”€â”€ HOTSPOTS â”€â”€ */}
           {hotspots.map((hotspot) => {
             const currentPos = hotspot.path[currentFrame];
             return (
@@ -318,7 +321,7 @@ export function Interactive360Viewer() {
         </div>
       </div>
 
-      {/* ── BOTTOM ROW: Details ── */}
+      {/* â”€â”€ BOTTOM ROW: Details â”€â”€ */}
       <div className="w-full pb-12 lg:pb-16 px-8 lg:px-16 z-10">
         <p className="text-gray-400 text-lg lg:text-xl leading-relaxed w-full">
           Built across three frame sizes, the Drone Buddy features a lightweight, durable frame that ensures resilience in challenging environments. It is positioned as an essential tool for reconnaissance, training, and field operations, delivering high-speed aerial oversight in interference-heavy environments.
@@ -328,3 +331,4 @@ export function Interactive360Viewer() {
     </section>
   );
 }
+

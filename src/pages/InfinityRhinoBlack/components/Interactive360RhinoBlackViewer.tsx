@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+﻿import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Radio, Briefcase, Battery } from 'lucide-react';
 
@@ -30,6 +30,7 @@ export function Interactive360RhinoBlackViewer() {
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const [framesLoaded, setFramesLoaded] = useState(0);
   const dragStartX = useRef(0);
   const dragStartFrame = useRef(0);
@@ -162,6 +163,7 @@ export function Interactive360RhinoBlackViewer() {
   // Drag interaction logic
   const handlePointerDown = (e: React.PointerEvent) => {
     setIsDragging(true);
+    setHasInteracted(true);
     dragStartX.current = e.clientX;
     dragStartFrame.current = currentFrame;
     // Prevent default to avoid selecting text while dragging
@@ -207,10 +209,10 @@ export function Interactive360RhinoBlackViewer() {
   return (
     <section className="w-full bg-[#05080D] flex flex-col overflow-hidden border-t border-white/10">
       
-      {/* ── TOP ROW: Headline (30%) + 3D Viewer (70%) ── */}
+      {/* â”€â”€ TOP ROW: Headline (30%) + 3D Viewer (70%) â”€â”€ */}
       <div className="flex flex-col lg:flex-row w-full min-h-[500px] lg:min-h-[600px] lg:h-auto pt-12 lg:pt-16">
         
-        {/* ── LEFT COLUMN: Headline ── */}
+        {/* â”€â”€ LEFT COLUMN: Headline â”€â”€ */}
         <div className="w-full lg:w-[30%] flex flex-col justify-center p-8 lg:p-12 lg:pl-16 z-10">
           <h3 className="text-[#84CC16] tracking-widest text-sm lg:text-base font-bold mb-4 uppercase">
             Core Capabilities
@@ -220,7 +222,7 @@ export function Interactive360RhinoBlackViewer() {
           </h2>
         </div>
 
-        {/* ── RIGHT COLUMN: 360 Viewer ── */}
+        {/* â”€â”€ RIGHT COLUMN: 360 Viewer â”€â”€ */}
         <div 
           ref={containerRef}
           className={`w-full lg:w-[70%] h-[500px] lg:min-h-[600px] relative ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} flex items-center justify-center bg-[#05080D]`}
@@ -232,7 +234,7 @@ export function Interactive360RhinoBlackViewer() {
             <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            <span className="text-white font-mono text-[10px] tracking-widest font-bold">360° VIEW</span>
+            <span className="text-white font-mono text-[10px] tracking-widest font-bold">360Â° VIEW</span>
           </div>
 
           {/* Loading Overlay */}
@@ -244,14 +246,15 @@ export function Interactive360RhinoBlackViewer() {
             </div>
           )}
 
-          {/* The 360 Canvas — bg matches container so no seam */}
+          {/* The 360 Canvas â€” bg matches container so no seam */}
+          <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-2 bg-black/60 backdrop-blur-md rounded-full border border-white/20 text-white text-xs font-bold tracking-[2px] uppercase pointer-events-none transition-opacity duration-1000 z-50 flex items-center gap-2 ${hasInteracted ? "opacity-0" : "opacity-100 animate-pulse"}`}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Drag to Rotate <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
           <canvas 
             ref={canvasRef} 
             className="w-full h-full"
             style={{ background: '#05080D' }}
           />
 
-          {/* ── HOTSPOTS ── */}
+          {/* â”€â”€ HOTSPOTS â”€â”€ */}
           {hotspots.map((hotspot) => {
             const currentPos = hotspot.path[currentFrame];
             return (
@@ -284,7 +287,7 @@ export function Interactive360RhinoBlackViewer() {
         </div>
       </div>
 
-      {/* ── BOTTOM ROW: Details ── */}
+      {/* â”€â”€ BOTTOM ROW: Details â”€â”€ */}
       <div className="w-full pb-12 lg:pb-16 px-8 lg:px-16 z-10">
         <p className="text-gray-400 text-lg lg:text-xl leading-relaxed w-full">
           Rugged and lightweight with extended operational duration, the Infinity Rhino Black offers superior defense against modern aerial threats. It achieves a massive 2 km omni-directional neutralization radius from a portable unit, providing unmatched protection for tactical missions and critical infrastructure without disrupting allied communication networks.
@@ -294,3 +297,4 @@ export function Interactive360RhinoBlackViewer() {
     </section>
   );
 }
+

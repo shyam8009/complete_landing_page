@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -16,7 +16,7 @@ import { TechCTA } from '@/components/TechCTA';
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── Card Data ────────────────────────────────────────────────
+// â”€â”€â”€ Card Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 interface CardData {
   id: string;
   tag: string;
@@ -31,11 +31,11 @@ interface CardData {
 const PILLARS: CardData[] = [
   {
     id: 'rfd',
-    tag: 'RFD1 · RG-QD · RF-Model / HVN S4',
+    tag: 'RFD1 Â· RG-QD Â· RF-Model / HVN S4',
     title: 'Wideband RF Detectors',
     description: "Detection hardware built for the full RF spectrum, from room temperature to cryogenic conditions. The RFD1, RG-QD, and RF-Model give platforms the sensitivity to detect what conventional receivers miss.",
-    statusBadge: 'DEFENCE GRADE · ACTIVE',
-    freqRange: '100 MHz – 40 GHz',
+    statusBadge: 'DEFENCE GRADE Â· ACTIVE',
+    freqRange: '100 MHz â€“ 40 GHz',
     specs: [
       "Broadband detection across RF/MW frequencies",
       "Configurable for thru-wall RADAR and SIGINT",
@@ -48,16 +48,16 @@ const PILLARS: CardData[] = [
   },
   {
     id: 'microwave',
-    tag: 'TWPAs · HEMT Amps · IQ Mixers',
+    tag: 'TWPAs Â· HEMT Amps Â· IQ Mixers',
     title: 'Quantum Microwave Devices',
     description: "The amplification and signal-conditioning layer quantum systems run on. Travelling Wave Parametric Amplifiers, HEMT amplifiers, IQ mixers, and precision filters.",
     statusBadge: 'CRYOGENIC CAPABLE',
-    freqRange: '4K – 300K Operating',
+    freqRange: '4K â€“ 300K Operating',
     specs: [
       "TWPAs for near-quantum-limited amplification",
       "HEMT amplifiers for low-noise RF/MW gain",
       "IQ mixer spurious rejection: > 25 dBc",
-      "Operating temperature: 4K – 300K",
+      "Operating temperature: 4K â€“ 300K",
       "Custom filter design & fabrication",
       "Cryogenic RF/MW design expertise"
     ],
@@ -69,11 +69,11 @@ const PILLARS: CardData[] = [
     title: 'Rydberg Atom Sensors',
     description: "Atomic-precision sensing for environments where classical RF sensors fall short. Detect electromagnetic fields with a sensitivity that redefines what's measurable.",
     statusBadge: 'QUANTUM ACTIVE',
-    freqRange: 'DC – 100+ GHz',
+    freqRange: 'DC â€“ 100+ GHz',
     specs: [
       "Ultra-high sensitivity EM field detection",
       "Self-calibrating atomic reference standard",
-      "No antenna required — atom-based reception",
+      "No antenna required â€” atom-based reception",
       "Frequency agile: DC to 100+ GHz",
       "Applications in SIGINT and secure sensing",
       "Bridges quantum theory & defence deployment"
@@ -103,12 +103,12 @@ const PILLARS: CardData[] = [
     title: 'Quantum Clock Source',
     description: "Precision timing at the quantum limit. A Quantum Clock Source gives navigation, communication, and RADAR systems a timing reference stable enough to operate independently.",
     statusBadge: 'SOVEREIGN TIMING',
-    freqRange: 'Allan Dev < 1×10⁻¹²',
+    freqRange: 'Allan Dev < 1Ã—10â»Â¹Â²',
     specs: [
       "Quantum-grade frequency stability",
       "Enables sovereign, GPS-independent timing",
-      "Allan deviation: < 1×10⁻¹² @ 1s",
-      "Holdover: < 1 μs over 24 hours",
+      "Allan deviation: < 1Ã—10â»Â¹Â² @ 1s",
+      "Holdover: < 1 Î¼s over 24 hours",
       "Supports distributed network synchronisation",
       "Ruggedised for field deployment"
     ],
@@ -116,7 +116,7 @@ const PILLARS: CardData[] = [
   }
 ];
 
-// ─── Main Export ──────────────────────────────────────────────
+// â”€â”€â”€ Main Export â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function QuantumEcosystem() {
   const containerRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -188,7 +188,7 @@ export function QuantumEcosystem() {
   );
 }
 
-// ─── Tactical Console Card ────────────────────────────────────
+// â”€â”€â”€ Tactical Console Card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function TacticalConsoleCard({ data }: { data: CardData }) {
   return (
     <div
@@ -269,3 +269,4 @@ function TacticalConsoleCard({ data }: { data: CardData }) {
     </div>
   );
 }
+

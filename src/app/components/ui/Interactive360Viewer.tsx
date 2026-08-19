@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+﻿import React, { useRef, useState, useEffect } from 'react';
 import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import ThreeSixtyIcon from '@mui/icons-material/ThreeSixty';
@@ -12,6 +12,7 @@ export function Interactive360Viewer({ videoSrc, onClose }: Interactive360Viewer
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const [startX, setStartX] = useState(0);
   const [lastTime, setLastTime] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,6 +27,7 @@ export function Interactive360Viewer({ videoSrc, onClose }: Interactive360Viewer
 
   const handlePointerDown = (e: React.PointerEvent) => {
     setIsDragging(true);
+    setHasInteracted(true);
     setStartX(e.clientX);
     if (videoRef.current) {
       setLastTime(videoRef.current.currentTime);

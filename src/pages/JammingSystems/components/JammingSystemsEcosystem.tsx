@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const jammingData = [
   {
-    tag: "60W Continuous Output . 1.5–2.0 km Range",
+    tag: "60W Continuous Output . 1.5â€“2.0 km Range",
     title: "INFINITY SPEAR",
     desc: "A state-of-the-art handheld Counter-Unmanned Aerial System (C-UAS) designed for military and security operations. It empowers dismounted tactical squads with a highly mobile shield capable of disabling hostile drones instantly without secondary heavy battery packs.",
     features: [
@@ -71,7 +71,7 @@ const jammingData = [
       "Multi-frequency operation from 400 MHz to 5.8 GHz, including GNSS L1, L2, and L5 bands.",
       "Operational range of 2 km (Omni-Directional) and 5 km (Directional).",
       "Rapid tactical adaptability with antenna changing times under 1 minute.",
-      "JSS 55555 environmental protection rating, operating in temperatures from -20°C to +50°C."
+      "JSS 55555 environmental protection rating, operating in temperatures from -20Â°C to +50Â°C."
     ],
     img: imgButterfly
   }
@@ -190,3 +190,4 @@ export default function JammingSystemsEcosystem() {
     </div>
   );
 }
+

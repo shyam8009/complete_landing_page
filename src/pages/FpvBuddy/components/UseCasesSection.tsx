@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import reconImg from '../../../imports/fpv-buddy/tactical_1.webp';
@@ -60,7 +60,7 @@ export function UseCasesSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {USE_CASES.map((useCase, index) => (
             <div 
               key={useCase.id} 
@@ -99,4 +99,5 @@ export function UseCasesSection() {
     </section>
   );
 }
+
 

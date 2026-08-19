@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -36,8 +36,8 @@ const CARDS = [
     title: 'Nubra',
     desc: 'A military-grade PTZ surveillance system built on a modular architecture. Match-to-mission payloads integrate long-range thermal detection with active laser illumination for true 24/7 imaging.',
     bullets: [
-      '12µm LWIR uncooled thermal imaging for extreme long-range detection',
-      'ZLID™ illumination',
+      '12Âµm LWIR uncooled thermal imaging for extreme long-range detection',
+      'ZLIDâ„¢ illumination',
       'Rapid deployment kits available'
     ],
     img: imgNubra
@@ -106,7 +106,7 @@ const CARDS = [
     id: 'alta',
     tag: 'Heavy-Duty . Precision Positioner',
     title: 'Alta',
-    desc: 'A heavy-duty, high-precision pan-tilt positioner built to carry massive multi-sensor payloads—including SWIR, continuous zoom thermal, and long-range ZLID illumination—with absolute zero-backlash accuracy.',
+    desc: 'A heavy-duty, high-precision pan-tilt positioner built to carry massive multi-sensor payloadsâ€”including SWIR, continuous zoom thermal, and long-range ZLID illuminationâ€”with absolute zero-backlash accuracy.',
     bullets: [
       'Supports extreme payload weights',
       'Absolute encoder positioning',
@@ -236,3 +236,4 @@ export function EcosystemTrack() {
     </div>
   );
 }
+

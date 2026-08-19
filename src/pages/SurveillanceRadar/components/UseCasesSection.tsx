@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Target, Server, Map } from 'lucide-react';
 
 const USE_CASES = [
@@ -36,7 +36,7 @@ export function UseCasesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {USE_CASES.map((useCase, idx) => {
             const Icon = useCase.icon;
             return (
@@ -73,3 +73,4 @@ export function UseCasesSection() {
     </section>
   );
 }
+

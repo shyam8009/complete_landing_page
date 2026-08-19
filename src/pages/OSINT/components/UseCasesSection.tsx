@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+﻿import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import img1 from '../../../imports/osint/cyber_command.jpg';
@@ -54,7 +54,7 @@ export function UseCasesSection() {
           Tactical Applications
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {USE_CASES.map((useCase, idx) => (
             <div 
               key={idx}
@@ -86,4 +86,5 @@ export function UseCasesSection() {
     </section>
   );
 }
+
 
