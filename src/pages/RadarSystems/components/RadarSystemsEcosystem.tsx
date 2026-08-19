@@ -1,5 +1,6 @@
 ﻿import React, { useRef } from 'react';
 import { Link } from 'react-router';
+import bgGrid from '@/imports/spear_cad_blueprint.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -181,5 +182,6 @@ export default function RadarSystemsEcosystem() {
     </div>
   );
 }
+
 
 
