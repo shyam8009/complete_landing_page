@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import { TechCTA } from '@/components/TechCTA';
 
 export function JammingCTA() {
   return (
-    <section className="w-full bg-[#050505] text-white py-32 relative overflow-hidden font-['Inter',sans-serif]">
+    <section className="w-full bg-[#050505] text-white section-padding relative overflow-hidden font-['Inter',sans-serif]">
       {/* Background patterns */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(132,204,22,0.05)_0%,transparent_60%)]" />
@@ -49,3 +49,4 @@ export function JammingCTA() {
     </section>
   );
 }
+

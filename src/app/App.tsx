@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+﻿import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GuardianExperiencePage } from '../pages/GuardianExperience/GuardianExperiencePage';
 import { SahanaFpvProductPage } from '../pages/SahanaFpv/SahanaFpvProductPage';
@@ -49,7 +49,7 @@ import sahanaLogo from "@/imports/logo-sahana.png";
 import makeInIndiaLogo from "@/imports/logo-make-in-india.png";
 import heroVideo from "@/imports/Hero banner Video.mp4";
 
-// New product images — all of the same tactical drone, different shots & environments
+// New product images â€” all of the same tactical drone, different shots & environments
 import heroImg from "@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg";
 import sensorDomeImg from "@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png";
 import motorImg from "@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png";
@@ -96,7 +96,7 @@ const INTER = "'Inter', sans-serif";
 const CARD_GRADIENT =
   "linear-gradient(rgba(1,1,1,0) 0%,rgba(1,1,1,0.004) 1.8%,rgba(1,1,1,0.008) 4.8%,rgba(1,1,1,0.02) 9%,rgba(1,1,1,0.043) 13.9%,rgba(1,1,1,0.075) 19.8%,rgba(1,1,1,0.125) 27%,rgba(1,1,1,0.192) 35%,rgba(1,1,1,0.28) 43.5%,rgba(1,1,1,0.38) 53%,rgba(1,1,1,0.54) 66%,rgba(1,1,1,0.737) 81%,rgb(1,1,1) 100%)";
 
-// ——— SVG helpers ————————————————————————————————————————————————————————————————————————————
+// â€”â€”â€” SVG helpers â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
 function AndurilLogo({ width = 210 }: { width?: number }) {
   return (
@@ -126,7 +126,7 @@ function MiniArrow({ color = "#010101" }: { color?: string }) {
   );
 }
 
-// ——— Reusable "text + underline + arrow" link ————————————————————————————————————————————————
+// â€”â€”â€” Reusable "text + underline + arrow" link â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
 function UnderlineLink({
   children,
@@ -169,7 +169,7 @@ const INVESTORS_DATA = [
       { text: 'FY 2024-25', url: '#' },
       { text: 'FY 2023-24', url: '#' },
     ],
-    cta: 'View All →'
+    cta: 'View All â†’'
   },
   {
     id: 'general-meeting-notice',
@@ -180,7 +180,7 @@ const INVESTORS_DATA = [
       { text: 'EGM Minutes 2024', url: '#' },
       { text: 'Proxy Forms', url: '#' },
     ],
-    cta: 'View All Notices →'
+    cta: 'View All Notices â†’'
   },
   {
     id: 'code-of-conduct',
@@ -191,7 +191,7 @@ const INVESTORS_DATA = [
       { text: 'Whistleblower Policy', url: '#' },
       { text: 'Anti-Bribery Guidelines', url: '#' },
     ],
-    cta: 'View Policies →'
+    cta: 'View Policies â†’'
   },
   {
     id: 'annual-return',
@@ -202,7 +202,7 @@ const INVESTORS_DATA = [
       { text: 'Form MGT-7 (2024)', url: '#' },
       { text: 'Archives', url: '#' },
     ],
-    cta: 'View Returns →'
+    cta: 'View Returns â†’'
   },
   {
     id: 'policies',
@@ -213,7 +213,7 @@ const INVESTORS_DATA = [
       { text: 'CSR Policy', url: '#' },
       { text: 'Risk Management', url: '#' },
     ],
-    cta: 'View All Policies →'
+    cta: 'View All Policies â†’'
   },
   {
     id: 'shareholder-info',
@@ -224,7 +224,7 @@ const INVESTORS_DATA = [
       { text: 'Registrar Details', url: '#' },
       { text: 'Unpaid Dividend', url: '#' },
     ],
-    cta: 'Investor Desk →'
+    cta: 'Investor Desk â†’'
   },
   {
     id: 'kmp',
@@ -235,7 +235,7 @@ const INVESTORS_DATA = [
       { text: 'Chief Financial Officer', url: '#' },
       { text: 'Company Secretary', url: '#' },
     ],
-    cta: 'View Leadership →'
+    cta: 'View Leadership â†’'
   },
   {
     id: 'board-of-directors',
@@ -246,7 +246,7 @@ const INVESTORS_DATA = [
       { text: 'Managing Director', url: '#' },
       { text: 'Independent Directors', url: '#' },
     ],
-    cta: 'View Details →'
+    cta: 'View Details â†’'
   },
   {
     id: 'committees',
@@ -257,7 +257,7 @@ const INVESTORS_DATA = [
       { text: 'Nomination & Remuneration', url: '#' },
       { text: 'CSR Committee', url: '#' },
     ],
-    cta: 'View Committees →'
+    cta: 'View Committees â†’'
   },
   {
     id: 'key-contact',
@@ -268,7 +268,7 @@ const INVESTORS_DATA = [
       { text: 'Compliance Officer', url: '#' },
       { text: 'Investor Grievances', url: '#' },
     ],
-    cta: 'Contact IR →'
+    cta: 'Contact IR â†’'
   }
 ];
 
@@ -757,7 +757,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
               onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }}
               className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
             >
-              View All →
+              View All â†’
             </a>
           </div>
 
@@ -783,7 +783,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
             {['Press Release', 'Events', 'Awards'].map(item => (
               <a key={item} href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} className="group flex items-center justify-between px-2 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-all" style={{ fontFamily: 'Inter, sans-serif' }}>
                 <span>{item}</span>
-                <span className="text-[#84CC16] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">→</span>
+                <span className="text-[#84CC16] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">â†’</span>
               </a>
             ))}
           </div>
@@ -839,7 +839,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
                             onClick={() => setMobileSystemOpen(mobileSystemOpen === sys.id ? null : sys.id)}
                           >
                             <span>{sys.title}</span>
-                            <span className="text-white/50 text-xs">{mobileSystemOpen === sys.id ? "▼" : "▶"}</span>
+                            <span className="text-white/50 text-xs">{mobileSystemOpen === sys.id ? "â–¼" : "â–¶"}</span>
                           </div>
                           {mobileSystemOpen === sys.id && (
                             <div className="flex flex-col gap-2 pl-4 py-2">
@@ -875,7 +875,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
     </>
   );
 }
-// ——— HERO ————————————————————————————————————————————————————————————————————————————————————
+// â€”â€”â€” HERO â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
 import { CanvasScrollHero } from '../components/CanvasScrollHero';
 
@@ -1001,7 +1001,7 @@ function ProductCard({
   );
 }
 
-// ——— PRODUCTS SECTION ————————————————————————————————————————————————————————————————————————
+// â€”â€”â€” PRODUCTS SECTION â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
 const PRODUCTS_DATA = [
   {
@@ -1078,7 +1078,7 @@ function VisionSection() {
       {/* The animation video */}
       <video
         src={visionRobotVideo}
-        autoPlay
+        autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
         loop
         muted
         playsInline
@@ -1128,7 +1128,7 @@ function ProductsSection() {
         </UnderlineLink>
       </div>
 
-      {/* ——— Desktop 12-col grid ——— */}
+      {/* â€”â€”â€” Desktop 12-col grid â€”â€”â€” */}
       <div
         className="hidden md:grid grid-cols-12 gap-5 w-full"
         style={{ gridTemplateRows: "repeat(3, clamp(220px, 31vw, 598px))" }}
@@ -1157,7 +1157,7 @@ function ProductsSection() {
         ))}
       </div>
 
-      {/* ——— Mobile / tablet stacked grid ——— */}
+      {/* â€”â€”â€” Mobile / tablet stacked grid â€”â€”â€” */}
       <div className="grid md:hidden grid-cols-1 sm:grid-cols-2 gap-5 w-full">
         {PRODUCTS_DATA.map((product) => (
           <ProductCard
@@ -1181,7 +1181,7 @@ function ProductsSection() {
   );
 }
 
-// ——— ARSENAL-1 FEATURE SECTION ———————————————————————————————————————————————————————————————
+// â€”â€”â€” ARSENAL-1 FEATURE SECTION â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
 function Arsenal1Section() {
   return (
@@ -1215,7 +1215,7 @@ function Arsenal1Section() {
   );
 }
 
-// ——— NEWS & INSIGHTS —————————————————————————————————————————————————————————————————————————
+// â€”â€”â€” NEWS & INSIGHTS â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
 function NewsSection() {
   return (
@@ -1275,7 +1275,7 @@ function NewsSection() {
   );
 }
 
-// ——— EDITORIAL PANEL —————————————————————————————————————————————————————————————————————————
+// â€”â€”â€” EDITORIAL PANEL â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
 type SlideData = { src: string; label?: string; target?: string };
 type EditorialImage = string | (string | SlideData)[];
@@ -1405,7 +1405,7 @@ function EditorialSection() {
         bg="#505544"
         textColor="white"
         dividerColor="white"
-        counter="PT — 01 / 02"
+        counter="PT â€” 01 / 02"
       />
       <EditorialPanel
         title="Innovation"
@@ -1414,13 +1414,13 @@ function EditorialSection() {
         bg="#8e9291"
         textColor="#010101"
         dividerColor="#010101"
-        counter="PT — 02 / 02"
+        counter="PT â€” 02 / 02"
       />
     </section>
   );
 }
 
-// ——— FOOTER ——————————————————————————————————————————————————————————————————————————————————
+// â€”â€”â€” FOOTER â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
 const FOOTER_COMPANY = ["Mission", "Newsroom", "Leadership", "Gear Store"];
 const FOOTER_WORK = ["Careers", "Early Career", "Veteran Careers", "Open Roles"];
@@ -1502,7 +1502,7 @@ function Footer() {
           className="text-white text-xs uppercase tracking-[0.54px]"
           style={{ fontFamily: INTER, fontWeight: 500 }}
         >
-          Copyright © 2026 Sahana Defence
+          Copyright Â© 2026 Sahana Defence
         </p>
         <div className="flex flex-row flex-wrap gap-x-6 gap-y-2">
           {["Privacy Policy", "Terms of Use", "Modern Anti-Slavery Policy", "Investor Relations"].map(
@@ -1523,7 +1523,7 @@ function Footer() {
   );
 }
 
-// ——— ELECTRONIC WARFARE PAGE —————————————————————————————————————————————————————————————————
+// â€”â€”â€” ELECTRONIC WARFARE PAGE â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 function ElectronicWarfarePage() {
   const [activePillar, setActivePillar] = useState(0);
 
@@ -1532,7 +1532,7 @@ function ElectronicWarfarePage() {
       title: "Electronic Support (ES)",
       subtitle: "Passive Signal Intelligence & Emitter Tracking",
       desc: "Our electronic support systems continuously monitor the electromagnetic environment to search, intercept, identify, and locate sources of intentional and unintentional radiated electromagnetic energy. By auditing the spectrum in real-time, our passive sensors establish threat profiles, identify radar signatures, and map hostile air defense positions without emitting detectable signals of their own.",
-      metrics: ["360° Passive Emitter Auditing", "Real-Time Signature Deconfliction", "High-Accuracy TDOA Geolocation"]
+      metrics: ["360Â° Passive Emitter Auditing", "Real-Time Signature Deconfliction", "High-Accuracy TDOA Geolocation"]
     },
     {
       title: "Electronic Attack (EA)",
@@ -1555,7 +1555,7 @@ function ElectronicWarfarePage() {
       <div className="absolute inset-y-0 right-12 w-[1px] bg-white/5 pointer-events-none hidden md:block" />
 
       {/* Hero Section */}
-      <section className="w-full min-h-[70vh] flex flex-col justify-center items-center relative py-32 px-4 sm:px-6 md:px-9 border-b border-white/10 bg-radial-[circle_at_center,rgba(46,67,33,0.15)_0%,transparent_80%]">
+      <section className="w-full min-h-[70vh] flex flex-col justify-center items-center relative section-padding px-4 sm:px-6 md:px-9 border-b border-white/10 bg-radial-[circle_at_center,rgba(46,67,33,0.15)_0%,transparent_80%]">
         {/* Animated Radar Overlay in background */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
         
@@ -1578,7 +1578,7 @@ function ElectronicWarfarePage() {
       </section>
 
       {/* Strategic Vision Intro Section */}
-      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-b border-white/10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
+      <section className="w-full section-padding px-4 sm:px-6 md:px-9 border-b border-white/10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
         <div className="lg:col-span-5 flex flex-col gap-4">
           <span className="text-[11px] tracking-[2px] text-white/40 uppercase font-semibold">Strategic Spectrum Position</span>
           <h2 className="text-3xl md:text-4xl tracking-tight leading-tight" style={{ fontFamily: INTER, fontWeight: 300 }}>
@@ -1596,7 +1596,7 @@ function ElectronicWarfarePage() {
       </section>
 
       {/* Core Domains Grid */}
-      <section className="w-full py-24 px-4 sm:px-6 md:px-9 max-w-[1400px] mx-auto flex flex-col gap-16 relative z-10">
+      <section className="w-full section-padding px-4 sm:px-6 md:px-9 max-w-[1400px] mx-auto flex flex-col gap-16 relative z-10">
         <div className="flex flex-col gap-3">
           <span className="text-[11px] tracking-[2px] text-white/40 uppercase font-semibold">Operational Domains</span>
           <h2 className="text-3xl md:text-4xl tracking-tight" style={{ fontFamily: INTER, fontWeight: 300 }}>
@@ -1684,7 +1684,7 @@ function ElectronicWarfarePage() {
       </section>
 
       {/* Interactive Pillars Section */}
-      <section className="w-full py-24 px-4 sm:px-6 md:px-9 bg-[#111213] border-t border-b border-white/10 relative z-10">
+      <section className="w-full section-padding px-4 sm:px-6 md:px-9 bg-[#111213] border-t border-b border-white/10 relative z-10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* Left: Tab Selectors */}
@@ -1736,7 +1736,7 @@ function ElectronicWarfarePage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-mono text-white/80">
                   {pillars[activePillar].metrics.map((metric, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <span className="text-[#2e4321] font-bold">›</span>
+                      <span className="text-[#2e4321] font-bold">â€º</span>
                       <span>{metric}</span>
                     </div>
                   ))}
@@ -1749,7 +1749,7 @@ function ElectronicWarfarePage() {
       </section>
 
       {/* Technical Standards Table Section */}
-      <section className="w-full py-24 px-4 sm:px-6 md:px-9 max-w-[1400px] mx-auto flex flex-col gap-12 relative z-10">
+      <section className="w-full section-padding px-4 sm:px-6 md:px-9 max-w-[1400px] mx-auto flex flex-col gap-12 relative z-10">
         <div className="text-center max-w-2xl mx-auto flex flex-col gap-3">
           <span className="text-[11px] tracking-[2px] text-white/40 uppercase font-semibold">Engineering Standards</span>
           <h2 className="text-3xl md:text-4xl tracking-tight" style={{ fontFamily: INTER, fontWeight: 300 }}>
@@ -1769,7 +1769,7 @@ function ElectronicWarfarePage() {
             <tbody>
               <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                 <td className="p-4 md:p-6 text-white font-medium">Frequency Range</td>
-                <td className="p-4 md:p-6 text-white/80">100 MHz – 40 GHz (HF to Ka-band)</td>
+                <td className="p-4 md:p-6 text-white/80">100 MHz â€“ 40 GHz (HF to Ka-band)</td>
                 <td className="p-4 md:p-6 text-white/60">Full-spectrum coverage, enabling tracking and jamming across all modern tactical threats.</td>
               </tr>
               <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
@@ -1798,7 +1798,7 @@ function ElectronicWarfarePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 bg-radial-[circle_at_center,rgba(46,67,33,0.1)_0%,transparent_75%] relative z-10 text-center">
+      <section className="w-full section-padding px-4 sm:px-6 md:px-9 border-t border-white/10 bg-radial-[circle_at_center,rgba(46,67,33,0.1)_0%,transparent_75%] relative z-10 text-center">
         <div className="max-w-[700px] mx-auto flex flex-col gap-6 items-center">
           <h2 className="text-3xl md:text-4xl tracking-tight text-center" style={{ fontFamily: INTER, fontWeight: 300 }}>
             Engage Our EW Systems Engineering Team
@@ -1822,7 +1822,7 @@ function ElectronicWarfarePage() {
 
 
 
-// ——— HANDHELD JAMMER PAGE ————————————————————————————————————————————————————————————————————
+// â€”â€”â€” HANDHELD JAMMER PAGE â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
 function HandheldJammerPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -1926,11 +1926,11 @@ function HandheldJammerPage() {
 
   return (
     <div ref={containerRef} className="w-full min-h-screen bg-black text-white selection:bg-[#2e4321] selection:text-white" style={{ fontFamily: INTER }}>
-      {/* 1. HERO SECTION — FPV scroll-linked canvas sequence */}
+      {/* 1. HERO SECTION â€” FPV scroll-linked canvas sequence */}
       <FpvCanvasHero heroRef={heroRef} statsRef={statsRef} />
 
       {/* 2. CINEMATIC VIDEO SHOWCASE */}
-      <section className="relative w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 overflow-hidden bg-[#050505]">
+      <section className="relative w-full section-padding px-4 sm:px-6 md:px-9 border-t border-white/10 overflow-hidden bg-[#050505]">
         <div className="max-w-[1400px] mx-auto relative z-10 flex flex-col items-center">
           <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-12 text-center max-w-[600px]">
             Zero-Delay Engagement Loop.
@@ -1939,7 +1939,7 @@ function HandheldJammerPage() {
             <video 
               ref={videoRef}
               src={heroVideo} 
-              autoPlay 
+              autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches} 
               loop 
               muted 
               playsInline
@@ -1959,7 +1959,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 3. MISSION OVERVIEW & VALUE PROPOSITION */}
-      <section className="relative w-full py-24 px-4 sm:px-6 md:px-9 bg-black border-t border-white/10">
+      <section className="relative w-full section-padding px-4 sm:px-6 md:px-9 bg-black border-t border-white/10">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div className="flex flex-col gap-6">
             <h2 className="text-3xl md:text-5xl font-medium tracking-tight leading-[1.1]">
@@ -1983,7 +1983,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 4. CORE CAPABILITIES (Bento-Box Grid) */}
-      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 bg-[#030303] overflow-hidden relative">
+      <section className="w-full section-padding px-4 sm:px-6 md:px-9 border-t border-white/10 bg-[#030303] overflow-hidden relative">
         <div className="max-w-[1400px] mx-auto">
           <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-12 text-center">
             System Capabilities
@@ -2038,7 +2038,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 5. TECHNICAL SPECIFICATIONS (Strict Tabular Interface) */}
-      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 bg-black">
+      <section className="w-full section-padding px-4 sm:px-6 md:px-9 border-t border-white/10 bg-black">
         <div className="max-w-[1000px] mx-auto">
           <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-8">
             Technical Specifications
@@ -2124,7 +2124,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 7. RESOURCES & SECURE DOWNLOADS */}
-      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 bg-black">
+      <section className="w-full section-padding px-4 sm:px-6 md:px-9 border-t border-white/10 bg-black">
         <div className="max-w-[1400px] mx-auto">
           <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-12 text-center">
             Resources & Downloads
@@ -2161,7 +2161,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 8. FINAL CTA & CERTIFICATIONS */}
-      <section className="w-full py-24 px-4 sm:px-6 md:px-9 border-t border-white/10 bg-radial-[circle_at_bottom,rgba(46,67,33,0.15)_0%,transparent_60%] relative text-center overflow-hidden">
+      <section className="w-full section-padding px-4 sm:px-6 md:px-9 border-t border-white/10 bg-radial-[circle_at_bottom,rgba(46,67,33,0.15)_0%,transparent_60%] relative text-center overflow-hidden">
         <div className="max-w-[700px] mx-auto flex flex-col gap-6 items-center relative z-10">
           <h2 className="text-3xl md:text-5xl tracking-tight text-center text-white font-medium">
             Equip Your Strike Teams with Instant Airspace Control.
@@ -2199,9 +2199,9 @@ function HandheldJammerPage() {
 
 
 
-// ——— HOME 2 PAGE (LUXURY CORPORATE AESTHETIC) ————————————————————————————————
+// â€”â€”â€” HOME 2 PAGE (LUXURY CORPORATE AESTHETIC) â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
-// ——— APP ——————————————————————————————————————————————————————————————————————
+// â€”â€”â€” APP â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -2298,6 +2298,8 @@ export default function App() {
     </div>
   );
 }
+
+
 
 
 

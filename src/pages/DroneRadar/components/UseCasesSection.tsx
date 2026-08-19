@@ -57,7 +57,7 @@ export function UseCasesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-black relative">
+    <section ref={sectionRef} className="section-padding bg-black relative">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         
         <div className="mb-16">
@@ -118,4 +118,5 @@ export function UseCasesSection() {
     </section>
   );
 }
+
 

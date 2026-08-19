@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos/images directly via Vite
@@ -19,7 +19,7 @@ const heroSlides = [
   {
     id: 'jamming-spear',
     title: 'INFINITY SPEAR',
-    subtitle: '60W Continuous Output . 1.5–2.0 km Range.',
+    subtitle: '60W Continuous Output . 1.5â€“2.0 km Range.',
     mediaUrl: spearVid,
     ctaText: 'SEE CAPABILITIES',
     ctaLink: '#',
@@ -63,7 +63,7 @@ export default function JammingSystemsHero() {
         >
           {slide.isVideo ? (
             <video
-              autoPlay
+              autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
               loop
               muted
               playsInline
@@ -202,4 +202,5 @@ export default function JammingSystemsHero() {
     </section>
   );
 }
+
 

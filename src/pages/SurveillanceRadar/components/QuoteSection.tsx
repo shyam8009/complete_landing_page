@@ -1,10 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { TechCTA } from '@/components/TechCTA';
 
 export function QuoteSection() {
   return (
-    <section className="py-32 bg-[#020202] relative overflow-hidden flex items-center justify-center border-t border-white/5">
+    <section className="section-padding bg-[#020202] relative overflow-hidden flex items-center justify-center border-t border-white/5">
       {/* Background Graphic */}
       <div className="absolute inset-0 z-0 opacity-40">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#84CC16] blur-[150px] rounded-[100%] opacity-10 mix-blend-screen" />
@@ -48,3 +48,4 @@ export function QuoteSection() {
     </section>
   );
 }
+

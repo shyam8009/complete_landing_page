@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import fpvHeroBg from '../../../imports/Hero banner Video.mp4';
 import { TechCTA } from '@/components/TechCTA';
@@ -7,10 +7,10 @@ const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, s
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-black pt-28 pb-12">
+    <section className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-black pt-20 sm:pt-24 md:pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-10 md:pb-12">
       {/* Full-width Background Video */}
       <video
-        autoPlay
+        autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
         loop
         muted
         playsInline
@@ -67,4 +67,6 @@ export function HeroSection() {
     </section>
   );
 }
+
+
 

@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 
 export function ElectroOpticsPitch() {
   return (
-    <section className="relative w-full bg-[#000000] text-white py-32 px-6 md:px-12 lg:px-24 overflow-hidden font-['Inter',sans-serif]">
+    <section className="relative w-full bg-[#000000] text-white section-padding px-6 md:px-12 lg:px-24 overflow-hidden font-['Inter',sans-serif]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[1px] bg-gradient-to-r from-transparent via-[#84CC16]/20 to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(132,204,22,0.03)_0%,transparent_50%)] pointer-events-none" />
 
@@ -54,3 +54,4 @@ export function ElectroOpticsPitch() {
     </section>
   );
 }
+

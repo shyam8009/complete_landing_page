@@ -1,10 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 export function QuoteSection() {
   return (
-    <section className="py-32 bg-[#020202] relative overflow-hidden border-t border-white/5">
+    <section className="section-padding bg-[#020202] relative overflow-hidden border-t border-white/5">
       {/* Background radial gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(132,204,22,0.05),transparent_50%)]" />
 
@@ -30,3 +30,4 @@ export function QuoteSection() {
     </section>
   );
 }
+

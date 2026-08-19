@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { Target, Radio, Shield } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -46,7 +46,7 @@ export function ValuePropositionSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#020202] relative overflow-hidden">
+    <section ref={sectionRef} className="section-padding bg-[#020202] relative overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -115,4 +115,5 @@ export function ValuePropositionSection() {
     </section>
   );
 }
+
 

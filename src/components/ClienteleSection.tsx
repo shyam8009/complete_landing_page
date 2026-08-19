@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 const allClients = [
   "BEML - Bharat Earth Movers Limited",
@@ -47,11 +47,11 @@ function ClientCard({ name }: { name: string }) {
       </div>
       <div className="flex-1 overflow-hidden">
         <h4 className="text-sm font-bold text-slate-800 tracking-wide truncate group-hover:text-black transition-colors" style={{ fontFamily: 'Inter, sans-serif' }}>
-          {name.split('—')[0].trim()}
+          {name.split('â€”')[0].trim()}
         </h4>
-        {name.includes('—') && (
+        {name.includes('â€”') && (
           <p className="text-[10px] text-slate-500 truncate uppercase tracking-widest mt-1">
-            {name.split('—')[1].trim()}
+            {name.split('â€”')[1].trim()}
           </p>
         )}
       </div>
@@ -61,7 +61,7 @@ function ClientCard({ name }: { name: string }) {
 
 export default function ClienteleSection() {
   return (
-    <section className="relative w-full bg-[#FAFAFA] py-24 overflow-hidden border-t border-neutral-200">
+    <section className="relative w-full bg-[#FAFAFA] section-padding overflow-hidden border-t border-neutral-200">
       
       {/* Inline styles for marquee animations */}
       <style>{`
@@ -132,3 +132,4 @@ export default function ClienteleSection() {
     </section>
   );
 }
+

@@ -74,7 +74,7 @@ export default function DynamicEcosystem({ data }: { data: any }) {
         <div className="absolute inset-0 z-0 pointer-events-none">
           {data.resolvedBg ? (
             data.bgIsVideo ? (
-              <video src={data.resolvedBg} autoPlay loop muted playsInline className="w-full h-full object-cover opacity-20" />
+              <video src={data.resolvedBg} autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches} loop muted playsInline className="w-full h-full object-cover opacity-20" />
             ) : (
               <img src={data.resolvedBg} alt="Network Grid" className="w-full h-full object-cover opacity-20" />
             )
@@ -118,7 +118,7 @@ export default function DynamicEcosystem({ data }: { data: any }) {
                         style={{ border: '1px solid rgba(255,255,255,0.08)', backgroundColor: '#000', minHeight: '300px' }}>
                         {card.resolvedImg ? (
                           card.imgIsVideo ? (
-                            <video src={card.resolvedImg} autoPlay loop muted playsInline className="w-full h-full object-cover object-center" />
+                            <video src={card.resolvedImg} autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches} loop muted playsInline className="w-full h-full object-cover object-center" />
                           ) : (
                             <img src={card.resolvedImg} alt={card.title} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                           )
@@ -188,4 +188,5 @@ export default function DynamicEcosystem({ data }: { data: any }) {
     </main>
   );
 }
+
 

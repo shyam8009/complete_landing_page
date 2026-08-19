@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { Lock, Radio, ActivitySquare } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -46,7 +46,7 @@ export function ValuePropositionSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#020202] relative overflow-hidden">
+    <section ref={sectionRef} className="section-padding bg-[#020202] relative overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -64,7 +64,7 @@ export function ValuePropositionSection() {
             
             <div className="fade-in-right space-y-6 text-white/60 text-lg leading-relaxed max-w-xl">
               <p>
-                The PROXY — Control Channel comprises a ground-control station and an aerial video signal repeater, supporting simultaneous operation across multiple frequency bands. It is precision-engineered to maintain reliable telemetry and video links for FPV drones in heavily jammed or contested electronic warfare environments.
+                The PROXY â€” Control Channel comprises a ground-control station and an aerial video signal repeater, supporting simultaneous operation across multiple frequency bands. It is precision-engineered to maintain reliable telemetry and video links for FPV drones in heavily jammed or contested electronic warfare environments.
               </p>
             </div>
           </div>
@@ -104,7 +104,7 @@ export function ValuePropositionSection() {
               <div className="flex items-center gap-3">
                 <ActivitySquare className="text-[#84CC16] w-5 h-5" />
                 <div>
-                  <div className="text-white font-bold text-sm">1.2–3.5 GHz Spectrum Range</div>
+                  <div className="text-white font-bold text-sm">1.2â€“3.5 GHz Spectrum Range</div>
                 </div>
               </div>
             </div>
@@ -115,4 +115,5 @@ export function ValuePropositionSection() {
     </section>
   );
 }
+
 

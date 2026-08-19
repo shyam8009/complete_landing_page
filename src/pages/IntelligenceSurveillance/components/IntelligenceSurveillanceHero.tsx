@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import osintVid from '@/imports/intelligence_video.mp4';
@@ -58,7 +58,7 @@ export default function IntelligenceSurveillanceHero() {
           className="absolute inset-0 w-full h-full"
         >
           <video
-            autoPlay
+            autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
             loop
             muted
             playsInline
@@ -183,4 +183,5 @@ export default function IntelligenceSurveillanceHero() {
     </section>
   );
 }
+
 

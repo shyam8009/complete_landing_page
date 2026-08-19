@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { RichText } from '../../../components/RichText';
 import { TechCTA } from '@/components/TechCTA';
 
@@ -17,7 +17,7 @@ export default function DynamicHero({ data }: { data: any }) {
       <div className="absolute inset-0 z-0 pointer-events-none">
         {data.resolvedBg ? (
           data.bgIsVideo ? (
-            <video src={data.resolvedBg} autoPlay loop muted playsInline className="w-full h-full object-cover opacity-90" />
+            <video src={data.resolvedBg} autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches} loop muted playsInline className="w-full h-full object-cover opacity-90" />
           ) : (
             <img src={data.resolvedBg} alt="Background" className="w-full h-full object-cover opacity-90" />
           )
@@ -60,4 +60,5 @@ export default function DynamicHero({ data }: { data: any }) {
     </section>
   );
 }
+
 

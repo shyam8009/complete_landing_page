@@ -1,8 +1,8 @@
-import React from 'react';
+﻿import React from 'react';
 
 export function SovereignStrip() {
   return (
-    <section className="w-full bg-[#050505] border-y border-white/10 py-16 md:py-24 relative overflow-hidden">
+    <section className="w-full bg-[#050505] border-y border-white/10 py-16 md:section-padding relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute inset-0 bg-radial-[circle_at_center,rgba(132,204,22,0.03)_0%,transparent_50%] pointer-events-none" />
       
@@ -63,3 +63,4 @@ export function SovereignStrip() {
     </section>
   );
 }
+

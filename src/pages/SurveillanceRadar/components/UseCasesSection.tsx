@@ -24,7 +24,7 @@ const USE_CASES = [
 
 export function UseCasesSection() {
   return (
-    <section className="py-24 bg-black border-t border-white/5 relative">
+    <section className="section-padding bg-black border-t border-white/5 relative">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         
         <div className="mb-16 text-center max-w-2xl mx-auto">
@@ -73,4 +73,5 @@ export function UseCasesSection() {
     </section>
   );
 }
+
 

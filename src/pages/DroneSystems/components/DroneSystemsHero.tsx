@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos directly via Vite
@@ -59,7 +59,7 @@ export default function DroneSystemsHero() {
           className="absolute inset-0 w-full h-full"
         >
           <video
-            autoPlay
+            autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
             loop
             muted
             playsInline
@@ -184,4 +184,5 @@ export default function DroneSystemsHero() {
     </section>
   );
 }
+
 

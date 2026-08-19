@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import heroBg from '../../../imports/rf-detector-d360/magnific_professional-outdoor-prod_62g8z7SiJO.png';
@@ -33,7 +33,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black/20 z-10" />
       
       {/* Content Container */}
-      <div className="relative z-20 flex-1 flex flex-col justify-center pt-28 pb-12 w-full px-4 sm:px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto">
+      <div className="relative z-20 flex-1 flex flex-col justify-center pt-20 sm:pt-24 md:pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-10 md:pb-12 w-full px-4 sm:px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto">
         <div className="max-w-3xl">
           
           {/* Eyebrow */}
@@ -74,7 +74,7 @@ export function HeroSection() {
             </div>
             <div className="hidden md:block w-px bg-white/20" /><div className="block md:hidden h-px w-full bg-white/20" />
             <div>
-              <div className="text-2xl font-bold text-white">360°</div>
+              <div className="text-2xl font-bold text-white">360Â°</div>
               <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Azimuth Coverage</div>
             </div>
           </div>
@@ -84,5 +84,6 @@ export function HeroSection() {
     </section>
   );
 }
+
 
 

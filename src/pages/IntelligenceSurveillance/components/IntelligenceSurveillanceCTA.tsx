@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import { TechCTA } from '@/components/TechCTA';
 
 export function IntelligenceSurveillanceCTA() {
   return (
-    <section className="w-full bg-[#000000] py-32 px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
+    <section className="w-full bg-[#000000] section-padding px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
       
       {/* Subtle top gradient */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -25,3 +25,4 @@ export function IntelligenceSurveillanceCTA() {
     </section>
   );
 }
+

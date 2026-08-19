@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import heroBg from '../../../imports/proxy/magnific_photorealistic-outdoor-fi_Piskn0l42C 1.jpeg';
@@ -33,7 +33,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black/20 z-10" />
       
       {/* Content Container */}
-      <div className="relative z-20 flex-1 flex flex-col justify-center pt-28 pb-12 w-full px-4 sm:px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto">
+      <div className="relative z-20 flex-1 flex flex-col justify-center pt-20 sm:pt-24 md:pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-10 md:pb-12 w-full px-4 sm:px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto">
         <div className="max-w-3xl">
           
           {/* Eyebrow */}
@@ -49,7 +49,7 @@ export function HeroSection() {
             className="hero-element text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
             style={{ fontFamily: INTER }}
           >
-            PROXY — <br />
+            PROXY â€” <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">CONTROL CHANNEL</span>
           </h1>
           
@@ -84,5 +84,6 @@ export function HeroSection() {
     </section>
   );
 }
+
 
 

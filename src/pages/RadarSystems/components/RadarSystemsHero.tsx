@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos/images directly via Vite
@@ -30,7 +30,7 @@ const heroSlides = [
   {
     id: 'radar-surveillance',
     title: 'Surveillance Radar',
-    subtitle: '360° perimeter dominance & long-range tracking.',
+    subtitle: '360Â° perimeter dominance & long-range tracking.',
     mediaUrl: radarHero2Vid, // Using video for third slide
     ctaText: 'SEE CAPABILITIES',
     ctaLink: '#',
@@ -74,7 +74,7 @@ export default function RadarSystemsHero() {
         >
           {slide.isVideo ? (
             <video
-              autoPlay
+              autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
               loop
               muted
               playsInline
@@ -213,4 +213,5 @@ export default function RadarSystemsHero() {
     </section>
   );
 }
+
 

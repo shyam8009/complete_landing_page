@@ -1,16 +1,16 @@
-import React from 'react';
+﻿import React from 'react';
 import { TechCTA } from '@/components/TechCTA';
 
 export default function DynamicCTA({ data }: { data: any }) {
   if (!data) return null;
   return (
-    <section className="w-full bg-[#000000] py-32 px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
+    <section className="w-full bg-[#000000] section-padding px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
       
       {/* Optional background media */}
       {data.resolvedBg && (
         <div className="absolute inset-0 z-0 pointer-events-none">
           {data.bgIsVideo ? (
-            <video src={data.resolvedBg} autoPlay loop muted playsInline className="w-full h-full object-cover opacity-20" />
+            <video src={data.resolvedBg} autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches} loop muted playsInline className="w-full h-full object-cover opacity-20" />
           ) : (
             <img src={data.resolvedBg} alt="CTA Background" className="w-full h-full object-cover opacity-20" />
           )}
@@ -40,3 +40,5 @@ export default function DynamicCTA({ data }: { data: any }) {
     </section>
   );
 }
+
+

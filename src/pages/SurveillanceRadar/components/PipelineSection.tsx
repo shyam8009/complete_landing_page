@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { Radar, Target, EyeOff, Waypoints } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,7 +9,7 @@ const PIPELINE_STEPS = [
   {
     id: '01',
     title: 'SCAN',
-    description: 'Continuous 360Â° Field-of-View sweep providing unblinking coverage up to 30 kilometers.',
+    description: 'Continuous 360Ã‚Â° Field-of-View sweep providing unblinking coverage up to 30 kilometers.',
     icon: Radar,
   },
   {
@@ -58,7 +58,7 @@ export function PipelineSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+    <section ref={sectionRef} className="section-padding bg-[#050505] border-t border-white/5 relative overflow-hidden">
       {/* Background Grid */}
       <div 
         className="absolute inset-0 opacity-[0.03]" 
@@ -107,6 +107,7 @@ export function PipelineSection() {
     </section>
   );
 }
+
 
 
 

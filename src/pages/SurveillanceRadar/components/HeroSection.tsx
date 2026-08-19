@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import surveillanceRadarHeroBg from '../../../imports/surveillance_radar_hero_bg.mp4';
 import { TechCTA } from '@/components/TechCTA';
@@ -7,10 +7,10 @@ const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, s
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-black pt-28 pb-12">
+    <section className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-black pt-20 sm:pt-24 md:pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-10 md:pb-12">
       {/* Full-width Background Video */}
       <video
-        autoPlay
+        autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
         loop
         muted
         playsInline
@@ -40,7 +40,7 @@ export function HeroSection() {
             </h1>
             
             <p className="text-xl text-white/60 mb-10 max-w-lg leading-relaxed">
-              Dynamic 360Â° Predictive Threat Tracking. Dominating Adverse Visibility Up to 30 Kilometers.
+              Dynamic 360Ã‚Â° Predictive Threat Tracking. Dominating Adverse Visibility Up to 30 Kilometers.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
@@ -67,3 +67,5 @@ export function HeroSection() {
     </section>
   );
 }
+
+

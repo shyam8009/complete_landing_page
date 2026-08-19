@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+﻿import React, { useRef, useLayoutEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import heroBg from '../../../imports/osint/hero_bg.jpg';
@@ -33,7 +33,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black/20 z-10" />
       
       {/* Content Container */}
-      <div className="relative z-20 flex-1 flex flex-col justify-center pt-28 pb-12 w-full px-4 sm:px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto">
+      <div className="relative z-20 flex-1 flex flex-col justify-center pt-20 sm:pt-24 md:pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-10 md:pb-12 w-full px-4 sm:px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto">
         <div className="max-w-3xl">
           
           {/* Eyebrow */}
@@ -85,5 +85,6 @@ export function HeroSection() {
     </section>
   );
 }
+
 
 

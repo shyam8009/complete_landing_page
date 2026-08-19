@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import qgVid from '@/imports/quantum_communication_intro_video.mp4';
@@ -49,7 +49,7 @@ export function QuantumHero() {
           className="absolute inset-0 w-full h-full"
         >
           <video
-            autoPlay
+            autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
             loop
             muted
             playsInline
@@ -174,4 +174,5 @@ export function QuantumHero() {
     </section>
   );
 }
+
 

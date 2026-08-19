@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+﻿import React, { useRef, useLayoutEffect } from 'react';
 import { Layers, Workflow, ShieldCheck } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -46,7 +46,7 @@ export function AerospaceComponentsCapabilities() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#020202] relative overflow-hidden">
+    <section ref={sectionRef} className="section-padding bg-[#020202] relative overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -64,7 +64,7 @@ export function AerospaceComponentsCapabilities() {
             
             <div className="fade-in-left space-y-6 text-white/60 text-lg leading-relaxed max-w-xl">
               <p>
-                Aerospace component manufacturing permits zero margin for error. Siddhanta Machining—the integrated precision engineering arm of Sahana Defence—brings over 20 years of space-grade quality culture to the aerospace sector.
+                Aerospace component manufacturing permits zero margin for error. Siddhanta Machiningâ€”the integrated precision engineering arm of Sahana Defenceâ€”brings over 20 years of space-grade quality culture to the aerospace sector.
               </p>
               <p>
                 Operating as a complete hub from prototype to qualified production, our advanced CNC infrastructure handles the most demanding exotic materials. Our uncompromising precision is trusted by leading strategic organizations, reflecting our capability to support urgent builds, complex aerodynamic geometries, and high-volume mission-critical production.
@@ -118,3 +118,4 @@ export function AerospaceComponentsCapabilities() {
     </section>
   );
 }
+

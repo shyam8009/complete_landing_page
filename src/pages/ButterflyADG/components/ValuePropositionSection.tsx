@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { Target, Thermometer, Shield } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -46,7 +46,7 @@ export function ValuePropositionSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#020202] relative overflow-hidden">
+    <section ref={sectionRef} className="section-padding bg-[#020202] relative overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -86,7 +86,7 @@ export function ValuePropositionSection() {
               <div className="flex items-center gap-3">
                 <Target className="text-[#84CC16] w-5 h-5" />
                 <div>
-                  <div className="text-white font-bold text-sm">360° Omni Angular Coverage</div>
+                  <div className="text-white font-bold text-sm">360Â° Omni Angular Coverage</div>
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@ export function ValuePropositionSection() {
               <div className="flex items-center gap-3">
                 <Thermometer className="text-[#84CC16] w-5 h-5" />
                 <div>
-                  <div className="text-white font-bold text-sm">-20°C to +50°C Operating Temp</div>
+                  <div className="text-white font-bold text-sm">-20Â°C to +50Â°C Operating Temp</div>
                 </div>
               </div>
             </div>
@@ -115,4 +115,5 @@ export function ValuePropositionSection() {
     </section>
   );
 }
+
 

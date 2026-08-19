@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+﻿import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import productRender from '../../../imports/3d-drone-detector/3d_drone_detector_product.png';
@@ -48,7 +48,7 @@ export function ValuePropositionSection() {
   return (
     <section 
       ref={containerRef}
-      className="py-24 bg-[#020202] relative overflow-hidden"
+      className="section-padding bg-[#020202] relative overflow-hidden"
     >
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
@@ -114,4 +114,5 @@ export function ValuePropositionSection() {
     </section>
   );
 }
+
 
