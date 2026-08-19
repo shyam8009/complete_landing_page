@@ -72,16 +72,37 @@ export default function RadarSystemsEcosystem() {
     });
   }, { scope: containerRef });
 
-  return (
-    <div className="font-['Inter',sans-serif] bg-[#050505]">
-      {/* Spacer to give room before pinned section */}
-      <div className="h-24 md:h-32 bg-[#050505]" />
+    return (
+    <div className="font-['Inter',sans-serif]">
+      {/* HORIZONTAL ECOSYSTEM TRACK */}
+      <section ref={containerRef} className="relative w-full h-screen overflow-hidden bg-[#050505]">
+        
+        {/* BACKGROUND IMAGE (Fixed, z-0) */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img 
+            src={bgGrid} 
+            alt="Intelligence Network Schematic" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(5,5,5,0.2)_0%,rgba(5,5,5,0.95)_100%)]" />
+        </div>
 
-      <section 
-        ref={containerRef} 
-        className="relative h-screen overflow-hidden bg-[#050505]"
-      >
-        <div className="h-full w-full flex items-center overflow-visible z-10 relative">
+        {/* TOP HEADER (Fixed, z-20) */}
+        <div className="absolute top-8 left-0 right-0 z-20 flex justify-center pointer-events-none">
+          <span className="text-[#84CC16] font-mono font-bold tracking-[0.2em] text-sm md:text-base uppercase">
+            TACTICAL RADAR & DETECTION ECOSYSTEM
+          </span>
+        </div>
+
+        {/* BOTTOM FOOTER (Fixed, z-20) */}
+        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center pointer-events-none">
+          <span className="text-white/40 font-mono tracking-widest text-xs uppercase animate-pulse">
+            SCROLL TO EXPLORE
+          </span>
+        </div>
+
+        {/* THE SLIDING TRACK (z-10) */}
+        <div className="relative z-10 flex h-full items-center overflow-visible">
           <div ref={trackRef} className="flex flex-nowrap h-full items-center px-[5vw] md:px-[10vw] gap-12 md:gap-24">
             
             {radarSystemsData.map((item, index) => (
@@ -157,10 +178,8 @@ export default function RadarSystemsEcosystem() {
           </div>
         </div>
       </section>
-
-      {/* Spacer after pinned section */}
-      <div className="h-24 md:h-32 bg-[#050505]" />
     </div>
   );
 }
+
 
