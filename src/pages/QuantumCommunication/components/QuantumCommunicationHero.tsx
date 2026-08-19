@@ -65,7 +65,7 @@ export default function QuantumCommunicationHero() {
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
 
       {/* 3. Staggered Content Animation */}
-      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6 mt-12">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-start text-center px-4 sm:px-6 pt-32 md:pt-40">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.id}
@@ -174,5 +174,6 @@ export default function QuantumCommunicationHero() {
     </section>
   );
 }
+
 
 
