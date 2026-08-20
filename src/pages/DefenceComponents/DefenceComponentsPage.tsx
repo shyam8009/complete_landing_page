@@ -3,6 +3,7 @@ import { DefenceComponentsHero } from './components/DefenceComponentsHero';
 import { DefenceComponentsPipeline } from './components/DefenceComponentsPipeline';
 import { DefenceComponentsCapabilities } from './components/DefenceComponentsCapabilities';
 import { DefenceComponentsSpecs } from './components/DefenceComponentsSpecs';
+import { TacticalApplications } from './components/TacticalApplications';
 import { ComplianceStrip } from './components/ComplianceStrip';
 import { DefenceCTA } from './components/DefenceCTA';
 
@@ -30,6 +31,7 @@ export function DefenceComponentsPage() {
       <DefenceComponentsPipeline />
       <DefenceComponentsCapabilities />
       <DefenceComponentsSpecs />
+      <TacticalApplications />
       <ComplianceStrip />
       <DefenceCTA />
     </main>
