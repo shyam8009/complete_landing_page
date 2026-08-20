@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import img1 from '@/imports/sahana_fpv_interceptor.jpg';
 import img2 from '@/imports/rf_radar_generated.png';
-import img3 from '@/imports/tactical_1.webp';
+import img3 from '@/imports/fpv-buddy/tactical_1.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,3 +104,4 @@ export function TacticalApplications() {
     </section>
   );
 }
+
