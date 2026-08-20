@@ -49,7 +49,7 @@ export function HeroSection() {
             className="hero-element text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
             style={{ fontFamily: INTER }}
           >
-            PROXY â€” <br />
+            PROXY - <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">CONTROL CHANNEL</span>
           </h1>
           
@@ -84,6 +84,7 @@ export function HeroSection() {
     </section>
   );
 }
+
 
 
 

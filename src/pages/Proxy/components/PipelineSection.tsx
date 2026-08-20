@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { Radio, Antenna, Shield, Signal } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -16,7 +16,7 @@ const PIPELINE_STEPS = [
     id: "02",
     title: "DEPLOY",
     icon: Antenna,
-    description: "Rapid setup featuring a 4–6 m ground control mast paired with a lightweight aerial video signal repeater."
+    description: "Rapid setup featuring a 4-6 m ground control mast paired with a lightweight aerial video signal repeater."
   },
   {
     id: "03",
@@ -126,6 +126,7 @@ export function PipelineSection() {
     </section>
   );
 }
+
 
 
 

@@ -64,7 +64,7 @@ export function ValuePropositionSection() {
             
             <div className="fade-in-right space-y-6 text-white/60 text-lg leading-relaxed max-w-xl">
               <p>
-                The PROXY â€” Control Channel comprises a ground-control station and an aerial video signal repeater, supporting simultaneous operation across multiple frequency bands. It is precision-engineered to maintain reliable telemetry and video links for FPV drones in heavily jammed or contested electronic warfare environments.
+                The PROXY - Control Channel comprises a ground-control station and an aerial video signal repeater, supporting simultaneous operation across multiple frequency bands. It is precision-engineered to maintain reliable telemetry and video links for FPV drones in heavily jammed or contested electronic warfare environments.
               </p>
             </div>
           </div>
@@ -104,7 +104,7 @@ export function ValuePropositionSection() {
               <div className="flex items-center gap-3">
                 <ActivitySquare className="text-[#84CC16] w-5 h-5" />
                 <div>
-                  <div className="text-white font-bold text-sm">1.2â€“3.5 GHz Spectrum Range</div>
+                  <div className="text-white font-bold text-sm">1.2-3.5 GHz Spectrum Range</div>
                 </div>
               </div>
             </div>
@@ -115,5 +115,6 @@ export function ValuePropositionSection() {
     </section>
   );
 }
+
 
 

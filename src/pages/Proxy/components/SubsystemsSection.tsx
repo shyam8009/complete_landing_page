@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
 import groundStationImg from '../../../imports/proxy/reference-img1.jpeg';
 import aerialRepeaterImg from '../../../imports/arsenal_facility.jpg';
@@ -10,7 +10,7 @@ export function SubsystemsSection() {
       id: 'sub-ground',
       type: 'GROUND NODE',
       title: 'Directional Ground Array',
-      description: '4–6 m mast height, equipped with dual directional antennas (4-element and 10-element), powered by 15–25 V.',
+      description: '4-6 m mast height, equipped with dual directional antennas (4-element and 10-element), powered by 15-25 V.',
       image: groundStationImg,
       statusBadge: 'GROUND STATION',
       specs: [
@@ -47,4 +47,5 @@ export function SubsystemsSection() {
 
   return <InteractiveBlueprint title="Hardware<br/>Specifications" subtitle="// Technical Architecture" tiers={tiers} />;
 }
+
 
