@@ -349,7 +349,7 @@ export const CAPABILITIES_DATA = [
         applications: ["Automated Targeting", "Logistics Prediction", "Cyber Threat Detection", "Autonomous Navigation"],
         products: [
           { id: "chatbots", title: "Chatbots and Voice Solution", image: innovation5, slug: "/solution/chatbots-voice" },
-          { id: "big-data", title: "Big Data and Business Intelligence", image: innovation3, slug: "/solution/defence-deeptech" },
+          { id: "big-data", title: "Big Data and Business Intelligence", image: innovation3, slug: "/solution/big-data-bi" },
           { id: "ai", title: "Artificial Intelligence", image: innovation4, slug: "/solution/defence-deeptech" },
         ]
       },
@@ -647,6 +647,7 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
     </div>
   );
 }
+
 
 
 
