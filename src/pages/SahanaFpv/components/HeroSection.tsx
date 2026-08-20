@@ -44,10 +44,15 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <TechCTA>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+                <TechCTA>
                 Request Consultation
                 <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
               </TechCTA>
+                <TechCTA>
+                  DOWNLOAD CAPABILITY BROCHURE
+                </TechCTA>
+              </div>
             </div>
 
             {/* Quick Stats Grid */}

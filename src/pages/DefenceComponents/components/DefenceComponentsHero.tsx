@@ -71,10 +71,15 @@ export function DefenceComponentsHero() {
           
           {/* CTA */}
           <div className="hero-element flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 items-center mb-16">
-            <TechCTA onClick={scrollToPipeline}>
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+                <TechCTA onClick={scrollToPipeline}>
               REQUEST COMPONENT QUOTE
               <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
             </TechCTA>
+                <TechCTA>
+                  DOWNLOAD CAPABILITY BROCHURE
+                </TechCTA>
+              </div>
           </div>
           
           {/* Quick Stats Block (Glassmorphic) */}

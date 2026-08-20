@@ -121,7 +121,8 @@ export default function CommunicationMonitoringHero() {
               }}
               className="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2"
             >
-              <a
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+                  <a
                 href={slide.ctaLink}
                 className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
               >
@@ -133,6 +134,18 @@ export default function CommunicationMonitoringHero() {
 
                 {slide.ctaText}
               </a>
+                  
+                <a
+                  href="#"
+                  className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
+                >
+                  <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  DOWNLOAD CAPABILITY BROCHURE
+                </a>
+                </div>
             </motion.div>
           </motion.div>
         </AnimatePresence>

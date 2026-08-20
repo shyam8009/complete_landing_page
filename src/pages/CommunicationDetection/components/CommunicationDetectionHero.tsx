@@ -91,7 +91,8 @@ export default function CommunicationDetectionHero() {
               {slide.subtitle}
             </p>
 
-            <button 
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+              <button 
               onClick={() => { window.location.href = slide.ctaLink; }}
               className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
             >
@@ -100,6 +101,13 @@ export default function CommunicationDetectionHero() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </button>
+              <button 
+              onClick={() => { window.location.href = '#'; }}
+              className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
+            >
+              DOWNLOAD CAPABILITY BROCHURE
+            </button>
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>

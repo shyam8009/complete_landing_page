@@ -48,12 +48,17 @@ export default function DynamicHero({ data }: { data: any }) {
           <RichText content={data.intro} className="text-base md:text-xl text-neutral-300 leading-relaxed max-w-2xl mb-12" />
         )}
 
-        <TechCTA>
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+                <TechCTA>
           {data.ctaText || 'Know More'}
           <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </TechCTA>
+                <TechCTA>
+                  DOWNLOAD CAPABILITY BROCHURE
+                </TechCTA>
+              </div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none" />

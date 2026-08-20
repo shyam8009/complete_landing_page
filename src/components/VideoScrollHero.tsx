@@ -305,9 +305,14 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
             justifyContent: 'center', opacity: 0, transform: 'translateY(56px)',
           }}>
             <div className="flex flex-wrap gap-4 pt-4">
-              <TechCTA>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+                <TechCTA>
                 DISCOVER FPV SYSTEM
               </TechCTA>
+                <TechCTA>
+                  DOWNLOAD CAPABILITY BROCHURE
+                </TechCTA>
+              </div>
               <TechCTA className="border border-white/30 hover:bg-white/10 hover:border-white/50">
                 VIEW TECHNICAL SPECS
               </TechCTA>
