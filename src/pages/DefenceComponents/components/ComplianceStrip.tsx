@@ -24,6 +24,22 @@ export function ComplianceStrip() {
   
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
+      // Heading animation
+      gsap.fromTo('.compliance-heading',
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+          }
+        }
+      );
+      
+      // Cards animation
       gsap.fromTo('.metric-item',
         { y: 30, opacity: 0 },
         {
@@ -34,7 +50,7 @@ export function ComplianceStrip() {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: 'top 70%',
           }
         }
       );
@@ -43,11 +59,21 @@ export function ComplianceStrip() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#050505] py-16 border-t border-white/5 relative overflow-hidden">
+    <section ref={sectionRef} className="w-full bg-[#050505] py-20 border-t border-white/5 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-32 bg-[#84CC16]/5 blur-[100px] pointer-events-none" />
       
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12 relative z-10">
+        
+        {/* Header */}
+        <div className="compliance-heading mb-16 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight">
+            QUALITY & COMPLIANCE
+          </h2>
+          <div className="w-24 h-1 bg-[#84CC16] mx-auto opacity-80" />
+        </div>
+
+        {/* Metrics Cards */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-8">
           {metrics.map((metric, index) => (
             <div 
