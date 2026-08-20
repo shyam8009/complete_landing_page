@@ -7,12 +7,12 @@ import { QuantumCTA } from './components/QuantumCTA';
 
 export function ConnectivityInfrastructurePage() {
   return (
-    <div className="w-full bg-[#05080D] text-white overflow-hidden font-sans">
+    <main className="w-full bg-[#000000] min-h-screen text-white font-sans selection:bg-[#84CC16]/30">
       <ConnectivityHero />
       <SystemPitch />
       <TechEcosystem />
       <SovereignStrip />
       <QuantumCTA />
-    </div>
+    </main>
   );
 }
