@@ -17,14 +17,11 @@ export function QuantumCTA() {
           Consult with our certified architects to deploy scalable cloud services, secure IoT integrations, and real-time video streaming platforms tailored for defence.
         </p>
         
-        <div className="mb-6">
-          <TechCTA>
-            <span className="relative z-10">CONTACT INFRASTRUCTURE DIVISION</span>
-            <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-          </TechCTA>
-        </div>
+        <TechCTA>
+          CONTACT INFRASTRUCTURE DIVISION
+        </TechCTA>
         
-        <a href="#" className="text-white/40 hover:text-white/80 text-xs tracking-wide transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/50 uppercase">
+        <a href="#" className="mt-8 text-white/40 hover:text-white/80 text-xs tracking-wide transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/50 uppercase">
           Request Architecture Consultation
         </a>
       </div>

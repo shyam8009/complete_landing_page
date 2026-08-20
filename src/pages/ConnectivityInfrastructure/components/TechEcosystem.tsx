@@ -110,7 +110,7 @@ export function TechEcosystem() {
                 
                 {/* THE GLASSMORPHISM CARD */}
                 <div 
-                  className="w-[90vw] max-w-[1100px] min-h-[500px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch overflow-hidden relative"
+                  className="w-[90vw] max-w-[1100px] min-h-[500px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch"
                   style={{ 
                     backgroundColor: 'rgba(8, 8, 8, 0.75)', 
                     border: '1px solid rgba(255,255,255,0.08)',
@@ -127,37 +127,47 @@ export function TechEcosystem() {
                   <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
 
                   {/* Left Split (Image) */}
-                  <div className="w-full md:w-1/2 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+                  <div className="w-full md:w-1/2 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex overflow-hidden rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
                     <div className="relative w-full h-full flex-1 bg-[#000]">
                       <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50" />
+                      <div style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%)' }} className="absolute inset-0" />
                     </div>
                   </div>
                   
-                  {/* Right Split (Content) */}
-                  <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-2 h-2 rounded-full bg-[#84CC16]" />
-                      <span className="text-[#84CC16] font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase font-bold">
+                  {/* Right Split (Content) - MATCH DRONE SYSTEMS EXACTLY (bg-neutral-100) */}
+                  <div className="w-full md:w-1/2 p-6 lg:p-10 flex flex-col justify-between bg-neutral-100 rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none relative z-10">
+                    <div className="mb-6">
+                      <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
+                        style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
                         {item.tag}
                       </span>
+
+                      <h2 className="text-slate-900 text-xl lg:text-3xl font-bold uppercase mb-4 leading-tight">
+                        {item.title}
+                      </h2>
+
+                      <p className="text-sm lg:text-base text-slate-600 mb-6">
+                        {item.desc}
+                      </p>
+
+                      <div className="space-y-3">
+                        {item.features.map((feature, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <div className="w-1.5 h-1.5 bg-[#84CC16] mt-1.5 rounded-full flex-shrink-0" />
+                            <p className="text-sm text-slate-700">{feature}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
-                    <h3 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-white uppercase leading-[1.1]">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-6 font-light">
-                      {item.desc}
-                    </p>
-
-                    <div className="space-y-4 pt-6 border-t" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
-                      {item.features.map((feature, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <div className="w-1 h-1 bg-[#84CC16] mt-2 rounded-full flex-shrink-0" />
-                          <p className="text-sm text-white/50">{feature}</p>
-                        </div>
-                      ))}
+                    {/* CTA */}
+                    <div className="pt-5 mt-auto border-t border-slate-200">
+                      <TechCTA theme="dark">
+                        <span>Know More</span>
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </TechCTA>
                     </div>
                   </div>
 
@@ -171,4 +181,3 @@ export function TechEcosystem() {
     </div>
   );
 }
-
