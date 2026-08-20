@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 interface TechCTAProps {
   children: React.ReactNode;
@@ -6,11 +6,11 @@ interface TechCTAProps {
   className?: string;
 }
 
-export function TechCTA({ children, onClick, className = '' }: TechCTAProps) {
+export function TechCTA({ children, onClick, className = '', theme = 'light' }: TechCTAProps & { theme?: 'light' | 'dark' }) {
   return (
     <button 
       onClick={onClick}
-      className={`relative inline-flex items-center justify-center px-5 py-3 sm:px-10 sm:py-4 bg-transparent text-white font-mono text-[11px] sm:text-[13px] tracking-[0.1em] sm:tracking-[0.2em] uppercase cursor-pointer transition-all duration-300 ease-in-out group min-h-[44px] active:scale-[0.97] ${className}`}
+      className={`relative inline-flex items-center justify-center px-5 py-3 sm:px-10 sm:py-4 bg-transparent ${theme === 'dark' ? 'text-slate-900 border-slate-900' : 'text-white'} font-mono text-[11px] sm:text-[13px] tracking-[0.1em] sm:tracking-[0.2em] uppercase cursor-pointer transition-all duration-300 ease-in-out group min-h-[44px] active:scale-[0.97] ${className}`}
     >
       {/* Faint connecting border */}
       <div className="absolute inset-0 border border-current opacity-20 pointer-events-none group-hover:opacity-0 transition-opacity duration-300 z-0" />
@@ -33,3 +33,4 @@ export function TechCTA({ children, onClick, className = '' }: TechCTAProps) {
     </button>
   );
 }
+

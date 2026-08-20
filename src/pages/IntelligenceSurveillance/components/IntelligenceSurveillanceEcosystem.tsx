@@ -146,7 +146,7 @@ export default function IntelligenceSurveillanceEcosystem() {
 
                     {/* CTA */}
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <TechCTA>
+                      <TechCTA theme="dark">
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -163,4 +163,5 @@ export default function IntelligenceSurveillanceEcosystem() {
     </div>
   );
 }
+
 
