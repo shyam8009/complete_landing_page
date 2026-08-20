@@ -24,6 +24,7 @@ import { AerospaceComponentsPage } from '../pages/AerospaceComponents/AerospaceC
 import { DefenceComponentsPage } from '../pages/DefenceComponents/DefenceComponentsPage';
 import { SatcomComponentsPage } from '../pages/SatcomComponents/SatcomComponentsPage';
 import { DroneSystemsPage } from '../pages/DroneSystems/DroneSystemsPage';
+import { DefenceDeeptechPage } from '../pages/DefenceDeeptech/DefenceDeeptechPage';
 import { CommunicationDetectionPage } from '../pages/CommunicationDetection/CommunicationDetectionPage';
 import { ElectroOpticsPage } from '../pages/ElectroOptics/ElectroOpticsPage';
 import { LorrosPage } from '../pages/LorrosCommunication/LorrosPage';
@@ -2301,6 +2302,7 @@ export default function App() {
     </div>
   );
 }
+
 
 
 
