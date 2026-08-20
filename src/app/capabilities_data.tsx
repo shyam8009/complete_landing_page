@@ -318,7 +318,7 @@ export const CAPABILITIES_DATA = [
         products: [
           { id: "aerospace-comp", title: "Aerospace Components", image: arsenalFacilityImg, slug: "/aerospace-components" },
           { id: "defence-comp", title: "Defence Components", image: corporateHouse1, slug: "/defence-components" },
-          { id: "satcom", title: "SATCOM Components", image: haleDroneImg, slug: "home" }
+          { id: "satcom", title: "SATCOM Components", image: haleDroneImg, slug: "/satcom-components" }
         ]
       }
     ]
@@ -646,6 +646,7 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
     </div>
   );
 }
+
 
 
 

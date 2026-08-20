@@ -22,6 +22,7 @@ import CommunicationMonitoringPage from '../pages/CommunicationMonitoring/Commun
 import AerospaceDefencePage from '../pages/AerospaceDefence/AerospaceDefencePage';
 import { AerospaceComponentsPage } from '../pages/AerospaceComponents/AerospaceComponentsPage';
 import { DefenceComponentsPage } from '../pages/DefenceComponents/DefenceComponentsPage';
+import { SatcomComponentsPage } from '../pages/SatcomComponents/SatcomComponentsPage';
 import { DroneSystemsPage } from '../pages/DroneSystems/DroneSystemsPage';
 import { CommunicationDetectionPage } from '../pages/CommunicationDetection/CommunicationDetectionPage';
 import { ElectroOpticsPage } from '../pages/ElectroOptics/ElectroOpticsPage';
@@ -2293,13 +2294,14 @@ export default function App() {
           <Route path="/information-warfare/communication-monitoring" element={<CommunicationMonitoringPage />} />
           <Route path="/aerospace-and-defence" element={<AerospaceDefencePage />} />
           <Route path="/aerospace-components" element={<AerospaceComponentsPage />} />
-          <Route path="/defence-components" element={<DefenceComponentsPage />} />
+          <Route path="/defence-components" element={<DefenceComponentsPage />} />`n          <Route path="/satcom-components" element={<SatcomComponentsPage />} />
         </Routes>
         <Footer />
       </div>
     </div>
   );
 }
+
 
 
 
