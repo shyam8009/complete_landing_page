@@ -44,5 +44,6 @@ export function SatcomComponentsSpecs() {
     }
   ];
 
-  return <InteractiveBlueprint title="SATCOM Manufacturing<br/>Specifications" subtitle="// CORE MANUFACTURING CAPABILITIES" tiers={tiers} />;
+  return <InteractiveBlueprint title="Manufacturing<br/>Specifications" subtitle="// CORE MANUFACTURING CAPABILITIES" tiers={tiers} />;
 }
+
