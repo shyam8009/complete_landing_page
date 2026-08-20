@@ -3,6 +3,7 @@ import { SatcomComponentsHero } from './components/SatcomComponentsHero';
 import { SatcomComponentsPipeline } from './components/SatcomComponentsPipeline';
 import { SatcomComponentsCapabilities } from './components/SatcomComponentsCapabilities';
 import { SatcomComponentsSpecs } from './components/SatcomComponentsSpecs';
+import { SatcomApplications } from './components/SatcomApplications';
 import { SatcomComplianceStrip } from './components/SatcomComplianceStrip';
 import { SatcomCTA } from './components/SatcomCTA';
 
@@ -27,8 +28,10 @@ export function SatcomComponentsPage() {
       <SatcomComponentsPipeline />
       <SatcomComponentsCapabilities />
       <SatcomComponentsSpecs />
+      <SatcomApplications />
       <SatcomComplianceStrip />
       <SatcomCTA />
     </main>
   );
 }
+
