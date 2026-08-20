@@ -9,7 +9,7 @@ const PIPELINE_STEPS = [
   {
     id: '01',
     title: 'SCAN',
-    description: 'Continuous 360Ã‚Â° Field-of-View sweep providing unblinking coverage up to 30 kilometers.',
+    description: 'Continuous 360° Field-of-View sweep providing unblinking coverage up to 30 kilometers.',
     icon: Radar,
   },
   {

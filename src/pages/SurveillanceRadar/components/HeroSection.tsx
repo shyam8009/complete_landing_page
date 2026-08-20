@@ -40,7 +40,7 @@ export function HeroSection() {
             </h1>
             
             <p className="text-xl text-white/60 mb-10 max-w-lg leading-relaxed">
-              Dynamic 360Ã‚Â° Predictive Threat Tracking. Dominating Adverse Visibility Up to 30 Kilometers.
+              Dynamic 360° Predictive Threat Tracking. Dominating Adverse Visibility Up to 30 Kilometers.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">

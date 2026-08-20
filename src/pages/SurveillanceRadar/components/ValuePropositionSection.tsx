@@ -21,7 +21,7 @@ export function ValuePropositionSection() {
 
             <div className="space-y-6 text-white/60 text-lg leading-relaxed">
               <p>
-                The integration of Ground Surveillance Radar (GSR) into perimeter intrusion systems provides unmatched performance enhancements. GSRs excel in adverse visibility conditions, offering precise target detection and tracking over several kilometers with a 360Ã‚Â° field-of-view (FOV).
+                The integration of Ground Surveillance Radar (GSR) into perimeter intrusion systems provides unmatched performance enhancements. GSRs excel in adverse visibility conditions, offering precise target detection and tracking over several kilometers with a 360° field-of-view (FOV).
               </p>
               <p>
                 Using adaptive thresholds, GSRs identify, track, and predict object paths, raising alarms for breaches into designated areas. Rather than basic line-crossing triggers, the integrated logic identifies and actively predicts target vectors across the grid.
@@ -45,7 +45,7 @@ export function ValuePropositionSection() {
               </div>
               <div className="absolute bottom-4 left-4 right-4 p-4 bg-black/80 backdrop-blur border border-white/10 rounded">
                 <div className="text-xs font-mono text-[#84CC16] mb-1">DETECTION GEOMETRY</div>
-                <div className="text-white font-bold tracking-wide">360Ã‚Â° PREDICTIVE</div>
+                <div className="text-white font-bold tracking-wide">360° PREDICTIVE</div>
               </div>
             </div>
           </div>
