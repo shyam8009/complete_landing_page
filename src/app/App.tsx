@@ -28,6 +28,7 @@ import { DefenceDeeptechPage } from '../pages/DefenceDeeptech/DefenceDeeptechPag
 import { ChatbotsVoicePage } from '../pages/ChatbotsVoice/ChatbotsVoicePage';
 import { BigDataBIPage } from '../pages/BigDataBI/BigDataBIPage';
 import { AIPage } from '../pages/ArtificialIntelligence/AIPage';
+import { ConnectivityInfrastructurePage } from '../pages/ConnectivityInfrastructure/ConnectivityInfrastructurePage';
 import { CommunicationDetectionPage } from '../pages/CommunicationDetection/CommunicationDetectionPage';
 import { ElectroOpticsPage } from '../pages/ElectroOptics/ElectroOpticsPage';
 import { LorrosPage } from '../pages/LorrosCommunication/LorrosPage';
@@ -2295,6 +2296,7 @@ export default function App() {
           <Route path="/solution/chatbots-voice" element={<ChatbotsVoicePage />} />
           <Route path="/solution/big-data-bi" element={<BigDataBIPage />} />
           <Route path="/solution/artificial-intelligence" element={<AIPage />} />
+          <Route path="/solution/defence-deeptech/connectivity-infrastructure" element={<ConnectivityInfrastructurePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing" element={<QuantumSensingPage />} />
           <Route path="/quantum-technology-solutions/quantum-communication" element={<QuantumCommunicationPage />} />
           <Route path="/information-warfare/intelligence-surveillance" element={<IntelligenceSurveillancePage />} />
@@ -2309,6 +2311,7 @@ export default function App() {
     </div>
   );
 }
+
 
 
 
