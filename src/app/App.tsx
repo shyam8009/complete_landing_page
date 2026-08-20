@@ -2288,6 +2288,7 @@ export default function App() {
           <Route path="/surveillance-radar" element={<SurveillanceRadarPage />} />
           {/* <Route path="/handheld-jammer" element={<HandheldJammerPage />} /> */}
           <Route path="/osint" element={<OSINTPage />} />
+          <Route path="/solution/defence-deeptech" element={<DefenceDeeptechPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing" element={<QuantumSensingPage />} />
           <Route path="/quantum-technology-solutions/quantum-communication" element={<QuantumCommunicationPage />} />
           <Route path="/information-warfare/intelligence-surveillance" element={<IntelligenceSurveillancePage />} />
@@ -2302,6 +2303,10 @@ export default function App() {
     </div>
   );
 }
+
+
+
+
 
 
 
