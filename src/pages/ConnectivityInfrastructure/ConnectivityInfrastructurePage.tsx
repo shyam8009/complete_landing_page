@@ -16,3 +16,4 @@ export function ConnectivityInfrastructurePage() {
     </main>
   );
 }
+

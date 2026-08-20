@@ -127,15 +127,15 @@ export function TechEcosystem() {
                   <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
 
                   {/* Left Split (Image) */}
-                  <div className="w-full md:w-5/12 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex relative" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+                  <div className="w-full md:w-1/2 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
                     <div className="relative w-full h-full flex-1 bg-[#000]">
-                      <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover opacity-80" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+                      <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50" />
                     </div>
                   </div>
                   
                   {/* Right Split (Content) */}
-                  <div className="w-full md:w-7/12 p-8 md:p-12 flex flex-col justify-center relative">
+                  <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="w-2 h-2 rounded-full bg-[#84CC16]" />
                       <span className="text-[#84CC16] font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase font-bold">
@@ -171,3 +171,4 @@ export function TechEcosystem() {
     </div>
   );
 }
+
