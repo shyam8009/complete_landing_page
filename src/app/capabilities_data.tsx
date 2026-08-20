@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import heroImg from "@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg";
 import sensorDomeImg from "@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png";
 import motorImg from "@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png";
@@ -85,7 +85,7 @@ export const CAPABILITIES_DATA = [
           </svg>
         ),
         spotlightImage: droneRadarHeroImg,
-        stats: ["360° Coverage", "AI Threat Analysis", "Passive RF Sensing", "Multi-Target Tracking"],
+        stats: ["360Â° Coverage", "AI Threat Analysis", "Passive RF Sensing", "Multi-Target Tracking"],
         applications: ["Airspace Monitoring", "Border Surveillance", "Naval Defence", "Forward Operating Bases"],
         products: [
           { id: "3d-drone-radar", title: "3D Drone Radar", image: droneRadarHeroImg, slug: "/drone-radar" },
@@ -317,7 +317,7 @@ export const CAPABILITIES_DATA = [
         applications: ["Aircraft Assembly", "Munitions Casings", "Satellite Integration", "Naval Upgrades"],
         products: [
           { id: "aerospace-comp", title: "Aerospace Components", image: arsenalFacilityImg, slug: "/aerospace-components" },
-          { id: "defence-comp", title: "Defence Components", image: corporateHouse1, slug: "home" },
+          { id: "defence-comp", title: "Defence Components", image: corporateHouse1, slug: "/defence-components" },
           { id: "satcom", title: "SATCOM Components", image: haleDroneImg, slug: "home" }
         ]
       }
@@ -474,7 +474,7 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
                   <p className="text-[12px] text-white/50 leading-snug mb-3">{domain.description}</p>
                   <div className="flex items-center gap-3 text-[10px] font-bold tracking-wider uppercase">
                     <span className="text-[#3C5929]">{domain.systems.length} SYSTEMS</span>
-                    <span className="text-white/40">â€¢</span>
+                    <span className="text-white/40">Ã¢â‚¬Â¢</span>
                     <span className="text-white/40">{domain.systems.reduce((acc, sys) => acc + sys.products.length, 0)} PRODUCTS</span>
                   </div>
                 </div>
@@ -646,5 +646,6 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
     </div>
   );
 }
+
 
 

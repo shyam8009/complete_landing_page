@@ -1,42 +1,70 @@
-﻿import React from 'react';
-import { ShieldCheck, Crosshair, Award } from 'lucide-react';
+﻿import React, { useRef, useLayoutEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const complianceData = [
+gsap.registerPlugin(ScrollTrigger);
+
+const metrics = [
   {
-    icon: <Award className="w-6 h-6 text-[#84CC16]" />,
     title: "ISO & AS9100D Certified",
-    desc: "Stringent adherence to ISO 9001:2015 and Aerospace Quality Management standards guaranteeing zero-defect fabrication."
+    description: "Stringent adherence to ISO 9001:2015 and Aerospace Quality Management standards guaranteeing zero-defect fabrication."
   },
   {
-    icon: <Crosshair className="w-6 h-6 text-[#84CC16]" />,
     title: "Uncompromising Inspection",
-    desc: "Advanced testing facilities equipped with precision CMM, height gauges, and vision inspection tools for absolute geometric compliance."
+    description: "Advanced testing facilities equipped with precision CMM, height gauges, and vision inspection tools for absolute geometric compliance."
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-[#84CC16]" />,
     title: "Trusted Defence Partner",
-    desc: "Over two decades of proven collaboration, standing as the partner of choice for India's leading defense and government organizations."
+    description: "Over two decades of proven collaboration, standing as the partner of choice for India's leading defense and government organizations."
   }
 ];
 
 export function ComplianceStrip() {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo('.metric-item',
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+          }
+        }
+      );
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="w-full bg-[#020202] border-y border-white/10 py-12 px-6 md:px-12 lg:px-24">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-white/10">
-        
-        {complianceData.map((item, i) => (
-          <div key={i} className="flex flex-col md:flex-row items-start gap-6 pt-8 md:pt-0 first:pt-0 md:pl-12 first:pl-0">
-            <div className="flex-shrink-0 w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10">
-              {item.icon}
+    <section ref={sectionRef} className="w-full bg-[#050505] py-16 border-t border-white/5 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-32 bg-[#84CC16]/5 blur-[100px] pointer-events-none" />
+      
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-12 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-8">
+          {metrics.map((metric, index) => (
+            <div 
+              key={index}
+              className="metric-item flex-1 flex flex-col items-center text-center p-6 bg-white/5 border border-white/10 rounded-lg backdrop-blur-md hover:border-[#84CC16]/30 transition-colors duration-500 w-full"
+            >
+              <div className="w-12 h-1 bg-[#84CC16] mb-6 opacity-80" />
+              <h4 className="text-white font-bold uppercase tracking-widest text-lg mb-4">
+                {metric.title}
+              </h4>
+              <p className="text-white/60 text-sm font-light leading-relaxed max-w-sm">
+                {metric.description}
+              </p>
             </div>
-            <div>
-              <h4 className="text-white font-bold text-lg mb-2">{item.title}</h4>
-              <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
-            </div>
-          </div>
-        ))}
-        
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

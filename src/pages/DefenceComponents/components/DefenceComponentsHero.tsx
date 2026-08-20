@@ -1,69 +1,98 @@
-﻿import React from 'react';
+﻿import React, { useRef, useLayoutEffect } from 'react';
+import { ChevronRight } from 'lucide-react';
+import gsap from 'gsap';
+import heroBg from '@/imports/Hero banner Video.mp4';
 import { TechCTA } from '@/components/TechCTA';
-import heroVideo from '@/imports/Hero banner Video.mp4';
+
+const INTER = '"Inter", sans-serif';
 
 export function DefenceComponentsHero() {
-  return (
-    <section className="relative w-full h-screen overflow-hidden bg-black font-sans">
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <video 
-          src={heroVideo}
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="w-full h-full object-cover object-right"
-        />
-        {/* Gradient Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent z-10" />
-      </div>
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo(".hero-element",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out" }
+      );
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
 
+  const scrollToPipeline = () => {
+    const pipelineSection = document.getElementById('pipeline-section');
+    if (pipelineSection) {
+      pipelineSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section ref={containerRef} className="relative w-full min-h-screen overflow-hidden bg-black flex items-center">
+      {/* Background Video */}
+      <video
+        src={heroBg}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+      />
+      
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/90 md:from-black/80 via-black/50 md:via-black/40 to-transparent z-10" />
+      <div className="absolute inset-0 bg-black/20 z-10" />
+      
       {/* Content Container */}
-      <div className="relative z-20 h-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex items-center">
-        <div className="max-w-3xl flex flex-col justify-center">
+      <div className="relative z-20 w-full px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto pt-20 md:pt-0">
+        <div className="max-w-3xl flex flex-col items-center text-center md:items-start md:text-left mx-auto md:mx-0">
           
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" style={{ boxShadow: '0 0 10px #84CC16' }} />
-            <span className="text-[#84CC16] font-mono text-xs md:text-sm tracking-[0.2em] uppercase font-bold">
+          <div className="hero-element inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6 md:mb-8">
+            <div className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse shadow-[0_0_8px_#84CC16]" />
+            <span className="text-[10px] md:text-xs font-bold tracking-[2px] text-white uppercase" style={{ fontFamily: INTER }}>
               STRATEGIC MANUFACTURING / DEFENCE COMPONENTS
             </span>
           </div>
-
+          
           {/* Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-bold text-white leading-[1.05] mb-8 uppercase tracking-tight">
-            MISSION-CRITICAL <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">DEFENCE COMPONENTS</span>
+          <h1 
+            className="hero-element text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
+            style={{ fontFamily: INTER }}
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-neutral-500">
+              MISSION-CRITICAL<br className="hidden sm:block" /> DEFENCE COMPONENTS
+            </span>
           </h1>
-
+          
           {/* Subheadline */}
-          <p className="text-base md:text-xl text-white/70 max-w-2xl mb-12 leading-relaxed font-light">
+          <p className="hero-element text-base sm:text-lg md:text-xl text-white/70 mb-10 max-w-lg leading-relaxed">
             Heavy-duty precision hardware engineered for tactical reliability. Delivering load-bearing structural parts and weapons system components built to endure severe combat and field environments.
           </p>
-
-          {/* CTA and Stats Row */}
-          <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-            <a href="#pipeline">
-              <TechCTA className="!px-8 !py-4 bg-[#84CC16]/10 hover:bg-[#84CC16]/20 border border-[#84CC16]/30">
-                REQUEST COMPONENT QUOTE
-              </TechCTA>
-            </a>
-
-            {/* Quick Stats Block (Glassmorphic) */}
-            <div className="flex gap-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-6 py-4">
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-lg md:text-xl">Exotic Metallurgy</span>
-                <span className="text-white/50 text-[10px] uppercase tracking-widest font-mono mt-1">Titanium & Nickel Alloys</span>
-              </div>
-              <div className="w-[1px] bg-white/10" />
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-lg md:text-xl">Zero-Defect</span>
-                <span className="text-white/50 text-[10px] uppercase tracking-widest font-mono mt-1">CMM Inspected</span>
-              </div>
+          
+          {/* CTA */}
+          <div className="hero-element flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 items-center mb-16">
+            <TechCTA onClick={scrollToPipeline}>
+              REQUEST COMPONENT QUOTE
+              <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+            </TechCTA>
+          </div>
+          
+          {/* Quick Stats Block (Glassmorphic) */}
+          <div className="hero-element flex flex-col md:flex-row gap-6 md:gap-8 p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl w-full md:max-w-fit">
+            <div className="text-center md:text-left">
+              <div className="text-3xl md:text-4xl font-bold text-white">Exotic Metallurgy</div>
+              <div className="text-xs md:text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Titanium & Nickel Alloys</div>
+            </div>
+            
+            {/* Divider */}
+            <div className="h-px w-full md:w-px md:h-auto bg-white/20" />
+            
+            <div className="text-center md:text-left">
+              <div className="text-3xl md:text-4xl font-bold text-white">Zero-Defect</div>
+              <div className="text-xs md:text-sm font-medium text-white/50 uppercase tracking-widest mt-1">CMM Inspected</div>
             </div>
           </div>
-
+          
         </div>
       </div>
     </section>

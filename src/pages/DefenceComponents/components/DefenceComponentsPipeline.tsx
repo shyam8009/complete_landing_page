@@ -1,78 +1,138 @@
-﻿import React from 'react';
+﻿import React, { useRef, useLayoutEffect } from 'react';
 import { PenTool, Target, Layers, ScanLine } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const pipelineData = [
+gsap.registerPlugin(ScrollTrigger);
+
+const PIPELINE_STEPS = [
   {
-    num: "01",
+    id: "01",
     title: "ENGINEER",
-    icon: <PenTool className="w-8 h-8 text-[#84CC16]" />,
+    icon: PenTool,
     desc: "Comprehensive in-house design capabilities generating precision manufacturing drawings to guarantee exact compliance with defense specifications."
   },
   {
-    num: "02",
+    id: "02",
     title: "FABRICATE",
-    icon: <Target className="w-8 h-8 text-[#84CC16]" />,
+    icon: Target,
     desc: "Utilizing advanced 3, 4, and 5-axis CNC milling and turning infrastructure to achieve complex geometries in a single setup."
   },
   {
-    num: "03",
+    id: "03",
     title: "HARDEN",
-    icon: <Layers className="w-8 h-8 text-[#84CC16]" />,
+    icon: Layers,
     desc: "Specialized machining of high-strength titanium alloys, high-alloy steels, and nickel alloys optimized for extreme thermal and corrosive resistance."
   },
   {
-    num: "04",
+    id: "04",
     title: "INSPECT",
-    icon: <ScanLine className="w-8 h-8 text-[#84CC16]" />,
+    icon: ScanLine,
     desc: "100% precision measurement using advanced Coordinate Measuring Machines (CMM) and profile projectors to assure complete dimensional accuracy."
   }
 ];
 
 export function DefenceComponentsPipeline() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const progressLineRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      // Step appearances
+      gsap.fromTo(stepsRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 70%',
+          }
+        }
+      );
+
+      // Glowing progress line
+      if (progressLineRef.current) {
+        gsap.fromTo(progressLineRef.current,
+          { scaleX: 0 },
+          {
+            scaleX: 1,
+            ease: "none",
+            transformOrigin: "left center",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 50%',
+              end: 'bottom 80%',
+              scrub: true,
+            }
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="pipeline" className="w-full bg-[#050505] py-24 px-6 md:px-12 lg:px-24 overflow-hidden relative">
-      <div className="max-w-[1400px] mx-auto">
-        
-        {/* Section Header */}
+    <section id="pipeline-section" ref={sectionRef} className="py-20 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]" 
+        style={{ 
+          backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)',
+          backgroundSize: '40px 40px' 
+        }} 
+      />
+
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         <div className="mb-20 text-center">
-          <span className="text-[#84CC16] font-mono text-sm tracking-widest uppercase block mb-4">Manufacturing Workflow</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight">
-            Precision Pipeline
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight">
+            Manufacturing Process Pipeline
           </h2>
+          <div className="w-24 h-1 bg-[#84CC16] mx-auto opacity-80" />
         </div>
 
-        {/* Pipeline Grid */}
-        <div className="relative">
-          {/* Glowing Line Background (Desktop) */}
-          <div className="hidden lg:block absolute top-[40px] left-0 right-0 h-[2px] bg-white/10 z-0">
-            <div className="h-full bg-[#84CC16] w-full origin-left opacity-80" style={{ boxShadow: '0 0 15px #84CC16' }} />
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 relative pt-8">
+          
+          {/* Connecting Line Base (Desktop) */}
+          <div className="hidden lg:block absolute top-[5rem] left-[12%] right-[12%] h-[1px] bg-white/5" />
+          
+          {/* Glowing Progress Line */}
+          <div 
+            ref={progressLineRef}
+            className="hidden lg:block absolute top-[5rem] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-transparent via-[#84CC16] to-[#84CC16] shadow-[0_0_15px_#84CC16]"
+            style={{ transformOrigin: 'left center' }}
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative z-10">
-            {pipelineData.map((node, i) => (
-              <div key={i} className="flex flex-col items-center lg:items-start text-center lg:text-left group">
-                
-                {/* Node Header */}
-                <div className="mb-8 relative flex flex-col items-center lg:items-start">
-                  <div className="w-20 h-20 bg-black border border-white/20 rounded-full flex items-center justify-center mb-4 transition-colors group-hover:border-[#84CC16]">
-                    {node.icon}
-                  </div>
-                  <span className="text-white/40 font-mono text-2xl font-bold absolute -top-4 -right-4 lg:right-auto lg:left-16 lg:-top-6 z-[-1] opacity-50 select-none">
-                    {node.num}
-                  </span>
-                  <h3 className="text-white text-xl font-bold tracking-wider">{node.title}</h3>
+          {PIPELINE_STEPS.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <div 
+                key={step.id} 
+                ref={el => stepsRef.current[index] = el}
+                className="relative flex flex-col group items-center text-center z-10"
+              >
+                {/* Unified Circular Step Node */}
+                <div className="mb-8 flex flex-col items-center justify-center w-24 h-24 rounded-full bg-[#0a0a0a] border border-white/10 transition-all duration-300 shadow-xl relative">
+                  <Icon className="w-8 h-8 text-white/60 group-hover:text-[#84CC16] group-hover:scale-110 transition-all duration-500" />
                 </div>
 
-                {/* Node Description */}
-                <p className="text-white/60 text-sm leading-relaxed">
-                  {node.desc}
-                </p>
-
+                {/* Content */}
+                <div className="flex flex-col items-center">
+                  <span className="text-[#84CC16] font-mono text-sm font-bold mb-2">{step.id}</span>
+                  <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide">
+                    {step.title}
+                  </h3>
+                  <p className="text-white/60 text-sm leading-relaxed mt-2 max-w-xs">{step.desc}</p>
+                </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
-
       </div>
     </section>
   );
