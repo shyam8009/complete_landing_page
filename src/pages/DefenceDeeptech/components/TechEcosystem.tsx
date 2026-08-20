@@ -150,14 +150,7 @@ export function TechEcosystem() {
                         {item.desc}
                       </p>
                       
-                      <ul className="space-y-3">
-                        {item.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#84CC16] mt-1.5 shrink-0" />
-                            <span className="text-slate-600 text-sm">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      
                       
                     </div>
 
@@ -180,3 +173,4 @@ export function TechEcosystem() {
     </div>
   );
 }
+
