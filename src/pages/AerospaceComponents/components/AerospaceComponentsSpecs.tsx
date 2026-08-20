@@ -3,46 +3,59 @@ import { InteractiveBlueprint, TierData } from '@/components/InteractiveBlueprin
 import img1 from '@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png';
 import img2 from '@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png';
 import img3 from '@/imports/magnific_extreme-closeup-macro-pro_LUQGHhOswO.png';
+import img4 from '@/imports/infinity-rhino/magnific_extreme-closeup-macro-pho_CHdnhd8EEy.png';
 
 export function AerospaceComponentsSpecs() {
   const tiers: TierData[] = [
     {
       id: 'aero-1',
-      type: 'CRITICAL PROPULSION',
-      title: 'Engine & Turbomachinery',
-      description: 'Manufactured to severe defense-grade tolerances using titanium, high-alloy steel, and nickel alloys.',
+      type: 'STRUCTURAL ASSEMBLIES',
+      title: 'Mechanical & Structural',
+      description: 'We manufacture high-precision structural assemblies that form the backbone of satellite and antenna systems, including pedestal assemblies (such as the 112 mm pedestal for ECIL), mirror support assemblies, reflector supports, INVAR precision structures, feed brackets, antenna structures, and waveguide components. Every part is machined to aerospace tolerances using CNC processes and validated through a dedicated precision machining inspection facility.',
       image: img1,
-      statusBadge: 'Propulsion Systems',
+      statusBadge: 'Hardware Systems',
       specs: [
-        { label: 'METALLURGY', value: 'Titanium / Nickel' },
-        { label: 'TOLERANCE', value: 'Severe' }
+        { label: 'TOLERANCE', value: 'Aerospace Grade' },
+        { label: 'MATERIAL', value: 'INVAR / High-Alloy' }
       ]
     },
     {
       id: 'aero-2',
-      type: 'FLIGHT DYNAMICS',
-      title: 'Structural Airframe',
-      description: 'Precision-machined structural parts engineered to serve as load-bearing components for airframes and fuselages.',
+      type: 'SIGNAL ARCHITECTURE',
+      title: 'RF & Microwave',
+      description: 'Our RF and microwave capability covers C-band and Ku-band assemblies, SSPAs (Solid State Power Amplifiers), diplexers, polarizers, harmonic filters, RF receivers, power dividers, couplers, and local oscillators. These components demand exceptional dimensional accuracy and surface finish, and our engineering teams bring high-precision expertise to every build.',
       image: img2,
-      statusBadge: 'Airframe Structures',
+      statusBadge: 'Microwave Systems',
       specs: [
-        { label: 'MATERIAL', value: 'High-Alloy Steel' },
-        { label: 'STRESS', value: 'Load-Bearing' }
+        { label: 'BANDWIDTH', value: 'C-Band & Ku-Band' },
+        { label: 'PRECISION', value: 'Exceptional Accuracy' }
       ]
     },
     {
       id: 'aero-3',
-      type: 'CRITICAL ASSEMBLIES',
-      title: 'Mounting & Connection',
-      description: 'High-accuracy brackets and shackles designed for load-bearing defense and aerospace systems.',
+      type: 'IMAGING & SENSING',
+      title: 'Optical & Electro-Optics',
+      description: 'We manufacture optical payloads and assemblies used in radiometer modules, camera systems, weather forecast payloads, and ocean monitoring payloads, supporting missions where imaging clarity and structural stability are non-negotiable.',
       image: img3,
-      statusBadge: 'Mechanical Assemblies',
+      statusBadge: 'Payload Assemblies',
       specs: [
-        { label: 'DEPLOYMENT', value: 'Defence Systems' },
-        { label: 'TYPE', value: 'Brackets & Shackles' }
+        { label: 'CLARITY', value: 'Non-Negotiable' },
+        { label: 'STABILITY', value: 'Structural Support' }
+      ]
+    },
+    {
+      id: 'aero-4',
+      type: 'AVIONICS & CONTROL',
+      title: 'Space Electronics',
+      description: 'On the electronics side, we support on-board computer assemblies, PCB and TR module packaging, and high-density electronic modules built for the rigors of space deployment.',
+      image: img4,
+      statusBadge: 'Electronic Modules',
+      specs: [
+        { label: 'PACKAGING', value: 'High-Density Modules' },
+        { label: 'DEPLOYMENT', value: 'Space Rigors' }
       ]
     }
   ];
 
-  return <InteractiveBlueprint title="Precision Aerospace<br/>Portfolio" subtitle="// Technical Specifications & Applications" tiers={tiers} />;
+  return <InteractiveBlueprint title="Satellite Components<br/>& Payloads" subtitle="// PRECISION AEROSPACE PORTFOLIO" tiers={tiers} />;
 }
