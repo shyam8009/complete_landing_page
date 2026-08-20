@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import img1 from '@/imports/command_control_2.jpeg';
 import img2 from '@/imports/rf_radar_hud.png';
-import img3 from '@/imports/magnific_photorealistic-outdoor-fi_Piskn0l42C 1.jpeg';
+import img3 from '@/imports/proxy/magnific_photorealistic-outdoor-fi_Piskn0l42C 1.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,3 +95,4 @@ export function ChatbotsVoiceApplications() {
     </section>
   );
 }
+
