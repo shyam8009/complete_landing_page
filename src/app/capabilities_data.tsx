@@ -336,7 +336,8 @@ export const CAPABILITIES_DATA = [
     systems: [
       {
         id: "ai-data",
-        title: "AI & Data",
+          title: "AI & Data",
+          slug: "/solution/defence-deeptech",
 
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -347,9 +348,9 @@ export const CAPABILITIES_DATA = [
         stats: ["Neural Networks", "Predictive Analytics", "Natural Language", "Computer Vision"],
         applications: ["Automated Targeting", "Logistics Prediction", "Cyber Threat Detection", "Autonomous Navigation"],
         products: [
-          { id: "chatbots", title: "Chatbots and Voice Solution", image: innovation5, slug: "home" },
-          { id: "big-data", title: "Big Data and Business Intelligence", image: innovation3, slug: "home" },
-          { id: "ai", title: "Artificial Intelligence", image: innovation4, slug: "home" },
+          { id: "chatbots", title: "Chatbots and Voice Solution", image: innovation5, slug: "/solution/defence-deeptech" },
+          { id: "big-data", title: "Big Data and Business Intelligence", image: innovation3, slug: "/solution/defence-deeptech" },
+          { id: "ai", title: "Artificial Intelligence", image: innovation4, slug: "/solution/defence-deeptech" },
         ]
       },
       {
@@ -646,6 +647,8 @@ function CapabilitiesMegaMenu({ onNavigate }: { onNavigate: (page: any) => void 
     </div>
   );
 }
+
+
 
 
 
