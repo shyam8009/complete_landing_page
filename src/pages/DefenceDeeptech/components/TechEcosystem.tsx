@@ -67,7 +67,7 @@ export function TechEcosystem() {
         ScrollTrigger.create({
           trigger: container,
           start: "top top",
-          end: () => \+=\\,
+          end: () => "+=" + (getScrollAmount() * -1),
           pin: true,
           animation: tween,
           scrub: 1,
@@ -147,3 +147,4 @@ export function TechEcosystem() {
     </section>
   );
 }
+
