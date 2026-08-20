@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { AerospaceComponentsHero } from './components/AerospaceComponentsHero';
 import { AerospaceComponentsPipeline } from './components/AerospaceComponentsPipeline';
 import { AerospaceComponentsCapabilities } from './components/AerospaceComponentsCapabilities';
 import { AerospaceComponentsSpecs } from './components/AerospaceComponentsSpecs';
+import { AerospaceApplications } from './components/AerospaceApplications';
 import { AS9100QualityStrip } from './components/AS9100QualityStrip';
 import { AerospaceCTA } from './components/AerospaceCTA';
 
@@ -30,8 +31,10 @@ export function AerospaceComponentsPage() {
       <AerospaceComponentsPipeline />
       <AerospaceComponentsCapabilities />
       <AerospaceComponentsSpecs />
+      <AerospaceApplications />
       <AS9100QualityStrip />
       <AerospaceCTA />
     </main>
   );
 }
+
