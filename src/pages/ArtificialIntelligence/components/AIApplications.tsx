@@ -2,7 +2,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import img1 from '@/imports/cyber_security_1.jpg';
+import img1 from '@/imports/slider_1.jpg';
 import img2 from '@/imports/slider_2.jpg';
 import img3 from '@/imports/slider_3.png';
 
@@ -73,7 +73,6 @@ export function AIApplications() {
               ref={el => cardsRef.current[index] = el}
               className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10"
             >
-              {/* Background Image */}
               <img 
                 src={app.image} 
                 alt={app.title} 
@@ -82,14 +81,8 @@ export function AIApplications() {
                   (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop';
                 }}
               />
-              
-              {/* Dark Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
-              
-              {/* Neon Green Tint Hover Overlay */}
               <div className="absolute inset-0 bg-[#84CC16]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
-              
-              {/* Content */}
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
                 <div className="transform group-hover:-translate-y-2 transition-transform duration-500">
                   <span className="text-[#84CC16] font-mono text-sm tracking-widest font-bold mb-2 block">
@@ -108,4 +101,3 @@ export function AIApplications() {
     </section>
   );
 }
-
