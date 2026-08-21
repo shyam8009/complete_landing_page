@@ -48,6 +48,7 @@ import CompositionOfCommitteesPage from '../pages/CompositionOfCommittees/Compos
 import GeneralMeetingNoticePage from '../pages/GeneralMeetingNotice/GeneralMeetingNoticePage';
 import AnnualReturnPage from '../pages/AnnualReturn/AnnualReturnPage';
 import ShareholderInformationPage from '../pages/ShareholderInformation/ShareholderInformationPage';
+import BoardOfDirectorsPage from '../pages/BoardOfDirectors/BoardOfDirectorsPage';
 import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
@@ -264,12 +265,13 @@ const INVESTORS_DATA = [
     id: 'board-of-directors',
     title: 'Board of Directors',
     description: 'Company leadership and corporate governance framework.',
+    url: '/investors/board-of-directors',
     links: [
-      { text: 'Chairman', url: '#' },
-      { text: 'Managing Director', url: '#' },
-      { text: 'Independent Directors', url: '#' },
+      { text: 'Chairman', url: '/investors/board-of-directors' },
+      { text: 'Managing Director', url: '/investors/board-of-directors' },
+      { text: 'Independent Directors', url: '/investors/board-of-directors' },
     ],
-    cta: 'View Details â†’'
+    cta: 'View Details →'
   },
   {
     id: 'committees',
@@ -2342,6 +2344,7 @@ export default function App() {
           <Route path="/investors/general-meeting-notice" element={<GeneralMeetingNoticePage />} />
           <Route path="/investors/annual-return" element={<AnnualReturnPage />} />
           <Route path="/investors/shareholder-info" element={<ShareholderInformationPage />} />
+          <Route path="/investors/board-of-directors" element={<BoardOfDirectorsPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
         </Routes>
         <Footer />
