@@ -42,6 +42,7 @@ import { RadarSystemsPage } from '../pages/RadarSystems/RadarSystemsPage';
 import { JammingSystemsPage } from '../pages/JammingSystems/JammingSystemsPage';
 import GovernancePoliciesPage from '../pages/GovernancePolicies/GovernancePoliciesPage';
 import FinancialReportsPage from '../pages/FinancialReports/FinancialReportsPage';
+import CodeOfConductPage from '../pages/CodeOfConduct/CodeOfConductPage';
 import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
@@ -197,10 +198,11 @@ const INVESTORS_DATA = [
     id: 'code-of-conduct',
     title: 'Code of Conduct & Policies',
     description: 'Our commitment to ethical business practices and corporate integrity.',
+    url: '/investors/code-of-conduct-policies',
     links: [
-      { text: 'Code of Business Conduct', url: '#' },
-      { text: 'Whistleblower Policy', url: '#' },
-      { text: 'Anti-Bribery Guidelines', url: '#' },
+      { text: 'Code of Business Conduct', url: '/investors/code-of-conduct-policies' },
+      { text: 'Whistleblower Policy', url: '/investors/code-of-conduct-policies' },
+      { text: 'Anti-Bribery Guidelines', url: '/investors/code-of-conduct-policies' },
     ],
     cta: 'View Policies →'
   },
@@ -2324,6 +2326,7 @@ export default function App() {
           <Route path="/defence-components" element={<DefenceComponentsPage />} />`n          <Route path="/satcom-components" element={<SatcomComponentsPage />} />
           <Route path="/investors/policies" element={<GovernancePoliciesPage />} />
           <Route path="/investors/annual-reports" element={<FinancialReportsPage />} />
+          <Route path="/investors/code-of-conduct-policies" element={<CodeOfConductPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
         </Routes>
         <Footer />
