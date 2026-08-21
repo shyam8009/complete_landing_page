@@ -41,6 +41,7 @@ import { DirectionFindersPage } from '../pages/DirectionFinders/DirectionFinders
 import { RadarSystemsPage } from '../pages/RadarSystems/RadarSystemsPage';
 import { JammingSystemsPage } from '../pages/JammingSystems/JammingSystemsPage';
 import GovernancePoliciesPage from '../pages/GovernancePolicies/GovernancePoliciesPage';
+import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
 import ClienteleSection from '../components/ClienteleSection';
@@ -2307,6 +2308,7 @@ export default function App() {
           <Route path="/aerospace-components" element={<AerospaceComponentsPage />} />
           <Route path="/defence-components" element={<DefenceComponentsPage />} />`n          <Route path="/satcom-components" element={<SatcomComponentsPage />} />
           <Route path="/investors/policies" element={<GovernancePoliciesPage />} />
+          <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
         </Routes>
         <Footer />
       </div>
