@@ -174,6 +174,7 @@ const INVESTORS_DATA = [
     id: 'annual-reports',
     title: 'Annual Reports',
     description: 'Access annual reports, financial disclosures and company performance documents.',
+    url: '/investors/annual-reports',
     links: [
       { text: 'Annual Report 2023-24', url: '/investors/annual-reports' },
       { text: 'Annual Report 2022-23', url: '/investors/annual-reports' },
@@ -218,6 +219,7 @@ const INVESTORS_DATA = [
     id: 'policies',
     title: 'Policies of the Company',
     description: 'Operational and strategic policies governing our organization.',
+    url: '/investors/policies',
     links: [
       { text: 'Corporate Governance Policies', url: '/investors/policies' },
       { text: 'Board of Directors Policies', url: '/investors/policies' },
@@ -714,6 +716,12 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
                   <div 
                     key={section.id}
                     onMouseEnter={() => setActiveInvestorSection(section)}
+                    onClick={() => {
+                      if (section.url) {
+                        setHoveredNav(null);
+                        if (navigate) navigate(section.url);
+                      }
+                    }}
                     className={`flex items-start gap-2 p-3 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
                   >
                     <div className="flex-1">
@@ -764,10 +772,16 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
 
             <a 
               href="#"
-              onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }}
+              onClick={(e) => { 
+                e.preventDefault(); 
+                if (activeInvestorSection.url) {
+                  setHoveredNav(null); 
+                  if (navigate) navigate(activeInvestorSection.url); 
+                }
+              }}
               className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
             >
-              View All â†’
+              {activeInvestorSection.cta}
             </a>
           </div>
 
