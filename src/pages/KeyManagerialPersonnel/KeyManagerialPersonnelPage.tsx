@@ -188,7 +188,7 @@ function PersonnelCard({ name, designation, index }: { name: string; designation
       variants={fadeUp}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative cursor-default"
+      className="relative cursor-default"
     >
       {/* Card */}
       <div

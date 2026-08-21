@@ -149,7 +149,7 @@ function ReportCard({ name, category, index }: { name: string; category: string;
       variants={fadeUp}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative cursor-pointer"
+      className="relative cursor-pointer"
     >
       {/* Card */}
       <div

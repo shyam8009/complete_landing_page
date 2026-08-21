@@ -181,7 +181,7 @@ function DocumentCard({ name, index }: { name: string; index: number }) {
       variants={fadeUp}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative cursor-pointer"
+      className="relative cursor-pointer"
     >
       {/* Card */}
       <div
