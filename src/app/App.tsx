@@ -1,4 +1,4 @@
-﻿import gsap from 'gsap';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GuardianExperiencePage } from '../pages/GuardianExperience/GuardianExperiencePage';
 import { SahanaFpvProductPage } from '../pages/SahanaFpv/SahanaFpvProductPage';
@@ -40,6 +40,7 @@ import { RadioMonitoringPage } from '../pages/RadioMonitoring/RadioMonitoringPag
 import { DirectionFindersPage } from '../pages/DirectionFinders/DirectionFindersPage';
 import { RadarSystemsPage } from '../pages/RadarSystems/RadarSystemsPage';
 import { JammingSystemsPage } from '../pages/JammingSystems/JammingSystemsPage';
+import GovernancePoliciesPage from '../pages/GovernancePolicies/GovernancePoliciesPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
 import ClienteleSection from '../components/ClienteleSection';
@@ -2305,6 +2306,7 @@ export default function App() {
           <Route path="/aerospace-and-defence" element={<AerospaceDefencePage />} />
           <Route path="/aerospace-components" element={<AerospaceComponentsPage />} />
           <Route path="/defence-components" element={<DefenceComponentsPage />} />`n          <Route path="/satcom-components" element={<SatcomComponentsPage />} />
+          <Route path="/investors/policies" element={<GovernancePoliciesPage />} />
         </Routes>
         <Footer />
       </div>
