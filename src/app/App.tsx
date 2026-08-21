@@ -49,6 +49,7 @@ import GeneralMeetingNoticePage from '../pages/GeneralMeetingNotice/GeneralMeeti
 import AnnualReturnPage from '../pages/AnnualReturn/AnnualReturnPage';
 import ShareholderInformationPage from '../pages/ShareholderInformation/ShareholderInformationPage';
 import BoardOfDirectorsPage from '../pages/BoardOfDirectors/BoardOfDirectorsPage';
+import KeyContactPage from '../pages/KeyContact/KeyContactPage';
 import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
@@ -289,12 +290,13 @@ const INVESTORS_DATA = [
     id: 'key-contact',
     title: 'Key Contact',
     description: 'Direct contact points for investor relations and grievance redressal.',
+    url: '/investors/key-contact',
     links: [
-      { text: 'Nodal Officer', url: '#' },
-      { text: 'Compliance Officer', url: '#' },
-      { text: 'Investor Grievances', url: '#' },
+      { text: 'Nodal Officer', url: '/investors/key-contact' },
+      { text: 'Compliance Officer', url: '/investors/key-contact' },
+      { text: 'Investor Grievances', url: '/investors/key-contact' },
     ],
-    cta: 'Contact IR â†’'
+    cta: 'Contact IR →'
   }
 ];
 
@@ -2345,6 +2347,7 @@ export default function App() {
           <Route path="/investors/annual-return" element={<AnnualReturnPage />} />
           <Route path="/investors/shareholder-info" element={<ShareholderInformationPage />} />
           <Route path="/investors/board-of-directors" element={<BoardOfDirectorsPage />} />
+          <Route path="/investors/key-contact" element={<KeyContactPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
         </Routes>
         <Footer />
