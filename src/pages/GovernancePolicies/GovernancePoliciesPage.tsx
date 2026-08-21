@@ -444,7 +444,7 @@ function CTASection() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="mt-20 pt-8 border-t border-white/[0.06]"
         >
-          <p className="font-mono text-[10px] text-white/15 tracking-[1.5px] uppercase leading-relaxed text-center">
+          <p className="font-mono text-[10px] text-white tracking-[1.5px] uppercase leading-relaxed text-center">
             Sahana Defence Limited — All governance documents are subject to periodic review and Board approval. 
             For the most current versions, contact the Company Secretary.
           </p>
