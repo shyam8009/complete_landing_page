@@ -256,15 +256,15 @@ function PolicyCard({ name, category, index }: { name: string; category: string;
         </div>
 
         {/* Right side — Download */}
-        <div className={`flex items-center gap-2 shrink-0 transition-all duration-300 ${
-          hovered ? "text-[#84CC16] translate-x-0 opacity-100" : "text-slate-400 -translate-x-1 opacity-70"
-        }`}>
-          <span className="hidden sm:inline text-[11px] font-bold tracking-[1.5px] uppercase">Download</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
-          </svg>
+        <div className="shrink-0 ml-2 sm:ml-4">
+          <TechCTA theme="dark" className="!py-2.5 sm:!py-3 !px-4 sm:!px-6 min-h-[38px]">
+            <span className="hidden sm:inline">Download</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </TechCTA>
         </div>
       </div>
     </motion.div>
