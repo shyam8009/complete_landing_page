@@ -339,7 +339,6 @@ function CTASection() {
           {/* Left — Text */}
           <motion.div variants={fadeUp}>
             <div className="flex items-center gap-3 mb-8">
-              <span className="font-mono text-[11px] text-[#84CC16] tracking-[2px]">02</span>
               <div className="w-8 h-[1px] bg-[#84CC16]" />
               <span className="font-mono text-[11px] text-white/30 tracking-[2px] uppercase">Contact</span>
             </div>
