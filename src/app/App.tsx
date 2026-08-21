@@ -44,6 +44,7 @@ import GovernancePoliciesPage from '../pages/GovernancePolicies/GovernancePolici
 import FinancialReportsPage from '../pages/FinancialReports/FinancialReportsPage';
 import CodeOfConductPage from '../pages/CodeOfConduct/CodeOfConductPage';
 import KeyManagerialPersonnelPage from '../pages/KeyManagerialPersonnel/KeyManagerialPersonnelPage';
+import CompositionOfCommitteesPage from '../pages/CompositionOfCommittees/CompositionOfCommitteesPage';
 import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
@@ -268,12 +269,13 @@ const INVESTORS_DATA = [
     id: 'committees',
     title: 'Composition of Committees',
     description: 'Details of various board committees and their current members.',
+    url: '/investors/composition-of-committees',
     links: [
-      { text: 'Audit Committee', url: '#' },
-      { text: 'Nomination & Remuneration', url: '#' },
-      { text: 'CSR Committee', url: '#' },
+      { text: 'Audit Committee', url: '/investors/composition-of-committees' },
+      { text: 'Nomination & Remuneration', url: '/investors/composition-of-committees' },
+      { text: 'CSR Committee', url: '/investors/composition-of-committees' },
     ],
-    cta: 'View Committees â†’'
+    cta: 'View Committees →'
   },
   {
     id: 'key-contact',
@@ -2330,6 +2332,7 @@ export default function App() {
           <Route path="/investors/annual-reports" element={<FinancialReportsPage />} />
           <Route path="/investors/code-of-conduct-policies" element={<CodeOfConductPage />} />
           <Route path="/investors/key-managerial-personnel" element={<KeyManagerialPersonnelPage />} />
+          <Route path="/investors/composition-of-committees" element={<CompositionOfCommitteesPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
         </Routes>
         <Footer />
