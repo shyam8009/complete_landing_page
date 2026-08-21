@@ -43,6 +43,7 @@ import { JammingSystemsPage } from '../pages/JammingSystems/JammingSystemsPage';
 import GovernancePoliciesPage from '../pages/GovernancePolicies/GovernancePoliciesPage';
 import FinancialReportsPage from '../pages/FinancialReports/FinancialReportsPage';
 import CodeOfConductPage from '../pages/CodeOfConduct/CodeOfConductPage';
+import KeyManagerialPersonnelPage from '../pages/KeyManagerialPersonnel/KeyManagerialPersonnelPage';
 import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
@@ -244,12 +245,13 @@ const INVESTORS_DATA = [
     id: 'kmp',
     title: 'Key Managerial Personnel',
     description: "Executive leadership driving Sahana Defence's strategic vision.",
+    url: '/investors/key-managerial-personnel',
     links: [
-      { text: 'CEO & Managing Director', url: '#' },
-      { text: 'Chief Financial Officer', url: '#' },
-      { text: 'Company Secretary', url: '#' },
+      { text: 'CEO & Managing Director', url: '/investors/key-managerial-personnel' },
+      { text: 'Chief Financial Officer', url: '/investors/key-managerial-personnel' },
+      { text: 'Company Secretary', url: '/investors/key-managerial-personnel' },
     ],
-    cta: 'View Leadership â†’'
+    cta: 'View Leadership →'
   },
   {
     id: 'board-of-directors',
@@ -2327,6 +2329,7 @@ export default function App() {
           <Route path="/investors/policies" element={<GovernancePoliciesPage />} />
           <Route path="/investors/annual-reports" element={<FinancialReportsPage />} />
           <Route path="/investors/code-of-conduct-policies" element={<CodeOfConductPage />} />
+          <Route path="/investors/key-managerial-personnel" element={<KeyManagerialPersonnelPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
         </Routes>
         <Footer />
