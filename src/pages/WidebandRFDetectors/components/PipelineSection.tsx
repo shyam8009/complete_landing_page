@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const PIPELINE_STEPS = [
   {
     id: "01",
-    title: "DEPLOY",
+    title: "RADAR",
     icon: Network,
     description: "Configurable across thru-wall RADAR, spectrum monitoring and signal intelligence from a single detection platform."
   },

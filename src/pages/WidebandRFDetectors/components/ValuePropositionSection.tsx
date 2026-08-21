@@ -54,7 +54,7 @@ export function ValuePropositionSection() {
           <div className="flex flex-col">
             <div className="fade-in-right inline-flex items-center gap-2 mb-6">
               <span className="text-[#84CC16] text-sm font-bold tracking-[3px] uppercase">
-                CORE CAPABILITIES
+                Radar
               </span>
             </div>
             
