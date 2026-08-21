@@ -666,112 +666,48 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         </div>
       </div>
 
-      {/* Investors Mega Menu Dropdown */}
+      {/* Investors Small Dropdown */}
       <div
-        className={`hidden lg:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden md:block fixed right-4 lg:right-auto lg:left-[50%] lg:ml-[-120px] w-[280px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'Investors'
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
-        style={{ borderTop: "1px solid rgba(0,229,255,0.15)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}
         onMouseEnter={() => handleMouseEnter('Investors')}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="max-w-[1400px] w-full mx-auto flex h-auto max-h-[600px]">
-          
-          {/* COLUMN 1: THE HUB INFO CARD */}
-          <div className="w-[340px] border-r border-white/5 flex flex-col p-6 gap-2">
-            <div className="flex flex-col gap-1 py-6 px-6 rounded-md border-l-2 border-[#84CC16] bg-gradient-to-r from-[rgba(0,229,255,0.1)] to-transparent">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="text-[#84CC16]">
-                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                     <circle cx="9" cy="7" r="4"></circle>
-                     <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                   </svg>
-                </div>
-              </div>
-              <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-1">THE HUB</h4>
-              <h3 className="font-bold text-[18px] text-white mb-3">Investor Relations Center</h3>
-              <p className="text-[13px] text-white/60 mb-6 leading-relaxed">All corporate governance, shareholder information, financial reports and disclosures.</p>
-              
-              <div className="flex items-center gap-3 text-[11px] font-bold tracking-wider uppercase mt-2">
-                <span className="text-[#84CC16]">10 SECTIONS</span>
-              </div>
-            </div>
-          </div>
-
-          {/* COLUMN 2: THE HUB LINKS */}
-          <div className="lg:w-[40%] xl:w-[500px] border-r border-white/5 p-6 bg-black/20 flex flex-col relative">
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-4">THE HUB</h4>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1 flex-1 pr-2">
-              {INVESTORS_DATA.map((section: any) => {
-                const isActive = activeInvestorSection.id === section.id;
-                return (
-                  <div 
-                    key={section.id}
-                    onMouseEnter={() => setActiveInvestorSection(section)}
-                    className={`flex items-start gap-2 p-3 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
-                  >
-                    <div className="flex-1">
-                      <h3 className={`font-bold text-[12px] ${isActive ? "text-[#84CC16]" : "text-white/80"}`}>{section.title}</h3>
-                    </div>
-                    {isActive && <div className="text-[#84CC16] mt-0.5"><MiniArrow color="#84CC16" /></div>}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* COLUMN 3: DYNAMIC DETAILS */}
-          <div className="flex-1 border-r border-white/5 p-6 bg-black/40 flex flex-col relative">
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white/50 mb-4 flex items-center gap-2">
-              <span className="text-[#84CC16]">{activeInvestorSection.title.toUpperCase()}</span>
-            </h4>
-            
-            <p className="text-[14px] text-white/70 leading-relaxed mb-8 max-w-[400px]">
-              {activeInvestorSection.description}
-            </p>
-
-            <h5 className="text-[11px] font-bold tracking-[2px] uppercase text-white/40 mb-3">Recent Documents</h5>
-            
-            <div className="flex flex-col gap-1 flex-1 max-w-[400px]">
-              {activeInvestorSection.links.map((link: any, idx: number) => (
-                <div 
-                  key={idx} 
-                  className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
-                  onClick={() => { setHoveredNav(null); if (navigate) navigate(link.url); }}
-                >
-                  <div className="w-[24px] h-[24px] shrink-0 text-white/20 group-hover:text-[#84CC16] transition-colors flex items-center justify-center">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                      <polyline points="14 2 14 8 20 8"></polyline>
-                      <line x1="16" y1="13" x2="8" y2="13"></line>
-                      <line x1="16" y1="17" x2="8" y2="17"></line>
-                      <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                  </div>
-                  <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{link.text}</span>
-                  <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
-                    <MiniArrow color="#84CC16" />
-                  </div>
-                </div>
-              ))}
-            </div>
-
+        <div className="flex flex-col p-4 max-h-[500px] overflow-y-auto custom-scrollbar">
+          <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-3 px-2">Investors</h4>
+          {[
+            { text: 'Annual Reports', path: '/investors/annual-reports' },
+            { text: 'General Meeting Notice', path: '#' },
+            { text: 'Code of Conduct & Policies', path: '#' },
+            { text: 'Annual Return', path: '#' },
+            { text: 'Policies of the Company', path: '/investors/policies' },
+            { text: 'Shareholder Information', path: '#' },
+            { text: 'Key Managerial Personnel', path: '#' },
+            { text: 'Board of Directors', path: '#' },
+            { text: 'Composition of Committees', path: '#' },
+            { text: 'Key Contact', path: '#' }
+          ].map((item) => (
             <a 
-              href="#"
-              onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }}
-              className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
+              key={item.text} 
+              href="#" 
+              className="px-2 py-2.5 text-[13px] font-bold text-white/70 hover:text-[#84CC16] hover:bg-white/5 rounded-sm transition-all duration-300 flex items-center justify-between group"
+              onClick={(e) => { 
+                e.preventDefault(); 
+                setHoveredNav(null); 
+                if (item.path !== '#') navigate(item.path); 
+              }}
             >
-              View All â†’
+              <span>{item.text}</span>
+              <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                <MiniArrow color="#84CC16" />
+              </div>
             </a>
-          </div>
-
-
+          ))}
         </div>
       </div>
 
