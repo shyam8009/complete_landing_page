@@ -183,7 +183,7 @@ export function InteractiveBlueprint({
           
           {/* TIER 1: Blue Dark Banner */}
           <div ref={el => rightPanelsRef.current[0] = el} className="absolute inset-0 flex items-center justify-center invisible">
-            <div className="w-full max-w-4xl bg-slate-900 text-white border border-slate-800 rounded-sm p-0 shadow-[0_30px_60px_-12px_rgba(0,0,0,0.5)] relative overflow-hidden group flex flex-col md:flex-row">
+            <div className="w-full max-w-4xl h-[450px] bg-slate-900 text-white border border-slate-800 rounded-sm p-0 shadow-[0_30px_60px_-12px_rgba(0,0,0,0.5)] relative overflow-hidden group flex flex-col md:flex-row">
               
               <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <svg width="100%" height="100%">
@@ -243,7 +243,7 @@ export function InteractiveBlueprint({
 
           {/* TIER 2: Amber Dark Banner */}
           <div ref={el => rightPanelsRef.current[1] = el} className="absolute inset-0 flex items-center justify-center invisible">
-            <div className="w-full max-w-4xl bg-slate-900 text-white border border-slate-800 rounded-sm p-0 shadow-[0_30px_60px_-12px_rgba(0,0,0,0.5)] relative overflow-hidden group flex flex-col md:flex-row">
+            <div className="w-full max-w-4xl h-[450px] bg-slate-900 text-white border border-slate-800 rounded-sm p-0 shadow-[0_30px_60px_-12px_rgba(0,0,0,0.5)] relative overflow-hidden group flex flex-col md:flex-row">
               
               <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <svg width="100%" height="100%">
@@ -303,7 +303,7 @@ export function InteractiveBlueprint({
 
           {/* TIER 3: Wide network link banner (Output Node styling) */}
           <div ref={el => rightPanelsRef.current[2] = el} className="absolute inset-0 flex items-center justify-center invisible">
-            <div className="w-full max-w-4xl bg-slate-900 text-white border border-slate-800 rounded-sm p-0 shadow-[0_30px_60px_-12px_rgba(0,0,0,0.5)] relative overflow-hidden group flex flex-col md:flex-row">
+            <div className="w-full max-w-4xl h-[450px] bg-slate-900 text-white border border-slate-800 rounded-sm p-0 shadow-[0_30px_60px_-12px_rgba(0,0,0,0.5)] relative overflow-hidden group flex flex-col md:flex-row">
               
               <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <svg width="100%" height="100%">
