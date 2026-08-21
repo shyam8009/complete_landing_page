@@ -52,6 +52,7 @@ import BoardOfDirectorsPage from '../pages/BoardOfDirectors/BoardOfDirectorsPage
 import KeyContactPage from '../pages/KeyContact/KeyContactPage';
 import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
 import { QuantumMicrowaveDevicesPage } from '../pages/QuantumMicrowaveDevices/QuantumMicrowaveDevicesPage';
+import { RydbergAtomQuantumSensorsPage } from '../pages/RydbergAtomQuantumSensors/RydbergAtomQuantumSensorsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
 import ClienteleSection from '../components/ClienteleSection';
@@ -2351,6 +2352,7 @@ export default function App() {
           <Route path="/investors/key-contact" element={<KeyContactPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-microwave-devices" element={<QuantumMicrowaveDevicesPage />} />
+          <Route path="/quantum-technology-solutions/quantum-sensing/rydberg-atom-quantum-sensors" element={<RydbergAtomQuantumSensorsPage />} />
         </Routes>
         <Footer />
       </div>
