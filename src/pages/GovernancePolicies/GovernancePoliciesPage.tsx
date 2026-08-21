@@ -218,37 +218,37 @@ function PolicyCard({ name, category, index }: { name: string; category: string;
       <div
         className={`relative flex items-center justify-between gap-4 px-5 sm:px-7 py-5 sm:py-6 rounded-sm transition-all duration-300 ${
           hovered
-            ? "bg-[#84CC16]/[0.04] border-[#84CC16]/30"
-            : "bg-white/[0.02] border-white/[0.06]"
+            ? "bg-[#84CC16]/[0.04] border-[#84CC16]/30 shadow-lg shadow-[#84CC16]/5"
+            : "bg-white border-slate-200 shadow-sm hover:shadow-md"
         } border`}
       >
         {/* HUD Corner Accents */}
-        <div className={`absolute top-0 left-0 w-3 h-3 border-t-[1.5px] border-l-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-white/10"}`} />
-        <div className={`absolute top-0 right-0 w-3 h-3 border-t-[1.5px] border-r-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-white/10"}`} />
-        <div className={`absolute bottom-0 left-0 w-3 h-3 border-b-[1.5px] border-l-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-white/10"}`} />
-        <div className={`absolute bottom-0 right-0 w-3 h-3 border-b-[1.5px] border-r-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-white/10"}`} />
+        <div className={`absolute top-0 left-0 w-3 h-3 border-t-[1.5px] border-l-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-slate-300"}`} />
+        <div className={`absolute top-0 right-0 w-3 h-3 border-t-[1.5px] border-r-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-slate-300"}`} />
+        <div className={`absolute bottom-0 left-0 w-3 h-3 border-b-[1.5px] border-l-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-slate-300"}`} />
+        <div className={`absolute bottom-0 right-0 w-3 h-3 border-b-[1.5px] border-r-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-slate-300"}`} />
 
         {/* Left side */}
         <div className="flex items-center gap-4 sm:gap-6 flex-1 min-w-0">
           {/* Index */}
           <span className={`font-mono text-[11px] tracking-[2px] transition-colors duration-300 shrink-0 ${
-            hovered ? "text-[#84CC16]" : "text-white/25"
+            hovered ? "text-[#84CC16]" : "text-slate-400"
           }`}>
             {String(index + 1).padStart(2, "0")}
           </span>
 
           {/* Divider */}
-          <div className={`w-px h-8 transition-colors duration-300 shrink-0 ${hovered ? "bg-[#84CC16]/30" : "bg-white/8"}`} />
+          <div className={`w-px h-8 transition-colors duration-300 shrink-0 ${hovered ? "bg-[#84CC16]/30" : "bg-slate-200"}`} />
 
           {/* Name + Category */}
           <div className="flex-1 min-w-0">
             <p className={`text-sm sm:text-[15px] font-medium leading-snug transition-colors duration-300 ${
-              hovered ? "text-white" : "text-white/75"
+              hovered ? "text-slate-900" : "text-slate-700"
             }`}>
               {name}
             </p>
             <span className={`inline-block mt-1.5 text-[9px] font-mono tracking-[2px] uppercase transition-colors duration-300 ${
-              hovered ? "text-[#84CC16]" : "text-white/20"
+              hovered ? "text-[#84CC16]" : "text-slate-400"
             }`}>
               {category}
             </span>
@@ -257,7 +257,7 @@ function PolicyCard({ name, category, index }: { name: string; category: string;
 
         {/* Right side — Download */}
         <div className={`flex items-center gap-2 shrink-0 transition-all duration-300 ${
-          hovered ? "text-[#84CC16] translate-x-0 opacity-100" : "text-white/30 -translate-x-1 opacity-70"
+          hovered ? "text-[#84CC16] translate-x-0 opacity-100" : "text-slate-400 -translate-x-1 opacity-70"
         }`}>
           <span className="hidden sm:inline text-[11px] font-bold tracking-[1.5px] uppercase">Download</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -275,12 +275,12 @@ function PolicyCard({ name, category, index }: { name: string; category: string;
 
 function PoliciesSection() {
   return (
-    <section className="relative bg-[#050505] py-16 md:py-24" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <section className="relative bg-white py-16 md:py-24" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* Background grid texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
@@ -299,24 +299,24 @@ function PoliciesSection() {
           <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
             <span className="font-mono text-[11px] text-[#84CC16] tracking-[2px]">01</span>
             <div className="w-8 h-[1px] bg-[#84CC16]" />
-            <span className="font-mono text-[11px] text-white/30 tracking-[2px] uppercase">Corporate Governance</span>
+            <span className="font-mono text-[11px] text-slate-500 tracking-[2px] uppercase">Corporate Governance</span>
           </motion.div>
 
           {/* Title row */}
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight text-white tracking-wide uppercase leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight text-slate-900 tracking-wide uppercase leading-tight">
               Governance <span className="font-bold">Policies</span>
             </h2>
-            <div className="flex items-center gap-3 px-4 py-2 rounded-sm bg-white/[0.03] border border-white/[0.06]">
+            <div className="flex items-center gap-3 px-4 py-2 rounded-sm bg-slate-50 border border-slate-200">
               <div className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
-              <span className="font-mono text-[11px] text-white/50 tracking-[1.5px] uppercase">
+              <span className="font-mono text-[11px] text-slate-500 tracking-[1.5px] uppercase">
                 {POLICIES.length} Documents
               </span>
             </div>
           </motion.div>
 
           {/* Divider */}
-          <motion.div variants={fadeIn} className="h-px bg-gradient-to-r from-[#84CC16]/40 via-white/10 to-transparent" />
+          <motion.div variants={fadeIn} className="h-px bg-gradient-to-r from-[#84CC16]/40 via-slate-200 to-transparent" />
         </motion.div>
 
         {/* Policy Cards */}
@@ -338,9 +338,9 @@ function PoliciesSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="mt-12 pt-8 border-t border-white/[0.06]"
+          className="mt-12 pt-8 border-t border-slate-200"
         >
-          <p className="text-center font-mono text-[10px] text-white/20 tracking-[2px] uppercase leading-relaxed">
+          <p className="text-center font-mono text-[10px] text-slate-400 tracking-[2px] uppercase leading-relaxed">
             All policies are maintained in accordance with SEBI (LODR) Regulations 2015 and applicable corporate law
           </p>
         </motion.div>
