@@ -77,11 +77,6 @@ function Hero() {
         flexDirection: "column", justifyContent: "flex-end",
         padding: "clamp(32px, 5vw, 72px) clamp(24px, 5vw, 80px)",
       }}>
-        {/* Breadcrumb */}
-        <p style={{ fontFamily: MONO, fontSize: 11, letterSpacing: "2px", color: MUTED2, textTransform: "uppercase", marginBottom: 20 }}>
-          Home&nbsp;&nbsp;/&nbsp;&nbsp;Investors&nbsp;&nbsp;/&nbsp;&nbsp;Governance
-        </p>
-
         {/* Title */}
         <h1 style={{
           fontFamily: F, fontSize: "clamp(44px, 6.5vw, 96px)", fontWeight: 300,
