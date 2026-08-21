@@ -1,357 +1,468 @@
-import { useState } from "react";
-import heroImg from "@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import heroImg from '@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg';
+import { TechCTA } from '@/components/TechCTA';
 
-const F    = "'Inter', sans-serif";
-const MONO = "'Courier New', Courier, monospace";
-const GOLD = "#c4a030";
-const BORDER  = "rgba(255,255,255,0.08)";
-const MUTED   = "rgba(255,255,255,0.42)";
-const MUTED2  = "rgba(255,255,255,0.18)";
+// ── Data ─────────────────────────────────────────────────────────────────────
 
 const POLICIES = [
-  "Cyber Security Policy",
-  "Formal Letter Of Appointment / Re-Appointment Of Independent Directors",
-  "Archival Policy",
-  "Environment, Health & Safety Policy",
-  "Familiarization Policy",
-  "Policy On Board Diversity",
-  "Nomination And Remuneration Policy",
-  "Policy On Preservation Of Documents",
-  "Stakeholders Relationship And Share Transfer Policy",
-  "Anti Corruption Anti Bribery Policy",
-  "Corporate Social Responsibility Policy",
-  "Equal Opportunity Policy",
-  "Determination Of Materiality Policy",
-  "Fair Disclosure Of UPSI",
-  "Policy For Determining Material Subsidiaries",
-  "Related Party Transactions Policy",
-  "Stationary Monitoring Policy",
-  "Risk Management Policy",
+  { name: "Cyber Security Policy", category: "Security" },
+  { name: "Formal Letter Of Appointment / Re-Appointment Of Independent Directors", category: "Board" },
+  { name: "Archival Policy", category: "Compliance" },
+  { name: "Environment, Health & Safety Policy", category: "EHS" },
+  { name: "Familiarization Policy", category: "Board" },
+  { name: "Policy On Board Diversity", category: "Board" },
+  { name: "Nomination And Remuneration Policy", category: "Board" },
+  { name: "Policy On Preservation Of Documents", category: "Compliance" },
+  { name: "Stakeholders Relationship And Share Transfer Policy", category: "Compliance" },
+  { name: "Anti Corruption Anti Bribery Policy", category: "Ethics" },
+  { name: "Corporate Social Responsibility Policy", category: "Ethics" },
+  { name: "Equal Opportunity Policy", category: "Ethics" },
+  { name: "Determination Of Materiality Policy", category: "Compliance" },
+  { name: "Fair Disclosure Of UPSI", category: "Compliance" },
+  { name: "Policy For Determining Material Subsidiaries", category: "Compliance" },
+  { name: "Related Party Transactions Policy", category: "Compliance" },
+  { name: "Stationary Monitoring Policy", category: "Security" },
+  { name: "Risk Management Policy", category: "Risk" },
 ];
 
-// ── Shared micro-components ──────────────────────────────────────────────────
+const STATS = [
+  { value: "18", label: "Active Policies" },
+  { value: "SEBI", label: "LODR Compliant" },
+  { value: "2025", label: "Last Reviewed" },
+];
 
-function SectionTag({ n, label }: { n: string; label: string }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
-      <span style={{ fontFamily: MONO, fontSize: 11, color: GOLD, letterSpacing: "2px" }}>{n}</span>
-      <div style={{ width: 40, height: 1, background: GOLD }} />
-      <span style={{ fontFamily: MONO, fontSize: 11, color: MUTED, letterSpacing: "2px", textTransform: "uppercase" }}>{label}</span>
-    </div>
-  );
-}
+const stagger = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.2 },
+  },
+};
 
-// ── Hero ─────────────────────────────────────────────────────────────────────
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] } },
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.5 } },
+};
+
+// ── Hero Section ─────────────────────────────────────────────────────────────
 
 function Hero() {
   return (
-    <section style={{ position: "relative", width: "100%", height: "clamp(420px, 52vw, 620px)", overflow: "hidden" }}>
-      {/* Background */}
-      <img
-        src={heroImg}
-        alt=""
+    <section className="relative w-full min-h-[85vh] overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* Background Image */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.08 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.6, ease: [0.25, 1, 0.5, 1] }}
+        className="absolute inset-0"
+      >
+        <img
+          src={heroImg}
+          alt=""
+          className="w-full h-full object-cover"
+          style={{ filter: "grayscale(50%) brightness(0.15)" }}
+        />
+      </motion.div>
+
+      {/* Grid Texture Overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-30"
         style={{
-          position: "absolute", inset: 0, width: "100%", height: "100%",
-          objectFit: "cover", filter: "grayscale(60%) brightness(0.18)",
+          backgroundImage: "linear-gradient(rgba(132,204,22,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(132,204,22,0.03) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
         }}
       />
 
-      {/* Gold top line */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: GOLD }} />
+      {/* Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/40 to-black/60 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent pointer-events-none" />
 
-      {/* Grid texture */}
-      <div style={{
-        position: "absolute", inset: 0,
-        backgroundImage: "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
-        backgroundSize: "72px 72px",
-      }} />
+      {/* Lime accent top line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#84CC16] z-10" />
 
-      {/* Bottom fade */}
-      <div style={{
-        position: "absolute", bottom: 0, left: 0, right: 0, height: 180,
-        backgroundImage: "linear-gradient(to bottom, transparent, #030405)",
-      }} />
-
-      <div style={{
-        position: "relative", height: "100%", display: "flex",
-        flexDirection: "column", justifyContent: "flex-end",
-        padding: "clamp(32px, 5vw, 72px) clamp(24px, 5vw, 80px)",
-      }}>
-        {/* Title */}
-        <h1 style={{
-          fontFamily: F, fontSize: "clamp(44px, 6.5vw, 96px)", fontWeight: 300,
-          color: "#fff", lineHeight: 1.0, letterSpacing: "-0.03em", marginBottom: 40,
-          maxWidth: 760,
-        }}>
-          Policies of the Company
-        </h1>
-
-        {/* CTA button */}
-        <a
-          href="mailto:investors@sahanadefence.com"
-          style={{
-            display: "inline-flex", alignItems: "center", gap: 10,
-            background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.18)",
-            color: "#fff", fontFamily: F, fontSize: 13, fontWeight: 500,
-            padding: "11px 22px", cursor: "pointer", borderRadius: 2,
-            letterSpacing: "0.6px", textDecoration: "none",
-            transition: "background 0.2s, border-color 0.2s",
-          }}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLAnchorElement).style.background = "rgba(196,160,48,0.12)";
-            (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(196,160,48,0.5)";
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.06)";
-            (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.18)";
-          }}
+      {/* Content */}
+      <div className="relative z-20 h-full min-h-[85vh] flex flex-col justify-end px-6 sm:px-10 md:px-16 lg:px-20 pb-16 md:pb-24">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={stagger}
+          className="max-w-4xl"
         >
-          Contact Investor Relations&nbsp;&nbsp;→
-        </a>
+          {/* Eyebrow */}
+          <motion.div
+            variants={fadeUp}
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/10 bg-black/50 backdrop-blur-md mb-8"
+          >
+            <div className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
+            <span className="text-[11px] font-bold tracking-[2.5px] text-[#84CC16] uppercase">
+              INVESTOR RELATIONS / GOVERNANCE
+            </span>
+          </motion.div>
+
+          {/* Title */}
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-wider uppercase mb-6 leading-[0.95]"
+          >
+            POLICIES OF <br />
+            <span className="font-bold">THE COMPANY</span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            variants={fadeUp}
+            className="text-base sm:text-lg md:text-xl font-light text-white/60 mb-10 max-w-2xl leading-relaxed"
+          >
+            Comprehensive corporate governance framework ensuring transparency, 
+            accountability, and compliance across all organizational operations.
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-16">
+            <TechCTA>
+              <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              DOWNLOAD ALL POLICIES
+            </TechCTA>
+            <TechCTA>
+              CONTACT INVESTOR RELATIONS
+            </TechCTA>
+          </motion.div>
+
+          {/* Stats Bar */}
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-wrap gap-8 md:gap-16"
+          >
+            {STATS.map((stat, i) => (
+              <div key={i} className="flex items-center gap-4">
+                <span className="text-3xl md:text-4xl font-bold text-white tracking-wider font-mono">
+                  {stat.value}
+                </span>
+                <div className="w-px h-8 bg-white/15" />
+                <span className="text-[11px] font-medium text-[#84CC16] uppercase tracking-[2px]">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
-// ── Mission Statement ────────────────────────────────────────────────────────
+// ── Mission Section ──────────────────────────────────────────────────────────
 
-function MissionStatement() {
+function MissionSection() {
   return (
-    <section style={{
-      background: "#030405", padding: "clamp(64px, 8vw, 112px) clamp(24px, 5vw, 80px)",
-      borderBottom: `1px solid ${BORDER}`,
-    }}>
-      <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
-        {/* Gold accent line */}
-        <div style={{ width: 40, height: 2, background: GOLD, margin: "0 auto 32px" }} />
+    <section className="relative bg-[#050505] py-20 md:py-28 overflow-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(132,204,22,0.03)_0%,transparent_70%)] pointer-events-none" />
 
-        <p style={{
-          fontFamily: F, fontSize: "clamp(18px, 2.4vw, 26px)", fontWeight: 300,
-          color: "rgba(255,255,255,0.88)", lineHeight: 1.65, letterSpacing: "0.01em",
-          marginBottom: 40,
-        }}>
-          Our purpose is to provide a thorough Scrutinizer Report which plays a crucial role
-          in ensuring the integrity and transparency of the voting process during the meeting.
-        </p>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={stagger}
+        className="relative z-10 max-w-4xl mx-auto px-6 sm:px-10 text-center"
+      >
+        {/* Accent line */}
+        <motion.div variants={fadeIn} className="w-12 h-[2px] bg-[#84CC16] mx-auto mb-10" />
 
-        <div style={{ width: 40, height: 1, background: BORDER, margin: "0 auto 40px" }} />
+        <motion.p
+          variants={fadeUp}
+          className="text-xl sm:text-2xl md:text-3xl font-extralight text-white/85 leading-relaxed mb-8 tracking-wide"
+        >
+          Our governance framework is designed to uphold the highest standards of 
+          <span className="text-[#84CC16] font-normal"> integrity</span>, 
+          <span className="text-[#84CC16] font-normal"> transparency</span>, and 
+          <span className="text-[#84CC16] font-normal"> accountability</span> — 
+          ensuring every stakeholder's trust is earned and maintained.
+        </motion.p>
 
-        <p style={{
-          fontFamily: F, fontSize: "clamp(13px, 1.5vw, 15px)", fontWeight: 400,
-          color: MUTED, lineHeight: 1.75, maxWidth: 680, margin: "0 auto",
-        }}>
-          Providing our valued investors with essential updates and strategic insights to stay informed
-          on the innovations, achievements, and future directions shaping our success.
-        </p>
-      </div>
+        <motion.div variants={fadeIn} className="w-16 h-px bg-white/10 mx-auto mb-8" />
+
+        <motion.p
+          variants={fadeUp}
+          className="text-sm md:text-base font-light text-white/40 max-w-xl mx-auto leading-relaxed"
+        >
+          All policies are maintained in accordance with SEBI (LODR) Regulations 2015 
+          and applicable corporate law, subject to periodic review and Board approval.
+        </motion.p>
+      </motion.div>
     </section>
   );
 }
 
-// ── Policy Row ───────────────────────────────────────────────────────────────
+// ── Policy Card ──────────────────────────────────────────────────────────────
 
-function PolicyRow({ name, index }: { name: string; index: number }) {
+function PolicyCard({ name, category, index }: { name: string; category: string; index: number }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
+    <motion.div
+      variants={fadeUp}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "22px 28px",
-        border: `1px solid ${hovered ? "rgba(196,160,48,0.35)" : BORDER}`,
-        borderRadius: 3,
-        background: hovered ? "rgba(196,160,48,0.04)" : "rgba(255,255,255,0.02)",
-        transition: "border-color 0.2s, background 0.2s",
-        cursor: "pointer",
-        gap: 24,
-      }}
+      className="group relative cursor-pointer"
     >
-      {/* Left: index + name */}
-      <div style={{ display: "flex", alignItems: "center", gap: 20, flex: 1, minWidth: 0 }}>
-        <span style={{
-          fontFamily: MONO, fontSize: 11, color: GOLD, letterSpacing: "1px",
-          flexShrink: 0, opacity: 0.75,
-        }}>
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <span style={{
-          fontFamily: F, fontSize: "clamp(13px, 1.4vw, 16px)", fontWeight: 400,
-          color: hovered ? "#fff" : "rgba(255,255,255,0.85)",
-          transition: "color 0.2s", lineHeight: 1.4,
-        }}>
-          {name}
-        </span>
-      </div>
+      {/* Card */}
+      <div
+        className={`relative flex items-center justify-between gap-4 px-5 sm:px-7 py-5 sm:py-6 rounded-sm transition-all duration-300 ${
+          hovered
+            ? "bg-[#84CC16]/[0.04] border-[#84CC16]/30"
+            : "bg-white/[0.02] border-white/[0.06]"
+        } border`}
+      >
+        {/* HUD Corner Accents */}
+        <div className={`absolute top-0 left-0 w-3 h-3 border-t-[1.5px] border-l-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-white/10"}`} />
+        <div className={`absolute top-0 right-0 w-3 h-3 border-t-[1.5px] border-r-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-white/10"}`} />
+        <div className={`absolute bottom-0 left-0 w-3 h-3 border-b-[1.5px] border-l-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-white/10"}`} />
+        <div className={`absolute bottom-0 right-0 w-3 h-3 border-b-[1.5px] border-r-[1.5px] transition-colors duration-300 ${hovered ? "border-[#84CC16]/70" : "border-white/10"}`} />
 
-      {/* Right: download */}
-      <div style={{
-        display: "flex", alignItems: "center", gap: 8, flexShrink: 0,
-        color: hovered ? GOLD : MUTED,
-        fontFamily: F, fontSize: 13, fontWeight: 500, letterSpacing: "0.5px",
-        transition: "color 0.2s",
-      }}>
-        <span>Download</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+        {/* Left side */}
+        <div className="flex items-center gap-4 sm:gap-6 flex-1 min-w-0">
+          {/* Index */}
+          <span className={`font-mono text-[11px] tracking-[2px] transition-colors duration-300 shrink-0 ${
+            hovered ? "text-[#84CC16]" : "text-white/25"
+          }`}>
+            {String(index + 1).padStart(2, "0")}
+          </span>
+
+          {/* Divider */}
+          <div className={`w-px h-8 transition-colors duration-300 shrink-0 ${hovered ? "bg-[#84CC16]/30" : "bg-white/8"}`} />
+
+          {/* Name + Category */}
+          <div className="flex-1 min-w-0">
+            <p className={`text-sm sm:text-[15px] font-medium leading-snug transition-colors duration-300 ${
+              hovered ? "text-white" : "text-white/75"
+            }`}>
+              {name}
+            </p>
+            <span className={`inline-block mt-1.5 text-[9px] font-mono tracking-[2px] uppercase transition-colors duration-300 ${
+              hovered ? "text-[#84CC16]" : "text-white/20"
+            }`}>
+              {category}
+            </span>
+          </div>
+        </div>
+
+        {/* Right side — Download */}
+        <div className={`flex items-center gap-2 shrink-0 transition-all duration-300 ${
+          hovered ? "text-[#84CC16] translate-x-0 opacity-100" : "text-white/30 -translate-x-1 opacity-70"
+        }`}>
+          <span className="hidden sm:inline text-[11px] font-bold tracking-[1.5px] uppercase">Download</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-// ── Policies Section ─────────────────────────────────────────────────────────
+// ── Policies Grid Section ────────────────────────────────────────────────────
 
 function PoliciesSection() {
   return (
-    <section style={{
-      background: "#030405",
-      padding: "clamp(64px, 8vw, 100px) clamp(24px, 5vw, 80px)",
-    }}>
-      <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-        <SectionTag n="01" label="Governance Documents" />
+    <section className="relative bg-[#050505] py-16 md:py-24" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* Background grid texture */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-20"
+        style={{
+          backgroundImage: "linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
-        {/* Header row */}
-        <div style={{
-          display: "flex", alignItems: "flex-end", justifyContent: "space-between",
-          marginBottom: 48, gap: 24, flexWrap: "wrap",
-        }}>
-          <h2 style={{
-            fontFamily: F, fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 300,
-            color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.15, maxWidth: 520,
-          }}>
-            Corporate Governance Policies
-          </h2>
-          <p style={{
-            fontFamily: MONO, fontSize: 11, color: MUTED2, letterSpacing: "1.5px",
-            textTransform: "uppercase", textAlign: "right",
-          }}>
-            {POLICIES.length} Documents
-          </p>
-        </div>
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 sm:px-10">
 
-        {/* Hairline top rule */}
-        <div style={{ height: 1, background: BORDER, marginBottom: 20 }} />
+        {/* Section Header */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={stagger}
+          className="mb-12 md:mb-16"
+        >
+          {/* Tag */}
+          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+            <span className="font-mono text-[11px] text-[#84CC16] tracking-[2px]">01</span>
+            <div className="w-8 h-[1px] bg-[#84CC16]" />
+            <span className="font-mono text-[11px] text-white/30 tracking-[2px] uppercase">Corporate Governance</span>
+          </motion.div>
 
-        {/* Policy rows */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          {/* Title row */}
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight text-white tracking-wide uppercase leading-tight">
+              Governance <span className="font-bold">Policies</span>
+            </h2>
+            <div className="flex items-center gap-3 px-4 py-2 rounded-sm bg-white/[0.03] border border-white/[0.06]">
+              <div className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
+              <span className="font-mono text-[11px] text-white/50 tracking-[1.5px] uppercase">
+                {POLICIES.length} Documents
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Divider */}
+          <motion.div variants={fadeIn} className="h-px bg-gradient-to-r from-[#84CC16]/40 via-white/10 to-transparent" />
+        </motion.div>
+
+        {/* Policy Cards */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={stagger}
+          className="flex flex-col gap-3"
+        >
           {POLICIES.map((policy, i) => (
-            <PolicyRow key={policy} name={policy} index={i} />
+            <PolicyCard key={policy.name} name={policy.name} category={policy.category} index={i} />
           ))}
-        </div>
+        </motion.div>
 
-        {/* Bottom rule */}
-        <div style={{ height: 1, background: BORDER, marginTop: 20 }} />
-
-        {/* Compliance note */}
-        <p style={{
-          fontFamily: MONO, fontSize: 11, color: MUTED2, letterSpacing: "1.5px",
-          textTransform: "uppercase", marginTop: 24, textAlign: "center",
-        }}>
-          All policies are maintained in accordance with SEBI (LODR) Regulations 2015 and applicable corporate law
-        </p>
+        {/* Bottom accent */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="mt-12 pt-8 border-t border-white/[0.06]"
+        >
+          <p className="text-center font-mono text-[10px] text-white/20 tracking-[2px] uppercase leading-relaxed">
+            All policies are maintained in accordance with SEBI (LODR) Regulations 2015 and applicable corporate law
+          </p>
+        </motion.div>
       </div>
     </section>
   );
 }
 
-// ── CTA ──────────────────────────────────────────────────────────────────────
+// ── CTA Section ──────────────────────────────────────────────────────────────
 
-function InvestorCTA() {
+function CTASection() {
   return (
-    <section style={{
-      background: "#030405",
-      borderTop: `1px solid ${BORDER}`,
-      padding: "clamp(64px, 8vw, 100px) clamp(24px, 5vw, 80px)",
-    }}>
-      <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-        {/* Gold rule */}
-        <div style={{ width: 40, height: 2, background: GOLD, marginBottom: 40 }} />
+    <section className="relative bg-[#050505] py-20 md:py-28 overflow-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(132,204,22,0.04)_0%,transparent_60%)] pointer-events-none" />
+      
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 sm:px-10">
 
-        <div style={{
-          display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "48px 64px", alignItems: "start",
-        }}>
-          {/* Left column */}
-          <div>
-            <h3 style={{
-              fontFamily: F, fontSize: "clamp(24px, 3vw, 38px)", fontWeight: 300,
-              color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: 20,
-            }}>
-              Investor Relations
+        {/* Top divider with accent */}
+        <div className="h-px bg-gradient-to-r from-[#84CC16]/30 via-white/8 to-transparent mb-16" />
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={stagger}
+          className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20"
+        >
+          {/* Left — Text */}
+          <motion.div variants={fadeUp}>
+            <div className="flex items-center gap-3 mb-8">
+              <span className="font-mono text-[11px] text-[#84CC16] tracking-[2px]">02</span>
+              <div className="w-8 h-[1px] bg-[#84CC16]" />
+              <span className="font-mono text-[11px] text-white/30 tracking-[2px] uppercase">Contact</span>
+            </div>
+
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-extralight text-white tracking-wide uppercase mb-6 leading-tight">
+              Investor <span className="font-bold">Relations</span>
             </h3>
-            <p style={{
-              fontFamily: F, fontSize: 15, fontWeight: 400, color: MUTED,
-              lineHeight: 1.7, maxWidth: 420,
-            }}>
-              For governance enquiries, policy clarifications, or shareholder documentation,
+            <p className="text-sm md:text-base font-light text-white/45 leading-relaxed max-w-md mb-10">
+              For governance enquiries, policy clarifications, or shareholder documentation, 
               our investor relations team is available to assist.
             </p>
-          </div>
 
-          {/* Right column — contact details */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
-            <div>
-              <p style={{ fontFamily: MONO, fontSize: 10, color: GOLD, letterSpacing: "2px", textTransform: "uppercase", marginBottom: 10 }}>
-                Email
-              </p>
+            <TechCTA>
+              <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              CONTACT INVESTOR RELATIONS
+            </TechCTA>
+          </motion.div>
+
+          {/* Right — Contact Cards */}
+          <motion.div variants={fadeUp} className="flex flex-col gap-6">
+
+            {/* Email Card */}
+            <div className="relative group p-6 rounded-sm bg-white/[0.02] border border-white/[0.06] hover:border-[#84CC16]/20 transition-all duration-300">
+              <div className="absolute top-0 left-0 w-3 h-3 border-t-[1.5px] border-l-[1.5px] border-[#84CC16]/40" />
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-[1.5px] border-r-[1.5px] border-[#84CC16]/40" />
+              
+              <p className="font-mono text-[10px] text-[#84CC16] tracking-[2px] uppercase mb-3">Email</p>
               <a
                 href="mailto:investors@sahanadefence.com"
-                style={{ fontFamily: F, fontSize: 16, color: "#fff", textDecoration: "none", borderBottom: "1px solid rgba(255,255,255,0.2)", paddingBottom: 2 }}
+                className="text-base md:text-lg text-white hover:text-[#84CC16] transition-colors duration-300 border-b border-white/15 pb-0.5"
               >
                 investors@sahanadefence.com
               </a>
             </div>
 
-            <div>
-              <p style={{ fontFamily: MONO, fontSize: 10, color: GOLD, letterSpacing: "2px", textTransform: "uppercase", marginBottom: 10 }}>
-                Registered Office
-              </p>
-              <p style={{ fontFamily: F, fontSize: 14, color: MUTED, lineHeight: 1.7 }}>
+            {/* Address Card */}
+            <div className="relative group p-6 rounded-sm bg-white/[0.02] border border-white/[0.06] hover:border-[#84CC16]/20 transition-all duration-300">
+              <div className="absolute top-0 left-0 w-3 h-3 border-t-[1.5px] border-l-[1.5px] border-[#84CC16]/40" />
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-[1.5px] border-r-[1.5px] border-[#84CC16]/40" />
+              
+              <p className="font-mono text-[10px] text-[#84CC16] tracking-[2px] uppercase mb-3">Registered Office</p>
+              <p className="text-sm text-white/50 leading-relaxed">
                 Sahana Defence Limited<br />
                 Panjrapol, Ambawadi<br />
                 Ahmedabad – 380 015, Gujarat, India
               </p>
             </div>
 
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <a
-                href="mailto:investors@sahanadefence.com"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  background: GOLD, color: "#030405",
-                  fontFamily: F, fontSize: 13, fontWeight: 600,
-                  padding: "11px 22px", borderRadius: 2, textDecoration: "none",
-                  letterSpacing: "0.5px",
-                }}
-              >
-                Contact Investor Relations&nbsp;&nbsp;→
-              </a>
+            {/* CIN Card */}
+            <div className="relative group p-6 rounded-sm bg-white/[0.02] border border-white/[0.06] hover:border-[#84CC16]/20 transition-all duration-300">
+              <div className="absolute top-0 left-0 w-3 h-3 border-t-[1.5px] border-l-[1.5px] border-[#84CC16]/40" />
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-[1.5px] border-r-[1.5px] border-[#84CC16]/40" />
+              
+              <p className="font-mono text-[10px] text-[#84CC16] tracking-[2px] uppercase mb-3">Corporate Identity</p>
+              <p className="text-sm text-white/50 font-mono tracking-wide">
+                CIN: U29304GJ2019PLC110476
+              </p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Legal footer note */}
-        <div style={{ marginTop: 64, paddingTop: 32, borderTop: `1px solid ${BORDER}` }}>
-          <p style={{ fontFamily: MONO, fontSize: 10, color: MUTED2, letterSpacing: "1.5px", textTransform: "uppercase", lineHeight: 1.8 }}>
-            Sahana Defence Limited — CIN: U29304GJ2019PLC110476 — All governance documents are subject to periodic review and Board approval. For the most current versions, contact the Company Secretary.
+        {/* Legal footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="mt-20 pt-8 border-t border-white/[0.06]"
+        >
+          <p className="font-mono text-[10px] text-white/15 tracking-[1.5px] uppercase leading-relaxed text-center">
+            Sahana Defence Limited — All governance documents are subject to periodic review and Board approval. 
+            For the most current versions, contact the Company Secretary.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
-// ── Page ─────────────────────────────────────────────────────────────────────
+// ── Page Export ───────────────────────────────────────────────────────────────
 
 export default function GovernancePoliciesPage() {
   return (
-    <div style={{ fontFamily: F, background: "#030405", color: "#fff", overflowX: "hidden" }}>
+    <div className="bg-[#050505] text-white overflow-x-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
       <Hero />
-      <MissionStatement />
+      <MissionSection />
       <PoliciesSection />
-      <InvestorCTA />
+      <CTASection />
     </div>
   );
 }
