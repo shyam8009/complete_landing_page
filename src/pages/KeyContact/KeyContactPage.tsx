@@ -145,32 +145,68 @@ function ContactContentSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
           variants={stagger}
-          className="max-w-3xl mx-auto flex flex-col gap-12"
+          className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
         >
-          {/* Block 1: Company Info */}
-          <motion.div variants={fadeUp} className="flex flex-col gap-4">
-            <h3 className="text-[17px] font-bold text-slate-700">
-              Sahana Defence Limited (formerly known as Softvan Private Limited)
+          {/* Block 1: Company Info Box */}
+          <motion.div 
+            variants={fadeUp} 
+            className="group relative p-8 sm:p-10 bg-white border border-slate-200 rounded-sm shadow-sm hover:shadow-md hover:border-[#84CC16]/30 transition-all duration-300"
+          >
+            {/* HUD Corner Accents */}
+            <div className="absolute top-0 left-0 w-3 h-3 border-t-[1.5px] border-l-[1.5px] border-slate-300 group-hover:border-[#84CC16]/70 transition-colors duration-300" />
+            <div className="absolute top-0 right-0 w-3 h-3 border-t-[1.5px] border-r-[1.5px] border-slate-300 group-hover:border-[#84CC16]/70 transition-colors duration-300" />
+            <div className="absolute bottom-0 left-0 w-3 h-3 border-b-[1.5px] border-l-[1.5px] border-slate-300 group-hover:border-[#84CC16]/70 transition-colors duration-300" />
+            <div className="absolute bottom-0 right-0 w-3 h-3 border-b-[1.5px] border-r-[1.5px] border-slate-300 group-hover:border-[#84CC16]/70 transition-colors duration-300" />
+
+            <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#84CC16]/10 transition-colors duration-300">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-slate-400 group-hover:text-[#84CC16] transition-colors duration-300">
+                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+               </svg>
+            </div>
+
+            <h3 className="text-[17px] font-bold text-slate-800 mb-4 leading-snug">
+              Sahana Defence Limited <br/><span className="text-sm font-normal text-slate-500">(formerly known as Softvan Private Limited)</span>
             </h3>
-            <div className="text-[15px] leading-relaxed text-slate-500 font-light flex flex-col gap-1">
-              <p>CIN- U72200GJ2020PLC113564</p>
-              <p>Registered Office- 3rd Floor, 305, Sigma Legacy,</p>
+            <div className="text-[15px] leading-relaxed text-slate-600 font-light flex flex-col gap-1.5">
+              <p><strong className="font-medium text-slate-700">CIN:</strong> U72200GJ2020PLC113564</p>
+              <p><strong className="font-medium text-slate-700">Registered Office:</strong> 3rd Floor, 305, Sigma Legacy,</p>
               <p>Nr. Vikram Sarabhai Marg, Opp. Panjrapol, Ambawadi,</p>
               <p>Ahmedabad- 380015, Gujarat.</p>
             </div>
           </motion.div>
 
-          {/* Block 2: Compliance Officer Info */}
-          <motion.div variants={fadeUp} className="flex flex-col gap-4">
-            <h3 className="text-[17px] font-bold text-slate-700">
+          {/* Block 2: Compliance Officer Box */}
+          <motion.div 
+            variants={fadeUp} 
+            className="group relative p-8 sm:p-10 bg-white border border-slate-200 rounded-sm shadow-sm hover:shadow-md hover:border-[#84CC16]/30 transition-all duration-300"
+          >
+            {/* HUD Corner Accents */}
+            <div className="absolute top-0 left-0 w-3 h-3 border-t-[1.5px] border-l-[1.5px] border-slate-300 group-hover:border-[#84CC16]/70 transition-colors duration-300" />
+            <div className="absolute top-0 right-0 w-3 h-3 border-t-[1.5px] border-r-[1.5px] border-slate-300 group-hover:border-[#84CC16]/70 transition-colors duration-300" />
+            <div className="absolute bottom-0 left-0 w-3 h-3 border-b-[1.5px] border-l-[1.5px] border-slate-300 group-hover:border-[#84CC16]/70 transition-colors duration-300" />
+            <div className="absolute bottom-0 right-0 w-3 h-3 border-b-[1.5px] border-r-[1.5px] border-slate-300 group-hover:border-[#84CC16]/70 transition-colors duration-300" />
+
+            <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#84CC16]/10 transition-colors duration-300">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-slate-400 group-hover:text-[#84CC16] transition-colors duration-300">
+                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+               </svg>
+            </div>
+
+            <h3 className="text-[17px] font-bold text-slate-800 mb-4 leading-snug">
               For all compliance matters and Investor's Complaint, please contact our compliance officer
             </h3>
-            <div className="text-[15px] leading-relaxed text-slate-500 font-light flex flex-col gap-1">
-              <p>Mr. Shrikant Rashmikant Khatri</p>
+            <div className="text-[15px] leading-relaxed text-slate-600 font-light flex flex-col gap-1.5 mt-4">
+              <p><strong className="font-medium text-slate-800">Mr. Shrikant Rashmikant Khatri</strong></p>
               <p>Company Secretary and Compliance officer</p>
-              <p>Redressal of Investor's Complaints</p>
-              <p>Mobile: <a href="tel:+919601676705" className="hover:text-[#8D8239] transition-colors">+91 9601676705</a></p>
-              <p>Email: <a href="mailto:cs@softvan.in" className="hover:text-[#8D8239] transition-colors">cs@softvan.in</a></p>
+              <p className="text-sm text-slate-500 mb-2">Redressal of Investor's Complaints</p>
+              <p className="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <a href="tel:+919601676705" className="hover:text-[#8D8239] font-medium transition-colors">+91 9601676705</a>
+              </p>
+              <p className="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <a href="mailto:cs@softvan.in" className="hover:text-[#8D8239] font-medium transition-colors">cs@softvan.in</a>
+              </p>
             </div>
           </motion.div>
         </motion.div>
