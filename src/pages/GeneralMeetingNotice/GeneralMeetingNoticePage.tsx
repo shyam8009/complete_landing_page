@@ -170,7 +170,15 @@ function DocumentCard({ name, date, index }: { name: string; date: string; index
           </div>
         </div>
 
-        {/* No Download CTA as per user request */}
+        {/* Right side — Download CTA */}
+        <div className="shrink-0 ml-2 sm:ml-4">
+          <TechCTA theme="dark" className="!py-2.5 sm:!py-3 !px-4 sm:!px-6 min-h-[38px]">
+            <span className="hidden sm:inline">Download</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:ml-2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </TechCTA>
+        </div>
       </div>
     </motion.div>
   );
