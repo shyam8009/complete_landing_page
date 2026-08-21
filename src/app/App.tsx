@@ -47,6 +47,7 @@ import KeyManagerialPersonnelPage from '../pages/KeyManagerialPersonnel/KeyManag
 import CompositionOfCommitteesPage from '../pages/CompositionOfCommittees/CompositionOfCommitteesPage';
 import GeneralMeetingNoticePage from '../pages/GeneralMeetingNotice/GeneralMeetingNoticePage';
 import AnnualReturnPage from '../pages/AnnualReturn/AnnualReturnPage';
+import ShareholderInformationPage from '../pages/ShareholderInformation/ShareholderInformationPage';
 import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
@@ -239,12 +240,13 @@ const INVESTORS_DATA = [
     id: 'shareholder-info',
     title: 'Shareholder Information',
     description: 'Resources and updates for our valued shareholders and investors.',
+    url: '/investors/shareholder-info',
     links: [
-      { text: 'Shareholding Pattern', url: '#' },
-      { text: 'Registrar Details', url: '#' },
-      { text: 'Unpaid Dividend', url: '#' },
+      { text: 'Softvan Limited Financials', url: '/investors/shareholder-info' },
+      { text: 'Softvan Labs Financials', url: '/investors/shareholder-info' },
+      { text: 'Sourceved Tech Financials', url: '/investors/shareholder-info' },
     ],
-    cta: 'Investor Desk â†’'
+    cta: 'Investor Desk →'
   },
   {
     id: 'kmp',
@@ -2339,6 +2341,7 @@ export default function App() {
           <Route path="/investors/composition-of-committees" element={<CompositionOfCommitteesPage />} />
           <Route path="/investors/general-meeting-notice" element={<GeneralMeetingNoticePage />} />
           <Route path="/investors/annual-return" element={<AnnualReturnPage />} />
+          <Route path="/investors/shareholder-info" element={<ShareholderInformationPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
         </Routes>
         <Footer />
