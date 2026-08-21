@@ -259,7 +259,7 @@ export const CAPABILITIES_DATA = [
         applications: ["Navigation", "Radar Systems", "Secure Timing", "Targeting"],
         products: [
           { id: "wideband-rf", title: "Wideband RF Detectors", image: rfRadarGeneratedImg, slug: "/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" },
-          { id: "quantum-microwave", title: "Quantum Microwave Devices", image: rfRadarHudImg, slug: "home" },
+          { id: "quantum-microwave", title: "Quantum Microwave Devices", image: rfRadarHudImg, slug: "/quantum-technology-solutions/quantum-sensing/quantum-microwave-devices" },
           { id: "rydberg-atom", title: "Rydberg Atom Quantum Sensors", image: innovation1, slug: "home" },
           { id: "quantum-drone", title: "Quantum Drone", image: drone3d1, slug: "home" },
           { id: "quantum-clock", title: "Quantum Clock Source", image: innovation3, slug: "home" },

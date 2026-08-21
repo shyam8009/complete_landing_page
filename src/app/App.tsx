@@ -51,6 +51,7 @@ import ShareholderInformationPage from '../pages/ShareholderInformation/Sharehol
 import BoardOfDirectorsPage from '../pages/BoardOfDirectors/BoardOfDirectorsPage';
 import KeyContactPage from '../pages/KeyContact/KeyContactPage';
 import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
+import { QuantumMicrowaveDevicesPage } from '../pages/QuantumMicrowaveDevices/QuantumMicrowaveDevicesPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
 import ClienteleSection from '../components/ClienteleSection';
@@ -2349,6 +2350,7 @@ export default function App() {
           <Route path="/investors/board-of-directors" element={<BoardOfDirectorsPage />} />
           <Route path="/investors/key-contact" element={<KeyContactPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
+          <Route path="/quantum-technology-solutions/quantum-sensing/quantum-microwave-devices" element={<QuantumMicrowaveDevicesPage />} />
         </Routes>
         <Footer />
       </div>
