@@ -45,6 +45,7 @@ import FinancialReportsPage from '../pages/FinancialReports/FinancialReportsPage
 import CodeOfConductPage from '../pages/CodeOfConduct/CodeOfConductPage';
 import KeyManagerialPersonnelPage from '../pages/KeyManagerialPersonnel/KeyManagerialPersonnelPage';
 import CompositionOfCommitteesPage from '../pages/CompositionOfCommittees/CompositionOfCommitteesPage';
+import GeneralMeetingNoticePage from '../pages/GeneralMeetingNotice/GeneralMeetingNoticePage';
 import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
@@ -189,10 +190,11 @@ const INVESTORS_DATA = [
     id: 'general-meeting-notice',
     title: 'General Meeting Notice',
     description: 'Notices, agendas, and minutes for upcoming and past general meetings.',
+    url: '/investors/general-meeting-notice',
     links: [
-      { text: 'Upcoming AGM Notice', url: '#' },
-      { text: 'EGM Minutes 2024', url: '#' },
-      { text: 'Proxy Forms', url: '#' },
+      { text: 'Upcoming AGM Notice', url: '/investors/general-meeting-notice' },
+      { text: 'EGM Minutes 2024', url: '/investors/general-meeting-notice' },
+      { text: 'Proxy Forms', url: '/investors/general-meeting-notice' },
     ],
     cta: 'View All Notices →'
   },
@@ -2333,6 +2335,7 @@ export default function App() {
           <Route path="/investors/code-of-conduct-policies" element={<CodeOfConductPage />} />
           <Route path="/investors/key-managerial-personnel" element={<KeyManagerialPersonnelPage />} />
           <Route path="/investors/composition-of-committees" element={<CompositionOfCommitteesPage />} />
+          <Route path="/investors/general-meeting-notice" element={<GeneralMeetingNoticePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
         </Routes>
         <Footer />
