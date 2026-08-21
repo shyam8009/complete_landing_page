@@ -46,6 +46,7 @@ import CodeOfConductPage from '../pages/CodeOfConduct/CodeOfConductPage';
 import KeyManagerialPersonnelPage from '../pages/KeyManagerialPersonnel/KeyManagerialPersonnelPage';
 import CompositionOfCommitteesPage from '../pages/CompositionOfCommittees/CompositionOfCommitteesPage';
 import GeneralMeetingNoticePage from '../pages/GeneralMeetingNotice/GeneralMeetingNoticePage';
+import AnnualReturnPage from '../pages/AnnualReturn/AnnualReturnPage';
 import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRFDetectorsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
@@ -214,10 +215,11 @@ const INVESTORS_DATA = [
     id: 'annual-return',
     title: 'Annual Return',
     description: 'Statutory annual returns filed with regulatory authorities.',
+    url: '/investors/annual-return',
     links: [
-      { text: 'Form MGT-7 (2025)', url: '#' },
-      { text: 'Form MGT-7 (2024)', url: '#' },
-      { text: 'Archives', url: '#' },
+      { text: 'Form MGT 7 2023-24', url: '/investors/annual-return' },
+      { text: 'Form MGT 7A 2022-23', url: '/investors/annual-return' },
+      { text: 'Form MGT 7 2021-22', url: '/investors/annual-return' },
     ],
     cta: 'View Returns →'
   },
@@ -2336,6 +2338,7 @@ export default function App() {
           <Route path="/investors/key-managerial-personnel" element={<KeyManagerialPersonnelPage />} />
           <Route path="/investors/composition-of-committees" element={<CompositionOfCommitteesPage />} />
           <Route path="/investors/general-meeting-notice" element={<GeneralMeetingNoticePage />} />
+          <Route path="/investors/annual-return" element={<AnnualReturnPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
         </Routes>
         <Footer />
