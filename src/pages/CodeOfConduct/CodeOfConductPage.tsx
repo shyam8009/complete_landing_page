@@ -149,30 +149,36 @@ function Hero() {
 
 function MissionSection() {
   return (
-    <section className="relative bg-[#050505] py-20 md:py-28 overflow-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
-      {/* Subtle radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(132,204,22,0.03)_0%,transparent_70%)] pointer-events-none" />
+    <section className="relative bg-slate-50 py-16 md:py-24 border-b border-slate-200" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* Background grid texture */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-40"
+        style={{
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
         variants={stagger}
-        className="relative z-10 max-w-4xl mx-auto px-6 sm:px-10 text-center"
+        className="relative z-10 max-w-[1100px] mx-auto px-6 sm:px-10"
       >
-        {/* Accent line */}
-        <motion.div variants={fadeIn} className="w-12 h-[2px] bg-[#84CC16] mx-auto mb-10" />
-
-        <h3 className="text-[#84CC16] font-mono text-[11px] tracking-[2.5px] uppercase mb-6">Our Purpose</h3>
+        <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+          <div className="w-8 h-[2px] bg-[#84CC16]" />
+          <h3 className="text-[#84CC16] font-mono text-[11px] tracking-[2.5px] uppercase">Our Purpose</h3>
+        </motion.div>
 
         <motion.p
           variants={fadeUp}
-          className="text-xl sm:text-2xl md:text-3xl font-extralight text-white/85 leading-relaxed mb-8 tracking-wide"
+          className="text-xl sm:text-2xl md:text-3xl font-extralight text-slate-700 leading-relaxed tracking-wide max-w-4xl"
         >
           Our purpose is to establish a Code of Conduct and policies that reflect our commitment to 
-          <span className="text-[#84CC16] font-normal"> integrity</span>, 
-          <span className="text-[#84CC16] font-normal"> respect</span>, and 
-          <span className="text-[#84CC16] font-normal"> ethical behavior</span>. 
+          <span className="text-[#84CC16] font-medium"> integrity</span>, 
+          <span className="text-[#84CC16] font-medium"> respect</span>, and 
+          <span className="text-[#84CC16] font-medium"> ethical behavior</span>. 
           These guidelines serve as the foundation of our company culture, fostering a responsible, 
           inclusive, and compliant environment where all employees and stakeholders can thrive.
         </motion.p>
