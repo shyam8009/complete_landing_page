@@ -262,7 +262,7 @@ export const CAPABILITIES_DATA = [
           { id: "quantum-microwave", title: "Quantum Microwave Devices", image: rfRadarHudImg, slug: "/quantum-technology-solutions/quantum-sensing/quantum-microwave-devices" },
           { id: "rydberg-atom", title: "Rydberg Atom Quantum Sensors", image: innovation1, slug: "/quantum-technology-solutions/quantum-sensing/rydberg-atom-quantum-sensors" },
           { id: "quantum-drone", title: "Quantum Drone", image: drone3d1, slug: "/quantum-technology-solutions/quantum-sensing/quantum-drone" },
-          { id: "quantum-clock", title: "Quantum Clock Source", image: innovation3, slug: "home" },
+          { id: "quantum-clock", title: "Quantum Clock Source", image: innovation3, slug: "/quantum-technology-solutions/quantum-sensing/quantum-clock-source" },
         ]
       },
       {

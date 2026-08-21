@@ -54,6 +54,7 @@ import { WidebandRFDetectorsPage } from '../pages/WidebandRFDetectors/WidebandRF
 import { QuantumMicrowaveDevicesPage } from '../pages/QuantumMicrowaveDevices/QuantumMicrowaveDevicesPage';
 import { RydbergAtomQuantumSensorsPage } from '../pages/RydbergAtomQuantumSensors/RydbergAtomQuantumSensorsPage';
 import { QuantumDronePage } from '../pages/QuantumDrone/QuantumDronePage';
+import { QuantumClockSourcePage } from '../pages/QuantumClockSource/QuantumClockSourcePage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
 import ClienteleSection from '../components/ClienteleSection';
@@ -2355,6 +2356,7 @@ export default function App() {
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-microwave-devices" element={<QuantumMicrowaveDevicesPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/rydberg-atom-quantum-sensors" element={<RydbergAtomQuantumSensorsPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-drone" element={<QuantumDronePage />} />
+          <Route path="/quantum-technology-solutions/quantum-sensing/quantum-clock-source" element={<QuantumClockSourcePage />} />
         </Routes>
         <Footer />
       </div>
