@@ -6,22 +6,22 @@ import { TechCTA } from '@/components/TechCTA';
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const AGM_DOCUMENTS = [
-  { name: "AGM Notice 28-09-2024", date: "28-09-2024" },
-  { name: "AGM Notice 30-09-2022", date: "30-09-2022" },
-  { name: "AGM-Notice-30-09-23", date: "30-09-2023" },
-  { name: "AGM Notice 30-11-2021", date: "30-11-2021" },
+  { name: "AGM Notice 28-09-2024", date: "28-09-2024", file: "/documents/agm/AGM Notice 28-09-2024.pdf" },
+  { name: "AGM Notice 30-09-2022", date: "30-09-2022", file: "/documents/agm/AGM Notice 30-09-2022.pdf" },
+  { name: "AGM-Notice-30-09-23", date: "30-09-2023", file: "/documents/agm/AGM-Notice-30-09-23.pdf" },
+  { name: "AGM Notice 30-11-2021", date: "30-11-2021", file: "/documents/agm/AGM Notice 30-11-2021.pdf" },
 ];
 
 const EGM_DOCUMENTS = [
-  { name: "EGM Notice 06-12-2024", date: "06-12-2024" },
-  { name: "EGM Notice 04-12-2024", date: "04-12-2024" },
-  { name: "EGM Notice 19-11-2024", date: "19-11-2024" },
-  { name: "EGM Notice 24-10-2024", date: "24-10-2024" },
-  { name: "EGM Notice 04-10-2024", date: "04-10-2024" },
-  { name: "EGM Notice 30-08-2024", date: "30-08-2024" },
-  { name: "EGM Notice 25-05-2024", date: "25-05-2024" },
-  { name: "EGM Notice 09-05-2024", date: "09-05-2024" },
-  { name: "EGM Notice 12-03-2025", date: "12-03-2025" },
+  { name: "EGM Notice 06-12-2024", date: "06-12-2024", file: "/documents/egm/EGM Notice 06-12-2024.pdf" },
+  { name: "EGM Notice 04-12-2024", date: "04-12-2024", file: "/documents/egm/EGM Notice 04-12-2024.pdf" },
+  { name: "EGM Notice 19-11-2024", date: "19-11-2024", file: "/documents/egm/EGM Notice 19-11-2024.pdf" },
+  { name: "EGM Notice 24-10-2024", date: "24-10-2024", file: "/documents/egm/EGM Notice 24-10-2024.pdf" },
+  { name: "EGM Notice 04-10-2024", date: "04-10-2024", file: "/documents/egm/EGM Notice 04-10-2024.pdf" },
+  { name: "EGM Notice 30-08-2024", date: "30-08-2024", file: "/documents/egm/EGM Notice 30-08-2024.pdf" },
+  { name: "EGM Notice 25-05-2024", date: "25-05-2024", file: "/documents/egm/EGM Notice 25-05-2024.pdf" },
+  { name: "EGM Notice 09-05-2024", date: "09-05-2024", file: "/documents/egm/EGM Notice 09-05-2024.pdf" },
+  { name: "EGM Notice 12-03-2025", date: "12-03-2025", file: "/documents/egm/EGM Notice 12-03-2025.pdf" },
 ];
 
 const stagger = {
@@ -123,7 +123,7 @@ function Hero() {
 
 // ── Document Card ──────────────────────────────────────────────────────────────
 
-function DocumentCard({ name, date, index }: { name: string; date: string; index: number }) {
+function DocumentCard({ name, date, file, index }: { name: string; date: string; file: string; index: number }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -180,7 +180,7 @@ function DocumentCard({ name, date, index }: { name: string; date: string; index
           </TechCTA>
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -267,7 +267,7 @@ function DocumentsSection() {
               className="flex flex-col gap-3"
             >
               {(activeTab === 'AGM' ? AGM_DOCUMENTS : EGM_DOCUMENTS).map((doc, i) => (
-                <DocumentCard key={doc.name} name={doc.name} date={doc.date} index={i} />
+                <DocumentCard key={doc.name} name={doc.name} date={doc.date} file={doc.file} index={i} />
               ))}
             </motion.div>
           </AnimatePresence>
@@ -382,3 +382,4 @@ export default function GeneralMeetingNoticePage() {
     </div>
   );
 }
+
