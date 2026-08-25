@@ -6,10 +6,10 @@ import { TechCTA } from '@/components/TechCTA';
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const REPORTS = [
-  { name: "Annual Report 2023-24", category: "Annual Report" },
-  { name: "Annual Report 2022-23", category: "Annual Report" },
-  { name: "Annual Report 2021-22", category: "Annual Report" },
-  { name: "Annual Report 2020-21", category: "Annual Report" },
+  { name: "Annual Report 2023-24", category: "Annual Report", file: "/documents/annual-reports/annual-report_2023-24.pdf" },
+  { name: "Annual Report 2022-23", category: "Annual Report", file: "/documents/annual-reports/annual-report_2022-23.pdf" },
+  { name: "Annual Report 2021-22", category: "Annual Report", file: "/documents/annual-reports/final_ar_2021-22.pdf" },
+  { name: "Annual Report 2020-21", category: "Annual Report", file: "/documents/annual-reports/final-ar_2020-21.pdf" },
 ];
 
 const STATS = [
@@ -141,15 +141,18 @@ function Hero() {
 
 // ── Report Card ──────────────────────────────────────────────────────────────
 
-function ReportCard({ name, category, index }: { name: string; category: string; index: number }) {
+function ReportCard({ name, category, file, index }: { name: string; category: string; file: string; index: number }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.div
+    <motion.a
+      href={file}
+      target="_blank"
+      rel="noopener noreferrer"
       variants={fadeUp}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative cursor-pointer"
+      className="relative cursor-pointer block"
     >
       {/* Card */}
       <div
@@ -202,7 +205,7 @@ function ReportCard({ name, category, index }: { name: string; category: string;
           </TechCTA>
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -260,7 +263,7 @@ function DocumentsSection() {
           className="flex flex-col gap-3"
         >
           {REPORTS.map((report, i) => (
-            <ReportCard key={report.name} name={report.name} category={report.category} index={i} />
+            <ReportCard key={report.name} name={report.name} category={report.category} file={report.file} index={i} />
           ))}
         </motion.div>
       </div>
@@ -372,3 +375,4 @@ export default function FinancialReportsPage() {
     </div>
   );
 }
+
