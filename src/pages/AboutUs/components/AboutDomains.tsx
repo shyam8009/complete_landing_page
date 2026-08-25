@@ -1,5 +1,5 @@
 import React from 'react';
-import { INTER } from '../../../constants';
+const INTER = "'Inter', sans-serif";
 
 const DOMAINS = [
   { name: 'NAVAL', desc: 'Maritime security and fleet defence systems.' },

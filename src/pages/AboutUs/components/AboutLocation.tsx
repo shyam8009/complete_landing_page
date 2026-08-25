@@ -1,5 +1,5 @@
 import React from 'react';
-import { INTER } from '../../../constants';
+const INTER = "'Inter', sans-serif";
 
 export default function AboutLocation() {
   return (

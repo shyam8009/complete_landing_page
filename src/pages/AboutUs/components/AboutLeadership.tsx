@@ -1,5 +1,5 @@
 import React from 'react';
-import { INTER } from '../../../constants';
+const INTER = "'Inter', sans-serif";
 
 const LEADERSHIP = [
   { name: 'Pratik Kakadia', role: 'Founder & Managing Director', desc: 'Leading the vision and strategic direction of Sahana Defence.' },

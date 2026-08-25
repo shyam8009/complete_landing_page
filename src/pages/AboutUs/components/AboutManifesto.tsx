@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { INTER } from '../../../constants';
+const INTER = "'Inter', sans-serif";
 
 gsap.registerPlugin(ScrollTrigger);
 
