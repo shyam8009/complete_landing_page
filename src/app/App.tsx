@@ -491,7 +491,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
                 style={{ fontFamily: INTER }}
               >
                 {link}
-                {(link === 'Capabilities' || link === 'About Us' || link === 'Investors' || link === 'Newsroom') && (
+                {(link === 'Capabilities' || link === 'Investors' || link === 'Newsroom') && (
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-300 ${hoveredNav === link ? "rotate-180 text-[#84CC16]" : ""}`}>
                     <path d="M6 9l6 6 6-6" />
                   </svg>
@@ -834,26 +834,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         </div>
       </div>
 
-      {/* About Us Small Dropdown */}
-      <div
-        className={`hidden md:block fixed right-4 lg:right-auto lg:left-[50%] lg:ml-[160px] w-[200px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
-          scrolled ? "top-[80px]" : "top-[86px]"
-        } ${
-          hoveredNav === 'About Us'
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-2 pointer-events-none"
-        }`}
-        onMouseEnter={() => handleMouseEnter('About Us')}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div className="flex flex-col p-2">
-          {['Company', 'Leadership', 'Careers', 'Certifications', 'Contact'].map(item => (
-            <a key={item} href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} className="px-4 py-2 text-[14px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-colors" style={{ fontFamily: INTER }}>
-              {item}
-            </a>
-          ))}
-        </div>
-      </div>
+      
 
       {/* Mobile Menu Drawer (Stacked Accordion) */}
       <div className={`lg:hidden fixed inset-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
