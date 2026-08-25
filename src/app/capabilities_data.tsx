@@ -282,7 +282,6 @@ export const CAPABILITIES_DATA = [
         applications: ["Secure Comms", "Financial Data", "Military Networks", "Command & Control"],
         products: [
           { id: "quantum-secured-comms", title: "Quantum Secured Communication", image: c2DashboardUiImg, slug: "home" },
-          { id: "quantum-internet", title: "Quantum Internet", image: innovation4, slug: "home" },
           { id: "hardware-pqc", title: "Hardware based Post Quantum Cryptography", image: innovation5, slug: "home" },
           { id: "quantum-control", title: "Quantum Control Systems", image: osintDashboardImg, slug: "home" },
         ]

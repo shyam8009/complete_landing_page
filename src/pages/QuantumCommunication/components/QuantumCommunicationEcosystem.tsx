@@ -1,4 +1,4 @@
-﻿import React, { useRef } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -32,18 +32,6 @@ const commsData: CommCard[] = [
       'Military-grade encryption built for high-sensitivity operations.'
     ],
     img: imgQkd
-  },
-  {
-    tag: 'Distributed Network Architecture',
-    title: 'Quantum Internet',
-    desc: 'The networking layer that connects quantum-secured nodes into a single, resilient infrastructure. Quantum Internet architecture extends secure quantum communication beyond point-to-point links into a distributed, mission-wide network.',
-    features: [
-      'Distributed quantum network architecture across multiple nodes.',
-      'Extends secure communication beyond fibre to drone-relay and hybrid links.',
-      'Foundation for battlefield-scale quantum networking.',
-      'Built for resilience across contested and distributed operating environments.'
-    ],
-    img: imgNetwork
   },
   {
     tag: 'Hardware-Level Security',

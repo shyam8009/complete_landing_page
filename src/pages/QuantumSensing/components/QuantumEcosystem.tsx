@@ -66,7 +66,7 @@ const PILLARS: CardData[] = [
   {
     id: 'rydberg',
     tag: 'Atomic-Precision Sensing',
-    title: 'Rydberg Atom Sensors',
+    title: 'Rydberg Atom Quantum Sensors',
     description: "Atomic-precision sensing for environments where classical RF sensors fall short. Detect electromagnetic fields with a sensitivity that redefines what's measurable.",
     statusBadge: 'QUANTUM ACTIVE',
     freqRange: 'DC â€“ 100+ GHz',
