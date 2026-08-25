@@ -46,7 +46,7 @@ const DOMAINS = [
     eyebrow: '[ DOMAIN 05 / 05 ]',
     title: 'Critical National Infrastructure',
     desc: 'Protecting power grids, communication hubs, and strategic facilities from cyber-physical attacks and electronic intrusion.',
-    media: '/assets/domain_infra.jpg'
+    media: '/assets/domain_infra_v2.jpeg'
   }
 ];
 
@@ -179,6 +179,7 @@ export default function AboutDomains() {
     </section>
   );
 }
+
 
 
 
