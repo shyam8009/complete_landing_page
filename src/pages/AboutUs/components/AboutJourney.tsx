@@ -9,42 +9,42 @@ const INTER = "'Inter', sans-serif";
 const JOURNEY_DATA = [
   { 
     year: '2012', 
-    text: 'FOUNDED AS OCEANS TECHNOLOGIES AND SPECIALIZING IN IT SERVICES AND 3D DESIGN.', 
+    text: 'Founded as Oceans Technologies, specializing in IT services and 3D design.', 
     image: '/assets/journey_2012.jpg' 
   },
   { 
     year: '2016', 
-    text: 'EXPANDED OUR PRESENCE BY ESTABLISHING SEVERAL BRANCHES ACROSS DIFFERENT REGIONS OF GUJARAT.', 
+    text: 'Expanded our presence by establishing several branches across different regions of Gujarat.', 
     image: '/assets/journey_2016.jpg' 
   },
   { 
     year: '2020', 
-    text: 'ENTERED HARDWARE TRADING, BUILT 50+ CUSTOMER BASE, ACHIEVED CMMI LEVEL 3 & ISO CERTIFICATIONS.', 
+    text: 'Entered hardware trading, built a 50+ customer base, achieved CMMI Level 3 & ISO certifications.', 
     image: '/assets/journey_2020.jpg' 
   },
   { 
     year: '2022', 
-    text: 'DIVERSIFIED OUR BUSINESS INTO SUSTAINABLE TECHNOLOGY AND GREEN ENERGY UNDER A NEW BRAND.', 
+    text: 'Diversified our business into sustainable technology and green energy under a new brand.', 
     image: '/assets/journey_2022.jpg' 
   },
   { 
     year: '2023', 
-    text: 'SURPASSED 100 CUSTOMERS. BECAME PUBLICLY LISTED. ACQUIRED SOFTVAN GROUP DEEP TECH.', 
+    text: 'Surpassed 100 customers. Became publicly listed. Acquired Softvan Group Deep Tech.', 
     image: '/assets/journey_2023.jpg' 
   },
   { 
     year: '2024', 
-    text: 'VENTURED IN DEFENCE & AEROSPACE. CROSSED 1500+ CR MARKET CAP. ACQUIRED SOURCEVED.', 
+    text: 'Ventured into Defence & Aerospace. Crossed 1500+ Cr market cap. Acquired Sourceved.', 
     image: '/assets/journey_2024.jpg' 
   },
   { 
     year: '2025', 
-    text: 'DEFENCE PARTS MANUFACTURING CAPABILITIES. ENTERED INTO SHIPPING AND PORTS SECTORS.', 
+    text: 'Established defence parts manufacturing capabilities. Entered into shipping and ports sectors.', 
     image: '/assets/journey_2025.jpg' 
   },
   { 
     year: '2026/27', 
-    text: "BECOME AN INR 5000 CR. COMPANY DRIVING INDIA'S DEEP TECH LEADERSHIP THROUGH INNOVATION.", 
+    text: "Become an INR 5000 Cr. company driving India's deep tech leadership through innovation.", 
     image: '/assets/journey_2026.jpg',
     isFuture: true
   }
@@ -124,7 +124,7 @@ export default function AboutJourney() {
                 
                 {/* Middle: Description */}
                 <p 
-                  className={`text-[10px] uppercase font-mono leading-relaxed mt-8 mb-auto ${item.isFuture ? 'text-[#84CC16]' : 'text-white/60'}`}
+                  className={`text-xs md:text-sm font-sans tracking-wide leading-relaxed mt-8 mb-auto ${item.isFuture ? 'text-[#84CC16]' : 'text-white/90'}`}
                 >
                   {item.text}
                 </p>
@@ -151,4 +151,6 @@ export default function AboutJourney() {
     </section>
   );
 }
+
+
 
