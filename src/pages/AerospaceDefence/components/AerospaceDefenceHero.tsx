@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import aeroVid from '@/imports/infinity_optics_gwr_video_mvp.mp4';
@@ -122,13 +122,13 @@ export default function AerospaceDefenceHero() {
               {slide.subtitle}
             </motion.p>
 
-            {/* Tactical CTA Button - Bottom Center Position */}
+            {/* Tactical CTA Button - Flows naturally below subtitle */}
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2"
+              className="mt-8 md:mt-12 w-full"
             >
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
                   <a
@@ -186,12 +186,6 @@ export default function AerospaceDefenceHero() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-      </div>
-
-      {/* 6. Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none">
-        <span className="text-white/40 text-[10px] uppercase tracking-widest mb-4 animate-pulse">Scroll to Explore</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
     </section>
   );
