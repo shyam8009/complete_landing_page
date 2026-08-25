@@ -13,16 +13,16 @@ const heroSlides = [
     subtitle: 'Neutralize hostile communications and counter autonomous UAS threats instantly. Multi-frequency, high-power electronic countermeasure architectures.',
     mediaUrl: bgVideo,
     ctaText: 'DEPLOY JAMMING ASSETS',
-    ctaLink: '#',
+    ctaLink: '/electronic-warfare/jamming-systems',
     isVideo: true
   },
   {
     id: 'jamming-spear',
     title: 'INFINITY SPEAR',
-    subtitle: '60W Continuous Output . 1.5â€“2.0 km Range.',
+    subtitle: '60W Continuous Output . 1.5 - 2.0 km Range.',
     mediaUrl: spearVid,
     ctaText: 'SEE CAPABILITIES',
-    ctaLink: '#',
+    ctaLink: '/infinity-spear',
     isVideo: true
   },
   {
@@ -31,9 +31,18 @@ const heroSlides = [
     subtitle: '7 km Directional Anti-RTH Interdiction.',
     mediaUrl: rhinoVid,
     ctaText: 'DISCOVER RHINO',
-    ctaLink: '#',
+    ctaLink: '/infinity-rhino',
     isVideo: true
   },
+  {
+    id: 'butterfly-adg',
+    title: 'BUTTERFLY ADG L70',
+    subtitle: 'Tactical Anti-Drone Gun System.',
+    mediaUrl: bgVideo,
+    ctaText: 'SEE BUTTERFLY',
+    ctaLink: '/butterfly-adg',
+    isVideo: true
+  }
 ];
 
 export default function JammingSystemsHero() {
@@ -211,6 +220,8 @@ export default function JammingSystemsHero() {
     </section>
   );
 }
+
+
 
 
 

@@ -13,36 +13,36 @@ const heroSlides = [
     id: 'radar-systems-main',
     title: 'RADAR & DETECTION SYSTEMS',
     subtitle: 'Continuous, all-weather airspace, passive RF sensing, and perimeter dominance.',
-    mediaUrl: bgVideo, // Using the video for the first slide
+    mediaUrl: bgVideo,
     ctaText: 'EXPLORE SYSTEMS',
-    ctaLink: '#',
+    ctaLink: '/electronic-warfare/radar-and-detection-systems',
     isVideo: true
   },
   {
     id: 'radar-3d-drone',
-    title: '3D Drone Detection',
+    title: '3D Drone Radar',
     subtitle: 'High-resolution FMCW architectures engineered for early detection.',
-    mediaUrl: radarHero1Vid, // Using video for second slide
+    mediaUrl: radarHero1Vid,
     ctaText: 'SEE CAPABILITIES',
-    ctaLink: '#',
+    ctaLink: '/drone-radar',
     isVideo: true
   },
   {
     id: 'radar-surveillance',
-    title: 'Surveillance Radar',
-    subtitle: '360Â° perimeter dominance & long-range tracking.',
-    mediaUrl: radarHero2Vid, // Using video for third slide
+    title: 'Ground Surveillance Radar',
+    subtitle: '360 degree perimeter dominance & long-range tracking.',
+    mediaUrl: radarHero2Vid,
     ctaText: 'SEE CAPABILITIES',
-    ctaLink: '#',
+    ctaLink: '/surveillance-radar',
     isVideo: true
   },
   {
     id: 'detection-rf',
-    title: 'RF Detection',
+    title: 'RF Detector',
     subtitle: 'Passive multi-frequency scanning for autonomous threat localization.',
     mediaUrl: rfDetectorImg,
     ctaText: 'DISCOVER SENSORS',
-    ctaLink: '#',
+    ctaLink: '/rf-detector',
     isVideo: false
   }
 ];
@@ -222,6 +222,8 @@ export default function RadarSystemsHero() {
     </section>
   );
 }
+
+
 
 
 
