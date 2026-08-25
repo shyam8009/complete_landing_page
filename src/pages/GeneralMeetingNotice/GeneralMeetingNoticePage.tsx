@@ -127,12 +127,7 @@ function DocumentCard({ name, date, file, index }: { name: string; date: string;
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.div
-      variants={fadeUp}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="relative cursor-default"
-    >
+    <motion.a href={file} target="_blank" rel="noopener noreferrer" variants={fadeUp} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className="relative cursor-pointer block">
       {/* Card */}
       <div
         className={`relative flex items-center justify-between gap-4 px-5 sm:px-7 py-5 sm:py-6 rounded-sm transition-all duration-300 ${
@@ -382,4 +377,6 @@ export default function GeneralMeetingNoticePage() {
     </div>
   );
 }
+
+
 
