@@ -6,10 +6,10 @@ import { TechCTA } from '@/components/TechCTA';
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const DOCUMENTS = [
-  { name: "Form MGT 7 2023-24", date: "2023-24" },
-  { name: "Form MGT 7A 2022-23", date: "2022-23" },
-  { name: "Form MGT 7 2021-22", date: "2021-22" },
-  { name: "Form MGT 7A 2020-21", date: "2020-21" },
+  { name: "Form MGT 7 2023-24", date: "2023-24", file: "/documents/annual-returns/Form MGT 7 2023-24.pdf" },
+  { name: "Form MGT 7A 2022-23", date: "2022-23", file: "/documents/annual-returns/Form MGT 7A 2022-23.pdf" },
+  { name: "Form MGT 7 2021-22", date: "2021-22", file: "/documents/annual-returns/Form MGT 7 2021-22.pdf" },
+  { name: "Form MGT 7A 2020-21", date: "2020-21", file: "/documents/annual-returns/Form MGT 7A 2020-21.pdf" },
 ];
 
 const stagger = {
@@ -156,15 +156,18 @@ function MissionSection() {
 
 // ── Document Card ──────────────────────────────────────────────────────────────
 
-function DocumentCard({ name, date, index }: { name: string; date: string; index: number }) {
+function DocumentCard({ name, date, file, index }: { name: string; date: string; file: string; index: number }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.div
+    <motion.a
+      href={file}
+      target="_blank"
+      rel="noopener noreferrer"
       variants={fadeUp}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative cursor-pointer"
+      className="relative cursor-pointer block"
     >
       {/* Card */}
       <div
@@ -212,7 +215,7 @@ function DocumentCard({ name, date, index }: { name: string; date: string; index
           </TechCTA>
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -268,7 +271,7 @@ function DocumentsSection() {
             className="flex flex-col gap-3"
           >
             {DOCUMENTS.map((doc, i) => (
-              <DocumentCard key={doc.name} name={doc.name} date={doc.date} index={i} />
+              <DocumentCard key={doc.name} name={doc.name} date={doc.date} file={doc.file} index={i} />
             ))}
           </motion.div>
         </div>
@@ -382,3 +385,4 @@ export default function AnnualReturnPage() {
     </div>
   );
 }
+
