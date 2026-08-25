@@ -64,9 +64,9 @@ export default function AboutValues() {
                 }`} />
 
                 {/* Text Content */}
-                <div className="p-4 md:p-8 flex gap-3 h-auto md:h-[120px] shrink-0 relative z-20 w-[300px]">
+                <div className="p-4 md:p-8 flex gap-3 h-auto md:h-[120px] shrink-0 relative z-20 w-max">
                   <div className="w-2 h-2 mt-1.5 shrink-0 bg-[#84CC16]" />
-                  <h3 className={`text-xl md:text-2xl font-light leading-snug transition-colors duration-500 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white/80'}`}>
+                  <h3 className={`text-xl md:text-2xl font-light leading-snug whitespace-nowrap transition-colors duration-500 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white/80'}`}>
                     {val.title}
                   </h3>
                 </div>
