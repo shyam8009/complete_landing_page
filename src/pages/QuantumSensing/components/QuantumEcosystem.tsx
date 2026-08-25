@@ -1,4 +1,4 @@
-﻿import React, { useRef } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -188,81 +188,64 @@ export function QuantumEcosystem() {
   );
 }
 
-// â”€â”€â”€ Tactical Console Card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——————————————————————————————————————————————————————————————————————————————
 function TacticalConsoleCard({ data }: { data: CardData }) {
   return (
-    <div
-      className="relative w-[90vw] max-w-[1100px] rounded-2xl mx-auto flex flex-col items-stretch"
-      style={{ 
-        backgroundColor: 'rgba(8, 8, 8, 0.75)', 
-        border: '1px solid rgba(255,255,255,0.08)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)',
-        display: 'flex',
-        flexDirection: 'column'
-      }}
-    >
-      {/* HUD Corner Accents */}
-      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
-      <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
-      <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
-      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
-
-      {/* Grid Layout - Forced to 100% height without internal scrolling */}
-      <div className="flex flex-col md:grid md:grid-cols-12 h-full w-full overflow-hidden">
-        
-        {/* LEFT: Hardware Visual (5 cols / ~42%) */}
-        <div className="md:col-span-6 p-5 lg:p-6 border-b md:border-b-0 md:border-r" 
-          style={{ backgroundColor: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}>
-          {/* Image */}
-          <div className="relative w-full h-48 md:h-full rounded-xl overflow-hidden group" 
-            style={{ border: '1px solid rgba(255,255,255,0.08)', backgroundColor: '#000', minHeight: '300px' }}>
-            <img
-              src={data.image}
-              alt={data.title}
-              className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-            />
-            <div style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%)' }} className="absolute inset-0" />
-            
-            {/* Status indicator */}
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-              <span className="flex items-center gap-1.5 text-[10px] font-mono text-white/90">
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: '#84CC16' }} />
-                {data.statusBadge}
-              </span>
+    <div className="relative w-[85vw] md:w-[70vw] lg:w-[60vw] h-[70vh] max-h-[800px] rounded-2xl overflow-hidden shrink-0 flex items-center justify-center group shadow-2xl">
+      {/* GLASSMORPHIC CARD CONTAINER */}
+      <div className="absolute inset-0 bg-[#050505]/70 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 group-hover:border-[#84CC16]/30">
+        <div className="flex flex-col md:flex-row h-full w-full">
+          
+          {/* Left Split (Image) */}
+          <div className="w-full md:w-1/2 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+            <div className="relative w-full h-full flex-1 bg-[#000]">
+              <img src={data.image} alt={data.title} className="absolute inset-0 w-full h-full object-cover" />
+              
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80" />
+              
+              {/* Crosshairs & Scanning Line Effect */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-white/10 opacity-30 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-[#84CC16]/30 animate-[scan_3s_ease-in-out_infinite]" />
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* RIGHT: Specifications & CTAs (7 cols / ~58%) */}
-        <div className="md:col-span-6 p-6 lg:p-8 flex flex-col justify-between bg-neutral-100">
-          <div className="mb-6">
-            {/* Tag */}
-            <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
-              style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
-              {data.tag}
-            </span>
+          {/* Right Split (Content) */}
+          <div className="w-full md:w-1/2 p-6 lg:p-10 flex flex-col justify-between bg-neutral-100">
+            <div className="mb-6">
+              <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
+                style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
+                {data.tag}
+              </span>
+              
+              <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 tracking-tight leading-tight uppercase">
+                {data.title}
+              </h3>
+              
+              <p className="text-slate-600 text-sm leading-relaxed">
+                {data.description}
+              </p>
+            </div>
 
-            {/* Title */}
-            <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-2">
-              {data.title}
-            </h3>
-            <p className="text-sm lg:text-base mt-3 mb-3  text-slate-600">
-              {data.description}
-            </p>
+            <div className="flex flex-col gap-3">
+              {data.specs.map((spec, idx) => (
+                <div key={idx} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-sm bg-[#84CC16] mt-1.5 shrink-0" />
+                  <span className="text-xs text-slate-700 leading-snug">{spec}</span>
+                </div>
+              ))}
+            </div>
 
-            
-          </div>
-
-          {/* Bottom CTA Block locked to bottom via mt-auto */}
-          <div className="pt-6 mt-auto border-t border-slate-200">
-            <TechCTA theme="dark">
-              <span>Know More</span>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </TechCTA>
+            <div className="pt-5 mt-auto border-t border-slate-200">
+              <TechCTA theme="dark">
+                <span>Know More</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </TechCTA>
+            </div>
           </div>
         </div>
       </div>
