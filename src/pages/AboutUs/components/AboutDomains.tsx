@@ -67,16 +67,14 @@ export default function AboutDomains() {
           scrub: 1,
           onUpdate: (self) => {
             const newIndex = Math.min(4, Math.floor(self.progress * 5));
-            if (newIndex !== activeIndex) {
-               setActiveIndex(newIndex);
-            }
+            setActiveIndex((prev) => prev !== newIndex ? newIndex : prev);
           }
         });
       });
     }, containerRef);
 
     return () => ctx.revert();
-  }, [activeIndex]);
+  }, []);
 
   const handleTabClick = (index: number) => {
     if (scrollTriggerRef.current && window.innerWidth >= 768) {
