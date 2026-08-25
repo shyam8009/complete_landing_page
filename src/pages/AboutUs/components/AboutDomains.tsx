@@ -30,7 +30,7 @@ const DOMAINS = [
     eyebrow: '[ DOMAIN 03 / 05 ]',
     title: 'Space & Satellite Systems',
     desc: 'Securing orbital assets and ensuring resilient satellite communications with advanced quantum cryptography and deep-space tracking technology.',
-    media: '/assets/domain_space.jpg'
+    media: '/assets/domain_space_v2.jpeg'
   },
   {
     id: 'port',
@@ -179,6 +179,7 @@ export default function AboutDomains() {
     </section>
   );
 }
+
 
 
 
