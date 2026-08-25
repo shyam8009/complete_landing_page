@@ -14,7 +14,7 @@ const DOMAINS = [
     eyebrow: '[ DOMAIN 01 / 05 ]',
     title: 'Airborne Defense & Aviation',
     desc: 'Equipping aerial defense platforms with autonomous signal intelligence, airborne jammer arrays, and real-time threat neutralization.',
-    media: '/assets/tactical_1.webp'
+    media: '/assets/domain_airborne.jpg'
   },
   {
     id: 'land',
@@ -22,7 +22,7 @@ const DOMAINS = [
     eyebrow: '[ DOMAIN 02 / 05 ]',
     title: 'Tactical Land Systems',
     desc: 'Shielding land borders and national critical assets against asymmetric threats, deploying battle-tested Information Warfare networks.',
-    media: '/assets/tactical_2.webp'
+    media: '/assets/domain_land.jpg'
   },
   {
     id: 'space',
@@ -30,7 +30,7 @@ const DOMAINS = [
     eyebrow: '[ DOMAIN 03 / 05 ]',
     title: 'Space & Satellite Systems',
     desc: 'Securing orbital assets and ensuring resilient satellite communications with advanced quantum cryptography and deep-space tracking technology.',
-    media: '/assets/quantum_hero_bg.jpg'
+    media: '/assets/domain_space.jpg'
   },
   {
     id: 'port',
@@ -38,7 +38,7 @@ const DOMAINS = [
     eyebrow: '[ DOMAIN 04 / 05 ]',
     title: 'Port & Critical Marine Infrastructure',
     desc: 'Safeguarding commercial and military seaports, container terminals, and vital marine supply routes with automated surveillance grid systems.',
-    media: '/assets/corporate_house_3.jpg'
+    media: '/assets/domain_marine.jpg'
   },
   {
     id: 'infrastructure',
@@ -46,7 +46,7 @@ const DOMAINS = [
     eyebrow: '[ DOMAIN 05 / 05 ]',
     title: 'Critical National Infrastructure',
     desc: 'Protecting power grids, communication hubs, and strategic facilities from cyber-physical attacks and electronic intrusion.',
-    media: '/assets/security_assessment_twin.jpg'
+    media: '/assets/domain_infra.jpg'
   }
 ];
 
