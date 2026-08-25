@@ -7,23 +7,23 @@ import { TechCTA } from '@/components/TechCTA';
 
 const TAB_DATA = {
   "Softvan Limited": [
-    { name: "Financials for FY 2024-25" },
-    { name: "Financials for FY 2023-24" },
-    { name: "Financials for FY 2022-23" },
-    { name: "Financials for FY 2021-22" },
-    { name: "Financials for FY 2020-21" },
+    { name: "Financials for FY 2024-25", file: "/documents/shareholders/Softvan Limited/Financials for FY 2024-25.pdf" },
+    { name: "Financials for FY 2023-24", file: "/documents/shareholders/Softvan Limited/Financials for FY 2023-24.pdf" },
+    { name: "Financials for FY 2022-23", file: "/documents/shareholders/Softvan Limited/Financials for FY 2022-23.pdf" },
+    { name: "Financials for FY 2021-22", file: "/documents/shareholders/Softvan Limited/Financials for FY 2021-22.pdf" },
+    { name: "Financials for FY 2020-21", file: "/documents/shareholders/Softvan Limited/Financials for FY 2020-21.pdf" },
   ],
   "Softvan Labs Private Limited": [
-    { name: "Financials for FY 2022-23" },
-    { name: "Financials for FY 2023-24" },
-    { name: "Financials for FY 2024-25" },
+    { name: "Financials for FY 2022-23", file: "/documents/shareholders/Softvan Labs Private Limited/Financials for FY 2022-23.pdf" },
+    { name: "Financials for FY 2023-24", file: "/documents/shareholders/Softvan Labs Private Limited/Financials for FY 2023-24.pdf" },
+    { name: "Financials for FY 2024-25", file: "/documents/shareholders/Softvan Labs Private Limited/Financials for FY 2024-25.pdf" },
   ],
   "Sourceved Technologies Private Limited": [
-    { name: "Financials for FY 2023-24" },
-    { name: "Financials for FY 2024-25" },
+    { name: "Financials for FY 2023-24", file: "/documents/shareholders/Sourceved Technalogies private Limited/Financials for FY 2023-24.pdf" },
+    { name: "Financials for FY 2024-25", file: "/documents/shareholders/Sourceved Technalogies private Limited/Financials for FY 2024-25.pdf" },
   ],
   "Applie Infosol Private Limited": [
-    { name: "Financials for FY 2024-25" },
+    { name: "Financials for FY 2024-25", file: "/documents/shareholders/Applie Infosol Private Limited/Financials for FY 2024-25.pdf" },
   ],
 };
 
@@ -173,15 +173,18 @@ function MissionSection() {
 
 // ── Document Card ──────────────────────────────────────────────────────────────
 
-function DocumentCard({ name, index }: { name: string; index: number }) {
+function DocumentCard({ name, file, index }: { name: string; file: string; index: number }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.div
+    <motion.a
+      href={file}
+      target="_blank"
+      rel="noopener noreferrer"
       variants={fadeUp}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative cursor-pointer"
+      className="relative cursor-pointer block"
     >
       {/* Card */}
       <div
@@ -229,7 +232,7 @@ function DocumentCard({ name, index }: { name: string; index: number }) {
           </TechCTA>
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -306,7 +309,7 @@ function DocumentsSection() {
               className="flex flex-col gap-3"
             >
               {TAB_DATA[activeTab as keyof typeof TAB_DATA].map((doc, i) => (
-                <DocumentCard key={doc.name} name={doc.name} index={i} />
+                <DocumentCard key={doc.name} name={doc.name} file={doc.file} index={i} />
               ))}
             </motion.div>
           </AnimatePresence>
@@ -421,3 +424,4 @@ export default function ShareholderInformationPage() {
     </div>
   );
 }
+
