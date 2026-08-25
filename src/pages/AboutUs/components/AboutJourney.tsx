@@ -67,7 +67,7 @@ export default function AboutJourney() {
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top top",
-            end: "+=6000", // Increased scroll distance for smoother 8-panel unpack
+            end: "+=2500", // Reduced scroll distance so tiles open faster
             pin: true,
             scrub: 1,
             anticipatePin: 1
