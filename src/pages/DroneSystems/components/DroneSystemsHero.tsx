@@ -8,12 +8,12 @@ import visionVid from '@/imports/Vision_Drone.mp4';
 
 const heroSlides = [
   {
-    id: 'infinity-spear',
-    title: 'Infinity Spear',
-    subtitle: 'Precision Strike & Autonomous Reconnaissance',
-    mediaUrl: spearVid,
-    ctaText: 'EXPLORE SPEAR',
-    ctaLink: '/infinity-spear',
+    id: 'sahana-fpv',
+    title: 'Sahana FPV',
+    subtitle: 'High-Speed Autonomous Reconnaissance & Strike',
+    mediaUrl: '/assets/Hero banner Video.mp4',
+    ctaText: 'EXPLORE SAHANA FPV',
+    ctaLink: '/sahana-fpv',
   },
   {
     id: 'sahana-bullseye',
@@ -21,7 +21,7 @@ const heroSlides = [
     subtitle: 'Target Acquisition in Contested Environments',
     mediaUrl: bullseyeVid,
     ctaText: 'SEE BULLSEYE',
-    ctaLink: '/fpv-buddy', // Fallback link
+    ctaLink: '/fpv-buddy',
   },
   {
     id: 'sahana-vision',
@@ -29,7 +29,7 @@ const heroSlides = [
     subtitle: 'Real-Time Edge Intelligence & Visual Autonomy',
     mediaUrl: visionVid,
     ctaText: 'DISCOVER VISION',
-    ctaLink: '/varuna', // Fallback link
+    ctaLink: '/varuna',
   },
 ];
 
@@ -193,6 +193,7 @@ export default function DroneSystemsHero() {
     </section>
   );
 }
+
 
 
 
