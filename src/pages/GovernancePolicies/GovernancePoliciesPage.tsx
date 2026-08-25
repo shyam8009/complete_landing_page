@@ -6,28 +6,32 @@ import { TechCTA } from '@/components/TechCTA';
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const POLICIES = [
-  { name: "Cyber Security Policy", category: "Security" },
-  { name: "Formal Letter Of Appointment / Re-Appointment Of Independent Directors", category: "Board" },
-  { name: "Archival Policy", category: "Compliance" },
-  { name: "Environment, Health & Safety Policy", category: "EHS" },
-  { name: "Familiarization Policy", category: "Board" },
-  { name: "Policy On Board Diversity", category: "Board" },
-  { name: "Nomination And Remuneration Policy", category: "Board" },
-  { name: "Policy On Preservation Of Documents", category: "Compliance" },
-  { name: "Stakeholders Relationship And Share Transfer Policy", category: "Compliance" },
-  { name: "Anti Corruption Anti Bribery Policy", category: "Ethics" },
-  { name: "Corporate Social Responsibility Policy", category: "Ethics" },
-  { name: "Equal Opportunity Policy", category: "Ethics" },
-  { name: "Determination Of Materiality Policy", category: "Compliance" },
-  { name: "Fair Disclosure Of UPSI", category: "Compliance" },
-  { name: "Policy For Determining Material Subsidiaries", category: "Compliance" },
-  { name: "Related Party Transactions Policy", category: "Compliance" },
-  { name: "Stationary Monitoring Policy", category: "Security" },
-  { name: "Risk Management Policy", category: "Risk" },
+  { name: "Cyber Security Policy", category: "Security", file: "/documents/policies/Cyber Security Policy.pdf" },
+  { name: "Formal Letter Of Appointment / Re-Appointment Of Independent Directors", category: "Board", file: "/documents/policies/Formal Letter Of Appointment _Re-Appointment Of Independent Directors.pdf" },
+  { name: "Archival Policy", category: "Compliance", file: "/documents/policies/Archival Policy.pdf" },
+  { name: "Environment, Health & Safety Policy", category: "EHS", file: "/documents/policies/Environment, Health & Safety Policy.pdf" },
+  { name: "Familiarization Policy", category: "Board", file: "/documents/policies/Familiarization Policy.pdf" },
+  { name: "Policy On Board Diversity", category: "Board", file: "/documents/policies/Policy On Board Diversity.pdf" },
+  { name: "Nomination And Remuneration Policy", category: "Board", file: "/documents/policies/Nomination And Remuneration Policy.pdf" },
+  { name: "Policy On Preservation Of Documents", category: "Compliance", file: "/documents/policies/Policy On Preservation Of Documents.pdf" },
+  { name: "Stakeholders Relationship And Share Transfer Policy", category: "Compliance", file: "/documents/policies/Stakeholders Relationship And Share Transfer Policy.pdf" },
+  { name: "Anti Corruption Anti Bribery Policy", category: "Ethics", file: "/documents/policies/Anti Corruption Anti Bribery Policy.pdf" },
+  { name: "Corporate Social Responsibility Policy", category: "Ethics", file: "/documents/policies/Corporate Social Responsibility Policy.pdf" },
+  { name: "Equal Opportunity Policy", category: "Ethics", file: "/documents/policies/Equal Opportunity Policy.pdf" },
+  { name: "Determination Of Materiality Policy", category: "Compliance", file: "/documents/policies/determination-of-materiality-policy_d.pdf" },
+  { name: "Fair Disclosure Of UPSI", category: "Compliance", file: "/documents/policies/Fair Disclosure Of UPSI.pdf" },
+  { name: "Policy For Determining Material Subsidiaries", category: "Compliance", file: "/documents/policies/Policy For Determining Material Subsidiaries.pdf" },
+  { name: "Related Party Transactions Policy", category: "Compliance", file: "/documents/policies/Related Party Transactions Policy.pdf" },
+  { name: "Stationary Monitoring Policy", category: "Security", file: "/documents/policies/Stationary Monitoring Policy.pdf" },
+  { name: "Risk Management Policy", category: "Risk", file: "/documents/policies/Risk Management Policy.pdf" },
+  { name: "Dividend Policy", category: "Compliance", file: "/documents/policies/Dividend Policy.pdf" },
+  { name: "Performance Evaluation Policy", category: "Board", file: "/documents/policies/Performance Evaluation Policy.pdf" },
+  { name: "Prevention Of Sexual Harassment Policy", category: "Ethics", file: "/documents/policies/Prevention Of Sexual Harassment Policy.pdf" },
+  { name: "Vigil Mechanism Policy", category: "Compliance", file: "/documents/policies/Vigil Mechanism Policy.pdf" },
 ];
 
 const STATS = [
-  { value: "18", label: "Active Policies" },
+  { value: "22", label: "Active Policies" },
   { value: "SEBI", label: "LODR Compliant" },
   { value: "2025", label: "Last Reviewed" },
 ];
@@ -202,15 +206,18 @@ function MissionSection() {
 
 // ── Policy Card ──────────────────────────────────────────────────────────────
 
-function PolicyCard({ name, category, index }: { name: string; category: string; index: number }) {
+function PolicyCard({ name, category, file, index }: { name: string; category: string; file: string; index: number }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.div
+    <motion.a
+      href={file}
+      target="_blank"
+      rel="noopener noreferrer"
       variants={fadeUp}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative cursor-pointer"
+      className="relative cursor-pointer block"
     >
       {/* Card */}
       <div
@@ -265,7 +272,7 @@ function PolicyCard({ name, category, index }: { name: string; category: string;
           </TechCTA>
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -326,7 +333,7 @@ function PoliciesSection() {
           className="flex flex-col gap-3"
         >
           {POLICIES.map((policy, i) => (
-            <PolicyCard key={policy.name} name={policy.name} category={policy.category} index={i} />
+            <PolicyCard key={policy.name} name={policy.name} category={policy.category} file={policy.file} index={i} />
           ))}
         </motion.div>
 
@@ -463,3 +470,4 @@ export default function GovernancePoliciesPage() {
     </div>
   );
 }
+
