@@ -66,26 +66,7 @@ export default function AboutManifesto() {
           </div>
         </div>
 
-        {/* Core Values */}
-        <div className="reveal-text">
-          <h3 className="text-sm font-bold tracking-[0.2em] text-[#84CC16] uppercase mb-12 text-center" style={{ fontFamily: INTER }}>[ CORE VALUES ]</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-black/10">
-            {[
-              { title: "INTEGRITY", desc: "Uncompromising ethics in operations." },
-              { title: "PRECISION", desc: "Flawless engineering and tactical execution." },
-              { title: "INNOVATION", desc: "Pioneering indigenous deeptech solutions." },
-              { title: "NATIONAL SECURITY", desc: "Sovereign capability as our ultimate goal." }
-            ].map((value, i) => (
-              <div key={i} className="p-8 border-[0.5px] border-black/10 hover:bg-slate-100 transition-colors group">
-                <div className="text-4xl font-light text-slate-300 mb-6 group-hover:text-[#84CC16] transition-colors">0{i+1}</div>
-                <h4 className="text-xl font-black uppercase tracking-wider mb-3">{value.title}</h4>
-                <p className="text-sm text-slate-600 leading-relaxed" style={{ fontFamily: INTER }}>{value.desc}</p>
               </div>
-            ))}
-          </div>
-        </div>
-
-      </div>
     </section>
   );
 }
