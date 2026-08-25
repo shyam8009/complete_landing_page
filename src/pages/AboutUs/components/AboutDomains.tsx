@@ -22,7 +22,7 @@ const DOMAINS = [
     eyebrow: '[ DOMAIN 02 / 05 ]',
     title: 'Tactical Land Systems',
     desc: 'Shielding land borders and national critical assets against asymmetric threats, deploying battle-tested Information Warfare networks.',
-    media: '/assets/domain_land.jpg'
+    media: '/assets/domain_land_v2.jpeg'
   },
   {
     id: 'space',
@@ -179,5 +179,6 @@ export default function AboutDomains() {
     </section>
   );
 }
+
 
 
