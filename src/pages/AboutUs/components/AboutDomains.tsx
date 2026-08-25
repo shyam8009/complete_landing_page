@@ -14,7 +14,7 @@ const DOMAINS = [
     eyebrow: '[ DOMAIN 01 / 05 ]',
     title: 'Airborne Defense & Aviation',
     desc: 'Equipping aerial defense platforms with autonomous signal intelligence, airborne jammer arrays, and real-time threat neutralization.',
-    media: '/assets/domain_airborne_new.png'
+    media: '/assets/domain_airborne_v3.jpeg'
   },
   {
     id: 'land',
@@ -179,4 +179,5 @@ export default function AboutDomains() {
     </section>
   );
 }
+
 
