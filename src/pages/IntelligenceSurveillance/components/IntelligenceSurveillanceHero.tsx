@@ -128,7 +128,7 @@ export default function IntelligenceSurveillanceHero() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2"
+              className="mt-16 md:mt-24 w-full"
             >
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
                   <a
@@ -188,11 +188,7 @@ export default function IntelligenceSurveillanceHero() {
         </button>
       </div>
 
-      {/* 6. Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none">
-        <span className="text-white/40 text-[10px] uppercase tracking-widest mb-4 animate-pulse">Scroll to Explore</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent" />
-      </div>
+      
     </section>
   );
 }

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos
@@ -102,7 +102,7 @@ export function DeeptechHero() {
             {/* Tactical CTA Button - Bottom Center Position */}
             <motion.div
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-              className="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2"
+              className="mt-16 md:mt-24 w-full"
             >
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
                   <a href={slide.ctaLink} className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]">
@@ -145,11 +145,7 @@ export function DeeptechHero() {
         </button>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none">
-        <span className="text-white/40 text-[10px] uppercase tracking-widest mb-4 animate-pulse">Scroll to Explore</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent" />
-      </div>
+      
     </section>
   );
 }
