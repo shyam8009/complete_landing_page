@@ -96,13 +96,13 @@ export default function AboutJourney() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full h-screen bg-[#050505] text-white flex flex-col justify-center relative overflow-hidden">
+    <section ref={containerRef} className="w-full min-h-screen py-24 bg-[#050505] text-white flex flex-col justify-center relative overflow-hidden">
       
       <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 mb-12">
         <h2 className="text-3xl md:text-5xl font-light tracking-tight">Our Journey of Innovation</h2>
       </div>
 
-      <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 h-[65vh]">
+      <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 min-h-[550px] h-[65vh] lg:h-[70vh]">
         <div className="flex flex-row h-full w-full border-l border-white/20 overflow-x-auto md:overflow-x-hidden hide-scrollbar">
           
           {JOURNEY_DATA.map((item, i) => (
@@ -124,7 +124,7 @@ export default function AboutJourney() {
                 
                 {/* Middle: Description */}
                 <p 
-                  className={`text-xs md:text-sm font-sans tracking-wide leading-relaxed mt-8 mb-auto ${item.isFuture ? 'text-[#84CC16]' : 'text-white/90'}`}
+                  className={`text-xs md:text-sm font-sans tracking-wide leading-relaxed mt-6 mb-auto ${item.isFuture ? 'text-[#84CC16]' : 'text-white/90'}`}
                 >
                   {item.text}
                 </p>
@@ -151,6 +151,8 @@ export default function AboutJourney() {
     </section>
   );
 }
+
+
 
 
 
