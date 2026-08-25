@@ -2,7 +2,12 @@ import React from 'react';
 const INTER = "'Inter', sans-serif";
 
 const LEADERSHIP = [
-  { name: 'Pratik Kakadia', role: 'Founder & Managing Director', desc: 'Leading the vision and strategic direction of Sahana Defence.' },
+  { 
+    name: 'Pratik Kakadia', 
+    role: 'Founder & Managing Director', 
+    desc: 'Leading the vision and strategic direction of Sahana Defence.',
+    image: '/assets/pratik_kakadia.png'
+  },
   { name: 'Dr. A. Sharma', role: 'Head of Engineering (Placeholder)', desc: 'Directing the R&D and indigenous systems architecture.' },
   { name: 'Col. R. Singh (Retd.)', role: 'Chief Tactical Advisor (Placeholder)', desc: 'Ensuring operational relevance and military compliance.' }
 ];
@@ -23,10 +28,16 @@ export default function AboutLeadership() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {LEADERSHIP.map((leader, i) => (
             <div key={i} className="group">
-              {/* Photo Placeholder */}
+              {/* Photo */}
               <div className="w-full aspect-[3/4] bg-slate-200 mb-6 relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
-                <div className="absolute inset-0 bg-slate-300 mix-blend-multiply opacity-50" />
-                <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-mono text-sm">[ IMAGE UNAVAILABLE ]</div>
+                {leader.image ? (
+                  <img src={leader.image} alt={leader.name} className="absolute inset-0 w-full h-full object-cover" />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-slate-300 mix-blend-multiply opacity-50" />
+                    <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-mono text-sm text-center px-4">[ IMAGE UNAVAILABLE ]</div>
+                  </>
+                )}
                 {/* Border accents */}
                 <div className="absolute top-0 left-0 w-full h-[4px] bg-slate-900 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
               </div>
