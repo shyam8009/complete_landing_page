@@ -484,8 +484,10 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
               onMouseEnter={() => handleMouseEnter(link)}
             >
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href={link === 'About Us' ? "/about-us" : "#"}
+                  onClick={(e) => {
+                    if (link !== 'About Us') e.preventDefault();
+                  }}
                 className={`text-[15px] whitespace-nowrap transition-all duration-150 cursor-pointer flex items-center gap-1.5 ${
                   hoveredNav === link ? "text-white" : "text-white/70 hover:text-white"
                 }`}
@@ -2346,6 +2348,8 @@ export default function App() {
     </div>
   );
 }
+
+
 
 
 
