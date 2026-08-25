@@ -191,62 +191,63 @@ export function QuantumEcosystem() {
 // ——————————————————————————————————————————————————————————————————————————————
 function TacticalConsoleCard({ data }: { data: CardData }) {
   return (
-    <div className="relative w-[85vw] md:w-[70vw] lg:w-[60vw] h-[70vh] max-h-[800px] rounded-2xl overflow-hidden shrink-0 flex items-center justify-center group shadow-2xl">
-      {/* GLASSMORPHIC CARD CONTAINER */}
-      <div className="absolute inset-0 bg-[#050505]/70 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 group-hover:border-[#84CC16]/30">
-        <div className="flex flex-col md:flex-row h-full w-full">
+    <div 
+      className="w-[90vw] max-w-[1100px] min-h-[500px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch"
+      style={{ 
+        backgroundColor: 'rgba(8, 8, 8, 0.75)', 
+        border: '1px solid rgba(255,255,255,0.08)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)',
+      }}
+    >
+      
+      {/* HUD Corner Accents */}
+      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
+      <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
+      <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
+      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
+
+      {/* Left Split (Image) */}
+      <div className="w-full md:w-1/2 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex relative" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+        <div className="relative w-full h-full flex-1 bg-[#000]">
+          <img src={data.image} alt={data.title} className="absolute inset-0 w-full h-full object-cover" />
+          <div style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%)' }} className="absolute inset-0" />
           
-          {/* Left Split (Image) */}
-          <div className="w-full md:w-1/2 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
-            <div className="relative w-full h-full flex-1 bg-[#000]">
-              <img src={data.image} alt={data.title} className="absolute inset-0 w-full h-full object-cover" />
-              
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80" />
-              
-              {/* Crosshairs & Scanning Line Effect */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-white/10 opacity-30 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="absolute top-0 left-0 w-full h-[1px] bg-[#84CC16]/30 animate-[scan_3s_ease-in-out_infinite]" />
-              </div>
-            </div>
+          {/* Status Badge */}
+          <div className="absolute bottom-6 left-6 flex items-center justify-between">
+            <span className="flex items-center gap-1.5 text-[10px] font-mono text-white/90 uppercase tracking-widest">
+              <span className="w-1.5 h-1.5 rounded-full animate-pulse bg-[#84CC16]" />
+              {data.statusBadge}
+            </span>
           </div>
+        </div>
+      </div>
 
-          {/* Right Split (Content) */}
-          <div className="w-full md:w-1/2 p-6 lg:p-10 flex flex-col justify-between bg-neutral-100">
-            <div className="mb-6">
-              <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
-                style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
-                {data.tag}
-              </span>
-              
-              <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 tracking-tight leading-tight uppercase">
-                {data.title}
-              </h3>
-              
-              <p className="text-slate-600 text-sm leading-relaxed">
-                {data.description}
-              </p>
-            </div>
+      {/* Right Split (Content) */}
+      <div className="w-full md:w-1/2 p-6 lg:p-10 flex flex-col justify-between bg-neutral-100 rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl">
+        <div className="mb-6">
+          <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
+            style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
+            {data.tag}
+          </span>
+          
+          <h2 className="text-slate-900 text-xl lg:text-3xl font-bold uppercase mb-4 leading-tight line-clamp-2">
+            {data.title}
+          </h2>
+          
+          <p className="text-slate-600 text-sm lg:text-base leading-relaxed">
+            {data.description}
+          </p>
+        </div>
 
-            <div className="flex flex-col gap-3">
-              {data.specs.map((spec, idx) => (
-                <div key={idx} className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-sm bg-[#84CC16] mt-1.5 shrink-0" />
-                  <span className="text-xs text-slate-700 leading-snug">{spec}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="pt-5 mt-auto border-t border-slate-200">
-              <TechCTA theme="dark">
-                <span>Know More</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </TechCTA>
-            </div>
-          </div>
+        <div className="pt-6 mt-auto border-t border-slate-200">
+          <TechCTA theme="dark">
+            <span>Know More</span>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </TechCTA>
         </div>
       </div>
     </div>
