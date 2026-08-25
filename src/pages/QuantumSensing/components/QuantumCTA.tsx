@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { TechCTA } from '@/components/TechCTA';
 
 export function QuantumCTA() {
@@ -13,9 +13,8 @@ export function QuantumCTA() {
           Define the next generation of aerospace and defence measurement.
         </h2>
         
-        <TechCTA>
-          <span className="relative z-10">Contact Quantum Division</span>
-          <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+        <TechCTA className="mb-6">
+          CONTACT QUANTUM DIVISION
         </TechCTA>
         
         <a href="#" className="text-white/40 hover:text-white/80 text-xs tracking-wide transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/50">
