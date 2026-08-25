@@ -59,8 +59,9 @@ export default function AboutJourney() {
       gsap.matchMedia().add("(min-width: 1024px)", () => {
         const panels = gsap.utils.toArray('.journey-panel') as HTMLElement[];
         
-        // Reset state for hot-reloads: Packed as 40px slivers initially so the vertical year text is visible
-        gsap.set(panels, { width: "40px", flex: "none" });
+        // Reset state for hot-reloads: Packed as 3% slivers initially so the vertical year text is visible
+        // Using % for both start and end ensures GSAP interpolates correctly without breaking
+        gsap.set(panels, { width: "3%", flex: "none" });
         gsap.set('.inner-content', { opacity: 0 });
 
         const tl = gsap.timeline({
@@ -75,7 +76,7 @@ export default function AboutJourney() {
         });
 
         panels.forEach((panel) => {
-          tl.to(panel, { width: "12.5%", duration: 1, ease: "power2.out" })
+          tl.to(panel, { width: "12.5%", duration: 1, ease: "none" })
             .to(panel.querySelector('.inner-content'), { opacity: 1, duration: 0.5 }, "<0.5");
         });
       });
@@ -105,7 +106,7 @@ export default function AboutJourney() {
             <div 
               key={i} 
               className={`journey-panel min-w-0 overflow-hidden border-r ${item.isFuture ? 'border-[#84CC16]' : 'border-white/20'} relative`}
-              style={{ width: '40px', flex: 'none' }}
+              style={{ width: '3%', flex: 'none' }}
             >
               {/* Inner content given a fixed width to prevent text wrapping jank during GSAP flex expansion */}
               <div className="inner-content w-[180px] h-full flex flex-col justify-between p-4 md:p-6 opacity-0 relative z-10">
