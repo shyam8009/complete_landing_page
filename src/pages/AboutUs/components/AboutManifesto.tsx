@@ -27,11 +27,11 @@ export default function AboutManifesto() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full bg-slate-50 text-slate-900 py-32 md:py-48 z-10">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+    <section ref={containerRef} className="relative w-full bg-slate-50 text-slate-900 py-16 md:py-20 z-10">
+      <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
         
         {/* Massive Statement */}
-        <div className="mb-32">
+        <div className="mb-16 md:mb-24">
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] reveal-text">
             We do not adapt<br />
             to the future.<br />
@@ -40,7 +40,7 @@ export default function AboutManifesto() {
         </div>
 
         {/* Intro & Vision Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 mb-32 border-t border-black/10 pt-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 mb-8 border-t border-black/10 pt-12">
           <div className="md:col-span-5 reveal-text">
             <h3 className="text-sm font-bold tracking-[0.2em] text-[#84CC16] uppercase mb-6" style={{ fontFamily: INTER }}>[ INTRODUCTION ]</h3>
             <p className="text-2xl font-medium leading-snug mb-8">
@@ -70,3 +70,6 @@ export default function AboutManifesto() {
     </section>
   );
 }
+
+
+
