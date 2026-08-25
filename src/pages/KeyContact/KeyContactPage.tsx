@@ -32,7 +32,7 @@ function Hero() {
         <div
           className="w-full h-full bg-slate-900"
           style={{ 
-            backgroundImage: `url('/src/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg')`, 
+            backgroundImage: `url('/assets/corporate_house_1.jpg')`, 
             backgroundSize: 'cover', 
             backgroundPosition: 'center',
             filter: "grayscale(50%) brightness(0.2)"
@@ -254,7 +254,7 @@ function CTASection() {
           {/* Right — Interactive Element / Map Placeholder */}
           <motion.div variants={fadeUp} className="flex flex-col gap-6 justify-center">
              <div className="relative w-full h-[250px] bg-white/[0.02] border border-white/[0.06] rounded-sm overflow-hidden group">
-                <div className="absolute inset-0 bg-[url('/src/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg')] bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity duration-500 filter grayscale" />
+                <div className="absolute inset-0 bg-[url('/assets/corporate_house_1.jpg')] bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity duration-500 filter grayscale" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
                    <div className="w-12 h-12 rounded-full bg-[#84CC16]/10 flex items-center justify-center mb-4">
                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#84CC16" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -298,3 +298,4 @@ export default function KeyContactPage() {
     </div>
   );
 }
+
