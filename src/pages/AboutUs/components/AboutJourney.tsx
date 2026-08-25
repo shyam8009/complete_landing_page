@@ -10,42 +10,42 @@ const JOURNEY_DATA = [
   { 
     year: '2012', 
     text: 'FOUNDED AS OCEANS TECHNOLOGIES AND SPECIALIZING IN IT SERVICES AND 3D DESIGN.', 
-    image: '/assets/spear_cad_blueprint.png' 
+    image: '/assets/journey_2012.jpg' 
   },
   { 
     year: '2016', 
     text: 'EXPANDED OUR PRESENCE BY ESTABLISHING SEVERAL BRANCHES ACROSS DIFFERENT REGIONS OF GUJARAT.', 
-    image: '/assets/corporate_house_3.jpg' 
+    image: '/assets/journey_2016.jpg' 
   },
   { 
     year: '2020', 
     text: 'ENTERED HARDWARE TRADING, BUILT 50+ CUSTOMER BASE, ACHIEVED CMMI LEVEL 3 & ISO CERTIFICATIONS.', 
-    image: '/assets/Hardware_Spec_1.webp' 
+    image: '/assets/journey_2020.jpg' 
   },
   { 
     year: '2022', 
     text: 'DIVERSIFIED OUR BUSINESS INTO SUSTAINABLE TECHNOLOGY AND GREEN ENERGY UNDER A NEW BRAND.', 
-    image: '/assets/innovation_5.jpg' 
+    image: '/assets/journey_2022.jpg' 
   },
   { 
     year: '2023', 
     text: 'SURPASSED 100 CUSTOMERS. BECAME PUBLICLY LISTED. ACQUIRED SOFTVAN GROUP DEEP TECH.', 
-    image: '/assets/c2_dashboard_ui.png' 
+    image: '/assets/journey_2023.jpg' 
   },
   { 
     year: '2024', 
     text: 'VENTURED IN DEFENCE & AEROSPACE. CROSSED 1500+ CR MARKET CAP. ACQUIRED SOURCEVED.', 
-    image: '/assets/surveillance_blueprint.png' 
+    image: '/assets/journey_2024.jpg' 
   },
   { 
     year: '2025', 
     text: 'DEFENCE PARTS MANUFACTURING CAPABILITIES. ENTERED INTO SHIPPING AND PORTS SECTORS.', 
-    image: '/assets/Hardware_Spec_2.webp' 
+    image: '/assets/journey_2025.jpg' 
   },
   { 
     year: '2026/27', 
     text: "BECOME AN INR 5000 CR. COMPANY DRIVING INDIA'S DEEP TECH LEADERSHIP THROUGH INNOVATION.", 
-    image: '/assets/rf_radar_generated.png',
+    image: '/assets/journey_2026.jpg',
     isFuture: true
   }
 ];
