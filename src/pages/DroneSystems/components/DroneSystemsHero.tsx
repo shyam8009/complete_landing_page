@@ -1,8 +1,8 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos directly via Vite
-import spearVid from '@/imports/Infinity_Spear.mp4';
+
 import bullseyeVid from '@/imports/fpv_bullseye_hero_banner_1.mp4';
 import visionVid from '@/imports/Vision_Drone.mp4';
 
@@ -193,6 +193,7 @@ export default function DroneSystemsHero() {
     </section>
   );
 }
+
 
 
 
