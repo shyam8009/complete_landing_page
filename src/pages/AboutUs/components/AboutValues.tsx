@@ -53,18 +53,18 @@ export default function AboutValues() {
                 {/* Full-Bleed Background Image */}
                 <div 
                   className={`absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-700 ease-out z-0 ${
-                    isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                    isActive ? 'opacity-100 scale-100 grayscale-0' : 'opacity-40 scale-105 grayscale'
                   }`}
                   style={{ backgroundImage: `url(${val.image})` }}
                 />
 
                 {/* Gradient overlay to ensure text readability against the image */}
-                <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-700 z-10 ${
-                    isActive ? 'opacity-100' : 'opacity-0'
+                <div className={`absolute inset-0 bg-gradient-to-t transition-opacity duration-700 z-10 ${
+                    isActive ? 'from-black/90 via-black/20 to-transparent' : 'from-black/80 to-transparent'
                 }`} />
 
                 {/* Text Content */}
-                <div className="p-4 md:p-8 flex gap-3 h-auto md:h-[120px] shrink-0 relative z-20">
+                <div className="p-4 md:p-8 flex gap-3 h-auto md:h-[120px] shrink-0 relative z-20 w-[300px]">
                   <div className="w-2 h-2 mt-1.5 shrink-0 bg-[#84CC16]" />
                   <h3 className={`text-xl md:text-2xl font-light leading-snug transition-colors duration-500 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white/80'}`}>
                     {val.title}
