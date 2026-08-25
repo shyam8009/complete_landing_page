@@ -5,19 +5,19 @@ const INTER = "'Inter', sans-serif";
 const VALUES = [
   {
     title: 'Do what honor dictates',
-    image: '/assets/corporate_house_3.jpg'
+    image: '/assets/honor_dictates.jpg'
   },
   {
     title: 'Live as a servant leader',
-    image: '/assets/innovation_5.jpg'
+    image: '/assets/servant_leader.jpg'
   },
   {
     title: 'Pursue excellence',
-    image: '/assets/Hardware_Spec_1.webp'
+    image: '/assets/pursue_excellence.jpg'
   },
   {
     title: 'Sovereign security',
-    image: '/assets/tactical_3.webp'
+    image: '/assets/sovereign_security.jpg'
   }
 ];
 
@@ -46,22 +46,27 @@ export default function AboutValues() {
               <div
                 key={i}
                 onMouseEnter={() => setActiveIndex(i)}
-                className={`relative flex flex-col border-b md:border-b-0 md:border-r border-white/20 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                className={`group relative flex flex-col justify-end border-b md:border-b-0 md:border-r border-white/20 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${
                   isActive ? 'md:flex-[2.5]' : 'md:flex-1'
                 } ${i === 0 ? 'md:border-l' : ''}`}
               >
-                <div className="flex-1 w-full p-4 md:p-8 pb-0 overflow-hidden relative">
-                  <div 
-                    className={`w-full h-full bg-cover bg-center transition-all duration-700 ease-out ${
-                      isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                    }`}
-                    style={{ backgroundImage: `url(${val.image})` }}
-                  />
-                </div>
+                {/* Full-Bleed Background Image */}
+                <div 
+                  className={`absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-700 ease-out z-0 ${
+                    isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                  }`}
+                  style={{ backgroundImage: `url(${val.image})` }}
+                />
 
-                <div className="p-4 md:p-8 flex gap-3 h-auto md:h-[120px] shrink-0">
+                {/* Gradient overlay to ensure text readability against the image */}
+                <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-700 z-10 ${
+                    isActive ? 'opacity-100' : 'opacity-0'
+                }`} />
+
+                {/* Text Content */}
+                <div className="p-4 md:p-8 flex gap-3 h-auto md:h-[120px] shrink-0 relative z-20">
                   <div className="w-2 h-2 mt-1.5 shrink-0 bg-[#84CC16]" />
-                  <h3 className="text-xl md:text-2xl font-light leading-snug">
+                  <h3 className={`text-xl md:text-2xl font-light leading-snug transition-colors duration-500 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white/80'}`}>
                     {val.title}
                   </h3>
                 </div>
