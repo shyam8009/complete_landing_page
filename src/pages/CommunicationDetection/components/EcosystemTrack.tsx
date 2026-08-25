@@ -84,7 +84,7 @@ export function EcosystemTrack() {
               >
                 
                 <div 
-                  className="w-[90vw] max-w-[1100px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch relative"
+                  className="w-[90vw] max-w-[1100px] min-h-[500px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch relative"
                   style={{ 
                     backgroundColor: 'rgba(8, 8, 8, 0.75)', 
                     border: '1px solid rgba(255,255,255,0.08)',

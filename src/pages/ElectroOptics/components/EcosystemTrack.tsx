@@ -1,4 +1,4 @@
-﻿import React, { useRef } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -172,7 +172,7 @@ export function EcosystemTrack() {
               >
                 
                 <div 
-                  className="w-[90vw] max-w-[1100px] h-[65vh] min-h-[500px] max-h-[700px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch relative"
+                  className="w-[90vw] max-w-[1100px] min-h-[500px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch relative"
                   style={{ 
                     backgroundColor: 'rgba(8, 8, 8, 0.75)', 
                     border: '1px solid rgba(255,255,255,0.08)',
@@ -187,14 +187,14 @@ export function EcosystemTrack() {
                   <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
                   <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
 
-                  <div className="w-full md:w-5/12 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex rounded-t-2xl md:rounded-t-none md:rounded-l-2xl overflow-hidden" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+                  <div className="w-full md:w-1/2 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex rounded-t-2xl md:rounded-t-none md:rounded-l-2xl overflow-hidden" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
                     <div className="relative w-full h-full flex-1 bg-[#000]">
                       <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
                       <div style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%)' }} className="absolute inset-0" />
                     </div>
                   </div>
 
-                  <div className="w-full md:w-7/12 p-6 lg:p-10 flex flex-col justify-between bg-neutral-100 rounded-b-2xl md:rounded-b-none md:rounded-r-2xl overflow-y-auto custom-scrollbar">
+                  <div className="w-full md:w-1/2 p-6 lg:p-10 flex flex-col justify-between bg-neutral-100 rounded-b-2xl md:rounded-b-none md:rounded-r-2xl">
                     <div className="mb-6">
                       <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
                         style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
@@ -205,20 +205,9 @@ export function EcosystemTrack() {
                         {item.title}
                       </h2>
                       
-                      <p className="text-sm lg:text-base text-slate-600 mb-6 ">
+                      <p className="text-sm lg:text-base text-slate-600 mb-6 leading-relaxed">
                         {item.desc}
                       </p>
-
-                      <div className="flex flex-col gap-3">
-                        {item.bullets.map((bullet, bIdx) => (
-                          <div key={bIdx} className="flex items-start gap-3">
-                            <div className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center">
-                              <Check className="w-2.5 h-2.5 text-[#84CC16]" />
-                            </div>
-                            <span className="text-sm text-slate-600 leading-relaxed">{bullet}</span>
-                          </div>
-                        ))}
-                      </div>
                     </div>
 
                     <div className="pt-5 mt-4 border-t border-slate-200">

@@ -1,4 +1,4 @@
-﻿import React, { useRef } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -86,79 +86,64 @@ export default function CommunicationMonitoringEcosystem() {
                 className="comms-card shrink-0 flex items-center justify-center pr-[10vw]"
                 style={{ width: '100vw' }}
               >
-                {/* THE GLASSMORPHISM CARD (Upgraded) */}
-                <div
-                  className="relative w-[90vw] max-w-[1100px] rounded-2xl overflow-hidden mx-auto h-[min(540px,75vh)]"
+                {/* THE GLASSMORPHISM CARD */}
+                <div 
+                  className="w-[90vw] max-w-[1100px] min-h-[500px] rounded-2xl mx-auto flex flex-col md:flex-row items-stretch"
                   style={{ 
                     backgroundColor: 'rgba(8, 8, 8, 0.75)', 
                     border: '1px solid rgba(255,255,255,0.08)',
                     backdropFilter: 'blur(16px)',
                     WebkitBackdropFilter: 'blur(16px)',
                     boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)',
-                    display: 'flex',
-                    flexDirection: 'column'
                   }}
                 >
+                  
                   {/* HUD Corner Accents */}
                   <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
                   <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
                   <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
                   <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 z-20" style={{ borderColor: 'rgba(132,204,22,0.6)' }} />
 
-                  {/* Grid Layout - Forced to 100% height without internal scrolling */}
-                  <div className="flex flex-col md:grid md:grid-cols-12 h-full w-full overflow-hidden">
-                    
-                    {/* LEFT: Hardware Visual */}
-                    <div className="md:col-span-6 p-5 lg:p-6 border-b md:border-b-0 md:border-r" 
-                      style={{ backgroundColor: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}>
-                      <div className="relative w-full h-48 md:h-full rounded-xl overflow-hidden group" 
-                        style={{ border: '1px solid rgba(255,255,255,0.08)', backgroundColor: '#000', minHeight: '300px' }}>
-                        <img
-                          src={data.img}
-                          alt={data.title}
-                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%)' }} className="absolute inset-0" />
-                        
-                        {/* Status indicator */}
-                        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                          <span className="flex items-center gap-1.5 text-[10px] font-mono text-white/90">
-                            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: '#84CC16' }} />
-                            ACTIVE MONITORING
-                          </span>
-                        </div>
+                  {/* Left Split (Image) */}
+                  <div className="w-full md:w-1/2 min-h-[250px] md:min-h-full border-b md:border-b-0 md:border-r flex relative" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+                    <div className="relative w-full h-full flex-1 bg-[#000]">
+                      <img src={data.img} alt={data.title} className="absolute inset-0 w-full h-full object-cover" />
+                      <div style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%)' }} className="absolute inset-0" />
+                      
+                      {/* Status indicator */}
+                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <span className="flex items-center gap-1.5 text-[10px] font-mono text-white/90">
+                          <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: '#84CC16' }} />
+                          ACTIVE MONITORING
+                        </span>
                       </div>
                     </div>
+                  </div>
 
-                    {/* RIGHT: Specifications & CTAs */}
-                    <div className="md:col-span-6 p-6 lg:p-8 flex flex-col justify-between h-full bg-neutral-100">
-                      <div className="mb-6">
-                        {/* Tag */}
-                        <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
-                          style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
-                          {data.tag}
-                        </span>
+                  {/* Right Split (Content) */}
+                  <div className="w-full md:w-1/2 p-6 lg:p-10 flex flex-col justify-between bg-neutral-100 rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl">
+                    <div className="mb-6">
+                      <span className="inline-block px-3 py-1 rounded-md text-[9px] lg:text-[10px] font-mono tracking-wider uppercase mb-4"
+                        style={{ color: '#050505', backgroundColor: '#84CC16', border: '1px solid #84CC16' }}>
+                        {data.tag}
+                      </span>
+                      
+                      <h2 className="text-slate-900 text-xl lg:text-3xl font-bold uppercase mb-4 leading-tight line-clamp-2">
+                        {data.title}
+                      </h2>
+                      
+                      <p className="text-slate-600 text-sm lg:text-base leading-relaxed">
+                        {data.description}
+                      </p>
+                    </div>
 
-                        {/* Title */}
-                        <h3 className="text-slate-900 text-xl lg:text-3xl font-bold tracking-wide uppercase leading-tight line-clamp-2">
-                          {data.title}
-                        </h3>
-                        <p className="text-sm lg:text-base mt-3 mb-3  text-slate-600">
-                          {data.description}
-                        </p>
-
-                        
-                      </div>
-
-                      {/* CTA */}
-                      <div className="pt-5 mt-auto border-t border-slate-200">
-                        <TechCTA theme="dark">
-                          <span>Know More</span>
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                          </svg>
-                        </TechCTA>
-                      </div>
+                    <div className="pt-6 mt-auto border-t border-slate-200">
+                      <TechCTA theme="dark">
+                        <span>Know More</span>
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </TechCTA>
                     </div>
                   </div>
                 </div>
