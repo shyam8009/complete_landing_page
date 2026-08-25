@@ -1,9 +1,9 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import tacticalImg from '../../../imports/infinity-rhino-black/Tactical_App_1.webp';
-import borderImg from '../../../imports/infinity-rhino-black/Tactical_App_2.webp';
-import infrastructureImg from '../../../imports/infinity-rhino-black/Tactical_App_3.webp';
+import tacticalImg from '../../../imports/rhino_black_tac_1.webp';
+import borderImg from '../../../imports/rhino_black_tac_2.webp';
+import infrastructureImg from '../../../imports/rhino_black_tac_3.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
