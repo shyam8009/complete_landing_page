@@ -6,13 +6,13 @@ import { TechCTA } from '@/components/TechCTA';
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const DOCUMENTS = [
-  { name: "Code of Conduct of Non-Executive Non-Independent Directors", category: "Board" },
-  { name: "Familiarization to Independent Directors", category: "Board" },
-  { name: "Fair Disclosure Of UPSI", category: "Compliance" },
-  { name: "Code of Conduct of Prohibition of Insider Trading", category: "Compliance" },
-  { name: "Code of Conduct of Independent Directors", category: "Board" },
-  { name: "Code of Conduct of Executive Directors and Sr. Management Personnel", category: "Leadership" },
-  { name: "Code of Conduct for Company's Personnel", category: "Personnel" },
+  { name: "Code of Conduct of Non-Executive Non-Independent Directors", category: "Board", file: "/documents/code-of-conduct/Code of Conduct of Non-Executive Non-Independent Directors.pdf" },
+  { name: "Familiarization to Independent Directors", category: "Board", file: "/documents/code-of-conduct/Familiarization to Independent Directors.pdf" },
+  { name: "Fair Disclosure Of UPSI", category: "Compliance", file: "/documents/code-of-conduct/Fair Disclosure Of UPSI.pdf" },
+  { name: "Code of Conduct of Prohibition of Insider Trading", category: "Compliance", file: "/documents/code-of-conduct/Code of Conduct of Prohibition of Insider Trading.pdf" },
+  { name: "Code of Conduct of Independent Directors", category: "Board", file: "/documents/code-of-conduct/Code of Conduct of Independent Directors.pdf" },
+  { name: "Code of Conduct of Executive Directors and Sr. Management Personnel", category: "Leadership", file: "/documents/code-of-conduct/Code of Conduct of Executive Directors and Sr. Management Personnel.pdf" },
+  { name: "Code of Conduct for Company's Personnel", category: "Personnel", file: "/documents/code-of-conduct/Code of Conduct for Company's Personnel.pdf" },
 ];
 
 const STATS = [
@@ -189,15 +189,18 @@ function MissionSection() {
 
 // ── Document Card ──────────────────────────────────────────────────────────────
 
-function DocumentCard({ name, category, index }: { name: string; category: string; index: number }) {
+function DocumentCard({ name, category, file, index }: { name: string; category: string; file: string; index: number }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.div
+    <motion.a
+      href={file}
+      target="_blank"
+      rel="noopener noreferrer"
       variants={fadeUp}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative cursor-pointer"
+      className="relative cursor-pointer block"
     >
       {/* Card */}
       <div
@@ -250,7 +253,7 @@ function DocumentCard({ name, category, index }: { name: string; category: strin
           </TechCTA>
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -308,7 +311,7 @@ function DocumentsSection() {
           className="flex flex-col gap-3"
         >
           {DOCUMENTS.map((doc, i) => (
-            <DocumentCard key={doc.name} name={doc.name} category={doc.category} index={i} />
+            <DocumentCard key={doc.name} name={doc.name} category={doc.category} file={doc.file} index={i} />
           ))}
         </motion.div>
       </div>
@@ -421,3 +424,4 @@ export default function CodeOfConductPage() {
     </div>
   );
 }
+
