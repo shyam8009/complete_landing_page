@@ -38,7 +38,7 @@ const DOMAINS = [
     eyebrow: '[ DOMAIN 04 / 05 ]',
     title: 'Port & Critical Marine Infrastructure',
     desc: 'Safeguarding commercial and military seaports, container terminals, and vital marine supply routes with automated surveillance grid systems.',
-    media: '/assets/domain_marine.jpg'
+    media: '/assets/domain_marine_v2.jpeg'
   },
   {
     id: 'infrastructure',
@@ -179,6 +179,7 @@ export default function AboutDomains() {
     </section>
   );
 }
+
 
 
 
