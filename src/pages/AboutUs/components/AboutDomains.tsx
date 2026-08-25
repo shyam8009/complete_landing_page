@@ -9,44 +9,44 @@ const INTER = "'Inter', sans-serif";
 
 const DOMAINS = [
   {
-    id: 'naval',
-    tab: 'NAVAL',
+    id: 'air',
+    tab: 'AIR',
     eyebrow: '[ DOMAIN 01 / 05 ]',
-    title: 'Naval & Maritime Systems',
-    desc: 'Securing strategic maritime boundaries, naval fleets, and offshore assets with high-precision Electronic Warfare and deep-water surveillance technology.',
-    media: '/assets/Hardware_Spec_1.webp'
-  },
-  {
-    id: 'airborne',
-    tab: 'AIRBORNE',
-    eyebrow: '[ DOMAIN 02 / 05 ]',
-    title: 'Airborne Defense & Avionics',
+    title: 'Airborne Defense & Aviation',
     desc: 'Equipping aerial defense platforms with autonomous signal intelligence, airborne jammer arrays, and real-time threat neutralization.',
     media: '/assets/tactical_1.webp'
   },
   {
-    id: 'homeland',
-    tab: 'HOMELAND',
-    eyebrow: '[ DOMAIN 03 / 05 ]',
-    title: 'Homeland Protection & Perimeter Defense',
-    desc: 'Shielding land borders and national critical assets against asymmetric threats, electronic intrusion, and unauthorized access.',
+    id: 'land',
+    tab: 'LAND',
+    eyebrow: '[ DOMAIN 02 / 05 ]',
+    title: 'Tactical Land Systems',
+    desc: 'Shielding land borders and national critical assets against asymmetric threats, deploying battle-tested Information Warfare networks.',
     media: '/assets/tactical_2.webp'
   },
   {
-    id: 'defence',
-    tab: 'DEFENCE',
-    eyebrow: '[ DOMAIN 04 / 05 ]',
-    title: 'Defence DeepTech & Tactical Land Systems',
-    desc: 'Deploying battle-tested Information Warfare networks and DeepTech solutions to empower ground command centers.',
-    media: '/assets/tactical_3.webp'
+    id: 'space',
+    tab: 'SPACE',
+    eyebrow: '[ DOMAIN 03 / 05 ]',
+    title: 'Space & Satellite Systems',
+    desc: 'Securing orbital assets and ensuring resilient satellite communications with advanced quantum cryptography and deep-space tracking technology.',
+    media: '/assets/quantum_hero_bg.jpg'
   },
   {
     id: 'port',
     tab: 'PORT & MARINE',
-    eyebrow: '[ DOMAIN 05 / 05 ]',
+    eyebrow: '[ DOMAIN 04 / 05 ]',
     title: 'Port & Critical Marine Infrastructure',
     desc: 'Safeguarding commercial and military seaports, container terminals, and vital marine supply routes with automated surveillance grid systems.',
     media: '/assets/corporate_house_3.jpg'
+  },
+  {
+    id: 'infrastructure',
+    tab: 'CRITICAL INFRASTRUCTURE',
+    eyebrow: '[ DOMAIN 05 / 05 ]',
+    title: 'Critical National Infrastructure',
+    desc: 'Protecting power grids, communication hubs, and strategic facilities from cyber-physical attacks and electronic intrusion.',
+    media: '/assets/security_assessment_twin.jpg'
   }
 ];
 
