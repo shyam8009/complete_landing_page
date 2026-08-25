@@ -68,17 +68,20 @@ export default function AboutJourney() {
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top top",
-            end: "+=2500", // Reduced scroll distance so tiles open faster
+            end: "+=4000", // Increased scroll distance for comfortable reading
             pin: true,
             scrub: 1,
             anticipatePin: 1
           }
         });
 
-        panels.forEach((panel) => {
+                panels.forEach((panel) => {
           tl.to(panel, { width: "12.5%", duration: 1, ease: "none" })
             .to(panel.querySelector('.inner-content'), { opacity: 1, duration: 0.5 }, "<0.5");
         });
+        
+        // Add a small pause at the end so the user can read the 2026/27 tile before the section unpins
+        tl.to({}, { duration: 1.5 });
       });
 
       // Mobile/Tablet: Auto-expand, simple horizontal scroll
@@ -148,3 +151,4 @@ export default function AboutJourney() {
     </section>
   );
 }
+
