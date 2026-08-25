@@ -1,7 +1,7 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroBg from '../../../imports/infinity-spear/magnific_professional-outdoor-prod_ohWj6xH829.png';
+
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = "'Inter', sans-serif";
@@ -21,10 +21,13 @@ export function HeroSection() {
 
   return (
     <section ref={containerRef} className="relative w-full min-h-[100dvh] max-md:landscape:min-h-[60vh] overflow-hidden bg-black flex flex-col">
-      {/* Background Image */}
-      <img
-        src={heroBg}
-        alt="Infinity Spear Anti Drone Gun"
+      {/* Background Video */}
+      <video
+        src="/assets/infinity_spear_hero_banner.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
       />
       
@@ -89,6 +92,7 @@ export function HeroSection() {
     </section>
   );
 }
+
 
 
 

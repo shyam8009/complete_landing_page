@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos/images directly via Vite
 import bgVideo from '@/imports/gwr_video_mvp.mp4';
-import spearVid from '@/imports/Infinity_Spear.mp4';
+const spearVid = '/assets/infinity_spear_hero_banner.mp4';
 import rhinoVid from '@/imports/Hero banner Video.mp4';
 
 const heroSlides = [
@@ -211,6 +211,7 @@ export default function JammingSystemsHero() {
     </section>
   );
 }
+
 
 
 
