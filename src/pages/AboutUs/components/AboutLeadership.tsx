@@ -1,0 +1,43 @@
+import React from 'react';
+import { INTER } from '../../../constants';
+
+const LEADERSHIP = [
+  { name: 'Pratik Kakadia', role: 'Founder & Managing Director', desc: 'Leading the vision and strategic direction of Sahana Defence.' },
+  { name: 'Dr. A. Sharma', role: 'Head of Engineering (Placeholder)', desc: 'Directing the R&D and indigenous systems architecture.' },
+  { name: 'Col. R. Singh (Retd.)', role: 'Chief Tactical Advisor (Placeholder)', desc: 'Ensuring operational relevance and military compliance.' }
+];
+
+export default function AboutLeadership() {
+  return (
+    <section className="w-full bg-slate-50 text-slate-900 py-32 z-10 relative">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="flex flex-col items-center text-center mb-20">
+          <h3 className="text-sm font-bold tracking-[0.2em] text-[#84CC16] uppercase mb-4" style={{ fontFamily: INTER }}>
+            [ COMMAND STRUCTURE ]
+          </h3>
+          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900">
+            Leadership & Advisory
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {LEADERSHIP.map((leader, i) => (
+            <div key={i} className="group">
+              {/* Photo Placeholder */}
+              <div className="w-full aspect-[3/4] bg-slate-200 mb-6 relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+                <div className="absolute inset-0 bg-slate-300 mix-blend-multiply opacity-50" />
+                <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-mono text-sm">[ IMAGE UNAVAILABLE ]</div>
+                {/* Border accents */}
+                <div className="absolute top-0 left-0 w-full h-[4px] bg-slate-900 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
+              </div>
+              
+              <h4 className="text-2xl font-black uppercase tracking-wider mb-1 text-slate-900">{leader.name}</h4>
+              <p className="text-[#84CC16] font-bold text-sm tracking-widest uppercase mb-4" style={{ fontFamily: INTER }}>{leader.role}</p>
+              <p className="text-slate-600 text-sm leading-relaxed">{leader.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

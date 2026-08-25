@@ -55,6 +55,7 @@ import { QuantumMicrowaveDevicesPage } from '../pages/QuantumMicrowaveDevices/Qu
 import { RydbergAtomQuantumSensorsPage } from '../pages/RydbergAtomQuantumSensors/RydbergAtomQuantumSensorsPage';
 import { QuantumDronePage } from '../pages/QuantumDrone/QuantumDronePage';
 import { QuantumClockSourcePage } from '../pages/QuantumClockSource/QuantumClockSourcePage';
+import AboutUsPage from '../pages/AboutUs/AboutUsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
 import ClienteleSection from '../components/ClienteleSection';
@@ -891,7 +892,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
           
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Investors</a>
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Newsroom</a>
-          <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">About Us</a>
+          <a href="/about-us" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">About Us</a>
           <a href="#" className="py-4 text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mt-4 border border-[#84CC16]/30 text-center rounded-sm bg-[#84CC16]/5">Contact Us</a>
 
         </div>
@@ -2338,6 +2339,7 @@ export default function App() {
           <Route path="/quantum-technology-solutions/quantum-sensing/rydberg-atom-quantum-sensors" element={<RydbergAtomQuantumSensorsPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-drone" element={<QuantumDronePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-clock-source" element={<QuantumClockSourcePage />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
         </Routes>
         <Footer />
       </div>
