@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Import videos directly via Vite
 
 import bullseyeVid from '@/imports/fpv_bullseye_hero_banner_1.mp4';
-import visionVid from '@/imports/Vision_Drone.mp4';
+import proxyImg from '@/imports/proxy/magnific_photorealistic-outdoor-fi_Piskn0l42C 1.jpeg';
 
 const heroSlides = [
   {
@@ -12,6 +12,7 @@ const heroSlides = [
     title: 'Sahana FPV',
     subtitle: 'High-Speed Autonomous Reconnaissance & Strike',
     mediaUrl: '/assets/Hero banner Video.mp4',
+    isVideo: true,
     ctaText: 'EXPLORE SAHANA FPV',
     ctaLink: '/sahana-fpv',
   },
@@ -20,16 +21,18 @@ const heroSlides = [
     title: 'Sahana FPV Bullseye',
     subtitle: 'Target Acquisition in Contested Environments',
     mediaUrl: bullseyeVid,
+    isVideo: true,
     ctaText: 'SEE BULLSEYE',
     ctaLink: '/fpv-buddy',
   },
   {
-    id: 'sahana-vision',
-    title: 'Sahana Vision',
-    subtitle: 'Real-Time Edge Intelligence & Visual Autonomy',
-    mediaUrl: visionVid,
-    ctaText: 'DISCOVER VISION',
-    ctaLink: '/varuna',
+    id: 'proxy',
+    title: 'PROXY',
+    subtitle: 'Control Channel',
+    mediaUrl: proxyImg,
+    isVideo: false,
+    ctaText: 'DISCOVER PROXY',
+    ctaLink: '/proxy',
   },
 ];
 
@@ -58,16 +61,24 @@ export default function DroneSystemsHero() {
           transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
           className="absolute inset-0 w-full h-full"
         >
-          <video
-            autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover opacity-80"
-          >
-            <source src={slide.mediaUrl} type="video/mp4" />
-          </video>
+          {slide.isVideo ? (
+  <video
+    autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
+    loop
+    muted
+    playsInline
+    preload="metadata"
+    className="w-full h-full object-cover opacity-80"
+  >
+    <source src={slide.mediaUrl} type="video/mp4" />
+  </video>
+) : (
+  <img
+    src={slide.mediaUrl}
+    alt={slide.title}
+    className="w-full h-full object-cover opacity-80"
+  />
+)}
         </motion.div>
       </AnimatePresence>
 
@@ -193,6 +204,9 @@ export default function DroneSystemsHero() {
     </section>
   );
 }
+
+
+
 
 
 
