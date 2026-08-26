@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import motorcadeImg from '../../../imports/drone_radar/forward_operating_bases.webp';
-import convoyImg from '../../../imports/drone_radar/border_surveillance.webp';
-import baseImg from '../../../imports/drone_radar/vip_event_security.webp';
+import motorcadeImg from '../../../imports/drone_radar_3d/airspace_monitoring.webp';
+import convoyImg from '../../../imports/drone_radar_3d/border_surveillance.webp';
+import baseImg from '../../../imports/drone_radar_3d/asset_protection.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import imgAntenna from '../../../imports/drone_radar/wideband_antennas.webp';
-import imgProcessing from '../../../imports/drone_radar/signal_processing_unit.webp';
-import imgMast from '../../../imports/drone_radar/rapid_deployment_mast.webp';
+import imgAntenna from '../../../imports/drone_radar_3d/aesa_antenna_array.webp';
+import imgProcessing from '../../../imports/drone_radar_3d/ai_threat_classifier.webp';
+import imgMast from '../../../imports/drone_radar_3d/c2_integration.webp';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [
