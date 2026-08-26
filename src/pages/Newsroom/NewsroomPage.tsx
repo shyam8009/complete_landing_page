@@ -64,16 +64,16 @@ const NEWS_ITEMS = [
     title: "Sahana Defence showcased its capabilities at ISRO's National Space Day",
     description: "Sahana Defence marked its presence at ISRO's National Space Day event, showcasing its contributions to India's space and defence ecosystem before distinguished leaders, including Dr. V. Narayanan, Chairman of ISRO; Shri Gajendra Singh Shekhawat; Shri Arjun Modhwadia; Dr. Pawan Goenka, Chairman of IN-SPACe; and Dr. Deepak Mishra of SAC.",
     images: [spaceDay1Img, spaceDay2Img],
-    link: '#'
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7497157869247746048'
   },
   {
     id: 1,
-    category: 'PRESS RELEASE',
+    category: 'CONTRACTS',
     date: 'JUN 26, 2026',
     title: 'Sahana Defence Signs Strategic Manufacturing Agreement with CEL',
     description: "Sahana Defence has entered into a Contract Agreement with Central Electronics Limited (CEL) to expand India's indigenous defence manufacturing capabilities. The partnership will support the establishment of a dedicated facility focused on Electronic Warfare systems, weapon systems, defence peripherals, and advanced DefenceTech solutions, reinforcing the nation's vision for self-reliance in defence production.",
     image: celSigningImg,
-    link: '#'
+    link: 'https://www.linkedin.com/posts/sahanadefence_major-milestone-for-sahana-defence-activity-7471158593736851456-RcOp'
   },
   {
     id: 2,
