@@ -1,8 +1,8 @@
-﻿import React from 'react';
+import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import groundStationImg from '../../../imports/proxy/reference-img1.jpeg';
-import aerialRepeaterImg from '../../../imports/arsenal_facility.jpg';
-import connectivityImg from '../../../imports/digital_twin.jpg';
+import groundStationImg from '../../../imports/proxy/dual_directional_antennas.webp';
+import aerialRepeaterImg from '../../../imports/proxy/low_drag_aerial_relay.webp';
+import connectivityImg from '../../../imports/proxy/operational_flexibility.webp';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [
@@ -47,5 +47,3 @@ export function SubsystemsSection() {
 
   return <InteractiveBlueprint title="Hardware<br/>Specifications" subtitle="// Technical Architecture" tiers={tiers} />;
 }
-
-

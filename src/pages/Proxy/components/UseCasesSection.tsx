@@ -1,9 +1,9 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import commandImg from '../../../imports/sahana_fpv_interceptor.jpg';
-import jammingImg from '../../../imports/rf_radar_generated.png';
-import reconImg from '../../../imports/magnific_professional-outdoor-prod_SObWxSiUb8.png';
+import commandImg from '../../../imports/proxy/secure_drone_c2.webp';
+import jammingImg from '../../../imports/proxy/anti_jamming_comms.webp';
+import reconImg from '../../../imports/proxy/recon_video_relay.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,11 +37,11 @@ export function UseCasesSection() {
           y: 0,
           opacity: 1,
           duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out',
+          stagger: 0.2,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 70%',
+            start: "top 70%",
           }
         }
       );
@@ -51,54 +51,46 @@ export function UseCasesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-padding bg-black relative">
-      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
-        
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">
-            TACTICAL APPLICATIONS
-          </h2>
-        </div>
+    <section ref={sectionRef} className="py-24 bg-black relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
+        <h2 className="text-4xl md:text-5xl font-light text-white mb-16 tracking-wide uppercase">
+          Tactical Applications
+        </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {USE_CASES.map((useCase, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {USE_CASES.map((useCase, idx) => (
             <div 
-              key={useCase.id} 
-              ref={el => cardsRef.current[index] = el}
-              className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10"
+              key={useCase.id}
+              ref={el => cardsRef.current[idx] = el}
+              className="group relative aspect-[4/5] overflow-hidden bg-[#111111]"
             >
               {/* Background Image */}
               <img 
                 src={useCase.image} 
-                alt={useCase.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                alt={useCase.title}
+                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
               />
               
-              {/* Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
-              
-              {/* Neon Green Tint Hover Overlay */}
-              <div className="absolute inset-0 bg-[#84CC16]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
-              
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
+
               {/* Content */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="transform group-hover:-translate-y-2 transition-transform duration-500">
-                  <span className="text-[#84CC16] font-mono text-sm tracking-widest font-bold mb-2 block">
-                    {useCase.id}
-                  </span>
-                  <h3 className="text-2xl font-bold text-white uppercase leading-tight">
+              <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                <div className="text-white/40 font-mono tracking-widest text-sm">
+                  {useCase.id}
+                </div>
+                
+                <div>
+                  <h3 className="text-2xl font-light text-white leading-tight uppercase tracking-wide">
                     {useCase.title}
                   </h3>
+                  <div className="h-[2px] w-0 bg-white/30 mt-4 group-hover:w-full transition-all duration-700 ease-out" />
                 </div>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
 }
-
-
-
