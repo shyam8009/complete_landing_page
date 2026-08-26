@@ -1,9 +1,9 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import motorcadeImg from '../../../imports/drone_radar/forward_operating_bases.webp';
 import convoyImg from '../../../imports/drone_radar/border_surveillance.webp';
 import baseImg from '../../../imports/drone_radar/vip_event_security.webp';
-import motorcadeImg from '../../../imports/drone_radar/forward_operating_bases.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,22 +11,16 @@ const USE_CASES = [
   {
     id: "01",
     title: 'AIRSPACE MONITORING',
-    description: 'Provide continuous 3D surveillance of critical airspace. Detects and tracks autonomous drones, loitering munitions, and unauthorized surveillance craft in real-time before they breach restricted zones.',
-    status: 'IN PRODUCTION',
     image: motorcadeImg
   },
   {
     id: "02",
     title: 'BORDER SURVEILLANCE',
-    description: 'Deploy ruggedized units along porous borders to identify low-flying smuggling drones and cross-border incursions. Operates effectively in extreme weather and denied environments.',
-    status: 'FIELD DEPLOYED',
     image: convoyImg
   },
   {
     id: "03",
     title: 'ASSET PROTECTION',
-    description: 'Integrate directly into the security perimeters of forward operating bases, power plants, and VIP locations. Acts as the primary sensor triggering automated kinetic and EW countermeasures.',
-    status: 'PROVEN IN MULTIPLE ENVIRONMENTS',
     image: baseImg
   }
 ];
@@ -61,11 +55,8 @@ export function UseCasesSection() {
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         
         <div className="mb-16">
-          <div className="text-[#84CC16] font-mono text-sm uppercase tracking-widest mb-4">
-            // DEPLOYMENT SCENARIOS
-          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">
-            AI FOR THE HARDEST MISSION PROBLEMS.
+            DEPLOYMENT SCENARIOS
           </h2>
         </div>
 
@@ -84,9 +75,9 @@ export function UseCasesSection() {
               />
               
               {/* Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
               
-              {/* Neon Green Tint Hover Overlay */}
+              {/* Green Tint Hover Overlay */}
               <div className="absolute inset-0 bg-[#84CC16]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
               
               {/* Content */}
@@ -95,19 +86,9 @@ export function UseCasesSection() {
                   <span className="text-[#84CC16] font-mono text-sm tracking-widest font-bold mb-2 block">
                     {useCase.id}
                   </span>
-                  <h3 className="text-2xl font-bold text-white uppercase leading-tight mb-3">
+                  <h3 className="text-2xl font-bold text-white uppercase leading-tight">
                     {useCase.title}
                   </h3>
-                  <p className="text-white/80 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    {useCase.description}
-                  </p>
-                  
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-black/50 backdrop-blur-sm rounded border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#84CC16] animate-pulse" />
-                    <span className="text-[10px] font-mono text-white/80 uppercase tracking-widest">
-                      {useCase.status}
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -118,5 +99,3 @@ export function UseCasesSection() {
     </section>
   );
 }
-
-
