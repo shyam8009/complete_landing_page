@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GuardianExperiencePage } from '../pages/GuardianExperience/GuardianExperiencePage';
 import { NewsroomPage } from '../pages/Newsroom/NewsroomPage';
+import { PrivacyPolicyPage } from '../pages/PrivacyPolicy/PrivacyPolicyPage';
 import { SahanaFpvProductPage } from '../pages/SahanaFpv/SahanaFpvProductPage';
 import { FpvBuddyPage } from '../pages/FpvBuddy/FpvBuddyPage';
 import { VarunaPage } from '../pages/Varuna/VarunaPage';
@@ -1461,6 +1462,7 @@ function FooterCol({ label, links }: { label: string; links: string[] }) {
 }
 
 function Footer({ onContactClick }: { onContactClick?: () => void }) {
+  const navigate = useNavigate();
   return (
     <footer className="w-full bg-black pt-16 pb-16 flex flex-col gap-20">
       {/* top nav columns */}
@@ -2323,6 +2325,7 @@ export default function App() {
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-clock-source" element={<QuantumClockSourcePage />} />
           <Route path="/newsroom" element={<NewsroomPage onContactClick={() => setIsContactModalOpen(true)} />} />
           <Route path="/about-us" element={<AboutUsPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>
         <Footer onContactClick={() => setIsContactModalOpen(true)} />
         <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
