@@ -45,7 +45,7 @@ const JOURNEY_DATA = [
   { 
     year: '2026/27', 
     text: "Become an INR 5000 Cr. company driving India's deep tech leadership through innovation.", 
-    image: '/assets/journey_2026.jpg',
+    image: '/assets/ak47_machine.png',
     isFuture: true
   }
 ];
@@ -151,6 +151,7 @@ export default function AboutJourney() {
     </section>
   );
 }
+
 
 
 
