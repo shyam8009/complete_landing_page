@@ -158,6 +158,7 @@ export function NewsroomPage({ onContactClick }: { onContactClick?: () => void }
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [visibleCount, setVisibleCount] = useState(4);
+  const [searchQuery, setSearchQuery] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -184,18 +185,15 @@ export function NewsroomPage({ onContactClick }: { onContactClick?: () => void }
   };
 
   // Filter Logic
-  const displayedItems = NEWS_ITEMS.filter(item => {
-    if (selectedFilters.length === 0) return true;
-    return Array.isArray(item.category) ? item.category.some(cat => selectedFilters.includes(cat)) : selectedFilters.includes(item.category);
-  }).slice(0, visibleCount);
-
-  // Old filter logic (we can just replace filteredItems usage)
   const filteredItems = NEWS_ITEMS.filter(item => {
-    if (selectedFilters.length === 0) return true;
-    return selectedFilters.includes(item.category);
+    const matchesFilter = selectedFilters.length === 0 || (Array.isArray(item.category) ? item.category.some(cat => selectedFilters.includes(cat)) : selectedFilters.includes(item.category));
+    const matchesSearch = searchQuery === '' || item.title.toLowerCase().includes(searchQuery.toLowerCase()) || item.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
   });
 
-  const fadeUp = {
+  const displayedItems = filteredItems.slice(0, visibleCount);
+  
+const fadeUp = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
@@ -274,10 +272,15 @@ export function NewsroomPage({ onContactClick }: { onContactClick?: () => void }
                     <div className="flex items-center bg-[#EAEAEA] border border-[#CCCCCC]/50 px-4 py-3">
                         <Search className="w-4 h-4 text-[#666666] mr-3 group-focus-within:text-[#3C5929] transition-colors" />
                         <input 
-                            type="text" 
-                            placeholder="SEARCH" 
-                            className="w-full bg-transparent text-[#333333] placeholder-[#999999] font-mono text-[11px] font-bold tracking-widest uppercase focus:outline-none" 
-                        />
+                              type="text" 
+                              placeholder="SEARCH" 
+                              value={searchQuery}
+                              onChange={(e) => {
+                                setSearchQuery(e.target.value);
+                                setVisibleCount(4); // Reset pagination on search
+                              }}
+                              className="w-full bg-transparent text-[#333333] placeholder-[#999999] font-mono text-[11px] font-bold tracking-widest uppercase focus:outline-none" 
+                          />
                     </div>
                 </div>
             </motion.div>
