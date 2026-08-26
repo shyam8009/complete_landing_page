@@ -48,7 +48,7 @@ function Hero() {
             backgroundImage: `url('/src/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg')`, 
             backgroundSize: 'cover', 
             backgroundPosition: 'center',
-            filter: "grayscale(50%) brightness(0.2)"
+            filter: "grayscale(10%) brightness(0.6)"
           }}
         />
       </motion.div>
@@ -385,5 +385,7 @@ export default function AnnualReturnPage() {
     </div>
   );
 }
+
+
 
 

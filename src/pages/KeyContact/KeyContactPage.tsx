@@ -35,7 +35,7 @@ function Hero() {
             backgroundImage: `url('/assets/corporate_house_1.jpg')`, 
             backgroundSize: 'cover', 
             backgroundPosition: 'center',
-            filter: "grayscale(50%) brightness(0.2)"
+            filter: "grayscale(10%) brightness(0.6)"
           }}
         />
       </motion.div>
@@ -298,5 +298,7 @@ export default function KeyContactPage() {
     </div>
   );
 }
+
+
 
 

@@ -70,7 +70,7 @@ function Hero() {
           src={heroImg}
           alt=""
           className="w-full h-full object-cover"
-          style={{ filter: "grayscale(50%) brightness(0.15)" }}
+          style={{ filter: "grayscale(10%) brightness(0.6)" }}
         />
       </motion.div>
 
@@ -470,5 +470,7 @@ export default function GovernancePoliciesPage() {
     </div>
   );
 }
+
+
 
 

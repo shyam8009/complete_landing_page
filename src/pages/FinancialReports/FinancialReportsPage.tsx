@@ -52,7 +52,7 @@ function Hero() {
           src={heroImg}
           alt=""
           className="w-full h-full object-cover"
-          style={{ filter: "grayscale(30%) brightness(0.25)" }}
+          style={{ filter: "grayscale(10%) brightness(0.6)" }}
         />
       </motion.div>
 
@@ -375,5 +375,7 @@ export default function FinancialReportsPage() {
     </div>
   );
 }
+
+
 
 
