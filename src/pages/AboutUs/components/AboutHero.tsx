@@ -35,8 +35,8 @@ export default function AboutHero() {
       {/* Background Media */}
       <div 
         ref={heroRef}
-        className="absolute inset-0 z-0 opacity-40 bg-cover bg-center"
-        style={{ backgroundImage: 'url("/assets/Hardware_Spec_1.webp")' }}
+        className="absolute inset-0 z-0 opacity-80 bg-cover bg-center"
+        style={{ backgroundImage: 'url("/assets/about_hero_banner.jpeg")' }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#050505]" />
       </div>
@@ -61,4 +61,6 @@ export default function AboutHero() {
     </section>
   );
 }
+
+
 
