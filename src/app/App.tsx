@@ -192,9 +192,9 @@ const INVESTORS_DATA = [
     description: 'Access annual reports, financial disclosures and company performance documents.',
     url: '/investors/annual-reports',
     links: [
-      { text: 'Annual Report 2023-24', url: '/investors/annual-reports' },
-      { text: 'Annual Report 2022-23', url: '/investors/annual-reports' },
-      { text: 'Annual Report 2021-22', url: '/investors/annual-reports' },
+      { text: 'Annual Report 2023-24', url: '/documents/annual-reports/annual-report_2023-24.pdf' },
+      { text: 'Annual Report 2022-23', url: '/documents/annual-reports/annual-report_2022-23.pdf' },
+      { text: 'Annual Report 2021-22', url: '/documents/annual-reports/final_ar_2021-22.pdf' },
     ],
     cta: 'View All →'
   },
@@ -204,9 +204,9 @@ const INVESTORS_DATA = [
     description: 'Notices, agendas, and minutes for upcoming and past general meetings.',
     url: '/investors/general-meeting-notice',
     links: [
-      { text: 'AGM Notice 28-09-2024', url: '/investors/general-meeting-notice' },
-      { text: 'AGM Notice 30-09-2023', url: '/investors/general-meeting-notice' },
-      { text: 'EGM Notice 06-12-2024', url: '/investors/general-meeting-notice' },
+      { text: 'AGM Notice 28-09-2024', url: '/documents/agm/AGM Notice 28-09-2024.pdf' },
+      { text: 'AGM Notice 30-09-2023', url: '/documents/agm/AGM-Notice-30-09-23.pdf' },
+      { text: 'EGM Notice 06-12-2024', url: '/documents/egm/EGM Notice 06-12-2024.pdf' },
     ],
     cta: 'View All Notices →'
   },
@@ -216,9 +216,9 @@ const INVESTORS_DATA = [
     description: 'Our commitment to ethical business practices and corporate integrity.',
     url: '/investors/code-of-conduct-policies',
     links: [
-      { text: "Code of Conduct for Company's Personnel", url: '/investors/code-of-conduct-policies' },
-      { text: 'Code of Conduct – Independent Directors', url: '/investors/code-of-conduct-policies' },
-      { text: 'Fair Disclosure of UPSI', url: '/investors/code-of-conduct-policies' },
+      { text: "Code of Conduct for Company's Personnel", url: "/documents/code-of-conduct/Code of Conduct for Company's Personnel.pdf" },
+      { text: 'Code of Conduct – Independent Directors', url: '/documents/code-of-conduct/Code of Conduct of Independent Directors.pdf' },
+      { text: 'Fair Disclosure of UPSI', url: '/documents/code-of-conduct/Fair Disclosure Of UPSI.pdf' },
     ],
     cta: 'View Policies →'
   },
@@ -228,9 +228,9 @@ const INVESTORS_DATA = [
     description: 'Statutory annual returns filed with regulatory authorities.',
     url: '/investors/annual-return',
     links: [
-      { text: 'Form MGT 7 2023-24', url: '/investors/annual-return' },
-      { text: 'Form MGT 7A 2022-23', url: '/investors/annual-return' },
-      { text: 'Form MGT 7 2021-22', url: '/investors/annual-return' },
+      { text: 'Form MGT 7 2023-24', url: '/documents/annual-returns/Form MGT 7 2023-24.pdf' },
+      { text: 'Form MGT 7A 2022-23', url: '/documents/annual-returns/Form MGT 7A 2022-23.pdf' },
+      { text: 'Form MGT 7 2021-22', url: '/documents/annual-returns/Form MGT 7 2021-22.pdf' },
     ],
     cta: 'View Returns →'
   },
@@ -240,9 +240,9 @@ const INVESTORS_DATA = [
     description: 'Operational and strategic policies governing our organization.',
     url: '/investors/policies',
     links: [
-      { text: 'Nomination & Remuneration Policy', url: '/investors/policies' },
-      { text: 'Risk Management Policy', url: '/investors/policies' },
-      { text: 'Anti Corruption & Anti Bribery Policy', url: '/investors/policies' },
+      { text: 'Nomination & Remuneration Policy', url: '/documents/policies/Nomination And Remuneration Policy.pdf' },
+      { text: 'Risk Management Policy', url: '/documents/policies/Risk Management Policy.pdf' },
+      { text: 'Anti Corruption & Anti Bribery Policy', url: '/documents/policies/Anti Corruption Anti Bribery Policy.pdf' },
     ],
     cta: 'View All Policies →'
   },
@@ -252,9 +252,9 @@ const INVESTORS_DATA = [
     description: 'Resources and updates for our valued shareholders and investors.',
     url: '/investors/shareholder-info',
     links: [
-      { text: 'Softvan Limited – FY 2024-25', url: '/investors/shareholder-info' },
-      { text: 'Softvan Labs – FY 2024-25', url: '/investors/shareholder-info' },
-      { text: 'Sourceved Technologies – FY 2024-25', url: '/investors/shareholder-info' },
+      { text: 'Softvan Limited – FY 2024-25', url: '/documents/shareholders/Softvan Limited/Financials for FY 2024-25.pdf' },
+      { text: 'Softvan Labs – FY 2024-25', url: '/documents/shareholders/Softvan Labs Private Limited/Financials for FY 2024-25.pdf' },
+      { text: 'Sourceved Technologies – FY 2024-25', url: '/documents/shareholders/Sourceved Technalogies private Limited/Financials for FY 2024-25.pdf' },
     ],
     cta: 'Investor Desk →'
   },
@@ -782,7 +782,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
                 <div 
                   key={idx} 
                   className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
-                  onClick={() => { setHoveredNav(null); if (navigate) navigate(link.url); }}
+                  onClick={() => { setHoveredNav(null); window.open(link.url, '_blank'); }}
                 >
                   <div className="w-[24px] h-[24px] shrink-0 text-white/20 group-hover:text-[#84CC16] transition-colors flex items-center justify-center">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
