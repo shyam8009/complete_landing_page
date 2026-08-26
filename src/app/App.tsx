@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GuardianExperiencePage } from '../pages/GuardianExperience/GuardianExperiencePage';
+import { NewsroomPage } from '../pages/Newsroom/NewsroomPage';
 import { SahanaFpvProductPage } from '../pages/SahanaFpv/SahanaFpvProductPage';
 import { FpvBuddyPage } from '../pages/FpvBuddy/FpvBuddyPage';
 import { VarunaPage } from '../pages/Varuna/VarunaPage';
@@ -828,7 +829,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
           <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-3 px-2">Newsroom</h4>
           <div className="flex flex-col gap-1">
             {['Press Release', 'Events', 'Awards'].map(item => (
-              <a key={item} href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} className="group flex items-center justify-between px-2 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-all" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <a key={item} onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/newsroom'); }} className="cursor-pointer group flex items-center justify-between px-2 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-all" style={{ fontFamily: 'Inter, sans-serif' }}>
                 <span>{item}</span>
                 <span className="text-[#84CC16] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">â†’</span>
               </a>
@@ -893,7 +894,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
           </div>
           
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Investors</a>
-          <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Newsroom</a>
+          <Link to="/newsroom" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => setMobileMenuOpen(false)}>Newsroom</Link>
           <a href="/about-us" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">About Us</a>
           <a onClick={(e) => { e.preventDefault(); onContactClick(); setMobileMenuOpen(false); }} className="py-4 text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mt-4 border border-[#84CC16]/30 text-center rounded-sm bg-[#84CC16]/5 cursor-pointer">Contact Us</a>
 
@@ -2341,6 +2342,7 @@ export default function App() {
           <Route path="/quantum-technology-solutions/quantum-sensing/rydberg-atom-quantum-sensors" element={<RydbergAtomQuantumSensorsPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-drone" element={<QuantumDronePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-clock-source" element={<QuantumClockSourcePage />} />
+          <Route path="/newsroom" element={<NewsroomPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
         </Routes>
         <Footer onContactClick={() => setIsContactModalOpen(true)} />
@@ -2349,6 +2351,9 @@ export default function App() {
     </div>
   );
 }
+
+
+
 
 
 
