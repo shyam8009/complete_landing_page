@@ -53,9 +53,9 @@ export default function AboutValues() {
                 {/* Full-Bleed Background Image */}
                 <div 
                   className={`absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-700 ease-out z-0 ${
-                    isActive ? 'opacity-100 scale-100 grayscale-0' : 'opacity-40 scale-105 grayscale'
+                    isActive ? 'opacity-100 scale-100 grayscale-0' : 'opacity-0 scale-105 grayscale'
                   }`}
-                  style={{ backgroundImage: `url(${val.image})` }}
+                  style={{ backgroundImage: `url('${val.image}')` }}
                 />
 
                 {/* Gradient overlay to ensure text readability against the image */}
@@ -78,3 +78,5 @@ export default function AboutValues() {
     </section>
   );
 }
+
+
