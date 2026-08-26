@@ -370,7 +370,7 @@ const TRUST_BAR_DATA = [
   }
 ];
 
-function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHeroFinished: (val: boolean) => void }) {
+function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: boolean, setHeroFinished: (val: boolean) => void, onContactClick: () => void }) {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
@@ -509,7 +509,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         <div className="hidden lg:flex items-center gap-6">
           <a 
             href="#" 
-            onClick={(e) => { e.preventDefault(); setHoveredNav(null); setIsContactModalOpen(true); }} className={`font-bold tracking-[1px] uppercase border cursor-pointer border-white/20 hover:border-white/40 hover:text-[#84CC16] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-sm text-white ${scrolled ? "px-4 py-1.5 text-[12px]" : "px-6 py-2.5 text-[14px]"}`}
+            onClick={(e) => { e.preventDefault(); setHoveredNav(null); onContactClick(); }} className={`font-bold tracking-[1px] uppercase border cursor-pointer border-white/20 hover:border-white/40 hover:text-[#84CC16] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-sm text-white ${scrolled ? "px-4 py-1.5 text-[12px]" : "px-6 py-2.5 text-[14px]"}`}
           >
             Contact Us
           </a>
@@ -895,7 +895,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Investors</a>
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Newsroom</a>
           <a href="/about-us" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">About Us</a>
-          <a onClick={(e) => { e.preventDefault(); setIsContactModalOpen(true); setMobileMenuOpen(false); }} className="py-4 text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mt-4 border border-[#84CC16]/30 text-center rounded-sm bg-[#84CC16]/5 cursor-pointer">Contact Us</a>
+          <a onClick={(e) => { e.preventDefault(); onContactClick(); setMobileMenuOpen(false); }} className="py-4 text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mt-4 border border-[#84CC16]/30 text-center rounded-sm bg-[#84CC16]/5 cursor-pointer">Contact Us</a>
 
         </div>
       </div>
@@ -2267,7 +2267,7 @@ export default function App() {
   return (
     <div className="w-full min-h-screen bg-black overflow-x-clip" style={{ fontFamily: INTER }}>
       <ScrollToTop />
-      <Nav heroFinished={heroFinished} setHeroFinished={setHeroFinished} />
+      <Nav heroFinished={heroFinished} setHeroFinished={setHeroFinished} onContactClick={() => setIsContactModalOpen(true)} />
       {/* Content wrapper without artificial padding, so the Hero starts exactly at top-0 */}
       <div className="w-full">
         <Routes>
@@ -2349,6 +2349,8 @@ export default function App() {
     </div>
   );
 }
+
+
 
 
 
