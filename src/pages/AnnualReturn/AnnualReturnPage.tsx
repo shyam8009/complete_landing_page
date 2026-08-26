@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import heroImg from '@/imports/corporate_house_1.jpg'; // Using placeholder
+import heroImg from '@/imports/investor_hero.webp';
 import { TechCTA } from '@/components/TechCTA';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
@@ -385,4 +385,5 @@ export default function AnnualReturnPage() {
     </div>
   );
 }
+
 

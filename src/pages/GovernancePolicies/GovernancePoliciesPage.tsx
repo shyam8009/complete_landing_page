@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import heroImg from '@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg';
+import heroImg from '@/imports/investor_hero.webp';
 import { TechCTA } from '@/components/TechCTA';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
@@ -470,4 +470,5 @@ export default function GovernancePoliciesPage() {
     </div>
   );
 }
+
 

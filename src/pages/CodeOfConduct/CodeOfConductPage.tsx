@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import heroImg from '@/imports/corporate_house_2.jpg'; // We'll just use a placeholder from what we know, or default
+import heroImg from '@/imports/investor_hero.webp';
 import { TechCTA } from '@/components/TechCTA';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
@@ -424,4 +424,5 @@ export default function CodeOfConductPage() {
     </div>
   );
 }
+
 
