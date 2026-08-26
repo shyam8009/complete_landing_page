@@ -1,12 +1,59 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ArrowRight, ChevronDown, Check } from 'lucide-react';
+import { Search, ArrowRight, ChevronDown, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import celImage from '@/imports/news_cel_agreement.png';
 import celSigningImg from '@/imports/news_cel_signing.png';
 import event1Img from '@/imports/event1_military.png';
 import event3Img from '@/imports/event3_expo.png';
 import award1Img from '@/imports/award1.png';
 import award2Img from '@/imports/award2.png';
+import spaceDay1Img from '@/imports/space_day_1.jpeg';
+import spaceDay2Img from '@/imports/space_day_2.jpeg';
+
+// Helper component for rendering multiple images as a slider
+const ImageSlider = ({ images }: { images: string[] }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3500); // Auto slide every 3.5s
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="w-full h-full relative overflow-hidden group/slider bg-black">
+      {images.map((img, idx) => (
+        <img
+          key={idx}
+          src={img}
+          alt={`Slide ${idx + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            idx === currentIndex ? 'opacity-90' : 'opacity-0'
+          } group-hover/slider:scale-105 transition-transform`}
+        />
+      ))}
+      
+      {/* Navigation Controls */}
+      <div className="absolute inset-x-0 bottom-4 flex justify-center items-center gap-2 z-10">
+        {images.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent clicking the card link
+              setCurrentIndex(idx);
+            }}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              idx === currentIndex ? 'w-6 bg-[#3C5929]' : 'w-2 bg-white/70 hover:bg-white'
+            } shadow-sm`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const NEWS_ITEMS = [
   {
@@ -16,6 +63,15 @@ const NEWS_ITEMS = [
     title: 'Sahana Defence Signs Strategic Manufacturing Agreement with CEL',
     description: "Sahana Defence has entered into a Contract Agreement with Central Electronics Limited (CEL) to expand India's indigenous defence manufacturing capabilities. The partnership will support the establishment of a dedicated facility focused on Electronic Warfare systems, weapon systems, defence peripherals, and advanced DefenceTech solutions, reinforcing the nation's vision for self-reliance in defence production.",
     image: celSigningImg,
+    link: '#'
+  },
+  {
+    id: 7,
+    category: 'EVENTS',
+    date: 'AUG 23, 2026',
+    title: 'Sahana Defence showcased its capabilities at National Space Day 2026',
+    description: "Sahana Defence marked its presence at the event by presenting its work and contributions to India's evolving space and defence ecosystem before distinguished leaders and industry stakeholders.",
+    images: [spaceDay1Img, spaceDay2Img],
     link: '#'
   },
   {
@@ -205,12 +261,16 @@ export function NewsroomPage() {
                             className="bg-white rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden flex flex-col group cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 min-h-[400px]"
                         >
                             <div className="h-64 w-full overflow-hidden relative bg-gray-100">
-                                <img 
-                                  src={item.image} 
-                                  alt={item.title} 
-                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90" 
-                                />
-                                <div className="absolute top-4 left-4">
+                                {item.images ? (
+                                    <ImageSlider images={item.images} />
+                                ) : (
+                                    <img 
+                                      src={item.image} 
+                                      alt={item.title} 
+                                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90" 
+                                    />
+                                )}
+                                <div className="absolute top-4 left-4 z-20 pointer-events-none">
                                     <span className="font-mono text-[10px] text-black bg-white/90 backdrop-blur-sm px-3 py-1.5 tracking-widest uppercase rounded-full shadow-sm font-bold">
                                         {item.category}
                                     </span>
