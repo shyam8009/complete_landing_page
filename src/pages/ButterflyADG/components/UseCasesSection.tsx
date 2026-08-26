@@ -1,9 +1,9 @@
 ﻿import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import convoyImg from '../../../imports/infinity-rhino/magnific_professional-editorialtac_brmMBWU5Y2.png';
-import baseImg from '../../../imports/infinity-rhino/magnific_professional-editorialtac_wPKaCMd7EI.jpeg';
-import motorcadeImg from '../../../imports/infinity-rhino/magnific_professional-highspeed-ac_1sfdHynr4r.jpeg';
+import convoyImg from '../../../imports/butterfly_adg/air_defence_gun_integration.webp';
+import baseImg from '../../../imports/butterfly_adg/high_altitude_operations.webp';
+import motorcadeImg from '../../../imports/butterfly_adg/dynamic_battlefield_environments.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
