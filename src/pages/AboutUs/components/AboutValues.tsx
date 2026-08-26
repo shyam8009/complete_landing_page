@@ -5,19 +5,19 @@ const INTER = "'Inter', sans-serif";
 const VALUES = [
   {
     title: 'Do what honor dictates',
-    image: '/assets/honor_dictates.jpg'
+    image: '/assets/honor_dictates_v2.jpeg'
   },
   {
     title: 'Live as a servant leader',
-    image: '/assets/servant_leader.jpg'
+    image: '/assets/servant_leader_v2.jpg'
   },
   {
     title: 'Pursue excellence',
-    image: '/assets/pursue_excellence.jpg'
+    image: '/assets/pursue_excellence_v2.jpeg'
   },
   {
     title: 'Sovereign security',
-    image: '/assets/sovereign_security.jpg'
+    image: '/assets/sovereign_security_v2.jpg'
   }
 ];
 
