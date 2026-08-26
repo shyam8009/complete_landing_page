@@ -2,58 +2,29 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ArrowRight, ChevronDown, Check } from 'lucide-react';
 import celImage from '@/imports/news_cel_agreement.png';
+import celSigningImg from '@/imports/news_cel_signing.png';
+import event1Img from '@/imports/event1_military.png';
+import event3Img from '@/imports/event3_expo.png';
 
 const NEWS_ITEMS = [
   {
     id: 1,
     category: 'PRESS RELEASE',
-    date: 'AUGUST 20, 2026',
-    title: 'Sahana Defence Zooms on Bagging ?24.69 Cr Order for Advanced Drone Detection System.',
-    description: "Central Electronics Limited (CEL) mandates Sahana Defence to design, supply, and commission an integrated RF and radar-based drone detection and jamming system, cementing our role in 'Aatma Nirbhar Bharat'.",
-    image: celImage
+    date: 'JUN 26, 2026',
+    title: 'Sahana Defence Signs Strategic Manufacturing Agreement with CEL',
+    description: "Sahana Defence has entered into a Contract Agreement with Central Electronics Limited (CEL) to expand India's indigenous defence manufacturing capabilities. The partnership will support the establishment of a dedicated facility focused on Electronic Warfare systems, weapon systems, defence peripherals, and advanced DefenceTech solutions, reinforcing the nation's vision for self-reliance in defence production.",
+    image: celSigningImg
   },
   {
     id: 2,
-    category: 'CONTRACTS',
-    date: 'JUL 04, 2025',
-    title: 'Sahana System Subsidiary Secures ?8.01 Cr Contract for Indian Navy RF Infrastructure.',
-    description: "Upgrading critical non-RF infrastructure for the Indian Navy's RF measurement systems to ensure optimal maritime communication readiness.",
-    image: celImage
-  },
-  {
-    id: 3,
-    category: 'CASE STUDIES',
-    date: 'JUL 10, 2023',
-    title: 'Tactical Anti-Drone Solutions Deployed for Large-Scale Public Security.',
-    description: 'Infinity Radar, a Sahana brand, successfully neutralizes aerial threats using advanced long-range anti-drone technology during high-profile national events.',
-    image: celImage
-  },
-  {
-    id: 4,
-    category: 'SOVEREIGN AI',
-    date: 'SEP 15, 2025',
-    title: 'Advancing Information Warfare with Indigenous AI-Driven Signal Intelligence.',
-    description: 'Sahana Defence announces breakthroughs in machine learning classification for rapid threat identification in congested RF environments.',
-    image: celImage
-  },
-  {
-    id: 5,
-    category: 'ELECTRONIC WARFARE',
-    date: 'MAR 22, 2026',
-    title: 'Next-Gen Anti-Jamming GPS Systems Built for Contested Environments.',
-    description: 'Developing robust positioning, navigation, and timing (PNT) assurance modules to protect critical assets from electronic spoofing.',
-    image: celImage
-  },
-  {
-    id: 6,
     category: 'EVENTS',
     date: 'NOV 26, 2025',
     title: 'Sahana showcased advanced drone and anti-drone capabilities at the Military–Civil Fusion Seminar',
     description: "An overview of Sahana's defence innovations in UAS and C-UAS systems, highlighting strategic impact, expert validation, and contributions to future-ready warfare capabilities.",
-    image: celImage
+    image: event1Img
   },
   {
-    id: 7,
+    id: 3,
     category: 'EVENTS',
     date: 'OCT 12, 2025',
     title: 'Sahana highlighted its defence technology leadership at the SIDM expo, reinforcing Make in India initiative',
@@ -61,12 +32,12 @@ const NEWS_ITEMS = [
     image: celImage
   },
   {
-    id: 8,
+    id: 4,
     category: 'EVENTS',
     date: 'SEP 05, 2025',
     title: 'Sahana demonstrated operational defence capabilities at the expo, led from its Defence Tech leadership',
     description: 'An inside view of how Sahana bridges field experience with product innovation, enabling meaningful defence engagements and showcasing operational readiness to key stakeholders.',
-    image: celImage
+    image: event3Img
   }
 ];
 
@@ -278,3 +249,5 @@ export function NewsroomPage() {
     </div>
   );
 }
+
+
