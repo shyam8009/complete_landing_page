@@ -2342,7 +2342,7 @@ export default function App() {
           <Route path="/quantum-technology-solutions/quantum-sensing/rydberg-atom-quantum-sensors" element={<RydbergAtomQuantumSensorsPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-drone" element={<QuantumDronePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-clock-source" element={<QuantumClockSourcePage />} />
-          <Route path="/newsroom" element={<NewsroomPage />} />
+          <Route path="/newsroom" element={<NewsroomPage onContactClick={() => setIsContactModalOpen(true)} />} />
           <Route path="/about-us" element={<AboutUsPage />} />
         </Routes>
         <Footer onContactClick={() => setIsContactModalOpen(true)} />

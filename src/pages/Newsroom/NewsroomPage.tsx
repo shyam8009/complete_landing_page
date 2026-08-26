@@ -124,7 +124,7 @@ const NEWS_ITEMS = [
 
 const FILTER_OPTIONS = ['AWARDS', 'CONTRACTS', 'EVENTS', 'PRESS RELEASE'];
 
-export function NewsroomPage() {
+export function NewsroomPage({ onContactClick }: { onContactClick?: () => void }) {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [visibleCount, setVisibleCount] = useState(4);
@@ -341,7 +341,7 @@ export function NewsroomPage() {
                     <h2 className="text-3xl md:text-4xl font-light text-white mb-6 leading-tight">BUILDING SOVEREIGN DEFENCE TECH FOR MISSION-CRITICAL OPERATIONS</h2>
                     <p className="text-[#A1A1A1] font-mono text-sm mb-10 max-w-xl leading-relaxed">Partner with Sahana Defence for advanced electronic warfare and AI systems.</p>
                     <div className="flex flex-wrap gap-4">
-                        <button onClick={() => window.location.href = '/investors/key-contact'} className="bg-[#3C5929] hover:bg-[#4E7335] text-white font-mono text-[11px] font-bold px-8 py-4 tracking-[0.2em] transition-colors rounded-full">
+                        <button onClick={onContactClick} className="bg-[#3C5929] hover:bg-[#4E7335] text-white font-mono text-[11px] font-bold px-8 py-4 tracking-[0.2em] transition-colors rounded-full">
                             INQUIRE FOR PROCUREMENT
                         </button>
                         
