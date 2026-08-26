@@ -1,77 +1,102 @@
-﻿import React from 'react';
-import { Target, Server, Map } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import img1 from '../../../imports/drone_radar_3d/c2_integration.webp';
+import img2 from '../../../imports/rf_detector/rapid_deployment_mast.webp';
+import img3 from '../../../imports/drone_radar_3d/border_surveillance.webp';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const USE_CASES = [
   {
-    icon: Server,
-    category: 'SYSTEM INTEGRATION',
+    id: "01",
     title: 'C2 & Electro-Optical Pairing',
-    description: 'Designed for seamless pairing with electro-optical video systems to facilitate visual identification and real-time assessments. Integrates flawlessly into existing C2 infrastructures via standardized APIs.'
+    image: img1
   },
   {
-    icon: Target,
-    category: 'DEPLOYMENT PLATFORMS',
+    id: "02",
     title: 'Mobile & Stationary Mounts',
-    description: 'Fully compatible with stationary security masts, permanent tower arrays, and mobile surveillance vehicle configurations for rapid deployment in tactical environments.'
+    image: img2
   },
   {
-    icon: Map,
-    category: 'MISSION PROFILES',
+    id: "03",
     title: 'Border & Asset Defense',
-    description: 'Optimized for national border security enhancement, critical infrastructure facility protection, maritime coastal line defense monitoring, and wildlife conservation tracking.'
+    image: img3
   }
 ];
 
 export function UseCasesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(cardsRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 70%',
+          }
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="section-padding bg-black border-t border-white/5 relative">
+    <section ref={sectionRef} className="section-padding bg-black relative">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
         
-        <div className="mb-16 text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 uppercase tracking-tight">
-            INTEGRATION & <br /> OPERATIONAL PROFILES
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">
+            TACTICAL APPLICATIONS
           </h2>
-          <p className="text-white/60 text-lg">
-            Built to adapt to any deployment scenario, from permanent installations to rapid-response mobile units.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {USE_CASES.map((useCase, idx) => {
-            const Icon = useCase.icon;
-            return (
-              <div 
-                key={idx} 
-                className="group relative p-8 bg-[#050505] border border-white/10 rounded-xl hover:bg-[#0a0a0a] transition-colors duration-500 overflow-hidden flex flex-col"
-              >
-                {/* Hover gradient effect */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#84CC16]/5 rounded-bl-full group-hover:scale-[2] transition-transform duration-700 ease-out" />
-                
-                <div className="relative z-10 flex-grow">
-                  <div className="w-12 h-12 rounded-lg bg-black border border-white/10 flex items-center justify-center mb-8 group-hover:border-[#84CC16]/30 transition-colors">
-                    <Icon className="w-5 h-5 text-[#84CC16]" />
-                  </div>
-                  
-                  <div className="text-[#84CC16] font-mono text-xs uppercase tracking-widest mb-3">
-                    // {useCase.category}
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-white mb-4 leading-tight group-hover:text-white/90 transition-colors">
+          {USE_CASES.map((useCase, index) => (
+            <div 
+              key={useCase.id} 
+              ref={el => cardsRef.current[index] = el}
+              className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10"
+            >
+              {/* Background Image */}
+              <img 
+                src={useCase.image} 
+                alt={useCase.title} 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+              
+              {/* Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500" />
+              
+              {/* Green Tint Hover Overlay */}
+              <div className="absolute inset-0 bg-[#84CC16]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
+              
+              {/* Content */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="transform group-hover:-translate-y-2 transition-transform duration-500">
+                  <span className="text-[#84CC16] font-mono text-sm tracking-widest font-bold mb-2 block">
+                    {useCase.id}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white uppercase leading-tight">
                     {useCase.title}
                   </h3>
-                  
-                  <p className="text-white/60 leading-relaxed text-sm">
-                    {useCase.description}
-                  </p>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
       </div>
     </section>
   );
 }
-
-
