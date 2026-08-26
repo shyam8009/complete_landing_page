@@ -122,7 +122,7 @@ const NEWS_ITEMS = [
   }
 ];
 
-const FILTER_OPTIONS = ['AWARDS', 'CONTRACTS', 'ELECTRONIC WARFARE', 'EVENTS', 'PRESS RELEASE'];
+const FILTER_OPTIONS = ['AWARDS', 'CONTRACTS', 'EVENTS', 'PRESS RELEASE'];
 
 export function NewsroomPage() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
