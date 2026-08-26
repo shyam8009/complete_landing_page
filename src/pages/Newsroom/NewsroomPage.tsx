@@ -22,7 +22,7 @@ const NEWS_ITEMS = [
     id: 2,
     category: 'EVENTS',
     date: 'NOV 26, 2025',
-    title: 'Sahana showcased advanced drone and anti-drone capabilities at the Military–Civil Fusion Seminar',
+    title: 'Sahana showcased advanced drone and anti-drone capabilities at the Military-Civil Fusion Seminar',
     description: "An overview of Sahana's defence innovations in UAS and C-UAS systems, highlighting strategic impact, expert validation, and contributions to future-ready warfare capabilities.",
     image: event1Img,
     link: 'https://www.linkedin.com/feed/update/urn:li:activity:7400056268515770368'
@@ -49,8 +49,8 @@ const NEWS_ITEMS = [
     id: 5,
     category: 'AWARDS',
     date: '2025',
-    title: 'Sahana’s Managing Director honoured with the Entrepreneur of the Year Award at Nirman Conclave & Awards 2025',
-    description: 'A recognition of visionary leadership, innovation-driven growth, and Sahana’s continued commitment to building globally impactful technology and engineering solutions.',
+    title: "Sahana's Managing Director honoured with the Entrepreneur of the Year Award at Nirman Conclave & Awards 2025",
+    description: "A recognition of visionary leadership, innovation-driven growth, and Sahana's continued commitment to building globally impactful technology and engineering solutions.",
     image: award1Img,
     link: '#'
   },
@@ -58,7 +58,7 @@ const NEWS_ITEMS = [
     id: 6,
     category: 'AWARDS',
     date: '2021',
-    title: 'InfinityRadar, a Sahana System Group company, received the Emerging Company of the Year 2020–2021 recognition from the Indian Achievers Forum',
+    title: 'InfinityRadar, a Sahana System Group company, received the Emerging Company of the Year 2020-2021 recognition from the Indian Achievers Forum',
     description: 'A proud milestone celebrating innovation, business growth, and the continued commitment to building impactful technology-driven solutions across industries.',
     image: award2Img,
     link: '#'
@@ -274,7 +274,3 @@ export function NewsroomPage() {
     </div>
   );
 }
-
-
-
-
