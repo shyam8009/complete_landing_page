@@ -49,7 +49,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         >
           {/* Top Header */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-800 bg-black sticky top-0 z-10">
-            <img src="/assets/logo-sahana.png" alt="Sahana Defence" className="h-20 sm:h-24 lg:h-28 w-auto object-contain" />
+            <img src="/assets/logo-sahana.png" alt="Sahana Defence" className="h-10 lg:h-12 w-auto object-contain scale-[2.0] sm:scale-[2.5] origin-left ml-2 sm:ml-4" />
             <button 
               onClick={onClose}
               className="p-2 text-neutral-400 hover:text-white rounded-none transition-colors flex items-center gap-2 text-sm uppercase tracking-widest"
@@ -267,6 +267,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 };
 
 export default ContactModal;
+
 
 
 
