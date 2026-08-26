@@ -158,10 +158,10 @@ export default function AboutDomains() {
         <AnimatePresence>
           <motion.div
             key={activeIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: 'easeInOut' }}
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '-20%', opacity: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="absolute inset-0"
           >
             <div 
@@ -179,6 +179,7 @@ export default function AboutDomains() {
     </section>
   );
 }
+
 
 
 
