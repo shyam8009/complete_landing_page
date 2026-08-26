@@ -1515,15 +1515,21 @@ function Footer({ onContactClick }: { onContactClick?: () => void }) {
           Copyright Â© 2026 Sahana Defence
         </p>
         <div className="flex flex-row flex-wrap gap-x-6 gap-y-2">
-          {["Privacy Policy", "Terms of Use", "Modern Anti-Slavery Policy", "Investor Relations"].map(
+          {[{label: "Privacy Policy", url: "/privacy-policy"}, {label: "Terms of Use", url: "#"}, {label: "Modern Anti-Slavery Policy", url: "#"}, {label: "Investor Relations", url: "#"}].map(
             (item) => (
               <a
-                key={item}
-                href="#"
-                className="text-white/60 text-xs uppercase tracking-[0.54px] capitalize hover:text-white/90 transition-colors"
+                key={item.label}
+                onClick={(e) => { 
+                  if (item.url !== '#') {
+                    e.preventDefault();
+                    navigate(item.url);
+                  }
+                }}
+                href={item.url}
+                className="text-white/60 text-xs uppercase tracking-[0.54px] capitalize hover:text-white/90 transition-colors cursor-pointer"
                 style={{ fontFamily: INTER, fontWeight: 500 }}
               >
-                {item}
+                {item.label}
               </a>
             )
           )}
