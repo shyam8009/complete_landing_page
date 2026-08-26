@@ -127,6 +127,7 @@ const FILTER_OPTIONS = ['AWARDS', 'CONTRACTS', 'EVENTS', 'PRESS RELEASE'];
 export function NewsroomPage() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [visibleCount, setVisibleCount] = useState(4);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -144,6 +145,7 @@ export function NewsroomPage() {
   }, []);
 
   const toggleFilter = (filter: string) => {
+    setVisibleCount(4);
     setSelectedFilters(prev => 
       prev.includes(filter) 
         ? prev.filter(f => f !== filter)
@@ -152,6 +154,12 @@ export function NewsroomPage() {
   };
 
   // Filter Logic
+  const displayedItems = NEWS_ITEMS.filter(item => {
+    if (selectedFilters.length === 0) return true;
+    return selectedFilters.includes(item.category);
+  }).slice(0, visibleCount);
+
+  // Old filter logic (we can just replace filteredItems usage)
   const filteredItems = NEWS_ITEMS.filter(item => {
     if (selectedFilters.length === 0) return true;
     return selectedFilters.includes(item.category);
@@ -250,7 +258,7 @@ export function NewsroomPage() {
               className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 relative z-20"
             >
                 <AnimatePresence mode="popLayout">
-                    {filteredItems.map(item => (
+                    {displayedItems.map(item => (
                         <motion.div 
                             key={item.id}
                             layout
@@ -305,7 +313,7 @@ export function NewsroomPage() {
                         </motion.div>
                     ))}
                     
-                    {filteredItems.length === 0 && (
+                    {displayedItems.length === 0 && (
                         <div className="col-span-full py-20 text-center">
                             <p className="text-xl text-[#666666] font-mono">No dispatches found for the selected filters.</p>
                         </div>
@@ -314,10 +322,13 @@ export function NewsroomPage() {
             </motion.div>
 
             {/* INTERACTIVE LOAD MORE */}
-            {filteredItems.length > 0 && (
+            {filteredItems.length > visibleCount && (
                 <motion.div {...fadeUp} className="flex justify-center mb-24">
-                    <button className="border border-[#3C5929] text-[#3C5929] hover:bg-[#3C5929] hover:text-white font-mono text-sm px-8 py-3 tracking-widest transition-all">
-                        LOAD MORE DISPATCHES
+                    <button 
+                      onClick={() => setVisibleCount(prev => prev + 4)}
+                      className="border border-[#3C5929] text-[#3C5929] hover:bg-[#3C5929] hover:text-white font-mono text-sm px-8 py-3 tracking-widest transition-all"
+                    >
+                        LOAD MORE
                     </button>
                 </motion.div>
             )}
