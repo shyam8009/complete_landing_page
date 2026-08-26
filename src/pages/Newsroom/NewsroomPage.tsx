@@ -11,6 +11,7 @@ import spaceDay1Img from '@/imports/space_day_1.jpeg';
 import spaceDay2Img from '@/imports/space_day_2.jpeg';
 import isroInfitronImg from '@/imports/news_isro_infitron.png';
 import sidmMembershipImg from '@/imports/news_sidm_membership.png';
+import belEmpanelmentImg from '@/imports/news_bel_empanelment.jpeg';
 import sidmExpoVid from '@/imports/sidm_expo.mp4';
 
 // Helper component for rendering multiple images as a slider
@@ -123,6 +124,15 @@ const NEWS_ITEMS = [
     link: 'https://www.linkedin.com/feed/update/urn:li:activity:7376576020293951488'
   },
   {
+    id: 10,
+    category: ['CONTRACTS', 'PRESS RELEASE'],
+    date: 'JUL 21, 2025',
+    title: "Sahana is now officially empaneled as a design service provider with Bharat Electronics Limited (BEL).",
+    description: "Sahana System Limited announces its strategic empanelment as a Design Service Provider for Bharat Electronics Limited, strengthening defence technology and engineering capabilities.",
+    image: belEmpanelmentImg,
+    link: '#'
+  },
+  {
     id: 5,
     category: 'AWARDS',
     date: '2025',
@@ -176,7 +186,7 @@ export function NewsroomPage({ onContactClick }: { onContactClick?: () => void }
   // Filter Logic
   const displayedItems = NEWS_ITEMS.filter(item => {
     if (selectedFilters.length === 0) return true;
-    return selectedFilters.includes(item.category);
+    return Array.isArray(item.category) ? item.category.some(cat => selectedFilters.includes(cat)) : selectedFilters.includes(item.category);
   }).slice(0, visibleCount);
 
   // Old filter logic (we can just replace filteredItems usage)
