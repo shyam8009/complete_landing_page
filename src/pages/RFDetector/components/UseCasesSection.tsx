@@ -1,9 +1,9 @@
 ﻿import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import fobImg from '../../../imports/infinity-rhino/magnific_professional-editorialtac_wPKaCMd7EI.jpeg';
-import borderImg from '../../../imports/infinity-rhino/magnific_professional-editorialtac_brmMBWU5Y2.png';
-import vipImg from '../../../imports/corporate_house_2.jpg';
+import fobImg from '../../../imports/rf_detector/forward_operating_bases.webp';
+import borderImg from '../../../imports/rf_detector/border_surveillance.webp';
+import vipImg from '../../../imports/rf_detector/vip_event_security.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

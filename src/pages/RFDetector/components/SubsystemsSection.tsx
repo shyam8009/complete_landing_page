@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import antennasImg from '../../../imports/rf-detector-d360/magnific_professional-outdoor-prod_cD6FVO40eP.png';
-import processingImg from '../../../imports/rf-detector-d360/magnific_professional-highend-prod_KjvR16Ckqp.png';
-import mastImg from '../../../imports/infinity-rhino/magnific_professional-highspeed-ac_1sfdHynr4r.jpeg';
+import antennasImg from '../../../imports/rf_detector/wideband_antennas.webp';
+import processingImg from '../../../imports/rf_detector/signal_processing_unit.webp';
+import mastImg from '../../../imports/rf_detector/rapid_deployment_mast.webp';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [
