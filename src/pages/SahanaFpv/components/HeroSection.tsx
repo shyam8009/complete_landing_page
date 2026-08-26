@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import fpvHeroBg from '../../../imports/Hero banner Video.mp4';
+import fpvHeroBg from '../../../imports/fpv_bullseye/hero_video.mp4';
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';

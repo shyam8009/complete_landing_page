@@ -1,9 +1,9 @@
 ﻿import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import counterUasImg from '../../../imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg';
-import reconImg from '../../../imports/magnific_professional-outdoor-prod_brmNd7p5Y2.png';
-import perimeterImg from '../../../imports/magnific_professional-outdoor-prod_SObWxSiUb8.png';
+import counterUasImg from '../../../imports/fpv_bullseye/counter_uas_interception.webp';
+import reconImg from '../../../imports/fpv_bullseye/tactical_reconnaissance.webp';
+import perimeterImg from '../../../imports/fpv_bullseye/perimeter_threat_neutralization.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
