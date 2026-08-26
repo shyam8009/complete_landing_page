@@ -32,7 +32,7 @@ function Hero() {
         <div
           className="w-full h-full bg-slate-900"
           style={{ 
-            backgroundImage: `url('/assets/corporate_house_1.jpg')`, 
+            backgroundImage: `url(${heroImg})`, 
             backgroundSize: 'cover', 
             backgroundPosition: 'center',
             filter: "grayscale(10%) brightness(0.6)"
@@ -298,6 +298,7 @@ export default function KeyContactPage() {
     </div>
   );
 }
+
 
 
 
