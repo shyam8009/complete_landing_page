@@ -5,14 +5,14 @@ const LOCATIONS = [
   {
     title: 'Global Headquarters',
     address: '3rd Floor, 305, Sigma Legacy,\nNr. Vikram Sarabhai Marg, Opp. Panjrapol, Ambawadi,\nAhmedabad- 380015, Gujarat.',
-    phone: '+91 11 2345 6789',
-    email: 'hq@sahanadefence.com'
+    phone: '+91 9601676705',
+    email: 'info@sahanadefence.com'
   },
   {
     title: 'Manufacturing & Assembly',
     address: 'Plot No 32, 33, 68, 69, Prince Industrial Hub,\nIndore Express Highway, Kothiya,\nKuha, Ahmedabad-382433',
-    phone: '+91 40 1234 5678',
-    email: 'production@sahanadefence.com'
+    phone: '+91 9601676705',
+    email: 'info@sahanadefence.com'
   }
 ];
 
@@ -70,3 +70,4 @@ export default function AboutAddress() {
     </section>
   );
 }
+
