@@ -3,14 +3,29 @@ const INTER = "'Inter', sans-serif";
 
 const LEADERSHIP = [
   { 
-    name: 'Pratik Kakadia', 
-    role: 'Founder & Managing Director', 
+    name: 'Dhaval Joshi', 
+    role: 'Group CEO', 
     desc: 'Leading the vision and strategic direction of Sahana Defence.',
-    image: '/assets/pratik_kakadia.png'
+    image: '/assets/leader_dhaval_joshi.png'
   },
-  { name: 'Dr. A. Sharma', role: 'Head of Engineering (Placeholder)', desc: 'Directing the R&D and indigenous systems architecture.' },
-  { name: 'Col. R. Singh (Retd.)', role: 'Chief Tactical Advisor (Placeholder)', desc: 'Ensuring operational relevance and military compliance.' }
-  ,{ name: 'New Advisor', role: 'Advisor Role (Placeholder)', desc: 'Guiding strategic operations.' }
+  { 
+    name: 'Yogesh Pajni', 
+    role: 'Director - Defence Engineering, Technical & Production', 
+    desc: 'Directing the R&D, indigenous systems architecture, and production.',
+    image: '/assets/leader_yogesh_pajni.png'
+  },
+  { 
+    name: 'Brig Rajiv Singh (Retd.)', 
+    role: 'Chief Security Officer', 
+    desc: 'Ensuring operational relevance, security, and military compliance.',
+    image: '/assets/leader_rajiv_singh.png'
+  },
+  { 
+    name: 'Nikhil Mitaliya', 
+    role: 'Director - Defence Research & Development', 
+    desc: 'Driving continuous innovation and strategic technological advancements.',
+    image: '/assets/leader_nikhil_mitaliya.png'
+  }
 ];
 
 export default function AboutLeadership() {
@@ -53,6 +68,7 @@ export default function AboutLeadership() {
     </section>
   );
 }
+
 
 
 
