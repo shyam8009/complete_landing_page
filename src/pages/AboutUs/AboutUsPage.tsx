@@ -8,7 +8,6 @@ import AboutCapabilities from './components/AboutCapabilities';
 import AboutDomains from './components/AboutDomains';
 import AboutLeadership from './components/AboutLeadership';
 import AboutCertifications from './components/AboutCertifications';
-import AboutLocation from './components/AboutLocation';
 
 export default function AboutUsPage() {
   const location = useLocation();
@@ -27,7 +26,7 @@ export default function AboutUsPage() {
       <AboutDomains />
       <AboutLeadership />
       <AboutCertifications />
-      <AboutLocation />
     </div>
   );
 }
+
