@@ -65,6 +65,7 @@ import visionRobotVideo from '@/imports/Vision_Drone.mp4';
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.clearScrollMemory("manual");
 
+import { ContactModal } from '../components/ContactModal';
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Routes, Route, Link, useNavigate, useLocation } from "react-router";
 import svgPaths from "@/imports/1920WLight/svg-bymm5omek1";
@@ -508,8 +509,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
         <div className="hidden lg:flex items-center gap-6">
           <a 
             href="#" 
-            onClick={(e) => { e.preventDefault(); setHoveredNav(null); }}
-            className={`font-bold tracking-[1px] uppercase border border-white/20 hover:border-white/40 hover:text-[#84CC16] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-sm text-white ${scrolled ? "px-4 py-1.5 text-[12px]" : "px-6 py-2.5 text-[14px]"}`}
+            onClick={(e) => { e.preventDefault(); setHoveredNav(null); setIsContactModalOpen(true); }} className={`font-bold tracking-[1px] uppercase border cursor-pointer border-white/20 hover:border-white/40 hover:text-[#84CC16] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-sm text-white ${scrolled ? "px-4 py-1.5 text-[12px]" : "px-6 py-2.5 text-[14px]"}`}
           >
             Contact Us
           </a>
@@ -895,7 +895,7 @@ function Nav({ heroFinished, setHeroFinished }: { heroFinished: boolean, setHero
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Investors</a>
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Newsroom</a>
           <a href="/about-us" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">About Us</a>
-          <a href="#" className="py-4 text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mt-4 border border-[#84CC16]/30 text-center rounded-sm bg-[#84CC16]/5">Contact Us</a>
+          <a onClick={(e) => { e.preventDefault(); setIsContactModalOpen(true); setMobileMenuOpen(false); }} className="py-4 text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mt-4 border border-[#84CC16]/30 text-center rounded-sm bg-[#84CC16]/5 cursor-pointer">Contact Us</a>
 
         </div>
       </div>
@@ -1480,7 +1480,7 @@ function FooterCol({ label, links }: { label: string; links: string[] }) {
   );
 }
 
-function Footer() {
+function Footer({ onContactClick }: { onContactClick?: () => void }) {
   return (
     <footer className="w-full bg-black pt-16 pb-16 flex flex-col gap-20">
       {/* top nav columns */}
@@ -2195,8 +2195,7 @@ function HandheldJammerPage() {
             Equip Your Strike Teams with Instant Airspace Control.
           </h2>
           <a
-            href="#"
-            className="mt-6 inline-flex items-center gap-3 bg-white text-black text-xs font-semibold uppercase tracking-wider py-4 px-12 rounded-sm hover:bg-[#2e4321] hover:text-white transition-all duration-300"
+            onClick={(e) => { e.preventDefault(); onContactClick && onContactClick(); }} href="#" className="mt-6 inline-flex cursor-pointer items-center gap-3 bg-white text-black text-xs font-semibold uppercase tracking-wider py-4 px-12 rounded-sm hover:bg-[#2e4321] hover:text-white transition-all duration-300"
           >
             Secure Contact Form
           </a>
@@ -2247,6 +2246,7 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [heroFinished, setHeroFinished] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth <= 820;
@@ -2343,11 +2343,15 @@ export default function App() {
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-clock-source" element={<QuantumClockSourcePage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
         </Routes>
-        <Footer />
+        <Footer onContactClick={() => setIsContactModalOpen(true)} />
+        <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
       </div>
     </div>
   );
 }
+
+
+
 
 
 
