@@ -3,6 +3,12 @@ const INTER = "'Inter', sans-serif";
 
 const LEADERSHIP = [
   { 
+    name: 'Pratik Kakadia', 
+    role: 'Founder & Managing Director', 
+    desc: 'Leading the vision and strategic direction of Sahana Defence.',
+    image: '/assets/pratik_kakadia.png'
+  },
+  { 
     name: 'Dhaval Joshi', 
     role: 'Group CEO', 
     desc: 'Leading the vision and strategic direction of Sahana Defence.',
@@ -41,7 +47,7 @@ export default function AboutLeadership() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 xl:gap-8">
           {LEADERSHIP.map((leader, i) => (
             <div key={i} className="group">
               {/* Photo */}
@@ -68,6 +74,7 @@ export default function AboutLeadership() {
     </section>
   );
 }
+
 
 
 
