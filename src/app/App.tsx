@@ -204,9 +204,9 @@ const INVESTORS_DATA = [
     description: 'Notices, agendas, and minutes for upcoming and past general meetings.',
     url: '/investors/general-meeting-notice',
     links: [
-      { text: 'Upcoming AGM Notice', url: '/investors/general-meeting-notice' },
-      { text: 'EGM Minutes 2024', url: '/investors/general-meeting-notice' },
-      { text: 'Proxy Forms', url: '/investors/general-meeting-notice' },
+      { text: 'AGM Notice 28-09-2024', url: '/investors/general-meeting-notice' },
+      { text: 'AGM Notice 30-09-2023', url: '/investors/general-meeting-notice' },
+      { text: 'EGM Notice 06-12-2024', url: '/investors/general-meeting-notice' },
     ],
     cta: 'View All Notices →'
   },
@@ -216,9 +216,9 @@ const INVESTORS_DATA = [
     description: 'Our commitment to ethical business practices and corporate integrity.',
     url: '/investors/code-of-conduct-policies',
     links: [
-      { text: 'Code of Business Conduct', url: '/investors/code-of-conduct-policies' },
-      { text: 'Whistleblower Policy', url: '/investors/code-of-conduct-policies' },
-      { text: 'Anti-Bribery Guidelines', url: '/investors/code-of-conduct-policies' },
+      { text: "Code of Conduct for Company's Personnel", url: '/investors/code-of-conduct-policies' },
+      { text: 'Code of Conduct – Independent Directors', url: '/investors/code-of-conduct-policies' },
+      { text: 'Fair Disclosure of UPSI', url: '/investors/code-of-conduct-policies' },
     ],
     cta: 'View Policies →'
   },
@@ -240,9 +240,9 @@ const INVESTORS_DATA = [
     description: 'Operational and strategic policies governing our organization.',
     url: '/investors/policies',
     links: [
-      { text: 'Corporate Governance Policies', url: '/investors/policies' },
-      { text: 'Board of Directors Policies', url: '/investors/policies' },
-      { text: 'Compliance Documents', url: '/investors/policies' },
+      { text: 'Nomination & Remuneration Policy', url: '/investors/policies' },
+      { text: 'Risk Management Policy', url: '/investors/policies' },
+      { text: 'Anti Corruption & Anti Bribery Policy', url: '/investors/policies' },
     ],
     cta: 'View All Policies →'
   },
@@ -252,9 +252,9 @@ const INVESTORS_DATA = [
     description: 'Resources and updates for our valued shareholders and investors.',
     url: '/investors/shareholder-info',
     links: [
-      { text: 'Softvan Limited Financials', url: '/investors/shareholder-info' },
-      { text: 'Softvan Labs Financials', url: '/investors/shareholder-info' },
-      { text: 'Sourceved Tech Financials', url: '/investors/shareholder-info' },
+      { text: 'Softvan Limited – FY 2024-25', url: '/investors/shareholder-info' },
+      { text: 'Softvan Labs – FY 2024-25', url: '/investors/shareholder-info' },
+      { text: 'Sourceved Technologies – FY 2024-25', url: '/investors/shareholder-info' },
     ],
     cta: 'Investor Desk →'
   },
