@@ -26,8 +26,9 @@ export default function AboutUsPage() {
       <AboutValues />
       <AboutCapabilities />
       <AboutDomains />
-      <AboutAddress />
       <AboutCertifications />
+      <AboutAddress />
     </div>
   );
 }
+
