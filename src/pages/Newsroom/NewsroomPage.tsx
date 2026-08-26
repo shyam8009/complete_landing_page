@@ -58,21 +58,21 @@ const ImageSlider = ({ images }: { images: string[] }) => {
 
 const NEWS_ITEMS = [
   {
+    id: 7,
+    category: 'EVENTS',
+    date: 'AUG 23, 2026',
+    title: "Sahana Defence showcased its capabilities at ISRO's National Space Day",
+    description: "Sahana Defence marked its presence at ISRO's National Space Day event, showcasing its contributions to India's space and defence ecosystem before distinguished leaders, including Dr. V. Narayanan, Chairman of ISRO; Shri Gajendra Singh Shekhawat; Shri Arjun Modhwadia; Dr. Pawan Goenka, Chairman of IN-SPACe; and Dr. Deepak Mishra of SAC.",
+    images: [spaceDay1Img, spaceDay2Img],
+    link: '#'
+  },
+  {
     id: 1,
     category: 'PRESS RELEASE',
     date: 'JUN 26, 2026',
     title: 'Sahana Defence Signs Strategic Manufacturing Agreement with CEL',
     description: "Sahana Defence has entered into a Contract Agreement with Central Electronics Limited (CEL) to expand India's indigenous defence manufacturing capabilities. The partnership will support the establishment of a dedicated facility focused on Electronic Warfare systems, weapon systems, defence peripherals, and advanced DefenceTech solutions, reinforcing the nation's vision for self-reliance in defence production.",
     image: celSigningImg,
-    link: '#'
-  },
-  {
-    id: 7,
-    category: 'EVENTS',
-    date: 'AUG 23, 2026',
-    title: 'Sahana Defence showcased its capabilities at National Space Day 2026',
-    description: "Sahana Defence marked its presence at the event by presenting its work and contributions to India's evolving space and defence ecosystem before distinguished leaders and industry stakeholders.",
-    images: [spaceDay1Img, spaceDay2Img],
     link: '#'
   },
   {
@@ -254,18 +254,17 @@ export function NewsroomPage() {
 
             {/* UNIFIED NEWSROOM WALL */}
             <motion.div 
-              layout
               className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 relative z-20"
             >
-                <AnimatePresence mode="popLayout">
+                <AnimatePresence>
                     {displayedItems.map(item => (
                         <motion.div 
                             key={item.id}
                             layout
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.95 }}
-                            transition={{ duration: 0.3 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
                             onClick={() => item.link && item.link !== '#' ? window.open(item.link, '_blank') : null}
                             className="bg-white rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden flex flex-col group cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 min-h-[400px]"
                         >
