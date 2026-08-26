@@ -344,9 +344,7 @@ export function NewsroomPage() {
                         <button onClick={() => window.location.href = '/investors/key-contact'} className="bg-[#3C5929] hover:bg-[#4E7335] text-white font-mono text-[11px] font-bold px-8 py-4 tracking-[0.2em] transition-colors rounded-full">
                             INQUIRE FOR PROCUREMENT
                         </button>
-                        <button className="border border-white/30 text-white hover:bg-white hover:text-black font-mono text-[11px] font-bold px-8 py-4 tracking-[0.2em] transition-colors rounded-full">
-                            OPEN ROLES
-                        </button>
+                        
                     </div>
                 </div>
             </motion.div>
