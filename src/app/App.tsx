@@ -486,17 +486,23 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
               onMouseEnter={() => handleMouseEnter(link)}
             >
               <a
-                href={link === 'About Us' ? "/about-us" : "#"}
+                href={link === 'About Us' ? "/about-us" : link === 'Newsroom' ? "/newsroom" : "#"}
                   onClick={(e) => {
-                    if (link !== 'About Us') e.preventDefault();
-                  }}
+                      if (link === 'About Us' || link === 'Newsroom') {
+                        e.preventDefault();
+                        setHoveredNav(null);
+                        navigate(link === 'About Us' ? '/about-us' : '/newsroom');
+                      } else {
+                        e.preventDefault();
+                      }
+                    }}
                 className={`text-[15px] whitespace-nowrap transition-all duration-150 cursor-pointer flex items-center gap-1.5 ${
                   hoveredNav === link ? "text-white" : "text-white/70 hover:text-white"
                 }`}
                 style={{ fontFamily: INTER }}
               >
                 {link}
-                {(link === 'Capabilities' || link === 'Investors' || link === 'Newsroom') && (
+                {(link === 'Capabilities' || link === 'Investors') && (
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-300 ${hoveredNav === link ? "rotate-180 text-[#84CC16]" : ""}`}>
                     <path d="M6 9l6 6 6-6" />
                   </svg>
@@ -812,33 +818,6 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
 
         </div>
       </div>
-
-      {/* Newsroom Small Dropdown */}
-      <div
-        className={`hidden md:block fixed right-4 lg:right-auto lg:left-[50%] lg:ml-[40px] w-[220px] bg-[#05080D] border border-white/10 rounded-b-md shadow-2xl transition-all duration-300 origin-top overflow-hidden z-40 ${
-          scrolled ? "top-[80px]" : "top-[86px]"
-        } ${
-          hoveredNav === 'Newsroom'
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-2 pointer-events-none"
-        }`}
-        onMouseEnter={() => handleMouseEnter('Newsroom')}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div className="flex flex-col p-4 max-h-[500px] overflow-y-auto custom-scrollbar">
-          <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-3 px-2">Newsroom</h4>
-          <div className="flex flex-col gap-1">
-            {['Press Release', 'Events', 'Awards'].map(item => (
-              <a key={item} onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/newsroom'); }} className="cursor-pointer group flex items-center justify-between px-2 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/5 rounded-sm transition-all" style={{ fontFamily: 'Inter, sans-serif' }}>
-                <span>{item}</span>
-                <span className="text-[#84CC16] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">â†’</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      
 
       {/* Mobile Menu Drawer (Stacked Accordion) */}
       <div className={`lg:hidden fixed inset-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
