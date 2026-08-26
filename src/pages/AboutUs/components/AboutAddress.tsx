@@ -57,13 +57,13 @@ export default function AboutAddress() {
                 <div className="pt-4 mt-auto border-t border-white/10 flex flex-col gap-4">
                   <div>
                     <span className="text-white/30 uppercase text-[10px] tracking-widest block mb-1 font-mono">Phone</span>
-                    <a href={	el: + loc.phone.replace(/[^0-9+]/g, '')} className="text-white hover:text-[#84CC16] transition-colors">
+                    <a href={'tel:' + loc.phone.replace(/[^0-9+]/g, '')} className="text-white hover:text-[#84CC16] transition-colors">
                       {loc.phone}
                     </a>
                   </div>
                   <div>
                     <span className="text-white/30 uppercase text-[10px] tracking-widest block mb-1 font-mono">Email</span>
-                    <a href={mailto:\} className="text-white hover:text-[#84CC16] transition-colors">
+                    <a href={'mailto:' + loc.email} className="text-white hover:text-[#84CC16] transition-colors">
                       {loc.email}
                     </a>
                   </div>
@@ -76,3 +76,5 @@ export default function AboutAddress() {
     </section>
   );
 }
+
+
