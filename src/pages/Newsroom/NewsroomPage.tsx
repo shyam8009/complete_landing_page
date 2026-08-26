@@ -10,6 +10,7 @@ import award2Img from '@/imports/award2.png';
 import spaceDay1Img from '@/imports/space_day_1.jpeg';
 import spaceDay2Img from '@/imports/space_day_2.jpeg';
 import isroInfitronImg from '@/imports/news_isro_infitron.png';
+import sidmMembershipImg from '@/imports/news_sidm_membership.png';
 import sidmExpoVid from '@/imports/sidm_expo.mp4';
 
 // Helper component for rendering multiple images as a slider
@@ -84,6 +85,15 @@ const NEWS_ITEMS = [
     description: "ISRO and Infitron collaborate through TRISP technology transfer, advancing sustainable energy, defence innovation, and India's deep-tech ecosystem.",
     image: isroInfitronImg,
     link: 'https://www.linkedin.com/posts/infinityradar_isro-inspace-trisp-activity-7440662201637625857-FA6A'
+  },
+  {
+    id: 9,
+    category: 'CONTRACTS',
+    date: 'DEC 27, 2025',
+    title: "Sahana System Ltd is a member of the Society of Indian Defence Manufacturers bearing Membership.",
+    description: "Sahana System Ltd proudly joins the Society of Indian Defence Manufacturers, strengthening its commitment to India's growing defence and security ecosystem.",
+    image: sidmMembershipImg,
+    link: '#'
   },
   {
     id: 2,
