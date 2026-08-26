@@ -7,6 +7,7 @@ import AboutJourney from './components/AboutJourney';
 import AboutCapabilities from './components/AboutCapabilities';
 import AboutDomains from './components/AboutDomains';
 import AboutLeadership from './components/AboutLeadership';
+import AboutAddress from './components/AboutAddress';
 import AboutCertifications from './components/AboutCertifications';
 
 export default function AboutUsPage() {
@@ -25,8 +26,10 @@ export default function AboutUsPage() {
       <AboutCapabilities />
       <AboutDomains />
       <AboutLeadership />
+      <AboutAddress />
       <AboutCertifications />
     </div>
   );
 }
+
 
