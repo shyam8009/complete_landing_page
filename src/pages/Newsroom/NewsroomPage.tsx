@@ -9,6 +9,7 @@ import award1Img from '@/imports/award1.png';
 import award2Img from '@/imports/award2.png';
 import spaceDay1Img from '@/imports/space_day_1.jpeg';
 import spaceDay2Img from '@/imports/space_day_2.jpeg';
+import isroInfitronImg from '@/imports/news_isro_infitron.png';
 import sidmExpoVid from '@/imports/sidm_expo.mp4';
 
 // Helper component for rendering multiple images as a slider
@@ -74,6 +75,15 @@ const NEWS_ITEMS = [
     description: "Sahana Defence has entered into a Contract Agreement with Central Electronics Limited (CEL) to expand India's indigenous defence manufacturing capabilities. The partnership will support the establishment of a dedicated facility focused on Electronic Warfare systems, weapon systems, defence peripherals, and advanced DefenceTech solutions, reinforcing the nation's vision for self-reliance in defence production.",
     image: celSigningImg,
     link: 'https://www.linkedin.com/posts/sahanadefence_major-milestone-for-sahana-defence-activity-7471158593736851456-RcOp'
+  },
+  {
+    id: 8,
+    category: 'EVENTS',
+    date: 'APR 10, 2026',
+    title: "ISRO Transfers TRISP Technology to Infitron Accelerating India's Sovereign Energy Innovation Leadership",
+    description: "ISRO and Infitron collaborate through TRISP technology transfer, advancing sustainable energy, defence innovation, and India's deep-tech ecosystem.",
+    image: isroInfitronImg,
+    link: '#'
   },
   {
     id: 2,
