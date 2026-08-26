@@ -10,6 +10,7 @@ const LEADERSHIP = [
   },
   { name: 'Dr. A. Sharma', role: 'Head of Engineering (Placeholder)', desc: 'Directing the R&D and indigenous systems architecture.' },
   { name: 'Col. R. Singh (Retd.)', role: 'Chief Tactical Advisor (Placeholder)', desc: 'Ensuring operational relevance and military compliance.' }
+  ,{ name: 'New Advisor', role: 'Advisor Role (Placeholder)', desc: 'Guiding strategic operations.' }
 ];
 
 export default function AboutLeadership() {
@@ -25,7 +26,7 @@ export default function AboutLeadership() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {LEADERSHIP.map((leader, i) => (
             <div key={i} className="group">
               {/* Photo */}
@@ -52,5 +53,6 @@ export default function AboutLeadership() {
     </section>
   );
 }
+
 
 

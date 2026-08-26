@@ -21,15 +21,13 @@ export default function AboutUsPage() {
     <div className="bg-[#050505] min-h-screen text-white w-full overflow-hidden">
       <AboutHero />
       <AboutManifesto />
-      <AboutValues />
       <AboutJourney />
+      <AboutLeadership />
+      <AboutValues />
       <AboutCapabilities />
       <AboutDomains />
-      <AboutLeadership />
       <AboutAddress />
       <AboutCertifications />
     </div>
   );
 }
-
-

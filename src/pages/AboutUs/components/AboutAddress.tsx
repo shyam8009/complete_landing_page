@@ -9,12 +9,6 @@ const LOCATIONS = [
     email: 'hq@sahanadefence.com'
   },
   {
-    title: 'R&D & Engineering Hub',
-    address: 'Advanced Technology Facility\nInnovation Sector, Cyber Valley\nBengaluru, 560100, India',
-    phone: '+91 80 9876 5432',
-    email: 'research@sahanadefence.com'
-  },
-  {
     title: 'Manufacturing & Assembly',
     address: 'Defence Industrial Corridor\nPhase II, Industrial Area\nHyderabad, 500081, India',
     phone: '+91 40 1234 5678',
@@ -40,7 +34,7 @@ export default function AboutAddress() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {LOCATIONS.map((loc, i) => (
             <div key={i} className="flex flex-col p-8 border border-white/10 hover:border-white/30 transition-all duration-300 bg-white/[0.02] relative group overflow-hidden">
               {/* Highlight accent */}
@@ -76,5 +70,3 @@ export default function AboutAddress() {
     </section>
   );
 }
-
-
