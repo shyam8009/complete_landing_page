@@ -78,12 +78,12 @@ const NEWS_ITEMS = [
   },
   {
     id: 8,
-    category: 'EVENTS',
+    category: 'PRESS RELEASE',
     date: 'APR 10, 2026',
     title: "ISRO Transfers TRISP Technology to Infitron Accelerating India's Sovereign Energy Innovation Leadership",
     description: "ISRO and Infitron collaborate through TRISP technology transfer, advancing sustainable energy, defence innovation, and India's deep-tech ecosystem.",
     image: isroInfitronImg,
-    link: '#'
+    link: 'https://www.linkedin.com/posts/infinityradar_isro-inspace-trisp-activity-7440662201637625857-FA6A'
   },
   {
     id: 2,
