@@ -13,7 +13,8 @@ const NEWS_ITEMS = [
     date: 'JUN 26, 2026',
     title: 'Sahana Defence Signs Strategic Manufacturing Agreement with CEL',
     description: "Sahana Defence has entered into a Contract Agreement with Central Electronics Limited (CEL) to expand India's indigenous defence manufacturing capabilities. The partnership will support the establishment of a dedicated facility focused on Electronic Warfare systems, weapon systems, defence peripherals, and advanced DefenceTech solutions, reinforcing the nation's vision for self-reliance in defence production.",
-    image: celSigningImg
+    image: celSigningImg,
+    link: '#'
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ const NEWS_ITEMS = [
     date: 'NOV 26, 2025',
     title: 'Sahana showcased advanced drone and anti-drone capabilities at the Military–Civil Fusion Seminar',
     description: "An overview of Sahana's defence innovations in UAS and C-UAS systems, highlighting strategic impact, expert validation, and contributions to future-ready warfare capabilities.",
-    image: event1Img
+    image: event1Img,
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7400056268515770368'
   },
   {
     id: 3,
@@ -29,7 +31,8 @@ const NEWS_ITEMS = [
     date: 'OCT 12, 2025',
     title: 'Sahana highlighted its defence technology leadership at the SIDM expo, reinforcing Make in India initiative',
     description: "Insights from Sahana's defence leadership on advancing electronic warfare capabilities through in-house R&D, enabling mission-ready solutions aligned with India's self-reliance vision.",
-    image: celImage
+    image: celImage,
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7377605428660170752'
   },
   {
     id: 4,
@@ -37,7 +40,8 @@ const NEWS_ITEMS = [
     date: 'SEP 05, 2025',
     title: 'Sahana demonstrated operational defence capabilities at the expo, led from its Defence Tech leadership',
     description: 'An inside view of how Sahana bridges field experience with product innovation, enabling meaningful defence engagements and showcasing operational readiness to key stakeholders.',
-    image: event3Img
+    image: event3Img,
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7376576020293951488'
   }
 ];
 
@@ -177,6 +181,7 @@ export function NewsroomPage() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.95 }}
                             transition={{ duration: 0.3 }}
+                            onClick={() => item.link && item.link !== '#' ? window.open(item.link, '_blank') : null}
                             className="bg-white rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden flex flex-col group cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 min-h-[400px]"
                         >
                             <div className="h-64 w-full overflow-hidden relative bg-gray-100">
@@ -249,5 +254,6 @@ export function NewsroomPage() {
     </div>
   );
 }
+
 
 
