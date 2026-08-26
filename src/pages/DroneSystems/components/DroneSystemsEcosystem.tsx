@@ -19,7 +19,7 @@ const droneSystemsData = [
     features: [
       "Scalable platform options supporting payloads up to 12 kg (Buddy-15) and operational flight ranges up to 40 km (Buddy-10).",
       "High-speed maneuvering capability with the Buddy-15 variant reaching maximum speeds of 180 kmph.",
-      "Hardened electronic warfare protection utilizing an interference-resistant 'Proxy' channel across 1.2â€“3.5 GHz bands.",
+      "Hardened electronic warfare protection utilizing an interference-resistant 'Proxy' channel across 1.2–3.5 GHz bands.",
       "Optional thermal imaging integration and fiber-optic spool configurations."
     ],
     img: imgBuddy
@@ -29,7 +29,7 @@ const droneSystemsData = [
     title: "Sahana FPV Bullseye & Interceptor",
     desc: "A high-speed FPV drone and kinetic interceptor engineered for rapid-response counter-UAS operations and tactical aerial neutralization. Built with an aerodynamic tubular carbon-fiber chassis, it neutralizes incoming airborne threats while providing real-time situational awareness.",
     features: [
-      "Outstanding 400 kmph maximum speed and 200â€“250 kmph cruising speed for rapid threat interception.",
+      "Outstanding 400 kmph maximum speed and 200–250 kmph cruising speed for rapid threat interception.",
       "10 km operational flight range powered by an 8s 22,000 mAh LiPo battery architecture.",
       "3 kg payload capacity supporting high-definition FPV video, optional thermal imaging, and fiber-optic spool options.",
       "Hardened with the interference-resistant 'Proxy' communication link to counter active jamming."
@@ -38,11 +38,11 @@ const droneSystemsData = [
   },
   {
     tag: "Anti-Jamming . ISM-to-non-ISM Conversion",
-    title: "Sahana PROXY â€” Control Channel",
+    title: "Sahana PROXY — Control Channel",
     desc: "A long-range, interference-resistant control channel and band conversion kit designed to maintain telemetry and video links in heavily jammed or contested electronic warfare environments.",
     features: [
-      "Bypasses standard electronic jamming by converting standard ISM-band frequencies to secure non-ISM bands (1.2â€“3.5 GHz).",
-      "Ground-control station with a 4â€“6 m mast and dual directional antenna arrays delivering up to 10 W output power.",
+      "Bypasses standard electronic jamming by converting standard ISM-band frequencies to secure non-ISM bands (1.2–3.5 GHz).",
+      "Ground-control station with a 4–6 m mast and dual directional antenna arrays delivering up to 10 W output power.",
       "Ultra-lightweight 300 g aerial video signal repeater minimizing payload drag on deployed FPVs.",
       "Flexible operational deployment supporting both wireless and wired line operation up to 120 meters."
     ],
