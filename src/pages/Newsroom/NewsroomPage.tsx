@@ -3,6 +3,75 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ArrowRight, ChevronDown, Check } from 'lucide-react';
 import celImage from '@/imports/news_cel_agreement.png';
 
+const NEWS_ITEMS = [
+  {
+    id: 1,
+    category: 'PRESS RELEASE',
+    date: 'AUGUST 20, 2026',
+    title: 'Sahana Defence Zooms on Bagging ?24.69 Cr Order for Advanced Drone Detection System.',
+    description: "Central Electronics Limited (CEL) mandates Sahana Defence to design, supply, and commission an integrated RF and radar-based drone detection and jamming system, cementing our role in 'Aatma Nirbhar Bharat'.",
+    image: celImage
+  },
+  {
+    id: 2,
+    category: 'CONTRACTS',
+    date: 'JUL 04, 2025',
+    title: 'Sahana System Subsidiary Secures ?8.01 Cr Contract for Indian Navy RF Infrastructure.',
+    description: "Upgrading critical non-RF infrastructure for the Indian Navy's RF measurement systems to ensure optimal maritime communication readiness.",
+    image: celImage
+  },
+  {
+    id: 3,
+    category: 'CASE STUDIES',
+    date: 'JUL 10, 2023',
+    title: 'Tactical Anti-Drone Solutions Deployed for Large-Scale Public Security.',
+    description: 'Infinity Radar, a Sahana brand, successfully neutralizes aerial threats using advanced long-range anti-drone technology during high-profile national events.',
+    image: celImage
+  },
+  {
+    id: 4,
+    category: 'SOVEREIGN AI',
+    date: 'SEP 15, 2025',
+    title: 'Advancing Information Warfare with Indigenous AI-Driven Signal Intelligence.',
+    description: 'Sahana Defence announces breakthroughs in machine learning classification for rapid threat identification in congested RF environments.',
+    image: celImage
+  },
+  {
+    id: 5,
+    category: 'ELECTRONIC WARFARE',
+    date: 'MAR 22, 2026',
+    title: 'Next-Gen Anti-Jamming GPS Systems Built for Contested Environments.',
+    description: 'Developing robust positioning, navigation, and timing (PNT) assurance modules to protect critical assets from electronic spoofing.',
+    image: celImage
+  },
+  {
+    id: 6,
+    category: 'EVENTS',
+    date: 'NOV 26, 2025',
+    title: 'Sahana showcased advanced drone and anti-drone capabilities at the Military–Civil Fusion Seminar',
+    description: "An overview of Sahana's defence innovations in UAS and C-UAS systems, highlighting strategic impact, expert validation, and contributions to future-ready warfare capabilities.",
+    image: celImage
+  },
+  {
+    id: 7,
+    category: 'EVENTS',
+    date: 'OCT 12, 2025',
+    title: 'Sahana highlighted its defence technology leadership at the SIDM expo, reinforcing Make in India initiative',
+    description: "Insights from Sahana's defence leadership on advancing electronic warfare capabilities through in-house R&D, enabling mission-ready solutions aligned with India's self-reliance vision.",
+    image: celImage
+  },
+  {
+    id: 8,
+    category: 'EVENTS',
+    date: 'SEP 05, 2025',
+    title: 'Sahana demonstrated operational defence capabilities at the expo, led from its Defence Tech leadership',
+    description: 'An inside view of how Sahana bridges field experience with product innovation, enabling meaningful defence engagements and showcasing operational readiness to key stakeholders.',
+    image: celImage
+  }
+];
+
+const FILTER_OPTIONS = ['AWARDS', 'BLOG', 'CASE STUDIES', 'CONTRACTS', 'ELECTRONIC WARFARE', 'EVENTS', 'MEDIA', 'PRESS RELEASE', 'SOVEREIGN AI'];
+
 export function NewsroomPage() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
@@ -30,14 +99,18 @@ export function NewsroomPage() {
     );
   };
 
+  // Filter Logic
+  const filteredItems = NEWS_ITEMS.filter(item => {
+    if (selectedFilters.length === 0) return true;
+    return selectedFilters.includes(item.category);
+  });
+
   const fadeUp = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
     transition: { duration: 0.6 }
   };
-
-  const FILTER_OPTIONS = ['AWARDS', 'BLOG', 'CASE STUDIES', 'MEDIA', 'PRESS RELEASE', 'CONTRACTS', 'ELECTRONIC WARFARE'];
 
   return (
     <div className="bg-[#F4F4F4] min-h-screen pt-32 pb-20 text-black relative">
@@ -65,7 +138,7 @@ export function NewsroomPage() {
             </motion.div>
 
             {/* FILTER CONTROLS */}
-            <motion.div {...fadeUp} className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6">
+            <motion.div {...fadeUp} className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6 relative z-30">
                 
                 {/* Custom Filter Dropdown */}
                 <div className="relative w-full md:w-72" ref={dropdownRef}>
@@ -84,7 +157,7 @@ export function NewsroomPage() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -5 }}
                                 transition={{ duration: 0.2 }}
-                                className="absolute top-full left-0 w-full bg-[#EAEAEA] border-b border-l border-r border-[#CCCCCC] z-20 shadow-lg"
+                                className="absolute top-full left-0 w-full bg-[#EAEAEA] border-b border-l border-r border-[#CCCCCC] shadow-xl"
                             >
                                 <div className="p-2 flex flex-col gap-1 max-h-64 overflow-y-auto custom-scrollbar">
                                     {FILTER_OPTIONS.map(option => (
@@ -103,7 +176,6 @@ export function NewsroomPage() {
 
                 {/* Custom Search Bar with Brackets */}
                 <div className="w-full md:w-80 relative group">
-                    {/* Corner Brackets */}
                     <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#666666] pointer-events-none" />
                     <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[#666666] pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[#666666] pointer-events-none" />
@@ -120,109 +192,72 @@ export function NewsroomPage() {
                 </div>
             </motion.div>
 
-            {/* FEATURED RELEASE CARD */}
-            <motion.div {...fadeUp} className="bg-[#1A1A1A] text-white p-0 mb-12 group transition-all duration-300 cursor-pointer relative overflow-hidden flex flex-col md:flex-row shadow-xl">
-                <div className="md:w-[40%] relative h-64 md:h-auto overflow-hidden bg-black">
-                    <img 
-                      src={celImage} 
-                      alt="Sahana Defence Zooms on Bagging ?24.69 Cr Order" 
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
-                    />
-                </div>
-                <div className="md:w-[60%] flex flex-col justify-center p-8 md:p-12">
-                    <div className="flex items-center gap-4 mb-6">
-                        <span className="font-mono text-xs text-[#3C5929] border border-[#3C5929] px-2 py-1 tracking-widest bg-[#3C5929]/10 uppercase">Press Release</span>
-                        <span className="font-mono text-xs text-[#A1A1A1]">AUGUST 20, 2026</span>
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight group-hover:text-[#3C5929] transition-colors">Sahana Defence Zooms on Bagging ?24.69 Cr Order for Advanced Drone Detection System.</h2>
-                    <p className="text-[#A1A1A1] mb-10 font-mono text-sm leading-relaxed max-w-2xl">Central Electronics Limited (CEL) mandates Sahana Defence to design, supply, and commission an integrated RF and radar-based drone detection and jamming system, cementing our role in 'Aatma Nirbhar Bharat'.</p>
-                    
-                    <div className="mt-auto">
-                        <button className="bg-[#3C5929] hover:bg-[#4E7335] text-white font-mono text-sm px-6 py-3 tracking-widest transition-colors inline-flex items-center gap-2">
-                            READ FULL RELEASE <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
-                </div>
-            </motion.div>
-
-            {/* NEWSFEED GRID */}
+            {/* UNIFIED NEWSROOM WALL */}
             <motion.div 
-              initial="initial"
-              whileInView="whileInView"
-              viewport={{ once: true }}
-              transition={{ staggerChildren: 0.2 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
+              layout
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 relative z-20"
             >
-                {/* Grid Article 1 */}
-                <motion.div variants={fadeUp} className="bg-[#1A1A1A] text-white p-8 group transition-colors flex flex-col cursor-pointer min-h-[300px]">
-                    <div className="flex justify-between items-center mb-6">
-                        <span className="font-mono text-[10px] text-white border border-white/20 px-2 py-1 tracking-widest uppercase">Contract</span>
-                        <span className="font-mono text-[10px] text-[#A1A1A1] tracking-widest">JUL 04, 2025</span>
-                    </div>
-                    <h3 className="text-2xl font-light text-white mb-4 group-hover:text-[#3C5929] transition-colors leading-tight">Sahana System Subsidiary Secures ?8.01 Cr Contract for Indian Navy RF Infrastructure.</h3>
-                    <p className="text-[#A1A1A1] font-mono text-sm mb-8 flex-grow leading-relaxed">Upgrading critical non-RF infrastructure for the Indian Navy's RF measurement systems to ensure optimal maritime communication readiness.</p>
-                    <div className="mt-auto">
-                        <button className="border-b border-[#3C5929] text-white hover:text-[#3C5929] font-mono text-xs pb-1 tracking-widest transition-colors inline-flex items-center gap-2">
-                            READ ARTICLE <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
-                </motion.div>
-
-                {/* Grid Article 2 */}
-                <motion.div variants={fadeUp} className="bg-[#1A1A1A] text-white p-8 group transition-colors flex flex-col cursor-pointer min-h-[300px]">
-                    <div className="flex justify-between items-center mb-6">
-                        <span className="font-mono text-[10px] text-white border border-white/20 px-2 py-1 tracking-widest uppercase">Deployment</span>
-                        <span className="font-mono text-[10px] text-[#A1A1A1] tracking-widest">JUL 10, 2023</span>
-                    </div>
-                    <h3 className="text-2xl font-light text-white mb-4 group-hover:text-[#3C5929] transition-colors leading-tight">Tactical Anti-Drone Solutions Deployed for Large-Scale Public Security.</h3>
-                    <p className="text-[#A1A1A1] font-mono text-sm mb-8 flex-grow leading-relaxed">Infinity Radar, a Sahana brand, successfully neutralizes aerial threats using advanced long-range anti-drone technology during high-profile national events.</p>
-                    <div className="mt-auto">
-                        <button className="border-b border-[#3C5929] text-white hover:text-[#3C5929] font-mono text-xs pb-1 tracking-widest transition-colors inline-flex items-center gap-2">
-                            READ ARTICLE <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
-                </motion.div>
-                
-                {/* Grid Article 3 */}
-                <motion.div variants={fadeUp} className="bg-[#1A1A1A] text-white p-8 group transition-colors flex flex-col cursor-pointer min-h-[300px]">
-                    <div className="flex justify-between items-center mb-6">
-                        <span className="font-mono text-[10px] text-white border border-white/20 px-2 py-1 tracking-widest uppercase">Sovereign AI</span>
-                        <span className="font-mono text-[10px] text-[#A1A1A1] tracking-widest">SEP 15, 2025</span>
-                    </div>
-                    <h3 className="text-2xl font-light text-white mb-4 group-hover:text-[#3C5929] transition-colors leading-tight">Advancing Information Warfare with Indigenous AI-Driven Signal Intelligence.</h3>
-                    <p className="text-[#A1A1A1] font-mono text-sm mb-8 flex-grow leading-relaxed">Sahana Defence announces breakthroughs in machine learning classification for rapid threat identification in congested RF environments.</p>
-                    <div className="mt-auto">
-                        <button className="border-b border-[#3C5929] text-white hover:text-[#3C5929] font-mono text-xs pb-1 tracking-widest transition-colors inline-flex items-center gap-2">
-                            READ ARTICLE <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
-                </motion.div>
-
-                {/* Grid Article 4 */}
-                <motion.div variants={fadeUp} className="bg-[#1A1A1A] text-white p-8 group transition-colors flex flex-col cursor-pointer min-h-[300px]">
-                    <div className="flex justify-between items-center mb-6">
-                        <span className="font-mono text-[10px] text-white border border-white/20 px-2 py-1 tracking-widest uppercase">Electronic Warfare</span>
-                        <span className="font-mono text-[10px] text-[#A1A1A1] tracking-widest">MAR 22, 2026</span>
-                    </div>
-                    <h3 className="text-2xl font-light text-white mb-4 group-hover:text-[#3C5929] transition-colors leading-tight">Next-Gen Anti-Jamming GPS Systems Built for Contested Environments.</h3>
-                    <p className="text-[#A1A1A1] font-mono text-sm mb-8 flex-grow leading-relaxed">Developing robust positioning, navigation, and timing (PNT) assurance modules to protect critical assets from electronic spoofing.</p>
-                    <div className="mt-auto">
-                        <button className="border-b border-[#3C5929] text-white hover:text-[#3C5929] font-mono text-xs pb-1 tracking-widest transition-colors inline-flex items-center gap-2">
-                            READ ARTICLE <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
-                </motion.div>
+                <AnimatePresence mode="popLayout">
+                    {filteredItems.map(item => (
+                        <motion.div 
+                            key={item.id}
+                            layout
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-white rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden flex flex-col group cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 min-h-[400px]"
+                        >
+                            <div className="h-64 w-full overflow-hidden relative bg-gray-100">
+                                <img 
+                                  src={item.image} 
+                                  alt={item.title} 
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90" 
+                                />
+                                <div className="absolute top-4 left-4">
+                                    <span className="font-mono text-[10px] text-black bg-white/90 backdrop-blur-sm px-3 py-1.5 tracking-widest uppercase rounded-full shadow-sm font-bold">
+                                        {item.category}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="p-8 flex flex-col flex-grow">
+                                <div className="mb-4">
+                                    <span className="font-mono text-[11px] text-[#A1A1A1] tracking-widest">{item.date}</span>
+                                </div>
+                                <h3 className="text-xl md:text-2xl font-bold text-[#111111] mb-4 group-hover:text-[#3C5929] transition-colors leading-snug">
+                                    {item.title}
+                                </h3>
+                                <p className="text-[14px] text-[#666666] leading-relaxed flex-grow font-sans mb-8">
+                                    {item.description}
+                                </p>
+                                <div className="mt-auto">
+                                    <button className="border-b border-[#3C5929] text-[#3C5929] font-mono text-xs pb-1 tracking-widest transition-colors inline-flex items-center gap-2">
+                                        READ MORE <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                    
+                    {filteredItems.length === 0 && (
+                        <div className="col-span-full py-20 text-center">
+                            <p className="text-xl text-[#666666] font-mono">No dispatches found for the selected filters.</p>
+                        </div>
+                    )}
+                </AnimatePresence>
             </motion.div>
 
             {/* INTERACTIVE LOAD MORE */}
-            <motion.div {...fadeUp} className="flex justify-center mb-24">
-                <button className="border border-[#3C5929] text-[#3C5929] hover:bg-[#3C5929] hover:text-white font-mono text-sm px-8 py-3 tracking-widest transition-all">
-                    LOAD MORE DISPATCHES
-                </button>
-            </motion.div>
+            {filteredItems.length > 0 && (
+                <motion.div {...fadeUp} className="flex justify-center mb-24">
+                    <button className="border border-[#3C5929] text-[#3C5929] hover:bg-[#3C5929] hover:text-white font-mono text-sm px-8 py-3 tracking-widest transition-all">
+                        LOAD MORE DISPATCHES
+                    </button>
+                </motion.div>
+            )}
 
             {/* BOTTOM CALL TO ACTION BANNER */}
-            <motion.div {...fadeUp} className="bg-[#1A1A1A] text-white border-t-2 border-[#3C5929] p-8 md:p-16 relative overflow-hidden shadow-xl">
+            <motion.div {...fadeUp} className="bg-[#1A1A1A] text-white border-t-2 border-[#3C5929] p-8 md:p-16 relative overflow-hidden shadow-xl rounded-2xl mb-12">
                 <div className="absolute top-0 right-0 p-4 opacity-5">
                     <svg width="180" height="180" viewBox="0 0 24 24" fill="none" stroke="#3C5929" strokeWidth="1"><path d="M12 2v20M2 12h20M12 12m-8 0a8 8 0 1 0 16 0a8 8 0 1 0 -16 0"/></svg>
                 </div>
@@ -230,10 +265,10 @@ export function NewsroomPage() {
                     <h2 className="text-3xl md:text-4xl font-light text-white mb-6 leading-tight">BUILDING SOVEREIGN DEFENCE TECH FOR MISSION-CRITICAL OPERATIONS</h2>
                     <p className="text-[#A1A1A1] font-mono text-sm mb-10 max-w-xl leading-relaxed">Partner with Sahana Defence for advanced electronic warfare and AI systems.</p>
                     <div className="flex flex-wrap gap-4">
-                        <button onClick={() => window.location.href = '/investors/key-contact'} className="bg-[#3C5929] hover:bg-[#4E7335] text-white font-mono text-[11px] font-bold px-8 py-4 tracking-[0.2em] transition-colors">
+                        <button onClick={() => window.location.href = '/investors/key-contact'} className="bg-[#3C5929] hover:bg-[#4E7335] text-white font-mono text-[11px] font-bold px-8 py-4 tracking-[0.2em] transition-colors rounded-full">
                             INQUIRE FOR PROCUREMENT
                         </button>
-                        <button className="border border-white/30 text-white hover:bg-white hover:text-black font-mono text-[11px] font-bold px-8 py-4 tracking-[0.2em] transition-colors">
+                        <button className="border border-white/30 text-white hover:bg-white hover:text-black font-mono text-[11px] font-bold px-8 py-4 tracking-[0.2em] transition-colors rounded-full">
                             OPEN ROLES
                         </button>
                     </div>
