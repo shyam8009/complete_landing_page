@@ -35,7 +35,7 @@ const heroSlides = [
   },
 ];
 
-export function DroneSystemsHero() {
+export default function DroneSystemsHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
