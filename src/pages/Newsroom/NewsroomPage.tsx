@@ -5,6 +5,8 @@ import celImage from '@/imports/news_cel_agreement.png';
 import celSigningImg from '@/imports/news_cel_signing.png';
 import event1Img from '@/imports/event1_military.png';
 import event3Img from '@/imports/event3_expo.png';
+import award1Img from '@/imports/award1.png';
+import award2Img from '@/imports/award2.png';
 
 const NEWS_ITEMS = [
   {
@@ -42,6 +44,24 @@ const NEWS_ITEMS = [
     description: 'An inside view of how Sahana bridges field experience with product innovation, enabling meaningful defence engagements and showcasing operational readiness to key stakeholders.',
     image: event3Img,
     link: 'https://www.linkedin.com/feed/update/urn:li:activity:7376576020293951488'
+  },
+  {
+    id: 5,
+    category: 'AWARDS',
+    date: '2025',
+    title: 'Sahana’s Managing Director honoured with the Entrepreneur of the Year Award at Nirman Conclave & Awards 2025',
+    description: 'A recognition of visionary leadership, innovation-driven growth, and Sahana’s continued commitment to building globally impactful technology and engineering solutions.',
+    image: award1Img,
+    link: '#'
+  },
+  {
+    id: 6,
+    category: 'AWARDS',
+    date: '2021',
+    title: 'InfinityRadar, a Sahana System Group company, received the Emerging Company of the Year 2020–2021 recognition from the Indian Achievers Forum',
+    description: 'A proud milestone celebrating innovation, business growth, and the continued commitment to building impactful technology-driven solutions across industries.',
+    image: award2Img,
+    link: '#'
   }
 ];
 
@@ -254,6 +274,7 @@ export function NewsroomPage() {
     </div>
   );
 }
+
 
 
 
