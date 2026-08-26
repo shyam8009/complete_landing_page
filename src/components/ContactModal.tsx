@@ -81,7 +81,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               {/* High-tech imagery container */}
               <div className="w-full h-[240px] sm:h-[320px] bg-neutral-950 border border-neutral-800 overflow-hidden mb-10 relative group">
                 <img 
-                  src="/assets/dashboard_ui.jpg" 
+                  src="/assets/contact_modal_hero.jpeg" 
                   alt="Aerospace Hardware" 
                   className="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-80 transition-all duration-700"
                 />
@@ -269,4 +269,5 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 };
 
 export default ContactModal;
+
 
