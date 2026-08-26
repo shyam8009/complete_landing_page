@@ -128,9 +128,9 @@ const NEWS_ITEMS = [
     category: 'CONTRACTS',
     date: 'JUL 21, 2025',
     title: "Sahana is now officially empaneled as a design service provider with Bharat Electronics Limited (BEL).",
-    description: "Sahana System Limited announces its strategic empanelment as a Design Service Provider for Bharat Electronics Limited, strengthening defence technology and engineering capabilities.",
-    image: belEmpanelmentImg,
-    link: '#'
+      description: "Sahana System Limited announces its strategic empanelment as a Design Service Provider for Bharat Electronics Limited, strengthening defence technology and engineering capabilities.",
+      image: belEmpanelmentImg,
+      link: '/documents/newsroom/bel_empanelment.pdf'
   },
   {
     id: 5,
