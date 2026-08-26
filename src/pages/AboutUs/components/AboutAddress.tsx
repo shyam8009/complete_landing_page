@@ -4,13 +4,13 @@ const INTER = "'Inter', sans-serif";
 const LOCATIONS = [
   {
     title: 'Global Headquarters',
-    address: 'Sahana Defence Corporate Center\nTech Park Avenue, Sector 45\nNew Delhi, 110001, India',
+    address: '3rd Floor, 305, Sigma Legacy,\nNr. Vikram Sarabhai Marg, Opp. Panjrapol, Ambawadi,\nAhmedabad- 380015, Gujarat.',
     phone: '+91 11 2345 6789',
     email: 'hq@sahanadefence.com'
   },
   {
     title: 'Manufacturing & Assembly',
-    address: 'Defence Industrial Corridor\nPhase II, Industrial Area\nHyderabad, 500081, India',
+    address: 'Plot No 32, 33, 68, 69, Prince Industrial Hub,\nIndore Express Highway, Kothiya,\nKuha, Ahmedabad-382433',
     phone: '+91 40 1234 5678',
     email: 'production@sahanadefence.com'
   }
