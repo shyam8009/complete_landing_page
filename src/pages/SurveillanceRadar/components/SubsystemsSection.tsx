@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import radarImg1 from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_1sfdbBur4r.png';
-import radarImg2 from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_CHdnhd8EEy.png';
-import radarImg3 from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_wPKasSb7EI.png';
+import radarImg1 from '../../../imports/surveillance_radar/very_short_range.webp';
+import radarImg2 from '../../../imports/surveillance_radar/short_range.webp';
+import radarImg3 from '../../../imports/surveillance_radar/medium_range.webp';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [
