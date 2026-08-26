@@ -9,6 +9,7 @@ import award1Img from '@/imports/award1.png';
 import award2Img from '@/imports/award2.png';
 import spaceDay1Img from '@/imports/space_day_1.jpeg';
 import spaceDay2Img from '@/imports/space_day_2.jpeg';
+import sidmExpoVid from '@/imports/sidm_expo.mp4';
 
 // Helper component for rendering multiple images as a slider
 const ImageSlider = ({ images }: { images: string[] }) => {
@@ -89,7 +90,7 @@ const NEWS_ITEMS = [
     date: 'OCT 12, 2025',
     title: 'Sahana highlighted its defence technology leadership at the SIDM expo, reinforcing Make in India initiative',
     description: "Insights from Sahana's defence leadership on advancing electronic warfare capabilities through in-house R&D, enabling mission-ready solutions aligned with India's self-reliance vision.",
-    image: celImage,
+    video: sidmExpoVid,
     link: 'https://www.linkedin.com/feed/update/urn:li:activity:7377605428660170752'
   },
   {
@@ -261,7 +262,16 @@ export function NewsroomPage() {
                             className="bg-white rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden flex flex-col group cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 min-h-[400px]"
                         >
                             <div className="h-64 w-full overflow-hidden relative bg-gray-100">
-                                {item.images ? (
+                                {item.video ? (
+                                    <video 
+                                      src={item.video} 
+                                      autoPlay 
+                                      loop 
+                                      muted 
+                                      playsInline
+                                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
+                                    />
+                                ) : item.images ? (
                                     <ImageSlider images={item.images} />
                                 ) : (
                                     <img 
