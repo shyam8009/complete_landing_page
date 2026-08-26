@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { TechCTA } from './TechCTA';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -243,12 +244,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   </div>
 
                   {/* Submit Button */}
-                  <button 
-                    type="submit"
-                    className="mt-6 w-full border border-white text-white hover:bg-white hover:text-black font-bold text-[15px] uppercase tracking-[2px] py-5 rounded-none transition-all duration-300 ease-in-out"
-                  >
-                    Submit Inquiry
-                  </button>
+                  <div className="mt-6 w-full flex"><TechCTA className="w-full">Submit Inquiry</TechCTA></div>
                 </form>
               </div>
             </div>
@@ -273,3 +269,4 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 };
 
 export default ContactModal;
+
