@@ -103,11 +103,11 @@ export default function AboutDomains() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
-              className="absolute inset-0 flex flex-col justify-center"
+              initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+                className="absolute inset-0 flex flex-col justify-center"
             >
               <p className="text-xs tracking-[0.2em] text-[#84CC16] mb-4 md:mb-8 font-mono uppercase font-bold">
                 {activeDomain.eyebrow}
@@ -179,6 +179,8 @@ export default function AboutDomains() {
     </section>
   );
 }
+
+
 
 
 
