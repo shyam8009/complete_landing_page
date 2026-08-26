@@ -62,7 +62,7 @@ export default function AboutDomains() {
         scrollTriggerRef.current = ScrollTrigger.create({
           trigger: containerRef.current,
           start: "top top",
-          end: "+=4000", // 4000px of scrolling for 5 slides
+          end: "+=2000", // Reduced scroll distance for smoother/faster transitions
           pin: true,
           scrub: 1,
           onUpdate: (self) => {
@@ -179,6 +179,7 @@ export default function AboutDomains() {
     </section>
   );
 }
+
 
 
 
