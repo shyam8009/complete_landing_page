@@ -1,10 +1,12 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useLayoutEffect, useState } from 'react';
+
+
+const INTER = '"Inter", sans-serif';
+
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const INTER = '"Inter", sans-serif';
 
 const PIPELINE_STEPS = [
   {
@@ -56,56 +58,43 @@ const PIPELINE_STEPS = [
 ];
 
 export function PipelineSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
-  const nodesRef = useRef<Array<HTMLDivElement | null>>([]);
+  const sectionRef = useRef<HTMLElement>(null);
+  const svgLineRef = useRef<SVGPathElement>(null);
+  const [activeStep, setActiveStep] = useState(0);
 
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      // Animate progress line
-      if (lineRef.current) {
-        gsap.fromTo(lineRef.current, 
-          { width: "0%" },
-          {
-            width: "100%",
-            ease: "none",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top center",
-              end: "bottom center",
-              scrub: 1
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current || !svgLineRef.current) return;
+
+      const pathLength = svgLineRef.current.getTotalLength();
+      gsap.set(svgLineRef.current, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 60%',
+          end: 'bottom 40%',
+          scrub: 0.5,
+          onUpdate: (self) => {
+            const numSteps = PIPELINE_STEPS.length;
+            let current = Math.floor(self.progress * numSteps);
+            if (current >= numSteps) current = numSteps - 1;
+            if (current < 0) current = 0;
+            if (current !== activeStep) {
+              setActiveStep(current);
             }
           }
-        );
-      }
-
-      // Animate nodes popping in
-      nodesRef.current.forEach((node, i) => {
-        if (node) {
-          gsap.fromTo(node,
-            { scale: 0, opacity: 0 },
-            {
-              scale: 1, opacity: 1,
-              duration: 0.6,
-              ease: "back.out(1.5)",
-              scrollTrigger: {
-                trigger: node,
-                start: "top 80%"
-              }
-            }
-          );
         }
       });
-    }, containerRef);
+
+      tl.to(svgLineRef.current, { strokeDashoffset: 0, ease: 'none', duration: 1 });
+    }, sectionRef);
+
     return () => ctx.revert();
-  }, []);
+  }, [activeStep]);
 
   return (
-    <section 
-      ref={containerRef}
-      className="py-20 bg-[#050505] border-t border-white/5 relative overflow-hidden"
-    >
-      {/* Background Grid */}
+    <section ref={sectionRef} className="py-24 bg-[#050505] border-t border-white/5 relative overflow-hidden">
       <div 
         className="absolute inset-0 opacity-[0.03]" 
         style={{ 
@@ -114,61 +103,67 @@ export function PipelineSection() {
         }} 
       />
 
-      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10 flex flex-col gap-16">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-5xl text-white font-bold tracking-tight uppercase" style={{ fontFamily: INTER }}>
-            Operational Pipeline
-          </h2>
-        </div>
+      <div className="max-w-[1200px] mx-auto px-4 lg:px-6 relative z-10 flex justify-center">
+        <div className="relative w-full max-w-2xl py-12">
+          <div className="absolute left-[39px] top-12 bottom-12 w-0.5 -translate-x-1/2 -z-10 bg-white/5">
+            <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 2 1000">
+              <path 
+                ref={svgLineRef}
+                d="M 1 0 L 1 1000" 
+                fill="none" 
+                stroke="#84CC16" 
+                strokeWidth="2" 
+                className="drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]"
+              />
+            </svg>
+          </div>
 
-        {/* Pipeline Grid */}
-        <div className="relative w-full grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-6">
-          
-          {/* Horizontal Connecting Line (Desktop) */}
-          <div className="hidden md:block absolute top-[48px] left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-white/10 -z-10" />
-          {/* Glowing Green Progress Line */}
-          <div 
-            ref={lineRef}
-            className="hidden md:block absolute top-[48px] left-[12.5%] h-[2px] bg-[#84CC16] shadow-[0_0_15px_#84CC16] -z-10 origin-left"
-          />
-
-          {PIPELINE_STEPS.map((step, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center gap-6 relative group">
+          <div className="flex flex-col gap-16 md:gap-24">
+            {PIPELINE_STEPS.map((step, idx) => {
+              const Icon = step.icon;
+              const isActive = activeStep === idx;
+              const isPast = idx < activeStep;
               
-              {/* Node Badge */}
-              <div 
-                ref={el => nodesRef.current[idx] = el}
-                className="w-24 h-24 rounded-full bg-[#0a0a0a] border border-white/10 flex flex-col items-center justify-center gap-1 z-10 transition-colors duration-300 "
-              >
-                <span className="text-white/50 text-xs font-mono font-bold">{step.num}</span>
-                <div className="text-[#84CC16]">
-                  {step.icon}
+              return (
+                <div key={step.id} className="relative group flex items-start gap-8 pl-2">
+                  
+                  <div className="relative z-10 mt-1 shrink-0 flex items-center justify-center w-[18px] h-[18px] ml-[2px]">
+                    <div 
+                      className={`absolute inset-0 rounded-full border-2 transition-all duration-500 flex items-center justify-center
+                        ${isActive ? 'border-[#84CC16] bg-black scale-125 shadow-[0_0_15px_rgba(132,204,22,0.4)]' : 
+                          isPast ? 'border-[#84CC16] bg-[#84CC16]' : 'border-white/20 bg-black'}`}
+                    >
+                      {isActive && <div className="absolute w-1.5 h-1.5 bg-[#84CC16] rounded-full animate-ping" />}
+                      {isActive && <div className="absolute w-1.5 h-1.5 bg-[#84CC16] rounded-full" />}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col md:flex-row gap-6 items-start w-full">
+                    <div className="shrink-0 flex items-center justify-center w-16 h-16 rounded-lg bg-[#0a0a0a] border border-white/10 group-hover:border-[#84CC16]/30 transition-colors duration-500">
+                      <Icon className={`w-6 h-6 transition-colors duration-500 ${isActive || isPast ? 'text-[#84CC16]' : 'text-white/40'}`} />
+                    </div>
+                    
+                    <div className="flex flex-col mt-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-[#84CC16] font-mono text-sm tracking-widest font-bold">
+                          {step.id}
+                        </span>
+                        <h3 className={`text-xl font-bold uppercase tracking-wide transition-colors duration-500 ${isActive || isPast ? 'text-white' : 'text-white/60'}`}>
+                          {step.title}
+                        </h3>
+                      </div>
+                      <p className="text-white/50 leading-relaxed text-sm md:text-base max-w-[400px]">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                  
                 </div>
-              </div>
-
-              {/* Text Content */}
-              <div className="flex flex-col gap-3 items-center">
-                <h3 className="text-white text-xl font-bold tracking-wide uppercase" style={{ fontFamily: INTER }}>
-                  {step.title}
-                </h3>
-                <p className="text-white/60 text-sm leading-relaxed max-w-[280px]" style={{ fontFamily: INTER }}>
-                  {step.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-
-
-
-
-
-
-
-
