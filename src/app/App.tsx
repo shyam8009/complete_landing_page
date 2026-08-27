@@ -1431,11 +1431,23 @@ function EditorialSection() {
 
 // â€”â€”â€” FOOTER â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
 
-const FOOTER_COMPANY = ["Mission", "Newsroom", "Leadership", "Gear Store"];
-const FOOTER_WORK = ["Careers", "Early Career", "Veteran Careers", "Open Roles"];
-const FOOTER_SOCIAL = ["X", "YouTube", "Instagram", "Facebook", "LinkedIn"];
+const FOOTER_COMPANY = [
+  { label: "Mission", url: "/about-us" },
+  { label: "Newsroom", url: "/newsroom" },
+  { label: "Leadership", url: "/about-us" }
+];
+const FOOTER_WORK = [
+  { label: "Careers", url: "#" }
+];
+const FOOTER_SOCIAL = [
+  { label: "X", url: "#" },
+  { label: "YouTube", url: "#" },
+  { label: "Instagram", url: "#" },
+  { label: "Facebook", url: "#" },
+  { label: "LinkedIn", url: "#" }
+];
 
-function FooterCol({ label, links }: { label: string; links: string[] }) {
+function FooterCol({ label, links }: { label: string; links: { label: string; url: string }[] }) {
   return (
     <div className="flex flex-col gap-5">
       <p
@@ -1446,14 +1458,14 @@ function FooterCol({ label, links }: { label: string; links: string[] }) {
       </p>
       <ul className="flex flex-col gap-2">
         {links.map((link) => (
-          <li key={link}>
-            <a
-              href="#"
+          <li key={link.label}>
+            <Link
+              to={link.url}
               className="text-white text-sm md:text-base hover:text-white/80 transition-colors"
               style={{ fontFamily: INTER, fontWeight: 400 }}
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>
