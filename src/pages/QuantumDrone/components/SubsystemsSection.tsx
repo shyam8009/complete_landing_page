@@ -7,7 +7,7 @@ import amplifImg from '../../../imports/quantum_atomic_clock.jpg';
 const SUBSYSTEMS = [
   {
     id: "01",
-    title: "Tier 01 — Drone-as-a-Service · MANAGED",
+    title: "Drone-as-a-Service · MANAGED",
     description: "Flexible, mission-scale deployment without capital acquisition or in-house fleet management.",
     specs: [
       { label: "MODEL", value: "Managed service" },
@@ -17,7 +17,7 @@ const SUBSYSTEMS = [
   },
   {
     id: "02",
-    title: "Tier 02 — Custom UAV Build · BESPOKE",
+    title: "Custom UAV Build · BESPOKE",
     description: "Platforms designed and built to a specific operational requirement.",
     specs: [
       { label: "MODEL", value: "Built to specification" },
