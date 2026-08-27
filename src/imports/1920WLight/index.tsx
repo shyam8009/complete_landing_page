@@ -1673,7 +1673,7 @@ function Margin12() {
   return (
     <div className="content-stretch flex flex-col items-start pb-[13.5px] relative shrink-0" data-name="Margin">
       <div className="[word-break:break-word] flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[12.7px] text-white tracking-[0.54px] uppercase whitespace-nowrap">
-        <p className="leading-[14.18px]">Copyright Â© 2026 Anduril Industries</p>
+        <p className="leading-[14.18px]">Copyright &copy; 2026 Sahana Defence</p>
       </div>
     </div>
   );

@@ -1512,7 +1512,7 @@ function Footer({ onContactClick }: { onContactClick?: () => void }) {
           className="text-white text-xs uppercase tracking-[0.54px]"
           style={{ fontFamily: INTER, fontWeight: 500 }}
         >
-          Copyright Â© 2026 Sahana Defence
+          Copyright &copy; 2026 Sahana Defence
         </p>
         <div className="flex flex-row flex-wrap gap-x-6 gap-y-2">
           {[{label: "Privacy Policy", url: "/privacy-policy"}].map(
