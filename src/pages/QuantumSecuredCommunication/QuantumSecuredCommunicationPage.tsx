@@ -12,13 +12,13 @@ export default function QuantumSecuredCommunicationPage() {
   }, []);
 
   return (
-    <main className="w-full bg-[#000000] min-h-screen text-white font-sans selection:bg-[#84CC16]/30">
+    <div className="w-full bg-[#05080D] min-h-screen text-white overflow-hidden font-sans selection:bg-[#84CC16]/30">
       <HeroSection />
       <OperationalSequence />
       <CoreCapabilities />
       <PlatformVariants />
       <TacticalApplications />
       <ClosingCTA />
-    </main>
+    </div>
   );
 }
