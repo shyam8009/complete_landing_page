@@ -7,7 +7,7 @@ import amplifImg from '../../../imports/quantum_atomic_clock.jpg';
 const SUBSYSTEMS = [
   {
     id: "01",
-    title: "Point 01 — Navigation Systems · POSITIONING",
+    title: "- Navigation Systems · POSITIONING",
     description: "Timing reference for positioning systems operating without satellite support.",
     specs: [
       { label: "ROLE", value: "Navigation timing" },
@@ -17,7 +17,7 @@ const SUBSYSTEMS = [
   },
   {
     id: "02",
-    title: "Point 02 — Radar Systems · RESOLUTION",
+    title: "- Radar Systems · RESOLUTION",
     description: "Stable frequency reference for Radar, where timing precision sets the resolution ceiling.",
     specs: [
       { label: "ROLE", value: "Radar timing" },
@@ -27,7 +27,7 @@ const SUBSYSTEMS = [
   },
   {
     id: "03",
-    title: "Point 03 — Distributed Networks · COHERENCE",
+    title: "- Distributed Networks · COHERENCE",
     description: "Synchronisation across distributed sensor and communication nodes.",
     specs: [
       { label: "ROLE", value: "Network synchronisation" },
