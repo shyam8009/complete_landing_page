@@ -1515,7 +1515,7 @@ function Footer({ onContactClick }: { onContactClick?: () => void }) {
           Copyright Â© 2026 Sahana Defence
         </p>
         <div className="flex flex-row flex-wrap gap-x-6 gap-y-2">
-          {[{label: "Privacy Policy", url: "/privacy-policy"}, {label: "Terms of Use", url: "#"}, {label: "Modern Anti-Slavery Policy", url: "#"}, {label: "Investor Relations", url: "#"}].map(
+          {[{label: "Privacy Policy", url: "/privacy-policy"}].map(
             (item) => (
               <a
                 key={item.label}
