@@ -1,4 +1,4 @@
-﻿import React, { useRef, useLayoutEffect } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Mic, Cpu, BrainCircuit, ShieldAlert } from 'lucide-react';
@@ -33,92 +33,113 @@ const NODES = [
 ];
 
 export function ChatbotsVoicePipeline() {
-  const containerRef = useRef<HTMLElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const svgLineRef = useRef<SVGPathElement>(null);
+  const [activeStep, setActiveStep] = useState(0);
 
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      // Animate line width
-      gsap.fromTo(lineRef.current,
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 70%",
-            end: "bottom 70%",
-            scrub: 1,
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current || !svgLineRef.current) return;
+
+      const pathLength = svgLineRef.current.getTotalLength();
+      gsap.set(svgLineRef.current, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 60%',
+          end: 'bottom 40%',
+          scrub: 0.5,
+          onUpdate: (self) => {
+            const numSteps = NODES.length;
+            let current = Math.floor(self.progress * numSteps);
+            if (current >= numSteps) current = numSteps - 1;
+            if (current < 0) current = 0;
+            if (current !== activeStep) {
+              setActiveStep(current);
+            }
           }
         }
-      );
+      });
 
-      // Animate nodes
-      gsap.fromTo(".pipeline-node",
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 70%",
-          }
-        }
-      );
-    }, containerRef);
+      tl.to(svgLineRef.current, { strokeDashoffset: 0, ease: 'none', duration: 1 });
+    }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [activeStep]);
 
   return (
-    <section id="pipeline-section" ref={containerRef} className="py-24 bg-[#020202] text-white border-t border-white/5 relative overflow-hidden">
-      <div className="max-w-[1600px] mx-auto px-4 lg:px-6 relative z-10">
-        
-        <div className="mb-20 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight mb-4">
-            DEEPTECH PROCESS PIPELINE
-          </h2>
-          <div className="w-24 h-1 bg-[#84CC16] mx-auto opacity-80" />
-        </div>
+    <section ref={sectionRef} className="py-24 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+      <div 
+        className="absolute inset-0 opacity-[0.03]" 
+        style={{ 
+          backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)',
+          backgroundSize: '40px 40px' 
+        }} 
+      />
 
-        <div className="relative">
-          {/* Background Track Line */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-[2px] bg-white/10 hidden lg:block" />
-          
-          {/* Glowing Progress Line */}
-          <div 
-            ref={lineRef}
-            className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-[2px] bg-[#84CC16] origin-left hidden lg:block shadow-[0_0_15px_rgba(132,204,22,0.8)]" 
-          />
+      <div className="max-w-[1200px] mx-auto px-4 lg:px-6 relative z-10 flex justify-center">
+        <div className="relative w-full max-w-2xl py-12">
+          <div className="absolute left-[39px] top-12 bottom-12 w-0.5 -translate-x-1/2 -z-10 bg-white/5">
+            <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 2 1000">
+              <path 
+                ref={svgLineRef}
+                d="M 1 0 L 1 1000" 
+                fill="none" 
+                stroke="#84CC16" 
+                strokeWidth="2" 
+                className="drop-shadow-[0_0_8px_rgba(132,204,22,0.8)]"
+              />
+            </svg>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative z-10">
-            {NODES.map((node, index) => {
-              const Icon = node.icon;
+          <div className="flex flex-col gap-16 md:gap-24">
+            {NODES.map((step, idx) => {
+              const Icon = step.icon;
+              const isActive = activeStep === idx;
+              const isPast = idx < activeStep;
+              
               return (
-                <div key={index} className="pipeline-node flex flex-col items-center text-center group">
-                  <span className="text-[#84CC16] font-mono text-xl font-bold mb-6 tracking-widest bg-black px-2 relative z-10">
-                    {node.step}
-                  </span>
+                <div key={step.id} className="relative group flex items-start gap-8 pl-2">
                   
-                  <div className="w-20 h-20 rounded-full bg-black border-2 border-white/20 flex items-center justify-center mb-8 group-hover:border-[#84CC16] group-hover:shadow-[0_0_30px_rgba(132,204,22,0.3)] transition-all duration-500 relative z-10">
-                    <Icon className="w-8 h-8 text-white group-hover:text-[#84CC16] transition-colors" />
+                  <div className="relative z-10 mt-1 shrink-0 flex items-center justify-center w-[18px] h-[18px] ml-[2px]">
+                    <div 
+                      className={`absolute inset-0 rounded-full border-2 transition-all duration-500 flex items-center justify-center
+                        ${isActive ? 'border-[#84CC16] bg-black scale-125 shadow-[0_0_15px_rgba(132,204,22,0.4)]' : 
+                          isPast ? 'border-[#84CC16] bg-[#84CC16]' : 'border-white/20 bg-black'}`}
+                    >
+                      {isActive && <div className="absolute w-1.5 h-1.5 bg-[#84CC16] rounded-full animate-ping" />}
+                      {isActive && <div className="absolute w-1.5 h-1.5 bg-[#84CC16] rounded-full" />}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col md:flex-row gap-6 items-start w-full">
+                    <div className="shrink-0 flex items-center justify-center w-16 h-16 rounded-lg bg-[#0a0a0a] border border-white/10 group-hover:border-[#84CC16]/30 transition-colors duration-500">
+                      <Icon className={`w-6 h-6 transition-colors duration-500 ${isActive || isPast ? 'text-[#84CC16]' : 'text-white/40'}`} />
+                    </div>
+                    
+                    <div className="flex flex-col mt-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-[#84CC16] font-mono text-sm tracking-widest font-bold">
+                          {step.id}
+                        </span>
+                        <h3 className={`text-xl font-bold uppercase tracking-wide transition-colors duration-500 ${isActive || isPast ? 'text-white' : 'text-white/60'}`}>
+                          {step.title}
+                        </h3>
+                      </div>
+                      {step.description && (
+                        <p className="text-white/50 leading-relaxed text-sm md:text-base max-w-[400px]">
+                          {step.description}
+                        </p>
+                      )}
+                    </div>
                   </div>
                   
-                  <h3 className="text-2xl font-bold uppercase tracking-wide mb-4">
-                    {node.title}
-                  </h3>
-                  
-                  <p className="text-white/60 leading-relaxed text-sm max-w-sm">
-                    {node.description}
-                  </p>
                 </div>
               );
             })}
           </div>
         </div>
-
       </div>
     </section>
   );
