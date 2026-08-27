@@ -268,7 +268,7 @@ export const CAPABILITIES_DATA = [
       {
         id: "quantum-communication",
         title: "Quantum Communication",
-        slug: "/quantum-technology-solutions/quantum-communication",
+        slug: "/quantum-technology-solutions/quantum-communication/quantum-secured-communication",
 
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

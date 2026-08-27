@@ -17,7 +17,7 @@ import { RFDetectorPage } from '../pages/RFDetector/RFDetectorPage';
 import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
 import { OSINTPage } from '../pages/OSINT/OSINTPage';
 import { QuantumSensingPage } from '../pages/QuantumSensing/QuantumSensingPage';
-import QuantumCommunicationPage from '../pages/QuantumCommunication/QuantumCommunicationPage';
+import QuantumSecuredCommunicationPage from '../pages/QuantumSecuredCommunication/QuantumSecuredCommunicationPage';
 import IntelligenceSurveillancePage from '../pages/IntelligenceSurveillance/IntelligenceSurveillancePage';
 import CommandControlPage from '../pages/CommandControl/CommandControlPage';
 import CommunicationMonitoringPage from '../pages/CommunicationMonitoring/CommunicationMonitoringPage';
@@ -2319,7 +2319,7 @@ export default function App() {
           <Route path="/solution/artificial-intelligence" element={<AIPage />} />
           <Route path="/solution/defence-deeptech/connectivity-infrastructure" element={<ConnectivityInfrastructurePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing" element={<QuantumSensingPage />} />
-          <Route path="/quantum-technology-solutions/quantum-communication" element={<QuantumCommunicationPage />} />
+          <Route path="/quantum-technology-solutions/quantum-communication/quantum-secured-communication" element={<QuantumSecuredCommunicationPage />} />
           <Route path="/information-warfare/intelligence-surveillance" element={<IntelligenceSurveillancePage />} />
           <Route path="/information-warfare/command-control" element={<CommandControlPage />} />
           <Route path="/information-warfare/communication-monitoring" element={<CommunicationMonitoringPage />} />
