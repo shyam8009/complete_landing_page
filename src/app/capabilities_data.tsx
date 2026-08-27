@@ -282,7 +282,7 @@ export const CAPABILITIES_DATA = [
         applications: ["Secure Comms", "Financial Data", "Military Networks", "Command & Control"],
         products: [
           { id: "quantum-secured-comms", title: "Quantum Secured Communication", image: c2DashboardUiImg, slug: "/quantum-technology-solutions/quantum-communication/quantum-secured-communication" },
-          { id: "hardware-pqc", title: "Hardware based Post Quantum Cryptography", image: innovation5, slug: "home" },
+          { id: "hardware-pqc", title: "Hardware based Post Quantum Cryptography", image: innovation5, slug: "/quantum-technology-solutions/quantum-communication/hardware-based-post-quantum-cryptography" },
           { id: "quantum-control", title: "Quantum Control Systems", image: osintDashboardImg, slug: "home" },
         ]
       }
