@@ -7,7 +7,7 @@ import amplifImg from '../../../imports/quantum_atomic_clock.jpg';
 const SUBSYSTEMS = [
   {
     id: "01",
-    title: "Configuration 01 — Signal Intelligence · DETECTION",
+    title: "Signal Intelligence · DETECTION",
     description: "Detection and characterisation of emissions sitting below the threshold of conventional receiver hardware.",
     specs: [
       { label: "ROLE", value: "Emitter detection" },
@@ -17,7 +17,7 @@ const SUBSYSTEMS = [
   },
   {
     id: "02",
-    title: "Configuration 02 — Spectrum Awareness · MONITORING",
+    title: "Spectrum Awareness · MONITORING",
     description: "Continuous measurement of the electromagnetic environment across an operating area.",
     specs: [
       { label: "ROLE", value: "Spectrum monitoring" },
@@ -27,7 +27,7 @@ const SUBSYSTEMS = [
   },
   {
     id: "03",
-    title: "Configuration 03 — Secure Sensing · PROTECTED",
+    title: "Secure Sensing · PROTECTED",
     description: "Measurement in conditions where the sensing activity must not be revealed.",
     specs: [
       { label: "ROLE", value: "Covert measurement" },
