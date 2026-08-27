@@ -267,8 +267,8 @@ export const CAPABILITIES_DATA = [
       },
       {
         id: "quantum-communication",
-        title: "Quantum Communication",
-        slug: "/quantum-technology-solutions/quantum-communication/quantum-secured-communication",
+        title: "Quantum Secured Communication",
+          slug: "/quantum-technology-solutions/quantum-communication/quantum-secured-communication",
 
         icon: (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -281,7 +281,7 @@ export const CAPABILITIES_DATA = [
         stats: ["Unhackable Links", "QKD", "Post-Quantum Security", "Global Reach"],
         applications: ["Secure Comms", "Financial Data", "Military Networks", "Command & Control"],
         products: [
-          { id: "quantum-secured-comms", title: "Quantum Secured Communication", image: c2DashboardUiImg, slug: "home" },
+          { id: "quantum-secured-comms", title: "Quantum Secured Communication", image: c2DashboardUiImg, slug: "/quantum-technology-solutions/quantum-communication/quantum-secured-communication" },
           { id: "hardware-pqc", title: "Hardware based Post Quantum Cryptography", image: innovation5, slug: "home" },
           { id: "quantum-control", title: "Quantum Control Systems", image: osintDashboardImg, slug: "home" },
         ]
