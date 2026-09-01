@@ -78,8 +78,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           {/* Main Grid */}
           <div className="flex-1 flex flex-col lg:flex-row w-full max-w-[1600px] mx-auto relative">
             
-            {/* Left Column (Brand & Impact) */}
-            <div className="w-full lg:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col border-b lg:border-b-0 lg:border-r border-neutral-800">
+            {/* Left Column (Brand & Impact - Desktop Only) */}
+            <div className="hidden lg:flex lg:w-1/2 p-6 md:p-12 lg:p-16 flex-col border-b lg:border-b-0 lg:border-r border-neutral-800">
               <div className="mb-10">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
                   Mission-Critical Aerospace & Defense Solutions
