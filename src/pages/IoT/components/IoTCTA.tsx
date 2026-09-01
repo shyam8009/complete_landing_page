@@ -1,10 +1,37 @@
-import React from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function IoTCTA() {
+  const containerRef = useRef<HTMLElement>(null);
+  
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo(".cta-text",
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+          }
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-32 bg-[#0a0a0a] relative overflow-hidden border-t border-white/5">
+    <section ref={containerRef} className="py-32 bg-[#0a0a0a] relative overflow-hidden border-t border-white/5">
       {/* Background patterns */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{ 
@@ -15,15 +42,15 @@ export function IoTCTA() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#84CC16]/5 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
+        <h2 className="cta-text text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
           Automate Your Operational Landscape
         </h2>
         
-        <p className="text-xl text-white/60 mb-12 leading-relaxed max-w-2xl mx-auto">
+        <p className="cta-text text-xl text-white/60 mb-12 leading-relaxed max-w-2xl mx-auto">
           Implement customized IoT hardware, platforms, and data science solutions for the seamless management of your business.
         </p>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <div className="cta-text flex flex-col sm:flex-row items-center justify-center gap-6">
           <Link 
             to="/contact"
             className="group relative inline-flex items-center justify-center px-8 py-4 bg-[#84CC16] text-black font-mono font-bold tracking-widest uppercase overflow-hidden w-full sm:w-auto"
