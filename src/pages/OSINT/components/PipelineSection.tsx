@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Database, Network, Cpu, ShieldAlert } from 'lucide-react';
 
 import gsap from 'gsap';
