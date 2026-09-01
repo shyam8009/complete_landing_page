@@ -883,11 +883,10 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
                       {domain.systems.map((sys: any) => (
                         <div key={sys.id} className="flex flex-col">
                           <div 
-                            className="flex items-center justify-between py-2 text-white/80 cursor-pointer text-[14px]"
+                            className="flex items-center justify-between py-2.5 text-white/80 hover:text-white cursor-pointer text-[14px]"
                             onClick={() => setMobileSystemOpen(mobileSystemOpen === sys.id ? null : sys.id)}
                           >
                             <span>{sys.title}</span>
-                            <span className="text-white/50 text-xs">{mobileSystemOpen === sys.id ? "â–¼" : "â–¶"}</span>
                           </div>
                           {mobileSystemOpen === sys.id && (
                             <div className="flex flex-col gap-2 pl-4 py-2">
