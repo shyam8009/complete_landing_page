@@ -2320,7 +2320,7 @@ export default function App() {
   }, [heroFinished]);
 
   return (
-    <div className="w-full min-h-screen bg-black overflow-x-clip" style={{ fontFamily: INTER }}>
+    <div className="w-full min-h-screen bg-black overflow-x-hidden" style={{ fontFamily: INTER }}>
       <ScrollToTop />
       <Nav heroFinished={heroFinished} setHeroFinished={setHeroFinished} onContactClick={() => setIsContactModalOpen(true)} />
       {/* Content wrapper without artificial padding, so the Hero starts exactly at top-0 */}
