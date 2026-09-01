@@ -27,7 +27,7 @@ export function DefenceComponentsHero() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-screen overflow-hidden bg-black flex items-center">
+    <section ref={containerRef} className="relative w-full min-h-[100dvh] overflow-hidden bg-black flex items-center">
       {/* Background Video */}
       <video
         src={heroBg}
@@ -56,7 +56,7 @@ export function DefenceComponentsHero() {
           
           {/* Headline */}
           <h1 
-            className="hero-element text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
+            className="hero-element text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
             style={{ fontFamily: INTER }}
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-neutral-500">
@@ -83,7 +83,7 @@ export function DefenceComponentsHero() {
           </div>
           
           {/* Quick Stats Block (Glassmorphic) */}
-          <div className="hero-element flex flex-col md:flex-row gap-6 md:gap-8 p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl w-full md:max-w-fit">
+          <div className="hero-element flex flex-col md:flex-row gap-6 md:gap-8 p-4 sm:p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl w-full md:max-w-fit">
             <div className="text-center md:text-left">
               <div className="text-3xl md:text-4xl font-bold text-white">Exotic Metallurgy</div>
               <div className="text-xs md:text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Titanium & Nickel Alloys</div>

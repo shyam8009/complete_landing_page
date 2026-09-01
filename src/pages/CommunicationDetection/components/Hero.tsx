@@ -37,7 +37,7 @@ export function Hero() {
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <section className="relative w-full min-h-[100dvh] overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* 1. Background Video / Image Layer with Crossfade */}
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -97,7 +97,7 @@ export function Hero() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="text-5xl md:text-7xl font-extralight tracking-wider uppercase mb-6"
+              className="text-3xl sm:text-5xl md:text-7xl font-extralight tracking-wider uppercase mb-6"
             >
               {slide.title}
             </motion.h1>

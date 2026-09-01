@@ -11,7 +11,7 @@ export function QuoteSection() {
       
       <div className="max-w-4xl mx-auto px-4 lg:px-6 relative z-10 text-center">
         <h2 
-          className="text-3xl sm:text-4xl md:text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-12 uppercase leading-tight tracking-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 uppercase leading-tight tracking-tight"
           style={{ fontFamily: INTER }}
         >
           "Absolute airspace dominance requires unmatched speed."

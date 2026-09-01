@@ -56,7 +56,7 @@ export function HeroSection() {
             </div>
 
             {/* Quick Stats Grid */}
-            <div className="grid grid-cols-2 gap-8 mt-16 p-6 border border-white/10 rounded-xl backdrop-blur-md bg-black/40 w-full sm:w-fit shadow-2xl">
+            <div className="grid grid-cols-2 gap-4 sm:gap-8 mt-12 sm:mt-16 p-4 sm:p-6 border border-white/10 rounded-xl backdrop-blur-md bg-black/40 w-full sm:w-fit shadow-2xl">
               <div>
                 <div className="text-3xl font-bold text-white mb-1">360&deg;</div>
                 <div className="text-sm text-white/50 font-mono uppercase">Volumetric Coverage</div>

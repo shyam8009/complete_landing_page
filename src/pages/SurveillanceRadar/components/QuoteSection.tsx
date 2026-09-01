@@ -18,7 +18,7 @@ export function QuoteSection() {
       </div>
 
       <div className="max-w-4xl mx-auto px-6 lg:px-4 sm:px-8 relative z-10 text-center flex flex-col items-center">
-        <h2 className="text-3xl sm:text-4xl md:text-3xl sm:text-4xl lg:text-6xl font-bold text-white uppercase tracking-tight leading-tight mb-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase tracking-tight leading-tight mb-8">
           SECURE YOUR PERIMETER <br />
           <span className="text-white/40">AGAINST COVERT INFILTRATIONS.</span>
         </h2>
