@@ -4,6 +4,36 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+import { Shield, Eye, Target, CheckCircle } from 'lucide-react';
+
+const PIPELINE_STEPS = [
+  {
+    id: "01",
+    title: "DEPLOY",
+    description: "Highly scalable multi-sensor platforms available across portable, maritime, and ultra-long-range perimeter configurations.",
+    icon: Shield
+  },
+  {
+    id: "02",
+    title: "OBSERVE",
+    description: "Enables real-time target acquisition via ultra-high-definition visible and thermal imaging for true 24/7 unblinking surveillance.",
+    icon: Eye
+  },
+  {
+    id: "03",
+    title: "TRACK",
+    description: "Achieve millimeter-precise tracking of evasive targets with AI-driven image processing and radar slew-to-cue integration.",
+    icon: Target
+  },
+  {
+    id: "04",
+    title: "IDENTIFY",
+    description: "Employs multi-spectral wavelengths (SWIR/NIR) and ZLID™ illumination to penetrate severe weather, smoke, and haze.",
+    icon: CheckCircle
+  }
+];
+
+
 export function ElectroOpticsPipeline() {
   const sectionRef = useRef<HTMLElement>(null);
   const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -69,7 +99,7 @@ export function ElectroOpticsPipeline() {
           {/* Glowing Progress Line */}
           <div ref={progressLineRef} className="hidden lg:block absolute top-[2.5rem] h-[2px] bg-gradient-to-r from-[#84CC16] to-[#84CC16] shadow-[0_0_15px_#84CC16]" style={{ left: "calc((100% - 6rem) / 8)", right: "calc((100% - 6rem) / 8)", transformOrigin: "left center" }} />
 
-          {NODES.map((step, index) => {
+          {PIPELINE_STEPS.map((step, index) => {
             const Icon = step.icon;
             return (
               <div 
