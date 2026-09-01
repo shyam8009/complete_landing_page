@@ -31,7 +31,7 @@ export default function AboutHero() {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-[#050505] flex items-center justify-center z-0">
+    <section className="relative w-full min-h-[100dvh] h-screen overflow-hidden bg-[#050505] flex items-center justify-center z-0">
       {/* Background Media */}
       <div 
         ref={heroRef}
@@ -43,18 +43,18 @@ export default function AboutHero() {
 
       <div ref={textRef} className="relative z-10 flex flex-col items-center text-center px-4 max-w-5xl mt-20">
         <div className="flex items-center gap-4 mb-8">
-          <div className="w-12 h-[1px] bg-[#84CC16]" />
+          <div className="w-6 sm:w-12 h-[1px] bg-[#84CC16]" />
           <span className="text-[#84CC16] text-sm md:text-base tracking-[0.2em] font-medium" style={{ fontFamily: INTER }}>
             [ CLASSIFICATION: UNRESTRICTED ]
           </span>
-          <div className="w-12 h-[1px] bg-[#84CC16]" />
+          <div className="w-6 sm:w-12 h-[1px] bg-[#84CC16]" />
         </div>
         
-        <h1 className="text-6xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-[0.9]">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-[0.9]">
           SAHANA DEFENCE
         </h1>
         
-        <p className="text-xl md:text-3xl text-white/80 max-w-3xl font-light tracking-wide leading-relaxed">
+        <p className="text-base sm:text-xl md:text-3xl text-white/80 max-w-3xl font-light tracking-wide leading-relaxed">
           Delivering decisive capabilities for national security and critical infrastructure protection.
         </p>
       </div>

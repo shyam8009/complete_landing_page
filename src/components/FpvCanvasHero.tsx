@@ -242,7 +242,7 @@ export function FpvCanvasHero({ heroRef, statsRef }: FpvCanvasHeroProps) {
     <section
       ref={sectionRef}
       className="relative w-full bg-black overflow-hidden"
-      style={{ height: '100vh' }}
+      style={{ height: '100dvh', minHeight: '100dvh' }}
     >
       {/* ── Canvas — decorative, aria-hidden ── */}
       <canvas

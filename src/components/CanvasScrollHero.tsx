@@ -266,12 +266,12 @@ export function CanvasScrollHero() {
     <div className="hero-scroll-container">
       <section
         ref={sectionRef}
-        className="relative w-full h-screen bg-black overflow-hidden"
+        className="relative w-full min-h-[100dvh] h-screen bg-black overflow-hidden"
       >
         <canvas
           ref={canvasRef}
           className="absolute inset-0 w-full h-full"
-          style={{ width: '100vw', height: '100vh', display: 'block' }}
+          style={{ width: '100%', height: '100dvh', display: 'block' }}
         />
         
         {/* Loading Indicator */}

@@ -32,7 +32,7 @@ export default function AboutManifesto() {
         
         {/* Massive Statement */}
         <div className="mb-16 md:mb-24">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] reveal-text">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] reveal-text">
             We do not adapt<br />
             to the future.<br />
             <span className="text-[#84CC16]">We build it.</span>

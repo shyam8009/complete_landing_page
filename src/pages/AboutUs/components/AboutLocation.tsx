@@ -3,7 +3,7 @@ const INTER = "'Inter', sans-serif";
 
 export default function AboutLocation() {
   return (
-    <section className="w-full bg-[#050505] text-white pt-24 pb-32 z-10 relative">
+    <section className="w-full bg-[#050505] text-white pt-12 sm:pt-16 md:pt-24 pb-16 md:pb-32 z-10 relative">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           

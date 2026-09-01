@@ -3,7 +3,7 @@ const INTER = "'Inter', sans-serif";
 
 export default function AboutCapabilities() {
   return (
-    <section className="w-full bg-[#050505] text-white py-32 md:py-48 z-10 relative border-t border-white/10">
+    <section className="w-full bg-[#050505] text-white py-16 sm:py-24 md:py-32 lg:py-48 z-10 relative border-t border-white/10">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           

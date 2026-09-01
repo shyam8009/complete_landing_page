@@ -48,7 +48,7 @@ export function HeroSection() {
           
           {/* Headline */}
           <h1 
-            className="hero-element text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
+            className="hero-element text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
             style={{ fontFamily: INTER }}
           >
             INTERNET OF <br/>
@@ -58,7 +58,7 @@ export function HeroSection() {
           </h1>
           
           {/* Subheadline */}
-          <p className="hero-element text-xl text-white/60 mb-10 max-w-lg leading-relaxed">
+          <p className="hero-element text-base sm:text-xl text-white/60 mb-6 sm:mb-10 max-w-lg leading-relaxed">
             Technology and devices that connect immeasurable folks within the world, working smarter with better connectivity. Adopt an IoT strategy to deliver higher services and redefine relationships with your clients, partners, and employees.
           </p>
           
@@ -73,7 +73,7 @@ export function HeroSection() {
           </div>
           
           {/* Quick Stats Block (Glassmorphic) */}
-          <div className="hero-element flex flex-col md:flex-row gap-4 md:gap-8 p-6 rounded-lg mt-6 md:mt-12 border border-white/10 bg-white/5 backdrop-blur-xl max-w-fit">
+          <div className="hero-element flex flex-col md:flex-row gap-4 md:gap-8 p-4 sm:p-6 rounded-lg mt-6 md:mt-12 border border-white/10 bg-white/5 backdrop-blur-xl w-full sm:w-auto max-w-full">
             <div>
               <div className="text-2xl lg:text-3xl font-bold text-white uppercase">Total Automation</div>
               <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Device-to-Device Interaction</div>

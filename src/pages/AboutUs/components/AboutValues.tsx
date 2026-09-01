@@ -25,11 +25,11 @@ export default function AboutValues() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="w-full bg-black text-white pt-24 pb-32 z-10 relative">
+    <section className="w-full bg-black text-white pt-12 sm:pt-16 md:pt-24 pb-16 md:pb-32 z-10 relative">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 mb-12 flex flex-col md:flex-row md:justify-between md:items-end gap-8">
         <div>
           <p className="text-xs tracking-[0.2em] text-white/50 mb-4 font-mono uppercase">[ ABOUT US ]</p>
-          <h2 className="text-5xl md:text-6xl font-light">Our values</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light">Our values</h2>
         </div>
         <div className="max-w-md">
           <p className="text-sm text-white/70 leading-relaxed" style={{ fontFamily: INTER }}>
@@ -64,9 +64,9 @@ export default function AboutValues() {
                 }`} />
 
                 {/* Text Content */}
-                <div className="p-4 md:p-8 flex gap-3 h-auto md:h-[120px] shrink-0 relative z-20 w-max">
+                <div className="p-4 md:p-8 flex gap-3 h-auto md:h-[120px] shrink-0 relative z-20 w-full">
                   <div className="w-2 h-2 mt-1.5 shrink-0 bg-[#84CC16]" />
-                  <h3 className={`text-xl md:text-2xl font-light leading-snug whitespace-nowrap transition-colors duration-500 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white/80'}`}>
+                  <h3 className={`text-xl md:text-2xl font-light leading-snug break-words transition-colors duration-500 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white/80'}`}>
                     {val.title}
                   </h3>
                 </div>

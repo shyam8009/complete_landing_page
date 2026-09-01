@@ -201,7 +201,7 @@ const fadeUp = {
   };
 
   return (
-    <div className="bg-[#F4F4F4] min-h-screen pt-32 pb-20 text-black relative">
+    <div className="bg-[#F4F4F4] min-h-screen pt-20 sm:pt-28 md:pt-32 pb-12 md:pb-20 text-black relative">
         {/* Tactical Grid Background Overlay */}
         <div 
           className="fixed inset-0 pointer-events-none opacity-20" 
@@ -213,20 +213,20 @@ const fadeUp = {
 
         <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-7xl">
             {/* HERO SECTION */}
-            <motion.div {...fadeUp} className="mb-16 flex flex-col md:flex-row justify-between md:items-end gap-8">
+            <motion.div {...fadeUp} className="mb-8 md:mb-16 flex flex-col md:flex-row justify-between md:items-end gap-8">
                 <div>
                     <span className="font-mono text-[#666666] tracking-widest text-xs block mb-4 uppercase">[ WHAT WE'VE BEEN UP TO ]</span>
-                    <h1 className="text-5xl md:text-7xl font-light tracking-tight text-black">Newsroom</h1>
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-black">Newsroom</h1>
                 </div>
                 <div className="md:w-1/2">
-                    <p className="text-2xl md:text-3xl font-light text-black md:text-right leading-tight max-w-lg ml-auto">
+                    <p className="text-lg sm:text-2xl md:text-3xl font-light text-black md:text-right leading-tight max-w-lg ml-auto">
                         Explore the latest news and developments from Sahana Defence
                     </p>
                 </div>
             </motion.div>
 
             {/* FILTER CONTROLS */}
-            <motion.div {...fadeUp} className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6 relative z-30">
+            <motion.div {...fadeUp} className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 md:mb-16 gap-6 relative z-30">
                 
                 {/* Custom Filter Dropdown */}
                 <div className="relative w-full md:w-72" ref={dropdownRef}>
@@ -287,7 +287,7 @@ const fadeUp = {
 
             {/* UNIFIED NEWSROOM WALL */}
             <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 relative z-20"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 md:mb-16 relative z-20"
             >
                 <AnimatePresence>
                     {displayedItems.map(item => (
@@ -365,12 +365,12 @@ const fadeUp = {
             )}
 
             {/* BOTTOM CALL TO ACTION BANNER */}
-            <motion.div {...fadeUp} className="bg-[#1A1A1A] text-white border-t-2 border-[#3C5929] p-8 md:p-16 relative overflow-hidden shadow-xl rounded-2xl mb-12">
+            <motion.div {...fadeUp} className="bg-[#1A1A1A] text-white border-t-2 border-[#3C5929] p-6 sm:p-8 md:p-16 relative overflow-hidden shadow-xl rounded-2xl mb-12">
                 <div className="absolute top-0 right-0 p-4 opacity-5">
                     <svg width="180" height="180" viewBox="0 0 24 24" fill="none" stroke="#3C5929" strokeWidth="1"><path d="M12 2v20M2 12h20M12 12m-8 0a8 8 0 1 0 16 0a8 8 0 1 0 -16 0"/></svg>
                 </div>
                 <div className="relative z-10 max-w-3xl">
-                    <h2 className="text-3xl md:text-4xl font-light text-white mb-6 leading-tight">BUILDING SOVEREIGN DEFENCE TECH FOR MISSION-CRITICAL OPERATIONS</h2>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-white mb-6 leading-tight">BUILDING SOVEREIGN DEFENCE TECH FOR MISSION-CRITICAL OPERATIONS</h2>
                     <p className="text-[#A1A1A1] font-mono text-sm mb-10 max-w-xl leading-relaxed">Partner with Sahana Defence for advanced electronic warfare and AI systems.</p>
                     <div className="flex flex-wrap gap-4">
                         <button onClick={onContactClick} className="bg-[#3C5929] hover:bg-[#4E7335] text-white font-mono text-[11px] font-bold px-8 py-4 tracking-[0.2em] transition-colors rounded-full">

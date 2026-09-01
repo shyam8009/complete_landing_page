@@ -82,7 +82,7 @@ function Hero() {
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#84CC16] z-10" />
 
       {/* Content */}
-      <div className="relative z-20 h-full min-h-[75vh] md:min-h-[85vh] flex flex-col justify-center pt-32 md:pt-40 px-6 sm:px-10 md:px-16 lg:px-20 pb-16 md:pb-24">
+      <div className="relative z-20 h-full min-h-[75vh] md:min-h-[85vh] flex flex-col justify-center pt-20 sm:pt-28 md:pt-40 px-4 sm:px-8 md:px-16 lg:px-20 pb-16 md:pb-24">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -103,7 +103,7 @@ function Hero() {
           {/* Title */}
           <motion.h1
             variants={fadeUp}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-wider uppercase mb-6 leading-[0.95]"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extralight tracking-wider uppercase mb-6 leading-[0.95]"
           >
             GENERAL MEETING <br />
             <span className="font-bold">NOTICE</span>

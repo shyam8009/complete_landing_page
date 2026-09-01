@@ -93,7 +93,7 @@ export default function AboutDomains() {
   const activeDomain = DOMAINS[activeIndex];
 
   return (
-    <section ref={containerRef} className="w-full h-screen bg-[#050505] text-white flex flex-col md:flex-row overflow-hidden z-10 relative border-t border-white/10">
+    <section ref={containerRef} className="w-full min-h-[100dvh] md:h-screen bg-[#050505] text-white flex flex-col md:flex-row overflow-hidden z-10 relative border-t border-white/10">
       
       {/* Left Column (Text & Controls) */}
       <div className="w-full md:w-[45%] h-[60%] md:h-full flex flex-col justify-between pt-12 md:py-20 px-6 md:pl-20 md:pr-12 relative z-20">

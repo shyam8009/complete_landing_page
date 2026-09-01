@@ -32,19 +32,19 @@ export function HeroSection() {
             </div>
             
             <h1 
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
               style={{ fontFamily: INTER }}
             >
               3D DRONE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">RADAR</span>
             </h1>
             
-            <p className="text-xl text-white/60 mb-10 max-w-lg leading-relaxed">
+            <p className="text-base sm:text-xl text-white/60 mb-6 sm:mb-10 max-w-lg leading-relaxed">
               Omnidirectional threat detection at mission speed. Engineered to provide continuous, high-fidelity airspace awareness in the most demanding environments.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start w-full">
                 <TechCTA>
                 Request Specs
                 <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />

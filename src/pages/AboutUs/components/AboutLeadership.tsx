@@ -36,7 +36,7 @@ const LEADERSHIP = [
 
 export default function AboutLeadership() {
   return (
-    <section className="w-full bg-slate-50 text-slate-900 py-32 z-10 relative">
+    <section className="w-full bg-slate-50 text-slate-900 py-16 sm:py-20 md:py-32 z-10 relative">
       <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
         <div className="flex flex-col items-center text-center mb-20">
           <h3 className="text-sm font-bold tracking-[0.2em] text-[#84CC16] uppercase mb-4" style={{ fontFamily: INTER }}>

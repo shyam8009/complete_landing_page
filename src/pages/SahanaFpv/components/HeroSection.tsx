@@ -32,7 +32,7 @@ export function HeroSection() {
             </div>
             
             <h1 
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
               style={{ fontFamily: INTER }}
             >
               FPV BULLSEYE &amp; <br />

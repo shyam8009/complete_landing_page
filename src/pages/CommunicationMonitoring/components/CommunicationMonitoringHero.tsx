@@ -65,7 +65,7 @@ export default function CommunicationMonitoringHero() {
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
 
       {/* 3. Staggered Content Animation */}
-      <div className="absolute inset-0 z-20 flex flex-col items-center justify-start text-center px-4 sm:px-6 pt-32 md:pt-40">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-20 sm:pt-24 md:pt-40">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.id}
@@ -97,7 +97,7 @@ export default function CommunicationMonitoringHero() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="text-3xl sm:text-5xl md:text-7xl font-extralight tracking-wider uppercase mb-6"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extralight tracking-wider uppercase mb-6"
             >
               {slide.title}
             </motion.h1>

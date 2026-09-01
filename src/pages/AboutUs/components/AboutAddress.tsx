@@ -18,14 +18,14 @@ const LOCATIONS = [
 
 export default function AboutAddress() {
   return (
-    <section className="w-full bg-[#050505] text-white py-24 md:py-32 z-10 relative">
+    <section className="w-full bg-[#050505] text-white py-12 sm:py-16 md:py-24 lg:py-32 z-10 relative">
       <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
-        <div className="flex flex-col md:flex-row gap-12 justify-between items-start md:items-end mb-16 md:mb-20">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-12 justify-between items-start md:items-end mb-10 md:mb-20">
           <div>
             <h3 className="text-sm font-bold tracking-[0.2em] text-[#84CC16] uppercase mb-4" style={{ fontFamily: INTER }}>
               [ OUR LOCATIONS ]
             </h3>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">
               Global Presence
             </h2>
           </div>

@@ -3,7 +3,7 @@ const INTER = "'Inter', sans-serif";
 
 export default function AboutCertifications() {
   return (
-    <section className="w-full bg-white text-slate-900 py-24 border-t border-slate-200 z-10 relative">
+    <section className="w-full bg-white text-slate-900 py-12 sm:py-16 md:py-24 border-t border-slate-200 z-10 relative">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
         <h3 className="text-sm font-bold tracking-[0.2em] text-slate-400 uppercase mb-12" style={{ fontFamily: INTER }}>
           [ ASSURED SECURITY & COMPLIANCE ]

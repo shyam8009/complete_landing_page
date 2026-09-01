@@ -1114,7 +1114,7 @@ const PRODUCTS_DATA = [
 
 function VisionSection() {
   return (
-    <section className="sticky top-0 z-0 h-screen w-full bg-black flex overflow-hidden">
+    <section className="sticky top-0 z-0 min-h-[100dvh] h-screen w-full bg-black flex overflow-hidden">
       {/* The animation video */}
       <video
         src={visionRobotVideo}
@@ -1507,11 +1507,11 @@ function FooterCol({ label, links }: { label: string; links: { label: string; ur
 function Footer({ onContactClick }: { onContactClick?: () => void }) {
   const navigate = useNavigate();
   return (
-    <footer className="w-full bg-black pt-16 pb-16 flex flex-col gap-20">
+    <footer className="w-full bg-black pt-12 md:pt-16 pb-12 md:pb-16 flex flex-col gap-10 md:gap-20">
       {/* top nav columns */}
-      <div className="px-4 sm:px-6 md:px-9 grid grid-cols-2 gap-8 md:flex md:flex-row md:flex-wrap md:justify-between md:gap-10">
+      <div className="px-4 sm:px-6 md:px-9 grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-row lg:flex-wrap lg:justify-between gap-8 lg:gap-10">
         {/* logo & contact */}
-        <div className="col-span-2 md:col-span-1 flex flex-col gap-6 items-start">
+        <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex flex-col gap-5 items-start">
           <SmallLogo />
           <img 
             src={makeInIndiaLogo} 
@@ -1536,21 +1536,21 @@ function Footer({ onContactClick }: { onContactClick?: () => void }) {
         </div>
 
         {/* Company */}
-        <div className="min-w-[120px]">
+        <div className="w-full sm:min-w-[120px]">
           <FooterCol label="Company" links={FOOTER_COMPANY} />
         </div>
         {/* Work with us */}
-        <div className="min-w-[120px]">
+        <div className="w-full sm:min-w-[120px]">
           <FooterCol label="Work with us" links={FOOTER_WORK} />
         </div>
         {/* Social */}
-        <div className="min-w-[120px]">
+        <div className="w-full sm:min-w-[120px]">
           <FooterCol label="Social" links={FOOTER_SOCIAL} />
         </div>
       </div>
 
             {/* bottom legal */}
-      <div className="px-4 sm:px-6 md:px-9 flex flex-col gap-3 border-t border-white/10 pt-8">
+      <div className="px-4 sm:px-6 md:px-9 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 border-t border-white/10 pt-6 md:pt-8">
         <p
           className="text-white text-xs uppercase tracking-[0.54px]"
           style={{ fontFamily: INTER, fontWeight: 500 }}
@@ -1627,7 +1627,7 @@ function ElectronicWarfarePage() {
 
         <div className="max-w-[1000px] mx-auto text-center relative z-10 flex flex-col gap-6 items-center">
           <span className="text-[#2e4321] text-xs uppercase tracking-[4px] font-bold text-center">Electromagnetic Dominance</span>
-          <h1 className="text-4xl md:text-7xl tracking-tight text-white text-center" style={{ fontFamily: INTER, fontWeight: 300 }}>
+          <h1 className="text-3xl sm:text-5xl md:text-7xl tracking-tight text-white text-center" style={{ fontFamily: INTER, fontWeight: 300 }}>
             ELECTRONIC WARFARE
           </h1>
           <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl font-light text-center" style={{ fontFamily: INTER }}>
@@ -2140,7 +2140,7 @@ function HandheldJammerPage() {
       </section>
 
       {/* 6. OPERATIONAL APPLICATIONS (Horizontal Scroll) */}
-      <section ref={appsContainerRef} className="w-full h-screen border-t border-white/10 bg-black overflow-hidden relative">
+      <section ref={appsContainerRef} className="w-full min-h-[100dvh] h-screen border-t border-white/10 bg-black overflow-hidden relative">
         <div className="absolute top-12 left-9 z-20">
           <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white mb-2 shadow-black drop-shadow-md">
             Operational Deployments

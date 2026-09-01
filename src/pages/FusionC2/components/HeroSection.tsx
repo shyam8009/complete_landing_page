@@ -49,7 +49,7 @@ export function HeroSection() {
           
           {/* Headline */}
           <h1 
-            className="hero-element text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
+            className="hero-element text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
             style={{ fontFamily: INTER }}
           >
             FUSION CORE AI <br />
@@ -64,7 +64,7 @@ export function HeroSection() {
           
           {/* CTA */}
           <div className="hero-element flex flex-wrap gap-6 items-center mb-6 md:mb-16">
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start w-full">
                 <TechCTA>
               REQUEST C2 SOFTWARE DEMO
               <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
@@ -76,7 +76,7 @@ export function HeroSection() {
           </div>
           
           {/* Quick Stats Block (Glassmorphic) */}
-          <div className="hero-element flex flex-col md:flex-row gap-4 md:gap-8 p-6 rounded-lg mt-6 md:mt-12 border border-white/10 bg-white/5 backdrop-blur-xl max-w-fit">
+          <div className="hero-element flex flex-col md:flex-row gap-4 md:gap-8 p-4 sm:p-6 rounded-lg mt-6 md:mt-12 border border-white/10 bg-white/5 backdrop-blur-xl w-full sm:w-auto max-w-full">
             <div>
               <div className="text-2xl font-bold text-white">1000+ Objects</div>
               <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-1">Simultaneous Tracks</div>

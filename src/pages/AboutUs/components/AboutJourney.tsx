@@ -96,7 +96,7 @@ export default function AboutJourney() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full min-h-screen py-24 bg-[#050505] text-white flex flex-col justify-center relative overflow-hidden">
+    <section ref={containerRef} className="w-full min-h-screen py-12 sm:py-16 md:py-24 bg-[#050505] text-white flex flex-col justify-center relative overflow-hidden">
       
       <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 mb-12">
         <h2 className="text-3xl md:text-5xl font-light tracking-tight">Our Journey of Innovation</h2>
