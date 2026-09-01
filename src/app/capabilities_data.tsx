@@ -69,9 +69,9 @@ export const CAPABILITIES_DATA = [
         stats: ["Real-time Detection", "Tracking & Classification", "Interception", "Counter Swarm"],
         applications: ["Border Security", "Military Bases", "Critical Infrastructure", "VIP Protection", "Counter-UAS Operations"],
         products: [
-          { id: "fpv-buddy", title: "FPV Drone Buddy", image: flightImg, slug: "/fpv-buddy" },
-          { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "/sahana-fpv" },
-          { id: "proxy", title: "PROXY - Control Channel", image: sensorDomeImg, slug: "/proxy" }
+          { id: "fpv-buddy", title: "FPV Drone Buddy", image: flightImg, slug: "/electronic-warfare/drone-systems/sahana-fpv-drone-buddy" },
+          { id: "fpv-bullseye", title: "FPV Bullseye & Interceptor", image: heroImg, slug: "/electronic-warfare/drone-systems/fpv-bullseye-interceptor" },
+          { id: "proxy", title: "PROXY - Control Channel", image: sensorDomeImg, slug: "/electronic-warfare/drone-systems/sahana-proxy-control-channel" }
         ]
       },
       {
@@ -88,10 +88,10 @@ export const CAPABILITIES_DATA = [
         stats: ["360Â° Coverage", "AI Threat Analysis", "Passive RF Sensing", "Multi-Target Tracking"],
         applications: ["Airspace Monitoring", "Border Surveillance", "Naval Defence", "Forward Operating Bases"],
         products: [
-          { id: "3d-drone-radar", title: "3D Drone Radar", image: droneRadarHeroImg, slug: "/drone-radar" },
-          { id: "rf-detector", title: "RF Detector", image: rfDetectorD360Img, slug: "/rf-detector" },
-          { id: "ground-surveillance-radar", title: "Ground Surveillance Radar", image: surveillanceRadarHeroImg, slug: "/surveillance-radar" },
-          { id: "3d-drone-rf-detector", title: "3D Drone RF Detector", image: rfDetectorD360Img, slug: "/3d-drone-detector" }
+          { id: "3d-drone-radar", title: "3D Drone Radar", image: droneRadarHeroImg, slug: "/electronic-warfare/radar-systems/3d-drone-radar" },
+          { id: "rf-detector", title: "RF Detector", image: rfDetectorD360Img, slug: "/electronic-warfare/detection-systems/rf-detector" },
+          { id: "ground-surveillance-radar", title: "Ground Surveillance Radar", image: surveillanceRadarHeroImg, slug: "/electronic-warfare/radar-systems/surveillance-radar" },
+          { id: "3d-drone-rf-detector", title: "3D Drone RF Detector", image: rfDetectorD360Img, slug: "/electronic-warfare/detection-systems/3d-drone-rf-detector" }
         ]
       },
       {
@@ -110,11 +110,11 @@ export const CAPABILITIES_DATA = [
         stats: ["Multi-Band Jamming", "Directional Disruption", "Man-Portable", "Vehicle Integrated"],
         applications: ["Convoy Protection", "Tactical Infantry Support", "Event Security", "Airspace Denial"],
         products: [
-          { id: "spear", title: "Handheld Jammer (Infinity Spear)", image: spearSpecificImg, slug: "/infinity-spear" },
-          { id: "rhino", title: "Manpack Jammer (Infinity Rhino)", image: rhinoSpecificImg, slug: "/infinity-rhino" },
-          { id: "butterfly", title: "Butterfly ADG L70", image: butterflySpecificImg, slug: "/butterfly-adg" },
-          { id: "z23", title: "Rhino Gen Z23", image: rhinoZ23SpecificImg, slug: "/rhino-gen-z23" },
-          { id: "rhino-black", title: "Infinity Rhino Black", image: rhinoSpecificImg, slug: "/infinity-rhino-black" },
+          { id: "spear", title: "Handheld Jammer (Infinity Spear)", image: spearSpecificImg, slug: "/electronic-warfare/jamming-systems/handheld-jammer-infinity-spear" },
+          { id: "rhino", title: "Manpack Jammer (Infinity Rhino)", image: rhinoSpecificImg, slug: "/electronic-warfare/jamming-systems/manpack-jammer-infinity-rhino" },
+          { id: "butterfly", title: "Butterfly ADG L70", image: butterflySpecificImg, slug: "/electronic-warfare/jamming-systems/butterfly-adg" },
+          { id: "z23", title: "Rhino Gen Z23", image: rhinoZ23SpecificImg, slug: "/electronic-warfare/jamming-systems/rhino-gen" },
+          { id: "rhino-black", title: "Infinity Rhino Black", image: rhinoSpecificImg, slug: "/electronic-warfare/jamming-systems/infinity-rhino-black" },
         ]
       },
 
@@ -134,8 +134,8 @@ export const CAPABILITIES_DATA = [
         stats: ["Encrypted Links", "High Bandwidth", "Low Latency", "Anti-Jamming"],
         applications: ["Tactical Operations", "Command Centers", "Field Deployments", "Mobile Units"],
         products: [
-          { id: "lorros", title: "Long Range Surveillance System (LORROS)", image: c2DashboardUiImg, slug: "/lorros-communication" },
-          { id: "guardian-comms", title: "The Guardian: Smart Soldier Band", image: guardianImg, slug: "/guardian-experience" },
+          { id: "lorros", title: "Long Range Surveillance System (LORROS)", image: c2DashboardUiImg, slug: "/electronic-warfare/communication-system/lorros-communication" },
+          { id: "guardian-comms", title: "The Guardian: Smart Soldier Band", image: guardianImg, slug: "/electronic-warfare/communication-system/the-guardian-smart-soldier-band" },
         ]
       },
       {
@@ -184,9 +184,9 @@ export const CAPABILITIES_DATA = [
         stats: ["Real-time Analysis", "Deep Web Monitoring", "Predictive Alerts", "Secure Data Pipelines"],
         applications: ["Strategic Intelligence", "Threat Forecasting", "National Security", "Cyber Defense"],
         products: [
-          { id: "osint", title: "Open-Source Intelligence (OSINT)", image: osintDashboardImg, slug: "/osint" },
-          { id: "sigint", title: "Signal Intelligence", image: rfRadarHudImg, slug: "/sigint" },
-          { id: "security-assessment", title: "Comprehensive Security Assessment", image: innovation1, slug: "/security-assessment" },
+          { id: "osint", title: "Open-Source Intelligence (OSINT)", image: osintDashboardImg, slug: "/information-warfare/intelligence-surveillance/open-source-intelligence-osint" },
+          { id: "sigint", title: "Signal Intelligence", image: rfRadarHudImg, slug: "/information-warfare/intelligence-surveillance/signal-intelligence" },
+          { id: "security-assessment", title: "Comprehensive Security Assessment", image: innovation1, slug: "/information-warfare/intelligence-surveillance/comprehensive-security-assessment" },
         ]
       },
       {
@@ -205,8 +205,8 @@ export const CAPABILITIES_DATA = [
         stats: ["Multi-Domain Fusion", "Automated Tasking", "Encrypted Comms", "Scalable Architecture"],
         applications: ["Joint Operations Centers", "Tactical Headquarters", "Disaster Response", "Fleet Management"],
         products: [
-          { id: "fusion-core", title: "FUSION Core AI Command and Control (C2)", image: c2DashboardUiImg, slug: "/fusion-c2" },
-          { id: "interception", title: "Interception System", image: rfRadarGeneratedImg, slug: "/interception-system" },
+          { id: "fusion-core", title: "FUSION Core AI Command and Control (C2)", image: c2DashboardUiImg, slug: "/information-warfare/command-control/fusion-core-ai-command-and-control-c2" },
+          { id: "interception", title: "Interception System", image: rfRadarGeneratedImg, slug: "/information-warfare/command-control/interception-system" },
         ]
       },
       {
@@ -225,8 +225,8 @@ export const CAPABILITIES_DATA = [
         stats: ["High Bandwidth", "Low Latency", "Anti-Jamming", "Spectrum Hopping"],
         applications: ["Battlefield Comms", "Covert Operations", "Signal Triangulation", "Radio Interception"],
         products: [
-          { id: "radio-portfolio", title: "Radio Monitoring and Location Portfolio", image: rfRadarHudImg, slug: "/radio-monitoring" },
-          { id: "direction-finders", title: "Direction Finders", image: spearCadBlueprintImg, slug: "/direction-finders" },
+          { id: "radio-portfolio", title: "Radio Monitoring and Location Portfolio", image: rfRadarHudImg, slug: "/information-warfare/communication-monitoring/radio-monitoring-and-location-portfolio" },
+          { id: "direction-finders", title: "Direction Finders", image: spearCadBlueprintImg, slug: "/information-warfare/communication-monitoring/direction-finders" },
         ]
       }
     ]
@@ -315,9 +315,9 @@ export const CAPABILITIES_DATA = [
         stats: ["Mil-Spec Grade", "Advanced Materials", "Rapid Prototyping", "Scalable Production"],
         applications: ["Aircraft Assembly", "Munitions Casings", "Satellite Integration", "Naval Upgrades"],
         products: [
-          { id: "aerospace-comp", title: "Aerospace Components", image: arsenalFacilityImg, slug: "/aerospace-components" },
-          { id: "defence-comp", title: "Defence Components", image: corporateHouse1, slug: "/defence-components" },
-          { id: "satcom", title: "SATCOM Components", image: haleDroneImg, slug: "/satcom-components" }
+          { id: "aerospace-comp", title: "Aerospace Components", image: arsenalFacilityImg, slug: "/aerospace-and-defence/manufacturing-fabrication/aerospace-components" },
+          { id: "defence-comp", title: "Defence Components", image: corporateHouse1, slug: "/aerospace-and-defence/manufacturing-fabrication/defence-components" },
+          { id: "satcom", title: "SATCOM Components", image: haleDroneImg, slug: "/aerospace-and-defence/manufacturing-fabrication/satcom-components" }
         ]
       }
     ]
@@ -347,9 +347,9 @@ export const CAPABILITIES_DATA = [
         stats: ["Neural Networks", "Predictive Analytics", "Natural Language", "Computer Vision"],
         applications: ["Automated Targeting", "Logistics Prediction", "Cyber Threat Detection", "Autonomous Navigation"],
         products: [
-          { id: "chatbots", title: "Chatbots and Voice Solution", image: innovation5, slug: "/solution/chatbots-voice" },
-          { id: "big-data", title: "Big Data and Business Intelligence", image: innovation3, slug: "/solution/big-data-bi" },
-          { id: "ai", title: "Artificial Intelligence", image: innovation4, slug: "/solution/artificial-intelligence" },
+          { id: "chatbots", title: "Chatbots and Voice Solution", image: innovation5, slug: "/defence-deeptech/ai-data/chatbots-and-voice-solution" },
+          { id: "big-data", title: "Big Data and Business Intelligence", image: innovation3, slug: "/defence-deeptech/ai-data/big-data-and-business-intelligence" },
+          { id: "ai", title: "Artificial Intelligence", image: innovation4, slug: "/defence-deeptech/ai-data/artificial-intelligence" },
         ]
       },
       {
@@ -367,9 +367,9 @@ export const CAPABILITIES_DATA = [
         stats: ["Secure Cloud", "Mesh Networks", "Low-Latency Video", "Redundant Systems"],
         applications: ["Base Infrastructure", "Drone Telemetry", "Live Video Feeds", "Sensor Networks"],
         products: [
-          { id: "iot", title: "Internet of Things", image: corporateHouse3, slug: "/solution/defence-deeptech/internet-of-things" },
-          { id: "cloud", title: "Cloud Services", image: corporateHouse1, slug: "/solution/defence-deeptech/cloud-services" },
-          { id: "video", title: "Video Streaming Services", image: corporateHouse2, slug: "/solution/defence-deeptech/video-streaming" },
+          { id: "iot", title: "Internet of Things", image: corporateHouse3, slug: "/defence-deeptech/connectivity-infrastructure/internet-of-things" },
+          { id: "cloud", title: "Cloud Services", image: corporateHouse1, slug: "/defence-deeptech/connectivity-infrastructure/cloud-services" },
+          { id: "video", title: "Video Streaming Services", image: corporateHouse2, slug: "/defence-deeptech/connectivity-infrastructure/video-streaming-services" },
         ]
       }
     ]

@@ -2289,42 +2289,42 @@ export default function App() {
               <EditorialSection />
             </>
           } />
-          <Route path="/guardian-experience" element={<GuardianExperiencePage />} />
-          <Route path="/sahana-fpv" element={<SahanaFpvProductPage />} />
-          <Route path="/fpv-buddy" element={<FpvBuddyPage />} />
-          <Route path="/varuna" element={<VarunaPage />} />
-          <Route path="/proxy" element={<ProxyPage />} />
-          <Route path="/lorros-communication" element={<LorrosPage />} />
-          <Route path="/fusion-c2" element={<FusionC2Page />} />
-          <Route path="/interception-system" element={<InterceptionPage />} />
-          <Route path="/sigint" element={<SigintPage />} />
-          <Route path="/security-assessment" element={<SecurityAssessmentPage />} />
-          <Route path="/radio-monitoring" element={<RadioMonitoringPage />} />
-          <Route path="/direction-finders" element={<DirectionFindersPage />} />
-          <Route path="/infinity-spear" element={<InfinitySpearPage />} />
-          <Route path="/infinity-rhino" element={<InfinityRhinoPage />} />
-          <Route path="/infinity-rhino-black" element={<InfinityRhinoBlackPage />} />
+          <Route path="/electronic-warfare/communication-system/the-guardian-smart-soldier-band" element={<GuardianExperiencePage />} />
+          <Route path="/electronic-warfare/drone-systems/fpv-bullseye-interceptor" element={<SahanaFpvProductPage />} />
+          <Route path="/electronic-warfare/drone-systems/sahana-fpv-drone-buddy" element={<FpvBuddyPage />} />
+          <Route path="/electronic-warfare/drone-systems/sahana-varuna-underwater-drone" element={<VarunaPage />} />
+          <Route path="/electronic-warfare/drone-systems/sahana-proxy-control-channel" element={<ProxyPage />} />
+          <Route path="/electronic-warfare/communication-system/lorros-communication" element={<LorrosPage />} />
+          <Route path="/information-warfare/command-control/fusion-core-ai-command-and-control-c2" element={<FusionC2Page />} />
+          <Route path="/information-warfare/command-control/interception-system" element={<InterceptionPage />} />
+          <Route path="/information-warfare/intelligence-surveillance/signal-intelligence" element={<SigintPage />} />
+          <Route path="/information-warfare/intelligence-surveillance/comprehensive-security-assessment" element={<SecurityAssessmentPage />} />
+          <Route path="/information-warfare/communication-monitoring/radio-monitoring-and-location-portfolio" element={<RadioMonitoringPage />} />
+          <Route path="/information-warfare/communication-monitoring/direction-finders" element={<DirectionFindersPage />} />
+          <Route path="/electronic-warfare/jamming-systems/handheld-jammer-infinity-spear" element={<InfinitySpearPage />} />
+          <Route path="/electronic-warfare/jamming-systems/manpack-jammer-infinity-rhino" element={<InfinityRhinoPage />} />
+          <Route path="/electronic-warfare/jamming-systems/infinity-rhino-black" element={<InfinityRhinoBlackPage />} />
           <Route path="/electronic-warfare/drone-systems" element={<DroneSystemsPage />} />
           <Route path="/electronic-warfare/communication-detection" element={<CommunicationDetectionPage />} />
           <Route path="/electronic-warfare/electro-optics" element={<ElectroOpticsPage />} />
           <Route path="/electronic-warfare/radar-and-detection-systems" element={<RadarSystemsPage />} />
           <Route path="/electronic-warfare/jamming-systems" element={<JammingSystemsPage />} />
           <Route path="/electronic-warfare/jamming-systems" element={<JammingSystemsPage />} />
-          <Route path="/butterfly-adg" element={<ButterflyADGPage />} />
-          <Route path="/rhino-gen-z23" element={<RhinoZ23Page />} />
+          <Route path="/electronic-warfare/jamming-systems/butterfly-adg" element={<ButterflyADGPage />} />
+          <Route path="/electronic-warfare/jamming-systems/rhino-gen" element={<RhinoZ23Page />} />
           {/* <Route path="/electronic-warfare" element={<ElectronicWarfarePage />} /> */}
-          <Route path="/rf-detector" element={<RFDetectorPage />} />
-          <Route path="/drone-radar" element={<DroneRadarPage />} />
-          <Route path="/surveillance-radar" element={<SurveillanceRadarPage />} />
+          <Route path="/electronic-warfare/detection-systems/rf-detector" element={<RFDetectorPage />} />
+          <Route path="/electronic-warfare/radar-systems/3d-drone-radar" element={<DroneRadarPage />} />
+          <Route path="/electronic-warfare/radar-systems/surveillance-radar" element={<SurveillanceRadarPage />} />
           {/* <Route path="/handheld-jammer" element={<HandheldJammerPage />} /> */}
-          <Route path="/osint" element={<OSINTPage />} />
+          <Route path="/information-warfare/intelligence-surveillance/open-source-intelligence-osint" element={<OSINTPage />} />
           <Route path="/solution/defence-deeptech" element={<DefenceDeeptechPage />} />
-          <Route path="/solution/chatbots-voice" element={<ChatbotsVoicePage />} />
-          <Route path="/solution/big-data-bi" element={<BigDataBIPage />} />
-          <Route path="/solution/artificial-intelligence" element={<AIPage />} />
-          <Route path="/solution/defence-deeptech/video-streaming" element={<VideoStreamingPage />} />
-            <Route path="/solution/defence-deeptech/cloud-services" element={<CloudServicesPage />} />
-            <Route path="/solution/defence-deeptech/internet-of-things" element={<IoTPage />} />
+          <Route path="/defence-deeptech/ai-data/chatbots-and-voice-solution" element={<ChatbotsVoicePage />} />
+          <Route path="/defence-deeptech/ai-data/big-data-and-business-intelligence" element={<BigDataBIPage />} />
+          <Route path="/defence-deeptech/ai-data/artificial-intelligence" element={<AIPage />} />
+          <Route path="/defence-deeptech/connectivity-infrastructure/video-streaming-services" element={<VideoStreamingPage />} />
+            <Route path="/defence-deeptech/connectivity-infrastructure/cloud-services" element={<CloudServicesPage />} />
+            <Route path="/defence-deeptech/connectivity-infrastructure/internet-of-things" element={<IoTPage />} />
             <Route path="/solution/defence-deeptech/connectivity-infrastructure" element={<ConnectivityInfrastructurePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing" element={<QuantumSensingPage />} />
           <Route 
@@ -2340,8 +2340,8 @@ export default function App() {
           <Route path="/information-warfare/command-control" element={<CommandControlPage />} />
           <Route path="/information-warfare/communication-monitoring" element={<CommunicationMonitoringPage />} />
           <Route path="/aerospace-and-defence" element={<AerospaceDefencePage />} />
-          <Route path="/aerospace-components" element={<AerospaceComponentsPage />} />
-          <Route path="/defence-components" element={<DefenceComponentsPage />} />`n          <Route path="/satcom-components" element={<SatcomComponentsPage />} />
+          <Route path="/aerospace-and-defence/manufacturing-fabrication/aerospace-components" element={<AerospaceComponentsPage />} />
+          <Route path="/aerospace-and-defence/manufacturing-fabrication/defence-components" element={<DefenceComponentsPage />} />`n          <Route path="/aerospace-and-defence/manufacturing-fabrication/satcom-components" element={<SatcomComponentsPage />} />
           <Route path="/investors/policies" element={<GovernancePoliciesPage />} />
           <Route path="/investors/annual-reports" element={<FinancialReportsPage />} />
           <Route path="/investors/code-of-conduct-policies" element={<CodeOfConductPage />} />

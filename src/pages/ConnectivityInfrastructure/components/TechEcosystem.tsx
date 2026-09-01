@@ -18,21 +18,21 @@ const techData = [
     title: "Internet of Things (IoT) for Defence",
     desc: "Advanced defence technologies are transforming the operational landscape by automating complex defence workflows and responses. From port and marine infrastructure to government ecosystems, IoT is modernizing operations through connected sensors and data-driven decision-making.",
     img: imgIoT,
-    slug: '/solution/defence-deeptech/internet-of-things'
+    slug: '/defence-deeptech/connectivity-infrastructure/internet-of-things'
   },
   {
     tag: "Serverless Architecture . Secure Migration",
     title: "Secure Cloud Services",
     desc: "High-level infrastructure understanding and optimized solution architecting delivered by a certified team of cloud solution architects. We ensure fast, timely cloud services resolution backed by expert technical support.",
     img: imgCloud,
-    slug: '/solution/defence-deeptech/cloud-services'
+    slug: '/defence-deeptech/connectivity-infrastructure/cloud-services'
   },
   {
     tag: "Real-Time Telemetry . Cloud Broadcasting",
     title: "Video Streaming Services & Platforms",
     desc: "Robust video streaming solutions that feature security tools, scalable delivery, and custom-branded environments. Our streaming architectures act as a powerful ingestion pipeline for real-time monitoring and analytics systems.",
     img: imgStream,
-    slug: '/solution/defence-deeptech/video-streaming'
+    slug: '/defence-deeptech/connectivity-infrastructure/video-streaming-services'
   }
 ];
 
