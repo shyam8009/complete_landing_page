@@ -32,7 +32,7 @@ const techData = [
     title: "Video Streaming Services & Platforms",
     desc: "Robust video streaming solutions that feature security tools, scalable delivery, and custom-branded environments. Our streaming architectures act as a powerful ingestion pipeline for real-time monitoring and analytics systems.",
     img: imgStream,
-    slug: '#'
+    slug: '/solution/defence-deeptech/video-streaming'
   }
 ];
 

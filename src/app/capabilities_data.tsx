@@ -369,7 +369,7 @@ export const CAPABILITIES_DATA = [
         products: [
           { id: "iot", title: "Internet of Things", image: corporateHouse3, slug: "/solution/defence-deeptech/internet-of-things" },
           { id: "cloud", title: "Cloud Services", image: corporateHouse1, slug: "/solution/defence-deeptech/cloud-services" },
-          { id: "video", title: "Video Streaming Services", image: corporateHouse2, slug: "home" },
+          { id: "video", title: "Video Streaming Services", image: corporateHouse2, slug: "/solution/defence-deeptech/video-streaming" },
         ]
       }
     ]
