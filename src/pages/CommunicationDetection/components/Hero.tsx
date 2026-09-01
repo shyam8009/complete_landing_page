@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import lorrosVid from '@/imports/lorros_hero_video.mp4';
@@ -152,28 +152,28 @@ export function Hero() {
       </div>
 
       {/* 4. Large Next Arrow (Right Side) */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-30">
+      <div className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 z-30">
         <button
           onClick={nextSlide}
           aria-label="Next slide"
-          className="relative group p-4 flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
+          className="relative group p-2 sm:p-4 min-w-[44px] min-h-[44px] flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
         >
           {/* Arrow Icon */}
-          <svg className="w-12 h-12 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <svg className="w-10 h-10 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>
 
       {/* 5. Large Prev Arrow (Left Side) */}
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 z-30">
+      <div className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 z-30">
         <button
           onClick={prevSlide}
           aria-label="Previous slide"
-          className="relative group p-4 flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
+          className="relative group p-2 sm:p-4 min-w-[44px] min-h-[44px] flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
         >
           {/* Arrow Icon (Left facing) */}
-          <svg className="w-12 h-12 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <svg className="w-10 h-10 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
         </button>

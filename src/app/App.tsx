@@ -1516,7 +1516,7 @@ function FooterCol({ label, links }: { label: string; links: { label: string; ur
           <li key={link.label}>
             <Link
               to={link.url}
-              className="text-white text-sm md:text-base hover:text-white/80 transition-colors"
+              className="text-white text-sm md:text-base hover:text-white/80 transition-colors inline-block py-1 md:py-0"
               style={{ fontFamily: INTER, fontWeight: 400 }}
             >
               {link.label}

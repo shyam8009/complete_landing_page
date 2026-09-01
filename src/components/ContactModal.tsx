@@ -236,16 +236,16 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   </div>
 
                   {/* Captcha */}
-                  <div className="mt-2 p-4 border border-neutral-800 bg-[#111111] rounded-none flex items-center gap-4 grayscale">
+                  <div className="mt-2 p-4 border border-neutral-800 bg-[#111111] rounded-none flex items-center gap-4 grayscale min-h-[48px]">
                     <input 
                       type="checkbox" 
                       id="captcha" 
                       required
-                      className="w-5 h-5 cursor-pointer accent-white"
+                      className="w-5 h-5 cursor-pointer accent-white min-w-[20px] min-h-[20px]"
                       checked={formData.captchaChecked}
                       onChange={(e) => setFormData({...formData, captchaChecked: e.target.checked})}
                     />
-                    <label htmlFor="captcha" className="text-neutral-400 text-sm cursor-pointer flex-1 select-none">
+                    <label htmlFor="captcha" className="text-neutral-400 text-sm cursor-pointer flex-1 select-none py-2">
                       I'm not a robot (reCAPTCHA v3)
                     </label>
                     <div className="flex flex-col items-center">

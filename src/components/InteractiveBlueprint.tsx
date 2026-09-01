@@ -381,8 +381,12 @@ export function InteractiveBlueprint({
             <div key={tier.id} className="w-full flex flex-col border border-slate-700/50 rounded-sm overflow-hidden bg-slate-900/50">
               {/* Header */}
               <div 
-                className="w-full p-4 flex items-center justify-between bg-slate-900 border-b border-slate-800 cursor-pointer"
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
+                className="w-full p-4 min-h-[52px] flex items-center justify-between bg-slate-900 border-b border-slate-800 cursor-pointer select-none"
                 onClick={() => setOpenAccordion(isExpanded ? -1 : idx)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpenAccordion(isExpanded ? -1 : idx); } }}
               >
                 <div>
                   <span className="text-[10px] font-mono text-[#3C5929] font-bold uppercase tracking-widest block mb-1">
