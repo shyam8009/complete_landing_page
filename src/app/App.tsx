@@ -1307,57 +1307,168 @@ function Arsenal1Section() {
 
 // ——— NEWS & INSIGHTS —————————————————————————————————————————————————————————————————————————
 
+const HOMEPAGE_NEWS = [
+  {
+    id: 1,
+    date: "06/26/2026",
+    category: "CONTRACTS",
+    title: "Sahana Defence Signs Strategic Manufacturing Agreement with CEL",
+    description: "Sahana Defence has entered into a Contract Agreement with Central Electronics Limited (CEL) to expand India's indigenous defence manufacturing capabilities. The partnership will support the establishment of a dedicated facility focused on Electronic Warfare systems, weapon systems, defence peripherals, and advanced DefenceTech solutions, reinforcing the nation's vision for self-reliance in defence production.",
+    image: newsCelImg,
+    url: "/newsroom"
+  },
+  {
+    id: 2,
+    date: "08/23/2026",
+    category: "EVENTS",
+    title: "Sahana Defence Showcased Capabilities at ISRO's National Space Day",
+    description: "Sahana Defence marked its presence at ISRO's National Space Day event, showcasing its contributions to India's space and defence ecosystem before distinguished leaders, including Dr. V. Narayanan, Chairman of ISRO; Shri Gajendra Singh Shekhawat; and Dr. Pawan Goenka, Chairman of IN-SPACe.",
+    image: spaceDay1Img,
+    url: "/newsroom"
+  },
+  {
+    id: 3,
+    date: "04/10/2026",
+    category: "TECH TRANSFER",
+    title: "ISRO Transfers TRISP Technology to Infitron Accelerating Sovereign Energy Leadership",
+    description: "ISRO and Infitron collaborate through TRISP technology transfer, advancing sustainable energy, defence innovation, and India's deep-tech ecosystem with cutting-edge indigenous engineering solutions.",
+    image: isroInfitronImg,
+    url: "/newsroom"
+  },
+  {
+    id: 4,
+    date: "12/27/2025",
+    category: "MEMBERSHIP",
+    title: "Sahana System Joins Society of Indian Defence Manufacturers (SIDM)",
+    description: "Sahana System Ltd proudly joins the Society of Indian Defence Manufacturers, strengthening its commitment to India's growing defence, aerospace, and sovereign security manufacturing ecosystem.",
+    image: sidmMembershipImg,
+    url: "/newsroom"
+  }
+];
+
 function NewsSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isHovered) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HOMEPAGE_NEWS.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isHovered]);
+
+  const activeArticle = HOMEPAGE_NEWS[currentSlide];
+
   return (
-    <section className="w-full py-14 flex flex-col gap-9" style={{ background: "#f1f0ea" }}>
+    <section 
+      className="w-full py-14 flex flex-col gap-9" 
+      style={{ background: "#f1f0ea" }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* header */}
       <div className="px-4 sm:px-6 md:px-9">
-        <div className="flex items-end justify-between pb-4 border-b border-black/60">
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between pb-4 border-b border-black/60 gap-4 sm:gap-0">
           <h2
-            className="text-[#010101] text-4xl md:text-5xl tracking-[-0.9px] capitalize"
+            className="text-[#010101] text-3xl sm:text-4xl md:text-5xl tracking-[-0.9px] capitalize"
             style={{ fontFamily: INTER, fontWeight: 400 }}
           >
             News &amp; Insights
           </h2>
-          <UnderlineLink color="#010101">All articles</UnderlineLink>
+          <div className="flex items-center justify-between w-full sm:w-auto gap-4 sm:gap-6">
+            {/* Slider Navigation Arrows */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setCurrentSlide((prev) => (prev - 1 + HOMEPAGE_NEWS.length) % HOMEPAGE_NEWS.length)}
+                aria-label="Previous news article"
+                className="w-8 h-8 rounded-full border border-black/20 hover:border-black/60 flex items-center justify-center text-black/70 hover:text-black transition-colors cursor-pointer"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <span className="text-xs font-mono text-black/60 tracking-wider">
+                0{currentSlide + 1} / 0{HOMEPAGE_NEWS.length}
+              </span>
+              <button
+                onClick={() => setCurrentSlide((prev) => (prev + 1) % HOMEPAGE_NEWS.length)}
+                aria-label="Next news article"
+                className="w-8 h-8 rounded-full border border-black/20 hover:border-black/60 flex items-center justify-center text-black/70 hover:text-black transition-colors cursor-pointer"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+            <UnderlineLink color="#010101" onClick={() => navigate('/newsroom')}>All articles</UnderlineLink>
+          </div>
         </div>
       </div>
 
       {/* article layout */}
-      <div className="px-4 sm:px-6 md:px-9 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div className="px-4 sm:px-6 md:px-9 grid grid-cols-1 lg:grid-cols-12 gap-10 min-h-[380px]">
         {/* text */}
-        <div className="lg:col-span-5 flex flex-col gap-9">
-          <div className="flex flex-col gap-2">
-            <p
-              className="text-[#010101] text-xs uppercase tracking-[0.54px]"
-              style={{ fontFamily: INTER, fontWeight: 500 }}
-            >
-              06/26/2026
-            </p>
+        <div className="lg:col-span-5 flex flex-col justify-between gap-6">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <span className="text-[#010101] text-xs font-mono font-bold uppercase tracking-[0.54px]">
+                {activeArticle.date}
+              </span>
+              <span className="text-black/30">•</span>
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#3C5929]">
+                {activeArticle.category}
+              </span>
+            </div>
             <h3
-              className="text-[#010101] text-3xl md:text-4xl tracking-[-0.36px] capitalize leading-tight"
+              className="text-[#010101] text-2xl sm:text-3xl md:text-4xl tracking-[-0.36px] capitalize leading-tight"
               style={{ fontFamily: INTER, fontWeight: 400 }}
             >
-              Sahana Defence Signs Strategic Manufacturing Agreement with CEL
+              {activeArticle.title}
             </h3>
+            <p
+              className="text-[#010101]/80 text-sm sm:text-base leading-relaxed line-clamp-4 md:line-clamp-none"
+              style={{ fontFamily: INTER, fontWeight: 400 }}
+            >
+              {activeArticle.description}
+            </p>
           </div>
-          <p
-            className="text-[#010101] text-base leading-relaxed"
-            style={{ fontFamily: INTER, fontWeight: 400 }}
-          >
-            Sahana Defence has entered into a Contract Agreement with Central Electronics Limited (CEL) to expand India's indigenous defence manufacturing capabilities. The partnership will support the establishment of a dedicated facility focused on Electronic Warfare systems, weapon systems, defence peripherals, and advanced DefenceTech solutions, reinforcing the nation's vision for self-reliance in defence production.
-          </p>
-          <UnderlineLink color="#010101">Read more</UnderlineLink>
+
+          <div className="flex items-center justify-between pt-4">
+            <UnderlineLink color="#010101" onClick={() => navigate(activeArticle.url)}>
+              Read more
+            </UnderlineLink>
+
+            {/* Pagination indicator pills */}
+            <div className="flex items-center gap-1.5">
+              {HOMEPAGE_NEWS.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  aria-label={`Go to article ${idx + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    idx === currentSlide ? "w-6 bg-black" : "w-1.5 bg-black/20 hover:bg-black/40"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* image */}
         <div className="lg:col-start-7 lg:col-span-6">
-          <div className="relative w-full overflow-hidden rounded-sm" style={{ aspectRatio: "16/9" }}>
-            <img
-              src={newsCelImg}
-              alt="Sahana Defence signs agreement with CEL"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+          <div className="relative w-full overflow-hidden rounded-sm bg-black/5" style={{ aspectRatio: "16/9" }}>
+            {HOMEPAGE_NEWS.map((item, idx) => (
+              <img
+                key={item.id}
+                src={item.image}
+                alt={item.title}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+                  idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
