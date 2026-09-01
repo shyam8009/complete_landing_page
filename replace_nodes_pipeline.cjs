@@ -1,38 +1,7 @@
-﻿import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Cloud, Filter, Network, BarChart } from 'lucide-react';
+const fs = require('fs');
+const path = require('path');
 
-gsap.registerPlugin(ScrollTrigger);
-
-const NODES = [
-  {
-    id: "01",
-    title: "INGEST",
-    icon: Cloud,
-    description: "Powering information intake and replacing legacy batch jobs with real-time stream information processing."
-  },
-  {
-    id: "02",
-    title: "MIGRATE",
-    icon: Filter,
-    description: "Modernizing data warehouses by creating complex advancement pipelines and combining multiple sources into trusty data lake environments."
-  },
-  {
-    id: "03",
-    title: "ANALYZE",
-    icon: Network,
-    description: "Utilizing open-source frameworks like Hadoop, Spark, and MongoDB to process analytical information times quicker with superior performance."
-  },
-  {
-    id: "04",
-    title: "VISUALIZE",
-    icon: BarChart,
-    description: "Delivering sensible, instant access to frequently updated analytical information via customized Business Intelligence solutions."
-  }
-];
-
-export function BigDataBIPipeline() {
+const replacementBody = `
   const sectionRef = useRef<HTMLElement>(null);
   const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
   const progressLineRef = useRef<HTMLDivElement>(null);
@@ -125,3 +94,28 @@ export function BigDataBIPipeline() {
     </section>
   );
 }
+`;
+
+function processFile(filePath) {
+  let content = fs.readFileSync(filePath, 'utf8');
+  
+  // Find where the function begins
+  const match = content.match(/export function (.*)\(\) \{/);
+  if (!match) return;
+
+  const prefix = content.substring(0, match.index);
+  const compName = match[1];
+
+  let newContent = prefix + "export function " + compName + "() {" + replacementBody;
+  
+  // Clean up unused useState
+  newContent = newContent.replace(/import React, \{ useEffect, useRef, useState \} from 'react';/, "import React, { useEffect, useRef } from 'react';");
+  newContent = newContent.replace(/import React, \{ useRef, useLayoutEffect, useState \} from 'react';/, "import React, { useEffect, useRef } from 'react';");
+  newContent = newContent.replace(/import React, \{ useRef, useState \} from 'react';/, "import React, { useEffect, useRef } from 'react';");
+  
+  fs.writeFileSync(filePath, newContent);
+  console.log('Updated', filePath);
+}
+
+const args = process.argv.slice(2);
+args.forEach(processFile);
