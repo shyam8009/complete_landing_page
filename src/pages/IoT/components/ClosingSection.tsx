@@ -4,7 +4,7 @@ import { TechCTA } from '@/components/TechCTA';
 
 export function ClosingSection() {
   return (
-    <section className="py-24 bg-[#000000] border-t border-white/5 relative overflow-hidden flex items-center justify-center">
+    <section className="section-padding bg-[#000000] border-t border-white/5 relative overflow-hidden flex items-center justify-center">
       <div className="max-w-4xl mx-auto px-6 text-center z-10 relative">
         <div className="mb-4">
           <span className="text-[#84CC16] font-mono text-sm tracking-widest uppercase">

@@ -45,7 +45,7 @@ export function SubsystemsSection() {
   ];
 
   return (
-    <section className="bg-black py-24 border-t border-white/5">
+    <section className="section-padding bg-black border-t border-white/5">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 mb-16">
         <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight">
           Core Technical Capabilities
