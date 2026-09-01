@@ -443,12 +443,36 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
   }, [location.pathname, heroFinished]);
 
   useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && mobileOpen) {
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [mobileOpen]);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setHoveredNav(null);
+      if (e.key === "Escape") {
+        setHoveredNav(null);
+        if (mobileOpen) setMobileOpen(false);
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [mobileOpen]);
 
   return (
     <>
@@ -827,7 +851,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
       </div>
 
       {/* Mobile Menu Drawer (Stacked Accordion) */}
-      <div className={`lg:hidden fixed bottom-0 left-0 right-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div id="mobile-nav-drawer" className={`lg:hidden fixed bottom-0 left-0 right-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col p-6 gap-2">
           
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { navigate('/'); setMobileOpen(false); }}>Home</a>

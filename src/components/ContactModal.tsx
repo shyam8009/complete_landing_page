@@ -18,17 +18,26 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     captchaChecked: false,
   });
 
-  // Prevent background scrolling when modal is open
+  // Prevent background scrolling and handle Escape key when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
+    
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
     return () => {
       document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,6 +54,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="contact-modal-title"
           className="fixed inset-0 z-[100] flex flex-col bg-black text-white overflow-y-auto overflow-x-hidden font-sans"
         >
           {/* Top Header */}
@@ -52,7 +64,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             <img src="/assets/logo-sahana.png" alt="Sahana Defence" className="h-8 sm:h-10 lg:h-12 w-auto object-contain origin-left ml-2 sm:ml-4" />
             <button 
               onClick={onClose}
-              className="p-2 text-neutral-400 hover:text-white rounded-none transition-colors flex items-center gap-2 text-sm uppercase tracking-widest"
+              aria-label="Close modal"
+              className="p-2 text-neutral-400 hover:text-white rounded-none transition-colors flex items-center gap-2 text-sm uppercase tracking-widest min-h-[44px]"
             >
               <span className="hidden sm:inline">Close</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square">
@@ -129,7 +142,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             {/* Right Column (Form) */}
             <div className="w-full lg:w-1/2 p-6 md:p-12 lg:p-16 bg-black">
               <div className="max-w-xl mx-auto">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 uppercase tracking-wide">Reach Out to Our Team</h2>
+                <h2 id="contact-modal-title" className="text-2xl md:text-3xl font-bold text-white mb-2 uppercase tracking-wide">Reach Out to Our Team</h2>
                 <p className="text-neutral-400 mb-10">Connect with engineering & procurement.</p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-8">
@@ -140,7 +153,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                       type="text" 
                       required
                       placeholder="Introduce yourself"
-                      className="w-full bg-transparent border-b border-neutral-600 text-white px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all placeholder:text-neutral-600"
+                      className="w-full bg-transparent border-b border-neutral-600 text-white text-base md:text-sm px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all placeholder:text-neutral-600"
                       value={formData.fullName}
                       onChange={(e) => setFormData({...formData, fullName: e.target.value})}
                     />
@@ -153,7 +166,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                       type="email" 
                       required
                       placeholder="name@organization.gov / company.com"
-                      className="w-full bg-transparent border-b border-neutral-600 text-white px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all placeholder:text-neutral-600"
+                      className="w-full bg-transparent border-b border-neutral-600 text-white text-base md:text-sm px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all placeholder:text-neutral-600"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                     />
@@ -167,7 +180,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                         type="text" 
                         required
                         placeholder="e.g., Chief Engineer, Commander"
-                        className="w-full bg-transparent border-b border-neutral-600 text-white px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all placeholder:text-neutral-600"
+                        className="w-full bg-transparent border-b border-neutral-600 text-white text-base md:text-sm px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all placeholder:text-neutral-600"
                         value={formData.jobTitle}
                         onChange={(e) => setFormData({...formData, jobTitle: e.target.value})}
                       />
@@ -178,7 +191,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                         type="text" 
                         required
                         placeholder="e.g., Defense Ministry, OEM"
-                        className="w-full bg-transparent border-b border-neutral-600 text-white px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all placeholder:text-neutral-600"
+                        className="w-full bg-transparent border-b border-neutral-600 text-white text-base md:text-sm px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all placeholder:text-neutral-600"
                         value={formData.organization}
                         onChange={(e) => setFormData({...formData, organization: e.target.value})}
                       />
@@ -191,7 +204,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     <div className="relative">
                       <select 
                         required
-                        className="w-full bg-transparent border-b border-neutral-600 text-white px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all appearance-none"
+                        className="w-full bg-transparent border-b border-neutral-600 text-white text-base md:text-sm px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all appearance-none"
                         value={formData.country}
                         onChange={(e) => setFormData({...formData, country: e.target.value})}
                       >
@@ -216,7 +229,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                       required
                       rows={3}
                       placeholder="Describe platform specs, integration needs, or tactical scope..."
-                      className="w-full bg-transparent border-b border-neutral-600 text-white px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all placeholder:text-neutral-600 resize-none"
+                      className="w-full bg-transparent border-b border-neutral-600 text-white text-base md:text-sm px-0 py-3 rounded-none focus:outline-none focus:border-white transition-all placeholder:text-neutral-600 resize-none"
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                     ></textarea>
