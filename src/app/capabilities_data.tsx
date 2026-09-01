@@ -367,7 +367,7 @@ export const CAPABILITIES_DATA = [
         stats: ["Secure Cloud", "Mesh Networks", "Low-Latency Video", "Redundant Systems"],
         applications: ["Base Infrastructure", "Drone Telemetry", "Live Video Feeds", "Sensor Networks"],
         products: [
-          { id: "iot", title: "Internet of Things", image: corporateHouse3, slug: "home" },
+          { id: "iot", title: "Internet of Things", image: corporateHouse3, slug: "/solution/defence-deeptech/internet-of-things" },
           { id: "cloud", title: "Cloud Services", image: corporateHouse1, slug: "home" },
           { id: "video", title: "Video Streaming Services", image: corporateHouse2, slug: "home" },
         ]
