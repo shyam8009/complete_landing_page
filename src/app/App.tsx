@@ -64,6 +64,7 @@ import { QuantumDronePage } from '../pages/QuantumDrone/QuantumDronePage';
 import { QuantumClockSourcePage } from '../pages/QuantumClockSource/QuantumClockSourcePage';
 import AboutUsPage from '../pages/AboutUs/AboutUsPage';
 import { CAPABILITIES_DATA } from './capabilities_data';
+import { CanvasScrollHero } from '../components/CanvasScrollHero';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
 import ClienteleSection from '../components/ClienteleSection';
 import { Interactive360Viewer } from './components/ui/Interactive360Viewer';
@@ -966,8 +967,6 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
   );
 }
 // ——— HERO ————————————————————————————————————————————————————————————————————————————————————
-
-import { CanvasScrollHero } from '../components/CanvasScrollHero';
 
 function Hero() {
   return <CanvasScrollHero />;
@@ -2528,7 +2527,8 @@ export default function App() {
           <Route path="/information-warfare/communication-monitoring" element={<CommunicationMonitoringPage />} />
           <Route path="/aerospace-and-defence" element={<AerospaceDefencePage />} />
           <Route path="/aerospace-and-defence/manufacturing-fabrication/aerospace-components" element={<AerospaceComponentsPage />} />
-          <Route path="/aerospace-and-defence/manufacturing-fabrication/defence-components" element={<DefenceComponentsPage />} />`n          <Route path="/aerospace-and-defence/manufacturing-fabrication/satcom-components" element={<SatcomComponentsPage />} />
+          <Route path="/aerospace-and-defence/manufacturing-fabrication/defence-components" element={<DefenceComponentsPage />} />
+          <Route path="/aerospace-and-defence/manufacturing-fabrication/satcom-components" element={<SatcomComponentsPage />} />
           <Route path="/investors/policies" element={<GovernancePoliciesPage />} />
           <Route path="/investors/annual-reports" element={<FinancialReportsPage />} />
           <Route path="/investors/code-of-conduct-policies" element={<CodeOfConductPage />} />
