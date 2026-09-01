@@ -1507,11 +1507,11 @@ function FooterCol({ label, links }: { label: string; links: { label: string; ur
 function Footer({ onContactClick }: { onContactClick?: () => void }) {
   const navigate = useNavigate();
   return (
-    <footer className="w-full bg-black pt-12 md:pt-16 pb-12 md:pb-16 flex flex-col gap-10 md:gap-20">
+    <footer className="w-full bg-black pt-16 pb-16 flex flex-col gap-20">
       {/* top nav columns */}
-      <div className="px-4 sm:px-6 md:px-9 grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-row lg:flex-wrap lg:justify-between gap-8 lg:gap-10">
+      <div className="px-4 sm:px-6 md:px-9 grid grid-cols-2 gap-8 md:flex md:flex-row md:flex-wrap md:justify-between md:gap-10">
         {/* logo & contact */}
-        <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex flex-col gap-5 items-start">
+        <div className="col-span-2 md:col-span-1 flex flex-col gap-6 items-start">
           <SmallLogo />
           <img 
             src={makeInIndiaLogo} 
@@ -1536,21 +1536,21 @@ function Footer({ onContactClick }: { onContactClick?: () => void }) {
         </div>
 
         {/* Company */}
-        <div className="w-full sm:min-w-[120px]">
+        <div className="min-w-[120px]">
           <FooterCol label="Company" links={FOOTER_COMPANY} />
         </div>
         {/* Work with us */}
-        <div className="w-full sm:min-w-[120px]">
+        <div className="min-w-[120px]">
           <FooterCol label="Work with us" links={FOOTER_WORK} />
         </div>
         {/* Social */}
-        <div className="w-full sm:min-w-[120px]">
+        <div className="min-w-[120px]">
           <FooterCol label="Social" links={FOOTER_SOCIAL} />
         </div>
       </div>
 
-            {/* bottom legal */}
-      <div className="px-4 sm:px-6 md:px-9 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 border-t border-white/10 pt-6 md:pt-8">
+      {/* bottom legal */}
+      <div className="px-4 sm:px-6 md:px-9 flex flex-col gap-3 border-t border-white/10 pt-8">
         <p
           className="text-white text-xs uppercase tracking-[0.54px]"
           style={{ fontFamily: INTER, fontWeight: 500 }}

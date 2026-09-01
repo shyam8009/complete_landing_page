@@ -1,4 +1,185 @@
-import React, { useEffect, useRef } from 'react';
+const fs = require('fs');
+const path = require('path');
+
+const projectRoot = 'C:\\Users\\Shaym Bhadja\\Downloads\\SDL\\Complete Lending Page Design';
+
+// 1. Restore Footer in App.tsx to exact desktop design
+const appPath = path.join(projectRoot, 'src', 'app', 'App.tsx');
+let appCode = fs.readFileSync(appPath, 'utf8');
+
+const currentFooter = `function Footer({ onContactClick }: { onContactClick?: () => void }) {
+  const navigate = useNavigate();
+  return (
+    <footer className="w-full bg-black pt-12 md:pt-16 pb-12 md:pb-16 flex flex-col gap-10 md:gap-20">
+      {/* top nav columns */}
+      <div className="px-4 sm:px-6 md:px-9 grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-row lg:flex-wrap lg:justify-between gap-8 lg:gap-10">
+        {/* logo & contact */}
+        <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex flex-col gap-5 items-start">
+          <SmallLogo />
+          <img 
+            src={makeInIndiaLogo} 
+            alt="Make in India" 
+            className="h-10 w-auto object-contain invert opacity-70 hover:opacity-100 transition-opacity duration-200" 
+          />
+          <div className="flex flex-col gap-2 mt-2">
+            <p
+              className="text-white/60 text-xs uppercase tracking-[0.54px]"
+              style={{ fontFamily: INTER, fontWeight: 500 }}
+            >
+              Contact
+            </p>
+            <a
+              href="mailto:contact@sahanadefence.com"
+              className="text-white text-sm hover:text-white/80 transition-colors"
+              style={{ fontFamily: INTER, fontWeight: 400 }}
+            >
+              contact@sahanadefence.com
+            </a>
+          </div>
+        </div>
+
+        {/* Company */}
+        <div className="w-full sm:min-w-[120px]">
+          <FooterCol label="Company" links={FOOTER_COMPANY} />
+        </div>
+        {/* Work with us */}
+        <div className="w-full sm:min-w-[120px]">
+          <FooterCol label="Work with us" links={FOOTER_WORK} />
+        </div>
+        {/* Social */}
+        <div className="w-full sm:min-w-[120px]">
+          <FooterCol label="Social" links={FOOTER_SOCIAL} />
+        </div>
+      </div>
+
+            {/* bottom legal */}
+      <div className="px-4 sm:px-6 md:px-9 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 border-t border-white/10 pt-6 md:pt-8">
+        <p
+          className="text-white text-xs uppercase tracking-[0.54px]"
+          style={{ fontFamily: INTER, fontWeight: 500 }}
+        >
+          Copyright &copy; 2026 Sahana Defence
+        </p>
+        <div className="flex flex-row flex-wrap gap-x-6 gap-y-2">
+          {[{label: "Privacy Policy", url: "/privacy-policy"}].map(
+            (item) => (
+              <a
+                key={item.label}
+                onClick={(e) => { 
+                  if (item.url !== '#') {
+                    e.preventDefault();
+                    navigate(item.url);
+                  }
+                }}
+                href={item.url}
+                className="text-white/60 text-xs uppercase tracking-[0.54px] capitalize hover:text-white/90 transition-colors cursor-pointer"
+                style={{ fontFamily: INTER, fontWeight: 500 }}
+              >
+                {item.label}
+              </a>
+            )
+          )}
+        </div>
+      </div>
+    </footer>
+  );
+}`;
+
+const originalDesktopFooter = `function Footer({ onContactClick }: { onContactClick?: () => void }) {
+  const navigate = useNavigate();
+  return (
+    <footer className="w-full bg-black pt-16 pb-16 flex flex-col gap-20">
+      {/* top nav columns */}
+      <div className="px-4 sm:px-6 md:px-9 grid grid-cols-2 gap-8 md:flex md:flex-row md:flex-wrap md:justify-between md:gap-10">
+        {/* logo & contact */}
+        <div className="col-span-2 md:col-span-1 flex flex-col gap-6 items-start">
+          <SmallLogo />
+          <img 
+            src={makeInIndiaLogo} 
+            alt="Make in India" 
+            className="h-10 w-auto object-contain invert opacity-70 hover:opacity-100 transition-opacity duration-200" 
+          />
+          <div className="flex flex-col gap-2 mt-2">
+            <p
+              className="text-white/60 text-xs uppercase tracking-[0.54px]"
+              style={{ fontFamily: INTER, fontWeight: 500 }}
+            >
+              Contact
+            </p>
+            <a
+              href="mailto:contact@sahanadefence.com"
+              className="text-white text-sm hover:text-white/80 transition-colors"
+              style={{ fontFamily: INTER, fontWeight: 400 }}
+            >
+              contact@sahanadefence.com
+            </a>
+          </div>
+        </div>
+
+        {/* Company */}
+        <div className="min-w-[120px]">
+          <FooterCol label="Company" links={FOOTER_COMPANY} />
+        </div>
+        {/* Work with us */}
+        <div className="min-w-[120px]">
+          <FooterCol label="Work with us" links={FOOTER_WORK} />
+        </div>
+        {/* Social */}
+        <div className="min-w-[120px]">
+          <FooterCol label="Social" links={FOOTER_SOCIAL} />
+        </div>
+      </div>
+
+      {/* bottom legal */}
+      <div className="px-4 sm:px-6 md:px-9 flex flex-col gap-3 border-t border-white/10 pt-8">
+        <p
+          className="text-white text-xs uppercase tracking-[0.54px]"
+          style={{ fontFamily: INTER, fontWeight: 500 }}
+        >
+          Copyright &copy; 2026 Sahana Defence
+        </p>
+        <div className="flex flex-row flex-wrap gap-x-6 gap-y-2">
+          {[{label: "Privacy Policy", url: "/privacy-policy"}].map(
+            (item) => (
+              <a
+                key={item.label}
+                onClick={(e) => { 
+                  if (item.url !== '#') {
+                    e.preventDefault();
+                    navigate(item.url);
+                  }
+                }}
+                href={item.url}
+                className="text-white/60 text-xs uppercase tracking-[0.54px] capitalize hover:text-white/90 transition-colors cursor-pointer"
+                style={{ fontFamily: INTER, fontWeight: 500 }}
+              >
+                {item.label}
+              </a>
+            )
+          )}
+        </div>
+      </div>
+    </footer>
+  );
+}`;
+
+if (appCode.includes(currentFooter)) {
+  appCode = appCode.replace(currentFooter, originalDesktopFooter);
+  fs.writeFileSync(appPath, appCode, 'utf8');
+  console.log('✅ Footer restored in App.tsx');
+} else {
+  console.log('⚠️ Could not find exact currentFooter snippet, searching with regex');
+  const footerRegex = /function Footer\(\{[\s\S]*?^}/m;
+  if (footerRegex.test(appCode)) {
+    appCode = appCode.replace(footerRegex, originalDesktopFooter);
+    fs.writeFileSync(appPath, appCode, 'utf8');
+    console.log('✅ Footer replaced using regex');
+  }
+}
+
+// 2. Restore GuardianExperience QuoteSection
+const geQuotePath = path.join(projectRoot, 'src', 'pages', 'GuardianExperience', 'components', 'QuoteSection.tsx');
+const geOriginal = `import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Shield, Globe, Target } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -192,3 +373,7 @@ export function QuoteSection() {
     </section>
   );
 }
+`;
+
+fs.writeFileSync(geQuotePath, geOriginal, 'utf8');
+console.log('✅ GuardianExperience QuoteSection restored');
