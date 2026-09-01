@@ -77,7 +77,7 @@ import sahanaLogo from "@/imports/logo-sahana.png";
 import makeInIndiaLogo from "@/imports/logo-make-in-india.png";
 import heroVideo from "@/imports/Hero banner Video.mp4";
 
-// New product images â€” all of the same tactical drone, different shots & environments
+// New product images — all of the same tactical drone, different shots & environments
 import heroImg from "@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg";
 import sensorDomeImg from "@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png";
 import motorImg from "@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png";
@@ -124,7 +124,7 @@ const INTER = "'Inter', sans-serif";
 const CARD_GRADIENT =
   "linear-gradient(rgba(1,1,1,0) 0%,rgba(1,1,1,0.004) 1.8%,rgba(1,1,1,0.008) 4.8%,rgba(1,1,1,0.02) 9%,rgba(1,1,1,0.043) 13.9%,rgba(1,1,1,0.075) 19.8%,rgba(1,1,1,0.125) 27%,rgba(1,1,1,0.192) 35%,rgba(1,1,1,0.28) 43.5%,rgba(1,1,1,0.38) 53%,rgba(1,1,1,0.54) 66%,rgba(1,1,1,0.737) 81%,rgb(1,1,1) 100%)";
 
-// â€”â€”â€” SVG helpers â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— SVG helpers ————————————————————————————————————————————————————————————————————————————
 
 function AndurilLogo({ width = 210 }: { width?: number }) {
   return (
@@ -154,7 +154,7 @@ function MiniArrow({ color = "#010101" }: { color?: string }) {
   );
 }
 
-// â€”â€”â€” Reusable "text + underline + arrow" link â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— Reusable "text + underline + arrow" link ————————————————————————————————————————————————
 
 function UnderlineLink({
   children,
@@ -886,7 +886,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
     </>
   );
 }
-// â€”â€”â€” HERO â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— HERO ————————————————————————————————————————————————————————————————————————————————————
 
 import { CanvasScrollHero } from '../components/CanvasScrollHero';
 
@@ -1012,7 +1012,7 @@ function ProductCard({
   );
 }
 
-// â€”â€”â€” PRODUCTS SECTION â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— PRODUCTS SECTION ————————————————————————————————————————————————————————————————————————
 
 const PRODUCTS_DATA = [
   {
@@ -1139,7 +1139,7 @@ function ProductsSection() {
         </UnderlineLink>
       </div>
 
-      {/* â€”â€”â€” Desktop 12-col grid â€”â€”â€” */}
+      {/* ——— Desktop 12-col grid ——— */}
       <div
         className="hidden md:grid grid-cols-12 gap-5 w-full"
         style={{ gridTemplateRows: "repeat(3, clamp(220px, 31vw, 598px))" }}
@@ -1168,7 +1168,7 @@ function ProductsSection() {
         ))}
       </div>
 
-      {/* â€”â€”â€” Mobile / tablet stacked grid â€”â€”â€” */}
+      {/* ——— Mobile / tablet stacked grid ——— */}
       <div className="grid md:hidden grid-cols-1 sm:grid-cols-2 gap-5 w-full">
         {PRODUCTS_DATA.map((product) => (
           <ProductCard
@@ -1192,7 +1192,7 @@ function ProductsSection() {
   );
 }
 
-// â€”â€”â€” ARSENAL-1 FEATURE SECTION â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— ARSENAL-1 FEATURE SECTION ———————————————————————————————————————————————————————————————
 
 function Arsenal1Section() {
   return (
@@ -1226,7 +1226,7 @@ function Arsenal1Section() {
   );
 }
 
-// â€”â€”â€” NEWS & INSIGHTS â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— NEWS & INSIGHTS —————————————————————————————————————————————————————————————————————————
 
 function NewsSection() {
   return (
@@ -1286,7 +1286,7 @@ function NewsSection() {
   );
 }
 
-// â€”â€”â€” EDITORIAL PANEL â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— EDITORIAL PANEL —————————————————————————————————————————————————————————————————————————
 
 type SlideData = { src: string; label?: string; target?: string };
 type EditorialImage = string | (string | SlideData)[];
@@ -1416,7 +1416,7 @@ function EditorialSection() {
         bg="#505544"
         textColor="white"
         dividerColor="white"
-        counter="PT â€” 01 / 02"
+        counter="PT — 01 / 02"
       />
       <EditorialPanel
         title="Innovation"
@@ -1425,13 +1425,13 @@ function EditorialSection() {
         bg="#8e9291"
         textColor="#010101"
         dividerColor="#010101"
-        counter="PT â€” 02 / 02"
+        counter="PT — 02 / 02"
       />
     </section>
   );
 }
 
-// â€”â€”â€” FOOTER â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— FOOTER ——————————————————————————————————————————————————————————————————————————————————
 
 const FOOTER_COMPANY = [
   { label: "Mission", url: "/about-us" },
@@ -1553,7 +1553,7 @@ function Footer({ onContactClick }: { onContactClick?: () => void }) {
   );
 }
 
-// â€”â€”â€” ELECTRONIC WARFARE PAGE â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— ELECTRONIC WARFARE PAGE —————————————————————————————————————————————————————————————————
 function ElectronicWarfarePage() {
   const [activePillar, setActivePillar] = useState(0);
 
@@ -1799,7 +1799,7 @@ function ElectronicWarfarePage() {
             <tbody>
               <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
                 <td className="p-4 md:p-6 text-white font-medium">Frequency Range</td>
-                <td className="p-4 md:p-6 text-white/80">100 MHz â€“ 40 GHz (HF to Ka-band)</td>
+                <td className="p-4 md:p-6 text-white/80">100 MHz – 40 GHz (HF to Ka-band)</td>
                 <td className="p-4 md:p-6 text-white/60">Full-spectrum coverage, enabling tracking and jamming across all modern tactical threats.</td>
               </tr>
               <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
@@ -1852,7 +1852,7 @@ function ElectronicWarfarePage() {
 
 
 
-// â€”â€”â€” HANDHELD JAMMER PAGE â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— HANDHELD JAMMER PAGE ————————————————————————————————————————————————————————————————————
 
 function HandheldJammerPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -1956,7 +1956,7 @@ function HandheldJammerPage() {
 
   return (
     <div ref={containerRef} className="w-full min-h-screen bg-black text-white selection:bg-[#2e4321] selection:text-white" style={{ fontFamily: INTER }}>
-      {/* 1. HERO SECTION â€” FPV scroll-linked canvas sequence */}
+      {/* 1. HERO SECTION — FPV scroll-linked canvas sequence */}
       <FpvCanvasHero heroRef={heroRef} statsRef={statsRef} />
 
       {/* 2. CINEMATIC VIDEO SHOWCASE */}
@@ -2228,9 +2228,9 @@ function HandheldJammerPage() {
 
 
 
-// â€”â€”â€” HOME 2 PAGE (LUXURY CORPORATE AESTHETIC) â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— HOME 2 PAGE (LUXURY CORPORATE AESTHETIC) ————————————————————————————————
 
-// â€”â€”â€” APP â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+// ——— APP ——————————————————————————————————————————————————————————————————————
 
 function ScrollToTop() {
   const { pathname } = useLocation();

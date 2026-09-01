@@ -1058,7 +1058,7 @@ function Heading17() {
   return (
     <div className="absolute bottom-[-35.99px] h-[75.59px] right-[36px] w-[368.42px]" data-name="Heading 5">
       <div className="-translate-y-1/2 [word-break:break-word] absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] left-0 not-italic text-[65px] text-white top-[37px] tracking-[-1.44px] whitespace-nowrap">
-        <p className="leading-[75.6px]">PT â€” 01 / 02</p>
+        <p className="leading-[75.6px]">PT — 01 / 02</p>
       </div>
     </div>
   );
@@ -1179,7 +1179,7 @@ function Heading19() {
   return (
     <div className="absolute bottom-[-35.99px] h-[75.59px] right-[36px] w-[382.53px]" data-name="Heading 5">
       <div className="-translate-y-1/2 [word-break:break-word] absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] left-0 not-italic text-[#010101] text-[65.8px] top-[37px] tracking-[-1.44px] whitespace-nowrap">
-        <p className="leading-[75.6px]">PT â€” 02 / 02</p>
+        <p className="leading-[75.6px]">PT — 02 / 02</p>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ const PILLARS: CardData[] = [
     title: 'Wideband RF Detectors',
     description: "Detection hardware built for the full RF spectrum, from room temperature to cryogenic conditions. The RFD1, RG-QD, and RF-Model give platforms the sensitivity to detect what conventional receivers miss.",
     statusBadge: 'DEFENCE GRADE Â· ACTIVE',
-    freqRange: '100 MHz â€“ 40 GHz',
+    freqRange: '100 MHz – 40 GHz',
     specs: [
       "Broadband detection across RF/MW frequencies",
       "Configurable for thru-wall RADAR and SIGINT",
@@ -52,12 +52,12 @@ const PILLARS: CardData[] = [
     title: 'Quantum Microwave Devices',
     description: "The amplification and signal-conditioning layer quantum systems run on. Travelling Wave Parametric Amplifiers, HEMT amplifiers, IQ mixers, and precision filters.",
     statusBadge: 'CRYOGENIC CAPABLE',
-    freqRange: '4K â€“ 300K Operating',
+    freqRange: '4K – 300K Operating',
     specs: [
       "TWPAs for near-quantum-limited amplification",
       "HEMT amplifiers for low-noise RF/MW gain",
       "IQ mixer spurious rejection: > 25 dBc",
-      "Operating temperature: 4K â€“ 300K",
+      "Operating temperature: 4K – 300K",
       "Custom filter design & fabrication",
       "Cryogenic RF/MW design expertise"
     ],
@@ -69,11 +69,11 @@ const PILLARS: CardData[] = [
     title: 'Rydberg Atom Quantum Sensors',
     description: "Atomic-precision sensing for environments where classical RF sensors fall short. Detect electromagnetic fields with a sensitivity that redefines what's measurable.",
     statusBadge: 'QUANTUM ACTIVE',
-    freqRange: 'DC â€“ 100+ GHz',
+    freqRange: 'DC – 100+ GHz',
     specs: [
       "Ultra-high sensitivity EM field detection",
       "Self-calibrating atomic reference standard",
-      "No antenna required â€” atom-based reception",
+      "No antenna required — atom-based reception",
       "Frequency agile: DC to 100+ GHz",
       "Applications in SIGINT and secure sensing",
       "Bridges quantum theory & defence deployment"

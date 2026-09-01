@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const jammingData = [
   {
-    tag: "60W Continuous Output . 1.5â€“2.0 km Range",
+    tag: "60W Continuous Output . 1.5–2.0 km Range",
     title: "INFINITY SPEAR",
     desc: "A state-of-the-art handheld Counter-Unmanned Aerial System (C-UAS) designed for military and security operations. It empowers dismounted tactical squads with a highly mobile shield capable of disabling hostile drones instantly without secondary heavy battery packs.",
     features: [

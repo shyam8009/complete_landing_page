@@ -64,7 +64,7 @@ export function AerospaceComponentsCapabilities() {
             
             <div className="fade-in-left space-y-6 text-white/60 text-lg leading-relaxed max-w-xl">
               <p>
-                Aerospace component manufacturing permits zero margin for error. Siddhanta Machiningâ€”the integrated precision engineering arm of Sahana Defenceâ€”brings over 20 years of space-grade quality culture to the aerospace sector.
+                Aerospace component manufacturing permits zero margin for error. Siddhanta Machining—the integrated precision engineering arm of Sahana Defence—brings over 20 years of space-grade quality culture to the aerospace sector.
               </p>
               <p>
                 Operating as a complete hub from prototype to qualified production, our advanced CNC infrastructure handles the most demanding exotic materials. Our uncompromising precision is trusted by leading strategic organizations, reflecting our capability to support urgent builds, complex aerodynamic geometries, and high-volume mission-critical production.

@@ -20,7 +20,7 @@ const CAPABILITIES = [
   },
   {
     icon: Lightbulb,
-    title: 'ZLIDâ„¢ / IR Illumination',
+    title: 'ZLID™ / IR Illumination',
     desc: 'Laser IR illumination up to 5km.'
   },
   {

@@ -14,7 +14,7 @@ const commandControlData = [
   {
     tag: "1000+ Tracks . 2D/3D Spatial Mapping",
     title: "FUSION Core AI Command & Control (C2)",
-    desc: "An advanced AI-driven Command and Control (C2) system designed for enhanced surveillance, seamless sensor integration, and real-time situational awareness with minimal cognitive burden. It unifies complex sensor feedsâ€”including radar tracks, live video, and system telemetryâ€”into an intuitive 2D and 3D interface.",
+    desc: "An advanced AI-driven Command and Control (C2) system designed for enhanced surveillance, seamless sensor integration, and real-time situational awareness with minimal cognitive burden. It unifies complex sensor feeds—including radar tracks, live video, and system telemetry—into an intuitive 2D and 3D interface.",
     features: [
       "Simultaneously tracks over 1000+ objects in real-time, integrating Blue Force tracking for complete spatial dominance.",
       "2D Operational Mapping and 3D Situational Awareness Mapping to grasp terrain elevation, obstacles, and tactical high ground.",

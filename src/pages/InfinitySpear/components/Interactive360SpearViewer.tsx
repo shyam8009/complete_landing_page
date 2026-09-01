@@ -246,7 +246,7 @@ export function Interactive360SpearViewer() {
             </div>
           )}
 
-          {/* The 360 Canvas â€” bg matches container so no seam */}
+          {/* The 360 Canvas — bg matches container so no seam */}
           <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-2 bg-black/60 backdrop-blur-md rounded-full border border-white/20 text-white text-xs font-bold tracking-[2px] uppercase pointer-events-none transition-opacity duration-1000 z-50 flex items-center gap-2 ${hasInteracted ? "opacity-0" : "opacity-100 animate-pulse"}`}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Drag to Rotate <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
           <canvas 
             ref={canvasRef} 
