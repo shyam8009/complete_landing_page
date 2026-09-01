@@ -854,8 +854,6 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
       <div id="mobile-nav-drawer" className={`lg:hidden fixed bottom-0 left-0 right-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col p-6 gap-2">
           
-          <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { navigate('/'); setMobileOpen(false); }}>Home</a>
-          
           {/* Capabilities Accordion */}
           <div className="py-4 border-b border-white/10">
             <h3 className="text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mb-4">Capabilities</h3>
