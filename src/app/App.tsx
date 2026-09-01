@@ -33,6 +33,7 @@ import { ChatbotsVoicePage } from '../pages/ChatbotsVoice/ChatbotsVoicePage';
 import { BigDataBIPage } from '../pages/BigDataBI/BigDataBIPage';
 import { AIPage } from '../pages/ArtificialIntelligence/AIPage';
 import { IoTPage } from '../pages/IoT/IoTPage';
+import { CloudServicesPage } from '../pages/CloudServices/CloudServicesPage';
 import { ConnectivityInfrastructurePage } from '../pages/ConnectivityInfrastructure/ConnectivityInfrastructurePage';
 import { CommunicationDetectionPage } from '../pages/CommunicationDetection/CommunicationDetectionPage';
 import { ElectroOpticsPage } from '../pages/ElectroOptics/ElectroOpticsPage';
@@ -2320,7 +2321,8 @@ export default function App() {
           <Route path="/solution/chatbots-voice" element={<ChatbotsVoicePage />} />
           <Route path="/solution/big-data-bi" element={<BigDataBIPage />} />
           <Route path="/solution/artificial-intelligence" element={<AIPage />} />
-          <Route path="/solution/defence-deeptech/internet-of-things" element={<IoTPage />} />
+          <Route path="/solution/defence-deeptech/cloud-services" element={<CloudServicesPage />} />
+            <Route path="/solution/defence-deeptech/internet-of-things" element={<IoTPage />} />
             <Route path="/solution/defence-deeptech/connectivity-infrastructure" element={<ConnectivityInfrastructurePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing" element={<QuantumSensingPage />} />
           <Route 
