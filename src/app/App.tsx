@@ -553,12 +553,23 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
           </a>
         </div>
 
-        {/* Mobile Hamburger (Only visible on mobile screens) */}
-        <div className="flex lg:hidden items-center gap-4">
+        {/* Mobile Header Actions (Only visible on mobile screens) */}
+        <div className="flex lg:hidden items-center gap-3">
           <button
-            className="text-white w-12 h-12 flex items-center justify-center cursor-pointer -mr-2"
+            onClick={(e) => { e.preventDefault(); onContactClick(); }}
+            className={`font-bold tracking-[1px] uppercase border cursor-pointer border-[#84CC16]/40 text-[#84CC16] bg-[#84CC16]/10 hover:bg-[#84CC16]/20 transition-all duration-300 rounded-sm ${
+              scrolled ? "px-3 py-1 text-[11px]" : "px-3.5 py-1.5 text-[12px]"
+            }`}
+            style={{ fontFamily: INTER }}
+          >
+            Contact
+          </button>
+          <button
+            className="text-white w-10 h-10 flex items-center justify-center cursor-pointer -mr-2"
             onClick={() => setMobileOpen((o) => !o)}
-            aria-label="Toggle menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav-drawer"
           >
             <div className="relative w-6 h-5">
                 <span className={`absolute left-0 block h-[2px] w-full bg-white transition-all duration-300 ease-in-out ${mobileOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"}`} />
@@ -929,7 +940,25 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
 
           <Link to="/newsroom" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { setMobileOpen(false); }}>Newsroom</Link>
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={(e) => { e.preventDefault(); if (navigate) navigate("/about-us"); setMobileOpen(false); }}>About Us</a>
-          <a onClick={(e) => { e.preventDefault(); onContactClick(); setMobileOpen(false); }} className="py-4 text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mt-4 border border-[#84CC16]/30 text-center rounded-sm bg-[#84CC16]/5 cursor-pointer">Contact Us</a>
+          {/* High-Tech Tactical CTA inside mobile drawer */}
+          <div className="mt-6 pt-2">
+            <button
+              onClick={() => { onContactClick(); setMobileOpen(false); }}
+              className="relative w-full group py-4 px-6 bg-black/60 border border-[#84CC16]/40 text-[#84CC16] font-mono text-xs uppercase tracking-[0.2em] font-bold overflow-hidden transition-all duration-300 hover:bg-[#84CC16]/10 active:scale-[0.99] flex items-center justify-center gap-3 cursor-pointer"
+            >
+              {/* Tactical Corner HUD Accents */}
+              <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-[#84CC16]" />
+              <span className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-[#84CC16]" />
+              <span className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-[#84CC16]" />
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-[#84CC16]" />
+              <span className="relative z-10 flex items-center gap-2">
+                INITIATE CONTACT // REACH OUT
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-x-1">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </button>
+          </div>
 
         </div>
       </div>
