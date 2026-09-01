@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { useNavigate } from 'react-router';
 import { TechCTA } from '@/components/TechCTA';
 
 import bgGrid from '@/imports/spear_cad_blueprint.png';
@@ -16,23 +17,27 @@ const techData = [
     tag: "Tactical Automation . Real-Time Monitoring",
     title: "Internet of Things (IoT) for Defence",
     desc: "Advanced defence technologies are transforming the operational landscape by automating complex defence workflows and responses. From port and marine infrastructure to government ecosystems, IoT is modernizing operations through connected sensors and data-driven decision-making.",
-    img: imgIoT
+    img: imgIoT,
+    slug: '/solution/defence-deeptech/internet-of-things'
   },
   {
     tag: "Serverless Architecture . Secure Migration",
     title: "Secure Cloud Services",
     desc: "High-level infrastructure understanding and optimized solution architecting delivered by a certified team of cloud solution architects. We ensure fast, timely cloud services resolution backed by expert technical support.",
-    img: imgCloud
+    img: imgCloud,
+    slug: '/solution/defence-deeptech/cloud-services'
   },
   {
     tag: "Real-Time Telemetry . Cloud Broadcasting",
     title: "Video Streaming Services & Platforms",
     desc: "Robust video streaming solutions that feature security tools, scalable delivery, and custom-branded environments. Our streaming architectures act as a powerful ingestion pipeline for real-time monitoring and analytics systems.",
-    img: imgStream
+    img: imgStream,
+    slug: '#'
   }
 ];
 
 export function TechEcosystem() {
+  const navigate = useNavigate();
   const scrollContainer = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -138,7 +143,7 @@ export function TechEcosystem() {
 
                     {/* CTA */}
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <TechCTA theme="dark">
+                      <TechCTA theme="dark" onClick={() => item.slug && item.slug !== '#' && navigate(item.slug)}>
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
