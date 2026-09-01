@@ -130,7 +130,7 @@ export default function AerospaceDefenceHero() {
               }}
               className="mt-16 md:mt-24 w-full"
             >
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
                   <a
                 href={slide.ctaLink}
                 className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"

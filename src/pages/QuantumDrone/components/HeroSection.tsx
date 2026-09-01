@@ -60,7 +60,7 @@ export function HeroSection() {
           
           {/* CTA */}
           <div className="hero-element flex flex-wrap gap-6 items-center mb-6 md:mb-16">
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start w-full">
                 <TechCTA>
               REQUEST FOR PROPOSAL
               <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />

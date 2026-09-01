@@ -151,7 +151,7 @@ export default function JammingSystemsHero() {
               }}
               className="mt-16 md:mt-24 w-full"
             >
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
                 <a
                   href={slide.ctaLink}
                   onClick={(e) => {

@@ -90,7 +90,7 @@ export function ConnectivityHero() {
               variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0 } }}
               className="mb-12"
             >
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
                 <TechCTA>
                 ARCHITECT YOUR INFRASTRUCTURE
               </TechCTA>

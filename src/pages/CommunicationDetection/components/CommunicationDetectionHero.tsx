@@ -91,7 +91,7 @@ export default function CommunicationDetectionHero() {
               {slide.subtitle}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
               <button 
               onClick={() => { window.location.href = slide.ctaLink; }}
               className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
