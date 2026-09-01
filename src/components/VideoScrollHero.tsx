@@ -25,7 +25,14 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
 
   useLayoutEffect(() => {
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (isReducedMotion) return;
+    if (isReducedMotion) {
+      // Reduced motion: make all overlays visible statically so content is accessible
+      const allRefs = [textEWRef, textTitleRef, textSpeedLabelRef, spec1Ref, spec2Ref, spec3Ref, ctaRef];
+      allRefs.forEach(ref => {
+        if (ref.current) ref.current.style.opacity = '1';
+      });
+      return;
+    }
 
     const section = sectionRef.current;
     const container = containerRef.current;

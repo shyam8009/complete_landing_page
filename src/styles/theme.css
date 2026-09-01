@@ -140,9 +140,13 @@
   }
 
   /* Global responsive media rule */
-  img, video, svg {
+  img, video {
     max-width: 100%;
     height: auto;
+  }
+
+  img {
+    display: block;
   }
 
   body {
@@ -161,13 +165,8 @@
     }
   }
 
-  @media (hover: none) {
-    .group:hover .group-hover\:opacity-100 {
-      opacity: 1 !important;
-    }
-    .group:hover .group-hover\:translate-y-0 {
-      transform: translateY(0) !important;
-    }
+  @media (hover: none) and (pointer: coarse) {
+    /* Touch-only devices: reveal content that is hidden behind hover-only interactions */
     .group-hover\:opacity-100 {
       opacity: 1 !important;
     }

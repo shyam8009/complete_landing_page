@@ -409,6 +409,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
   // For Mobile Accordion
   const [mobileDomainOpen, setMobileDomainOpen] = useState<string | null>(null);
   const [mobileSystemOpen, setMobileSystemOpen] = useState<string | null>(null);
+    const [mobileInvestorOpen, setMobileInvestorOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setActiveSystem(activeDomain.systems[0]);
@@ -548,7 +549,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
 
       {/* Capabilities Mega Menu Dropdown */}
       <div
-        className={`hidden lg:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top z-40 ${
+        className={`hidden lg:block fixed left-0 w-full bg-[#05080D] transition-all duration-300 origin-top z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'Capabilities'
@@ -706,7 +707,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
 
       {/* Investors Mega Menu Dropdown */}
       <div
-        className={`hidden lg:block fixed left-0 w-[100vw] bg-[#05080D] transition-all duration-300 origin-top overflow-hidden z-40 ${
+        className={`hidden lg:block fixed left-0 w-full bg-[#05080D] transition-all duration-300 origin-top overflow-hidden z-40 ${
           scrolled ? "top-[80px]" : "top-[86px]"
         } ${
           hoveredNav === 'Investors'
@@ -826,7 +827,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
       </div>
 
       {/* Mobile Menu Drawer (Stacked Accordion) */}
-      <div className={`lg:hidden fixed inset-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`lg:hidden fixed bottom-0 left-0 right-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col p-6 gap-2">
           
           <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { navigate('/'); setMobileOpen(false); }}>Home</a>
@@ -878,10 +879,35 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
             </div>
           </div>
           
-          <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">Investors</a>
-          <Link to="/newsroom" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => setMobileMenuOpen(false)}>Newsroom</Link>
-          <a href="/about-us" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider">About Us</a>
-          <a onClick={(e) => { e.preventDefault(); onContactClick(); setMobileMenuOpen(false); }} className="py-4 text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mt-4 border border-[#84CC16]/30 text-center rounded-sm bg-[#84CC16]/5 cursor-pointer">Contact Us</a>
+          
+            {/* Investors Accordion */}
+            <div className="py-4 border-b border-white/10">
+              <div 
+                className="flex items-center justify-between cursor-pointer"
+                onClick={() => setMobileInvestorOpen(!mobileInvestorOpen)}
+              >
+                <h3 className="text-[18px] font-bold text-white uppercase tracking-wider">Investors</h3>
+                <span className="text-[#84CC16] text-xl">{mobileInvestorOpen ? "-" : "+"}</span>
+              </div>
+              {mobileInvestorOpen && (
+                <div className="flex flex-col gap-2 pl-4 py-4 border-l border-white/10 mt-4">
+                  {INVESTORS_DATA.map((section: any) => (
+                    <a 
+                      key={section.id}
+                      href="#"
+                      className="text-[14px] text-white/80 hover:text-white py-2"
+                      onClick={(e) => { e.preventDefault(); if (navigate) navigate(section.url); setMobileOpen(false); }}
+                    >
+                      {section.title}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+          <Link to="/newsroom" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { setMobileOpen(false); }}>Newsroom</Link>
+          <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={(e) => { e.preventDefault(); if (navigate) navigate("/about-us"); setMobileOpen(false); }}>About Us</a>
+          <a onClick={(e) => { e.preventDefault(); onContactClick(); setMobileOpen(false); }} className="py-4 text-[18px] font-bold text-[#84CC16] uppercase tracking-wider mt-4 border border-[#84CC16]/30 text-center rounded-sm bg-[#84CC16]/5 cursor-pointer">Contact Us</a>
 
         </div>
       </div>
