@@ -32,7 +32,7 @@ const NODES = [
   }
 ];
 
-export function IoTPipeline() {
+export function PipelineSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
   const progressLineRef = useRef<HTMLDivElement>(null);
@@ -78,7 +78,7 @@ export function IoTPipeline() {
   }, []);
 
   return (
-    <section id="pipeline-section" ref={sectionRef} className="py-20 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+    <section id="pipeline" ref={sectionRef} className="py-20 bg-[#050505] border-t border-white/5 relative overflow-hidden">
       {/* Background Grid */}
       <div 
         className="absolute inset-0 opacity-[0.03]" 

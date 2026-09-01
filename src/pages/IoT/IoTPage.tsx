@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { IoTHero } from './components/IoTHero';
-import { IoTPipeline } from './components/IoTPipeline';
-import { IoTCapabilities } from './components/IoTCapabilities';
-import { IoTSpecs } from './components/IoTSpecs';
-import { IoTApplications } from './components/IoTApplications';
-import { IoTCTA } from './components/IoTCTA';
+import { HeroSection } from './components/HeroSection';
+import { PipelineSection } from './components/PipelineSection';
+import { ValuePropositionSection } from './components/ValuePropositionSection';
+import { SubsystemsSection } from './components/SubsystemsSection';
+import { UseCasesSection } from './components/UseCasesSection';
+import { ClosingSection } from './components/ClosingSection';
 
 export function IoTPage() {
   useEffect(() => {
@@ -22,13 +22,13 @@ export function IoTPage() {
   }, []);
 
   return (
-    <main className="w-full bg-[#050505] min-h-screen text-white font-sans selection:bg-[#84CC16]/30">
-      <IoTHero />
-      <IoTPipeline />
-      <IoTCapabilities />
-      <IoTSpecs />
-      <IoTApplications />
-      <IoTCTA />
-    </main>
+    <div className="w-full bg-[#000000] text-white selection:bg-[#84CC16] selection:text-black font-sans overflow-hidden">
+      <HeroSection />
+      <PipelineSection />
+      <ValuePropositionSection />
+      <SubsystemsSection />
+      <UseCasesSection />
+      <ClosingSection />
+    </div>
   );
 }
