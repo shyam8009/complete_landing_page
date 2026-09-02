@@ -1,24 +1,15 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ALL_LOGOS, LOGO_CATEGORIES, CATEGORY_BOARDS } from '../data/clienteleLogosData';
-import { Grid3X3, LayoutTemplate } from 'lucide-react';
+import { ALL_LOGOS, LOGO_CATEGORIES } from '../data/clienteleLogosData';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 export function ClientDirectory() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [viewMode, setViewMode] = useState<'grid' | 'boards'>('grid');
 
   const filteredLogos = useMemo(() => {
     return ALL_LOGOS.filter((logo) => {
       return activeCategory === 'all' || logo.category === activeCategory;
-    });
-  }, [activeCategory]);
-
-  const filteredBoards = useMemo(() => {
-    return CATEGORY_BOARDS.filter((board) => {
-      if (activeCategory === 'all') return true;
-      return board.id === activeCategory;
     });
   }, [activeCategory]);
 
@@ -52,32 +43,6 @@ export function ClientDirectory() {
               Verified emblem and logo insignia of our sovereign defense, space, PSU, and aerospace industry partners.
             </p>
           </div>
-
-          {/* View Mode Switcher */}
-          <div className="flex items-center bg-white border border-slate-300 p-1 rounded-xl shadow-sm self-start sm:self-auto shrink-0">
-            <button
-              onClick={() => setViewMode('grid')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
-                viewMode === 'grid'
-                  ? 'bg-slate-950 text-white font-bold shadow-sm'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <Grid3X3 className="w-3.5 h-3.5" />
-              <span>Logo Grid</span>
-            </button>
-            <button
-              onClick={() => setViewMode('boards')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
-                viewMode === 'boards'
-                  ? 'bg-slate-950 text-white font-bold shadow-sm'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <LayoutTemplate className="w-3.5 h-3.5" />
-              <span>Category Boards</span>
-            </button>
-          </div>
         </motion.div>
 
         {/* Category Filter Tabs */}
@@ -108,103 +73,52 @@ export function ClientDirectory() {
         {/* Active Results Count Bar */}
         <div className="flex items-center justify-between text-xs font-mono text-slate-500 mb-6 pb-3 border-b border-slate-300">
           <span className="font-semibold">
-            {viewMode === 'grid' 
-              ? `DISPLAYING ${filteredLogos.length} LOGO EMBLEMS`
-              : `DISPLAYING ${filteredBoards.length} CATEGORY ECOSYSTEM BOARDS`
-            }
+            DISPLAYING {filteredLogos.length} LOGO EMBLEMS
           </span>
         </div>
 
-        {/* --- VIEW MODE 1: LOGO TILES GRID --- */}
-        {viewMode === 'grid' && (
-          <AnimatePresence mode="popLayout">
-            <motion.div 
-              layout
-              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5"
-            >
-              {filteredLogos.map((logo, idx) => (
-                <motion.div 
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.25, delay: Math.min(idx * 0.02, 0.3) }}
-                  whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
-                  key={logo.id}
-                  className="group relative p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center justify-between min-h-[145px] sm:min-h-[165px]"
-                >
-                  {/* Corner category indicator on hover */}
-                  <span className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[8px] font-mono uppercase tracking-widest text-[#5a8b10] font-bold bg-[#84CC16]/10 px-1.5 py-0.5 rounded pointer-events-none">
-                    {logo.categoryLabel.split(' ')[0]}
-                  </span>
-
-                  {/* Logo Image */}
-                  <div className="w-full flex-1 flex items-center justify-center py-2">
-                    <img 
-                      src={logo.image} 
-                      alt={logo.name} 
-                      className="max-h-[60px] sm:max-h-[70px] max-w-[85%] object-contain filter grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-
-                  {/* Client Name Label Below Logo */}
-                  <div className="w-full text-center mt-2 pt-2 border-t border-slate-100/80">
-                    <span className="inline-block text-[11px] sm:text-xs font-bold text-slate-800 tracking-tight leading-snug group-hover:text-[#3f620d] transition-colors duration-200 line-clamp-2">
-                      {logo.name}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        )}
-
-        {/* --- VIEW MODE 2: CATEGORY ECOSYSTEM BOARDS --- */}
-        {viewMode === 'boards' && (
-          <div className="flex flex-col gap-10">
-            {filteredBoards.map((board) => (
+        {/* --- LOGO TILES GRID --- */}
+        <AnimatePresence mode="popLayout">
+          <motion.div 
+            layout
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5"
+          >
+            {filteredLogos.map((logo, idx) => (
               <motion.div 
-                key={board.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-[0_4px_24px_rgba(0,0,0,0.05)] flex flex-col gap-6"
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.25, delay: Math.min(idx * 0.02, 0.3) }}
+                whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
+                key={logo.id}
+                className="group relative p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center justify-between min-h-[145px] sm:min-h-[165px]"
               >
-                {/* Board Header */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider font-bold bg-[#84CC16]/15 text-[#3f620d] border border-[#84CC16]/30">
-                        {board.badge}
-                      </span>
-                      <span className="text-slate-400 text-xs font-mono">
-                        {board.count} Partner Entities
-                      </span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" style={{ fontFamily: INTER }}>
-                      {board.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
-                      {board.subtitle}
-                    </p>
-                  </div>
-                </div>
+                {/* Corner category indicator on hover */}
+                <span className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[8px] font-mono uppercase tracking-widest text-[#5a8b10] font-bold bg-[#84CC16]/10 px-1.5 py-0.5 rounded pointer-events-none">
+                  {logo.categoryLabel.split(' ')[0]}
+                </span>
 
-                {/* High-Res Master Graphic Sheet */}
-                <div className="w-full rounded-2xl bg-slate-50/60 p-4 sm:p-8 flex items-center justify-center border border-slate-100">
+                {/* Logo Image */}
+                <div className="w-full flex-1 flex items-center justify-center py-2">
                   <img 
-                    src={board.sheetImage} 
-                    alt={board.title} 
-                    className="w-full max-w-[950px] h-auto object-contain drop-shadow-sm rounded-lg"
+                    src={logo.image} 
+                    alt={logo.name} 
+                    className="max-h-[60px] sm:max-h-[70px] max-w-[85%] object-contain filter grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
                     loading="lazy"
                   />
                 </div>
+
+                {/* Client Name Label Below Logo */}
+                <div className="w-full text-center mt-2 pt-2 border-t border-slate-100/80">
+                  <span className="inline-block text-[11px] sm:text-xs font-bold text-slate-800 tracking-tight leading-snug group-hover:text-[#3f620d] transition-colors duration-200 line-clamp-2">
+                    {logo.name}
+                  </span>
+                </div>
               </motion.div>
             ))}
-          </div>
-        )}
+          </motion.div>
+        </AnimatePresence>
 
       </div>
     </section>
