@@ -131,21 +131,28 @@ export function ClientDirectory() {
                   transition={{ duration: 0.25, delay: Math.min(idx * 0.02, 0.3) }}
                   whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
                   key={logo.id}
-                  className="group relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center justify-center min-h-[130px] sm:min-h-[145px]"
+                  className="group relative p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center justify-between min-h-[145px] sm:min-h-[165px]"
                 >
                   {/* Corner category indicator on hover */}
-                  <span className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[8px] font-mono uppercase tracking-widest text-[#5a8b10] font-bold bg-[#84CC16]/10 px-1.5 py-0.5 rounded">
+                  <span className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[8px] font-mono uppercase tracking-widest text-[#5a8b10] font-bold bg-[#84CC16]/10 px-1.5 py-0.5 rounded pointer-events-none">
                     {logo.categoryLabel.split(' ')[0]}
                   </span>
 
                   {/* Logo Image */}
-                  <div className="w-full h-full flex items-center justify-center">
+                  <div className="w-full flex-1 flex items-center justify-center py-2">
                     <img 
                       src={logo.image} 
                       alt={logo.name} 
-                      className="max-h-[65px] sm:max-h-[75px] max-w-[85%] object-contain filter grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+                      className="max-h-[60px] sm:max-h-[70px] max-w-[85%] object-contain filter grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
                       loading="lazy"
                     />
+                  </div>
+
+                  {/* Client Name Label Below Logo */}
+                  <div className="w-full text-center mt-2 pt-2 border-t border-slate-100/80">
+                    <span className="inline-block text-[11px] sm:text-xs font-bold text-slate-800 tracking-tight leading-snug group-hover:text-[#3f620d] transition-colors duration-200 line-clamp-2">
+                      {logo.name}
+                    </span>
                   </div>
                 </motion.div>
               ))}
