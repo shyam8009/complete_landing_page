@@ -1210,14 +1210,11 @@ function ProductsSection() {
       {/* Section header */}
       <div className="flex items-end justify-between mb-5 w-full">
         <h2
-          className="text-white text-3xl md:text-4xl tracking-tight"
+          className="text-white text-2xl sm:text-3xl md:text-4xl tracking-tight"
           style={{ fontFamily: INTER, fontWeight: 400 }}
         >
-          Electronic Warfare
+          Electronic &amp; Information Warfare | Aerospace | Quantum Tech | Deep Tech
         </h2>
-        <UnderlineLink color="white" opacity={0.6}>
-          Mission Critical Facility
-        </UnderlineLink>
       </div>
 
       {/* ——— Desktop 12-col grid ——— */}
@@ -1284,11 +1281,8 @@ function Arsenal1Section() {
           className="text-white text-3xl md:text-4xl tracking-tight"
           style={{ fontFamily: INTER, fontWeight: 400 }}
         >
-          Our Facility
+          R&amp;D Facility
         </h2>
-        <UnderlineLink color="white" opacity={0.6}>
-          Mission Critical Facility
-        </UnderlineLink>
       </div>
 
       {/* featured image */}
