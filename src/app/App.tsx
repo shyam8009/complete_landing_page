@@ -1207,14 +1207,17 @@ function ProductsSection() {
   const [viewer360, setViewer360] = useState<string | null>(null);
   return (
     <section className="relative z-10 w-full px-4 sm:px-6 md:px-9 pt-12 pb-16 bg-black/60 backdrop-blur-md">
-      {/* Section header */}
-      <div className="flex items-end justify-between mb-5 w-full">
-        <h2
-          className="text-white text-2xl sm:text-3xl md:text-4xl tracking-tight"
-          style={{ fontFamily: INTER, fontWeight: 400 }}
-        >
-          Electronic &amp; Information Warfare | Aerospace | Quantum Tech | Deep Tech
-        </h2>
+      {/* Section header — spread out across the line */}
+      <div className="w-full pb-4 mb-6 border-b border-white/10">
+        <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 w-full text-xs sm:text-sm md:text-sm font-mono uppercase tracking-[0.12em] text-white/80">
+          <span className="hover:text-white transition-colors">Electronic &amp; Information Warfare</span>
+          <span className="text-white/30 hidden lg:inline">|</span>
+          <span className="hover:text-white transition-colors">Aerospace</span>
+          <span className="text-white/30 hidden lg:inline">|</span>
+          <span className="hover:text-white transition-colors">Quantum Tech</span>
+          <span className="text-white/30 hidden lg:inline">|</span>
+          <span className="hover:text-white transition-colors">Deep Tech</span>
+        </div>
       </div>
 
       {/* ——— Desktop 12-col grid ——— */}
