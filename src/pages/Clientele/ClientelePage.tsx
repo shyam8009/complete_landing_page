@@ -3,6 +3,7 @@ import { ClienteleHero } from './components/ClienteleHero';
 import { ClientMetrics } from './components/ClientMetrics';
 import { FeaturedAlliances } from './components/FeaturedAlliances';
 import { ClientDirectory } from './components/ClientDirectory';
+import { KnowledgeCollaborations } from './components/KnowledgeCollaborations';
 import { PartnershipFramework } from './components/PartnershipFramework';
 import { ClienteleCTA } from './components/ClienteleCTA';
 
@@ -17,6 +18,7 @@ export function ClientelePage({ onContactClick }: { onContactClick?: () => void 
       <ClientMetrics />
       <FeaturedAlliances />
       <ClientDirectory />
+      <KnowledgeCollaborations />
       <PartnershipFramework />
       <ClienteleCTA onContactClick={onContactClick} />
     </div>

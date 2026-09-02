@@ -1,22 +1,15 @@
-// Auto-generated user logos data model with verified client names
+// Auto-generated data model separating Commercial Alliances & Academic Collaborations
 import sheet_0 from '@/imports/clientele/Defance & Government.png';
 import sheet_1 from '@/imports/clientele/Space & Satellite.png';
 import sheet_2 from '@/imports/clientele/Strategic Empanelment & PSU Partnerships.png';
 import sheet_3 from '@/imports/clientele/Research & Industry.png';
-import sheet_4 from '@/imports/clientele/Our Knowledge Collaborations.png';
+import sheet_academic from '@/imports/clientele/Our Knowledge Collaborations.png';
 import sheet_all from '@/imports/clientele/Defance & Government.png';
 
 import logo_defence_logo_1_png from '@/imports/clientele/user_logos/defence_logo_1.png';
 import logo_defence_logo_2_png from '@/imports/clientele/user_logos/defence_logo_2.png';
 import logo_defence_logo_3_png from '@/imports/clientele/user_logos/defence_logo_3.png';
 import logo_defence_logo_4_png from '@/imports/clientele/user_logos/defence_logo_4.png';
-import logo_clientele_logo_1_png from '@/imports/clientele/user_logos/clientele_logo_1.png';
-import logo_clientele_logo_2_png from '@/imports/clientele/user_logos/clientele_logo_2.png';
-import logo_clientele_logo_3_png from '@/imports/clientele/user_logos/clientele_logo_3.png';
-import logo_clientele_logo_4_png from '@/imports/clientele/user_logos/clientele_logo_4.png';
-import logo_clientele_logo_5_png from '@/imports/clientele/user_logos/clientele_logo_5.png';
-import logo_clientele_logo_6_png from '@/imports/clientele/user_logos/clientele_logo_6.png';
-import logo_clientele_logo_7_png from '@/imports/clientele/user_logos/clientele_logo_7.png';
 import logo_space_logo_1_png from '@/imports/clientele/user_logos/space_logo_1.png';
 import logo_space_logo_2_png from '@/imports/clientele/user_logos/space_logo_2.png';
 import logo_space_logo_3_png from '@/imports/clientele/user_logos/space_logo_3.png';
@@ -40,14 +33,6 @@ import logo_psu_logo_13_png from '@/imports/clientele/user_logos/psu_logo_13.png
 import logo_psu_logo_14_png from '@/imports/clientele/user_logos/psu_logo_14.png';
 import logo_psu_logo_15_png from '@/imports/clientele/user_logos/psu_logo_15.png';
 import logo_psu_logo_16_png from '@/imports/clientele/user_logos/psu_logo_16.png';
-import logo_clientele_logo_8_png from '@/imports/clientele/user_logos/clientele_logo_8.png';
-import logo_clientele_logo_9_png from '@/imports/clientele/user_logos/clientele_logo_9.png';
-import logo_clientele_logo_10_png from '@/imports/clientele/user_logos/clientele_logo_10.png';
-import logo_clientele_logo_11_png from '@/imports/clientele/user_logos/clientele_logo_11.png';
-import logo_clientele_logo_12_png from '@/imports/clientele/user_logos/clientele_logo_12.png';
-import logo_clientele_logo_13_png from '@/imports/clientele/user_logos/clientele_logo_13.png';
-import logo_clientele_logo_14_png from '@/imports/clientele/user_logos/clientele_logo_14.png';
-import logo_clientele_logo_15_png from '@/imports/clientele/user_logos/clientele_logo_15.png';
 import logo_research_logo_1_png from '@/imports/clientele/user_logos/research_logo_1.png';
 import logo_research_logo_2_png from '@/imports/clientele/user_logos/research_logo_2.png';
 import logo_research_logo_3_png from '@/imports/clientele/user_logos/research_logo_3.png';
@@ -72,6 +57,21 @@ import logo_academic_logo_5_png from '@/imports/clientele/user_logos/academic_lo
 import logo_academic_logo_6_png from '@/imports/clientele/user_logos/academic_logo_6.png';
 import logo_academic_logo_7_png from '@/imports/clientele/user_logos/academic_logo_7.png';
 import logo_academic_logo_8_png from '@/imports/clientele/user_logos/academic_logo_8.png';
+import logo_clientele_logo_1_png from '@/imports/clientele/user_logos/clientele_logo_1.png';
+import logo_clientele_logo_2_png from '@/imports/clientele/user_logos/clientele_logo_2.png';
+import logo_clientele_logo_3_png from '@/imports/clientele/user_logos/clientele_logo_3.png';
+import logo_clientele_logo_4_png from '@/imports/clientele/user_logos/clientele_logo_4.png';
+import logo_clientele_logo_5_png from '@/imports/clientele/user_logos/clientele_logo_5.png';
+import logo_clientele_logo_6_png from '@/imports/clientele/user_logos/clientele_logo_6.png';
+import logo_clientele_logo_7_png from '@/imports/clientele/user_logos/clientele_logo_7.png';
+import logo_clientele_logo_8_png from '@/imports/clientele/user_logos/clientele_logo_8.png';
+import logo_clientele_logo_9_png from '@/imports/clientele/user_logos/clientele_logo_9.png';
+import logo_clientele_logo_10_png from '@/imports/clientele/user_logos/clientele_logo_10.png';
+import logo_clientele_logo_11_png from '@/imports/clientele/user_logos/clientele_logo_11.png';
+import logo_clientele_logo_12_png from '@/imports/clientele/user_logos/clientele_logo_12.png';
+import logo_clientele_logo_13_png from '@/imports/clientele/user_logos/clientele_logo_13.png';
+import logo_clientele_logo_14_png from '@/imports/clientele/user_logos/clientele_logo_14.png';
+import logo_clientele_logo_15_png from '@/imports/clientele/user_logos/clientele_logo_15.png';
 
 export interface CategoryBoard {
   id: string;
@@ -95,18 +95,17 @@ export const CATEGORY_BOARDS: CategoryBoard[] = [
   { id: 'space-sat', title: 'Space & Satellite Systems', subtitle: 'National Space Agency (ISRO), Satellite Centres & NewSpace Optical Payloads', sheetImage: sheet_1, badge: 'Space Qualified', count: 7 },
   { id: 'psu-empanelment', title: 'Strategic Empanelment & Defence PSUs', subtitle: 'Navratna & Miniratna Public Sector Undertakings and Government Alliances', sheetImage: sheet_2, badge: 'Tier-1 Empanelment', count: 24 },
   { id: 'research-industry', title: 'Research, DeepTech & Aerospace Industry', subtitle: 'Global Aerospace Giants, Advanced Metallurgy & Nuclear Research Institutes', sheetImage: sheet_3, badge: 'Aerospace & DeepTech', count: 16 },
-  { id: 'academic', title: 'Academic & Knowledge Collaborations', subtitle: 'Premier Indian Institutes of Technology (IITs), IIMs & Science Research Labs', sheetImage: sheet_4, badge: 'Co-Development & R&D', count: 8 },
 ];
 
 export const MASTER_OVERVIEW_SHEET = sheet_all;
+export const KNOWLEDGE_ACADEMIC_SHEET = sheet_academic;
 
 export const LOGO_CATEGORIES = [
-  { id: 'all', label: 'All Alliances (66)', count: 66 },
+  { id: 'all', label: 'All Alliances (58)', count: 58 },
   { id: 'defence-gov', label: 'Defence & Government', count: 11 },
   { id: 'space-sat', label: 'Space & Satellite', count: 7 },
   { id: 'psu-empanelment', label: 'Defence PSUs & MoD', count: 24 },
   { id: 'research-industry', label: 'Research & Aerospace', count: 16 },
-  { id: 'academic', label: 'Academic & IITs', count: 8 },
 ] as const;
 
 export const ALL_LOGOS: LogoItem[] = [
@@ -168,6 +167,9 @@ export const ALL_LOGOS: LogoItem[] = [
   { id: 'research_logo_14.png', name: 'AEI (Affiliated Engineers)', category: 'research-industry' as any, categoryLabel: 'Research & Aerospace', image: logo_research_logo_14_png },
   { id: 'research_logo_15.png', name: 'Elecon Engineering', category: 'research-industry' as any, categoryLabel: 'Research & Aerospace', image: logo_research_logo_15_png },
   { id: 'research_logo_16.png', name: 'Dynamic Tech', category: 'research-industry' as any, categoryLabel: 'Research & Aerospace', image: logo_research_logo_16_png },
+];
+
+export const KNOWLEDGE_COLLABORATIONS_LOGOS: LogoItem[] = [
   { id: 'academic_logo_1.png', name: 'IIT Bombay', category: 'academic' as any, categoryLabel: 'Academic & IITs', image: logo_academic_logo_1_png },
   { id: 'academic_logo_2.png', name: 'IIM Ahmedabad', category: 'academic' as any, categoryLabel: 'Academic & IITs', image: logo_academic_logo_2_png },
   { id: 'academic_logo_3.png', name: 'IIT Gandhinagar', category: 'academic' as any, categoryLabel: 'Academic & IITs', image: logo_academic_logo_3_png },

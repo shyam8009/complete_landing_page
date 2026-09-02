@@ -42,14 +42,14 @@ export function ClientDirectory() {
             <div className="flex items-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full bg-[#5a8b10] animate-pulse" />
               <span className="text-[#5a8b10] text-xs font-mono tracking-[0.2em] uppercase font-bold">
-                OFFICIAL INSTITUTIONAL ECOSYSTEM
+                OFFICIAL SOVEREIGN &amp; DEFENCE ECOSYSTEM
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight uppercase" style={{ fontFamily: INTER }}>
-              INSTITUTIONAL CLIENTELE &amp; LOGO DIRECTORY
+              SOVEREIGN ALLIANCES &amp; DEFENCE DIRECTORY
             </h2>
             <p className="mt-2 text-slate-600 text-xs sm:text-sm md:text-base font-medium max-w-2xl">
-              Verified emblem and logo insignia of our sovereign defense, space, PSU, aerospace, and academic research partners.
+              Verified emblem and logo insignia of our sovereign defense, space, PSU, and aerospace industry partners.
             </p>
           </div>
 
