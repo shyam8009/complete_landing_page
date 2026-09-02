@@ -51,7 +51,7 @@ export function KnowledgeCollaborations() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6 mb-12"
+          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6"
         >
           {KNOWLEDGE_COLLABORATIONS_LOGOS.map((logo, idx) => (
             <motion.div 
@@ -89,35 +89,6 @@ export function KnowledgeCollaborations() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* High-Res Master Graphic Card for Academic Collaborations */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-[0_4px_24px_rgba(0,0,0,0.04)] flex flex-col gap-6"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 gap-4">
-            <div>
-              <span className="px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider font-bold bg-[#84CC16]/15 text-[#3f620d] border border-[#84CC16]/30">
-                OFFICIAL KNOWLEDGE BOARD
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mt-2" style={{ fontFamily: INTER }}>
-                NATIONAL KNOWLEDGE &amp; ACADEMIC COLLABORATION MATRIX
-              </h3>
-            </div>
-          </div>
-
-          <div className="w-full rounded-2xl bg-slate-50/70 p-4 sm:p-8 flex items-center justify-center border border-slate-100">
-            <img 
-              src={KNOWLEDGE_ACADEMIC_SHEET} 
-              alt="Our Knowledge Collaborations" 
-              className="w-full max-w-[950px] h-auto object-contain drop-shadow-sm rounded-lg"
-              loading="lazy"
-            />
-          </div>
         </motion.div>
 
       </div>
