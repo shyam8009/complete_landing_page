@@ -63,6 +63,7 @@ import { RydbergAtomQuantumSensorsPage } from '../pages/RydbergAtomQuantumSensor
 import { QuantumDronePage } from '../pages/QuantumDrone/QuantumDronePage';
 import { QuantumClockSourcePage } from '../pages/QuantumClockSource/QuantumClockSourcePage';
 import AboutUsPage from '../pages/AboutUs/AboutUsPage';
+import ClientelePage from '../pages/Clientele/ClientelePage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { CanvasScrollHero } from '../components/CanvasScrollHero';
 import { FpvCanvasHero } from '../components/FpvCanvasHero';
@@ -1624,6 +1625,7 @@ function EditorialSection() {
 
 const FOOTER_COMPANY = [
   { label: "Mission", url: "/about-us" },
+  { label: "Clientele", url: "/clientele" },
   { label: "Newsroom", url: "/newsroom" },
   { label: "Leadership", url: "/about-us" }
 ];
@@ -2545,6 +2547,7 @@ export default function App() {
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-drone" element={<QuantumDronePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-clock-source" element={<QuantumClockSourcePage />} />
           <Route path="/newsroom" element={<NewsroomPage onContactClick={() => setIsContactModalOpen(true)} />} />
+          <Route path="/clientele" element={<ClientelePage onContactClick={() => setIsContactModalOpen(true)} />} />
           <Route path="/about-us" element={<AboutUsPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>

@@ -1,4 +1,5 @@
-﻿import React from 'react';
+import React from 'react';
+import { Link } from 'react-router';
 
 const allClients = [
   "BEML - Bharat Earth Movers Limited",
@@ -98,6 +99,14 @@ export default function ClienteleSection() {
         <p className="mt-4 text-slate-500 max-w-2xl mx-auto text-sm md:text-base">
           Powering the world's most critical missions across Aerospace, Defence, Government, and Enterprise Ecosystems.
         </p>
+        <div className="mt-6 flex justify-center">
+          <Link
+            to="/clientele"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.15em] font-bold text-slate-900 hover:text-[#5a8b10] border-b border-slate-900/30 hover:border-[#5a8b10] pb-1 transition-all"
+          >
+            Explore Full Client &amp; Alliance Matrix →
+          </Link>
+        </div>
       </div>
 
       <div className="relative w-full flex flex-col gap-6 marquee-track">
