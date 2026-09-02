@@ -40,7 +40,7 @@ export function HeroSection() {
           <div className="hero-element inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6">
             <div className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
             <span className="text-xs font-bold tracking-[2px] text-white uppercase" style={{ fontFamily: INTER }}>
-              QUANTUM SENSING
+              RADAR &amp; DETECTION SYSTEMS
             </span>
           </div>
           

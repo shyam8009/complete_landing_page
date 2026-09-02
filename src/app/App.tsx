@@ -2652,7 +2652,7 @@ export default function App() {
           <Route path="/investors/shareholder-info" element={<ShareholderInformationPage />} />
           <Route path="/investors/board-of-directors" element={<BoardOfDirectorsPage />} />
           <Route path="/investors/key-contact" element={<KeyContactPage />} />
-          <Route path="/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
+          <Route path="/electronic-warfare/radar-systems/wideband-rf-detectors" element={<WidebandRFDetectorsPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-microwave-devices" element={<QuantumMicrowaveDevicesPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/rydberg-atom-quantum-sensors" element={<RydbergAtomQuantumSensorsPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-drone" element={<QuantumDronePage />} />

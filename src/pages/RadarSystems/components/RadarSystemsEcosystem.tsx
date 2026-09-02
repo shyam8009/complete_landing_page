@@ -1,4 +1,4 @@
-﻿import React, { useRef } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router';
 import { TechCTA } from '@/components/TechCTA';
 import bgGrid from '@/imports/spear_cad_blueprint.png';
@@ -15,36 +15,44 @@ gsap.registerPlugin(ScrollTrigger);
 
 const radarSystemsData = [
   {
-    tag: '15 km Tracking Envelope â€¢ 360Â° Azimuth â€¢ X-Band FMCW',
+    tag: '15 km Tracking Envelope • 360° Azimuth • X-Band FMCW',
     title: '3D Drone Detection RADAR',
     desc: 'An all-weather, day-and-night 3D FMCW radar system optimized for low power consumption to continuously detect, track, and classify low-altitude UAVs and ground threats.',
     img: imgDroneDetection,
     statusBadge: 'ACTIVE DEPLOYMENT',
-    slug: '/drone-radar'
+    slug: '/electronic-warfare/radar-systems/3d-drone-radar'
   },
   {
-    tag: 'Passive RF Scanning â€¢ 10km Range â€¢ Multi-Band',
+    tag: 'Passive RF Scanning • 10km Range • Multi-Band',
     title: 'RF Detector',
     desc: 'Advanced passive RF sensing module designed for silent detection and localization of enemy communications and autonomous drone signals without emitting traceable signatures.',
     img: rfDetectorImg,
     statusBadge: 'ACTIVE DEPLOYMENT',
-    slug: '/rf-detector'
+    slug: '/electronic-warfare/detection-systems/rf-detector'
   },
   {
-    tag: 'Micro-Doppler â€¢ High Resolution â€¢ Ground Tracking',
+    tag: 'Broadband RF Sensing • Deep Noise Floor • Real-Time Spectrum',
+    title: 'Wideband RF Detectors',
+    desc: 'Ultra-wideband detection architecture operating into deep noise floor limits for instant RF spectrum threat identification and signal intercept.',
+    img: rfDetectorImg,
+    statusBadge: 'DEPLOYMENT READY',
+    slug: '/electronic-warfare/radar-systems/wideband-rf-detectors'
+  },
+  {
+    tag: 'Micro-Doppler • High Resolution • Ground Tracking',
     title: 'Ground Surveillance Radar',
     desc: 'High-resolution ground and perimeter surveillance radar designed for tactical border security, critical infrastructure protection, and real-time intruder tracking.',
     img: imgSurveillance,
     statusBadge: 'TACTICAL READY',
-    slug: '/surveillance-radar'
+    slug: '/electronic-warfare/radar-systems/surveillance-radar'
   },
   {
-    tag: '3D Positioning â€¢ Multi-Frequency â€¢ Autonomous Targeting',
+    tag: '3D Positioning • Multi-Frequency • Autonomous Targeting',
     title: '3D Drone RF Detector',
     desc: 'A hybrid 3D sensing platform combining passive RF telemetry with spatial processing to precisely locate and identify swarming UAVs and hostile controllers.',
     img: rfDetectorImg,
     statusBadge: 'PROTOTYPE',
-    slug: '/3d-drone-detector'
+    slug: '/electronic-warfare/detection-systems/3d-drone-rf-detector'
   }
 ];
 

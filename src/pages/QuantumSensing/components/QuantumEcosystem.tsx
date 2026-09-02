@@ -30,23 +30,6 @@ interface CardData {
 
 const PILLARS: CardData[] = [
   {
-    id: 'rfd',
-    tag: 'RFD1 Â· RG-QD Â· RF-Model / HVN S4',
-    title: 'Wideband RF Detectors',
-    description: "Detection hardware built for the full RF spectrum, from room temperature to cryogenic conditions. The RFD1, RG-QD, and RF-Model give platforms the sensitivity to detect what conventional receivers miss.",
-    statusBadge: 'DEFENCE GRADE Â· ACTIVE',
-    freqRange: '100 MHz – 40 GHz',
-    specs: [
-      "Broadband detection across RF/MW frequencies",
-      "Configurable for thru-wall RADAR and SIGINT",
-      "Zero foreign dependency in the critical path",
-      "Noise figure: < 2 dB across full band",
-      "MIL-STD-810H environmental qualification",
-      "Indigenous signal processing architecture"
-    ],
-    image: imgRfd
-  },
-  {
     id: 'microwave',
     tag: 'TWPAs Â· HEMT Amps Â· IQ Mixers',
     title: 'Quantum Microwave Devices',

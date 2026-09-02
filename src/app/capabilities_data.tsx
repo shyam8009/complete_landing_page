@@ -91,7 +91,8 @@ export const CAPABILITIES_DATA = [
           { id: "3d-drone-radar", title: "3D Drone Radar", image: droneRadarHeroImg, slug: "/electronic-warfare/radar-systems/3d-drone-radar" },
           { id: "rf-detector", title: "RF Detector", image: rfDetectorD360Img, slug: "/electronic-warfare/detection-systems/rf-detector" },
           { id: "ground-surveillance-radar", title: "Ground Surveillance Radar", image: surveillanceRadarHeroImg, slug: "/electronic-warfare/radar-systems/surveillance-radar" },
-          { id: "3d-drone-rf-detector", title: "3D Drone RF Detector", image: rfDetectorD360Img, slug: "/electronic-warfare/detection-systems/3d-drone-rf-detector" }
+          { id: "3d-drone-rf-detector", title: "3D Drone RF Detector", image: rfDetectorD360Img, slug: "/electronic-warfare/detection-systems/3d-drone-rf-detector" },
+          { id: "wideband-rf", title: "Wideband RF Detectors", image: rfRadarGeneratedImg, slug: "/electronic-warfare/radar-systems/wideband-rf-detectors" }
         ]
       },
       {
@@ -258,7 +259,6 @@ export const CAPABILITIES_DATA = [
         stats: ["High Precision", "RF Detection", "Quantum Drones", "Atomic Clocks"],
         applications: ["Navigation", "Radar Systems", "Secure Timing", "Targeting"],
         products: [
-          { id: "wideband-rf", title: "Wideband RF Detectors", image: rfRadarGeneratedImg, slug: "/quantum-technology-solutions/quantum-sensing/wideband-rf-detectors" },
           { id: "quantum-microwave", title: "Quantum Microwave Devices", image: rfRadarHudImg, slug: "/quantum-technology-solutions/quantum-sensing/quantum-microwave-devices" },
           { id: "rydberg-atom", title: "Rydberg Atom Quantum Sensors", image: innovation1, slug: "/quantum-technology-solutions/quantum-sensing/rydberg-atom-quantum-sensors" },
           { id: "quantum-drone", title: "Quantum Drone", image: drone3d1, slug: "/quantum-technology-solutions/quantum-sensing/quantum-drone" },
