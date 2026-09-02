@@ -1207,15 +1207,15 @@ function ProductsSection() {
   const [viewer360, setViewer360] = useState<string | null>(null);
   return (
     <section className="relative z-10 w-full px-4 sm:px-6 md:px-9 pt-12 pb-16 bg-black/60 backdrop-blur-md">
-      {/* Section header — spread out across the line */}
-      <div className="w-full pb-4 mb-6 border-b border-white/10">
-        <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 w-full text-xs sm:text-sm md:text-sm font-mono uppercase tracking-[0.12em] text-white/80">
+      {/* Section header — centered & spaced category taxonomy bar */}
+      <div className="w-full pb-4 mb-6 border-b border-white/10 flex justify-center">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 md:gap-10 lg:gap-12 text-xs sm:text-sm md:text-sm font-mono uppercase tracking-[0.14em] text-white/80">
           <span className="hover:text-white transition-colors">Electronic &amp; Information Warfare</span>
-          <span className="text-white/30 hidden lg:inline">|</span>
+          <span className="text-white/30 hidden sm:inline">|</span>
           <span className="hover:text-white transition-colors">Aerospace</span>
-          <span className="text-white/30 hidden lg:inline">|</span>
+          <span className="text-white/30 hidden sm:inline">|</span>
           <span className="hover:text-white transition-colors">Quantum Tech</span>
-          <span className="text-white/30 hidden lg:inline">|</span>
+          <span className="text-white/30 hidden sm:inline">|</span>
           <span className="hover:text-white transition-colors">Deep Tech</span>
         </div>
       </div>
