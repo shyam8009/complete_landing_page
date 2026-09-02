@@ -1,194 +1,30 @@
-import React, { useEffect, useRef } from 'react';
-import { ArrowRight, Shield, Globe, Target } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React from 'react';
+import { ChevronRight } from 'lucide-react';
+import { TechCTA } from '@/components/TechCTA';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const ACCENT = "#9CFF00";
+const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 export function QuoteSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate HUD elements subtle floating
-      gsap.to('.hud-element', {
-        y: 'random(-4, 4)',
-        opacity: 'random(0.3, 0.7)',
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        stagger: 0.2
-      });
-
-      // Reveal text sequence on scroll
-      gsap.from('.mission-reveal', {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 75%',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: 'power3.out'
-      });
-
-      // Reveal trust elements
-      gsap.from('.trust-strip', {
-        scrollTrigger: {
-          trigger: '.trust-strip',
-          start: 'top 90%',
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.out'
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section 
-      ref={containerRef} 
-      className="relative w-full bg-[#030504] py-24 md:py-32 overflow-hidden flex flex-col justify-between items-center z-10 border-t border-white/10"
-    >
-      {/* --- BACKGROUND HUD & GRAPHICS --- */}
-      {/* Subtle Tactical Radar Rings */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none flex items-center justify-center">
-        {/* CSS generated radar/topo circles */}
-        <div className="absolute top-[30%] left-[-10%] w-[600px] h-[600px] border border-white rounded-full" />
-        <div className="absolute top-[35%] left-[-5%] w-[450px] h-[450px] border border-white rounded-full" />
-        <div className="absolute top-[40%] left-[0%] w-[300px] h-[300px] border border-dashed border-white rounded-full" />
-        <div className="absolute top-1/2 left-[15%] w-full h-px bg-white/50" />
-        <div className="absolute top-0 left-[15%] w-px h-full bg-white/50" />
-      </div>
+    <section className="section-padding bg-black border-t border-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(132,204,22,0.05),transparent_50%)]" />
       
-      {/* Atmospheric Haze / Noise */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-noise" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#030504] via-transparent to-[#030504] pointer-events-none" />
-
-      {/* HUD Details (Corners & Crosshairs) */}
-      <div className="hud-element absolute top-12 left-12 w-8 h-8 border-t-2 border-l-2 border-[#9CFF00]/40 z-0" />
-      <div className="hud-element absolute top-12 right-12 w-8 h-8 border-t-2 border-r-2 border-[#9CFF00]/40 z-0" />
-      <div className="hud-element absolute bottom-12 left-12 w-8 h-8 border-b-2 border-l-2 border-[#9CFF00]/40 z-0" />
-      <div className="hud-element absolute bottom-12 right-12 w-8 h-8 border-b-2 border-r-2 border-[#9CFF00]/40 z-0" />
-      
-      <div className="hud-element absolute top-[25%] left-[20%] text-[#9CFF00]/20 font-mono text-[10px] tracking-widest">+</div>
-      <div className="hud-element absolute bottom-[40%] right-[25%] text-[#9CFF00]/20 font-mono text-[10px] tracking-widest">+</div>
-      <div className="hud-element absolute top-1/2 right-[10%] w-12 h-px bg-[#9CFF00]/20" />
-
-
-      {/* --- MAIN CONTENT --- */}
-      <div className="relative z-10 w-full max-w-[1100px] mx-auto px-4 md:px-8 flex flex-col items-center text-center">
-        
-        {/* Quote Mark */}
-        <div className="mission-reveal relative mb-[70px] lg:mb-[90px] flex justify-center">
-          <div 
-            className="absolute inset-0 blur-md opacity-30 rounded-full" 
-            style={{ backgroundColor: ACCENT }}
-          />
-          <svg width="48" height="42" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10" style={{ color: ACCENT }}>
-            <path d="M19.5 21C19.5 28.5 13.5 34.5 6 34.5V40.5C16.815 40.5 25.5 31.815 25.5 21V1.5H0V21H19.5ZM42 21C42 28.5 36 34.5 28.5 34.5V40.5C39.315 40.5 48 31.815 48 21V1.5H22.5V21H42Z" fill="currentColor"/>
-          </svg>
-        </div>
-
-        {/* Main Headline */}
-        <h2 className="mission-reveal text-[34px] sm:text-[44px] md:text-[58px] lg:text-[72px] font-extrabold uppercase text-[#F5F5F5] leading-[1.0] lg:leading-[0.98] tracking-[-0.02em] mb-12">
-          CONNECTING THE MODERN <br className="hidden md:block" />
-          <span className="text-[#9CFF00]" style={{ textShadow: '0 0 15px rgba(156,255,0,0.3)' }}>WARFIGHTER.</span> ENHANCING <br className="hidden md:block" />
-          SURVIVAL AND OPERATIONAL <br className="hidden md:block" />
-          <span className="text-[#9CFF00]" style={{ textShadow: '0 0 15px rgba(156,255,0,0.3)' }}>SUPERIORITY.</span>
+      <div className="max-w-4xl mx-auto px-4 lg:px-6 relative z-10 text-center">
+        <h2 className="quote-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 leading-tight tracking-tight uppercase" style={{ fontFamily: INTER }}>
+          "Connecting the modern warfighter. Enhancing survival and operational superiority."
         </h2>
-
-        {/* Decorative Headline Element */}
-        <div className="mission-reveal flex flex-col items-center justify-center mb-10 w-full">
-          <div className="flex items-center w-full max-w-[120px] justify-center opacity-80">
-            <div className="h-[1px] w-full bg-gradient-to-r from-transparent to-[#9CFF00]" />
-            <div 
-              className="w-2 h-2 mx-2 rotate-45 border border-[#9CFF00]" 
-              style={{ boxShadow: '0 0 8px rgba(156,255,0,0.4)' }}
-            />
-            <div className="h-[1px] w-full bg-gradient-to-l from-transparent to-[#9CFF00]" />
-          </div>
-        </div>
-
-        {/* Supporting Message */}
-        <p className="mission-reveal text-[#858585] font-medium text-xs md:text-sm lg:text-base uppercase tracking-[0.15em] mb-12 lg:mb-16 max-w-[90vw]">
-          LET'S BUILD A SMARTER, SAFER AND MORE RESILIENT TOMORROW — TOGETHER.
-        </p>
-
-        {/* CTAs */}
-        <div className="mission-reveal flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full max-w-[800px]">
+        
+        <div className="quote-text flex flex-col items-center gap-6">
+          <TechCTA>
+            CONTACT TACTICAL GEAR SALES
+            <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+          </TechCTA>
           
-          {/* Primary CTA */}
-          <button 
-            className="group relative flex items-center justify-center w-full md:w-[410px] h-[64px] lg:h-[72px] bg-[#9CFF00] text-[#030504] font-bold uppercase tracking-wide transition-all duration-300 overflow-hidden"
-            style={{ 
-              clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%)',
-              boxShadow: '0 0 20px rgba(156,255,0,0.1)'
-            }}
-          >
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-            <span className="relative z-10 flex items-center text-sm lg:text-[15px]">
-              CONTACT TACTICAL GEAR SALES
-              <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2.5} />
-            </span>
-          </button>
-
-          {/* Secondary CTA */}
-          <button 
-            className="group relative flex items-center justify-center w-full md:w-[320px] h-[64px] lg:h-[72px] bg-transparent border border-white/20 text-[#F5F5F5] font-semibold uppercase tracking-wide transition-all duration-300 hover:border-[#9CFF00] hover:text-white"
-            style={{ 
-              clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%)'
-            }}
-          >
-            <div className="absolute inset-0 bg-[#9CFF00]/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-            <span className="relative z-10 flex items-center text-xs lg:text-[13px] group-hover:drop-shadow-[0_0_8px_rgba(156,255,0,0.4)] transition-all">
-              REQUEST A SYSTEM INTEGRATION BRIEFING
-              <ArrowRight className="w-4 h-4 ml-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-1.5 group-hover:text-[#9CFF00] transition-all duration-300" strokeWidth={2} />
-            </span>
+          <button className="text-white/40 hover:text-white transition-colors text-sm underline underline-offset-4 decoration-white/20 hover:decoration-white uppercase tracking-wider font-bold">
+            Request a System Integration Briefing
           </button>
         </div>
       </div>
-
-      {/* --- TRUST / CREDIBILITY STRIP --- */}
-      <div className="trust-strip relative z-20 w-full mt-24 px-4 pb-4">
-        <div className="max-w-[1400px] mx-auto bg-black/40 backdrop-blur-md border border-white/10 p-5 md:p-0">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            
-            {/* Item 1 */}
-            <div className="flex items-center gap-4 py-4 md:py-6 px-4 lg:px-10">
-              <Shield className="w-7 h-7 lg:w-8 lg:h-8 shrink-0" style={{ color: ACCENT, strokeWidth: 1.5 }} />
-              <div className="text-[#F5F5F5] font-bold text-xs lg:text-sm tracking-wider uppercase leading-snug">
-                TRUSTED BY <br className="hidden md:block"/>DEFENCE FORCES
-              </div>
-            </div>
-
-            {/* Item 2 */}
-            <div className="flex items-center gap-4 py-4 md:py-6 px-4 lg:px-10">
-              <Globe className="w-7 h-7 lg:w-8 lg:h-8 shrink-0" style={{ color: ACCENT, strokeWidth: 1.5 }} />
-              <div className="text-[#F5F5F5] font-bold text-xs lg:text-sm tracking-wider uppercase leading-snug">
-                ENGINEERED FOR <br className="hidden md:block"/>REAL-WORLD MISSIONS
-              </div>
-            </div>
-
-            {/* Item 3 */}
-            <div className="flex items-center gap-4 py-4 md:py-6 px-4 lg:px-10">
-              <Target className="w-7 h-7 lg:w-8 lg:h-8 shrink-0" style={{ color: ACCENT, strokeWidth: 1.5 }} />
-              <div className="text-[#F5F5F5] font-bold text-xs lg:text-sm tracking-wider uppercase leading-snug">
-                COMMITTED TO <br className="hidden md:block"/>A SAFER WORLD
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
     </section>
   );
 }
