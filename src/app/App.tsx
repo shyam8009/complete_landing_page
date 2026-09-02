@@ -414,7 +414,8 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
   // For Mobile Accordion
   const [mobileDomainOpen, setMobileDomainOpen] = useState<string | null>(null);
   const [mobileSystemOpen, setMobileSystemOpen] = useState<string | null>(null);
-    const [mobileInvestorOpen, setMobileInvestorOpen] = useState<boolean>(false);
+  const [mobileInvestorOpen, setMobileInvestorOpen] = useState<boolean>(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setActiveSystem(activeDomain.systems[0]);
@@ -522,23 +523,23 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
               onMouseEnter={() => handleMouseEnter(link)}
             >
               <a
-                href={link === 'About Us' ? "/about-us" : link === 'Newsroom' ? "/newsroom" : "#"}
-                  onClick={(e) => {
-                      if (link === 'About Us' || link === 'Newsroom') {
-                        e.preventDefault();
-                        setHoveredNav(null);
-                        navigate(link === 'About Us' ? '/about-us' : '/newsroom');
-                      } else {
-                        e.preventDefault();
-                      }
-                    }}
+                href={link === 'Newsroom' ? "/newsroom" : "#"}
+                onClick={(e) => {
+                  if (link === 'Newsroom') {
+                    e.preventDefault();
+                    setHoveredNav(null);
+                    navigate('/newsroom');
+                  } else {
+                    e.preventDefault();
+                  }
+                }}
                 className={`text-[15px] whitespace-nowrap transition-all duration-150 cursor-pointer flex items-center gap-1.5 ${
                   hoveredNav === link ? "text-white" : "text-white/70 hover:text-white"
                 }`}
                 style={{ fontFamily: INTER }}
               >
                 {link}
-                {(link === 'Capabilities' || link === 'Investors') && (
+                {(link === 'Capabilities' || link === 'Investors' || link === 'About Us') && (
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-300 ${hoveredNav === link ? "rotate-180 text-[#84CC16]" : ""}`}>
                     <path d="M6 9l6 6 6-6" />
                   </svg>
@@ -866,6 +867,86 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
         </div>
       </div>
 
+      {/* About Us Mega Menu Dropdown */}
+      <div
+        className={`hidden lg:block fixed left-0 w-full bg-[#05080D] transition-all duration-300 origin-top overflow-hidden z-40 ${
+          scrolled ? "top-[80px]" : "top-[86px]"
+        } ${
+          hoveredNav === 'About Us'
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-2 pointer-events-none"
+        }`}
+        style={{ borderTop: "1px solid rgba(0,229,255,0.15)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}
+        onMouseEnter={() => handleMouseEnter('About Us')}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="max-w-[1200px] w-full mx-auto flex h-auto p-8 gap-8 justify-center">
+          
+          {/* Card 1: About Sahana Defence */}
+          <div 
+            onClick={() => { setHoveredNav(null); if (navigate) navigate('/about-us'); }}
+            className="group relative flex-1 max-w-[480px] p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#84CC16]/60 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-bold text-[#84CC16]">
+                  CORPORATE OVERVIEW
+                </span>
+                <div className="w-9 h-9 rounded-xl bg-[#84CC16]/10 text-[#84CC16] flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#84CC16] transition-colors">
+                About Sahana Defence
+              </h3>
+              <p className="text-xs text-white/60 leading-relaxed">
+                Discover our sovereign mission, leadership team, advanced engineering facilities, and deeptech roadmap.
+              </p>
+            </div>
+            <div className="mt-8 flex items-center gap-2 text-xs font-mono font-bold text-[#84CC16] uppercase tracking-wider">
+              <span>View About Us</span>
+              <MiniArrow color="#84CC16" />
+            </div>
+          </div>
+
+          {/* Card 2: Clientele & Strategic Alliances */}
+          <div 
+            onClick={() => { setHoveredNav(null); if (navigate) navigate('/clientele'); }}
+            className="group relative flex-1 max-w-[480px] p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#84CC16]/60 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-bold text-[#84CC16]">
+                  SOVEREIGN ALLIANCES
+                </span>
+                <div className="w-9 h-9 rounded-xl bg-[#84CC16]/10 text-[#84CC16] flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#84CC16] transition-colors">
+                Clientele &amp; Strategic Alliances
+              </h3>
+              <p className="text-xs text-white/60 leading-relaxed">
+                Explore our 66+ partner emblems across Armed Forces, ISRO, Defence PSUs, Aerospace leaders, and IIT R&amp;D labs.
+              </p>
+            </div>
+            <div className="mt-8 flex items-center gap-2 text-xs font-mono font-bold text-[#84CC16] uppercase tracking-wider">
+              <span>View Clientele Directory</span>
+              <MiniArrow color="#84CC16" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       {/* Mobile Menu Drawer (Stacked Accordion) */}
       <div id="mobile-nav-drawer" className={`lg:hidden fixed bottom-0 left-0 right-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col p-6 gap-2">
@@ -943,7 +1024,37 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
             </div>
 
           <Link to="/newsroom" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={() => { setMobileOpen(false); }}>Newsroom</Link>
-          <a href="#" className="py-4 border-b border-white/10 text-[18px] font-bold text-white uppercase tracking-wider" onClick={(e) => { e.preventDefault(); if (navigate) navigate("/about-us"); setMobileOpen(false); }}>About Us</a>
+          
+          {/* About Us Accordion */}
+          <div className="py-4 border-b border-white/10">
+            <div 
+              className="flex items-center justify-between cursor-pointer"
+              onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+            >
+              <h3 className="text-[18px] font-bold text-white uppercase tracking-wider">About Us</h3>
+              <span className="text-[#84CC16] text-xl">{mobileAboutOpen ? "-" : "+"}</span>
+            </div>
+            {mobileAboutOpen && (
+              <div className="flex flex-col gap-2 pl-4 py-4 border-l border-white/10 mt-4">
+                <a 
+                  href="#"
+                  className="text-[14px] text-white/80 hover:text-white py-2"
+                  onClick={(e) => { e.preventDefault(); if (navigate) navigate("/about-us"); setMobileOpen(false); }}
+                >
+                  Company Overview &amp; Mission
+                </a>
+                <a 
+                  href="#"
+                  className="text-[14px] text-[#84CC16] font-bold py-2 flex items-center justify-between"
+                  onClick={(e) => { e.preventDefault(); if (navigate) navigate("/clientele"); setMobileOpen(false); }}
+                >
+                  <span>Clientele &amp; Strategic Alliances</span>
+                  <span className="px-2 py-0.5 rounded text-[10px] bg-[#84CC16]/20 text-[#84CC16] uppercase font-mono">Directory</span>
+                </a>
+              </div>
+            )}
+          </div>
+
           {/* High-Tech Tactical CTA inside mobile drawer */}
           <div className="mt-6 pt-2">
             <button
