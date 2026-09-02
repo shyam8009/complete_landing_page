@@ -57,7 +57,7 @@ export function ClientDirectory() {
               INSTITUTIONAL CLIENTELE &amp; LOGO DIRECTORY
             </h2>
             <p className="mt-2 text-slate-600 text-xs sm:text-sm md:text-base font-medium max-w-2xl">
-              Verified emblem and logo insignia of our sovereign defense, space, PSU, aerospace, and enterprise partners.
+              Verified emblem and logo insignia of our sovereign defense, space, PSU, aerospace, and academic research partners.
             </p>
           </div>
 
