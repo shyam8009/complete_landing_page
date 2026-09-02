@@ -1,27 +1,19 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ALL_LOGOS, LOGO_CATEGORIES, CATEGORY_BOARDS } from '../data/clienteleLogosData';
-import { Search, Grid3X3, LayoutTemplate, X } from 'lucide-react';
+import { Grid3X3, LayoutTemplate } from 'lucide-react';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 export function ClientDirectory() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState<string>('');
   const [viewMode, setViewMode] = useState<'grid' | 'boards'>('grid');
 
   const filteredLogos = useMemo(() => {
     return ALL_LOGOS.filter((logo) => {
-      const matchesCategory = activeCategory === 'all' || logo.category === activeCategory;
-      const q = searchQuery.toLowerCase().trim();
-      const matchesSearch = 
-        !q ||
-        logo.name.toLowerCase().includes(q) ||
-        logo.categoryLabel.toLowerCase().includes(q);
-
-      return matchesCategory && matchesSearch;
+      return activeCategory === 'all' || logo.category === activeCategory;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory]);
 
   const filteredBoards = useMemo(() => {
     return CATEGORY_BOARDS.filter((board) => {
@@ -44,7 +36,7 @@ export function ClientDirectory() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6"
+          className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-6"
         >
           <div>
             <div className="flex items-center gap-2 mb-3">
@@ -61,53 +53,30 @@ export function ClientDirectory() {
             </p>
           </div>
 
-          {/* Search & View Mode Switcher */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
-            {/* View Mode Switcher */}
-            <div className="flex items-center bg-white border border-slate-300 p-1 rounded-xl shadow-sm self-start sm:self-auto">
-              <button
-                onClick={() => setViewMode('grid')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
-                  viewMode === 'grid'
-                    ? 'bg-slate-950 text-white font-bold shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Grid3X3 className="w-3.5 h-3.5" />
-                <span>Logo Grid</span>
-              </button>
-              <button
-                onClick={() => setViewMode('boards')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
-                  viewMode === 'boards'
-                    ? 'bg-slate-950 text-white font-bold shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <LayoutTemplate className="w-3.5 h-3.5" />
-                <span>Category Boards</span>
-              </button>
-            </div>
-
-            {/* Search Input */}
-            <div className="relative w-full sm:w-[280px]">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-              <input 
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search logo / category..."
-                className="w-full bg-white border border-slate-300 focus:border-[#5a8b10] text-slate-900 text-xs sm:text-sm pl-10 pr-10 py-2.5 rounded-xl outline-none transition-all placeholder:text-slate-400 font-mono shadow-sm"
-              />
-              {searchQuery && (
-                <button 
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              )}
-            </div>
+          {/* View Mode Switcher */}
+          <div className="flex items-center bg-white border border-slate-300 p-1 rounded-xl shadow-sm self-start sm:self-auto shrink-0">
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
+                viewMode === 'grid'
+                  ? 'bg-slate-950 text-white font-bold shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <Grid3X3 className="w-3.5 h-3.5" />
+              <span>Logo Grid</span>
+            </button>
+            <button
+              onClick={() => setViewMode('boards')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
+                viewMode === 'boards'
+                  ? 'bg-slate-950 text-white font-bold shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <LayoutTemplate className="w-3.5 h-3.5" />
+              <span>Category Boards</span>
+            </button>
           </div>
         </motion.div>
 
@@ -144,58 +113,43 @@ export function ClientDirectory() {
               : `DISPLAYING ${filteredBoards.length} CATEGORY ECOSYSTEM BOARDS`
             }
           </span>
-          {searchQuery && <span className="text-[#5a8b10] font-bold">SEARCH: "{searchQuery}"</span>}
         </div>
 
         {/* --- VIEW MODE 1: LOGO TILES GRID --- */}
         {viewMode === 'grid' && (
           <AnimatePresence mode="popLayout">
-            {filteredLogos.length > 0 ? (
-              <motion.div 
-                layout
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5"
-              >
-                {filteredLogos.map((logo, idx) => (
-                  <motion.div 
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.25, delay: Math.min(idx * 0.02, 0.3) }}
-                    whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
-                    key={logo.id}
-                    className="group relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center justify-center min-h-[130px] sm:min-h-[145px]"
-                  >
-                    {/* Corner category indicator on hover */}
-                    <span className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[8px] font-mono uppercase tracking-widest text-[#5a8b10] font-bold bg-[#84CC16]/10 px-1.5 py-0.5 rounded">
-                      {logo.categoryLabel.split(' ')[0]}
-                    </span>
-
-                    {/* Logo Image */}
-                    <div className="w-full h-full flex items-center justify-center">
-                      <img 
-                        src={logo.image} 
-                        alt={logo.name} 
-                        className="max-h-[65px] sm:max-h-[75px] max-w-[85%] object-contain filter grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
-                        loading="lazy"
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            ) : (
-              <div className="py-16 text-center bg-white rounded-2xl border border-slate-200 shadow-sm">
-                <p className="text-slate-500 text-sm font-mono uppercase tracking-wider mb-2">
-                  No matching logos found for "{searchQuery}"
-                </p>
-                <button 
-                  onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
-                  className="text-xs font-mono text-[#5a8b10] hover:underline uppercase tracking-wider font-bold cursor-pointer"
+            <motion.div 
+              layout
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5"
+            >
+              {filteredLogos.map((logo, idx) => (
+                <motion.div 
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.25, delay: Math.min(idx * 0.02, 0.3) }}
+                  whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
+                  key={logo.id}
+                  className="group relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center justify-center min-h-[130px] sm:min-h-[145px]"
                 >
-                  Reset Filters
-                </button>
-              </div>
-            )}
+                  {/* Corner category indicator on hover */}
+                  <span className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[8px] font-mono uppercase tracking-widest text-[#5a8b10] font-bold bg-[#84CC16]/10 px-1.5 py-0.5 rounded">
+                    {logo.categoryLabel.split(' ')[0]}
+                  </span>
+
+                  {/* Logo Image */}
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img 
+                      src={logo.image} 
+                      alt={logo.name} 
+                      className="max-h-[65px] sm:max-h-[75px] max-w-[85%] object-contain filter grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </AnimatePresence>
         )}
 
