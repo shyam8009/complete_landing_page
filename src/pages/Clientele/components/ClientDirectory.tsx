@@ -1,35 +1,44 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ALL_CLIENTS, CLIENT_CATEGORIES } from '../data/clienteleData';
-import { Search, MapPin, Tag, X } from 'lucide-react';
+import { ALL_LOGOS, LOGO_CATEGORIES, CATEGORY_BOARDS } from '../data/clienteleLogosData';
+import { Search, Grid3X3, LayoutTemplate, X } from 'lucide-react';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 export function ClientDirectory() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [viewMode, setViewMode] = useState<'grid' | 'boards'>('grid');
 
-  const filteredClients = useMemo(() => {
-    return ALL_CLIENTS.filter((client) => {
-      const matchesCategory = activeCategory === 'all' || client.category === activeCategory;
+  const filteredLogos = useMemo(() => {
+    return ALL_LOGOS.filter((logo) => {
+      const matchesCategory = activeCategory === 'all' || logo.category === activeCategory;
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch = 
         !q ||
-        client.name.toLowerCase().includes(q) ||
-        client.fullName.toLowerCase().includes(q) ||
-        client.domain.toLowerCase().includes(q) ||
-        client.location.toLowerCase().includes(q) ||
-        client.tags.some(t => t.toLowerCase().includes(q));
+        logo.name.toLowerCase().includes(q) ||
+        logo.categoryLabel.toLowerCase().includes(q);
 
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, searchQuery]);
 
+  const filteredBoards = useMemo(() => {
+    return CATEGORY_BOARDS.filter((board) => {
+      if (activeCategory === 'all') return true;
+      return board.id === activeCategory;
+    });
+  }, [activeCategory]);
+
   return (
-    <section className="relative w-full section-padding bg-[#F1F3F5] text-slate-900 border-b border-slate-200">
-      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-12">
+    <section className="relative w-full section-padding bg-[#F3F4F6] text-slate-900 border-b border-slate-200 overflow-hidden">
+      
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
+
+      <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         
-        {/* Section Header & Search */}
+        {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,40 +48,72 @@ export function ClientDirectory() {
         >
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-2 h-2 rounded-full bg-[#5a8b10]" />
+              <span className="w-2 h-2 rounded-full bg-[#5a8b10] animate-pulse" />
               <span className="text-[#5a8b10] text-xs font-mono tracking-[0.2em] uppercase font-bold">
-                PARTNER ECOSYSTEM DIRECTORY
+                OFFICIAL INSTITUTIONAL ECOSYSTEM
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight uppercase" style={{ fontFamily: INTER }}>
-              EXPLORE OUR STRATEGIC ALLIANCES
+              INSTITUTIONAL CLIENTELE &amp; LOGO DIRECTORY
             </h2>
+            <p className="mt-2 text-slate-600 text-xs sm:text-sm md:text-base font-medium max-w-2xl">
+              Verified emblem and logo insignia of our sovereign defense, space, PSU, aerospace, and enterprise partners.
+            </p>
           </div>
 
-          {/* Search Bar */}
-          <div className="relative w-full lg:w-[400px]">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-            <input 
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search partner, domain, or capability..."
-              className="w-full bg-white border border-slate-300 focus:border-[#5a8b10] text-slate-900 text-xs sm:text-sm pl-10 pr-10 py-3 rounded-xl outline-none transition-all placeholder:text-slate-400 font-mono shadow-sm focus:shadow-md"
-            />
-            {searchQuery && (
-              <button 
-                onClick={() => setSearchQuery('')}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
+          {/* Search & View Mode Switcher */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
+            {/* View Mode Switcher */}
+            <div className="flex items-center bg-white border border-slate-300 p-1 rounded-xl shadow-sm self-start sm:self-auto">
+              <button
+                onClick={() => setViewMode('grid')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
+                  viewMode === 'grid'
+                    ? 'bg-slate-950 text-white font-bold shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
               >
-                <X className="w-4 h-4" />
+                <Grid3X3 className="w-3.5 h-3.5" />
+                <span>Logo Grid</span>
               </button>
-            )}
+              <button
+                onClick={() => setViewMode('boards')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
+                  viewMode === 'boards'
+                    ? 'bg-slate-950 text-white font-bold shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                <LayoutTemplate className="w-3.5 h-3.5" />
+                <span>Category Boards</span>
+              </button>
+            </div>
+
+            {/* Search Input */}
+            <div className="relative w-full sm:w-[280px]">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <input 
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search logo / category..."
+                className="w-full bg-white border border-slate-300 focus:border-[#5a8b10] text-slate-900 text-xs sm:text-sm pl-10 pr-10 py-2.5 rounded-xl outline-none transition-all placeholder:text-slate-400 font-mono shadow-sm"
+              />
+              {searchQuery && (
+                <button 
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
           </div>
         </motion.div>
 
         {/* Category Filter Tabs */}
         <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-8 no-scrollbar">
-          {CLIENT_CATEGORIES.map((cat) => {
+          {LOGO_CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat.id;
             return (
               <button
@@ -95,100 +136,114 @@ export function ClientDirectory() {
           })}
         </div>
 
-        {/* Active Results Count */}
+        {/* Active Results Count Bar */}
         <div className="flex items-center justify-between text-xs font-mono text-slate-500 mb-6 pb-3 border-b border-slate-300">
-          <span className="font-semibold">SHOWING {filteredClients.length} STRATEGIC PARTNERS</span>
-          {searchQuery && <span className="text-[#5a8b10] font-bold">FILTER: "{searchQuery}"</span>}
+          <span className="font-semibold">
+            {viewMode === 'grid' 
+              ? `DISPLAYING ${filteredLogos.length} LOGO EMBLEMS`
+              : `DISPLAYING ${filteredBoards.length} CATEGORY ECOSYSTEM BOARDS`
+            }
+          </span>
+          {searchQuery && <span className="text-[#5a8b10] font-bold">SEARCH: "{searchQuery}"</span>}
         </div>
 
-        {/* Client Cards Grid */}
-        <AnimatePresence mode="popLayout">
-          {filteredClients.length > 0 ? (
-            <motion.div 
-              layout
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              {filteredClients.map((client) => {
-                const initial = client.name.charAt(0).toUpperCase();
-                return (
+        {/* --- VIEW MODE 1: LOGO TILES GRID --- */}
+        {viewMode === 'grid' && (
+          <AnimatePresence mode="popLayout">
+            {filteredLogos.length > 0 ? (
+              <motion.div 
+                layout
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5"
+              >
+                {filteredLogos.map((logo, idx) => (
                   <motion.div 
                     layout
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    key={client.id}
-                    className="group relative p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] transition-all duration-300 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)]"
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.25, delay: Math.min(idx * 0.02, 0.3) }}
+                    whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
+                    key={logo.id}
+                    className="group relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center justify-center min-h-[130px] sm:min-h-[145px]"
                   >
-                    {/* Top Bar */}
-                    <div>
-                      <div className="flex items-start justify-between gap-4 mb-4">
-                        {/* Monogram Badge */}
-                        <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center font-mono font-bold text-lg text-[#5a8b10] group-hover:bg-[#84CC16]/15 group-hover:border-[#5a8b10]/40 transition-colors shrink-0 shadow-inner">
-                          {initial}
-                        </div>
+                    {/* Corner category indicator on hover */}
+                    <span className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[8px] font-mono uppercase tracking-widest text-[#5a8b10] font-bold bg-[#84CC16]/10 px-1.5 py-0.5 rounded">
+                      {logo.categoryLabel.split(' ')[0]}
+                    </span>
 
-                        <span className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider bg-slate-100 text-slate-600 border border-slate-200 group-hover:border-[#5a8b10]/40 group-hover:text-[#3f620d] group-hover:bg-[#84CC16]/10 transition-colors font-semibold">
-                          {client.categoryLabel}
-                        </span>
-                      </div>
-
-                      {/* Name & Full Name */}
-                      <h3 className="text-lg sm:text-xl font-black text-slate-900 group-hover:text-[#5a8b10] transition-colors mb-1" style={{ fontFamily: INTER }}>
-                        {client.name}
-                      </h3>
-                      <p className="text-xs text-slate-500 font-medium leading-snug mb-4">
-                        {client.fullName}
-                      </p>
-
-                      {/* Domain & Location */}
-                      <div className="flex flex-col gap-1.5 mb-4 py-2.5 border-y border-slate-100 text-[11px] font-mono text-slate-700">
-                        <div className="flex items-center gap-1.5 text-[#5a8b10] font-semibold truncate">
-                          <Tag className="w-3.5 h-3.5 shrink-0" />
-                          <span className="truncate">{client.domain}</span>
-                        </div>
-                        <div className="flex items-center gap-1.5 text-slate-500 truncate">
-                          <MapPin className="w-3.5 h-3.5 shrink-0" />
-                          <span className="truncate">{client.location}</span>
-                        </div>
-                      </div>
-
-                      {/* Scope */}
-                      <p className="text-xs text-slate-600 leading-relaxed mb-6 font-normal">
-                        {client.scope}
-                      </p>
-                    </div>
-
-                    {/* Capability Tags */}
-                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100">
-                      {client.tags.map((tag, i) => (
-                        <span 
-                          key={i} 
-                          className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200/80 group-hover:border-slate-300 transition-colors"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
+                    {/* Logo Image */}
+                    <div className="w-full h-full flex items-center justify-center">
+                      <img 
+                        src={logo.image} 
+                        alt={logo.name} 
+                        className="max-h-[65px] sm:max-h-[75px] max-w-[85%] object-contain filter grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+                        loading="lazy"
+                      />
                     </div>
                   </motion.div>
-                );
-              })}
-            </motion.div>
-          ) : (
-            <div className="py-16 text-center bg-white rounded-2xl border border-slate-200 shadow-sm">
-              <p className="text-slate-500 text-sm font-mono uppercase tracking-wider mb-2">
-                No matching alliances found for "{searchQuery}"
-              </p>
-              <button 
-                onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
-                className="text-xs font-mono text-[#5a8b10] hover:underline uppercase tracking-wider font-bold cursor-pointer"
+                ))}
+              </motion.div>
+            ) : (
+              <div className="py-16 text-center bg-white rounded-2xl border border-slate-200 shadow-sm">
+                <p className="text-slate-500 text-sm font-mono uppercase tracking-wider mb-2">
+                  No matching logos found for "{searchQuery}"
+                </p>
+                <button 
+                  onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
+                  className="text-xs font-mono text-[#5a8b10] hover:underline uppercase tracking-wider font-bold cursor-pointer"
+                >
+                  Reset Filters
+                </button>
+              </div>
+            )}
+          </AnimatePresence>
+        )}
+
+        {/* --- VIEW MODE 2: CATEGORY ECOSYSTEM BOARDS --- */}
+        {viewMode === 'boards' && (
+          <div className="flex flex-col gap-10">
+            {filteredBoards.map((board) => (
+              <motion.div 
+                key={board.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-[0_4px_24px_rgba(0,0,0,0.05)] flex flex-col gap-6"
               >
-                Reset Filters
-              </button>
-            </div>
-          )}
-        </AnimatePresence>
+                {/* Board Header */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider font-bold bg-[#84CC16]/15 text-[#3f620d] border border-[#84CC16]/30">
+                        {board.badge}
+                      </span>
+                      <span className="text-slate-400 text-xs font-mono">
+                        {board.count} Partner Entities
+                      </span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" style={{ fontFamily: INTER }}>
+                      {board.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+                      {board.subtitle}
+                    </p>
+                  </div>
+                </div>
+
+                {/* High-Res Master Graphic Sheet */}
+                <div className="w-full rounded-2xl bg-slate-50/60 p-4 sm:p-8 flex items-center justify-center border border-slate-100">
+                  <img 
+                    src={board.sheetImage} 
+                    alt={board.title} 
+                    className="w-full max-w-[950px] h-auto object-contain drop-shadow-sm rounded-lg"
+                    loading="lazy"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
 
       </div>
     </section>
