@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import img1 from '../../../imports/drone_radar_3d/c2_integration.webp';
-import img2 from '../../../imports/rf_detector/rapid_deployment_mast.webp';
-import img3 from '../../../imports/drone_radar_3d/border_surveillance.webp';
+import img1 from '@/imports/surveillance-radar/c2_electrooptical_pairing_.webp';
+import img2 from '@/imports/surveillance-radar/mobile_stationary_mounts.webp';
+import img3 from '@/imports/surveillance-radar/border_asset_defense.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
