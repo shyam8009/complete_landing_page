@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import { TechCTA } from '@/components/TechCTA';
-import heroBg from '@/imports/quantum_atomic_clock.jpg'; // Using existing generic quantum image
+import heroBg from '@/imports/hardware-pqc/hero.png';
 
 const INTER = "'Inter', sans-serif";
 

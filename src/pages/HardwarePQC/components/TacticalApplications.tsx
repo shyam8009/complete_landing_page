@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import cmdImg from '@/imports/drone_radar_3d/c2_integration.webp';
-import terrainImg from '@/imports/butterfly_adg/dynamic_battlefield_environments.webp';
-import opImg from '@/imports/fpv_bullseye/perimeter_threat_neutralization.webp';
+import longLifeImg from '@/imports/hardware-pqc/long_life_classified_data.jpg';
+import secureCommsImg from '@/imports/hardware-pqc/secure_communication_links.jpg';
+import controlInfraImg from '@/imports/hardware-pqc/control_infrastructure.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,17 +11,17 @@ const USE_CASES = [
   {
     id: "01",
     title: "LONG-LIFE CLASSIFIED DATA",
-    image: cmdImg,
+    image: longLifeImg,
   },
   {
     id: "02",
     title: "SECURE COMMUNICATION LINKS",
-    image: terrainImg,
+    image: secureCommsImg,
   },
   {
     id: "03",
     title: "CONTROL INFRASTRUCTURE",
-    image: opImg,
+    image: controlInfraImg,
   }
 ];
 
