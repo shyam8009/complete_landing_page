@@ -1,14 +1,15 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import rfd1Img from '../../../imports/quantum_rfd_detect.jpg';
-import rgQdImg from '../../../imports/rydberg_sensor_macro.jpg';
-import amplifImg from '../../../imports/quantum_atomic_clock.jpg';
+import navImg from '@/imports/quantum-clock-source/navigation_systems.png';
+import radarImg from '@/imports/quantum-clock-source/radar_systems.png';
+import distImg from '@/imports/quantum-clock-source/distributed_networks.png';
 
 const SUBSYSTEMS = [
   {
     id: "01",
     title: "Navigation Systems · POSITIONING",
     description: "Timing reference for positioning systems operating without satellite support.",
+    image: navImg,
     specs: [
       { label: "ROLE", value: "Navigation timing" },
       { label: "DEPENDENCY", value: "None external" },
@@ -19,6 +20,7 @@ const SUBSYSTEMS = [
     id: "02",
     title: "Radar Systems · RESOLUTION",
     description: "Stable frequency reference for Radar, where timing precision sets the resolution ceiling.",
+    image: radarImg,
     specs: [
       { label: "ROLE", value: "Radar timing" },
       { label: "DEPENDENCY", value: "None external" },
@@ -29,6 +31,7 @@ const SUBSYSTEMS = [
     id: "03",
     title: "Distributed Networks · COHERENCE",
     description: "Synchronisation across distributed sensor and communication nodes.",
+    image: distImg,
     specs: [
       { label: "ROLE", value: "Network synchronisation" },
       { label: "DEPENDENCY", value: "None external" },
@@ -43,7 +46,7 @@ export function SubsystemsSection() {
     type: s.title.split('·')[1]?.trim() || s.title,
     title: s.title.split('·')[0]?.trim() || s.title,
     description: s.description,
-    image: amplifImg,
+    image: s.image,
     statusBadge: 'INTEGRATION',
     specs: s.specs
   }));

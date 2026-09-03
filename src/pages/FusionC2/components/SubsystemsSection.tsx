@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import imgTrack from '@/imports/digital_node_map.jpg';
-import imgAlarm from '@/imports/interception_ui.jpg';
-import imgResponse from '@/imports/c2_dashboard_ui.png';
+import imgTrack from '@/imports/fusion-c2/1000_object_tracking.jpeg';
+import imgAlarm from '@/imports/fusion-c2/smart_alarms_handovers.png';
+import imgResponse from '@/imports/fusion-c2/direct_effector_control.png';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [

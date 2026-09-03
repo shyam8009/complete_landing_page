@@ -1,10 +1,10 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import imgFob from '@/imports/sahana_facility.png';
-import imgBorder from '@/imports/fpv-buddy/tactical_2.webp';
-import imgEsm from '@/imports/surveillance_radar_hero.png';
+import imgFob from '@/imports/interception-system/forward_operating_bases.jpg';
+import imgBorder from '@/imports/interception-system/border_intelligence_security.jpg';
+import imgEsm from '@/imports/interception-system/electronic_support_measures.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 

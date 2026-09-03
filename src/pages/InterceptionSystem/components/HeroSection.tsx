@@ -1,7 +1,7 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroVideo from '@/imports/drone_radar_hero_bg.mp4'; 
+import heroBg from '@/imports/interception-system/hero.jpg'; 
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = "'Inter', sans-serif";
@@ -21,14 +21,11 @@ export function HeroSection() {
 
   return (
     <section ref={containerRef} className="relative w-full min-h-[100dvh] max-md:landscape:min-h-[60vh] overflow-hidden bg-black flex flex-col">
-      {/* Background Video */}
-      <video
-        autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 object-right"
-        src={heroVideo}
+      {/* Background Image */}
+      <img
+        src={heroBg}
+        alt="Interception System"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
       />
       
       {/* Overlays */}

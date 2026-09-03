@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import radarImg from '../../../imports/rf_radar_generated.png';
-import spectrumImg from '../../../imports/rf_detector_d360.jpg';
-import sigintImg from '../../../imports/sigint_arrays.jpg';
+import airspaceImg from '@/imports/quantum-drone/contested_airspace.jpg';
+import surveillanceImg from '@/imports/quantum-drone/surveillance.png';
+import threatDetectionImg from '@/imports/quantum-drone/threat_detection.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,17 +11,17 @@ const USE_CASES = [
   {
     id: "01",
     title: "CONTESTED AIRSPACE",
-    image: radarImg,
+    image: airspaceImg,
   },
   {
     id: "02",
     title: "SURVEILLANCE",
-    image: spectrumImg,
+    image: surveillanceImg,
   },
   {
     id: "03",
     title: "THREAT DETECTION",
-    image: sigintImg,
+    image: threatDetectionImg,
   }
 ];
 

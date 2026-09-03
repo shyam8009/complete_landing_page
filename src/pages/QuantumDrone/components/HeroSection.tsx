@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroBg from '../../../imports/proxy/magnific_photorealistic-outdoor-fi_Piskn0l42C 1.jpeg';
+import heroBg from '@/imports/quantum-drone/hero.jpeg';
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = "'Inter', sans-serif";

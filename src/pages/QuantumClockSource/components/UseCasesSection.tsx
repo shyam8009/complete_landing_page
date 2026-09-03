@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import radarImg from '../../../imports/rf_radar_generated.png';
-import spectrumImg from '../../../imports/rf_detector_d360.jpg';
-import sigintImg from '../../../imports/sigint_arrays.jpg';
+import assuredNavImg from '@/imports/quantum-clock-source/assured_navigation.jpg';
+import radarPrecImg from '@/imports/quantum-clock-source/radar_precision.jpg';
+import netSyncImg from '@/imports/quantum-clock-source/network_synchronisation.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,17 +11,17 @@ const USE_CASES = [
   {
     id: "01",
     title: "ASSURED NAVIGATION",
-    image: radarImg,
+    image: assuredNavImg,
   },
   {
     id: "02",
     title: "RADAR PRECISION",
-    image: spectrumImg,
+    image: radarPrecImg,
   },
   {
     id: "03",
     title: "NETWORK SYNCHRONISATION",
-    image: sigintImg,
+    image: netSyncImg,
   }
 ];
 

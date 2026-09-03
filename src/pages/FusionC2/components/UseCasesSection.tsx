@@ -1,10 +1,10 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import imgAir from '@/imports/surveillance_radar_hero.png';
-import imgBase from '@/imports/osint_dashboard.jpg';
-import imgCommand from '@/imports/command_control_1.jpeg';
+import imgAir from '@/imports/fusion-c2/air_defense_coordination.jpg';
+import imgBase from '@/imports/fusion-c2/base_perimeter_security.jpg';
+import imgCommand from '@/imports/fusion-c2/tactical_command_center_operations.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
