@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Laptop, LayoutTemplate, Share2 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import rfdImg from '@/imports/rf_radar_generated.png'; // generic software/tech image
+import futureCapImg from '@/imports/quantum-control-systems/future_capability.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,7 +58,7 @@ export function CoreCapabilities() {
             </div>
             
             <h2 className="fade-in-right text-4xl lg:text-5xl font-bold text-white mb-8 uppercase tracking-tight">
-              HARDWARE-AGNOSTIC CONTROL & FASTER INTEGRATION
+              HARDWARE-AGNOSTIC CONTROL &amp; FASTER INTEGRATION
             </h2>
             
             <div className="fade-in-right space-y-6 text-white/60 text-lg leading-relaxed max-w-xl">
@@ -72,7 +72,7 @@ export function CoreCapabilities() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(132,204,22,0.15)_0%,transparent_70%)] pointer-events-none" />
             
             <img 
-              src={rfdImg} 
+              src={futureCapImg} 
               alt="Core Capabilities" 
               className="relative z-10 w-full max-w-[600px] object-cover rounded-xl drop-shadow-[0_0_50px_rgba(132,204,22,0.1)] hover:scale-105 transition-transform duration-700"
             />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '@/components/InteractiveBlueprint';
-import rfd1Img from '@/imports/drone_radar_3d/c2_integration.webp';
-import rgQdImg from '@/imports/c2_dashboard_ui.png';
+import bspImg from '@/imports/quantum-control-systems/board_support_packages.jpg';
+import softwareStackImg from '@/imports/quantum-control-systems/software_stacks_development_tools.png';
 
 const LAYERS = [
   {
@@ -9,7 +9,7 @@ const LAYERS = [
     title: "Board Support Packages",
     type: "ABSTRACTION",
     description: "Low-level abstraction for diverse quantum control electronics hardware, enabling hardware-software integration across platforms and vendors.",
-    image: rfd1Img,
+    image: bspImg,
     specs: [
       { label: "SCOPE", value: "Hardware abstraction" },
       { label: "COMPATIBILITY", value: "Vendor-agnostic" },
@@ -21,7 +21,7 @@ const LAYERS = [
     title: "Software Stacks and Development Tools",
     type: "APPLICATION",
     description: "Device drivers, middleware and developer tools built on standardised APIs.",
-    image: rgQdImg,
+    image: softwareStackImg,
     specs: [
       { label: "SCOPE", value: "Drivers, middleware, tooling" },
       { label: "COMPATIBILITY", value: "Platform-agnostic" },

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import { TechCTA } from '@/components/TechCTA';
-import heroBg from '@/imports/c2_dashboard_ui.png'; // using generic tech dashboard image
+import heroBg from '@/imports/quantum-control-systems/hero.jpg';
 
 const INTER = "'Inter', sans-serif";
 

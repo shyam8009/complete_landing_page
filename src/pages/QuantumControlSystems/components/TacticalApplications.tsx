@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import cmdImg from '@/imports/c2_dashboard_ui.png';
-import terrainImg from '@/imports/butterfly_adg/air_defence_gun_integration.webp';
-import opImg from '@/imports/rf_radar_hud.png';
+import multiVendorImg from '@/imports/quantum-control-systems/multi_vendor_integration.jpg';
+import quantumSystemCtrlImg from '@/imports/quantum-control-systems/quantum_system_control.jpg';
+import rfmwDeployImg from '@/imports/quantum-control-systems/rfmw_platform_deployment.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,17 +11,17 @@ const USE_CASES = [
   {
     id: "01",
     title: "MULTI-VENDOR INTEGRATION",
-    image: cmdImg,
+    image: multiVendorImg,
   },
   {
     id: "02",
     title: "QUANTUM SYSTEM CONTROL",
-    image: terrainImg,
+    image: quantumSystemCtrlImg,
   },
   {
     id: "03",
     title: "RF/MW PLATFORM DEPLOYMENT",
-    image: opImg,
+    image: rfmwDeployImg,
   }
 ];
 
