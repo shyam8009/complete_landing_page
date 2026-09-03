@@ -1,9 +1,9 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import img1 from '@/imports/c2_dashboard_ui.png';
-import img2 from '@/imports/surveillance_radar_hero.png';
-import img3 from '@/imports/drone_3d_1.gif';
+import img1 from '@/imports/satcom-components/orbital_system.jpg';
+import img2 from '@/imports/satcom-components/ground_station.jpg';
+import img3 from '@/imports/satcom-components/deep_space_probes.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 

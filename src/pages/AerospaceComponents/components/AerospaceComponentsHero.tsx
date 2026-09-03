@@ -1,7 +1,7 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroBg from '@/imports/arsenal_facility.jpg';
+import heroBg from '@/imports/aerospace-components/hero.jpg';
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", sans-serif';

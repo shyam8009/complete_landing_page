@@ -1,7 +1,7 @@
-﻿import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroBg from '@/imports/Hero banner Video.mp4';
+import heroBg from '@/imports/satcom-components/hero.png';
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", sans-serif';
@@ -28,13 +28,10 @@ export function SatcomComponentsHero() {
 
   return (
     <section ref={containerRef} className="relative w-full min-h-[100dvh] overflow-hidden bg-black flex items-center">
-      {/* Background Video */}
-      <video
+      {/* Background Image */}
+      <img
         src={heroBg}
-        autoPlay
-        muted
-        loop
-        playsInline
+        alt="Satcom Components Hero"
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
       />
       

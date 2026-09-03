@@ -1,8 +1,8 @@
-﻿import React from 'react';
+import React from 'react';
 import { InteractiveBlueprint, TierData } from '@/components/InteractiveBlueprint';
-import img1 from '@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png';
-import img2 from '@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png';
-import img3 from '@/imports/magnific_extreme-closeup-macro-pro_LUQGHhOswO.png';
+import img1 from '@/imports/aerospace-components/mechanical_structural.png';
+import img2 from '@/imports/aerospace-components/rf_microwave.jpg';
+import img3 from '@/imports/aerospace-components/optical_electro-optics.jpg';
 import img4 from '@/imports/infinity-rhino/magnific_extreme-closeup-macro-pho_CHdnhd8EEy.png';
 
 export function AerospaceComponentsSpecs() {

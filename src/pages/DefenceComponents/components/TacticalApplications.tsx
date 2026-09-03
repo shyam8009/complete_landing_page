@@ -1,9 +1,9 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import img1 from '@/imports/sahana_fpv_interceptor.jpg';
-import img2 from '@/imports/rf_radar_generated.png';
-import img3 from '@/imports/fpv-buddy/tactical_1.webp';
+import img1 from '@/imports/defence-components/ground_combat_vehicles.jpg';
+import img2 from '@/imports/defence-components/naval_defence_systems.jpg';
+import img3 from '@/imports/defence-components/artillery_weapon_mounts.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 

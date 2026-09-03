@@ -1,8 +1,8 @@
-﻿import React from 'react';
+import React from 'react';
 import { InteractiveBlueprint, TierData } from '@/components/InteractiveBlueprint';
-import img1 from '@/imports/magnific_extreme-closeup-macro-pro_WMNENw4cXe.png';
-import img2 from '@/imports/magnific_extreme-closeup-macro-pro_8vcjnezIrU.png';
-import img3 from '@/imports/magnific_extreme-closeup-macro-pro_LUQGHhOswO.png';
+import img1 from '@/imports/satcom-components/high-frequency_assemblies.png';
+import img2 from '@/imports/satcom-components/antenna_support_structures.jpg';
+import img3 from '@/imports/satcom-components/invar_precision_structures.jpg';
 
 export function SatcomComponentsSpecs() {
   const tiers: TierData[] = [
