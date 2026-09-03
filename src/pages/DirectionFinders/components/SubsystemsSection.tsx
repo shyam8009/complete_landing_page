@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import imgInter from '@/imports/surveillance_radar_hero.png';
-import imgTdoa from '@/imports/digital_node_map.jpg';
-import imgTerrain from '@/imports/digital_twin.jpg';
+import imgInter from '@/imports/direction-finders/correlative_interferometry.png';
+import imgTdoa from '@/imports/direction-finders/tdoa_aoa_processing.jpg';
+import imgTerrain from '@/imports/direction-finders/3d_terrain_compensation.png';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [
