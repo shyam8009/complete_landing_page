@@ -1,7 +1,7 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroBgVideo from '../../../imports/Hero banner Video.mp4';
+import heroBg from '@/imports/butterfly-adg/hero.png';
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = "'Inter', sans-serif";
@@ -21,16 +21,12 @@ export function HeroSection() {
 
   return (
     <section ref={containerRef} className="relative w-full min-h-[100dvh] max-md:landscape:min-h-[60vh] overflow-hidden bg-black flex flex-col">
-      {/* Background Video */}
-      <video
-        autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
-        loop
-        muted
-        playsInline
+      {/* Background Image */}
+      <img
+        src={heroBg}
+        alt="Butterfly ADG Hero"
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
-      >
-        <source src={heroBgVideo} type="video/mp4" />
-      </video>
+      />
       
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
