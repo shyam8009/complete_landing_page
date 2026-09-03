@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import radarImg from '../../../imports/rf_radar_generated.png';
-import spectrumImg from '../../../imports/rf_detector_d360.jpg';
-import sigintImg from '../../../imports/sigint_arrays.jpg';
+import readoutImg from '@/imports/quantum-microwave-devices/quantum_system_readout.png';
+import researchImg from '@/imports/quantum-microwave-devices/research_instrumentation.jpg';
+import defenceImg from '@/imports/quantum-microwave-devices/defence_receiver_chains.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,17 +11,17 @@ const USE_CASES = [
   {
     id: "01",
     title: "QUANTUM SYSTEM READOUT",
-    image: radarImg,
+    image: readoutImg,
   },
   {
     id: "02",
     title: "RESEARCH INSTRUMENTATION",
-    image: spectrumImg,
+    image: researchImg,
   },
   {
     id: "03",
     title: "DEFENCE RECEIVER CHAINS",
-    image: sigintImg,
+    image: defenceImg,
   }
 ];
 
