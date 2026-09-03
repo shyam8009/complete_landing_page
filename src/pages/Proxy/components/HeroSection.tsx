@@ -1,7 +1,7 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroBg from '../../../imports/proxy/magnific_photorealistic-outdoor-fi_Piskn0l42C 1.jpeg';
+import heroBg from '@/imports/proxy-channel/hero_banner.mp4';
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = "'Inter', sans-serif";
@@ -21,12 +21,16 @@ export function HeroSection() {
 
   return (
     <section ref={containerRef} className="relative w-full min-h-[100dvh] max-md:landscape:min-h-[60vh] overflow-hidden bg-black flex flex-col">
-      {/* Background Image */}
-      <img
-        src={heroBg}
-        alt="PROXY Control Channel"
+      {/* Background Video */}
+      <video
+        autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
+        loop
+        muted
+        playsInline
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
-      />
+      >
+        <source src={heroBg} type="video/mp4" />
+      </video>
       
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
