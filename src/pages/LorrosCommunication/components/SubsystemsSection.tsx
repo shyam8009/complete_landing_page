@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import imgEoIr from '@/imports/infinity_optics_gwr_video_mvp.mp4';
-import imgLaser from '@/imports/magnific_professional-outdoor-prod_y6xDQjJPW9.jpeg';
-import imgControl from '@/imports/c2_dashboard_ui.png';
+import imgEoIr from '@/imports/lorros/advanced_eoir_sensors.png';
+import imgLaser from '@/imports/lorros/laser_range_finding.jpg';
+import imgControl from '@/imports/lorros/distributed_control_architecture.jpg';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [
