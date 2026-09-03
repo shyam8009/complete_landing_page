@@ -101,7 +101,7 @@ export const MASTER_OVERVIEW_SHEET = sheet_all;
 export const KNOWLEDGE_ACADEMIC_SHEET = sheet_academic;
 
 export const LOGO_CATEGORIES = [
-  { id: 'all', label: 'All Alliances (58)', count: 58 },
+  { id: 'all', label: 'All Alliances', count: 58 },
   { id: 'defence-gov', label: 'Defence & Government', count: 11 },
   { id: 'space-sat', label: 'Space & Satellite', count: 7 },
   { id: 'psu-empanelment', label: 'Defence PSUs & MoD', count: 24 },

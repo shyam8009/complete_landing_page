@@ -70,12 +70,6 @@ export function ClientDirectory() {
           })}
         </div>
 
-        {/* Active Results Count Bar */}
-        <div className="flex items-center justify-between text-xs font-mono text-slate-500 mb-6 pb-3 border-b border-slate-300">
-          <span className="font-semibold">
-            DISPLAYING {filteredLogos.length} LOGO EMBLEMS
-          </span>
-        </div>
 
         {/* --- LOGO TILES GRID --- */}
         <AnimatePresence mode="popLayout">
