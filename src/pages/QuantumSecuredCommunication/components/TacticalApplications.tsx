@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import cmdImg from '@/imports/drone_radar_3d/c2_integration.webp';
-import terrainImg from '@/imports/butterfly_adg/dynamic_battlefield_environments.webp';
-import opImg from '@/imports/fpv_bullseye/perimeter_threat_neutralization.webp';
+import secureCommandImg from '@/imports/quantum-secured-communication/secure_command_links.jpg';
+import contestedTerrainImg from '@/imports/quantum-secured-communication/contested_terrain.png';
+import sensitiveOpsImg from '@/imports/quantum-secured-communication/sensitive_operations.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,17 +11,17 @@ const USE_CASES = [
   {
     id: "01",
     title: "SECURE COMMAND LINKS",
-    image: cmdImg,
+    image: secureCommandImg,
   },
   {
     id: "02",
     title: "CONTESTED TERRAIN",
-    image: terrainImg,
+    image: contestedTerrainImg,
   },
   {
     id: "03",
     title: "SENSITIVE OPERATIONS",
-    image: opImg,
+    image: sensitiveOpsImg,
   }
 ];
 
