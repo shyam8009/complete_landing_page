@@ -86,7 +86,7 @@ export function FeaturedAlliances() {
                   {alliance.capabilities.map((cap, i) => (
                     <div key={i} className="flex items-center gap-2 text-xs font-medium text-slate-700">
                       <CheckCircle2 className="w-4 h-4 text-[#5a8b10] shrink-0" />
-                      <span className="truncate">{cap}</span>
+                      <span className="break-words">{cap}</span>
                     </div>
                   ))}
                 </div>

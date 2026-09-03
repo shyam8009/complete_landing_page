@@ -61,7 +61,7 @@ export function KnowledgeCollaborations() {
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: idx * 0.05 }}
               whileHover={{ y: -4, scale: 1.02 }}
-              className="group p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center justify-between min-h-[160px] sm:min-h-[180px]"
+              className="group p-4 sm:p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center justify-between min-h-[160px] sm:min-h-[180px]"
             >
               {/* Top Badge Indicator */}
               <div className="w-full flex justify-between items-center mb-2">

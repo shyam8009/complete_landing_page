@@ -26,7 +26,7 @@ export function ClienteleHero() {
       />
       
       {/* Soft gradient overlay for text readability without obscuring the image */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/85 to-black/75 md:bg-gradient-to-r md:from-black/90 md:via-black/50 md:to-transparent z-10" />
 
       {/* Content Container - Left Aligned */}
       <div className="relative z-20 flex-1 flex flex-col justify-center pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-20 w-full px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto">
@@ -39,7 +39,7 @@ export function ClienteleHero() {
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight uppercase leading-[1.08] mb-6 text-left"
+            className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight uppercase leading-[1.08] mb-6 text-left break-words"
             style={{ fontFamily: INTER }}
           >
             POWERING DEFENCE &amp; <br />
@@ -65,7 +65,7 @@ export function ClienteleHero() {
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="flex flex-wrap items-center justify-start gap-3 sm:gap-6 py-3 px-6 rounded-lg bg-black/60 border border-white/10 backdrop-blur-md text-xs font-mono text-white/80 shadow-2xl"
+            className="flex flex-wrap items-center justify-start gap-3 sm:gap-6 py-2.5 px-3 sm:px-6 rounded-lg bg-black/60 border border-white/10 backdrop-blur-md text-xs font-mono text-white/80 shadow-2xl"
           >
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-[#84CC16]" />

@@ -89,7 +89,7 @@ export function ClientDirectory() {
                 className="group relative p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#5a8b10] shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col items-center justify-between min-h-[145px] sm:min-h-[165px]"
               >
                 {/* Corner category indicator on hover */}
-                <span className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[8px] font-mono uppercase tracking-widest text-[#5a8b10] font-bold bg-[#84CC16]/10 px-1.5 py-0.5 rounded pointer-events-none">
+                <span className="hidden sm:block absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[8px] font-mono uppercase tracking-widest text-[#5a8b10] font-bold bg-[#84CC16]/10 px-1.5 py-0.5 rounded pointer-events-none">
                   {logo.categoryLabel.split(' ')[0]}
                 </span>
 

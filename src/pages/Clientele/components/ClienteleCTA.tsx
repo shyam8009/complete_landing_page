@@ -17,7 +17,7 @@ export function ClienteleCTA({ onContactClick }: { onContactClick?: () => void }
         transition={{ duration: 0.7 }}
         className="max-w-4xl mx-auto px-4 lg:px-6 relative z-10 text-center"
       >
-        <h2 className="quote-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-12 leading-tight tracking-tight uppercase" style={{ fontFamily: INTER }}>
+        <h2 className="quote-text text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-12 leading-tight tracking-tight uppercase break-words" style={{ fontFamily: INTER }}>
           "FORGE SOVEREIGN PARTNERSHIPS. DELIVER UNCOMPROMISED MISSION READINESS."
         </h2>
         
