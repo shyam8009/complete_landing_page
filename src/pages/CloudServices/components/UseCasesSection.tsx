@@ -1,9 +1,9 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import img1 from '@/imports/command_control_2.jpeg';
-import img2 from '@/imports/rf_radar_hud.png';
-import img3 from '@/imports/proxy/magnific_photorealistic-outdoor-fi_Piskn0l42C 1.jpeg';
+import img1 from '@/imports/cloud-services/true_value_for_money.png';
+import img2 from '@/imports/cloud-services/flexible_up-scaling.jpg';
+import img3 from '@/imports/cloud-services/ai_iot_integration.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 

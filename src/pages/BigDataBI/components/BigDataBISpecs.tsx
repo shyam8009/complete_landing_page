@@ -1,8 +1,8 @@
-﻿import React from 'react';
+import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import img1 from '@/imports/osint_dashboard.jpg';
-import img2 from '@/imports/digital_twin.jpg';
-import img3 from '@/imports/qkd_terminal.jpg';
+import img1 from '@/imports/big-data/engineering_solutions.png';
+import img2 from '@/imports/big-data/real-time_analytics.jpg';
+import img3 from '@/imports/big-data/business_intelligence.png';
 
 export function BigDataBISpecs() {
   const tiers: TierData[] = [

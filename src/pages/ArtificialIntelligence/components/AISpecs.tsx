@@ -1,8 +1,8 @@
-﻿import React from 'react';
+import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import img1 from '@/imports/innovation_2.jpg';
-import img2 from '@/imports/digital_twin.jpg';
-import img3 from '@/imports/innovation_3.png';
+import img1 from '@/imports/artificial-intelligence/cognitive_algorithms.png';
+import img2 from '@/imports/artificial-intelligence/image_video_analytics.jpg';
+import img3 from '@/imports/artificial-intelligence/nlp_engine.png';
 
 export function AISpecs() {
   const tiers: TierData[] = [

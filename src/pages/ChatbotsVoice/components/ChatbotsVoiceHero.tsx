@@ -1,7 +1,7 @@
-﻿import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
-import heroBg from '@/imports/quantum_communication_intro_video.mp4';
+import heroBg from '@/imports/chatbots/hero.jpg';
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", sans-serif';
@@ -28,13 +28,10 @@ export function ChatbotsVoiceHero() {
 
   return (
     <section ref={containerRef} className="relative w-full min-h-[100dvh] overflow-hidden bg-black flex items-center">
-      {/* Background Video */}
-      <video
+      {/* Background Image */}
+      <img
         src={heroBg}
-        autoPlay
-        muted
-        loop
-        playsInline
+        alt="Chatbots & Voice Hero"
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
       />
       

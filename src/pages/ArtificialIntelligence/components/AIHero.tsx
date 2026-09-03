@@ -1,8 +1,8 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import { TechCTA } from '@/components/TechCTA';
-import heroBgVideo from '@/imports/intelligence_video.mp4';
+import heroBg from '@/imports/artificial-intelligence/hero.png';
 
 const INTER = "'Inter', sans-serif";
 
@@ -21,16 +21,12 @@ export function AIHero() {
 
   return (
     <section ref={containerRef} className="relative w-full min-h-[100dvh] max-md:landscape:min-h-[60vh] overflow-hidden bg-black flex flex-col">
-      {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
+      {/* Background Image */}
+      <img
+        src={heroBg}
+        alt="Artificial Intelligence Hero"
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
-      >
-        <source src={heroBgVideo} type="video/mp4" />
-      </video>
+      />
       
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent z-10" />

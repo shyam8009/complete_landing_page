@@ -1,10 +1,10 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import img1 from '@/imports/slider_1.jpg';
-import img2 from '@/imports/slider_2.jpg';
-import img3 from '@/imports/slider_3.png';
+import img1 from '@/imports/artificial-intelligence/cybersecurity_smart_cities.jpg';
+import img2 from '@/imports/artificial-intelligence/logistics_supply_chain.jpg';
+import img3 from '@/imports/artificial-intelligence/geospatial_data_management.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 

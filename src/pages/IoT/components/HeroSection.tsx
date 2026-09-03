@@ -5,6 +5,8 @@ import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", sans-serif';
 
+import heroBg from '@/imports/iot/hero.jpg';
+
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -20,13 +22,10 @@ export function HeroSection() {
 
   return (
     <section ref={containerRef} className="relative w-full min-h-[100dvh] max-md:landscape:min-h-[60vh] overflow-hidden bg-black flex flex-col">
-      {/* Background Video */}
-      <video
-        src="/assets/iot_hero_bg.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
+      {/* Background Image */}
+      <img
+        src={heroBg}
+        alt="IoT Hero"
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
       />
       

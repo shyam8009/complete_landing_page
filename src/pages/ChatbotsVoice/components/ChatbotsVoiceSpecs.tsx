@@ -1,8 +1,8 @@
-﻿import React from 'react';
+import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import voiceControlImg from '../../../imports/command_control_2.jpeg';
-import interceptImg from '../../../imports/interception_ui.jpg';
-import osintImg from '../../../imports/osint_dashboard.jpg';
+import voiceControlImg from '@/imports/chatbots/text-to-voice_assistance.jpg';
+import interceptImg from '@/imports/chatbots/automated_translation.jpg';
+import osintImg from '@/imports/chatbots/secure_chatbots.jpg';
 
 export function ChatbotsVoiceSpecs() {
   const tiers: TierData[] = [

@@ -2,6 +2,7 @@ import React, { useRef, useLayoutEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import { TechCTA } from '@/components/TechCTA';
+import heroBg from '@/imports/cloud-services/hero.png';
 
 const INTER = '"Inter", sans-serif';
 
@@ -27,13 +28,10 @@ export function HeroSection() {
 
   return (
     <section ref={containerRef} className="relative w-full min-h-[100dvh] max-md:landscape:min-h-[60vh] overflow-hidden bg-black flex flex-col">
-      {/* Background Video */}
-      <video
-        src="/assets/cloud_hero_bg.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
+      {/* Background Image */}
+      <img
+        src={heroBg}
+        alt="Cloud Services Hero"
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
       />
       
