@@ -42,7 +42,7 @@ export function ClienteleHero() {
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight uppercase leading-[1.08] mb-6 text-left"
             style={{ fontFamily: INTER }}
           >
-            POWERING SOVEREIGN DEFENCE &amp; <br />
+            POWERING DEFENCE &amp; <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/95 to-[#84CC16]">
               STRATEGIC INFRASTRUCTURE
             </span>
