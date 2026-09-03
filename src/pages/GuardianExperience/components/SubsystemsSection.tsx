@@ -1,7 +1,7 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
 import biometricsImg from '../../../imports/guardian/magnific_professional-studio-produ_vuXervea47.jpeg';
-import commsImg from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_1sfdbBur4r.png';
+import commsImg from '@/imports/guardian/secure_communications.png';
 import durabilityImg from '../../../imports/guardian/magnific_photorealistic-outdoor-fi_YV36av5WeC.png';
 
 export function SubsystemsSection() {
