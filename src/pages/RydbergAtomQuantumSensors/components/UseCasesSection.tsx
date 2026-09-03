@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import radarImg from '../../../imports/rf_radar_generated.png';
-import spectrumImg from '../../../imports/rf_detector_d360.jpg';
-import sigintImg from '../../../imports/sigint_arrays.jpg';
+import sigintImg45 from '@/imports/rydberg-atom-quantum-sensors/signal_intelligence_45.jpg';
+import specAwarenessImg45 from '@/imports/rydberg-atom-quantum-sensors/spectrum_awareness_45.jpg';
+import secureSensingImg45 from '@/imports/rydberg-atom-quantum-sensors/secure_sensing_45.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,17 +11,17 @@ const USE_CASES = [
   {
     id: "01",
     title: "SIGNAL INTELLIGENCE",
-    image: radarImg,
+    image: sigintImg45,
   },
   {
     id: "02",
     title: "SPECTRUM AWARENESS",
-    image: spectrumImg,
+    image: specAwarenessImg45,
   },
   {
     id: "03",
     title: "SECURE SENSING",
-    image: sigintImg,
+    image: secureSensingImg45,
   }
 ];
 

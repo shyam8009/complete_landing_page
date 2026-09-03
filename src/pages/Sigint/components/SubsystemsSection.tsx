@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import imgComint from '@/imports/rf_radar_generated.png';
-import imgElint from '@/imports/surveillance_radar_hero.png';
-import imgDf from '@/imports/digital_node_map.jpg';
+import imgComint from '@/imports/sigint/comint_operations.png';
+import imgElint from '@/imports/sigint/elint_operations.png';
+import imgDf from '@/imports/sigint/precision_direction_finding.jpg';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [

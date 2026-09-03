@@ -1,14 +1,15 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import rfd1Img from '../../../imports/quantum_rfd_detect.jpg';
-import rgQdImg from '../../../imports/rydberg_sensor_macro.jpg';
-import amplifImg from '../../../imports/quantum_atomic_clock.jpg';
+import sigintImg from '@/imports/rydberg-atom-quantum-sensors/signal_intelligence.png';
+import specAwarenessImg from '@/imports/rydberg-atom-quantum-sensors/spectrum_awareness.png';
+import secureSensingImg from '@/imports/rydberg-atom-quantum-sensors/secure_sensing.png';
 
 const SUBSYSTEMS = [
   {
     id: "01",
     title: "Signal Intelligence · DETECTION",
     description: "Detection and characterisation of emissions sitting below the threshold of conventional receiver hardware.",
+    image: sigintImg,
     specs: [
       { label: "ROLE", value: "Emitter detection" },
       { label: "DOMAIN", value: "Electromagnetic" },
@@ -19,6 +20,7 @@ const SUBSYSTEMS = [
     id: "02",
     title: "Spectrum Awareness · MONITORING",
     description: "Continuous measurement of the electromagnetic environment across an operating area.",
+    image: specAwarenessImg,
     specs: [
       { label: "ROLE", value: "Spectrum monitoring" },
       { label: "DOMAIN", value: "Electromagnetic" },
@@ -29,6 +31,7 @@ const SUBSYSTEMS = [
     id: "03",
     title: "Secure Sensing · PROTECTED",
     description: "Measurement in conditions where the sensing activity must not be revealed.",
+    image: secureSensingImg,
     specs: [
       { label: "ROLE", value: "Covert measurement" },
       { label: "DOMAIN", value: "Electromagnetic" },
@@ -43,7 +46,7 @@ export function SubsystemsSection() {
     type: s.title.split('·')[1]?.trim() || s.title,
     title: s.title.split('·')[0]?.trim() || s.title,
     description: s.description,
-    image: amplifImg,
+    image: s.image,
     statusBadge: 'CONFIGURATION',
     specs: s.specs
   }));
