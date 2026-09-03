@@ -2,6 +2,7 @@ import React from 'react';
 import { InteractiveBlueprint, TierData } from '@/components/InteractiveBlueprint';
 import bspImg from '@/imports/quantum-control-systems/board_support_packages.jpg';
 import softwareStackImg from '@/imports/quantum-control-systems/software_stacks_development_tools.png';
+import futureCapImg from '@/imports/quantum-control-systems/future_capability.png';
 
 const LAYERS = [
   {
@@ -26,6 +27,18 @@ const LAYERS = [
       { label: "SCOPE", value: "Drivers, middleware, tooling" },
       { label: "COMPATIBILITY", value: "Platform-agnostic" },
       { label: "OUTPUT", value: "Deployable software stack" }
+    ]
+  },
+  {
+    id: "03",
+    title: "Future Capability",
+    type: "EXPANSION",
+    description: "Modular expansion architecture supporting next-generation quantum protocols and hardware platforms.",
+    image: futureCapImg,
+    specs: [
+      { label: "SCOPE", value: "Modular Expansion" },
+      { label: "COMPATIBILITY", value: "Next-gen Protocols" },
+      { label: "OUTPUT", value: "Scalable Architecture" }
     ]
   }
 ];
