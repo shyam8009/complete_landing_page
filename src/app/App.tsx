@@ -1224,7 +1224,7 @@ const PRODUCTS_DATA = [
     description: "Built for high-speed reconnaissance and precision engagement, the FPV Bullseye & Interceptor combines agile maneuverability, real-time situational awareness, and mission-ready reliability. Engineered for rapid deployment, it enables forces to operate effectively across dynamic and contested environments.",
     desktopGridClass: "[grid-column:5/span_4] [grid-row:1]",
     showArrow: true,
-    target: '/fpv-buddy',
+    target: '/electronic-warfare/drone-systems/fpv-bullseye-interceptor',
   },
   {
     image: infinitySpearImg,
@@ -1235,7 +1235,7 @@ const PRODUCTS_DATA = [
     description: "Neutralize hostile drones with high-power multi-band jamming technology. Designed for rapid deployment, Infinity Spear delivers effective drone disruption at ranges up to 2.5 km while maintaining lightweight, one-person operation.",
     desktopGridClass: "[grid-column:9/span_4] [grid-row:1]",
     showArrow: true,
-    target: '/infinity-spear',
+    target: '/electronic-warfare/jamming-systems/handheld-jammer-infinity-spear',
   },
   {
     image: rfDetectorImg,
@@ -1244,7 +1244,7 @@ const PRODUCTS_DATA = [
     description: "Engineered to uncover signal activity across a broad frequency spectrum, RF Detector D360 provides operators with reliable electronic awareness for defense, intelligence, and security operations.",
     desktopGridClass: "[grid-column:1/span_4] [grid-row:2/span_2]",
     showArrow: true,
-    target: '/rf-detector',
+    target: '/electronic-warfare/detection-systems/rf-detector',
   },
   {
     image: [commandControlImg1, commandControlImg2],
@@ -1253,7 +1253,7 @@ const PRODUCTS_DATA = [
     description: "A centralized, multi-operator platform designed to streamline military and defense operations with real-time situational awareness and secure communications.",
     desktopGridClass: "[grid-column:5/span_8] [grid-row:2]",
     showArrow: true,
-    target: '/proxy',
+    target: '/information-warfare/command-control',
   },
   {
     image: infinityRhinoImg,
@@ -1262,7 +1262,7 @@ const PRODUCTS_DATA = [
     description: "A mission-ready anti-drone platform built to disrupt unauthorized UAV activity with precision and reliability. Combining portability, endurance, and operational flexibility, Infinity Rhino empowers teams to maintain control in contested environments.",
     desktopGridClass: "[grid-column:5/span_4] [grid-row:3]",
     showArrow: false,
-    target: '/infinity-rhino',
+    target: '/electronic-warfare/jamming-systems/manpack-jammer-infinity-rhino',
   },
   {
     image: digitalTwinImg,
