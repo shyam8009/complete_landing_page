@@ -1230,8 +1230,6 @@ const PRODUCTS_DATA = [
     image: infinitySpearImg,
     name: "Infinity Spear",
     subtitle: "Portable Counter-UAS System",
-    has360: true,
-    video360: infinitySpearVideo,
     description: "Neutralize hostile drones with high-power multi-band jamming technology. Designed for rapid deployment, Infinity Spear delivers effective drone disruption at ranges up to 2.5 km while maintaining lightweight, one-person operation.",
     desktopGridClass: "[grid-column:9/span_4] [grid-row:1]",
     showArrow: true,
