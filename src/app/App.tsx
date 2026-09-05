@@ -685,8 +685,8 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
                       className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
                       onClick={() => { setHoveredNav(null); if (navigate) navigate(product.slug); }}
                     >
-                      <div className="w-[32px] h-[32px] rounded overflow-hidden border border-white/10 shrink-0 bg-[#05080d]">
-                        <img src={product.image} alt={product.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      <div className="w-[32px] h-[32px] rounded flex items-center justify-center border border-white/10 shrink-0 bg-[#05080d] text-white/70 group-hover:text-[#84CC16] transition-colors">
+                        {product.icon}
                       </div>
                       <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{product.title}</span>
                       <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
@@ -702,8 +702,8 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
                       className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
                       onClick={() => { setHoveredNav(null); if (navigate) navigate(product.slug); }}
                     >
-                      <div className="w-[32px] h-[32px] rounded overflow-hidden border border-white/10 shrink-0 bg-[#05080d]">
-                        <img src={product.image} alt={product.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      <div className="w-[32px] h-[32px] rounded flex items-center justify-center border border-white/10 shrink-0 bg-[#05080d] text-white/70 group-hover:text-[#84CC16] transition-colors">
+                        {product.icon}
                       </div>
                       <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{product.title}</span>
                       <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
@@ -721,9 +721,9 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
                     className="group flex items-center gap-4 cursor-pointer p-3 rounded-md hover:bg-white/5 transition-all duration-300"
                     onClick={() => { setHoveredNav(null); if (navigate) navigate(product.slug); }}
                   >
-                    <div className="w-[32px] h-[32px] rounded overflow-hidden border border-white/10 shrink-0 bg-[#05080d]">
-                      <img src={product.image} alt={product.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                    </div>
+                    <div className="w-[32px] h-[32px] rounded flex items-center justify-center border border-white/10 shrink-0 bg-[#05080d] text-white/70 group-hover:text-[#84CC16] transition-colors">
+                        {product.icon}
+                      </div>
                     <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{product.title}</span>
                     <div className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto">
                       <MiniArrow color="#84CC16" />
