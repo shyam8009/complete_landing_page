@@ -1243,7 +1243,7 @@ const PRODUCTS_DATA = [
     description: "A centralized, multi-operator platform designed to streamline military and defense operations with real-time situational awareness and secure communications.",
     desktopGridClass: "[grid-column:5/span_8] [grid-row:2]",
     showArrow: true,
-    target: '/information-warfare/command-control',
+    target: '/information-warfare/command-control/fusion-core-ai-command-and-control-c2',
   },
   {
     image: infinityRhinoImg,
