@@ -1154,19 +1154,11 @@ function ProductCard({
       {/* text */}
       <div className="absolute bottom-9 left-5 right-5">
         <div className="flex items-center justify-between gap-4">
-          <a
-            onClick={(e) => {
-              if (onClick) {
-                e.preventDefault();
-                onClick();
-              }
-            }}
-            href="#"
-            className="text-white text-2xl tracking-tight leading-tight hover:underline cursor-pointer"
+          <span className="text-white text-2xl tracking-tight leading-tight group-hover:underline cursor-pointer inline-block"
             style={{ fontFamily: INTER, fontWeight: 700 }}
           >
             {name}
-          </a>
+          </span>
           <div
             className={`transition-opacity duration-300 shrink-0 ${
               showArrow ? "opacity-100" : "opacity-0 group-hover:opacity-100"
@@ -1336,46 +1328,48 @@ function ProductsSection() {
         style={{ gridTemplateRows: "repeat(3, clamp(220px, 31vw, 598px))" }}
       >
         {PRODUCTS_DATA.map((product) => (
-          <ProductCard
-            key={product.name}
-            image={product.image}
-            name={product.name}
-            subtitle={product.subtitle}
-            description={product.description}
-            className={product.desktopGridClass}
-            showArrow={product.showArrow}
-            has360={(product as any).has360}
-            on360Click={(e) => {
-              if ((product as any).video360) {
-                setViewer360((product as any).video360);
-              }
-            }}
-            onClick={() => {
-              if (product.target) {
-                navigate(product.target);
-              }
-            }}
-          />
+          <Link to={product.target || '/'} key={product.name} className={product.desktopGridClass}>
+            <ProductCard
+              image={product.image}
+              name={product.name}
+              subtitle={product.subtitle}
+              description={product.description}
+              className="w-full h-full"
+              showArrow={product.showArrow}
+              has360={(product as any).has360}
+              on360Click={(e) => {
+                if ((product as any).video360) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setViewer360((product as any).video360);
+                }
+              }}
+            />
+          </Link>
         ))}
       </div>
 
       {/* ——— Mobile / tablet stacked grid ——— */}
       <div className="grid md:hidden grid-cols-1 sm:grid-cols-2 gap-5 w-full">
         {PRODUCTS_DATA.map((product) => (
-          <ProductCard
-            key={product.name}
-            image={product.image}
-            name={product.name}
-            subtitle={product.subtitle}
-            description={product.description}
-            className="aspect-square"
-            showArrow={product.showArrow}
-            onClick={() => {
-              if (product.target) {
-                navigate(product.target);
-              }
-            }}
-          />
+          <Link to={product.target || '/'} key={product.name} className="aspect-square">
+            <ProductCard
+              image={product.image}
+              name={product.name}
+              subtitle={product.subtitle}
+              description={product.description}
+              className="w-full h-full"
+              showArrow={product.showArrow}
+              has360={(product as any).has360}
+              on360Click={(e) => {
+                if ((product as any).video360) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setViewer360((product as any).video360);
+                }
+              }}
+            />
+          </Link>
         ))}
       </div>
       {viewer360 && <Interactive360Viewer videoSrc={viewer360} onClose={() => setViewer360(null)} />}
