@@ -1183,15 +1183,6 @@ function ProductCard({
             {description}
           </p>
         )}
-        {has360 && (
-          <button
-            onClick={(e) => { e.stopPropagation(); if(on360Click) on360Click(e); }}
-            className="mt-4 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-md text-white text-sm font-semibold tracking-wider transition-all z-20 relative shadow-lg"
-            style={{ fontFamily: INTER }}
-          >
-            VIEW 360 DEGREE
-          </button>
-        )}
       </div>
     </div>
   );
@@ -1306,7 +1297,7 @@ function VisionSection() {
 
 function ProductsSection() {
   const navigate = useNavigate();
-  const [viewer360, setViewer360] = useState<string | null>(null);
+  
   return (
     <section className="relative z-10 w-full px-4 sm:px-6 md:px-9 pt-12 pb-16 bg-black/60 backdrop-blur-md">
       {/* Section header — centered & spaced category taxonomy bar */}
@@ -1336,14 +1327,6 @@ function ProductsSection() {
               description={product.description}
               className="w-full h-full"
               showArrow={product.showArrow}
-              has360={(product as any).has360}
-              on360Click={(e) => {
-                if ((product as any).video360) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setViewer360((product as any).video360);
-                }
-              }}
             />
           </Link>
         ))}
@@ -1360,19 +1343,11 @@ function ProductsSection() {
               description={product.description}
               className="w-full h-full"
               showArrow={product.showArrow}
-              has360={(product as any).has360}
-              on360Click={(e) => {
-                if ((product as any).video360) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setViewer360((product as any).video360);
-                }
-              }}
             />
           </Link>
         ))}
       </div>
-      {viewer360 && <Interactive360Viewer videoSrc={viewer360} onClose={() => setViewer360(null)} />}
+      
     </section>
   );
 }
