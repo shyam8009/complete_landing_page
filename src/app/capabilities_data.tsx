@@ -93,7 +93,6 @@ export const CAPABILITIES_DATA = [
           { id: "3d-drone-radar", title: "3D Drone Radar", icon: <Radar className="w-6 h-6" />, slug: "/electronic-warfare/radar-systems/3d-drone-radar" },
           { id: "rf-detector", title: "RF Detector", icon: <Antenna className="w-6 h-6" />, slug: "/electronic-warfare/detection-systems/rf-detector" },
           { id: "ground-surveillance-radar", title: "Ground Surveillance Radar", icon: <Eye className="w-6 h-6" />, slug: "/electronic-warfare/radar-systems/surveillance-radar" },
-          { id: "3d-drone-rf-detector", title: "3D Drone RF Detector", icon: <Activity className="w-6 h-6" />, slug: "/electronic-warfare/detection-systems/3d-drone-rf-detector" },
           { id: "wideband-rf", title: "Wideband RF Detectors", icon: <Wifi className="w-6 h-6" />, slug: "/electronic-warfare/radar-systems/wideband-rf-detectors" }
         ]
       },
