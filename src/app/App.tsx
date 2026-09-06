@@ -1595,7 +1595,7 @@ function EditorialPanel({
 }: {
   title: string;
   image: EditorialImage;
-  label: string;
+  label?: string;
   bg: string;
   textColor?: string;
   dividerColor?: string;
@@ -1633,9 +1633,11 @@ function EditorialPanel({
         >
           {title}
         </h3>
-        <UnderlineLink color={textColor} onClick={() => currentTarget ? navigate(currentTarget) : undefined}>
-          {currentLabel}
-        </UnderlineLink>
+        {currentLabel && (
+          <UnderlineLink color={textColor} onClick={() => currentTarget ? navigate(currentTarget) : undefined}>
+            {currentLabel}
+          </UnderlineLink>
+        )}
       </div>
 
       {/* divider */}
@@ -1705,7 +1707,7 @@ function EditorialSection() {
       <EditorialPanel
         title="Sahana Corporate House"
         image={corporateHouseImages}
-        label="Read More"
+        
         bg="#505544"
         textColor="white"
         dividerColor="white"
@@ -1714,7 +1716,7 @@ function EditorialSection() {
       <EditorialPanel
         title="Innovation"
         image={innovationImages}
-        label="Read More"
+        
         bg="#8e9291"
         textColor="#010101"
         dividerColor="#010101"
