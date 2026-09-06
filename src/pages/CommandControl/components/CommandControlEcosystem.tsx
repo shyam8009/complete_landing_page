@@ -1,4 +1,5 @@
 ﻿import React, { useRef } from 'react';
+import { useNavigate } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -13,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 const commandControlData = [
   {
     tag: "1000+ Tracks . 2D/3D Spatial Mapping",
+    url: "/information-warfare/command-control/fusion-core-ai-command-and-control-c2",
     title: "FUSION Core AI Command & Control (C2)",
     desc: "An advanced AI-driven Command and Control (C2) system designed for enhanced surveillance, seamless sensor integration, and real-time situational awareness with minimal cognitive burden. It unifies complex sensor feeds—including radar tracks, live video, and system telemetry—into an intuitive 2D and 3D interface.",
     features: [
@@ -25,6 +27,7 @@ const commandControlData = [
   },
   {
     tag: "Tactical Signal Intercept . Spectrum Exploitation",
+    url: "/information-warfare/command-control/interception-system",
     title: "Interception System",
     desc: "A tactical electronic warfare asset engineered for covert monitoring and real-time exploitation of hostile communications. The Interception System isolates, decrypts, and extracts intelligence from encrypted RF channels and digital transmissions across contested operational zones.",
     features: [
@@ -38,6 +41,7 @@ const commandControlData = [
 ];
 
 export default function CommandControlEcosystem() {
+  const navigate = useNavigate();
   const scrollContainer = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -132,7 +136,7 @@ export default function CommandControlEcosystem() {
 
                     {/* CTA */}
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <TechCTA theme="dark">
+                      <TechCTA theme="dark" onClick={() => item.url && navigate(item.url)}>
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
