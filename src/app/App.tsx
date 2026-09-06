@@ -1236,7 +1236,7 @@ const PRODUCTS_DATA = [
   },
   {
     image: bigDataImg,
-    name: "BIG DATA & BUSINESS INTELLIGENCE",
+    name: "BIG DATA & INTELLIGENCE",
     subtitle: "Data-Driven Defence Intelligence",
     description: "Transforming Raw Data into Strategic Battlefield Advantage",
     desktopGridClass: "[grid-column:9/span_4] [grid-row:3]",
