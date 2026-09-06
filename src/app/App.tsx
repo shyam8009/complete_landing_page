@@ -2549,6 +2549,20 @@ function ScrollToTop() {
 
 export default function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    if (location.pathname.startsWith('/investors')) {
+      if (location.pathname === '/investors/key-contact') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/investors/key-contact');
+      }
+    } else {
+      setIsContactModalOpen(true);
+    }
+  };
   const [heroFinished, setHeroFinished] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth <= 820;
@@ -2569,7 +2583,7 @@ export default function App() {
   return (
     <div className="w-full min-h-screen bg-black overflow-x-hidden" style={{ fontFamily: INTER }}>
       <ScrollToTop />
-      <Nav heroFinished={heroFinished} setHeroFinished={setHeroFinished} onContactClick={() => setIsContactModalOpen(true)} />
+      <Nav heroFinished={heroFinished} setHeroFinished={setHeroFinished} onContactClick={handleContactClick} />
       {/* Content wrapper without artificial padding, so the Hero starts exactly at top-0 */}
       <div className="w-full">
         <Routes>
@@ -2655,12 +2669,12 @@ export default function App() {
           <Route path="/quantum-technology-solutions/quantum-sensing/rydberg-atom-quantum-sensors" element={<RydbergAtomQuantumSensorsPage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-drone" element={<QuantumDronePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing/quantum-clock-source" element={<QuantumClockSourcePage />} />
-          <Route path="/newsroom" element={<NewsroomPage onContactClick={() => setIsContactModalOpen(true)} />} />
-          <Route path="/clientele" element={<ClientelePage onContactClick={() => setIsContactModalOpen(true)} />} />
+          <Route path="/newsroom" element={<NewsroomPage onContactClick={handleContactClick} />} />
+          <Route path="/clientele" element={<ClientelePage onContactClick={handleContactClick} />} />
           <Route path="/about-us" element={<AboutUsPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>
-        <Footer onContactClick={() => setIsContactModalOpen(true)} />
+        <Footer onContactClick={handleContactClick} />
         <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
       </div>
     </div>
