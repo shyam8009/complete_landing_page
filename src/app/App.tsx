@@ -100,7 +100,7 @@ import haleDroneImg from "@/imports/hale_drone.jpg";
 import commandControlImg1 from "@/imports/command_control_1.jpeg";
 import commandControlImg2 from "@/imports/command_control_2.jpeg";
 import varunaHullImg from "@/imports/varuna/magnific_a-photorealistic-underwat_3G7XWY1REY.png";
-import digitalTwinImg from "@/imports/digital_twin.jpg";
+import bigDataImg from "@/imports/big-data/hero_big_data.png";
 import newsCelImg from "@/imports/news_cel_agreement.png";
 import spaceDay1Img from "@/imports/space_day_1.jpeg";
 import isroInfitronImg from "@/imports/news_isro_infitron.png";
@@ -1247,10 +1247,10 @@ const PRODUCTS_DATA = [
     target: '/electronic-warfare/jamming-systems/manpack-jammer-infinity-rhino',
   },
   {
-    image: digitalTwinImg,
-    name: "Digital Twin",
-    subtitle: "Engineering Ports and Marine Intelligence",
-    description: "Protecting Borders, Assets and Strategic Infrastructure",
+    image: bigDataImg,
+    name: "BIG DATA & BUSINESS INTELLIGENCE",
+    subtitle: "Data-Driven Defence Intelligence",
+    description: "Transforming Raw Data into Strategic Battlefield Advantage",
     desktopGridClass: "[grid-column:9/span_4] [grid-row:3]",
     showArrow: false,
     target: '/',
