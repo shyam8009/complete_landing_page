@@ -13,7 +13,7 @@ export function QuantumCTA() {
           Define the next generation of aerospace and defence measurement.
         </h2>
         
-        <TechCTA className="mb-6">
+        <TechCTA className="mb-6" onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
           CONTACT QUANTUM DIVISION
         </TechCTA>
         
