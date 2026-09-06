@@ -734,13 +734,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
               </div>
             )}
 
-              <a 
-                href="#"
-                onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate(activeSystem.products[0]?.slug || 'home'); }}
-                className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
-              >
-                View All Products <MiniArrow color="currentColor" />
-              </a>
+
             </div>
           )}
 
