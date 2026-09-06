@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import lorrosVid from '@/imports/lorros_hero_video.mp4';
@@ -11,7 +12,7 @@ const heroSlides = [
     subtitle: 'Long Range Reconnaissance & Surveillance',
     mediaUrl: lorrosVid,
     ctaText: 'EXPLORE LORROS',
-    ctaLink: '/lorros-communication',
+    ctaLink: '/electronic-warfare/communication-system/lorros-communication',
   },
   {
     id: 'guardian',
@@ -19,11 +20,12 @@ const heroSlides = [
     subtitle: 'Smart Soldier Band & Tactical Data Link',
     mediaUrl: guardianVid,
     ctaText: 'SEE GUARDIAN',
-    ctaLink: '/guardian-experience',
+    ctaLink: '/electronic-warfare/communication-system/the-guardian-smart-soldier-band',
   }
 ];
 
 export default function CommunicationDetectionHero() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {

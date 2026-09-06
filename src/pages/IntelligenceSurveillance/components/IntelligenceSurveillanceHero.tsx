@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import osintVid from '@/imports/intelligence_video.mp4';
@@ -12,7 +13,7 @@ const heroSlides = [
     subtitle: 'Deep-Web Data Extraction & Threat Forecasting',
     mediaUrl: osintVid,
     ctaText: 'EXPLORE OSINT',
-    ctaLink: '/osint',
+    ctaLink: '/information-warfare/intelligence-surveillance/open-source-intelligence-osint',
   },
   {
     id: 'sigint',
@@ -20,7 +21,7 @@ const heroSlides = [
     subtitle: 'Invisible Spectrum Monitoring & Triangulation',
     mediaUrl: sigintVid,
     ctaText: 'SEE SIGINT',
-    ctaLink: '/sigint',
+    ctaLink: '/information-warfare/intelligence-surveillance/signal-intelligence',
   },
   {
     id: 'security-assessment',
@@ -28,11 +29,12 @@ const heroSlides = [
     subtitle: 'Multi-Domain Vulnerability Identification',
     mediaUrl: secVid,
     ctaText: 'DISCOVER SECURITY',
-    ctaLink: '/security-assessment',
+    ctaLink: '/information-warfare/intelligence-surveillance/comprehensive-security-assessment',
   },
 ];
 
 export default function IntelligenceSurveillanceHero() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -132,8 +134,14 @@ export default function IntelligenceSurveillanceHero() {
             >
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
                   <a
-                href={slide.ctaLink}
-                className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
+                  href={slide.ctaLink}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (slide.ctaLink && slide.ctaLink !== '#') {
+                      navigate(slide.ctaLink);
+                    }
+                  }}
+                  className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
               >
                 {/* Tactical Corner Accents */}
                 <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />

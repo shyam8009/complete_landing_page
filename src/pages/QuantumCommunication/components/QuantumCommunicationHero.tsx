@@ -1,48 +1,47 @@
-﻿import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import qgVid from '@/imports/quantum_communication_intro_video.mp4';
-import qmVid from '@/imports/hero_banner_video1.mp4';
+import bgVid from '@/imports/quantum_communication_intro_video.mp4';
+import cryptoVid from '@/imports/Hero banner Video.mp4';
+import controlVid from '@/imports/gwr_video_mvp.mp4';
+
 
 const heroSlides = [
   {
-    id: 'quantum-microwave',
-    title: 'Quantum Microwave Devices',
-    subtitle: 'TWPAs, HEMT Amplifiers, and precision cryogenic signal-conditioning layer.',
-    mediaUrl: qgVid,
-    ctaText: 'EXPLORE MICROWAVE DEVICES',
-    ctaLink: '/quantum-technology-solutions/quantum-sensing/quantum-microwave-devices',
+    id: 'quantum-secured-communication',
+    title: 'QUANTUM SECURED COMMUNICATION',
+    subtitle: 'Quantum Key Distribution over Fibre and Air',
+    mediaUrl: bgVid,
+    ctaText: 'EXPLORE SECURED COMMUNICATION',
+    ctaLink: '/quantum-technology-solutions/quantum-communication/quantum-secured-communication',
+    isVideo: true,
   },
   {
-    id: 'rydberg-sensors',
-    title: 'Rydberg Atom Quantum Sensors',
-    subtitle: 'Atomic-precision sensing and ultra-sensitive electromagnetic field detection.',
-    mediaUrl: qmVid,
-    ctaText: 'EXPLORE RYDBERG SENSORS',
-    ctaLink: '/quantum-technology-solutions/quantum-sensing/rydberg-atom-quantum-sensors',
+    id: 'hardware-pqc',
+    title: 'HARDWARE-BASED POST QUANTUM CRYPTOGRAPHY',
+    subtitle: 'Encryption Built for the Post-Quantum Horizon',
+    mediaUrl: cryptoVid,
+    ctaText: 'SEE POST-QUANTUM CRYPTOGRAPHY',
+    ctaLink: '/quantum-technology-solutions/quantum-communication/hardware-based-post-quantum-cryptography',
+    isVideo: true,
   },
   {
-    id: 'quantum-drone',
-    title: 'Quantum Drone',
-    subtitle: 'Quantum-enabled tactical UAS engineered for contested and GPS-denied environments.',
-    mediaUrl: qgVid,
-    ctaText: 'EXPLORE QUANTUM DRONE',
-    ctaLink: '/quantum-technology-solutions/quantum-sensing/quantum-drone',
-  },
-  {
-    id: 'quantum-clock',
-    title: 'Quantum Clock Source',
-    subtitle: 'Precision timing at the quantum limit for independent, sovereign navigation & radar synchronisation.',
-    mediaUrl: qmVid,
-    ctaText: 'EXPLORE CLOCK SOURCE',
-    ctaLink: '/quantum-technology-solutions/quantum-sensing/quantum-clock-source',
+    id: 'quantum-control-systems',
+    title: 'QUANTUM CONTROL SYSTEMS',
+    subtitle: 'Board Support Packages and Standardised APIs',
+    mediaUrl: controlVid,
+    ctaText: 'EXPLORE CONTROL SYSTEMS',
+    ctaLink: '/quantum-technology-solutions/quantum-communication/quantum-control-systems',
+    isVideo: true,
   }
 ];
 
-export function QuantumHero() {
+export function QuantumCommunicationHero() {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
+
+
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -55,8 +54,8 @@ export function QuantumHero() {
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className="relative w-full min-h-[90vh] overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
-      {/* 1. Background Video / Image Layer with Crossfade */}
+    <section className="relative w-full h-[100dvh] overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {/* 1. Background Video Layer with Crossfade */}
       <AnimatePresence mode="popLayout">
         <motion.div
           key={slide.id}
@@ -140,7 +139,7 @@ export function QuantumHero() {
               className="mt-16 md:mt-24 w-full"
             >
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
-                  <a
+                <a
                   href={slide.ctaLink}
                   onClick={(e) => {
                     e.preventDefault();
@@ -149,16 +148,16 @@ export function QuantumHero() {
                     }
                   }}
                   className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
-              >
-                {/* Tactical Corner Accents */}
-                <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                >
+                  {/* Tactical Corner Accents */}
+                  <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
 
-                {slide.ctaText}
-              </a>
-                  
+                  {slide.ctaText}
+                </a>
+
                 <a
                   href="#"
                   className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
@@ -170,6 +169,7 @@ export function QuantumHero() {
                   DOWNLOAD CAPABILITY BROCHURE
                 </a>
                 </div>
+
             </motion.div>
           </motion.div>
         </AnimatePresence>
@@ -203,10 +203,12 @@ export function QuantumHero() {
         </button>
       </div>
 
-      
+      {/* 6. Scroll prompt */}
+      <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center pointer-events-none">
+        <span className="text-white/40 font-mono tracking-widest text-xs uppercase animate-pulse">
+          SCROLL TO EXPLORE
+        </span>
+      </div>
     </section>
   );
 }
-
-
-

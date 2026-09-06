@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos
@@ -8,32 +9,33 @@ import quantumVid from '@/imports/quantum_communication_intro_video.mp4';
 
 const heroSlides = [
   {
-    id: 'deeptech-core',
-    title: 'DEFENCE DEEPTECH',
-    subtitle: 'Cognitive overmatch for the modern battlespace. Fusing AI, Big Data, and advanced Voice Solutions.',
-    mediaUrl: intelligenceVid,
-    ctaText: 'INITIALIZE AI SYSTEMS',
-    ctaLink: '#',
-  },
-  {
-    id: 'deeptech-ai',
-    title: 'AI NEURAL ARCHITECTURE',
-    subtitle: 'Semantic data routing and predictive analytics at the tactical edge.',
-    mediaUrl: droneVid,
-    ctaText: 'EXPLORE AI MODELS',
-    ctaLink: '#',
-  },
-  {
-    id: 'deeptech-voice',
-    title: 'SECURE VOICE PROTOCOLS',
+    id: 'chatbots-voice',
+    title: 'Chatbots & Voice Solutions',
     subtitle: 'Air-gapped natural language processing and voice-to-action telemetry.',
+    mediaUrl: intelligenceVid,
+    ctaText: 'EXPLORE VOICE SOLUTIONS',
+    ctaLink: '/defence-deeptech/ai-data/chatbots-and-voice-solution',
+  },
+  {
+    id: 'big-data-bi',
+    title: 'Big Data & Business Intelligence',
+    subtitle: 'Massive tactical intelligence ingestion, multi-INT correlation and real-time visualization.',
+    mediaUrl: droneVid,
+    ctaText: 'EXPLORE BIG DATA & BI',
+    ctaLink: '/defence-deeptech/ai-data/big-data-and-business-intelligence',
+  },
+  {
+    id: 'artificial-intelligence',
+    title: 'Artificial Intelligence',
+    subtitle: 'Autonomous edge inference and neural pattern recognition for mission-critical operations.',
     mediaUrl: quantumVid,
-    ctaText: 'DISCOVER NLP',
-    ctaLink: '#',
+    ctaText: 'EXPLORE AI ARCHITECTURE',
+    ctaLink: '/defence-deeptech/ai-data/artificial-intelligence',
   },
 ];
 
 export function DeeptechHero() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -105,7 +107,15 @@ export function DeeptechHero() {
               className="mt-16 md:mt-24 w-full"
             >
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
-                  <a href={slide.ctaLink} className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]">
+                  <a
+                  href={slide.ctaLink}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (slide.ctaLink && slide.ctaLink !== '#') {
+                      navigate(slide.ctaLink);
+                    }
+                  }}
+                  className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]">
                 <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
                 <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
                 <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />

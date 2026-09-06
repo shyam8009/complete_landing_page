@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import lorrosVid from '@/imports/lorros_hero_video.mp4';
@@ -11,7 +12,7 @@ const heroSlides = [
     subtitle: 'Long Range Reconnaissance & Surveillance',
     mediaUrl: lorrosVid,
     ctaText: 'EXPLORE LORROS',
-    ctaLink: '/lorros-communication',
+    ctaLink: '/electronic-warfare/communication-system/lorros-communication',
   },
   {
     id: 'guardian',
@@ -19,11 +20,12 @@ const heroSlides = [
     subtitle: 'Smart Soldier Band & Tactical Data Link',
     mediaUrl: guardianVid,
     ctaText: 'SEE GUARDIAN',
-    ctaLink: '/guardian-experience',
+    ctaLink: '/electronic-warfare/communication-system/the-guardian-smart-soldier-band',
   }
 ];
 
 export function Hero() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -37,7 +39,7 @@ export function Hero() {
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className="relative w-full min-h-[100dvh] overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <section className="relative w-full min-h-[90vh] overflow-hidden bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* 1. Background Video / Image Layer with Crossfade */}
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -65,7 +67,7 @@ export function Hero() {
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-black/60 pointer-events-none" />
 
       {/* 3. Staggered Content Animation */}
-      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 mt-12">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-20 sm:pt-24 md:pt-40">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.id}
@@ -97,7 +99,7 @@ export function Hero() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="text-3xl sm:text-5xl md:text-7xl font-extralight tracking-wider uppercase mb-6"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extralight tracking-wider uppercase mb-6"
             >
               {slide.title}
             </motion.h1>
@@ -121,20 +123,26 @@ export function Hero() {
               }}
               className="mt-16 md:mt-24 w-full"
             >
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
-                  <a
-                href={slide.ctaLink}
-                className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
-              >
-                {/* Tactical Corner Accents */}
-                <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
+                <a
+                  href={slide.ctaLink}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (slide.ctaLink && slide.ctaLink !== '#') {
+                      navigate(slide.ctaLink);
+                    }
+                  }}
+                  className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
+                >
+                  {/* Tactical Corner Accents */}
+                  <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
 
-                {slide.ctaText}
-              </a>
-                  
+                  {slide.ctaText}
+                </a>
+
                 <a
                   href="#"
                   className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
@@ -145,42 +153,39 @@ export function Hero() {
                   <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
                   DOWNLOAD CAPABILITY BROCHURE
                 </a>
-                </div>
+              </div>
             </motion.div>
           </motion.div>
         </AnimatePresence>
       </div>
 
       {/* 4. Large Next Arrow (Right Side) */}
-      <div className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 z-30">
+      <div className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 z-30">
         <button
           onClick={nextSlide}
           aria-label="Next slide"
-          className="relative group p-2 sm:p-4 min-w-[44px] min-h-[44px] flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
+          className="relative group p-4 flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
         >
           {/* Arrow Icon */}
-          <svg className="w-10 h-10 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <svg className="w-12 h-12 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>
 
       {/* 5. Large Prev Arrow (Left Side) */}
-      <div className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 z-30">
+      <div className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 z-30">
         <button
           onClick={prevSlide}
           aria-label="Previous slide"
-          className="relative group p-2 sm:p-4 min-w-[44px] min-h-[44px] flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
+          className="relative group p-4 flex items-center justify-center transition-transform hover:scale-110 focus:outline-none"
         >
           {/* Arrow Icon (Left facing) */}
-          <svg className="w-10 h-10 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <svg className="w-12 h-12 sm:w-16 sm:h-16 text-white/70 transition-colors group-hover:text-[#84CC16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
       </div>
-
-      
     </section>
   );
 }
-

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import buddyVid from '../../../imports/fpv-buddy/FPV_Drone_Hero_Banner_1.mp4';
@@ -13,7 +14,7 @@ const heroSlides = [
     mediaUrl: buddyVid,
     isVideo: true,
     ctaText: 'EXPLORE FPV BUDDY',
-    ctaLink: '/fpv-buddy',
+    ctaLink: '/electronic-warfare/drone-systems/sahana-fpv-drone-buddy',
   },
   {
     id: 'sahana-fpv',
@@ -22,7 +23,7 @@ const heroSlides = [
     mediaUrl: sahanaFpvVid,
     isVideo: true,
     ctaText: 'SEE SAHANA FPV',
-    ctaLink: '/sahana-fpv',
+    ctaLink: '/electronic-warfare/drone-systems/fpv-bullseye-interceptor',
   },
   {
     id: 'proxy',
@@ -31,11 +32,12 @@ const heroSlides = [
     mediaUrl: proxyImg,
     isVideo: false,
     ctaText: 'DISCOVER PROXY',
-    ctaLink: '/proxy',
+    ctaLink: '/electronic-warfare/drone-systems/sahana-proxy-control-channel',
   },
 ];
 
 export default function DroneSystemsHero() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {

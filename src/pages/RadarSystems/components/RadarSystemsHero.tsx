@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos/images directly via Vite
@@ -10,30 +11,12 @@ import rfDetectorImg from '@/imports/rf-detector-d360/magnific_professional-outd
 
 const heroSlides = [
   {
-    id: 'radar-systems-main',
-    title: 'RADAR & DETECTION SYSTEMS',
-    subtitle: 'Continuous, all-weather airspace, passive RF sensing, and perimeter dominance.',
-    mediaUrl: bgVideo,
-    ctaText: 'EXPLORE SYSTEMS',
-    ctaLink: '/electronic-warfare/radar-and-detection-systems',
-    isVideo: true
-  },
-  {
     id: 'radar-3d-drone',
     title: '3D Drone Radar',
     subtitle: 'High-resolution FMCW architectures engineered for early detection.',
     mediaUrl: radarHero1Vid,
     ctaText: 'SEE CAPABILITIES',
-    ctaLink: '/drone-radar',
-    isVideo: true
-  },
-  {
-    id: 'radar-surveillance',
-    title: 'Ground Surveillance Radar',
-    subtitle: '360 degree perimeter dominance & long-range tracking.',
-    mediaUrl: radarHero2Vid,
-    ctaText: 'SEE CAPABILITIES',
-    ctaLink: '/surveillance-radar',
+    ctaLink: '/electronic-warfare/radar-systems/3d-drone-radar',
     isVideo: true
   },
   {
@@ -42,12 +25,31 @@ const heroSlides = [
     subtitle: 'Passive multi-frequency scanning for autonomous threat localization.',
     mediaUrl: rfDetectorImg,
     ctaText: 'DISCOVER SENSORS',
-    ctaLink: '/rf-detector',
+    ctaLink: '/electronic-warfare/detection-systems/rf-detector',
     isVideo: false
+  },
+  {
+    id: 'radar-surveillance',
+    title: 'Ground Surveillance Radar',
+    subtitle: '360 degree perimeter dominance & long-range tracking.',
+    mediaUrl: radarHero2Vid,
+    ctaText: 'SEE CAPABILITIES',
+    ctaLink: '/electronic-warfare/radar-systems/surveillance-radar',
+    isVideo: true
+  },
+  {
+    id: 'wideband-rf',
+    title: 'Wideband RF Detectors',
+    subtitle: 'Full-spectrum signal interception and ultra-wideband passive detection.',
+    mediaUrl: bgVideo,
+    ctaText: 'EXPLORE DETECTORS',
+    ctaLink: '/electronic-warfare/radar-systems/wideband-rf-detectors',
+    isVideo: true
   }
 ];
 
 export default function RadarSystemsHero() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -158,10 +160,9 @@ export default function RadarSystemsHero() {
                   href={slide.ctaLink}
                   onClick={(e) => {
                     e.preventDefault();
-                    window.scrollTo({
-                      top: window.innerHeight * 1.5,
-                      behavior: 'smooth'
-                    });
+                    if (slide.ctaLink && slide.ctaLink !== '#') {
+                      navigate(slide.ctaLink);
+                    }
                   }}
                   className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
                 >

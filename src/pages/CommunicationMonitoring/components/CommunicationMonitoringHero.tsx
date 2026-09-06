@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import radioVid from '@/imports/lorros_hero_video.mp4';
@@ -11,7 +12,7 @@ const heroSlides = [
     subtitle: 'Wideband Interception & Electromagnetic Awareness',
     mediaUrl: radioVid,
     ctaText: 'EXPLORE RADIO',
-    ctaLink: '/radio-monitoring',
+    ctaLink: '/information-warfare/communication-monitoring/radio-monitoring-and-location-portfolio',
   },
   {
     id: 'direction-finders',
@@ -19,11 +20,12 @@ const heroSlides = [
     subtitle: 'Tactical TDOA & Rapid Threat Geolocation',
     mediaUrl: directionVid,
     ctaText: 'SEE DIRECTION FINDERS',
-    ctaLink: '/direction-finders',
+    ctaLink: '/information-warfare/communication-monitoring/direction-finders',
   }
 ];
 
 export default function CommunicationMonitoringHero() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -123,8 +125,14 @@ export default function CommunicationMonitoringHero() {
             >
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
                   <a
-                href={slide.ctaLink}
-                className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
+                  href={slide.ctaLink}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (slide.ctaLink && slide.ctaLink !== '#') {
+                      navigate(slide.ctaLink);
+                    }
+                  }}
+                  className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
               >
                 {/* Tactical Corner Accents */}
                 <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />

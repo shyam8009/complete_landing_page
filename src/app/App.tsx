@@ -17,6 +17,7 @@ import { RFDetectorPage } from '../pages/RFDetector/RFDetectorPage';
 import { SurveillanceRadarPage } from '../pages/SurveillanceRadar/SurveillanceRadarPage';
 import { OSINTPage } from '../pages/OSINT/OSINTPage';
 import { QuantumSensingPage } from '../pages/QuantumSensing/QuantumSensingPage';
+import QuantumCommunicationPage from '../pages/QuantumCommunication/QuantumCommunicationPage';
 import QuantumSecuredCommunicationPage from '../pages/QuantumSecuredCommunication/QuantumSecuredCommunicationPage';
 import HardwarePQCPage from '../pages/HardwarePQC/HardwarePQCPage';
 import QuantumControlSystemsPage from '../pages/QuantumControlSystems/QuantumControlSystemsPage';
@@ -2617,6 +2618,7 @@ export default function App() {
             <Route path="/defence-deeptech/connectivity-infrastructure/internet-of-things" element={<IoTPage />} />
             <Route path="/solution/defence-deeptech/connectivity-infrastructure" element={<ConnectivityInfrastructurePage />} />
           <Route path="/quantum-technology-solutions/quantum-sensing" element={<QuantumSensingPage />} />
+          <Route path="/quantum-technology-solutions/quantum-communication" element={<QuantumCommunicationPage />} />
           <Route 
             path="/quantum-technology-solutions/quantum-communication/quantum-secured-communication" 
             element={<QuantumSecuredCommunicationPage />} />

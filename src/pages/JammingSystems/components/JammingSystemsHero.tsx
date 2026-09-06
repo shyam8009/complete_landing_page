@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import videos/images directly via Vite
@@ -8,30 +9,21 @@ import rhinoVid from '@/imports/Hero banner Video.mp4';
 
 const heroSlides = [
   {
-    id: 'jamming-systems-main',
-    title: 'JAMMING SYSTEMS',
-    subtitle: 'Neutralize hostile communications and counter autonomous UAS threats instantly. Multi-frequency, high-power electronic countermeasure architectures.',
-    mediaUrl: bgVideo,
-    ctaText: 'DEPLOY JAMMING ASSETS',
-    ctaLink: '/electronic-warfare/jamming-systems',
-    isVideo: true
-  },
-  {
     id: 'jamming-spear',
     title: 'INFINITY SPEAR',
-    subtitle: '60W Continuous Output . 1.5 - 2.0 km Range.',
+    subtitle: 'Handheld Jammer . 60W Continuous Output . 1.5 - 2.0 km Range.',
     mediaUrl: spearVid,
     ctaText: 'SEE CAPABILITIES',
-    ctaLink: '/infinity-spear',
+    ctaLink: '/electronic-warfare/jamming-systems/handheld-jammer-infinity-spear',
     isVideo: true
   },
   {
     id: 'jamming-rhino',
     title: 'INFINITY RHINO',
-    subtitle: '7 km Directional Anti-RTH Interdiction.',
+    subtitle: 'Manpack Jammer . 7 km Directional Anti-RTH Interdiction.',
     mediaUrl: rhinoVid,
     ctaText: 'DISCOVER RHINO',
-    ctaLink: '/infinity-rhino',
+    ctaLink: '/electronic-warfare/jamming-systems/manpack-jammer-infinity-rhino',
     isVideo: true
   },
   {
@@ -40,12 +32,31 @@ const heroSlides = [
     subtitle: 'Tactical Anti-Drone Gun System.',
     mediaUrl: bgVideo,
     ctaText: 'SEE BUTTERFLY',
-    ctaLink: '/butterfly-adg',
+    ctaLink: '/electronic-warfare/jamming-systems/butterfly-adg',
+    isVideo: true
+  },
+  {
+    id: 'rhino-z23',
+    title: 'RHINO GEN Z23',
+    subtitle: 'Next-Generation Tactical High-Power Counter-UAS Jammer.',
+    mediaUrl: bgVideo,
+    ctaText: 'EXPLORE RHINO Z23',
+    ctaLink: '/electronic-warfare/jamming-systems/rhino-gen',
+    isVideo: true
+  },
+  {
+    id: 'infinity-rhino-black',
+    title: 'INFINITY RHINO BLACK',
+    subtitle: 'Autonomous Multi-Band Countermeasure Defense Shield.',
+    mediaUrl: rhinoVid,
+    ctaText: 'EXPLORE RHINO BLACK',
+    ctaLink: '/electronic-warfare/jamming-systems/infinity-rhino-black',
     isVideo: true
   }
 ];
 
 export default function JammingSystemsHero() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -156,10 +167,9 @@ export default function JammingSystemsHero() {
                   href={slide.ctaLink}
                   onClick={(e) => {
                     e.preventDefault();
-                    window.scrollTo({
-                      top: window.innerHeight * 1.5,
-                      behavior: 'smooth'
-                    });
+                    if (slide.ctaLink && slide.ctaLink !== '#') {
+                      navigate(slide.ctaLink);
+                    }
                   }}
                   className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
                 >

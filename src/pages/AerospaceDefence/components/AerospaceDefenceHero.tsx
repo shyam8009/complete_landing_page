@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import aeroVid from '@/imports/infinity_optics_gwr_video_mvp.mp4';
@@ -9,30 +10,31 @@ const heroSlides = [
   {
     id: 'aerospace-comp',
     title: 'Aerospace Components',
-    subtitle: 'High-Strength Alloys & Structural Integrity',
+    subtitle: 'High-Strength Alloys & Structural Precision Engineering.',
     mediaUrl: aeroVid,
     ctaText: 'EXPLORE AEROSPACE',
-    ctaLink: '/aerospace-and-defence',
+    ctaLink: '/aerospace-and-defence/manufacturing-fabrication/aerospace-components',
   },
   {
     id: 'defence-comp',
     title: 'Defence Components',
-    subtitle: 'Ruggedized Hardware & Tactical Reliability',
+    subtitle: 'Ruggedized Hardware & Tactical Reliability in Critical Fields.',
     mediaUrl: defVid,
     ctaText: 'SEE DEFENCE',
-    ctaLink: '/aerospace-and-defence',
+    ctaLink: '/aerospace-and-defence/manufacturing-fabrication/defence-components',
   },
   {
     id: 'satcom',
     title: 'SATCOM Components',
-    subtitle: 'High-Frequency RF & Low Loss Telemetry',
+    subtitle: 'High-Frequency RF & Low Loss Space-Grade Telemetry.',
     mediaUrl: satVid,
     ctaText: 'DISCOVER SATCOM',
-    ctaLink: '/aerospace-and-defence',
+    ctaLink: '/aerospace-and-defence/manufacturing-fabrication/satcom-components',
   }
 ];
 
 export default function AerospaceDefenceHero() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -132,8 +134,14 @@ export default function AerospaceDefenceHero() {
             >
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
                   <a
-                href={slide.ctaLink}
-                className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
+                  href={slide.ctaLink}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (slide.ctaLink && slide.ctaLink !== '#') {
+                      navigate(slide.ctaLink);
+                    }
+                  }}
+                  className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
               >
                 {/* Tactical Corner Accents */}
                 <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
