@@ -1253,7 +1253,7 @@ const PRODUCTS_DATA = [
     description: "Transforming Raw Data into Strategic Battlefield Advantage",
     desktopGridClass: "[grid-column:9/span_4] [grid-row:3]",
     showArrow: false,
-    target: '/',
+    target: '/defence-deeptech/ai-data/big-data-and-business-intelligence',
   },
 ];
 
