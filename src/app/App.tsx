@@ -661,13 +661,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
               })}
             </div>
             
-            <a 
-              href="#"
-              onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate(activeDomain.systems[0].products[0]?.slug || 'home'); }}
-              className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-[#84CC16] hover:text-white transition-colors"
-            >
-              View {activeDomain.title} <MiniArrow color="currentColor" />
-            </a>
+
           </div>
 
           {/* COLUMN 3: PRODUCTS */}
