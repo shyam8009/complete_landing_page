@@ -15,7 +15,7 @@ export function QuoteSection() {
         </h2>
         
         <div className="quote-text flex flex-col items-center gap-6">
-          <TechCTA>
+          <TechCTA onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
             CONTACT ELECTRONIC WARFARE SALES
           </TechCTA>
           
