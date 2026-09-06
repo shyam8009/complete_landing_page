@@ -45,7 +45,7 @@ export function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start w-full">
-                <TechCTA>
+                <TechCTA onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
                 Request Consultation
                 <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
               </TechCTA>

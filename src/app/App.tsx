@@ -2548,6 +2548,14 @@ export default function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const handleOpenModal = () => {
+      setIsContactModalOpen(true);
+    };
+    window.addEventListener('open-contact-modal', handleOpenModal);
+    return () => window.removeEventListener('open-contact-modal', handleOpenModal);
+  }, []);
+
   const handleContactClick = () => {
     if (location.pathname.startsWith('/investors')) {
       if (location.pathname === '/investors/key-contact') {

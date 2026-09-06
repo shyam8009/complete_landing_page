@@ -16,7 +16,7 @@ export function ClosingSection() {
         </h2>
         
         <div className="flex flex-col items-center justify-center gap-4">
-          <TechCTA>
+          <TechCTA onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
             REQUEST A CONSULTATION
             <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
           </TechCTA>

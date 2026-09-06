@@ -21,7 +21,7 @@ export function QuantumCTA() {
           CONTACT INFRASTRUCTURE DIVISION
         </TechCTA>
         
-        <a href="#" className="mt-8 text-white/40 hover:text-white/80 text-xs tracking-wide transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/50 uppercase">
+        <a href="#" className="mt-8 text-white/40 hover:text-white/80 text-xs tracking-wide transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/50 uppercase" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-contact-modal')); }}>
           Request Architecture Consultation
         </a>
       </div>

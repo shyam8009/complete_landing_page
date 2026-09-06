@@ -17,7 +17,7 @@ export function QuantumCTA() {
           CONTACT QUANTUM DIVISION
         </TechCTA>
         
-        <a href="#" className="text-white/40 hover:text-white/80 text-xs tracking-wide transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/50">
+        <a href="#" className="text-white/40 hover:text-white/80 text-xs tracking-wide transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/50" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-contact-modal')); }}>
           Schedule an Engineering Consultation
         </a>
       </div>
