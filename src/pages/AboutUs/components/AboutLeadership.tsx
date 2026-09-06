@@ -15,16 +15,16 @@ const LEADERSHIP = [
     linkedin: 'https://in.linkedin.com/in/dhaval-joshi-b8840939'
   },
   { 
+    name: 'Brig Rajiv Singh (Retd.)', 
+    role: 'Chief Strategy Officer', 
+    image: '/assets/leader_rajiv_singh.png',
+    linkedin: 'https://www.linkedin.com/in/brigadier-rajiv-singh-57356018/'
+  },
+  { 
     name: 'Yogesh Pajni', 
     role: 'Director - Defence Engineering, Technical & Production', 
     image: '/assets/leader_yogesh_pajni.png',
     linkedin: 'https://in.linkedin.com/in/yogesh-pajni-594321214'
-  },
-  { 
-    name: 'Brig Rajiv Singh (Retd.)', 
-    role: 'Chief Security Officer', 
-    image: '/assets/leader_rajiv_singh.png',
-    linkedin: 'https://www.linkedin.com/in/brigadier-rajiv-singh-57356018/'
   },
   { 
     name: 'Nikhil Mitaliya', 
