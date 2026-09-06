@@ -1,4 +1,5 @@
 ﻿import React, { useRef } from 'react';
+import { useNavigate } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -14,6 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 const surveillanceData = [
   {
     tag: "AI Analytics . Darknet Extraction",
+    url: "/information-warfare/intelligence-surveillance/open-source-intelligence-osint",
     title: "Open-Source Intelligence (OSINT)",
     desc: "An advanced, AI-powered intelligence platform that automates multi-source data extraction across 500+ channels. It empowers commanders with a zero-footprint digital intelligence collector that filters out internet noise to extract, analyze, and map complex threats in absolute operational secrecy.",
     features: [
@@ -26,6 +28,7 @@ const surveillanceData = [
   },
   {
     tag: "Electronic Intercept . Spectrum Dominance",
+    url: "/information-warfare/intelligence-surveillance/signal-intelligence",
     title: "Signal Intelligence (SIGINT)",
     desc: "Invisible exploitation of the electromagnetic spectrum. Our Signal Intelligence architecture provides the capability to intercept, analyze, and decrypt hostile electronic communications and radar emissions in real-time, delivering actionable tactical foresight.",
     features: [
@@ -38,6 +41,7 @@ const surveillanceData = [
   },
   {
     tag: "Threat Mapping . Vulnerability Audits",
+    url: "/information-warfare/intelligence-surveillance/comprehensive-security-assessment",
     title: "Comprehensive Security Assessment",
     desc: "A holistic, multi-vector evaluation of physical and digital security postures. We simulate advanced persistent threats (APTs) and kinetic breaches to identify critical vulnerabilities within infrastructure, networks, and operational protocols before adversaries can exploit them.",
     features: [
@@ -51,6 +55,7 @@ const surveillanceData = [
 ];
 
 export default function IntelligenceSurveillanceEcosystem() {
+  const navigate = useNavigate();
   const scrollContainer = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -146,7 +151,7 @@ export default function IntelligenceSurveillanceEcosystem() {
 
                     {/* CTA */}
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <TechCTA theme="dark">
+                      <TechCTA theme="dark" onClick={() => item.url && navigate(item.url)}>
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

@@ -1,4 +1,5 @@
 ﻿import React, { useRef } from 'react';
+import { useNavigate } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -17,6 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 const jammingData = [
   {
     tag: "60W Continuous Output . 1.5–2.0 km Range",
+    url: "/electronic-warfare/jamming-systems/handheld-jammer-infinity-spear",
     title: "INFINITY SPEAR",
     desc: "A state-of-the-art handheld Counter-Unmanned Aerial System (C-UAS) designed for military and security operations. It empowers dismounted tactical squads with a highly mobile shield capable of disabling hostile drones instantly without secondary heavy battery packs.",
     features: [
@@ -29,6 +31,7 @@ const jammingData = [
   },
   {
     tag: "7 km Directional . Anti-RTH Interdiction",
+    url: "/electronic-warfare/jamming-systems/manpack-jammer-infinity-rhino",
     title: "Manpack Jammer (Infinity Rhino)",
     desc: "A portable, cutting-edge solution engineered to deliver simultaneous long-range multi-band disruption and localized omnidirectional protection within a single-soldier portable frame.",
     features: [
@@ -41,6 +44,7 @@ const jammingData = [
   },
   {
     tag: "40+ Channels . 10 kg Portable Chassis",
+    url: "/electronic-warfare/jamming-systems/infinity-rhino-black",
     title: "Infinity Rhino Black",
     desc: "A specialized variant of the portable anti-drone manpack jammer, offering superior defense against modern aerial threats with an expansive multi-frequency coverage spanning 40+ individual channels.",
     features: [
@@ -53,6 +57,7 @@ const jammingData = [
   },
   {
     tag: "160W Power . Zu-23 Anti-Aircraft Integration",
+    url: "/electronic-warfare/jamming-systems/rhino-gen",
     title: "Rhino Gen Z 23",
     desc: "A highly versatile portable anti-drone jammer engineered to augment traditional kinetic anti-aircraft platforms. It provides an operational disruption range of up to 5 km utilizing multi-frequency channels.",
     features: [
@@ -65,6 +70,7 @@ const jammingData = [
   },
   {
     tag: "L70 Platform Integration . JSS 55555 Rated",
+    url: "/electronic-warfare/jamming-systems/butterfly-adg",
     title: "Butterfly ADG L70",
     desc: "Powered by the Sahana A.I. system, this solution integrates advanced jamming technology with the robust capabilities of the L70 Air Defence Gun to safeguard airspace in dynamic battlefield environments.",
     features: [
@@ -78,6 +84,7 @@ const jammingData = [
 ];
 
 export default function JammingSystemsEcosystem() {
+  const navigate = useNavigate();
   const scrollContainer = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -173,7 +180,7 @@ export default function JammingSystemsEcosystem() {
                     </div>
 
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <TechCTA theme="dark">
+                      <TechCTA theme="dark" onClick={() => item.url && navigate(item.url)}>
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -225,7 +226,7 @@ function TacticalConsoleCard({ data }: { data: CardData }) {
         </div>
 
         <div className="pt-6 mt-auto border-t border-slate-200">
-          <TechCTA theme="dark">
+          <TechCTA theme="dark" onClick={() => item.url && navigate(item.url)}>
             <span>Know More</span>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

@@ -1,4 +1,5 @@
 ﻿import React, { useRef } from 'react';
+import { useNavigate } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -14,6 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ecosystemData = [
   {
     tag: "NLP . Voice Command . Conversational AI",
+    url: "/defence-deeptech/ai-data/chatbots-and-voice-solution",
     title: "Chatbots and Voice Solution",
     desc: "Secure, military-grade conversational AI and voice recognition systems designed for tactical environments. Overcome cognitive overload by enabling operators to interact with complex databases and command systems using natural language.",
     features: [
@@ -25,6 +27,7 @@ const ecosystemData = [
   },
   {
     tag: "Data Fusion . Predictive Analytics . OSINT",
+    url: "/defence-deeptech/ai-data/big-data-and-business-intelligence",
     title: "Big Data and Business Intelligence",
     desc: "Transform fragmented, high-velocity data into a unified operational picture. Our BI architecture ingests massive datasets from radar, OSINT, and logistics networks to expose hidden tactical patterns and supply chain vulnerabilities.",
     features: [
@@ -36,6 +39,7 @@ const ecosystemData = [
   },
   {
     tag: "Machine Learning . Neural Networks . Automation",
+    url: "/defence-deeptech/ai-data/artificial-intelligence",
     title: "Artificial Intelligence",
     desc: "Deploy advanced algorithmic warfare capabilities. We build, train, and deploy custom machine learning models and neural networks that automate target recognition, optimize communication arrays, and accelerate decision-making cycles.",
     features: [
@@ -156,7 +160,7 @@ export function TechEcosystem() {
 
                     {/* CTA */}
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <TechCTA theme="dark">
+                      <TechCTA theme="dark" onClick={() => item.url && navigate(item.url)}>
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

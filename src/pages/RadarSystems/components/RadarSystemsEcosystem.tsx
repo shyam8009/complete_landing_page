@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router';
 import { Link } from 'react-router';
 import { TechCTA } from '@/components/TechCTA';
 import bgGrid from '@/imports/spear_cad_blueprint.png';
@@ -57,6 +58,7 @@ const radarSystemsData = [
 ];
 
 export default function RadarSystemsEcosystem() {
+  const navigate = useNavigate();
   const containerRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -173,7 +175,7 @@ export default function RadarSystemsEcosystem() {
 
                     {/* CTA */}
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <TechCTA theme="dark">
+                      <TechCTA theme="dark" onClick={() => item.url && navigate(item.url)}>
   <span>Know More</span>
   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

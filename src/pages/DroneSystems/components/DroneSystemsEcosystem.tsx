@@ -1,4 +1,5 @@
 ﻿import React, { useRef } from 'react';
+import { useNavigate } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -14,6 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 const droneSystemsData = [
   {
     tag: "Scalable Frame Architectures . Heavy Lift",
+    url: "/electronic-warfare/drone-systems/sahana-fpv-drone-buddy",
     title: "Sahana FPV Drone Buddy",
     desc: "A tactical FPV drone family engineered for real-time aerial surveillance, reconnaissance, and field operations across contested electronic warfare environments. Built across three distinct frame sizes (10\", 13\", and 15\"), it provides resilient oversight in heavily jammed theaters.",
     features: [
@@ -26,6 +28,7 @@ const droneSystemsData = [
   },
   {
     tag: "400 kmph Kinetic Interceptor . Counter-UAS",
+    url: "/electronic-warfare/drone-systems/fpv-bullseye-interceptor",
     title: "Sahana FPV Bullseye & Interceptor",
     desc: "A high-speed FPV drone and kinetic interceptor engineered for rapid-response counter-UAS operations and tactical aerial neutralization. Built with an aerodynamic tubular carbon-fiber chassis, it neutralizes incoming airborne threats while providing real-time situational awareness.",
     features: [
@@ -38,6 +41,7 @@ const droneSystemsData = [
   },
   {
     tag: "Anti-Jamming . ISM-to-non-ISM Conversion",
+    url: "/electronic-warfare/drone-systems/sahana-proxy-control-channel",
     title: "Sahana PROXY — Control Channel",
     desc: "A long-range, interference-resistant control channel and band conversion kit designed to maintain telemetry and video links in heavily jammed or contested electronic warfare environments.",
     features: [
@@ -51,6 +55,7 @@ const droneSystemsData = [
 ];
 
 export default function DroneSystemsEcosystem() {
+  const navigate = useNavigate();
   const scrollContainer = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -158,7 +163,7 @@ export default function DroneSystemsEcosystem() {
 
                     {/* CTA */}
                     <div className="pt-5 mt-auto border-t border-slate-200">
-                      <TechCTA theme="dark">
+                      <TechCTA theme="dark" onClick={() => item.url && navigate(item.url)}>
                         <span>Know More</span>
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
