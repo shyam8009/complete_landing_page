@@ -51,7 +51,8 @@ export const cmsDb = {
         cards: [
           {
             tag: "RFD1 · RG-QD · RF-Model / HVN S4",
-            title: "Wideband RF Detectors",
+            url: "/electronic-warfare/radar-systems/wideband-rf-detectors",
+              title: "Wideband RF Detectors",
             description: "Detection hardware built for the full RF spectrum...",
             statusBadge: "DEFENCE GRADE · ACTIVE",
             freqRange: "100 MHz – 40 GHz",
@@ -60,7 +61,8 @@ export const cmsDb = {
           },
           {
             tag: "TWPAs · HEMT Amps · IQ Mixers",
-            title: "Quantum Microwave Devices",
+            url: "/quantum-technology-solutions/quantum-sensing/quantum-microwave-devices",
+              title: "Quantum Microwave Devices",
             description: "The amplification and signal-conditioning layer quantum systems run on.",
             statusBadge: "CRYOGENIC CAPABLE",
             freqRange: "4K – 300K Operating",
@@ -78,7 +80,8 @@ export const cmsDb = {
           },
           {
             tag: "DaaS / Mission Scale",
-            title: "Quantum Drone",
+            url: "/quantum-technology-solutions/quantum-sensing/quantum-drone",
+              title: "Quantum Drone",
             description: "Quantum-enabled drone systems built for contested and GPS-denied environments.",
             statusBadge: "MISSION READY",
             freqRange: "GPS-Denied Nav",
@@ -87,7 +90,8 @@ export const cmsDb = {
           },
           {
             tag: "Quantum Limit Precision",
-            title: "Quantum Clock Source",
+            url: "/quantum-technology-solutions/quantum-sensing/quantum-clock-source",
+              title: "Quantum Clock Source",
             description: "Precision timing at the quantum limit.",
             statusBadge: "SOVEREIGN TIMING",
             freqRange: "Allan Dev < 1×10⁻¹²",
@@ -178,21 +182,24 @@ export const cmsDb = {
         cards: [
           {
             tag: "AI Analytics . Darknet Extraction",
-            title: "Open-Source Intelligence (OSINT)",
+            url: "/information-warfare/intelligence-surveillance/open-source-intelligence-osint",
+              title: "Open-Source Intelligence (OSINT)",
             description: "An advanced, AI-powered intelligence platform that automates multi-source data extraction.",
             specs: ["Simultaneously draws live data feeds from standard web channels, public blockchains, and deep Dark Web marketplaces.", "Powered by a rich backend combining over 1000 advanced algorithmic search methods.", "Integrates machine-learning-driven facial recognition to match individuals within visual contents effortlessly.", "Built on secure anonymity architecture that completely shields the user's IP and digital signatures."],
             img: isOsint
           },
           {
             tag: "Electronic Intercept . Spectrum Dominance",
-            title: "Signal Intelligence (SIGINT)",
+            url: "/information-warfare/intelligence-surveillance/signal-intelligence",
+              title: "Signal Intelligence (SIGINT)",
             description: "Invisible exploitation of the electromagnetic spectrum.",
             specs: ["Continuous monitoring and interception across wideband communication networks and encrypted channels.", "Precision direction-finding (DF) to geolocate hostile emitters and command nodes.", "Advanced modulation recognition and signal classification powered by machine learning algorithms.", "Rapid deployment form factors ranging from fixed infrastructure to mobile tactical units."],
             img: isSigint
           },
           {
             tag: "Threat Mapping . Vulnerability Audits",
-            title: "Comprehensive Security Assessment",
+            url: "/information-warfare/intelligence-surveillance/comprehensive-security-assessment",
+              title: "Comprehensive Security Assessment",
             description: "A holistic, multi-vector evaluation of physical and digital security postures.",
             specs: ["Full-spectrum red-teaming encompassing physical perimeter breaches and cyber intrusion testing.", "Detailed risk matrix generation mapping internal and external threat vectors.", "Compliance and resilience benchmarking against global defense and intelligence standards.", "Actionable mitigation roadmaps to harden infrastructure and eliminate blind spots."],
             img: isSecurity
@@ -225,14 +232,16 @@ export const cmsDb = {
         cards: [
           {
             tag: "1000+ Tracks . 2D/3D Spatial Mapping",
-            title: "FUSION Core AI Command & Control (C2)",
+            url: "/information-warfare/command-control/fusion-core-ai-command-and-control-c2",
+              title: "FUSION Core AI Command & Control (C2)",
             description: "An advanced AI-driven Command and Control (C2) system designed for enhanced surveillance, seamless sensor integration, and real-time situational awareness.",
             specs: ["Simultaneously tracks over 1000+ objects in real-time, integrating Blue Force tracking for complete spatial dominance.", "2D Operational Mapping and 3D Situational Awareness Mapping to grasp terrain elevation, obstacles, and tactical high ground.", "User-defined Custom Protection Zones trigger smart audio/visual alarms the moment perimeters are breached.", "Automated target tracking and camera handover loops ensure continuous coverage with minimal operator input."],
             img: c2Fusion
           },
           {
             tag: "Tactical Signal Intercept . Spectrum Exploitation",
-            title: "Interception System",
+            url: "/information-warfare/command-control/interception-system",
+              title: "Interception System",
             description: "A tactical electronic warfare asset engineered for covert monitoring and real-time exploitation of hostile communications.",
             specs: ["Wideband frequency monitoring with automatic modulation classification for instant threat detection.", "Real-time decryption and signal extraction from tactical radio and RF transmission channels.", "Integrated Direction-Finding (DF) routines to geolocate hostile emitters on tactical C2 maps.", "Direct data pipeline integration into FUSION Core AI C2 for rapid countermeasure targeting."],
             img: c2Interception
@@ -265,14 +274,16 @@ export const cmsDb = {
         cards: [
           {
             tag: "Spectrum Dominance . Wideband Interception",
-            title: "Radio Monitoring and Location Portfolio",
+            url: "/information-warfare/communication-monitoring/radio-monitoring-and-location-portfolio",
+              title: "Radio Monitoring and Location Portfolio",
             description: "A comprehensive suite of advanced receivers and monitoring systems engineered to detect, intercept, and analyze complex radio frequency (RF) emissions across congested spectrums.",
             specs: ["Real-time wideband monitoring spanning VLF to SHF frequency bands.", "Automated signal classification, demodulation, and decoding of hostile transmissions.", "Multi-channel interception architecture enabling simultaneous tracking of diverse threat vectors.", "Seamless data pipeline integration into overarching strategic Command and Control (C2) networks."],
             img: cmRadio
           },
           {
             tag: "Precision Geolocation . Tactical DF",
-            title: "Direction Finders",
+            url: "/information-warfare/communication-monitoring/direction-finders",
+              title: "Direction Finders",
             description: "High-precision tactical direction finding (DF) systems designed to instantly geolocate hostile emitters.",
             specs: ["Rapid geolocation of frequency-hopping, burst, and low-probability-of-intercept (LPI) transmissions.", "Highly adaptable deployment options across fixed infrastructure, mobile land units, and airborne platforms.", "High-resolution spatial mapping of RF targets with real-time tactical map overlays.", "Integrated 3D terrain compensation algorithms to eliminate multi-path errors and improve fix accuracy."],
             img: cmDirection
