@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import signalImg from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_1sfdbBur4r.png';
-import powerImg from '../../../imports/rhino-z23/Asset 1.png';
-import remoteImg from '../../../imports/infinity-rhino/magnific_extreme-closeup-macro-pho_CHdnhd8EEy.png';
+import signalImg from '../../../imports/rhino-z23/multi_freq.webp';
+import powerImg from '../../../imports/rhino-z23/op_disruption.webp';
+import remoteImg from '../../../imports/rhino-z23/standoff_ops.webp';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [

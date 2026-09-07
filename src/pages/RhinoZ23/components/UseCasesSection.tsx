@@ -1,9 +1,9 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import gunImg from '../../../imports/arsenal_facility.jpg';
-import infantryImg from '../../../imports/infinity-rhino/magnific_professional-editorialtac_wPKaCMd7EI.jpeg';
-import infrastructureImg from '../../../imports/corporate_house_1.jpg';
+import gunImg from '../../../imports/rhino-z23/tac_01.webp';
+import infantryImg from '../../../imports/rhino-z23/tac_02.webp';
+import infrastructureImg from '../../../imports/rhino-z23/tac_03.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
