@@ -1352,10 +1352,9 @@ function Arsenal1Section() {
       {/* header */}
       <div className="px-4 sm:px-6 md:px-9 flex items-end justify-between">
         <h2
-          className="text-white text-3xl md:text-4xl tracking-tight"
-          style={{ fontFamily: INTER, fontWeight: 400 }}
+          className="text-white/80 text-xs sm:text-sm md:text-sm font-mono uppercase tracking-[0.14em]"
         >
-          R&amp;D Facility
+          Engineering Sovereign Advantage through integrated capabilities
         </h2>
       </div>
 
