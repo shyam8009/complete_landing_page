@@ -1184,7 +1184,7 @@ const PRODUCTS_DATA = [
     image: sensorDomeImg,
     name: "Electro Optics",
     subtitle: "Eyes on the Mission.",
-    description: "A precision sensing payload designed to deliver real-time visual intelligence in dynamic operational environments. Engineered for reconnaissance, target observation, and mission awareness, Infinity Optics enhances decision-making with reliable surveillance and persistent situational visibility.",
+    description: "Advanced electro-optical and infrared sensing payloads designed to deliver real-time visual intelligence in dynamic operational environments. Engineered for reconnaissance, target observation, and mission awareness, our Electro Optics systems enhance decision-making with reliable, persistent situational visibility.",
     desktopGridClass: "[grid-column:1/span_4] [grid-row:1]",
     showArrow: true,
     target: '/electronic-warfare/electro-optics',
