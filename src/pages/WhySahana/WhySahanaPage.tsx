@@ -17,7 +17,7 @@ export function WhySahanaPage() {
     <main className="min-h-screen font-sans selection:bg-[#84CC16] selection:text-black pt-[86px]">
       
       {/* 1. HERO SECTION - LIGHT THEME */}
-      <section className="relative w-full bg-white text-black py-20 lg:py-32 overflow-hidden">
+      <section className="relative w-full bg-gray-50 text-black py-20 lg:py-32 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-9 flex flex-col lg:flex-row items-center gap-16">
           <div className="flex-1 relative z-10">
             <div className="inline-block px-4 py-1.5 bg-black/5 rounded-full text-xs font-bold tracking-widest uppercase mb-8">
@@ -58,7 +58,7 @@ export function WhySahanaPage() {
         </div>
 
         {/* Feature 1: Indigenous - White */}
-        <div className="w-full bg-white py-24">
+        <div className="w-full bg-gray-50 py-24">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-9 flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1 order-2 md:order-1">
               <img src={indigenousImg} alt="Indigenous by Design" className="w-full aspect-[4/3] object-cover rounded-xl shadow-lg" />
@@ -90,7 +90,7 @@ export function WhySahanaPage() {
         </div>
 
         {/* Feature 3: Ecosystems - White */}
-        <div className="w-full bg-white py-24">
+        <div className="w-full bg-gray-100 py-24">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-9 flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1 order-2 md:order-1">
               <img src={ecosystemImg} alt="Mission Ecosystems" className="w-full aspect-[4/3] object-cover rounded-xl shadow-lg" />
@@ -153,30 +153,30 @@ export function WhySahanaPage() {
         </div>
       </section>
 
-      {/* 4. CTA SECTION - LIGHT THEME */}
-      <section className="py-32 bg-white text-black border-t border-black/10">
+      {/* 4. CTA SECTION */}
+      <section className="py-32 bg-[#0a0a0a] text-white border-t border-white/10">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 md:px-9 text-center">
           <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#84CC16] mb-8">Ready to explore strategic collaboration?</h2>
           <h3 className="text-3xl sm:text-4xl font-light leading-snug mb-8">
             We believe the future belongs to organizations that can sense faster, decide with clarity, and act with precision. Sahana Defence is building the technologies that make that possible.
           </h3>
-          <p className="text-xl sm:text-2xl text-black font-serif italic mb-10">
+          <p className="text-xl sm:text-2xl text-white font-serif italic mb-10">
             "Engineering the future. Securing the mission."
           </p>
-          <p className="text-black/60 mb-12 text-lg">
+          <p className="text-white/60 mb-12 text-lg">
             Whether you are a defence organization, government agency, critical infrastructure operator, aerospace institution, or industry partner, we welcome the opportunity to discuss mission-driven technology solutions.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <button 
               onClick={() => window.dispatchEvent(new Event('open-contact-modal'))}
-              className="px-8 py-4 bg-black text-white text-sm font-bold tracking-widest uppercase hover:bg-[#84CC16] hover:text-black transition-colors"
+              className="px-8 py-4 bg-[#84CC16] text-black text-sm font-bold tracking-widest uppercase hover:bg-white transition-colors"
             >
               Contact Us
             </button>
             <button 
               onClick={() => window.open('/assets/Sahana_Defence_Corporate_Deck.pdf', '_blank')}
-              className="px-8 py-4 bg-transparent border-2 border-black text-black text-sm font-bold tracking-widest uppercase hover:bg-black hover:text-white transition-colors"
+              className="px-8 py-4 bg-transparent border-2 border-white/30 text-white text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-colors"
             >
               Explore Our Capabilities
             </button>
