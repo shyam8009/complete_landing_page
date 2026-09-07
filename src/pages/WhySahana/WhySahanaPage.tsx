@@ -175,7 +175,7 @@ export function WhySahanaPage() {
               Contact Us
             </button>
             <button 
-              onClick={() => window.location.href = '/'}
+              onClick={() => window.open('/assets/Sahana_Defence_Corporate_Deck.pdf', '_blank')}
               className="px-8 py-4 bg-transparent border-2 border-black text-black text-sm font-bold tracking-widest uppercase hover:bg-black hover:text-white transition-colors"
             >
               Explore Our Capabilities
