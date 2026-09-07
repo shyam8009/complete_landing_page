@@ -1,0 +1,34 @@
+================================================================================
+                        UNUSED ASSETS CLEANUP LOG
+================================================================================
+
+Timestamp: 2026-09-07 11:24:30 UTC
+Target File Extensions: .webp, .mp4, .gif, .psd, .jpg, .jpeg, .png, .svg, .ico, .glb, .gltf
+Total Assets Identified in Project: 1279
+Directly Referenced Assets: 687
+Dynamically Protected Assets: 592
+Total Newly Moved Unused Assets: 0
+Total Estimated Size Reduced: 0.00 MB
+
+--------------------------------------------------------------------------------
+1. NEWLY ISOLATED UNUSED FILES (MOVED TO /junk)
+--------------------------------------------------------------------------------
+No remaining unreferenced asset files found. All assets currently in public/ and src/ are actively in use.
+
+--------------------------------------------------------------------------------
+2. WARNINGS & DYNAMICALLY PRESERVED ASSETS
+--------------------------------------------------------------------------------
+The following asset groups and dynamic sequence directories were identified and explicitly PRESERVED in place to protect runtime functionality:
+
+1. Dynamic 360 / Canvas Frame Sequences:
+   - public/frames/ : 322 frame files (Home page scroll hero animation: frame_0001.webp - frame_0322.webp)
+   - public/fpv-buddy-360/ : 73 frame files (FPV Buddy Interactive 360 viewer sequence)
+   - public/infinity-rhino-black-360/ : 86 frame files (Infinity Rhino Black Interactive 360 viewer sequence)
+   - public/infinity-spear-360/ : 96 frame files (Infinity Spear Interactive 360 viewer sequence)
+
+2. Dynamic Partial / Brand Matching Assets (Retained in project):
+   - clientele/Panasonic.png, Toshiba.png, Rolls-Royce.png (referenced dynamically in alliance lists)
+   - Our_Knowledge_Collaborations_logo_02 (clientele collaboration sections)
+   - Space & Satellite (defence sector categories)
+
+================================================================================
