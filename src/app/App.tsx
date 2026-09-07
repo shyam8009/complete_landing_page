@@ -64,6 +64,7 @@ import { RydbergAtomQuantumSensorsPage } from '../pages/RydbergAtomQuantumSensor
 import { QuantumDronePage } from '../pages/QuantumDrone/QuantumDronePage';
 import { QuantumClockSourcePage } from '../pages/QuantumClockSource/QuantumClockSourcePage';
 import AboutUsPage from '../pages/AboutUs/AboutUsPage';
+import { WhySahanaPage } from '../pages/WhySahana/WhySahanaPage';
 import ClientelePage from '../pages/Clientele/ClientelePage';
 import { CAPABILITIES_DATA } from './capabilities_data';
 import { CanvasScrollHero } from '../components/CanvasScrollHero';
