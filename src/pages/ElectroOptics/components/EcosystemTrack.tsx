@@ -5,14 +5,13 @@ import { useGSAP } from '@gsap/react';
 import { ArrowRight, Check } from 'lucide-react';
 
 import bgGrid from '@/imports/spear_cad_blueprint.png'; 
-import imgHugo from '@/imports/electro-optics/Hugo - Triton.png';
-import imgNubra from '@/imports/electro-optics/Nubra - Rogue.png';
-import imgSalte from '@/imports/electro-optics/Salte - Atlas.png';
-import imgOslo from '@/imports/electro-optics/Oslo - Neptune.png';
-import imgIncas from '@/imports/electro-optics/Incas - Sentry.png';
-import imgYoto from '@/imports/electro-optics/Yoto - Sigma.png';
-import imgTroy from '@/imports/electro-optics/Troy - Vega.png';
-import imgAlta from '@/imports/electro-optics/Alta - Arc.png';
+import imgHugo from '@/imports/electro-optics/Hugo.webp';
+import imgNubra from '@/imports/electro-optics/Nubra.webp';
+import imgSalte from '@/imports/electro-optics/Salte.webp';
+import imgOslo from '@/imports/electro-optics/Oslo.webp';
+import imgIncas from '@/imports/electro-optics/Incas.webp';
+import imgYoto from '@/imports/electro-optics/Yoto.webp';
+import imgTroy from '@/imports/electro-optics/Troy.webp';
 import { TechCTA } from '@/components/TechCTA';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -101,18 +100,6 @@ const CARDS = [
       'Rapid motorized targeting'
     ],
     img: imgTroy
-  },
-  {
-    id: 'alta',
-    tag: 'Heavy-Duty . Precision Positioner',
-    title: 'Alta',
-    desc: 'A heavy-duty, high-precision pan-tilt positioner built to carry massive multi-sensor payloads—including SWIR, continuous zoom thermal, and long-range ZLID illumination—with absolute zero-backlash accuracy.',
-    bullets: [
-      'Supports extreme payload weights',
-      'Absolute encoder positioning',
-      'Modular payload brackets for custom sensor suites'
-    ],
-    img: imgAlta
   }
 ];
 
