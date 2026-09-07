@@ -55,7 +55,7 @@ export default function DynamicHero({ data }: { data: any }) {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </TechCTA>
-                <TechCTA>
+                <TechCTA onClick={() => window.open('/assets/Sahana_Defence_Corporate_Deck.pdf', '_blank')}>
                   DOWNLOAD CAPABILITY BROCHURE
                 </TechCTA>
               </div>

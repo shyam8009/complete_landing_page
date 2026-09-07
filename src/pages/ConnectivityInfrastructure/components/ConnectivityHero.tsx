@@ -94,7 +94,7 @@ export function ConnectivityHero() {
                 <TechCTA>
                 ARCHITECT YOUR INFRASTRUCTURE
               </TechCTA>
-                <TechCTA>
+                <TechCTA onClick={() => window.open('/assets/Sahana_Defence_Corporate_Deck.pdf', '_blank')}>
                   DOWNLOAD CAPABILITY BROCHURE
                 </TechCTA>
               </div>

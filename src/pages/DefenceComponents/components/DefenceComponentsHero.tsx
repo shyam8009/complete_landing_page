@@ -73,7 +73,7 @@ export function DefenceComponentsHero() {
               REQUEST COMPONENT QUOTE
               <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
             </TechCTA>
-                <TechCTA>
+                <TechCTA onClick={() => window.open('/assets/Sahana_Defence_Corporate_Deck.pdf', '_blank')}>
                   DOWNLOAD CAPABILITY BROCHURE
                 </TechCTA>
               </div>
