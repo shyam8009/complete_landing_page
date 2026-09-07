@@ -1266,6 +1266,9 @@ function VisionSection() {
         <h2 className="text-white text-3xl sm:text-5xl md:text-6xl tracking-tight leading-[1.1] max-w-[800px]" style={{ fontFamily: INTER, fontWeight: 400 }}>
           Securing the Future<br />Through Sovereign<br />Defence Innovation.
         </h2>
+        <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-[800px] mt-6 leading-relaxed font-light">
+          Sahana Defence develops sovereign, AI-enabled defence technologies that connect sensing, intelligence and response across air, maritime, space and critical infrastructure domains.
+        </p>
         <div className="mt-8 flex gap-8">
           <div className="flex flex-col gap-1">
             <span className="text-[#84CC16] text-[10px] font-bold tracking-[2px] uppercase">DEPLOYMENT</span>
