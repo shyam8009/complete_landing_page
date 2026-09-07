@@ -410,6 +410,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
   // For Capabilities Mega Menu specifically
   const [activeDomain, setActiveDomain] = useState(CAPABILITIES_DATA[0]);
   const [activeInvestorSection, setActiveInvestorSection] = useState(INVESTORS_DATA[0] || {} as any);
+  const [activeAboutSection, setActiveAboutSection] = useState(ABOUT_US_DATA[0] || {} as any);
   const [activeSystem, setActiveSystem] = useState(CAPABILITIES_DATA[0].systems[0]);
 
   // For Mobile Accordion
@@ -869,68 +870,60 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
         onMouseEnter={() => handleMouseEnter('About Us')}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="max-w-[1200px] w-full mx-auto flex h-auto p-8 gap-8 justify-center">
+        <div className="max-w-[1200px] w-full mx-auto flex h-auto p-0 border-l border-white/5 relative">
           
-          {/* Card 1: About Sahana Defence */}
-          <div 
-            onClick={() => { setHoveredNav(null); if (navigate) navigate('/about-us'); }}
-            className="group relative flex-1 max-w-[480px] p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#84CC16]/60 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer flex flex-col justify-between"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-bold text-[#84CC16]">
-                  CORPORATE OVERVIEW
-                </span>
-                <div className="w-9 h-9 rounded-xl bg-[#84CC16]/10 text-[#84CC16] flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#84CC16] transition-colors">
-                About Sahana Defence
-              </h3>
-              <p className="text-xs text-white/60 leading-relaxed">
-                Discover our sovereign mission, leadership team, advanced engineering facilities, and deeptech roadmap.
-              </p>
-            </div>
-            <div className="mt-8 flex items-center gap-2 text-xs font-mono font-bold text-[#84CC16] uppercase tracking-wider">
-              <span>View About Us</span>
-              <MiniArrow color="#84CC16" />
+          {/* COLUMN 1 */}
+          <div className="lg:w-[40%] xl:w-[500px] border-r border-white/5 p-6 bg-black/20 flex flex-col relative">
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#84CC16] mb-4">DISCOVER</h4>
+            <div className="grid grid-cols-1 gap-y-1 flex-1 pr-2">
+              {ABOUT_US_DATA.map((section: any) => {
+                const isActive = activeAboutSection.id === section.id;
+                return (
+                  <div 
+                    key={section.id}
+                    onMouseEnter={() => setActiveAboutSection(section)}
+                    onClick={() => {
+                      if (section.url) {
+                        setHoveredNav(null);
+                        if (navigate) navigate(section.url);
+                      }
+                    }}
+                    className={`flex items-start gap-2 p-3 rounded-md cursor-pointer transition-all duration-300 ${isActive ? "bg-white/10" : "hover:bg-white/5"}`}
+                  >
+                    <div className="flex-1">
+                      <h3 className={`font-bold text-[13px] uppercase tracking-wider ${isActive ? "text-[#84CC16]" : "text-white/80"}`}>{section.title}</h3>
+                    </div>
+                    {isActive && <div className="text-[#84CC16] mt-0.5"><MiniArrow color="#84CC16" /></div>}
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          {/* Card 2: Clientele & Strategic Alliances */}
-          <div 
-            onClick={() => { setHoveredNav(null); if (navigate) navigate('/clientele'); }}
-            className="group relative flex-1 max-w-[480px] p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#84CC16]/60 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer flex flex-col justify-between"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-bold text-[#84CC16]">
-                  SOVEREIGN ALLIANCES
-                </span>
-                <div className="w-9 h-9 rounded-xl bg-[#84CC16]/10 text-[#84CC16] flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#84CC16] transition-colors">
-                Clientele &amp; Strategic Alliances
-              </h3>
-              <p className="text-xs text-white/60 leading-relaxed">
-                Explore our 66+ partner emblems across Armed Forces, ISRO, Defence PSUs, Aerospace leaders, and IIT R&amp;D labs.
-              </p>
-            </div>
-            <div className="mt-8 flex items-center gap-2 text-xs font-mono font-bold text-[#84CC16] uppercase tracking-wider">
-              <span>View Clientele Directory</span>
+          {/* COLUMN 2 */}
+          <div className="flex-1 border-r border-white/5 p-6 bg-black/40 flex flex-col relative">
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white/50 mb-4 flex items-center gap-2">
+              <span className="text-[#84CC16]">{activeAboutSection.title?.toUpperCase()}</span>
+            </h4>
+            
+            <p className="text-[14px] text-white/70 leading-relaxed mb-8 max-w-[400px]">
+              {activeAboutSection.description}
+            </p>
+
+            <a 
+              href="#"
+              onClick={(e) => { 
+                e.preventDefault(); 
+                if (activeAboutSection.url) {
+                  setHoveredNav(null); 
+                  if (navigate) navigate(activeAboutSection.url); 
+                }
+              }}
+              className="mt-6 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/60 hover:text-white transition-colors"
+            >
+              {activeAboutSection.cta}
               <MiniArrow color="#84CC16" />
-            </div>
+            </a>
           </div>
 
         </div>
@@ -1025,21 +1018,16 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
             </div>
             {mobileAboutOpen && (
               <div className="flex flex-col gap-2 pl-4 py-4 border-l border-white/10 mt-4">
-                <a 
-                  href="#"
-                  className="text-[14px] text-white/80 hover:text-white py-2"
-                  onClick={(e) => { e.preventDefault(); if (navigate) navigate("/about-us"); setMobileOpen(false); }}
-                >
-                  Company Overview &amp; Mission
-                </a>
-                <a 
-                  href="#"
-                  className="text-[14px] text-[#84CC16] font-bold py-2 flex items-center justify-between"
-                  onClick={(e) => { e.preventDefault(); if (navigate) navigate("/clientele"); setMobileOpen(false); }}
-                >
-                  <span>Clientele &amp; Strategic Alliances</span>
-                  <span className="px-2 py-0.5 rounded text-[10px] bg-[#84CC16]/20 text-[#84CC16] uppercase font-mono">Directory</span>
-                </a>
+                {ABOUT_US_DATA.map((section: any) => (
+                  <a 
+                    key={section.id}
+                    href="#"
+                    className="text-[14px] text-white/80 hover:text-white py-2"
+                    onClick={(e) => { e.preventDefault(); if (navigate) navigate(section.url); setMobileOpen(false); }}
+                  >
+                    {section.title}
+                  </a>
+                ))}
               </div>
             )}
           </div>
@@ -2643,6 +2631,7 @@ export default function App() {
           <Route path="/newsroom" element={<NewsroomPage onContactClick={handleContactClick} />} />
           <Route path="/clientele" element={<ClientelePage onContactClick={handleContactClick} />} />
           <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/why-sahana" element={<WhySahanaPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>
         <Footer onContactClick={handleContactClick} />
