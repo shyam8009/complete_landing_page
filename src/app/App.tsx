@@ -1757,7 +1757,7 @@ function FooterCol({ label, links }: { label: string; links: { label: string; ur
 function Footer({ onContactClick }: { onContactClick?: () => void }) {
   const navigate = useNavigate();
   return (
-    <footer className="w-full bg-black pt-16 pb-16 flex flex-col gap-20">
+    <footer className="w-full bg-[#1a1a1a] pt-16 pb-16 flex flex-col gap-20">
       {/* top nav columns */}
       <div className="px-4 sm:px-6 md:px-9 grid grid-cols-2 gap-8 md:flex md:flex-row md:flex-wrap md:justify-between md:gap-10">
         {/* logo & contact */}
