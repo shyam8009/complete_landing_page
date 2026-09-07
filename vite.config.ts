@@ -41,4 +41,38 @@ export default defineConfig({
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
+  build: {
+    emptyOutDir: false,
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          const originalName = assetInfo.originalFileNames?.[0] || assetInfo.names?.[0] || ''
+          const normalized = originalName.replace(/\\/g, '/')
+          
+          if (normalized.endsWith('.css')) {
+            return 'assets/css/[name]-[hash][extname]'
+          }
+
+          // If asset is inside src/imports/<page-or-module>/
+          const importsMatch = normalized.match(/src\/imports\/([^/]+)\//)
+          if (importsMatch) {
+            const pageFolder = importsMatch[1]
+            return `assets/${pageFolder}/[name]-[hash][extname]`
+          }
+
+          // If asset is inside src/pages/<page-name>/
+          const pagesMatch = normalized.match(/src\/pages\/([^/]+)\//)
+          if (pagesMatch) {
+            const pageFolder = pagesMatch[1]
+            return `assets/${pageFolder}/[name]-[hash][extname]`
+          }
+
+          // Fallback common assets folder
+          return 'assets/common/[name]-[hash][extname]'
+        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+      },
+    },
+  },
 })
