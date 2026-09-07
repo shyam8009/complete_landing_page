@@ -197,6 +197,34 @@ function UnderlineLink({
 
 
 
+
+const ABOUT_US_DATA = [
+  {
+    id: 'corporate-overview',
+    title: 'Corporate Overview',
+    description: 'Discover our sovereign mission, leadership team, advanced engineering facilities, and deeptech roadmap.',
+    url: '/about-us',
+    links: [],
+    cta: 'View Overview'
+  },
+  {
+    id: 'why-sahana',
+    title: 'Why Sahana',
+    description: 'Engineering Sovereign Advantage through integrated capabilities and indigenous, AI-enabled technologies.',
+    url: '/why-sahana',
+    links: [],
+    cta: 'Learn More'
+  },
+  {
+    id: 'clientele',
+    title: 'Clientele & Alliances',
+    description: 'Explore our strategic partnerships, joint ventures, and global clientele across defence and aerospace domains.',
+    url: '/clientele',
+    links: [],
+    cta: 'View Alliances'
+  }
+];
+
 const INVESTORS_DATA = [
   {
     id: 'annual-reports',
