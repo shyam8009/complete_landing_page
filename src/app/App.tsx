@@ -1282,7 +1282,7 @@ function ProductsSection() {
     <section className="relative z-10 w-full px-4 sm:px-6 md:px-9 pt-12 pb-16 bg-black/60 backdrop-blur-md">
       {/* Section header — centered & spaced category taxonomy bar */}
       <div className="w-full pb-4 mb-6 border-b border-white/10 flex justify-center">
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 md:gap-10 lg:gap-12 text-xs sm:text-sm md:text-sm font-mono uppercase tracking-[0.14em] text-white/80">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 md:gap-10 lg:gap-12 text-sm sm:text-base md:text-base font-mono uppercase tracking-[0.14em] text-white/80">
           <span className="hover:text-white transition-colors">Electronic &amp; Information Warfare</span>
           <span className="text-white/30 hidden sm:inline">|</span>
           <span className="hover:text-white transition-colors">Aerospace</span>
@@ -1340,7 +1340,7 @@ function Arsenal1Section() {
       {/* header */}
       <div className="px-4 sm:px-6 md:px-9 flex items-end justify-between">
         <h2
-          className="text-white/80 text-xs sm:text-sm md:text-sm font-mono uppercase tracking-[0.14em]"
+          className="text-white/80 text-sm sm:text-base md:text-base font-mono uppercase tracking-[0.14em]"
         >
           Engineering Sovereign Advantage through integrated capabilities
         </h2>
