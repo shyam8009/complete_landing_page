@@ -1,9 +1,9 @@
-﻿import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import vipImg from '../../../imports/corporate_house_1.jpg';
-import fobImg from '../../../imports/arsenal_facility.jpg';
-import infrastructureImg from '../../../imports/innovation_5.jpg';
+import vipImg from '../../../imports/infinity-spear/vip_protection.webp';
+import fobImg from '../../../imports/infinity-spear/forward_operating_base_defense.webp';
+import infrastructureImg from '../../../imports/infinity-spear/critical_infrastructure_security.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

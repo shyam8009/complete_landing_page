@@ -1,8 +1,8 @@
 import React from 'react';
 import { InteractiveBlueprint, TierData } from '../../../components/InteractiveBlueprint';
-import ergonomicImg from '../../../imports/infinity-spear/magnific_professional-editorialtac_J91MEkuOq4.png';
-import antennaImg from '../../../imports/infinity-spear/magnific_professional-editorialtac_fFe7WWaCDY.png';
-import batteryImg from '../../../imports/rf_detector_d360.jpg';
+import ergonomicImg from '../../../imports/infinity-spear/ergonomic_chassis.webp';
+import antennaImg from '../../../imports/infinity-spear/directional_antenna_array.webp';
+import batteryImg from '../../../imports/infinity-spear/extended_battery_life.webp';
 
 export function SubsystemsSection() {
   const tiers: TierData[] = [

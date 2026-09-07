@@ -1,6 +1,6 @@
 ﻿import React from 'react';
-import { Shield, Target, Zap, ChevronRight } from 'lucide-react';
-import droneRadarHeroBg from '../../../imports/drone_radar_hero_bg.mp4';
+import { ChevronRight } from 'lucide-react';
+import droneRadarHeroBg from '../../../imports/drone_radar_hero_banner.webp';
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -8,54 +8,44 @@ const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, s
 export function HeroSection() {
   return (
     <section className="relative min-h-[100dvh] max-md:landscape:min-h-[60vh] flex flex-col justify-between overflow-hidden bg-black pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-10 md:pb-12">
-      {/* Full-width Background Video */}
-      <video
-        autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-80"
+      {/* Full-width Background Image */}
+      <img
         src={droneRadarHeroBg}
+        alt="3D Drone Radar Hero Banner"
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
       />
-      
-      {/* Background Graphic Elements overlaying the video */}
+
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 w-full relative z-10 flex-1 flex flex-col justify-center">
         <div className="max-w-3xl">
-          
-          {/* Left Text Content */}
           <div className="flex flex-col items-start fade-up">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#84CC16]/10 border border-[#84CC16]/20 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
               <span className="text-[#84CC16] text-xs font-bold uppercase tracking-wider font-mono">Radar Systems</span>
             </div>
-            
-            <h1 
+            <h1
               className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 uppercase leading-[1.1] tracking-tight"
               style={{ fontFamily: INTER }}
             >
               3D DRONE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">RADAR</span>
             </h1>
-            
             <p className="text-base sm:text-xl text-white/60 mb-6 sm:mb-10 max-w-lg leading-relaxed">
               Omnidirectional threat detection at mission speed. Engineered to provide continuous, high-fidelity airspace awareness in the most demanding environments.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start w-full">
                 <TechCTA>
-                Request Specs
-                <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
-              </TechCTA>
+                  Request Specs
+                  <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+                </TechCTA>
                 <TechCTA>
                   DOWNLOAD CAPABILITY BROCHURE
                 </TechCTA>
               </div>
             </div>
-
-            {/* Quick Stats Grid */}
             <div className="grid grid-cols-2 gap-4 sm:gap-8 mt-12 sm:mt-16 p-4 sm:p-6 border border-white/10 rounded-xl backdrop-blur-md bg-black/40 w-full sm:w-fit shadow-2xl">
               <div>
                 <div className="text-3xl font-bold text-white mb-1">360&deg;</div>
@@ -72,8 +62,3 @@ export function HeroSection() {
     </section>
   );
 }
-
-
-
-
-

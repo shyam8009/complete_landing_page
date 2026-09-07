@@ -1182,12 +1182,12 @@ function ProductCard({
 const PRODUCTS_DATA = [
   {
     image: sensorDomeImg,
-    name: "Infinity Optics",
+    name: "Electro Optics",
     subtitle: "Eyes on the Mission.",
     description: "A precision sensing payload designed to deliver real-time visual intelligence in dynamic operational environments. Engineered for reconnaissance, target observation, and mission awareness, Infinity Optics enhances decision-making with reliable surveillance and persistent situational visibility.",
     desktopGridClass: "[grid-column:1/span_4] [grid-row:1]",
     showArrow: true,
-    target: '/',
+    target: '/electronic-warfare/electro-optics',
   },
   {
     image: flightImg,
@@ -1264,7 +1264,7 @@ function VisionSection() {
       {/* Content wrapper for the vision text */}
       <div className="relative z-10 w-full h-full flex flex-col justify-center px-4 sm:px-6 md:px-9 max-w-[1400px] mx-auto">
         <h2 className="text-white text-3xl sm:text-5xl md:text-6xl tracking-tight leading-[1.1] max-w-[800px]" style={{ fontFamily: INTER, fontWeight: 400 }}>
-          Securing the Future<br />Through Uncompromised<br />Defence Innovation.
+          Securing the Future<br />Through Sovereign<br />Defence Innovation.
         </h2>
         <div className="mt-8 flex gap-8">
           <div className="flex flex-col gap-1">
