@@ -81,6 +81,7 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Routes, Route, Link, useNavigate, useLocation } from "react-router";
 import svgPaths from "@/imports/1920WLight/svg-bymm5omek1";
 import sahanaLogo from "@/imports/logo-sahana.png";
+import footerLogo from "@/imports/footer-logo.png";
 import makeInIndiaLogo from "@/imports/logo-make-in-india.png";
 import heroVideo from "@/imports/Hero banner Video.mp4";
 
@@ -144,7 +145,7 @@ function AndurilLogo({ width = 210 }: { width?: number }) {
 
 function SmallLogo({ width = 150 }: { width?: number }) {
   return (
-    <img src={sahanaLogo} alt="Sahana Defence" style={{ width: `${width}px`, height: 'auto' }} className="h-9 object-contain" />
+    <img src={footerLogo} alt="Sahana Defence" style={{ width: `${width}px`, height: 'auto' }} className="h-9 object-contain" />
   );
 }
 
