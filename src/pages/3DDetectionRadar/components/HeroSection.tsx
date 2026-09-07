@@ -1,6 +1,6 @@
-﻿import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
-import bgImage from '../../../imports/3d-drone-detector/magnific_professional-outdoor-prod_Ia0jOAPtvE.png';
+import bgImage from '../../../imports/3d-drone-detector/3d_drone_radar_hero_banner.webp';
 import { TechCTA } from '@/components/TechCTA';
 
 const INTER = '"Inter", sans-serif';
