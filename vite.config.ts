@@ -33,6 +33,9 @@ export default defineConfig({
   server: {
     port: 5173,
     host: true,
+    watch: {
+      ignored: ['**/dist/**', '**/dist.zip', '**/junk/**', '**/*.zip'],
+    },
   },
   preview: {
     port: 5173,
