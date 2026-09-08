@@ -233,9 +233,9 @@ const INVESTORS_DATA = [
     description: 'Access annual reports, financial disclosures and company performance documents.',
     url: '/investors/annual-reports',
     links: [
+      { text: 'Annual Report 2025-26', url: '/documents/annual-reports/Annual Report 2025-26.pdf' },
       { text: 'Annual Report 2023-24', url: '/documents/annual-reports/annual-report_2023-24.pdf' },
       { text: 'Annual Report 2022-23', url: '/documents/annual-reports/annual-report_2022-23.pdf' },
-      { text: 'Annual Report 2021-22', url: '/documents/annual-reports/final_ar_2021-22.pdf' },
     ],
     cta: 'View All →'
   },
@@ -245,9 +245,9 @@ const INVESTORS_DATA = [
     description: 'Notices, agendas, and minutes for upcoming and past general meetings.',
     url: '/investors/general-meeting-notice',
     links: [
+      { text: 'AGM Notice 30-09-2026', url: '/documents/agm/AGM Notice 30-09-2026.pdf' },
       { text: 'AGM Notice 28-09-2024', url: '/documents/agm/AGM Notice 28-09-2024.pdf' },
       { text: 'AGM Notice 30-09-2023', url: '/documents/agm/AGM-Notice-30-09-23.pdf' },
-      { text: 'EGM Notice 06-12-2024', url: '/documents/egm/EGM Notice 06-12-2024.pdf' },
     ],
     cta: 'View All Notices →'
   },

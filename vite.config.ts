@@ -34,7 +34,7 @@ export default defineConfig({
     port: 5173,
     host: true,
     watch: {
-      ignored: ['**/dist/**', '**/dist.zip', '**/junk/**', '**/*.zip'],
+      ignored: ['**/dist/**', '**/dist.zip', '**/junk/**', '**/*.zip', '**/public/documents/**', '**/*.pdf'],
     },
   },
   preview: {

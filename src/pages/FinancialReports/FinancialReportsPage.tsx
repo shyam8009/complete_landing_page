@@ -6,6 +6,7 @@ import { TechCTA } from '@/components/TechCTA';
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const REPORTS = [
+  { name: "Annual Report 2025-26", category: "Annual Report", file: "/documents/annual-reports/Annual Report 2025-26.pdf" },
   { name: "Annual Report 2023-24", category: "Annual Report", file: "/documents/annual-reports/annual-report_2023-24.pdf" },
   { name: "Annual Report 2022-23", category: "Annual Report", file: "/documents/annual-reports/annual-report_2022-23.pdf" },
   { name: "Annual Report 2021-22", category: "Annual Report", file: "/documents/annual-reports/final_ar_2021-22.pdf" },
@@ -14,7 +15,7 @@ const REPORTS = [
 
 const STATS = [
   { value: "Q4", label: "Latest Quarter" },
-  { value: "4", label: "Years Archived" },
+  { value: "5", label: "Years Archived" },
   { value: "BSE", label: "Listed Exchange" },
 ];
 

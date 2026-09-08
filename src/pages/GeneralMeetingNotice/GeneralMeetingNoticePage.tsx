@@ -6,6 +6,7 @@ import { TechCTA } from '@/components/TechCTA';
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const AGM_DOCUMENTS = [
+  { name: "AGM Notice 30-09-2026", date: "30-09-2026", file: "/documents/agm/AGM Notice 30-09-2026.pdf" },
   { name: "AGM Notice 28-09-2024", date: "28-09-2024", file: "/documents/agm/AGM Notice 28-09-2024.pdf" },
   { name: "AGM Notice 30-09-2022", date: "30-09-2022", file: "/documents/agm/AGM Notice 30-09-2022.pdf" },
   { name: "AGM-Notice-30-09-23", date: "30-09-2023", file: "/documents/agm/AGM-Notice-30-09-23.pdf" },
