@@ -57,19 +57,16 @@ export default function AboutDomains() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // Only pin on desktop to avoid crazy mobile scroll issues
-      gsap.matchMedia().add("(min-width: 768px)", () => {
-        scrollTriggerRef.current = ScrollTrigger.create({
-          trigger: containerRef.current,
-          start: "top top",
-          end: "+=2000", // Reduced scroll distance for smoother/faster transitions
-          pin: true,
-          scrub: 1,
-          onUpdate: (self) => {
-            const newIndex = Math.min(4, Math.floor(self.progress * 5));
-            setActiveIndex((prev) => prev !== newIndex ? newIndex : prev);
-          }
-        });
+      scrollTriggerRef.current = ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top",
+        end: "+=2000", // Reduced scroll distance for smoother/faster transitions
+        pin: true,
+        scrub: 1,
+        onUpdate: (self) => {
+          const newIndex = Math.min(4, Math.floor(self.progress * 5));
+          setActiveIndex((prev) => prev !== newIndex ? newIndex : prev);
+        }
       });
     }, containerRef);
 
@@ -77,15 +74,14 @@ export default function AboutDomains() {
   }, []);
 
   const handleTabClick = (index: number) => {
-    if (scrollTriggerRef.current && window.innerWidth >= 768) {
-      // If pinned on desktop, scroll to the corresponding progress point
+    if (scrollTriggerRef.current) {
+      // Scroll to the corresponding progress point
       const start = scrollTriggerRef.current.start;
       const end = scrollTriggerRef.current.end;
       const totalScroll = end - start;
       const targetScroll = start + (totalScroll / 5) * index + (totalScroll / 10);
       window.scrollTo({ top: targetScroll, behavior: 'smooth' });
     } else {
-      // Direct state update on mobile or if ScrollTrigger isn't active
       setActiveIndex(index);
     }
   };

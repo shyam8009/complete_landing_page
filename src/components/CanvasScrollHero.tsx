@@ -88,7 +88,19 @@ export function CanvasScrollHero() {
 
   useLayoutEffect(() => {
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (isReducedMotion) return;
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    
+    if (isReducedMotion || isMobile) {
+      const allRefs = [textTitleRef, textSpeedLabelRef, spec1Ref, spec2Ref, spec3Ref];
+      allRefs.forEach(ref => {
+        if (ref.current) {
+          ref.current.style.opacity = '1';
+          ref.current.style.transform = 'none';
+          ref.current.style.clipPath = 'none';
+        }
+      });
+      return;
+    }
 
     const section = sectionRef.current;
     const canvas = canvasRef.current;

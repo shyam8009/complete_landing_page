@@ -75,6 +75,7 @@ import infinitySpearVideo from '@/imports/Infinity_Spear.mp4';
 import visionRobotVideo from '@/imports/Vision_Drone.mp4';
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.clearScrollMemory("manual");
+ScrollTrigger.normalizeScroll(true);
 
 import { ContactModal } from '../components/ContactModal';
 import { useState, useEffect, useRef, useLayoutEffect } from "react";

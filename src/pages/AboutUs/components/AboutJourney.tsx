@@ -55,41 +55,31 @@ export default function AboutJourney() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // Desktop Animation: Unpack columns sequentially
-      gsap.matchMedia().add("(min-width: 1024px)", () => {
-        const panels = gsap.utils.toArray('.journey-panel') as HTMLElement[];
-        
-        // Reset state for hot-reloads: Packed as 3% slivers initially so the vertical year text is visible
-        // Using % for both start and end ensures GSAP interpolates correctly without breaking
-        gsap.set(panels, { width: "3%", flex: "none" });
-        gsap.set('.inner-content', { opacity: 0 });
+      const panels = gsap.utils.toArray('.journey-panel') as HTMLElement[];
+      
+      // Reset state for hot-reloads: Packed as 3% slivers initially so the vertical year text is visible
+      // Using % for both start and end ensures GSAP interpolates correctly without breaking
+      gsap.set(panels, { width: "3%", flex: "none" });
+      gsap.set('.inner-content', { opacity: 0 });
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top top",
-            end: "+=4000", // Increased scroll distance for comfortable reading
-            pin: true,
-            scrub: 1,
-            anticipatePin: 1
-          }
-        });
-
-                panels.forEach((panel) => {
-          tl.to(panel, { width: "12.5%", duration: 1, ease: "none" })
-            .to(panel.querySelector('.inner-content'), { opacity: 1, duration: 0.5 }, "<0.5");
-        });
-        
-        // Add a small pause at the end so the user can read the 2026/27 tile before the section unpins
-        tl.to({}, { duration: 1.5 });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=4000", // Increased scroll distance for comfortable reading
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1
+        }
       });
 
-      // Mobile/Tablet: Auto-expand, simple horizontal scroll
-      gsap.matchMedia().add("(max-width: 1023px)", () => {
-        gsap.set('.journey-panel', { width: '200px', flex: 'none' });
-        gsap.set('.inner-content', { opacity: 1 });
+      panels.forEach((panel) => {
+        tl.to(panel, { width: "12.5%", duration: 1, ease: "none" })
+          .to(panel.querySelector('.inner-content'), { opacity: 1, duration: 0.5 }, "<0.5");
       });
-
+      
+      // Add a small pause at the end so the user can read the 2026/27 tile before the section unpins
+      tl.to({}, { duration: 1.5 });
     }, containerRef);
     
     return () => ctx.revert();
