@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -125,12 +125,10 @@ export function Hero() {
             >
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
                   <a
-                  href={slide.ctaLink}
+                  href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    if (slide.ctaLink && slide.ctaLink !== '#') {
-                      navigate(slide.ctaLink);
-                    }
+                    window.dispatchEvent(new CustomEvent('open-contact-modal'));
                   }}
                   className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
               >
@@ -140,7 +138,7 @@ export function Hero() {
                 <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
                 <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
 
-                {slide.ctaText}
+                REQUEST SPECIFICATIONS
               </a>
                   
                 <a
@@ -191,6 +189,7 @@ export function Hero() {
     </section>
   );
 }
+
 
 
 
