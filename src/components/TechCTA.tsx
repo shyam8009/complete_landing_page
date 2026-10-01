@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 interface TechCTAProps {
   children: React.ReactNode;
@@ -7,9 +7,18 @@ interface TechCTAProps {
 }
 
 export function TechCTA({ children, onClick, className = '', theme = 'light' }: TechCTAProps & { theme?: 'light' | 'dark' }) {
+  const handleClick = (e: React.MouseEvent) => {
+    if (onClick) {
+      onClick();
+    } else {
+      // Default behavior if no onClick is provided: open the contact modal
+      window.dispatchEvent(new CustomEvent('open-contact-modal'));
+    }
+  };
+
   return (
     <button 
-      onClick={onClick}
+      onClick={handleClick}
       className={`relative inline-flex items-center justify-center px-5 py-3 sm:px-10 sm:py-4 bg-transparent ${theme === 'dark' ? 'text-slate-900 border-slate-900' : 'text-white'} font-mono text-[11px] sm:text-[13px] tracking-[0.1em] sm:tracking-[0.2em] uppercase cursor-pointer transition-all duration-300 ease-in-out group min-h-[44px] active:scale-[0.97] ${className}`}
     >
       {/* Faint connecting border */}
