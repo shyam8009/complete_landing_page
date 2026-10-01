@@ -1266,15 +1266,33 @@ const PRODUCTS_DATA = [
 
 
 function VisionSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Attempt to play on mount to handle iOS low power mode / React autoplay quirks
+    if (videoRef.current) {
+      const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!isReduced) {
+        videoRef.current.play().catch(() => {
+          // Ignore play errors (often caused by low power mode)
+        });
+      }
+    }
+  }, []);
+
   return (
     <section className="sticky top-0 z-0 min-h-[100dvh] h-screen w-full bg-black flex overflow-hidden">
       {/* The animation video */}
       <video
+        ref={videoRef}
         src={visionRobotVideo}
-        autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches}
+        autoPlay={true}
         loop
         muted
         playsInline
+        controls={false}
+        disablePictureInPicture
+        style={{ pointerEvents: 'none' }}
         className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-screen"
       />
       {/* Dark fade on top */}
@@ -2230,6 +2248,9 @@ function HandheldJammerPage() {
         });
       }
 
+      if (videoRef.current) {
+        videoRef.current.play().catch(() => {});
+      }
     });
 
     return () => ctx.revert();
@@ -2250,11 +2271,13 @@ function HandheldJammerPage() {
             <video 
               ref={videoRef}
               src={heroVideo} 
-              autoPlay={!window.matchMedia('(prefers-reduced-motion: reduce)').matches} 
+              autoPlay={true}
               loop 
               muted 
               playsInline
-              className="absolute inset-0 w-full h-[140%] object-cover opacity-70 top-[-20%]"
+              controls={false}
+              disablePictureInPicture
+              className="absolute inset-0 w-full h-[140%] object-cover opacity-70 top-[-20%] pointer-events-none"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
             <div className="w-16 h-16 rounded-full border border-white/30 flex items-center justify-center backdrop-blur-md cursor-pointer hover:bg-white hover:text-black transition-all">
