@@ -78,6 +78,7 @@ ScrollTrigger.clearScrollMemory("manual");
 ScrollTrigger.normalizeScroll(true);
 
 import { ContactModal } from '../components/ContactModal';
+import { Footer } from './Footer';
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Routes, Route, Link, useNavigate, useLocation } from "react-router";
 import svgPaths from "@/imports/1920WLight/svg-bymm5omek1";
@@ -2694,6 +2695,7 @@ export default function App() {
     </div>
   );
 }
+
 
 
 
