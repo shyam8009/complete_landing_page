@@ -458,9 +458,9 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
   useEffect(() => {
     const handleScroll = () => {
       if (location.pathname === '/') {
-        // If we scrolled completely past the hero (7.5x viewport height),
+        // If we scrolled completely past the hero (5.0x viewport height),
         // we lock it as finished so it disappears when scrolling back up.
-        if (!heroFinished && window.scrollY > window.innerHeight * 7.5) {
+        if (!heroFinished && window.scrollY > window.innerHeight * 5.0) {
           setHeroFinished(true);
         }
 
@@ -468,9 +468,9 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
           // If hero is gone, VisionSection is at the top, so just use standard 50px trigger
           setScrolled(window.scrollY > 50);
         } else {
-          // CanvasScrollHero is pinned for 600% of the viewport height.
+          // CanvasScrollHero is pinned for 400% of the viewport height.
           // We show the capsule navbar only after scrolling past the hero.
-          setScrolled(window.scrollY > window.innerHeight * 6.2);
+          setScrolled(window.scrollY > window.innerHeight * 4.2);
         }
       } else {
         setScrolled(window.scrollY > 50);

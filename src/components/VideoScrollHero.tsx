@@ -13,24 +13,17 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Overlay copy refs (same as old FpvCanvasHero)
-  const textEWRef    = useRef<HTMLParagraphElement>(null);
-  const textTitleRef = useRef<HTMLHeadingElement>(null);
-  const textSpeedRef = useRef<HTMLDivElement>(null);
-  const textSpeedLabelRef = useRef<HTMLDivElement>(null);
-  const spec1Ref     = useRef<HTMLDivElement>(null);
-  const spec2Ref     = useRef<HTMLDivElement>(null);
-  const spec3Ref     = useRef<HTMLDivElement>(null);
+  // Overlay copy refs
+  const mottoRef     = useRef<HTMLDivElement>(null);
   const ctaRef       = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (isReducedMotion) {
-      // Reduced motion: make all overlays visible statically so content is accessible
-      const allRefs = [textEWRef, textTitleRef, textSpeedLabelRef, spec1Ref, spec2Ref, spec3Ref, ctaRef];
-      allRefs.forEach(ref => {
-        if (ref.current) ref.current.style.opacity = '1';
-      });
+      if (mottoRef.current) {
+        mottoRef.current.style.opacity = '1';
+        mottoRef.current.style.filter = 'none';
+      }
       return;
     }
 
@@ -67,38 +60,16 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
 
         const tl = gsap.timeline({ scrollTrigger: stConfig });
 
-        // DORMANT 0–13%
-        tl.fromTo(textEWRef.current,
-          { opacity: 0, y: 20, letterSpacing: '0.05em' },
-          { opacity: 1, y: 0,  letterSpacing: '0.35em', duration: 0.10 }, 0)
-          .to(textEWRef.current, { opacity: 0, duration: 0.03 }, 0.10);
-
-        // WAKE 13–27%
-        tl.fromTo(textTitleRef.current,
-          { opacity: 0, clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)' },
-          { opacity: 1, clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0 100%)', duration: 0.10 }, 0.13)
-          .to(textTitleRef.current, { opacity: 0, duration: 0.04 }, 0.23);
-
-        // RELEASE 27–46%
-        const speedObj = { val: 0 };
-        tl.fromTo([textSpeedRef.current, textSpeedLabelRef.current],
-          { opacity: 0, scale: 0.88 },
-          { opacity: 1, scale: 1, duration: 0.05 }, 0.27)
-          .to(speedObj, {
-            val: 400, duration: 0.14, ease: 'none',
-            onUpdate: () => {
-              if (textSpeedRef.current)
-                textSpeedRef.current.textContent = String(Math.round(speedObj.val));
-            },
-          }, 0.27)
-          .to([textSpeedRef.current, textSpeedLabelRef.current], { opacity: 0, duration: 0.05 }, 0.41);
-
-        // LOCK 46–73%
-        tl.fromTo([spec1Ref.current, spec2Ref.current, spec3Ref.current],
-          { opacity: 0, x: 30 },
-          { opacity: 1, x: 0, stagger: 0.04, duration: 0.14 }, 0.46)
-          .to([spec1Ref.current, spec2Ref.current, spec3Ref.current],
-            { opacity: 0, duration: 0.05 }, 0.68);
+        // MOTTO (सतर्कता रक्षति राष्ट्रम्): 6th to 17th second only
+        tl.fromTo(mottoRef.current,
+          { opacity: 0, x: -50, filter: 'blur(8px)' },
+          { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.05, ease: 'power2.out' },
+          0.16
+        )
+        .to(mottoRef.current,
+          { opacity: 0, x: -30, filter: 'blur(8px)', duration: 0.04, ease: 'power2.in' },
+          0.42
+        );
 
         // RESOLVE 73–100%
         tl.fromTo(ctaRef.current,
@@ -125,6 +96,31 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
           scrub: 1, // 1 second smoothing
           onUpdate: (self) => {
             const currentT = videoProxy.currentTime;
+
+            // Direct animation sync for Motto text ("सतर्कता रक्षति राष्ट्रम्"): 6s to 17s
+            if (mottoRef.current) {
+              if (currentT < 5.8 || currentT > 17.5) {
+                mottoRef.current.style.opacity = '0';
+                mottoRef.current.style.transform = 'translateX(-40px)';
+                mottoRef.current.style.filter = 'blur(8px)';
+              } else if (currentT >= 5.8 && currentT < 7.2) {
+                const t = (currentT - 5.8) / 1.4;
+                const ease = t * t * (3 - 2 * t);
+                mottoRef.current.style.opacity = String(ease);
+                mottoRef.current.style.transform = `translateX(${(-40 * (1 - ease)).toFixed(1)}px)`;
+                mottoRef.current.style.filter = `blur(${(8 * (1 - ease)).toFixed(1)}px)`;
+              } else if (currentT >= 7.2 && currentT <= 15.5) {
+                mottoRef.current.style.opacity = '1';
+                mottoRef.current.style.transform = 'translateX(0px)';
+                mottoRef.current.style.filter = 'blur(0px)';
+              } else if (currentT > 15.5 && currentT <= 17.5) {
+                const t = (17.5 - currentT) / 2.0;
+                const ease = t * t * (3 - 2 * t);
+                mottoRef.current.style.opacity = String(ease);
+                mottoRef.current.style.transform = `translateX(${(-30 * (1 - ease)).toFixed(1)}px)`;
+                mottoRef.current.style.filter = `blur(${(8 * (1 - ease)).toFixed(1)}px)`;
+              }
+            }
             
             // Reset interruption flag if they scrub back before the auto-scroll zone
             if (currentT < 7.5) {
@@ -218,91 +214,22 @@ export function VideoScrollHero({ videoSrc }: { videoSrc: string }) {
           background: 'linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.10) 45%, transparent 100%)',
         }} />
 
-        {/* ═══════════════════════ OVERLAY COPY ════════════════════════ */}
-
-        {/* DORMANT beat */}
-        <div style={OL_BASE}>
-          <p ref={textEWRef} style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 'clamp(0.75rem, 1.1vw, 0.85rem)',
-            letterSpacing: '0.05em', color: '#fff',
-            opacity: 0, textTransform: 'uppercase', textAlign: 'center',
-          }}>
-            EARLY WARNING & INTERCEPTION
-          </p>
-        </div>
-
-        {/* WAKE beat */}
-        <div style={OL_BASE}>
-          <h1
-            ref={textTitleRef}
-            style={{
-              fontFamily: "'Chakra Petch', 'Archivo', sans-serif",
-              fontSize: 'clamp(1.5rem, 5vw, 4.5rem)',
-              fontWeight: 700, textTransform: 'uppercase',
-              letterSpacing: '0.04em', color: '#fff',
-              opacity: 0, lineHeight: 1.1, textAlign: 'center',
-              clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)',
-            }}
+        {/* ── National Defence Motto (Upper Bottom Left) ── */}
+        <div 
+          ref={mottoRef}
+          className="absolute z-20 pointer-events-none flex flex-col items-start text-left select-none"
+          style={{
+            bottom: 'clamp(5.5rem, 18vh, 12rem)',
+            left: 'clamp(1.5rem, 5vw, 4rem)',
+            opacity: 0,
+          }}
+        >
+          <h2 
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            FPV Bullseye<br />&amp; Interceptor
-          </h1>
-        </div>
-
-        {/* RELEASE beat */}
-        <div style={{ ...OL_BASE, justifyContent: 'flex-end', alignItems: 'flex-end', paddingBottom: '12vh', paddingRight: '5vw' }}>
-          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.75rem' }}>
-            <div
-              ref={textSpeedRef}
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontSize: 'clamp(6vh, 11vw, 19vh)',
-                fontWeight: 400, lineHeight: 1, color: '#fff',
-                opacity: 0, fontVariantNumeric: 'tabular-nums',
-                transform: 'scale(0.88)',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              0
-            </div>
-            <div
-              ref={textSpeedLabelRef}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                opacity: 0,
-                transform: 'scale(0.88)',
-                fontFamily: "Inter, sans-serif",
-                color: '#fff',
-                marginTop: '1vh'
-              }}
-            >
-              <span style={{ fontSize: 'clamp(1rem, 2.25vw, 2.5rem)', lineHeight: 1, fontWeight: 400 }}>kmph</span>
-              <span style={{ fontSize: 'clamp(0.5rem, 1vw, 1rem)', lineHeight: 1.2, fontWeight: 700 }}> (Max Speed)</span>
-            </div>
-          </div>
-        </div>
-
-        {/* LOCK beat */}
-        <div style={{ ...OL_BASE, alignItems: 'flex-end', justifyContent: 'flex-end', paddingBottom: '10vh', paddingRight: '5vw' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1.25rem' }}>
-            {[
-              { ref: spec1Ref, label: '10 KM RANGE',   accent: false },
-              { ref: spec2Ref, label: '3 KG PAYLOAD',  accent: false },
-              { ref: spec3Ref, label: '22,000 mAh',    accent: true  },
-            ].map(({ ref, label, accent }) => (
-              <div key={label} ref={ref} style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 'clamp(0.85rem, 1.8vw, 1.35rem)',
-                color: '#fff', opacity: 0, transform: 'translateX(60px)',
-                paddingBottom: '0.5rem', minWidth: 140, textAlign: 'right',
-                borderBottom: `1px solid ${accent ? '#FF4D1C' : 'rgba(255,255,255,0.18)'}`,
-              }}>
-                {label}
-              </div>
-            ))}
-          </div>
+            सतर्कता रक्षति राष्ट्रम्
+          </h2>
         </div>
 
         {/* RESOLVE beat */}
