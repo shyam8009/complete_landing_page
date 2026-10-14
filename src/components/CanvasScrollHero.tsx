@@ -18,13 +18,25 @@ export function CanvasScrollHero() {
   // Store preloaded images
   const imagesRef = useRef<HTMLImageElement[]>([]);
 
-  // 1. Preload Images with batched state updates to eliminate 300+ React re-renders
+  // 1. Preload Images with immediate priority for frame 1
   useEffect(() => {
     let loadedCount = 0;
     const images: HTMLImageElement[] = [];
-    images.push(new Image()); // 1-indexed
+    images.push(new Image()); // 1-indexed placeholder at index 0
 
-    for (let i = 1; i <= TOTAL_FRAMES; i++) {
+    // Load Frame 1 immediately
+    const firstImg = new Image();
+    firstImg.src = '/frames/frame_0001.webp';
+    firstImg.onload = () => {
+      loadedCount++;
+      setFramesLoaded(loadedCount);
+    };
+    firstImg.onerror = () => {
+      loadedCount++;
+    };
+    images[1] = firstImg;
+
+    for (let i = 2; i <= TOTAL_FRAMES; i++) {
       const img = new Image();
       const paddedIndex = String(i).padStart(4, '0');
       img.src = `/frames/frame_${paddedIndex}.webp`;
@@ -32,7 +44,7 @@ export function CanvasScrollHero() {
       img.onload = () => {
         loadedCount++;
         // Batch React state updates so we don't thrash the main thread
-        if (loadedCount === 1 || loadedCount % 30 === 0 || loadedCount === TOTAL_FRAMES) {
+        if (loadedCount % 25 === 0 || loadedCount === TOTAL_FRAMES) {
           setFramesLoaded(loadedCount);
         }
       };
@@ -74,10 +86,10 @@ export function CanvasScrollHero() {
     let rafId: number;
 
     // Cover-fit draw onto canvas without clearing (image covers 100%)
-    function draw(index: number) {
-      if (!ctx || !section) return;
+    function draw(index: number): boolean {
+      if (!ctx || !section) return false;
       const img = imagesRef.current[index] || imagesRef.current[1];
-      if (!img || !img.complete || img.naturalWidth === 0) return;
+      if (!img || !img.complete || img.naturalWidth === 0) return false;
       
       const cw = section.clientWidth;
       const ch = section.clientHeight;
@@ -90,6 +102,7 @@ export function CanvasScrollHero() {
       const dy = (ch - dh) / 2;
       
       ctx.drawImage(img, dx, dy, dw, dh);
+      return true;
     }
 
     // Canvas Resize with DPR
@@ -103,7 +116,10 @@ export function CanvasScrollHero() {
       ctx.resetTransform();
       ctx.scale(dpr, dpr);
       lastDrawn = -1;
-      draw(Math.max(1, Math.min(TOTAL_FRAMES, Math.round(current))));
+      const frameToDraw = Math.max(1, Math.min(TOTAL_FRAMES, Math.round(current)));
+      if (draw(frameToDraw)) {
+        lastDrawn = frameToDraw;
+      }
     }
 
     resizeCanvas();
@@ -115,8 +131,10 @@ export function CanvasScrollHero() {
       current += (target - current) * 0.22;
       const i = Math.max(1, Math.min(TOTAL_FRAMES, Math.round(current)));
       if (i !== lastDrawn) {
-        draw(i);
-        lastDrawn = i;
+        // Only mark lastDrawn if the image was actually ready and painted
+        if (draw(i)) {
+          lastDrawn = i;
+        }
       }
       rafId = requestAnimationFrame(tick);
     }
@@ -144,19 +162,13 @@ export function CanvasScrollHero() {
           // Virtual seconds mapped from scroll progress
           const virtualSeconds = self.progress * totalTimelineDuration;
 
-          // Direct precision sync for Motto ("सतर्कता रक्षति राष्ट्रम्"): 6s to 17s
+          // Direct precision sync for Motto ("सतर्कता रक्षति राष्ट्रम्"): visible from start up to 17.5s
           if (mottoRef.current) {
-            if (virtualSeconds < 5.8 || virtualSeconds > 17.5) {
+            if (virtualSeconds > 17.5) {
               mottoRef.current.style.opacity = '0';
               mottoRef.current.style.transform = 'translateX(-40px)';
               mottoRef.current.style.filter = 'blur(8px)';
-            } else if (virtualSeconds >= 5.8 && virtualSeconds < 7.2) {
-              const t = (virtualSeconds - 5.8) / 1.4;
-              const ease = t * t * (3 - 2 * t);
-              mottoRef.current.style.opacity = String(ease);
-              mottoRef.current.style.transform = `translateX(${(-40 * (1 - ease)).toFixed(1)}px)`;
-              mottoRef.current.style.filter = `blur(${(8 * (1 - ease)).toFixed(1)}px)`;
-            } else if (virtualSeconds >= 7.2 && virtualSeconds <= 15.5) {
+            } else if (virtualSeconds <= 15.5) {
               mottoRef.current.style.opacity = '1';
               mottoRef.current.style.transform = 'translateX(0px)';
               mottoRef.current.style.filter = 'blur(0px)';
@@ -187,17 +199,25 @@ export function CanvasScrollHero() {
         ref={sectionRef}
         className="relative w-full min-h-[100dvh] h-screen bg-black overflow-hidden"
       >
+        {/* Instant Fallback Poster so the screen is NEVER black before frames/canvas render */}
+        <img
+          src="/frames/frame_0001.webp"
+          alt="Sahana Defence Bullseye Interceptor"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          style={{ width: '100%', height: '100dvh', display: 'block' }}
+        />
+
         <canvas
           ref={canvasRef}
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full z-[1]"
           style={{ width: '100%', height: '100dvh', display: 'block' }}
         />
         
         {/* Loading Indicator */}
-        {framesLoaded < 50 && (
-          <div className="absolute inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm transition-opacity duration-500">
+        {framesLoaded < 25 && (
+          <div className="absolute inset-0 flex items-center justify-center z-50 bg-black/40 backdrop-blur-sm transition-opacity duration-500">
             <div className="text-white font-mono text-xl animate-pulse">
-              Loading Sequence ({Math.round((framesLoaded / 50) * 100)}%)
+              Loading Sequence ({Math.min(100, Math.round((framesLoaded / 25) * 100))}%)
             </div>
           </div>
         )}
@@ -215,7 +235,9 @@ export function CanvasScrollHero() {
           style={{
             bottom: 'clamp(5.5rem, 18vh, 12rem)',
             left: 'clamp(1.5rem, 5vw, 4rem)',
-            opacity: 0,
+            opacity: 1,
+            transform: 'translateX(0px)',
+            filter: 'blur(0px)',
           }}
         >
           <h2 
