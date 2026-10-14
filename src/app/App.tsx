@@ -415,15 +415,15 @@ const TRUST_BAR_DATA = [
   }
 ];
 
-function Nav({ onContactClick }: { onContactClick: () => void }) {
+function Nav({ heroFinished, onContactClick }: { heroFinished: boolean, onContactClick: () => void }) {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const location = useLocation();
   const isInternalPage = location.pathname !== '/';
   const [scrolledState, setScrolled] = useState(false);
-  const scrolled = isInternalPage || scrolledState;
-  const isHiddenOnHome = !isInternalPage && !scrolledState;
+  const scrolled = isInternalPage || heroFinished || scrolledState;
+  const isHiddenOnHome = !isInternalPage && !heroFinished && !scrolledState;
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseLeave = () => {
@@ -458,9 +458,11 @@ function Nav({ onContactClick }: { onContactClick: () => void }) {
   useEffect(() => {
     const handleScroll = () => {
       if (location.pathname === '/') {
-        // CanvasScrollHero is pinned for 400% of the viewport height.
-        // We show the capsule navbar smoothly after scrolling past the hero sequence.
-        setScrolled(window.scrollY > window.innerHeight * 3.8);
+        if (heroFinished) {
+          setScrolled(window.scrollY > 50);
+        } else {
+          setScrolled(window.scrollY > window.innerHeight * 3.8);
+        }
       } else {
         setScrolled(window.scrollY > 50);
       }
@@ -469,7 +471,7 @@ function Nav({ onContactClick }: { onContactClick: () => void }) {
     // Call once to set initial state correctly on load
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname]);
+  }, [location.pathname, heroFinished]);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -522,7 +524,19 @@ function Nav({ onContactClick }: { onContactClick: () => void }) {
       }`} />
 
       <div className={`relative flex items-center justify-between z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled ? "px-6 md:px-8 h-[64px]" : "px-6 md:px-4 sm:px-6 md:px-9 h-[86px]"}`}>
-        <a href="#" onClick={(e) => { e.preventDefault(); setHoveredNav(null); navigate('/'); }} 
+        <a href="#" onClick={(e) => {
+          e.preventDefault();
+          setHoveredNav(null);
+          if (location.pathname === '/') {
+            if ((window as any).lenis) {
+              (window as any).lenis.scrollTo(0);
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          } else {
+            navigate('/');
+          }
+        }} 
            className="relative shrink-0 flex items-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" 
            style={{ width: scrolled ? '40px' : '210px', height: '40px' }}>
           
@@ -2428,6 +2442,84 @@ export default function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [heroFinished, setHeroFinished] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 820;
+    }
+    return false;
+  });
+
+  const heroFinishedRef = useRef(heroFinished);
+  heroFinishedRef.current = heroFinished;
+
+  const visionWrapperRef = useRef<HTMLDivElement>(null);
+  const pendingScrollAdjustmentRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 820 && !heroFinishedRef.current) {
+        heroFinishedRef.current = true;
+        setHeroFinished(true);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (heroFinished || location.pathname !== '/') return;
+
+    const checkHeroScroll = () => {
+      if (heroFinishedRef.current) return;
+      if (!visionWrapperRef.current) return;
+
+      const rect = visionWrapperRef.current.getBoundingClientRect();
+      // When VisionSection's top reaches or passes the top of the viewport
+      if (rect.top <= 0) {
+        const targetOffset = Math.max(0, -rect.top);
+        pendingScrollAdjustmentRef.current = targetOffset;
+        heroFinishedRef.current = true;
+        setHeroFinished(true);
+      }
+    };
+
+    window.addEventListener('scroll', checkHeroScroll, { passive: true });
+    const lenis = (window as any).lenis;
+    if (lenis) {
+      lenis.on('scroll', checkHeroScroll);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', checkHeroScroll);
+      if (lenis) {
+        lenis.off('scroll', checkHeroScroll);
+      }
+    };
+  }, [heroFinished, location.pathname]);
+
+  useLayoutEffect(() => {
+    if (pendingScrollAdjustmentRef.current !== null) {
+      const targetY = pendingScrollAdjustmentRef.current;
+      pendingScrollAdjustmentRef.current = null;
+
+      // Synchronously compensate scroll before browser paints to eliminate jump to footer
+      window.scrollTo(0, targetY);
+      if ((window as any).lenis) {
+        (window as any).lenis.scrollTo(targetY, { immediate: true });
+      }
+      ScrollTrigger.refresh();
+
+      // Ensure stable layout and triggers on next frame
+      requestAnimationFrame(() => {
+        window.scrollTo(0, targetY);
+        if ((window as any).lenis) {
+          (window as any).lenis.scrollTo(targetY, { immediate: true });
+        }
+        ScrollTrigger.refresh();
+      });
+    }
+  }, [heroFinished]);
+
   useEffect(() => {
     const handleOpenModal = () => {
       setIsContactModalOpen(true);
@@ -2454,14 +2546,14 @@ export default function App() {
   return (
     <div className="w-full min-h-screen bg-black overflow-x-hidden" style={{ fontFamily: INTER }}>
       <ScrollToTop />
-      <Nav onContactClick={handleContactClick} />
+      <Nav heroFinished={heroFinished} onContactClick={handleContactClick} />
       {/* Content wrapper without artificial padding, so the Hero starts exactly at top-0 */}
       <div className="w-full">
         <Routes>
           <Route path="/" element={
             <>
-              <Hero />
-              <div className="relative w-full z-0">
+              {!heroFinished && <Hero />}
+              <div ref={visionWrapperRef} className="relative w-full z-0">
                 <VisionSection />
                 <ProductsSection />
               </div>
