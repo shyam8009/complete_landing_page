@@ -415,15 +415,15 @@ const TRUST_BAR_DATA = [
   }
 ];
 
-function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: boolean, setHeroFinished: (val: boolean) => void, onContactClick: () => void }) {
+function Nav({ onContactClick }: { onContactClick: () => void }) {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const location = useLocation();
   const isInternalPage = location.pathname !== '/';
   const [scrolledState, setScrolled] = useState(false);
-  const scrolled = isInternalPage || heroFinished || scrolledState;
-  const isHiddenOnHome = !isInternalPage && !heroFinished && !scrolledState;
+  const scrolled = isInternalPage || scrolledState;
+  const isHiddenOnHome = !isInternalPage && !scrolledState;
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseLeave = () => {
@@ -458,20 +458,9 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
   useEffect(() => {
     const handleScroll = () => {
       if (location.pathname === '/') {
-        // If we scrolled completely past the hero (5.0x viewport height),
-        // we lock it as finished so it disappears when scrolling back up.
-        if (!heroFinished && window.scrollY > window.innerHeight * 5.0) {
-          setHeroFinished(true);
-        }
-
-        if (heroFinished) {
-          // If hero is gone, VisionSection is at the top, so just use standard 50px trigger
-          setScrolled(window.scrollY > 50);
-        } else {
-          // CanvasScrollHero is pinned for 400% of the viewport height.
-          // We show the capsule navbar only after scrolling past the hero.
-          setScrolled(window.scrollY > window.innerHeight * 4.2);
-        }
+        // CanvasScrollHero is pinned for 400% of the viewport height.
+        // We show the capsule navbar smoothly after scrolling past the hero sequence.
+        setScrolled(window.scrollY > window.innerHeight * 3.8);
       } else {
         setScrolled(window.scrollY > 50);
       }
@@ -480,7 +469,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
     // Call once to set initial state correctly on load
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname, heroFinished]);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -2462,33 +2451,16 @@ export default function App() {
       setIsContactModalOpen(true);
     }
   };
-  const [heroFinished, setHeroFinished] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth <= 820;
-    }
-    return false;
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 820 && !heroFinished) {
-        setHeroFinished(true);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [heroFinished]);
-
   return (
     <div className="w-full min-h-screen bg-black overflow-x-hidden" style={{ fontFamily: INTER }}>
       <ScrollToTop />
-      <Nav heroFinished={heroFinished} setHeroFinished={setHeroFinished} onContactClick={handleContactClick} />
+      <Nav onContactClick={handleContactClick} />
       {/* Content wrapper without artificial padding, so the Hero starts exactly at top-0 */}
       <div className="w-full">
         <Routes>
           <Route path="/" element={
             <>
-              {!heroFinished && <Hero />}
+              <Hero />
               <div className="relative w-full z-0">
                 <VisionSection />
                 <ProductsSection />
