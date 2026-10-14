@@ -109,10 +109,10 @@ export function CanvasScrollHero() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Decoupled 60fps/120fps requestAnimationFrame lerp loop
+    // Decoupled 60fps/120fps requestAnimationFrame lerp loop synchronized with Lenis
     function tick() {
-      // 0.12 lerp factor gives silky smooth momentum without lag
-      current += (target - current) * 0.12;
+      // 0.22 lerp factor tracks Lenis momentum fluidly without double-buffering lag
+      current += (target - current) * 0.22;
       const i = Math.max(1, Math.min(TOTAL_FRAMES, Math.round(current)));
       if (i !== lastDrawn) {
         draw(i);
@@ -136,7 +136,7 @@ export function CanvasScrollHero() {
         start: 'top top',
         end: `+=${SCROLL_LENGTH}`,
         pin: true,
-        scrub: 0.4, // Responsive scrub without 1.0s rubber-band lag
+        scrub: true, // Follows Lenis's smooth momentum directly
         onUpdate: (self: ScrollTrigger) => {
           // Smoothly update target frame for the rAF loop
           target = 1 + self.progress * (TOTAL_FRAMES - 1);

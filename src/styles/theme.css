@@ -149,6 +149,10 @@
     display: block;
   }
 
+  html {
+    scroll-behavior: initial;
+  }
+
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;

@@ -58,6 +58,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           aria-modal="true"
           aria-labelledby="contact-modal-title"
           className="fixed inset-0 z-[100] flex flex-col bg-black text-white overflow-y-auto overflow-x-hidden font-sans"
+          data-lenis-prevent
         >
           {/* Top Header */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-800 bg-black sticky top-0 z-[60]">

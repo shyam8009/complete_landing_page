@@ -962,7 +962,7 @@ function Nav({ heroFinished, setHeroFinished, onContactClick }: { heroFinished: 
       </div>
 
       {/* Mobile Menu Drawer (Stacked Accordion) */}
-      <div id="mobile-nav-drawer" className={`lg:hidden fixed bottom-0 left-0 right-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div id="mobile-nav-drawer" data-lenis-prevent className={`lg:hidden fixed bottom-0 left-0 right-0 bg-[#05080D] z-40 overflow-y-auto ${scrolled ? "top-[80px]" : "top-[86px]"} transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col p-6 gap-2">
           
           {/* Capabilities Accordion */}
@@ -2419,11 +2419,15 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if ((window as any).lenis) {
+      (window as any).lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
     // Allow the new page's DOM to settle and GSAP to initialize, then refresh
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 100);
+    }, 120);
     return () => clearTimeout(timer);
   }, [pathname]);
 
@@ -2446,7 +2450,11 @@ export default function App() {
   const handleContactClick = () => {
     if (location.pathname.startsWith('/investors')) {
       if (location.pathname === '/investors/key-contact') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if ((window as any).lenis) {
+          (window as any).lenis.scrollTo(0);
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       } else {
         navigate('/investors/key-contact');
       }
