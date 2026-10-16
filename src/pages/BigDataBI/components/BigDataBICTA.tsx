@@ -1,3 +1,4 @@
+import { ChevronRight } from 'lucide-react';
 ﻿import React from 'react';
 import { TechCTA } from '@/components/TechCTA';
 
@@ -16,6 +17,7 @@ export function BigDataBICTA() {
         <div className="quote-text flex flex-col items-center gap-6">
           <TechCTA onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
             REQUEST A CONSULTATION
+            <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
           </TechCTA>
           
           <button className="text-white/40 hover:text-white transition-colors text-sm underline underline-offset-4 decoration-white/20 hover:decoration-white uppercase tracking-wider font-bold">

@@ -1,4 +1,5 @@
-﻿import React from 'react';
+import React from 'react';
+import { ChevronRight } from 'lucide-react';
 import { TechCTA } from '@/components/TechCTA';
 
 export function JammingCTA() {
@@ -33,20 +34,17 @@ export function JammingCTA() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
           {/* Primary CTA */}
-          <TechCTA>
-            <span>CONTACT EW DIVISION</span>
-            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+          <TechCTA onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
+            CONTACT EW DIVISION
+            <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
           </TechCTA>
           
           {/* Secondary CTA */}
-          <button className="group relative w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-bold text-sm tracking-widest uppercase hover:bg-white/5 hover:border-white/40 transition-all duration-300 flex items-center justify-center gap-3">
-            <span>REQUEST TECHNICAL DEMO</span>
-          </button>
+          <TechCTA onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
+            REQUEST TECHNICAL DEMO
+          </TechCTA>
         </div>
       </div>
     </section>
   );
 }
-

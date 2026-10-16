@@ -1,3 +1,5 @@
+import { TechCTA } from '@/components/TechCTA';
+import { ChevronRight } from 'lucide-react';
 ﻿import React from 'react';
 
 const INTER = '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -25,6 +27,13 @@ export function QuoteSection() {
         
         <div className="mt-12 text-white/50 font-mono text-sm tracking-widest uppercase">
           &mdash; Director of Radar Systems, Sahana
+        </div>
+
+        <div className="mt-12 flex flex-col items-center gap-6">
+          <TechCTA onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
+            REQUEST RADAR CONSULTATION
+            <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+          </TechCTA>
         </div>
       </div>
     </section>

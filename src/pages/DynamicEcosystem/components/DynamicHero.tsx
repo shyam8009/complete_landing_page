@@ -1,3 +1,4 @@
+import { ChevronRight } from 'lucide-react';
 ﻿import React from 'react';
 import { RichText } from '../../../components/RichText';
 import { TechCTA } from '@/components/TechCTA';
@@ -49,11 +50,9 @@ export default function DynamicHero({ data }: { data: any }) {
         )}
 
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
-                <TechCTA>
+                <TechCTA onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
           {data.ctaText || 'Know More'}
-          <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+          <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
         </TechCTA>
                 <TechCTA onClick={() => window.open('/assets/Sahana_Defence_Corporate_Deck.pdf', '_blank')}>
                   DOWNLOAD CAPABILITY BROCHURE

@@ -1,3 +1,5 @@
+import { ChevronRight } from 'lucide-react';
+import { TechCTA } from '@/components/TechCTA';
 ﻿import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -124,36 +126,22 @@ export default function CommandControlHero() {
               className="mt-16 md:mt-24 w-full"
             >
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
-                  <a
-                  href={slide.ctaLink}
-                  onClick={(e) => {
-                    e.preventDefault();
+                <TechCTA
+                  onClick={() => {
                     if (slide.ctaLink && slide.ctaLink !== '#') {
                       navigate(slide.ctaLink);
+                    } else {
+                      window.dispatchEvent(new CustomEvent('open-contact-modal'));
                     }
                   }}
-                  className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
-              >
-                {/* Tactical Corner Accents */}
-                <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
-
-                {slide.ctaText}
-              </a>
-                  
-                <a
-                  href="#"
-                  className="relative group px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-colors bg-black/40 backdrop-blur-md text-white hover:text-[#84CC16]"
                 >
-                  <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                  <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/60 transition-transform group-hover:border-[#84CC16]" />
-                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/60 transition-transform group-hover:border-[#84CC16]" />
+                  {slide.ctaText}
+                  <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+                </TechCTA>
+                <TechCTA onClick={() => window.open('/assets/Sahana_Defence_Corporate_Deck.pdf', '_blank')}>
                   DOWNLOAD CAPABILITY BROCHURE
-                </a>
-                </div>
+                </TechCTA>
+              </div>
             </motion.div>
           </motion.div>
         </AnimatePresence>

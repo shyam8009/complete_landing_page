@@ -1,3 +1,5 @@
+import { ChevronRight } from 'lucide-react';
+import { TechCTA } from '@/components/TechCTA';
 ﻿import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -94,22 +96,22 @@ export default function CommunicationDetectionHero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
-              <button 
-              onClick={() => { window.location.href = slide.ctaLink; }}
-              className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
-            >
-              {slide.ctaText}
-              <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </button>
-              <button 
-              onClick={() => { window.location.href = '#'; }}
-              className="bg-[#84CC16] inline-flex items-center justify-center px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-white"
-            >
-              DOWNLOAD CAPABILITY BROCHURE
-            </button>
-            </div>
+                <TechCTA
+                  onClick={() => {
+                    if (slide.ctaLink && slide.ctaLink !== '#') {
+                      navigate(slide.ctaLink);
+                    } else {
+                      window.dispatchEvent(new CustomEvent('open-contact-modal'));
+                    }
+                  }}
+                >
+                  {slide.ctaText}
+                  <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
+                </TechCTA>
+                <TechCTA onClick={() => window.open('/assets/Sahana_Defence_Corporate_Deck.pdf', '_blank')}>
+                  DOWNLOAD CAPABILITY BROCHURE
+                </TechCTA>
+              </div>
           </motion.div>
         </AnimatePresence>
       </div>

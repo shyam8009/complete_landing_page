@@ -1,3 +1,4 @@
+import { ChevronRight } from 'lucide-react';
 import React from 'react';
 import { TechCTA } from '@/components/TechCTA';
 
@@ -19,6 +20,7 @@ export function QuantumCommunicationCTA() {
         
         <TechCTA className="mb-6" onClick={openContact}>
           REQUEST FOR PROPOSAL
+          <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
         </TechCTA>
         
         <a 

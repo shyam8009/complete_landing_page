@@ -17,6 +17,7 @@ export function QuoteSection() {
         <div className="quote-text flex flex-col items-center gap-6">
           <TechCTA>
             REQUEST FOR PROPOSAL
+            <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
           </TechCTA>
         </div>
       </div>

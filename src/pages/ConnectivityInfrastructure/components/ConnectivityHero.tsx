@@ -1,3 +1,4 @@
+import { ChevronRight } from 'lucide-react';
 ﻿import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import heroBgVideo from '@/imports/intelligence_video.mp4';
@@ -91,8 +92,9 @@ export function ConnectivityHero() {
               className="mb-12"
             >
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-start sm:justify-center w-full">
-                <TechCTA>
+                <TechCTA onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
                 ARCHITECT YOUR INFRASTRUCTURE
+                <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
               </TechCTA>
                 <TechCTA onClick={() => window.open('/assets/Sahana_Defence_Corporate_Deck.pdf', '_blank')}>
                   DOWNLOAD CAPABILITY BROCHURE

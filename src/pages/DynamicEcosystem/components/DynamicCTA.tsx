@@ -1,3 +1,4 @@
+import { ChevronRight } from 'lucide-react';
 ﻿import React from 'react';
 import { TechCTA } from '@/components/TechCTA';
 
@@ -26,9 +27,9 @@ export default function DynamicCTA({ data }: { data: any }) {
           {data.headline}
         </h2>
         
-        <TechCTA>
-          <span className="relative z-10">{data.btnText}</span>
-          <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+        <TechCTA onClick={() => window.dispatchEvent(new CustomEvent('open-contact-modal'))}>
+          {data.btnText}
+          <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
         </TechCTA>
         
         {data.linkText && (

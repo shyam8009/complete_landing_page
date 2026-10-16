@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { TechCTA } from '@/components/TechCTA';
 
 export function QuoteSection() {
@@ -27,7 +27,7 @@ export function QuoteSection() {
         
         <TechCTA>
           Secure Contact Form
-          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <ChevronRight className="w-4 h-4 text-[#84CC16] group-hover:translate-x-1 transition-transform" />
         </TechCTA>
 
         <div className="mt-16 flex flex-wrap items-center justify-center gap-10 border-t border-white/10 pt-12 w-full max-w-2xl">
